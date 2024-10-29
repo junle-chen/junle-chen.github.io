@@ -1,6 +1,6 @@
 ---
 permalink: /
-title: "About me"
+title: "Junle Chen"
 author_profile: true
 redirect_from: 
   - /about/
@@ -8,6 +8,8 @@ redirect_from:
 ---
 Hi there! 👋
 
+**About Me**
+======
 I am currently a senior (fourth-year) student at [Harbin Institute of Technology](https://www.hit.edu.cn/) in the School of Future Technology (formerly Honor School), majoring in Computer Science and Technology. I will receive my bachelor's degree in June 2025 and will begin my PhD studies in [Computer Science and Engineering](https://www.cse.ust.hk/) at [Hong Kong University of Science and Technology](https://hkust.edu.hk/) under the guidance of [Professor Xiaofang Zhou](https://facultyprofiles.hkust.edu.hk/profiles.php?profile=xiaofang-zhou-zxf) in September 2025.
 
 
@@ -26,11 +28,11 @@ Research Interest
 Publications 📑
 ------
 - **Maximizing Influence Query over Indoor Trajectories**  
-  *Jian Chen, Hong Gao, Yuhong Shi, Junle Chen, Donghua Yang, Jianzhong Li*  
+  *Jian Chen, Hong Gao, Yuhong Shi, **Junle Chen**, Donghua Yang, Jianzhong Li*  
   _(Under major revision) IEEE Transactions on Knowledge and Data Engineering (TKDE)_
 
 - **Efficient Coverage Query over Transition Trajectories**  
-  *Jian Chen¹, Junle Chen¹⋆, Hong Gao², Donghua Yang¹B, and Kaiqi Zhang*  
+  *Jian Chen, **Junle Chen**, Hong Gao, Donghua Yang, and Kaiqi Zhang*  
   _The 8th APWeb-WAIM Joint International Conference on Web and Big Data, 2024_
 
 
