@@ -18,7 +18,7 @@ Research Interest
 
 - **Big Data** 📊🌐  
 
-- **Large-Scale Models** 🧠🚀  
+- **Large Language Models** 🧠🚀  
 
 - **Efficient Indexing Structures** 📈💡  
 
