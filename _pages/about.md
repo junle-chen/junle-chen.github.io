@@ -7,6 +7,7 @@ redirect_from:
   - /about.html
 ---
 Hi there! 👋
+
 I am currently a senior (fourth-year) student at [Harbin Institute of Technology](https://www.hit.edu.cn/) in the School of Future Technology (formerly Honor School), majoring in Computer Science and Technology. I will receive my bachelor's degree in June 2025 and will begin my PhD studies in [Computer Science and Engineering](https://www.cse.ust.hk/) at [Hong Kong University of Science and Technology](https://hkust.edu.hk/) under the guidance of [Professor Xiaofang Zhou](https://facultyprofiles.hkust.edu.hk/profiles.php?profile=xiaofang-zhou-zxf) in September 2025.
 
 
