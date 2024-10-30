@@ -7,80 +7,34 @@ redirect_from:
   - /wordpress/travel/
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Travel</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 20px;
-        }
-        h1 {
-            text-align: center;
-            color: #333;
-        }
-        .travel-section {
-            margin: 20px 0;
-        }
-        .section-title {
-            font-size: 1.5em;
-            font-weight: bold;
-            color: #555;
-            margin-bottom: 5px;
-        }
-        .section-date {
-            font-size: 1em;
-            color: #777;
-            margin-bottom: 10px;
-        }
-        .divider {
-            height: 1px;
-            background-color: #ddd;
-            margin: 20px 0;
-        }
-        .slider {
-            position: relative;
-            max-width: 600px;
-            margin: auto;
-            overflow: hidden;
-            border-radius: 10px;
-        }
-        .slides {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
-        }
-        .slide {
-            min-width: 100%;
-        }
-        img {
-            width: 100%;
-            border-radius: 10px;
-        }
-    </style>
-</head>
-<body>
-
-
-<!-- 第一部分：2024 Winter Vacation -->
 <div class="travel-section">
     <div class="section-title">2024 Winter Vacation</div>
     <div class="section-date">January 2024</div>
     <div class="divider"></div>
+    <p>Sichuan Jiuzhaigou, Museum, Beijing, and Hunan</p>
     <div class="slider">
         <div class="slides">
-            <div class="slide"><img src="../images/travel/jiuzhaigou1.jpg" alt="Jiuzhaigou in Winter"></div>
-            <div class="slide"><img src="../images/travel/hunan1.jpg" alt="Hunan"></div>
-            <div class="slide"><img src="../images/travel/beijing.jpg" alt="Beijing"></div>
+            <!-- Jiuzhaigou images -->
+            <div class="slide"><img src="../images/travel/jiuzhaigou1.jpg" alt="Sichuan Jiuzhaigou 1"></div>
+            <div class="slide"><img src="../images/travel/jiuzhaigou2.jpg" alt="Sichuan Jiuzhaigou 2"></div>
+            <div class="slide"><img src="../images/travel/jiuzhaigou3.jpg" alt="Sichuan Jiuzhaigou 3"></div>
+            <div class="slide"><img src="../images/travel/jiuzhaigou4.jpg" alt="Sichuan Jiuzhaigou 4"></div>
+            
+            <!-- Museum images -->
+            <div class="slide"><img src="../images/travel/museum1.jpg" alt="Museum 1"></div>
+            <div class="slide"><img src="../images/travel/museum2.jpg" alt="Museum 2"></div>
+            
+            <!-- Beijing images -->
+            <div class="slide"><img src="../images/travel/beijing1.jpg" alt="Beijing 1"></div>
+            <div class="slide"><img src="../images/travel/beijing2.jpg" alt="Beijing 2"></div>
+            
+            <!-- Hunan images -->
+            <div class="slide"><img src="../images/travel/hunan1.jpg" alt="Hunan 1"></div>
+            <div class="slide"><img src="../images/travel/hunan2.jpg" alt="Hunan 2"></div>
         </div>
     </div>
 </div>
 
-<!-- 第二部分：2023 Summer Vacation -->
 <div class="travel-section">
     <div class="section-title">2023 Summer Vacation</div>
     <div class="section-date">July 2023</div>
@@ -109,5 +63,52 @@ redirect_from:
     });
 </script>
 
-</body>
-</html>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 20px;
+    }
+    h1 {
+        text-align: center;
+        color: #333;
+    }
+    .travel-section {
+        margin: 20px 0;
+    }
+    .section-title {
+        font-size: 1.5em;
+        font-weight: bold;
+        color: #555;
+        margin-bottom: 5px;
+    }
+    .section-date {
+        font-size: 1em;
+        color: #777;
+        margin-bottom: 10px;
+    }
+    .divider {
+        height: 1px;
+        background-color: #ddd;
+        margin: 20px 0;
+    }
+    .slider {
+        position: relative;
+        max-width: 400px; /* 设置较小的图片展示宽度 */
+        margin: auto;
+        overflow: hidden;
+        border-radius: 10px;
+    }
+    .slides {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+    }
+    .slide {
+        min-width: 100%;
+    }
+    img {
+        width: 100%;
+        border-radius: 10px;
+    }
+</style>
