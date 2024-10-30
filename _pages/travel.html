@@ -16,10 +16,30 @@ permalink: /travel/
             background-color: #f4f4f4;
             margin: 0;
             padding: 20px;
+            display: flex;
         }
-        h1 {
-            text-align: center;
-            color: #333;
+        .sidebar {
+            width: 25%;
+            padding: 20px;
+            background-color: #f4f4f4;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-right: 20px;
+        }
+        .content {
+            width: 70%;
+        }
+        .author-profile img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+        .author-profile h3 {
+            margin: 0;
+            font-size: 1.5em;
+        }
+        .author-profile p {
+            margin: 5px 0;
         }
         .slider {
             position: relative;
@@ -56,41 +76,52 @@ permalink: /travel/
 </head>
 <body>
 
-<h1>Travel Experience</h1>
-
-<h2>2024 Winter Vacation</h2>
-
-<div class="slider">
-    <div class="slides">
-        <div class="slide"><img src="../images/travel/jiuzhaigou1.jpg" alt="Sichuan"></div>
-        <div class="slide"><img src="../images/travel/hunan1.jpg" alt="Hunan"></div>
-        <div class="slide"><img src="../images/travel/beijing.jpg" alt="Beijing"></div>
+<div class="sidebar">
+    <div class="author-profile">
+        <img src="{{ site.author.avatar }}" alt="{{ site.author.name }}">
+        <h3>{{ site.author.name }}</h3>
+        <p>{{ site.author.description }}</p>
+        <p>{{ site.author.location }}</p>
+        <p><a href="mailto:{{ site.author.email }}">Email</a> | <a href="{{ site.author.github }}">GitHub</a></p>
     </div>
 </div>
 
-<h2>我的旅行地</h2>
+<div class="content">
+    <h1>Travel Experience</h1>
+    <h2>2024 Winter Vacation</h2>
 
-<div class="travel-entry">
-    <div class="date-icon"></div>
-    <div>
-        <h3>四川</h3>
-        <p>在四川，我品尝了正宗的川菜，参观了大熊猫基地，体验了独特的文化。</p>
+    <div class="slider">
+        <div class="slides">
+            <div class="slide"><img src="../images/travel/sichuan.jpg" alt="Sichuan"></div>
+            <div class="slide"><img src="../images/travel/hunan.jpg" alt="Hunan"></div>
+            <div class="slide"><img src="../images/travel/beijing.jpg" alt="Beijing"></div>
+        </div>
     </div>
-</div>
 
-<div class="travel-entry">
-    <div class="date-icon"></div>
-    <div>
-        <h3>湖南</h3>
-        <p>湖南的山水画廊让我叹为观止，尤其是张家界的奇山异水，给我留下深刻的印象。</p>
+    <h2>我的旅行地</h2>
+
+    <div class="travel-entry">
+        <div class="date-icon"></div>
+        <div>
+            <h3>四川</h3>
+            <p>在四川，我品尝了正宗的川菜，参观了大熊猫基地，体验了独特的文化。</p>
+        </div>
     </div>
-</div>
 
-<div class="travel-entry">
-    <div class="date-icon"></div>
-    <div>
-        <h3>北京</h3>
-        <p>在北京，我游览了故宫和长城，感受了历史的厚重。</p>
+    <div class="travel-entry">
+        <div class="date-icon"></div>
+        <div>
+            <h3>湖南</h3>
+            <p>湖南的山水画廊让我叹为观止，尤其是张家界的奇山异水，给我留下深刻的印象。</p>
+        </div>
+    </div>
+
+    <div class="travel-entry">
+        <div class="date-icon"></div>
+        <div>
+            <h3>北京</h3>
+            <p>在北京，我游览了故宫和长城，感受了历史的厚重。</p>
+        </div>
     </div>
 </div>
 
