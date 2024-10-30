@@ -35,31 +35,16 @@ redirect_from:
     </div>
 </div>
 
-<div class="travel-section">
-    <div class="section-title">2023 Summer Vacation</div>
-    <div class="section-date">July 2023</div>
-    <div class="divider"></div>
-    <div class="slider">
-        <div class="slides">
-            <div class="slide"><img src="../images/travel/beach.jpg" alt="Beach"></div>
-            <div class="slide"><img src="../images/travel/mountain.jpg" alt="Mountain"></div>
-            <div class="slide"><img src="../images/travel/city.jpg" alt="City"></div>
-        </div>
-    </div>
-</div>
-
 <script>
-    let index = 0;
-    const sliders = document.querySelectorAll('.slides');
-    
-    function showSlide(slider) {
-        index++;
-        if (index >= slider.children.length) index = 0;
-        slider.style.transform = `translateX(-${index * 100}%)`;
-    }
-
-    sliders.forEach(slider => {
-        setInterval(() => showSlide(slider), 3000); // 每3秒切换
+    // JavaScript for individual sliders
+    document.querySelectorAll('.slides').forEach(slider => {
+        let index = 0;
+        const totalSlides = slider.children.length;
+        
+        setInterval(() => {
+            index = (index + 1) % totalSlides;
+            slider.style.transform = `translateX(-${index * 100}%)`;
+        }, 3000); // 每3秒切换
     });
 </script>
 
@@ -76,6 +61,8 @@ redirect_from:
     }
     .travel-section {
         margin: 20px 0;
+        max-width: 600px;
+        margin-left: 0;
     }
     .section-title {
         font-size: 1.5em;
@@ -95,10 +82,10 @@ redirect_from:
     }
     .slider {
         position: relative;
-        max-width: 400px; /* 设置较小的图片展示宽度 */
-        margin: auto;
+        width: 100%; /* 设置宽度为100%以适应父容器 */
         overflow: hidden;
         border-radius: 10px;
+        margin-left: 0; /* 左对齐 */
     }
     .slides {
         display: flex;
