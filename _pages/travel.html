@@ -38,26 +38,22 @@ redirect_from:
 </div>
 
 <script>
-	document.querySelectorAll('.slider').forEach(sliderContainer => {
-		const slides = sliderContainer.querySelector('.slides');
-		let index = 0;
-		const totalSlides = slides.children.length;
-	
-		setInterval(() => {
-			index = (index + 1) % totalSlides;
-			slides.style.transform = `translateX(-${index * 100}%)`;
-			console.log(`Current index: ${index}`); // 输出当前显示的图片索引，帮助调试
-		}, 3000); // 每3秒切换
-	});
-	console.log(`Current index: ${index}`); // 输出当前显示的图片索引，帮助调试
+    document.querySelectorAll('.slider').forEach(sliderContainer => {
+        const slides = sliderContainer.querySelector('.slides');
+        let index = 0;
+        const totalSlides = slides.children.length;
 
-	
+        setInterval(() => {
+            index = (index + 1) % totalSlides;
+            slides.style.transform = `translateX(-${index * 100}%)`;
+            console.log(`Current index: ${index}`); // 调试输出
+        }, 3000);
+    });
 </script>
 
 <style>
-    /* 为标题添加顶部填充，使其下移 */
     .page__title {
-        padding-top: 50px; /* 确保标题向下移动，避免被遮挡 */
+        padding-top: 100px;
     }
 
     body {
@@ -70,12 +66,10 @@ redirect_from:
     .travel-section {
         margin: 20px 0;
         max-width: 600px;
-        margin-left: 0;
     }
 
-    /* 调整 section-title 的字体大小 */
     .section-title {
-        font-size: 1.2em; /* 将字体缩小为 1.2em */
+        font-size: 1.2em;
         font-weight: bold;
         color: #555;
         margin-bottom: 5px;
@@ -93,27 +87,25 @@ redirect_from:
         margin: 20px 0;
     }
 
-	.slider {
-		position: relative;
-		width: 100%; /* 适应父容器宽度 */
-		overflow: hidden; /* 隐藏超出部分 */
-		border-radius: 10px;
-		margin-left: 0;
-	}
-	
-	.slides {
-		display: flex; /* 水平排列子元素 */
-		transition: transform 0.5s ease-in-out; /* 添加平滑过渡 */
-	}
-	
-	.slide {
-		min-width: 100%; /* 每张图片占据100%的宽度 */
-		box-sizing: border-box;
-	}
-	
-	img {
-		width: 100%; /* 图片宽度填充整个容器 */
-		border-radius: 10px;
-	}
-	
+    .slider {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+        border-radius: 10px;
+    }
+
+    .slides {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+    }
+
+    .slide {
+        min-width: 100%;
+        box-sizing: border-box;
+    }
+
+    img {
+        width: 100%;
+        border-radius: 10px;
+    }
 </style>
