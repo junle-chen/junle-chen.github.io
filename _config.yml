@@ -8,7 +8,7 @@
 
 # Basic Site Settings
 locale                   : "en-US"
-title                    : "Junle Chen - Academic Profile"
+title                    : "Junle Chen - Profile"
 title_separator          : "-"
 name                     : &name "Junle Chen"
 description              : &description "Fourth-year student at HIT. Incoming PhD student at HKUST"
