@@ -7,30 +7,32 @@ redirect_from:
   - /wordpress/travel/
 ---
 
-<div class="travel-section">
-    <div class="section-title">2024 Winter Vacation</div>
-    <div class="section-date">January 2024</div>
-    <div class="divider"></div>
-    <p>Sichuan Jiuzhaigou, Museum, Beijing, and Hunan</p>
-    <div class="slider">
-        <div class="slides">
-            <!-- Jiuzhaigou images -->
-            <div class="slide"><img src="../images/travel/jiuzhaigou1.jpg" alt="Sichuan Jiuzhaigou 1"></div>
-            <div class="slide"><img src="../images/travel/jiuzhaigou2.jpg" alt="Sichuan Jiuzhaigou 2"></div>
-            <div class="slide"><img src="../images/travel/jiuzhaigou3.jpg" alt="Sichuan Jiuzhaigou 3"></div>
-            <div class="slide"><img src="../images/travel/jiuzhaigou4.jpg" alt="Sichuan Jiuzhaigou 4"></div>
-            
-            <!-- Museum images -->
-            <div class="slide"><img src="../images/travel/museum1.jpg" alt="Museum 1"></div>
-            <div class="slide"><img src="../images/travel/museum2.jpg" alt="Museum 2"></div>
-            
-            <!-- Beijing images -->
-            <div class="slide"><img src="../images/travel/beijing1.jpg" alt="Beijing 1"></div>
-            <div class="slide"><img src="../images/travel/beijing2.jpg" alt="Beijing 2"></div>
-            
-            <!-- Hunan images -->
-            <div class="slide"><img src="../images/travel/hunan1.jpg" alt="Hunan 1"></div>
-            <div class="slide"><img src="../images/travel/hunan2.jpg" alt="Hunan 2"></div>
+<div class="travel-content">
+    <div class="travel-section">
+        <div class="section-title">2024 Winter Vacation</div>
+        <div class="section-date">January 2024</div>
+        <div class="divider"></div>
+        <p>Sichuan Jiuzhaigou, Museum, Beijing, and Hunan</p>
+        <div class="slider">
+            <div class="slides">
+                <!-- Jiuzhaigou images -->
+                <div class="slide"><img src="../images/travel/jiuzhaigou1.jpg" alt="Sichuan Jiuzhaigou 1"></div>
+                <div class="slide"><img src="../images/travel/jiuzhaigou2.jpg" alt="Sichuan Jiuzhaigou 2"></div>
+                <div class="slide"><img src="../images/travel/jiuzhaigou3.jpg" alt="Sichuan Jiuzhaigou 3"></div>
+                <div class="slide"><img src="../images/travel/jiuzhaigou4.jpg" alt="Sichuan Jiuzhaigou 4"></div>
+
+                <!-- Museum images -->
+                <div class="slide"><img src="../images/travel/museum1.jpg" alt="Museum 1"></div>
+                <div class="slide"><img src="../images/travel/museum2.jpg" alt="Museum 2"></div>
+
+                <!-- Beijing images -->
+                <div class="slide"><img src="../images/travel/beijing1.jpg" alt="Beijing 1"></div>
+                <div class="slide"><img src="../images/travel/beijing2.jpg" alt="Beijing 2"></div>
+
+                <!-- Hunan images -->
+                <div class="slide"><img src="../images/travel/hunan1.jpg" alt="Hunan 1"></div>
+                <div class="slide"><img src="../images/travel/hunan2.jpg" alt="Hunan 2"></div>
+            </div>
         </div>
     </div>
 </div>
@@ -40,7 +42,7 @@ redirect_from:
     document.querySelectorAll('.slides').forEach(slider => {
         let index = 0;
         const totalSlides = slider.children.length;
-        
+
         setInterval(() => {
             index = (index + 1) % totalSlides;
             slider.style.transform = `translateX(-${index * 100}%)`;
@@ -49,37 +51,43 @@ redirect_from:
 </script>
 
 <style>
+    /* 顶部间距 */
+    .travel-content {
+        margin-top: 80px; /* 根据需要调整顶部间距，确保标题不被遮挡 */
+    }
+
     body {
         font-family: Arial, sans-serif;
         background-color: #f4f4f4;
         margin: 0;
         padding: 20px;
     }
-    h1 {
-        text-align: center;
-        color: #333;
-    }
+
     .travel-section {
         margin: 20px 0;
         max-width: 600px;
         margin-left: 0;
     }
+
     .section-title {
         font-size: 1.5em;
         font-weight: bold;
         color: #555;
         margin-bottom: 5px;
     }
+
     .section-date {
         font-size: 1em;
         color: #777;
         margin-bottom: 10px;
     }
+
     .divider {
         height: 1px;
         background-color: #ddd;
         margin: 20px 0;
     }
+
     .slider {
         position: relative;
         width: 100%; /* 设置宽度为100%以适应父容器 */
@@ -87,13 +95,16 @@ redirect_from:
         border-radius: 10px;
         margin-left: 0; /* 左对齐 */
     }
+
     .slides {
         display: flex;
         transition: transform 0.5s ease-in-out;
     }
+
     .slide {
         min-width: 100%;
     }
+
     img {
         width: 100%;
         border-radius: 10px;
