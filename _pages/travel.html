@@ -1,11 +1,7 @@
 ---
-layout: archive
+layout: page
+title: "Travel"
 permalink: /travel/
-title: "Travel Experience"
-author_profile: true
-redirect_from:
-  - /wordpress/travel/
-
 ---
 
 <!DOCTYPE html>
@@ -13,7 +9,7 @@ redirect_from:
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Travel Experience</title>
+    <title>Travel</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -24,6 +20,25 @@ redirect_from:
         h1 {
             text-align: center;
             color: #333;
+        }
+        .travel-section {
+            margin: 20px 0;
+        }
+        .section-title {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #555;
+            margin-bottom: 5px;
+        }
+        .section-date {
+            font-size: 1em;
+            color: #777;
+            margin-bottom: 10px;
+        }
+        .divider {
+            height: 1px;
+            background-color: #ddd;
+            margin: 20px 0;
         }
         .slider {
             position: relative;
@@ -43,71 +58,52 @@ redirect_from:
             width: 100%;
             border-radius: 10px;
         }
-        .date-icon {
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-            margin-right: 8px;
-            background-color: #008CBA;
-            border-radius: 50%;
-        }
-        .travel-entry {
-            display: flex;
-            align-items: center;
-            margin: 10px 0;
-        }
     </style>
 </head>
 <body>
 
-<h2>2024 Winter Vacation</h2>
 
-<div class="slider">
-    <div class="slides">
-        <div class="slide"><img src="../images/travel/jiuzhaigou1.jpg" alt="Sichuan"></div>
-        <div class="slide"><img src="../images/travel/hunan1.jpg" alt="Hunan"></div>
-        <div class="slide"><img src="../images/travel/beijing.jpg" alt="Beijing"></div>
+<!-- 第一部分：2024 Winter Vacation -->
+<div class="travel-section">
+    <div class="section-title">2024 Winter Vacation</div>
+    <div class="section-date">January 2024</div>
+    <div class="divider"></div>
+    <div class="slider">
+        <div class="slides">
+            <div class="slide"><img src="../images/travel/jiuzhaigou1.jpg" alt="Jiuzhaigou in Winter"></div>
+            <div class="slide"><img src="../images/travel/hunan1.jpg" alt="Hunan"></div>
+            <div class="slide"><img src="../images/travel/beijing.jpg" alt="Beijing"></div>
+        </div>
     </div>
 </div>
 
-<h2>我的旅行地</h2>
-
-<div class="travel-entry">
-    <div class="date-icon"></div>
-    <div>
-        <h3>四川</h3>
-        <p>在四川，我品尝了正宗的川菜，参观了大熊猫基地，体验了独特的文化。</p>
-    </div>
-</div>
-
-<div class="travel-entry">
-    <div class="date-icon"></div>
-    <div>
-        <h3>湖南</h3>
-        <p>湖南的山水画廊让我叹为观止，尤其是张家界的奇山异水，给我留下深刻的印象。</p>
-    </div>
-</div>
-
-<div class="travel-entry">
-    <div class="date-icon"></div>
-    <div>
-        <h3>北京</h3>
-        <p>在北京，我游览了故宫和长城，感受了历史的厚重。</p>
+<!-- 第二部分：2023 Summer Vacation -->
+<div class="travel-section">
+    <div class="section-title">2023 Summer Vacation</div>
+    <div class="section-date">July 2023</div>
+    <div class="divider"></div>
+    <div class="slider">
+        <div class="slides">
+            <div class="slide"><img src="../images/travel/beach.jpg" alt="Beach"></div>
+            <div class="slide"><img src="../images/travel/mountain.jpg" alt="Mountain"></div>
+            <div class="slide"><img src="../images/travel/city.jpg" alt="City"></div>
+        </div>
     </div>
 </div>
 
 <script>
     let index = 0;
-    const slides = document.querySelector('.slides');
-    const totalSlides = document.querySelectorAll('.slide').length;
-
-    function showSlide() {
+    const sliders = document.querySelectorAll('.slides');
+    
+    function showSlide(slider) {
         index++;
-        if (index >= totalSlides) index = 0;
-        slides.style.transform = `translateX(-${index * 100}%)`;
+        if (index >= slider.children.length) index = 0;
+        slider.style.transform = `translateX(-${index * 100}%)`;
     }
 
-    setInterval(showSlide, 3000); // 每3秒切换
+    sliders.forEach(slider => {
+        setInterval(() => showSlide(slider), 3000); // 每3秒切换
+    });
 </script>
 
 </body>
