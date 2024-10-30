@@ -1,19 +1,51 @@
 ---
-layout: archive
-permalink: /trvel/
+layout: page
 title: "Travel Experience"
-author_profile: true
-redirect_from:
-  - /wordpress/travel/
+permalink: /travel/
 ---
 
-{% include base_path %}
-{% capture written_year %}'None'{% endcapture %}
-{% for post in site.posts %}
-  {% capture year %}{{ post.date | date: '%Y' }}{% endcapture %}
-  {% if year != written_year %}
-    <h2 id="{{ year | slugify }}" class="archive__subtitle">{{ year }}</h2>
-    {% capture written_year %}{{ year }}{% endcapture %}
-  {% endif %}
-  {% include archive-single.html %}
-{% endfor %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Experience</title>
+</head>
+<body>
+
+<h1>Travel Experience</h1>
+
+<p>欢迎来到我的旅行体验页面！这里将展示我的旅行故事和见闻。</p>
+
+<h2>我的旅行地</h2>
+
+<h3>巴黎</h3>
+<p>
+    在巴黎，我参观了标志性的埃菲尔铁塔，漫步在塞纳河边，享受了正宗的法式咖啡和可颂。
+    这个城市的浪漫氛围令人难以忘怀。
+</p>
+
+<h3>东京</h3>
+<p>
+    东京是一个现代与传统交融的城市。我在秋叶原体验了二次元文化，还品尝了美味的寿司。
+    特别喜欢在浅草寺感受古老文化的气息。
+</p>
+
+<h3>纽约</h3>
+<p>
+    纽约的时代广场是我旅行中最令人震撼的地方。五光十色的霓虹灯和熙熙攘攘的人群让我深深感受到了这个城市的活力。
+    我还参观了中央公园，享受了在自然中放松的时光。
+</p>
+
+<h2>未来的旅行计划</h2>
+
+<ul>
+    <li><strong>巴厘岛</strong> - 享受阳光沙滩，放松心情。</li>
+    <li><strong>冰岛</strong> - 探索北极光和独特的自然风光。</li>
+    <li><strong>悉尼</strong> - 参观悉尼歌剧院和享受海滩生活。</li>
+</ul>
+
+<p>感谢您访问我的旅行体验页面！希望我的经历能激发您探索世界的热情。</p>
+
+</body>
+</html>
