@@ -10,42 +10,103 @@ permalink: /travel/
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Travel Experience</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .slider {
+            position: relative;
+            max-width: 600px;
+            margin: auto;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .slide {
+            min-width: 100%;
+        }
+        img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .date-icon {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            margin-right: 8px;
+            background-color: #008CBA;
+            border-radius: 50%;
+        }
+        .travel-entry {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+        }
+    </style>
 </head>
 <body>
 
 <h1>Travel Experience</h1>
 
-<p>欢迎来到我的旅行体验页面！这里将展示我的旅行故事和见闻。</p>
+<h2>2024 Winter Vacation</h2>
+
+<div class="slider">
+    <div class="slides">
+        <div class="slide"><img src="images/travel/sichuan1.jpg" alt="Sichuan"></div>
+        <div class="slide"><img src="images/travel/hunan1.jpg" alt="Hunan"></div>
+        <div class="slide"><img src="images/travel/beijing1.jpg" alt="Beijing"></div>
+    </div>
+</div>
 
 <h2>我的旅行地</h2>
 
-<h3>巴黎</h3>
-<p>
-    在巴黎，我参观了标志性的埃菲尔铁塔，漫步在塞纳河边，享受了正宗的法式咖啡和可颂。
-    这个城市的浪漫氛围令人难以忘怀。
-</p>
+<div class="travel-entry">
+    <div class="date-icon"></div>
+    <div>
+        <h3>四川</h3>
+        <p>在四川，我品尝了正宗的川菜，参观了大熊猫基地，体验了独特的文化。</p>
+    </div>
+</div>
 
-<h3>东京</h3>
-<p>
-    东京是一个现代与传统交融的城市。我在秋叶原体验了二次元文化，还品尝了美味的寿司。
-    特别喜欢在浅草寺感受古老文化的气息。
-</p>
+<div class="travel-entry">
+    <div class="date-icon"></div>
+    <div>
+        <h3>湖南</h3>
+        <p>湖南的山水画廊让我叹为观止，尤其是张家界的奇山异水，给我留下深刻的印象。</p>
+    </div>
+</div>
 
-<h3>纽约</h3>
-<p>
-    纽约的时代广场是我旅行中最令人震撼的地方。五光十色的霓虹灯和熙熙攘攘的人群让我深深感受到了这个城市的活力。
-    我还参观了中央公园，享受了在自然中放松的时光。
-</p>
+<div class="travel-entry">
+    <div class="date-icon"></div>
+    <div>
+        <h3>北京</h3>
+        <p>在北京，我游览了故宫和长城，感受了历史的厚重。</p>
+    </div>
+</div>
 
-<h2>未来的旅行计划</h2>
+<script>
+    let index = 0;
+    const slides = document.querySelector('.slides');
+    const totalSlides = document.querySelectorAll('.slide').length;
 
-<ul>
-    <li><strong>巴厘岛</strong> - 享受阳光沙滩，放松心情。</li>
-    <li><strong>冰岛</strong> - 探索北极光和独特的自然风光。</li>
-    <li><strong>悉尼</strong> - 参观悉尼歌剧院和享受海滩生活。</li>
-</ul>
+    function showSlide() {
+        index++;
+        if (index >= totalSlides) index = 0;
+        slides.style.transform = `translateX(-${index * 100}%)`;
+    }
 
-<p>感谢您访问我的旅行体验页面！希望我的经历能激发您探索世界的热情。</p>
+    setInterval(showSlide, 3000); // 每3秒切换
+</script>
 
 </body>
 </html>
