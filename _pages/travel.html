@@ -1,62 +1,101 @@
 ---
-permalink: /
-title: "Junle Chen"
+layout: archive
+permalink: /travel/
+title: "Travel Experience"
 author_profile: true
-redirect_from: 
-  - /about/
-  - /about.html
+redirect_from:
+  - /wordpress/travel/
 ---
-Hi there! 👋
 
-**About Me**
-======
-I am currently a senior (fourth-year) student at [Harbin Institute of Technology](https://www.hit.edu.cn/) in the School of Future Technology (formerly Honor School), majoring in Computer Science and Technology. I will receive my bachelor's degree in June 2025 and will begin my PhD studies in [Computer Science and Engineering](https://www.cse.ust.hk/) at [Hong Kong University of Science and Technology](https://hkust.edu.hk/) under the guidance of [Professor Xiaofang Zhou](https://facultyprofiles.hkust.edu.hk/profiles.php?profile=xiaofang-zhou-zxf) in September 2025.
+<div class="travel-section">
+    <div class="section-title">2024 Winter Vacation</div>
+    <div class="section-date">January 2024</div>
+    <div class="divider"></div>
+    <p>Sichuan Jiuzhaigou, Museum, Beijing, and Hunan</p>
+    <div class="slider">
+        <div class="slides">
+            <!-- Jiuzhaigou images -->
+            <div class="slide"><img src="../images/travel/jiuzhaigou1.jpg" alt="Sichuan Jiuzhaigou 1"></div>
+            <div class="slide"><img src="../images/travel/jiuzhaigou2.jpg" alt="Sichuan Jiuzhaigou 2"></div>
+            <div class="slide"><img src="../images/travel/jiuzhaigou3.jpg" alt="Sichuan Jiuzhaigou 3"></div>
+            <div class="slide"><img src="../images/travel/jiuzhaigou4.jpg" alt="Sichuan Jiuzhaigou 4"></div>
+            
+            <!-- Museum images -->
+            <div class="slide"><img src="../images/travel/museum1.jpg" alt="Museum 1"></div>
+            <div class="slide"><img src="../images/travel/museum2.jpg" alt="Museum 2"></div>
+            
+            <!-- Beijing images -->
+            <div class="slide"><img src="../images/travel/beijing1.jpg" alt="Beijing 1"></div>
+            <div class="slide"><img src="../images/travel/beijing2.jpg" alt="Beijing 2"></div>
+            
+            <!-- Hunan images -->
+            <div class="slide"><img src="../images/travel/hunan1.jpg" alt="Hunan 1"></div>
+            <div class="slide"><img src="../images/travel/hunan2.jpg" alt="Hunan 2"></div>
+        </div>
+    </div>
+</div>
 
+<script>
+    // JavaScript for individual sliders
+    document.querySelectorAll('.slides').forEach(slider => {
+        let index = 0;
+        const totalSlides = slider.children.length;
+        
+        setInterval(() => {
+            index = (index + 1) % totalSlides;
+            slider.style.transform = `translateX(-${index * 100}%)`;
+        }, 3000); // 每3秒切换
+    });
+</script>
 
-Research Interest
-======
-
-- **Spatial Databases** 🗺️📌  
-
-- **Big Data** 📊🌐  
-
-- **Large Language Models** 🧠🚀  
-
-- **Efficient Indexing Structures** 📈💡  
-
-
-Publications 📑
-------
-- **Maximizing Influence Query over Indoor Trajectories**  
-  *Jian Chen, Hong Gao, Yuhong Shi, **Junle Chen**, Donghua Yang, Jianzhong Li*  
-  _(Under major revision) IEEE Transactions on Knowledge and Data Engineering (TKDE)_
-
-- **Efficient Coverage Query over Transition Trajectories**  
-  *Jian Chen, **Junle Chen**, Hong Gao, Donghua Yang, and Kaiqi Zhang*  
-  _The 8th APWeb-WAIM Joint International Conference on Web and Big Data, 2024_
-
-
-Awards🏆
-------
-- **National Scholarship** (2022-2023)  
-- **First-Class People's Scholarship** (awarded each semester)  
-- **Finalist in the Mathematical Contest in Modeling (MCM)**, USA  
-- **First Prize in College Mathematics Competition**  
-- **Outstanding Student Award** (Provincial Level)
-
-
-Hobbies 🎉
-------
-In my free time, I enjoy:
-- **Swimming** 🏊‍♂️
-- **Badminton** 🏸
-- **Calligraphy** ✒️
-- **Chinese Chess** ♟️
-- **Board Games** 🎲
-- **Traveling** 🌍
-
-**Contact** 📬
-------
-- **Email**: [cshanppy@gmail.com](mailto:cshanppy@gmail.com)
-- **QQ**: 601122452
-- **Phone/WeChat**: 15259695906
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 20px;
+    }
+    h1 {
+        text-align: center;
+        color: #333;
+    }
+    .travel-section {
+        margin: 20px 0;
+        max-width: 600px;
+        margin-left: 0;
+    }
+    .section-title {
+        font-size: 1.5em;
+        font-weight: bold;
+        color: #555;
+        margin-bottom: 5px;
+    }
+    .section-date {
+        font-size: 1em;
+        color: #777;
+        margin-bottom: 10px;
+    }
+    .divider {
+        height: 1px;
+        background-color: #ddd;
+        margin: 20px 0;
+    }
+    .slider {
+        position: relative;
+        width: 100%; /* 设置宽度为100%以适应父容器 */
+        overflow: hidden;
+        border-radius: 10px;
+        margin-left: 0; /* 左对齐 */
+    }
+    .slides {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+    }
+    .slide {
+        min-width: 100%;
+    }
+    img {
+        width: 100%;
+        border-radius: 10px;
+    }
+</style>
