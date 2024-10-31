@@ -13,23 +13,18 @@ redirect_from:
         <div class="section-date">January 2024</div>
         <div class="divider"></div>
         <p>Sichuan Jiuzhaigou, Museum, Beijing, and Hunan</p>
+        
+        <!-- 滚动轮播容器 -->
         <div class="slider">
             <div class="slides">
-                <!-- Jiuzhaigou images -->
                 <div class="slide"><img src="../images/travel/jiuzhaigou1.jpg" alt="Sichuan Jiuzhaigou 1"></div>
                 <div class="slide"><img src="../images/travel/jiuzhaigou2.jpg" alt="Sichuan Jiuzhaigou 2"></div>
                 <div class="slide"><img src="../images/travel/jiuzhaigou3.jpg" alt="Sichuan Jiuzhaigou 3"></div>
                 <div class="slide"><img src="../images/travel/jiuzhaigou4.jpg" alt="Sichuan Jiuzhaigou 4"></div>
-
-                <!-- Museum images -->
                 <div class="slide"><img src="../images/travel/museum1.jpg" alt="Museum 1"></div>
                 <div class="slide"><img src="../images/travel/museum2.jpg" alt="Museum 2"></div>
-
-                <!-- Beijing images -->
                 <div class="slide"><img src="../images/travel/beijing1.jpg" alt="Beijing 1"></div>
                 <div class="slide"><img src="../images/travel/beijing2.jpg" alt="Beijing 2"></div>
-
-                <!-- Hunan images -->
                 <div class="slide"><img src="../images/travel/hunan1.jpg" alt="Hunan 1"></div>
                 <div class="slide"><img src="../images/travel/hunan2.jpg" alt="Hunan 2"></div>
             </div>
@@ -38,20 +33,23 @@ redirect_from:
 </div>
 
 <script>
-    document.querySelectorAll('.slider').forEach(sliderContainer => {
-        const slides = sliderContainer.querySelector('.slides');
-        let index = 0;
-        const totalSlides = slides.children.length;
+    document.addEventListener("DOMContentLoaded", function() {
+        const sliders = document.querySelectorAll('.slides');
+        
+        sliders.forEach(slides => {
+            let index = 0;
+            const totalSlides = slides.children.length;
 
-        setInterval(() => {
-            index = (index + 1) % totalSlides;
-            slides.style.transform = `translateX(-${index * 100}%)`;
-            console.log(`Current index: ${index}`); // 调试输出
-        }, 3000);
+            setInterval(() => {
+                index = (index + 1) % totalSlides;
+                slides.style.transform = `translateX(-${index * 100}%)`;
+            }, 3000); // 每3秒切换一次图片
+        });
     });
 </script>
 
 <style>
+    /* 页面整体样式 */
     .page__title {
         padding-top: 100px;
     }
@@ -87,11 +85,13 @@ redirect_from:
         margin: 20px 0;
     }
 
+    /* 滚动轮播样式 */
     .slider {
         position: relative;
         width: 100%;
         overflow: hidden;
         border-radius: 10px;
+        margin-top: 20px;
     }
 
     .slides {
@@ -101,7 +101,6 @@ redirect_from:
 
     .slide {
         min-width: 100%;
-        box-sizing: border-box;
     }
 
     img {
