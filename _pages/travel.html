@@ -12,41 +12,28 @@ redirect_from:
         <div class="section-title">2024 Winter Vacation</div>
         <div class="section-date">January 2024</div>
         <div class="divider"></div>
-        <p>Sichuan Jiuzhaigou, Museum, Beijing, and Hunan</p>
+        <p>Sichuan Jiuzhaigou 🌐</p>
         
-        <!-- 滚动轮播容器 -->
-        <div class="slider">
-            <div class="slides">
-                <div class="slide"><img src="../images/travel/jiuzhaigou1.jpg" alt="Sichuan Jiuzhaigou 1"></div>
-                <div class="slide"><img src="../images/travel/jiuzhaigou2.jpg" alt="Sichuan Jiuzhaigou 2"></div>
-                <div class="slide"><img src="../images/travel/jiuzhaigou3.jpg" alt="Sichuan Jiuzhaigou 3"></div>
-                <div class="slide"><img src="../images/travel/jiuzhaigou4.jpg" alt="Sichuan Jiuzhaigou 4"></div>
-                <div class="slide"><img src="../images/travel/museum1.jpg" alt="Museum 1"></div>
-                <div class="slide"><img src="../images/travel/museum2.jpg" alt="Museum 2"></div>
-                <div class="slide"><img src="../images/travel/beijing1.jpg" alt="Beijing 1"></div>
-                <div class="slide"><img src="../images/travel/beijing2.jpg" alt="Beijing 2"></div>
-                <div class="slide"><img src="../images/travel/hunan1.jpg" alt="Hunan 1"></div>
-                <div class="slide"><img src="../images/travel/hunan2.jpg" alt="Hunan 2"></div>
-            </div>
+        <!-- 图片网格容器 -->
+        <div class="image-grid">
+            <div class="grid-item"><img src="../images/travel/jiuzhaigou1.jpg" alt="Sichuan Jiuzhaigou 1"></div>
+            <div class="grid-item"><img src="../images/travel/jiuzhaigou2.jpg" alt="Sichuan Jiuzhaigou 2"></div>
+            <div class="grid-item"><img src="../images/travel/jiuzhaigou3.jpg" alt="Sichuan Jiuzhaigou 3"></div>
+        </div>
+
+        <p>Beijing 🌐</p>
+        <div class="image-grid">
+            <div class="grid-item"><img src="../images/travel/beijing1.jpg" alt="Beijing 1"></div>
+            <div class="grid-item"><img src="../images/travel/beijing2.jpg" alt="Beijing 2"></div>
+        </div>
+
+        <p>Hunan 🌐</p>
+        <div class="image-grid">
+            <div class="grid-item"><img src="../images/travel/hunan1.jpg" alt="Hunan 1"></div>
+            <div class="grid-item"><img src="../images/travel/hunan2.jpg" alt="Hunan 2"></div>
         </div>
     </div>
 </div>
-
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const sliders = document.querySelectorAll('.slides');
-        
-        sliders.forEach(slides => {
-            let index = 0;
-            const totalSlides = slides.children.length;
-
-            setInterval(() => {
-                index = (index + 1) % totalSlides;
-                slides.style.transform = `translateX(-${index * 100}%)`;
-            }, 3000); // 每3秒切换一次图片
-        });
-    });
-</script>
 
 <style>
     /* 页面整体样式 */
@@ -85,26 +72,21 @@ redirect_from:
         margin: 20px 0;
     }
 
-    /* 滚动轮播样式 */
-    .slider {
-        position: relative;
-        width: 100%;
-        overflow: hidden;
-        border-radius: 10px;
-        margin-top: 20px;
+    /* 图片网格样式 */
+    .image-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* 每行三张图片 */
+        gap: 10px; /* 图片之间的间距 */
+        margin-bottom: 20px;
     }
 
-    .slides {
-        display: flex;
-        transition: transform 0.5s ease-in-out;
-    }
-
-    .slide {
-        min-width: 100%;
-    }
-
-    img {
+    .grid-item img {
         width: 100%;
         border-radius: 10px;
+    }
+
+    /* 确保两张图片居中显示 */
+    .image-grid:nth-child(2) {
+        grid-template-columns: repeat(2, 1fr); /* 两张图片居中 */
     }
 </style>
