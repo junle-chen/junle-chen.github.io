@@ -31,7 +31,7 @@ Publications 📑
 
 - **Efficient Coverage Query over Transition Trajectories**
   
-  Jian Chen, **Junle Chen**, Hong Gao, Donghua Yang, and Kaiqi Zhang*
+  *Jian Chen, **Junle Chen**, Hong Gao, Donghua Yang, and Kaiqi Zhang*
   _The 8th APWeb-WAIM Joint International Conference on Web and Big Data, 2024_
 
 Awards🏆
