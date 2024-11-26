@@ -9,45 +9,42 @@ redirect_from:
 Hi there! 👋
 
 **About Me**
-======
+============
+
 I am currently a senior (fourth-year) student at [Harbin Institute of Technology](https://www.hit.edu.cn/) in the School of Future Technology (formerly Honor School), majoring in Computer Science and Technology. I will receive my bachelor's degree in June 2025 and will begin my PhD studies in [Computer Science and Engineering](https://www.cse.ust.hk/) at [Hong Kong University of Science and Technology](https://hkust.edu.hk/) under the guidance of [Professor Xiaofang Zhou](https://facultyprofiles.hkust.edu.hk/profiles.php?profile=xiaofang-zhou-zxf) in September 2025.
 
-
 Research Interest
-======
+=================
 
-- **Spatial Databases** 🗺️📌  
-
-- **Big Data** 📊🌐  
-
-- **Large Language Models** 🧠🚀  
-
-- **Efficient Indexing Structures** 📈💡  
-
+- **Spatial Databases** 🗺️📌
+- **Big Data** 📊🌐
+- **Large Language Models** 🧠🚀
+- **Efficient Indexing Structures** 📈💡
 
 Publications 📑
-------
-- **Maximizing Influence Query over Indoor Trajectories**  
-  *Jian Chen, Hong Gao, Yuhong Shi, **Junle Chen**, Donghua Yang, Jianzhong Li*  
-  _(Under major revision) IEEE Transactions on Knowledge and Data Engineering (TKDE)_
+---------------
 
-- **Efficient Coverage Query over Transition Trajectories**  
-  *Jian Chen, **Junle Chen**, Hong Gao, Donghua Yang, and Kaiqi Zhang*  
+- **Maximizing Influence Query over Indoor Trajectories**
+  *Jian Chen, Hong Gao, Yuhong Shi, **Junle Chen**, Donghua Yang, Jianzhong Li*
+  IEEE Transactions on Knowledge and Data Engineering (TKDE)
+- **Efficient Coverage Query over Transition Trajectories**
+  *Jian Chen, **Junle Chen**, Hong Gao, Donghua Yang, and Kaiqi Zhang*
   _The 8th APWeb-WAIM Joint International Conference on Web and Big Data, 2024_
 
-
 Awards🏆
-------
-- **National Scholarship** (2022-2023)  
-- **First-Class People's Scholarship** (awarded each semester)  
-- **Finalist in the Mathematical Contest in Modeling (MCM)**, USA  
-- **First Prize in College Mathematics Competition**  
+--------
+
+- **National Scholarship** (2022-2023)
+- **First-Class People's Scholarship** (awarded each semester)
+- **Finalist in the Mathematical Contest in Modeling (MCM)**, USA
+- **First Prize in College Mathematics Competition**
 - **Outstanding Student Award** (Provincial Level)
 
-
 Hobbies 🎉
-------
+----------
+
 In my free time, I enjoy:
+
 - **Swimming** 🏊‍♂️
 - **Badminton** 🏸
 - **Calligraphy** ✒️
@@ -56,7 +53,8 @@ In my free time, I enjoy:
 - **Traveling** 🌍
 
 **Contact** 📬
-------
+--------------
+
 - **Email**: [cshanppy@gmail.com](mailto:cshanppy@gmail.com)
 - **QQ**: 601122452
 - **Phone/WeChat**: 15259695906
