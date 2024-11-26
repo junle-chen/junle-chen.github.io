@@ -27,11 +27,11 @@ Publications 📑
 - **Maximizing Influence Query over Indoor Trajectories**
 
   *Jian Chen, Hong Gao, Yuhong Shi, **Junle Chen**, Donghua Yang, Jianzhong Li*
-
-  IEEE Transactions on Knowledge and Data Engineering (TKDE)
+  _IEEE Transactions on Knowledge and Data Engineering (TKDE)_
 
 - **Efficient Coverage Query over Transition Trajectories**
-  *Jian Chen, **Junle Chen**, Hong Gao, Donghua Yang, and Kaiqi Zhang*
+  
+  Jian Chen, **Junle Chen**, Hong Gao, Donghua Yang, and Kaiqi Zhang*
   _The 8th APWeb-WAIM Joint International Conference on Web and Big Data, 2024_
 
 Awards🏆
