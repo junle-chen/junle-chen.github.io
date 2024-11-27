@@ -45,8 +45,6 @@ In my free time, I enjoy:
 - **Badminton** 🏸
 - **Calligraphy** ✒️
 - **Chinese Chess** ♟️
-- **Board Games** 🎲
-- **Traveling** 🌍
 
 **Contact** 📬
 --------------
