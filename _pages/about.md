@@ -57,6 +57,6 @@ In my free time, I enjoy:
 **Contact** 📬
 --------------
 
-- **Email**: [cshanppy@gmail.com](mailto:cshanppy@gmail.com)
+- **Email**: [chenjunle.cs@gmail.com](mailto:chenjunle.cs@gmail.com)
 - **QQ**: 601122452
 - **Phone/WeChat**: 15259695906
