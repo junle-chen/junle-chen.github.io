@@ -19,7 +19,7 @@ I am currently a senior (fourth-year) student at [Harbin Institute of Technology
 - **Sept 2021 - Jun 2025**: **Bachelor of Computer Science and Technology**, School of Future Technology, Harbin Institute of Technology
 
 * **Jul 2023**: **Project on AI Cloud-Based Scientific Research with Data-Driven Knowledge**, LAMDA, Nanjing University
-* **Sept 2025 - Present**: **PhD in Computer Science and Engineering (CSE)**, The Hong Kong University of Science and Technology
+* **Sept 2025 - **: **PhD in Computer Science and Engineering (CSE)**, The Hong Kong University of Science and Technology
 
 Research Interest
 =================
