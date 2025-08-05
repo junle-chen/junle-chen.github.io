@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="https://junle-chen.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://junle-chen.github.io/" rel="alternate" type="text/html" /><updated>2025-08-05T10:49:45+00:00</updated><id>https://junle-chen.github.io/feed.xml</id><title type="html">Junle Chen - Profile</title><subtitle>Incoming PhD student at HKUST</subtitle><author><name>Junle Chen(陈俊乐)</name><email>chenjunle.cs@gmail.com</email><uri>https://junle.cc/</uri></author><entry><title type="html">Future Blog Post</title><link href="https://junle-chen.github.io/posts/2012/08/blog-post-4/" rel="alternate" type="text/html" title="Future Blog Post" /><published>2199-01-01T00:00:00+00:00</published><updated>2199-01-01T00:00:00+00:00</updated><id>https://junle-chen.github.io/posts/2012/08/future-post</id><content type="html" xml:base="https://junle-chen.github.io/posts/2012/08/blog-post-4/"><![CDATA[<p>This post will show up by default. To disable scheduling of future posts, edit <code class="language-plaintext highlighter-rouge">config.yml</code> and set <code class="language-plaintext highlighter-rouge">future: false</code>.</p>]]></content><author><name>Junle Chen(陈俊乐)</name><email>chenjunle.cs@gmail.com</email><uri>https://junle.cc/</uri></author><category term="cool posts" /><category term="category1" /><category term="category2" /><summary type="html"><![CDATA[This post will show up by default. To disable scheduling of future posts, edit config.yml and set future: false.]]></summary></entry><entry><title type="html">Blog Post number 4</title><link href="https://junle-chen.github.io/posts/2015/08/blog-post-4/" rel="alternate" type="text/html" title="Blog Post number 4" /><published>2015-08-14T00:00:00+00:00</published><updated>2015-08-14T00:00:00+00:00</updated><id>https://junle-chen.github.io/posts/2015/08/blog-post-4</id><content type="html" xml:base="https://junle-chen.github.io/posts/2015/08/blog-post-4/"><![CDATA[<p>A blog consists of a series of articles or posts. While the appearance of your blog can vary depending on the platform and design choices made by you as the blogger, here are some common elements you may find in a typical blog and include in your own, keeping in mind the importance of user experience design and web design:</p>
+
+<p>A blog consists of a series of articles or posts. While the appearance of your blog can vary depending on the platform and design choices made by you as the blogger, here are some common elements you may find in a typical blog and include in your own, keeping in mind the importance of user experience design and web design:</p>
+
+<p>A blog consists of a series of articles or posts. While the appearance of your blog can vary depending on the platform and design choices made by you as the blogger, here are some common elements you may find in a typical blog and include in your own, keeping in mind the importance of user experience design and web design:</p>
+
+<p>A blog consists of a series of articles or posts. While the appearance of your blog can vary depending on the platform and design choices made by you as the blogger, here are some common elements you may find in a typical blog and include in your own, keeping in mind the importance of user experience design and web design:</p>
+
+<h1 id="headings-are-cool">Headings are cool</h1>
+
+<h1 id="you-can-have-many-headings">You can have many headings</h1>
+
+<h2 id="arent-headings-cool">Aren’t headings cool?</h2>]]></content><author><name>Junle Chen(陈俊乐)</name><email>chenjunle.cs@gmail.com</email><uri>https://junle.cc/</uri></author><category term="cool" /><category term="posts" /><category term="category1" /><category term="category2" /><summary type="html"><![CDATA[A blog consists of a series of articles or posts. While the appearance of your blog can vary depending on the platform and design choices made by you as the blogger, here are some common elements you may find in a typical blog and include in your own, keeping in mind the importance of user experience design and web design:]]></summary></entry><entry><title type="html">Blog Post number 3</title><link href="https://junle-chen.github.io/posts/2014/08/blog-post-3/" rel="alternate" type="text/html" title="Blog Post number 3" /><published>2014-08-14T00:00:00+00:00</published><updated>2014-08-14T00:00:00+00:00</updated><id>https://junle-chen.github.io/posts/2014/08/blog-post-3</id><content type="html" xml:base="https://junle-chen.github.io/posts/2014/08/blog-post-3/"><![CDATA[<p>A blog consists of a series of articles or posts. While the appearance of your blog can vary depending on the platform and design choices made by you as the blogger, here are some common elements you may find in a typical blog and include in your own, keeping in mind the importance of user experience design and web design:</p>
+
+<h1 id="headings-are-cool">Headings are cool</h1>
+
+<h1 id="you-can-have-many-headings">You can have many headings</h1>
+
+<h2 id="arent-headings-cool">Aren’t headings cool?</h2>]]></content><author><name>Junle Chen(陈俊乐)</name><email>chenjunle.cs@gmail.com</email><uri>https://junle.cc/</uri></author><category term="cool" /><category term="posts" /><category term="category1" /><category term="category2" /><summary type="html"><![CDATA[A blog consists of a series of articles or posts. While the appearance of your blog can vary depending on the platform and design choices made by you as the blogger, here are some common elements you may find in a typical blog and include in your own, keeping in mind the importance of user experience design and web design:]]></summary></entry><entry><title type="html">Blog Post number 2</title><link href="https://junle-chen.github.io/posts/2013/08/blog-post-2/" rel="alternate" type="text/html" title="Blog Post number 2" /><published>2013-08-14T00:00:00+00:00</published><updated>2013-08-14T00:00:00+00:00</updated><id>https://junle-chen.github.io/posts/2013/08/blog-post-2</id><content type="html" xml:base="https://junle-chen.github.io/posts/2013/08/blog-post-2/"><![CDATA[<p>This is a sample blog post. Lorem ipsum I can’t remember the rest of lorem ipsum and don’t have an internet connection right now. Testing testing testing this blog post. Blog posts are cool.</p>
+
+<h1 id="headings-are-cool">Headings are cool</h1>
+
+<h1 id="you-can-have-many-headings">You can have many headings</h1>
+
+<h2 id="arent-headings-cool">Aren’t headings cool?</h2>]]></content><author><name>Junle Chen(陈俊乐)</name><email>chenjunle.cs@gmail.com</email><uri>https://junle.cc/</uri></author><category term="cool posts" /><category term="category1" /><category term="category2" /><summary type="html"><![CDATA[This is a sample blog post. Lorem ipsum I can’t remember the rest of lorem ipsum and don’t have an internet connection right now. Testing testing testing this blog post. Blog posts are cool.]]></summary></entry><entry><title type="html">Blog Post number 1</title><link href="https://junle-chen.github.io/posts/2012/08/blog-post-1/" rel="alternate" type="text/html" title="Blog Post number 1" /><published>2012-08-14T00:00:00+00:00</published><updated>2012-08-14T00:00:00+00:00</updated><id>https://junle-chen.github.io/posts/2012/08/blog-post-1</id><content type="html" xml:base="https://junle-chen.github.io/posts/2012/08/blog-post-1/"><![CDATA[<h1 id="headings-are-cool">Headings are cool</h1>
+
+<h2 id="what-does-a-blog-look-like">What does a blog look like?</h2>
+
+<p>##</p>
+
+<p>A blog consists of a series of articles or posts. While the appearance of your blog can vary depending on the platform and design choices made by you as the blogger, here are some common elements you may find in a typical blog and include in your own, keeping in mind the importance of user experience design and web design:</p>
+
+<p>###</p>
+
+<h3 id="header">Header</h3>
+
+<p>The top section of a blog often contains your blog’s title or logo, along with a navigation menu that helps visitors explore different sections or categories of your blog. You might decide to categorize blogs from the same topic together, for repeat readers who are looking specifically from posts from that area of interest.</p>
+
+<p>###</p>
+
+<h3 id="content-body">Content body</h3>
+
+<p>###</p>
+
+<p>This is where the content of your blog posts is displayed. Each post usually includes a title, author name, date of publication, and the main content of the post, which can include text, images, videos, or other multimedia.</p>
+
+<p>###</p>
+
+<h3 id="sidebar">Sidebar</h3>
+
+<p>A blog may have a sidebar on one or both sides of the main content area. The sidebar often contains additional information or features such as a search bar, recent posts, popular posts, categories, tags, social media links, an about section, and advertisements. You can this part of your blog to help establish your blogs navigation, and site hierarchy to users and search engines.</p>
+
+<p>###</p>
+
+<h3 id="comments">Comments</h3>
+
+<p>Many blogs allow readers to leave comments on their posts. The comments section typically appears below the main content of each post and may include the ability for readers to reply to comments or upvote them. Before enabling comments on your blog, make sure you have the time and resources to manage comments effectively. You’ll need to monitor them for spammy messages which should be deleted, or for messages from genuine readers who you’ll need to connect with.</p>
+
+<h3 id="footer">Footer</h3>
+
+<p>The bottom section of your blog usually contains copyright information, links to your privacy policy and terms of service, additional navigation links, and sometimes widgets like a subscription form, social media icons <a href="https://www.wix.com/encyclopedia/definition/social-share-button">(social share buttons)</a>, or related posts.</p>
+
+<p>Blog designs can vary greatly depending on the theme, customization options, and personal preferences that you chose. These elements provide a general overview of what a blog looks like, but blogs may have unique layouts or additional features based on your chosen platform and your design choices.</p>
+
+<p>Generally to create and manage a blog, you’ll need a blog platform or <a href="https://www.wix.com/encyclopedia/definition/content-management-system-cms">CMS</a>. Within this you’ll also need a domain name and web hosting service like <a href="https://www.wix.com/free/web-hosting">Wix hosting</a>.</p>
+
+<h2 id="types-of-blogs">Types of blogs</h2>
+
+<p>Different <a href="https://www.wix.com/blog/types-of-blogs">types of blogs</a> cover varying topics, from food and fashion to marketing. Blogs are composed of individual posts on more specific subjects within the blog’s field of expertise. To get started with blogs on social media, <a href="https://www.wix.com/blog/microblogging">check out microblogging</a>. These posts often serve as a platform for discussions, as many blogs have active comments sections. You can think of a blog almost as a newspaper that adds articles and continually maintains the archive.</p>
+
+<p>Whether you’ve seen stand-alone blogs or blogs as website sections, you’ve probably encountered <a href="https://www.wix.com/blog/blog-examples">blog examples</a> all over the internet. Some of the most popular types of blogs in the <a href="https://www.wix.com/encyclopedia/definition/blogosphere">blogosphere</a> include:</p>
+
+<h1 id="you-can-have-many-headings">You can have many headings</h1>
+
+<h2 id="arent-headings-cool">Aren’t headings cool?</h2>]]></content><author><name>Junle Chen(陈俊乐)</name><email>chenjunle.cs@gmail.com</email><uri>https://junle.cc/</uri></author><category term="cool posts" /><category term="category1" /><category term="category2" /><summary type="html"><![CDATA[Headings are cool]]></summary></entry></feed>
