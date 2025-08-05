@@ -31,7 +31,7 @@ Research Interest
 
 Publications 📑
 ---------------
-- **Adaptive Indexing for Coverage Queries over Transition Trajectories**<br> *Jian Chen, **Junle Chen**†, Lina Chen, Donghua Yang, Guangyu Sui, Jinbao Wang* <br> _World Wide Web_
+- **Adaptive Indexing for Coverage Queries over Transition Trajectories**<br> *Jian Chen†, **Junle Chen**†, Lina Chen, Donghua Yang, Guangyu Sui, Jinbao Wang* <br> _World Wide Web_
 
 - **Maximizing Influence Query over Indoor Trajectories**<br>*Jian Chen, Hong Gao, Yuhong Shi, **Junle Chen**, Donghua Yang, Jianzhong Li*<br>_IEEE Transactions on Knowledge and Data Engineering (TKDE)_
 
