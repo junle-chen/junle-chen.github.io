@@ -1,6 +1,5 @@
 #!/bin/bash
 # 部署脚本，适用于本地 Jekyll ➜ GitHub Pages（gh-pages 分支）
-# Author: Junle Chen / ChatGPT
 # ----------------------------------------
 
 set -e  # 任一命令出错即退出
