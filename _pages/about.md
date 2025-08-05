@@ -31,14 +31,16 @@ Research Interest
 
 Publications 📑
 ---------------
-- **Adaptive Indexing for Coverage Queries over Transition Trajectories**<br> *Jian Chen, **Junle Chen†**, Lina Chen, Donghua Yang, Guangyu Sui, Jinbao Wang* <br> _World Wide Web_
+- **Adaptive Indexing for Coverage Queries over Transition Trajectories**<br> *Jian Chen, **Junle Chen**†, Lina Chen, Donghua Yang, Guangyu Sui, Jinbao Wang* <br> _World Wide Web_
 
 - **Maximizing Influence Query over Indoor Trajectories**<br>*Jian Chen, Hong Gao, Yuhong Shi, **Junle Chen**, Donghua Yang, Jianzhong Li*<br>_IEEE Transactions on Knowledge and Data Engineering (TKDE)_
+
 - **Efficient Coverage Query over Transition Trajectories**<br> *Jian Chen, **Junle Chen**, Hong Gao, Donghua Yang, and Kaiqi Zhang*<br>_The 8th APWeb-WAIM Joint International Conference on Web and Big Data, 2024_
 
-† Co-first author
+_† Co-first author_
+
 Awards🏆
---------
+---------------
 
 - **National Scholarship** (2022-2023)
 - **First-Class People's Scholarship** (awarded each semester)
