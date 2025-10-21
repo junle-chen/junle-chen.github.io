@@ -2,8 +2,8 @@
 
 **Academic Pages is a Github Pages template for academic websites.**
 
-- **Unfortunately, my account's github action is disabled, so I create a new branch ``gh-pages``which uses the html directly.🥹**
-- **Now, I must ``sh deploy.sh`` to build the html firstly.**
+- **~~Unfortunately, my account's github action is disabled, so I create a new branch ``gh-pages``which uses the html directly.🥹~~**
+- **~~Now, I must ``sh deploy.sh`` to build the html firstly.~~**
 
 # Getting Started
 
