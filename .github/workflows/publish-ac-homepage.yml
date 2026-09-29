@@ -61,7 +61,7 @@ jobs:
         if: steps.source.outputs.changed == 'true'
         working-directory: source
         run: |
-          npm ci
+          npm install --no-package-lock --no-audit --no-fund
           npm run build
       - name: Validate the root domain and record the source revision
         if: steps.source.outputs.changed == 'true'
