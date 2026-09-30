@@ -1,7 +1,7 @@
 {
-  "updated_at": "2026-09-02T01:32:16.711Z",
+  "updated_at": "2026-09-30T03:52:16.025Z",
   "source": "arxiv",
-  "analysis_method": "Codex CLI paper reading from arXiv PDF text when extractable; fallback entries are marked as abstract.",
+  "analysis_method": "Codex full-text review of selected arXiv PDFs; strict topical filtering.",
   "query_focus": "多轮交互式 agent planning、long-horizon planning、stateful/personalized planning、agent memory、planning reliability、agentic RL",
   "query_terms": [
     "agentic reinforcement learning",
@@ -37,39 +37,31 @@
     "codex_reader": "Downloads arXiv PDFs, extracts text with pdftotext or bundled Python PDF libraries, then calls codex exec to write Chinese motivation/method/experiment/research-help fields."
   },
   "digest": {
-    "title": "2026-09-02 Daily Paper",
-    "report_date": "2026-09-02",
+    "title": "2026-09-30 Daily Paper",
+    "report_date": "2026-09-30",
     "focus": "多轮交互式 agent planning、long-horizon planning、stateful/personalized planning、agent memory、planning reliability、agentic RL",
-    "summary": "今日保留 10 篇高相关新论文，重点是长时程 agent 的多模态上下文管理、阶段化记忆风险、长链提示注入、跨 episode 记忆失效、纵向临床推理、长程经营评测、agentic RL rollout 系统瓶颈、工具使用 RL，以及深度研究 agent 的失败预测。剔除了教育内容生成、通信/RAN、纯推理加速、联邦 RL 理论和铁路 CV 数据增强等弱相关候选，并避免重复计入已在 2026-09-01 发布的 AgenticRag-R1。",
+    "summary": "今日精读并保留 4 篇高相关论文，重点是长时程代理能否忠实执行计划、模型与 harness 的验证门控协同训练、多轮智能体蒸馏的行动/推理解耦，以及通过普通文件操作学习长期记忆。仅凭关键词命中的电力系统、多智能体控制等弱相关候选已剔除。",
     "top_recommendations": [
-      "2608.29897v2",
-      "2608.30177v1",
-      "2608.30441v1"
+      "2609.38108v1",
+      "2609.37105v1",
+      "2609.36608v1"
     ],
-    "low_priority": [
-      "2609.00749v1"
-    ],
+    "low_priority": [],
     "no_news_policy": "如果没有新的高相关论文，自动化应返回“今日无高相关新增论文”，不写邮件正文文件，也不发送邮件。",
-    "email_body": "2026-09-02 Daily Paper\n\n今日保留 10 篇高相关新论文，重点是长时程 agent 的多模态上下文管理、阶段化记忆风险、长链提示注入、跨 episode 记忆失效、纵向临床推理、长程经营评测、agentic RL rollout 系统瓶颈、工具使用 RL，以及深度研究 agent 的失败预测。剔除了教育内容生成、通信/RAN、纯推理加速、联邦 RL 理论和铁路 CV 数据增强等弱相关候选，并避免重复计入已在 2026-09-01 发布的 AgenticRag-R1。\n\n最值得读的论文\n1. When History Is Multimodal: Rethinking Context Management for Long-Horizon Agents\n- 这篇论文重新审视长时程智能体的上下文管理，提出无需训练的 VERA，把旧轨迹渲染为视觉记忆，并保留图像、裁剪、表格和图表等原生证据。实验表明其主要价值不只是把文字压成像素，而是在显著降低 token 消耗的同时避免多模态结构在文本化过程中丢失。\n\n2. Understanding Stage-Wise Utility-Risk Trade-offs in LLM Agent Memory\n- MEMGAUGE 将智能体记忆拆成写入、管理和检索三个阶段，揭示三者具有不同的效用—投毒风险响应：写入存在风险阈值，管理有机会降低风险而少损效用，检索则往往让效用与风险一起上升。论文与长期记忆和 long-horizon reliability 高度相关，但部分结论受到人工控制设定影响，更适合视为诊断框架而非已经验证的通用防御方案。\n\n3. ECLIPSE: Self-Evolving Stealthy Prompt Injection Attack against Long-Horizon Agentic Systems\n- ECLIPSE把自然化用户提示、被操纵的工具描述和运行时纠偏组合起来，使恶意目标能在长工具调用链中持续控制智能体。实验显示这种轨迹级攻击明显强于多种基线，也暴露了只检查单条提示或单次工具输出的防御盲区。\n\n本次保留论文\n- 2608.29897v2 When History Is Multimodal: Rethinking Context Management for Long-Horizon Agents\n- 2608.30177v1 Understanding Stage-Wise Utility-Risk Trade-offs in LLM Agent Memory\n- 2608.30441v1 ECLIPSE: Self-Evolving Stealthy Prompt Injection Attack against Long-Horizon Agentic Systems\n- 2608.30730v1 E-Commerce Bench: Evaluating LLM Agents on Long-Horizon Autonomous Business Operation\n- 2609.00243v1 Invalidation Contracts for Cross-Episode Agent Memory\n- 2609.01111v1 ClinTraceBench: Source-Verifiable Longitudinal Clinical Reasoning over EHR-Derived Dialogues\n- 2609.00993v1 AInfer-PD: Communication-Safe In-Place Prefill-Decode Multiplexing for Distributed MoE Rollouts\n- 2608.30952v1 One Policy Is Enough: Single-Agent Reinforcement Learning Outperforms Tree Search for Chemistry Tool Learning\n- 2608.29685v1 Last Step Matters: Early Uncertainty Cannot Predict Failure in Long-Horizon Agents\n- 2609.00749v1 ContextPipe: Database-Inspired Context Assembly for Long-Horizon Agents\n\n本次剔除 / 不重复计入\n- 2608.30968v1 CogEvol: Towards Efficient and Reliable Learning Environment Generation：教育内容生成与执行奖励案例，环境交互启发存在，但不是强 agent planning / memory / agentic RL 论文。\n- 2608.30206v1 Agentic Quantum Deep Reinforcement Learning for RAN Slicing：RAN slicing 领域量子/规则控制工作，agentic 表述较包装化，水文风险高。\n- 2608.30252v1 Strong Drafts Need Compact Memories: Long-Context Speculative Decoding with Compressed KV Cache：长上下文推测解码基础设施，对多轮 agent 成本有间接价值，但非规划或可靠性核心。\n- 2609.00193v1 Provably Efficient Federated Reinforcement Learning with Linear Function Approximation and Logarithmic Communication Cost：联邦 RL 线性理论工作扎实，但与 LLM agent planning 和环境交互关系间接。\n- 2608.30709v1 RailSyn: Diagnosis-Guided Image Generation for Traceable Data Completion in Railway Foreign Object Detection：铁路 CV 数据增强，Agent 只是单步放置规划，方向相关性低。\n- 2608.29622v1 AgenticRag-R1: Agentic Reinforcement Learning with Stack Memory for Multi-Step Reasoning, Retrieval and Memorizing：已在 2026-09-01 发布，今天不重复改日期或计入 latest。"
+    "email_body": "2026-09-30 Daily Paper\n\n今日保留 4 篇经过 arXiv PDF 正文核对的高相关论文。\n\n1. Do LLM Agents Execute the Plans They Declare? From Planning-Mode Declaration to Pattern-Specific Execution\nhttps://arxiv.org/abs/2609.38108\n这篇论文把智能体规划失败拆成“选错计划模式”和“没有按计划执行”两类。它用确定性路由器连接四种专用执行器，发现通用 Plan+ReAct 在长计划中常偏离原结构，但计划模式的自动选择仍未解决。\n\n2. VACE: Validation-Gated Alternating Co-Evolution of Agent Models and Harnesses\nhttps://arxiv.org/abs/2609.37105\nVACE 把模型 RL 更新和 harness 改写放进同一个循环，但每次系统改动都要在固定模型检查点上通过验证。两项任务的结果优于权重单独训练和无门控交替，44 次改写中有 17 次被识别为退步。\n\n3. Act First, Reason Later: Accelerating On-Policy Distillation for Multi-Turn Agents via Reference-Conditioned Inverse Dynamics\nhttps://arxiv.org/abs/2609.36608\nActFirst-OPD 把“行动”从长推理生成中拆出来：先借参考转移快速推进环境，再异步生成完整回复做教师蒸馏。三类多轮任务上训练加速且多数设置保持成功率，但公开的墙钟时间不包含参考与教师准备。\n\n4. Coding Agent Memory Post-training: Unlocking the Memory Potential of Pre-trained File Operations for Long-Horizon Tasks via Reinforcement Learning\nhttps://arxiv.org/abs/2609.34422\nCAMG-RL 让长时程代理把普通文件操作当作可学习的记忆动作，而不是依赖专用记忆 API。四类任务中的平均成功率优于已比较的记忆方法，但目前只验证了单 episode、单用户的记忆。"
   },
   "latest_item_ids": [
-    "2608.29897v2",
-    "2608.30177v1",
-    "2608.30441v1",
-    "2608.30730v1",
-    "2609.00243v1",
-    "2609.01111v1",
-    "2609.00993v1",
-    "2608.30952v1",
-    "2608.29685v1",
-    "2609.00749v1"
+    "2609.38108v1",
+    "2609.37105v1",
+    "2609.36608v1",
+    "2609.34422v1"
   ],
   "archive": {
     "policy": "append_or_update_by_arxiv_id",
-    "fresh_items": 10,
-    "total_items": 435,
-    "previous_items": 425,
-    "latest_items": 10,
+    "fresh_items": 4,
+    "total_items": 439,
+    "previous_items": 435,
+    "latest_items": 4,
     "source_report_dates": {
       "2026-08-28": 8,
       "2026-08-27": 10,
@@ -110,21 +102,16 @@
       "2026-08-29": 1,
       "2026-08-31": 7,
       "2026-09-01": 4,
-      "2026-09-02": 10
+      "2026-09-02": 10,
+      "2026-09-30": 4
     },
     "filtered_candidate_ids": [
-      "2608.29897v2",
-      "2608.30177v1",
-      "2608.30441v1",
-      "2608.30730v1",
-      "2609.00243v1",
-      "2609.01111v1",
-      "2609.00993v1",
-      "2608.30952v1",
-      "2608.29685v1",
-      "2609.00749v1"
+      "2609.38108v1",
+      "2609.37105v1",
+      "2609.36608v1",
+      "2609.34422v1"
     ],
-    "filtered_today": 10,
+    "filtered_today": 4,
     "backfilled_report_dates": {
       "2026-07-17": 3,
       "2026-07-24": 1,
@@ -133,6 +120,496 @@
     }
   },
   "items": [
+    {
+      "id": "2609.38108v1",
+      "title": "Do LLM Agents Execute the Plans They Declare? From Planning-Mode Declaration to Pattern-Specific Execution",
+      "summary": "Large language models (LLMs) enable agents to solve long-horizon tasks by generating a plan and then executing it in an environment. However, successful planning requires two distinct capabilities: selecting an appropriate plan for the task and executing it faithfully. Existing planner--executor systems can fail at either stage, while final task success alone cannot distinguish selection from execution failures. We therefore study the Plan Declaration--Execution Gap and introduce Planning-as-Routing, where an LLM declares one of four planning modes: Predefined, Sequential, Hierarchical, or Search, and a deterministic router dispatches the task to the corresponding pattern-specific executor. Across four benchmarks and three LLMs, we find three consistent patterns. First, generic Plan+ReAct often fails to preserve declared planning structure, especially for longer plans: across three benchmarks, only (22)--(45%) of trajectories preserve it, whereas pattern-specific executors enforce the intended structure. Second, planning-mode effectiveness varies across environments and models: Search performs best on ALFWorld, Hierarchical on SWE-bench, and the strongest pattern can vary across models within the same benchmark. Third, the largest gains come from execution: pattern-specific executors improve task success from (0.48) to (0.92) on ALFWorld and from (0.36) to (0.44) on SWE-bench Verified over Plan+ReAct. Current LLMs, however, do not reliably select the strongest mode for each task, although few-shot examples improve selection in some benchmark--model combinations. Overall, reliable agent planning requires both effective mode selection and faithful execution: routing substantially closes the execution gap, while task-specific mode selection remains open.",
+      "url": "https://arxiv.org/abs/2609.38108",
+      "authors": [
+        "Subba Reddy Oota",
+        "Francisco Herrera",
+        "Jordi Cabot Sagrera",
+        "Marcos López de Prado",
+        "Shadab Khan"
+      ],
+      "report_date": "2026-09-30",
+      "published": "2026-09-29",
+      "updated": "2026-09-29",
+      "primary_category": "cs.AI",
+      "categories": [
+        "cs.AI",
+        "cs.LG"
+      ],
+      "project_url": "https://subbareddy248.github.io/projects/declaration-gap-site/",
+      "repo_url": "",
+      "venue_status": "未确认录用",
+      "recommendation": {
+        "score": 96,
+        "level": "高",
+        "label": "值得精读",
+        "water_risk": "中",
+        "value_judgement": "论文研究长时程智能体是否真的执行自己声明的计划，而非只看任务最后是否成功。作者让模型声明预定义、顺序、分层或搜索模式，再由对应执行器落实控制流，并与无计划及通用 Plan+ReAct 对照。在四个基准、三种模型上，通用执行器的结构保持率随计划变长而下降，专用执行器则改善 ALFWorld 与 SWE-bench Verified 的成功率。强制尝试各模式的分析提醒，部分上限收益也包含更多执行机会。最值得借鉴的是把计划选择、结构忠实度、行动正确性和额外成本分开评价，而不是把路由后成功率全部归功于模型规划能力。",
+        "reason": "论文研究长时程智能体是否真的执行自己声明的计划，而非只看任务最后是否成功。作者让模型声明预定义、顺序、分层或搜索模式，再由对应执行器落实控制流，并与无计划及通用 Plan+ReAct 对照。在四个基准、三种模型上，通用执行器的结构保持率随计划变长而下降，专用执行器则改善 ALFWorld 与 SWE-bench Verified 的成功率。强制尝试各模式的分析提醒，部分上限收益也包含更多执行机会。最值得借鉴的是把计划选择、结构忠实度、行动正确性和额外成本分开评价，而不是把路由后成功率全部归功于模型规划能力。",
+        "signals": {
+          "agenticRl": false,
+          "multiTurn": true,
+          "longHorizon": true,
+          "memory": false,
+          "reliability": true,
+          "codeOrTool": true,
+          "experiments": true,
+          "survey": false
+        }
+      },
+      "brief": {
+        "authors": [
+          "Subba Reddy Oota",
+          "Francisco Herrera",
+          "Jordi Cabot Sagrera",
+          "Marcos López de Prado",
+          "Shadab Khan"
+        ],
+        "affiliations": "ADIA Lab；University of Granada；Luxembourg Institute of Science and Technology；Cornell University；Lawrence Berkeley National Laboratory",
+        "date": "2026-09-29",
+        "paper_url": "https://arxiv.org/abs/2609.38108",
+        "project_url": "https://subbareddy248.github.io/projects/declaration-gap-site/",
+        "repo_url": "",
+        "venue_status": "未确认录用",
+        "contribution": "对 agent planning 的可迁移启发是把“选择何种计划结构”和“执行时是否保持该结构”作为两个独立诊断环节。给代理一段计划提示并不能保证长链执行会遵循它；执行控制流需要被系统约束，同时要单独计入搜索或重试带来的额外成本。",
+        "summary": "论文研究长时程智能体是否真的执行自己声明的计划，而非只看任务最后是否成功。作者让模型声明预定义、顺序、分层或搜索模式，再由对应执行器落实控制流，并与无计划及通用 Plan+ReAct 对照。在四个基准、三种模型上，通用执行器的结构保持率随计划变长而下降，专用执行器则改善 ALFWorld 与 SWE-bench Verified 的成功率。强制尝试各模式的分析提醒，部分上限收益也包含更多执行机会。最值得借鉴的是把计划选择、结构忠实度、行动正确性和额外成本分开评价，而不是把路由后成功率全部归功于模型规划能力。",
+        "highlights": [
+          "对 agent planning 的可迁移启发是把“选择何种计划结构”和“执行时是否保持该结构”作为两个独立诊断环节。给代理一段计划提示并不能保证长链执行会遵循它；执行控制流需要被系统约束，同时要单独计入搜索或重试带来的额外成本。",
+          "偏水风险：中",
+          "阅读来源：arXiv PDF 全文"
+        ],
+        "motivation": "长链任务中，智能体最终失败可能源自选错计划模式，也可能源自执行时偏离已声明的计划；只看最终成功率无法区分两者。论文把“计划选择”与“计划执行忠实度”拆开测量。",
+        "method": "作者比较无显式计划的 Flat ReAct、声明计划但交给通用 ReAct 执行的 Plan+ReAct，以及 Planning-as-Routing。最后一种方法让模型在预定义、顺序、分层、搜索四类模式中作声明，再由确定性路由器交给对应的专用执行器；规则验证器检查通用执行器是否按原顺序完成可评分步骤。",
+        "experiments": "在 ALFWorld、Mind2Web、SWE-bench Verified 和 WebArena 上使用三种骨干模型及三个随机种子。Plan+ReAct 在前三个基准的计划结构保持率仅约 22%–45%，且计划越长越容易偏离；专用执行器把 ALFWorld 成功率从 0.48 提至 0.92，把 SWE-bench Verified 从 0.36 提至 0.44。强制尝试多种模式的上限分析还表明，不少收益来自额外执行尝试，不能误读为模型已学会可靠选择最佳模式。",
+        "research_help": "对 agent planning 的可迁移启发是把“选择何种计划结构”和“执行时是否保持该结构”作为两个独立诊断环节。给代理一段计划提示并不能保证长链执行会遵循它；执行控制流需要被系统约束，同时要单独计入搜索或重试带来的额外成本。",
+        "recommendation": {
+          "score": 96,
+          "level": "高",
+          "label": "值得精读",
+          "water_risk": "中",
+          "value_judgement": "论文研究长时程智能体是否真的执行自己声明的计划，而非只看任务最后是否成功。作者让模型声明预定义、顺序、分层或搜索模式，再由对应执行器落实控制流，并与无计划及通用 Plan+ReAct 对照。在四个基准、三种模型上，通用执行器的结构保持率随计划变长而下降，专用执行器则改善 ALFWorld 与 SWE-bench Verified 的成功率。强制尝试各模式的分析提醒，部分上限收益也包含更多执行机会。最值得借鉴的是把计划选择、结构忠实度、行动正确性和额外成本分开评价，而不是把路由后成功率全部归功于模型规划能力。",
+          "reason": "论文研究长时程智能体是否真的执行自己声明的计划，而非只看任务最后是否成功。作者让模型声明预定义、顺序、分层或搜索模式，再由对应执行器落实控制流，并与无计划及通用 Plan+ReAct 对照。在四个基准、三种模型上，通用执行器的结构保持率随计划变长而下降，专用执行器则改善 ALFWorld 与 SWE-bench Verified 的成功率。强制尝试各模式的分析提醒，部分上限收益也包含更多执行机会。最值得借鉴的是把计划选择、结构忠实度、行动正确性和额外成本分开评价，而不是把路由后成功率全部归功于模型规划能力。",
+          "signals": {
+            "agenticRl": false,
+            "multiTurn": true,
+            "longHorizon": true,
+            "memory": false,
+            "reliability": true,
+            "codeOrTool": true,
+            "experiments": true,
+            "survey": false
+          }
+        },
+        "insight": "对 agent planning 的可迁移启发是把“选择何种计划结构”和“执行时是否保持该结构”作为两个独立诊断环节。给代理一段计划提示并不能保证长链执行会遵循它；执行控制流需要被系统约束，同时要单独计入搜索或重试带来的额外成本。",
+        "abstract_zh": "长时程任务中，模型即使写出计划，也可能在执行时偏离，或者一开始就选错计划方式。论文提出将计划选择与执行忠实度分开评估，并让模型声明四类计划模式之一，再交由相应的专用执行器实施。四个基准、三种模型的实验发现，通用 Plan+ReAct 对较长计划的结构保持率较低，而专用执行器改善了部分任务成功率。作者同时发现，当前模型并不能稳定选出最适合任务的模式。",
+        "full_summary": "论文研究长时程智能体是否真的执行自己声明的计划，而非只看任务最后是否成功。作者让模型声明预定义、顺序、分层或搜索模式，再由对应执行器落实控制流，并与无计划及通用 Plan+ReAct 对照。在四个基准、三种模型上，通用执行器的结构保持率随计划变长而下降，专用执行器则改善 ALFWorld 与 SWE-bench Verified 的成功率。强制尝试各模式的分析提醒，部分上限收益也包含更多执行机会。最值得借鉴的是把计划选择、结构忠实度、行动正确性和额外成本分开评价，而不是把路由后成功率全部归功于模型规划能力。",
+        "card_summary": "这篇论文把智能体规划失败拆成“选错计划模式”和“没有按计划执行”两类。它用确定性路由器连接四种专用执行器，发现通用 Plan+ReAct 在长计划中常偏离原结构，但计划模式的自动选择仍未解决。"
+      },
+      "analysis": {
+        "motivation": "长链任务中，智能体最终失败可能源自选错计划模式，也可能源自执行时偏离已声明的计划；只看最终成功率无法区分两者。论文把“计划选择”与“计划执行忠实度”拆开测量。",
+        "method": "作者比较无显式计划的 Flat ReAct、声明计划但交给通用 ReAct 执行的 Plan+ReAct，以及 Planning-as-Routing。最后一种方法让模型在预定义、顺序、分层、搜索四类模式中作声明，再由确定性路由器交给对应的专用执行器；规则验证器检查通用执行器是否按原顺序完成可评分步骤。",
+        "experiments": "在 ALFWorld、Mind2Web、SWE-bench Verified 和 WebArena 上使用三种骨干模型及三个随机种子。Plan+ReAct 在前三个基准的计划结构保持率仅约 22%–45%，且计划越长越容易偏离；专用执行器把 ALFWorld 成功率从 0.48 提至 0.92，把 SWE-bench Verified 从 0.36 提至 0.44。强制尝试多种模式的上限分析还表明，不少收益来自额外执行尝试，不能误读为模型已学会可靠选择最佳模式。",
+        "research_help": "对 agent planning 的可迁移启发是把“选择何种计划结构”和“执行时是否保持该结构”作为两个独立诊断环节。给代理一段计划提示并不能保证长链执行会遵循它；执行控制流需要被系统约束，同时要单独计入搜索或重试带来的额外成本。",
+        "insight": "对 agent planning 的可迁移启发是把“选择何种计划结构”和“执行时是否保持该结构”作为两个独立诊断环节。给代理一段计划提示并不能保证长链执行会遵循它；执行控制流需要被系统约束，同时要单独计入搜索或重试带来的额外成本。",
+        "abstract_zh": "长时程任务中，模型即使写出计划，也可能在执行时偏离，或者一开始就选错计划方式。论文提出将计划选择与执行忠实度分开评估，并让模型声明四类计划模式之一，再交由相应的专用执行器实施。四个基准、三种模型的实验发现，通用 Plan+ReAct 对较长计划的结构保持率较低，而专用执行器改善了部分任务成功率。作者同时发现，当前模型并不能稳定选出最适合任务的模式。",
+        "card_summary": "这篇论文把智能体规划失败拆成“选错计划模式”和“没有按计划执行”两类。它用确定性路由器连接四种专用执行器，发现通用 Plan+ReAct 在长计划中常偏离原结构，但计划模式的自动选择仍未解决。",
+        "full_summary": "论文研究长时程智能体是否真的执行自己声明的计划，而非只看任务最后是否成功。作者让模型声明预定义、顺序、分层或搜索模式，再由对应执行器落实控制流，并与无计划及通用 Plan+ReAct 对照。在四个基准、三种模型上，通用执行器的结构保持率随计划变长而下降，专用执行器则改善 ALFWorld 与 SWE-bench Verified 的成功率。强制尝试各模式的分析提醒，部分上限收益也包含更多执行机会。最值得借鉴的是把计划选择、结构忠实度、行动正确性和额外成本分开评价，而不是把路由后成功率全部归功于模型规划能力。",
+        "recommendation_level": "高",
+        "water_risk": "中",
+        "value_label": "值得精读",
+        "value_reason": "论文研究长时程智能体是否真的执行自己声明的计划，而非只看任务最后是否成功。作者让模型声明预定义、顺序、分层或搜索模式，再由对应执行器落实控制流，并与无计划及通用 Plan+ReAct 对照。在四个基准、三种模型上，通用执行器的结构保持率随计划变长而下降，专用执行器则改善 ALFWorld 与 SWE-bench Verified 的成功率。强制尝试各模式的分析提醒，部分上限收益也包含更多执行机会。最值得借鉴的是把计划选择、结构忠实度、行动正确性和额外成本分开评价，而不是把路由后成功率全部归功于模型规划能力。",
+        "limitations": "专用执行器按构造保证结构顺序，结构保持率的提升并非完全独立的能力增益；搜索模式还可能使用更多尝试。论文的计划模式只有四种，评估集中在四个既定基准与三种模型，任务级模式选择仍不稳定，不能据此声称已有通用的计划路由器。",
+        "source_scope": "full_text",
+        "source_note": "Reviewed the arXiv PDF full text and checked arXiv bibliographic metadata.",
+        "source_evidence": [
+          "arXiv PDF §3.2 将 Flat ReAct、Plan+ReAct 与 Planning-as-Routing 置于相同骨干模型和行动空间下对照。",
+          "表 1 按基准和计划长度报告通用 Plan+ReAct 的结构保持率，较长计划明显下降。",
+          "结果部分报告 ALFWorld 0.48→0.92、SWE-bench Verified 0.36→0.44 的成功率变化，并讨论强制尝试模式的额外执行预算。"
+        ],
+        "model": "Codex full-text review",
+        "updated_at": "2026-09-30T03:52:16.025Z"
+      }
+    },
+    {
+      "id": "2609.37105v1",
+      "title": "VACE: Validation-Gated Alternating Co-Evolution of Agent Models and Harnesses",
+      "summary": "Language model agents can be improved by updating their model weights or refining the harness that guides task execution. These components are coupled: weight updates change how the model uses the harness, while harness updates change the trajectories used for training. We propose VACE, Validation-Gated Alternating CoEvolution, which alternates agentic reinforcement learning with trajectory-driven harness refinement. After each RL stage, VACE reuses the collected trajectories to propose a harness revision and evaluates the incumbent and candidate with the updated model held fixed. The candidate guides subsequent training only if it improves validation performance. With Qwen3.5-9B, VACE achieves 45.26% test accuracy on OfficeQA and a mean partial-credit score of 75.19% on AutomationBench, exceeding weight-only RL by 6.43 and 9.09 percentage points and ungated alternation by 4.59 and 6.95 points, respectively. Across 44 harness proposals, 17 reduce validation performance at the updated checkpoint and are rejected before subsequent RL training, highlighting the importance of validation gating.",
+      "url": "https://arxiv.org/abs/2609.37105",
+      "authors": [
+        "Jiexing Qi",
+        "Yu He",
+        "Jun Liu",
+        "Qichen Huang",
+        "Shaohua Hu",
+        "Zhan Dang",
+        "Guohua Chen",
+        "Rui Yang",
+        "Wen Jiang",
+        "Yang Liu",
+        "Tao Lyu",
+        "Fangming Li"
+      ],
+      "report_date": "2026-09-30",
+      "published": "2026-09-29",
+      "updated": "2026-09-29",
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "cs.CL"
+      ],
+      "project_url": "",
+      "repo_url": "",
+      "venue_status": "未确认录用",
+      "recommendation": {
+        "score": 94,
+        "level": "高",
+        "label": "值得精读",
+        "water_risk": "中",
+        "value_judgement": "这篇论文关注模型权重和智能体执行框架如何协同更新。每轮先进行 agentic RL，再从执行轨迹提出技能或指引的改写，并用同一个新模型在验证集上比较新旧 harness。Qwen3.5-9B 在 OfficeQA 与 AutomationBench 的测试分数分别达到 45.26% 和 75.19%，较仅更新权重的方案提高 6.43 和 9.09 个百分点。44 次候选改写中 17 次令验证分数下降，说明不应把“模型训练后的新提示”默认视为进步。方法的价值在于显式回归门控；证据目前仍局限于一个模型和两个任务集，且反复使用验证集可能产生选择偏差。",
+        "reason": "这篇论文关注模型权重和智能体执行框架如何协同更新。每轮先进行 agentic RL，再从执行轨迹提出技能或指引的改写，并用同一个新模型在验证集上比较新旧 harness。Qwen3.5-9B 在 OfficeQA 与 AutomationBench 的测试分数分别达到 45.26% 和 75.19%，较仅更新权重的方案提高 6.43 和 9.09 个百分点。44 次候选改写中 17 次令验证分数下降，说明不应把“模型训练后的新提示”默认视为进步。方法的价值在于显式回归门控；证据目前仍局限于一个模型和两个任务集，且反复使用验证集可能产生选择偏差。",
+        "signals": {
+          "agenticRl": true,
+          "multiTurn": true,
+          "longHorizon": true,
+          "memory": false,
+          "reliability": true,
+          "codeOrTool": true,
+          "experiments": true,
+          "survey": false
+        }
+      },
+      "brief": {
+        "authors": [
+          "Jiexing Qi",
+          "Yu He",
+          "Jun Liu",
+          "Qichen Huang",
+          "Shaohua Hu",
+          "Zhan Dang",
+          "Guohua Chen",
+          "Rui Yang",
+          "Wen Jiang",
+          "Yang Liu",
+          "Tao Lyu",
+          "Fangming Li"
+        ],
+        "affiliations": "Huawei Technologies ICT AI Competence Center；Shanghai Jiao Tong University",
+        "date": "2026-09-29",
+        "paper_url": "https://arxiv.org/abs/2609.37105",
+        "project_url": "",
+        "repo_url": "",
+        "venue_status": "未确认录用",
+        "contribution": "对 agentic RL 与长期代理维护，重要的不是“模型与提示都迭代”这句口号，而是用固定模型检查点和独立验证任务判断每次 harness 修改是否真的有益。轨迹可同时用来训练权重和提出系统改动，但改动必须经过回归门控。",
+        "summary": "这篇论文关注模型权重和智能体执行框架如何协同更新。每轮先进行 agentic RL，再从执行轨迹提出技能或指引的改写，并用同一个新模型在验证集上比较新旧 harness。Qwen3.5-9B 在 OfficeQA 与 AutomationBench 的测试分数分别达到 45.26% 和 75.19%，较仅更新权重的方案提高 6.43 和 9.09 个百分点。44 次候选改写中 17 次令验证分数下降，说明不应把“模型训练后的新提示”默认视为进步。方法的价值在于显式回归门控；证据目前仍局限于一个模型和两个任务集，且反复使用验证集可能产生选择偏差。",
+        "highlights": [
+          "对 agentic RL 与长期代理维护，重要的不是“模型与提示都迭代”这句口号，而是用固定模型检查点和独立验证任务判断每次 harness 修改是否真的有益。轨迹可同时用来训练权重和提出系统改动，但改动必须经过回归门控。",
+          "偏水风险：中",
+          "阅读来源：arXiv PDF 全文"
+        ],
+        "motivation": "智能体模型权重与指导其用工具、技能和执行规则的 harness 相互影响；单独优化任何一方，或无条件接受 harness 改写，都可能让下一阶段训练变差。",
+        "method": "VACE 每轮先固定当前 harness 做 agentic RL，再根据训练轨迹提出技能与执行指引的修改。它用同一个更新后的模型检查点，在验证集上比较旧版与候选 harness；只有候选严格改善分数才进入下一轮，模型权重更新始终保留。",
+        "experiments": "作者在 Qwen3.5-9B 上评估 OfficeQA 与 AutomationBench，分别采用 84/53/109 和 80/58/71 的训练/验证/测试任务划分。VACE 测试分数为 45.26% 与 75.19%，较仅更新权重的基线高 6.43 与 9.09 个百分点，较不设门控的交替更新高 4.59 与 6.95 个百分点。44 次 harness 提案中有 17 次降低验证分数、2 次打平而被拒绝；同一训练结果重复评估三次，但只训练了一个选定模型。",
+        "research_help": "对 agentic RL 与长期代理维护，重要的不是“模型与提示都迭代”这句口号，而是用固定模型检查点和独立验证任务判断每次 harness 修改是否真的有益。轨迹可同时用来训练权重和提出系统改动，但改动必须经过回归门控。",
+        "recommendation": {
+          "score": 94,
+          "level": "高",
+          "label": "值得精读",
+          "water_risk": "中",
+          "value_judgement": "这篇论文关注模型权重和智能体执行框架如何协同更新。每轮先进行 agentic RL，再从执行轨迹提出技能或指引的改写，并用同一个新模型在验证集上比较新旧 harness。Qwen3.5-9B 在 OfficeQA 与 AutomationBench 的测试分数分别达到 45.26% 和 75.19%，较仅更新权重的方案提高 6.43 和 9.09 个百分点。44 次候选改写中 17 次令验证分数下降，说明不应把“模型训练后的新提示”默认视为进步。方法的价值在于显式回归门控；证据目前仍局限于一个模型和两个任务集，且反复使用验证集可能产生选择偏差。",
+          "reason": "这篇论文关注模型权重和智能体执行框架如何协同更新。每轮先进行 agentic RL，再从执行轨迹提出技能或指引的改写，并用同一个新模型在验证集上比较新旧 harness。Qwen3.5-9B 在 OfficeQA 与 AutomationBench 的测试分数分别达到 45.26% 和 75.19%，较仅更新权重的方案提高 6.43 和 9.09 个百分点。44 次候选改写中 17 次令验证分数下降，说明不应把“模型训练后的新提示”默认视为进步。方法的价值在于显式回归门控；证据目前仍局限于一个模型和两个任务集，且反复使用验证集可能产生选择偏差。",
+          "signals": {
+            "agenticRl": true,
+            "multiTurn": true,
+            "longHorizon": true,
+            "memory": false,
+            "reliability": true,
+            "codeOrTool": true,
+            "experiments": true,
+            "survey": false
+          }
+        },
+        "insight": "对 agentic RL 与长期代理维护，重要的不是“模型与提示都迭代”这句口号，而是用固定模型检查点和独立验证任务判断每次 harness 修改是否真的有益。轨迹可同时用来训练权重和提出系统改动，但改动必须经过回归门控。",
+        "abstract_zh": "模型权重和执行框架都会影响智能体表现，而两者的更新又相互耦合。VACE 先用当前框架训练模型，再从轨迹提出框架修改，并在固定的新模型检查点上比较候选与旧版；只有验证表现上升才接受修改。在 OfficeQA 和 AutomationBench 上，联合方案优于只训练权重及无门控的交替方案。44 次框架提案中有 17 次使验证表现下降，显示回归门控有实际必要。",
+        "full_summary": "这篇论文关注模型权重和智能体执行框架如何协同更新。每轮先进行 agentic RL，再从执行轨迹提出技能或指引的改写，并用同一个新模型在验证集上比较新旧 harness。Qwen3.5-9B 在 OfficeQA 与 AutomationBench 的测试分数分别达到 45.26% 和 75.19%，较仅更新权重的方案提高 6.43 和 9.09 个百分点。44 次候选改写中 17 次令验证分数下降，说明不应把“模型训练后的新提示”默认视为进步。方法的价值在于显式回归门控；证据目前仍局限于一个模型和两个任务集，且反复使用验证集可能产生选择偏差。",
+        "card_summary": "VACE 把模型 RL 更新和 harness 改写放进同一个循环，但每次系统改动都要在固定模型检查点上通过验证。两项任务的结果优于权重单独训练和无门控交替，44 次改写中有 17 次被识别为退步。"
+      },
+      "analysis": {
+        "motivation": "智能体模型权重与指导其用工具、技能和执行规则的 harness 相互影响；单独优化任何一方，或无条件接受 harness 改写，都可能让下一阶段训练变差。",
+        "method": "VACE 每轮先固定当前 harness 做 agentic RL，再根据训练轨迹提出技能与执行指引的修改。它用同一个更新后的模型检查点，在验证集上比较旧版与候选 harness；只有候选严格改善分数才进入下一轮，模型权重更新始终保留。",
+        "experiments": "作者在 Qwen3.5-9B 上评估 OfficeQA 与 AutomationBench，分别采用 84/53/109 和 80/58/71 的训练/验证/测试任务划分。VACE 测试分数为 45.26% 与 75.19%，较仅更新权重的基线高 6.43 与 9.09 个百分点，较不设门控的交替更新高 4.59 与 6.95 个百分点。44 次 harness 提案中有 17 次降低验证分数、2 次打平而被拒绝；同一训练结果重复评估三次，但只训练了一个选定模型。",
+        "research_help": "对 agentic RL 与长期代理维护，重要的不是“模型与提示都迭代”这句口号，而是用固定模型检查点和独立验证任务判断每次 harness 修改是否真的有益。轨迹可同时用来训练权重和提出系统改动，但改动必须经过回归门控。",
+        "insight": "对 agentic RL 与长期代理维护，重要的不是“模型与提示都迭代”这句口号，而是用固定模型检查点和独立验证任务判断每次 harness 修改是否真的有益。轨迹可同时用来训练权重和提出系统改动，但改动必须经过回归门控。",
+        "abstract_zh": "模型权重和执行框架都会影响智能体表现，而两者的更新又相互耦合。VACE 先用当前框架训练模型，再从轨迹提出框架修改，并在固定的新模型检查点上比较候选与旧版；只有验证表现上升才接受修改。在 OfficeQA 和 AutomationBench 上，联合方案优于只训练权重及无门控的交替方案。44 次框架提案中有 17 次使验证表现下降，显示回归门控有实际必要。",
+        "card_summary": "VACE 把模型 RL 更新和 harness 改写放进同一个循环，但每次系统改动都要在固定模型检查点上通过验证。两项任务的结果优于权重单独训练和无门控交替，44 次改写中有 17 次被识别为退步。",
+        "full_summary": "这篇论文关注模型权重和智能体执行框架如何协同更新。每轮先进行 agentic RL，再从执行轨迹提出技能或指引的改写，并用同一个新模型在验证集上比较新旧 harness。Qwen3.5-9B 在 OfficeQA 与 AutomationBench 的测试分数分别达到 45.26% 和 75.19%，较仅更新权重的方案提高 6.43 和 9.09 个百分点。44 次候选改写中 17 次令验证分数下降，说明不应把“模型训练后的新提示”默认视为进步。方法的价值在于显式回归门控；证据目前仍局限于一个模型和两个任务集，且反复使用验证集可能产生选择偏差。",
+        "recommendation_level": "高",
+        "water_risk": "中",
+        "value_label": "值得精读",
+        "value_reason": "这篇论文关注模型权重和智能体执行框架如何协同更新。每轮先进行 agentic RL，再从执行轨迹提出技能或指引的改写，并用同一个新模型在验证集上比较新旧 harness。Qwen3.5-9B 在 OfficeQA 与 AutomationBench 的测试分数分别达到 45.26% 和 75.19%，较仅更新权重的方案提高 6.43 和 9.09 个百分点。44 次候选改写中 17 次令验证分数下降，说明不应把“模型训练后的新提示”默认视为进步。方法的价值在于显式回归门控；证据目前仍局限于一个模型和两个任务集，且反复使用验证集可能产生选择偏差。",
+        "limitations": "仅覆盖一种 9B 模型和两个任务集，harness 修改限于技能与执行指导；固定交替日程和反复使用同一验证集可能带来自适应选择偏差。验证与 harness 优化也增加计算成本，因此不能直接外推到更大规模或完全不同工具生态。",
+        "source_scope": "full_text",
+        "source_note": "Reviewed the arXiv PDF full text and checked arXiv bibliographic metadata.",
+        "source_evidence": [
+          "arXiv PDF §3 与算法 1 明确先保留 RL 权重更新，再在固定检查点比较候选与旧 harness，平局保留旧版。",
+          "表 2 列出 OfficeQA 45.26%、AutomationBench 75.19%，以及 RL-only、WHALE-style 等对照。",
+          "表 3 与 §4.4 统计 44 次提案中的 25 次接受、17 次退步和 2 次平局；§5 讨论单模型、双任务及验证重用局限。"
+        ],
+        "model": "Codex full-text review",
+        "updated_at": "2026-09-30T03:52:16.025Z"
+      }
+    },
+    {
+      "id": "2609.36608v1",
+      "title": "Act First, Reason Later: Accelerating On-Policy Distillation for Multi-Turn Agents via Reference-Conditioned Inverse Dynamics",
+      "summary": "On-policy distillation (OPD) trains multi-turn language agents with dense teacher supervision on student-generated responses. However, standard think-then-act rollouts require lengthy reasoning before each short action, delaying environment transitions and experience collection. Generating actions directly reduces this delay but can degrade rollout quality. To address this, we propose ActFirst-OPD, an act-first, reason-later training framework that decouples environment interaction from full-response generation. The student infers and executes actions through reference-conditioned inverse dynamics using its current interaction context and a reference next observation, and switches to autonomous next-action prediction when the resulting transition deviates from the reference trajectory. From the collected interaction contexts, the student asynchronously generates full think-then-act responses for token-level teacher supervision. Experiments across 0.6B-, 1.7B-, and 4B-parameter Qwen3 students show that ActFirst-OPD achieves average wall-clock training speedups of $2.3\\times$ on ALFWorld, $1.8\\times$ on WebShop, and $4.9\\times$ on ScienceWorld over Vanilla OPD. It matches or exceeds all compared OPD baselines in mean task success rate across eight of nine benchmark-model settings. These results demonstrate that reasoning need not block acting during multi-turn agent distillation.",
+      "url": "https://arxiv.org/abs/2609.36608",
+      "authors": [
+        "Zubin Zheng",
+        "Jiahao Wu",
+        "Shaofeng Zhang",
+        "Zhirui Zhang",
+        "Yew-Soon Ong",
+        "Shengcai Liu"
+      ],
+      "report_date": "2026-09-30",
+      "published": "2026-09-29",
+      "updated": "2026-09-29",
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG",
+        "cs.CL"
+      ],
+      "project_url": "",
+      "repo_url": "",
+      "venue_status": "未确认录用",
+      "recommendation": {
+        "score": 93,
+        "level": "高",
+        "label": "值得精读",
+        "water_risk": "中",
+        "value_judgement": "论文指出，多轮 agent 的在线蒸馏把长推理放在每次短行动之前，导致轨迹采集慢。作者让模型参考下一观察先推断行动，遇到状态偏离时回退为自主预测，并异步生成完整的 think-then-act 回复用于 token 级监督。三个环境、三档学生模型的实验显示，相对普通 OPD，平均训练墙钟时间快约 1.8–4.9 倍，九种设置中的八种在平均成功率上相当或更好。去掉参考条件的消融说明单纯“直接行动”会损失轨迹质量。其启发是训练流水线可将环境推进与长推理并行，但端到端收益仍取决于参考数据、教师成本和服务并发。",
+        "reason": "论文指出，多轮 agent 的在线蒸馏把长推理放在每次短行动之前，导致轨迹采集慢。作者让模型参考下一观察先推断行动，遇到状态偏离时回退为自主预测，并异步生成完整的 think-then-act 回复用于 token 级监督。三个环境、三档学生模型的实验显示，相对普通 OPD，平均训练墙钟时间快约 1.8–4.9 倍，九种设置中的八种在平均成功率上相当或更好。去掉参考条件的消融说明单纯“直接行动”会损失轨迹质量。其启发是训练流水线可将环境推进与长推理并行，但端到端收益仍取决于参考数据、教师成本和服务并发。",
+        "signals": {
+          "agenticRl": true,
+          "multiTurn": true,
+          "longHorizon": true,
+          "memory": false,
+          "reliability": false,
+          "codeOrTool": true,
+          "experiments": true,
+          "survey": false
+        }
+      },
+      "brief": {
+        "authors": [
+          "Zubin Zheng",
+          "Jiahao Wu",
+          "Shaofeng Zhang",
+          "Zhirui Zhang",
+          "Yew-Soon Ong",
+          "Shengcai Liu"
+        ],
+        "affiliations": "Southern University of Science and Technology；Hong Kong Polytechnic University；Zhongguancun Academy；DeepCybo；Nanyang Technological University",
+        "date": "2026-09-29",
+        "paper_url": "https://arxiv.org/abs/2609.36608",
+        "project_url": "",
+        "repo_url": "",
+        "venue_status": "未确认录用",
+        "contribution": "多轮代理训练不必让每一次环境行动都等待完整推理文本完成：可以先用有校验的短行动快速交互，再异步补全训练所需的推理。是否真的节约成本，仍要把参考数据准备、教师模型和服务并发一起计入。",
+        "summary": "论文指出，多轮 agent 的在线蒸馏把长推理放在每次短行动之前，导致轨迹采集慢。作者让模型参考下一观察先推断行动，遇到状态偏离时回退为自主预测，并异步生成完整的 think-then-act 回复用于 token 级监督。三个环境、三档学生模型的实验显示，相对普通 OPD，平均训练墙钟时间快约 1.8–4.9 倍，九种设置中的八种在平均成功率上相当或更好。去掉参考条件的消融说明单纯“直接行动”会损失轨迹质量。其启发是训练流水线可将环境推进与长推理并行，但端到端收益仍取决于参考数据、教师成本和服务并发。",
+        "highlights": [
+          "多轮代理训练不必让每一次环境行动都等待完整推理文本完成：可以先用有校验的短行动快速交互，再异步补全训练所需的推理。是否真的节约成本，仍要把参考数据准备、教师模型和服务并发一起计入。",
+          "偏水风险：中",
+          "阅读来源：arXiv PDF 全文"
+        ],
+        "motivation": "多轮智能体的在线策略蒸馏常要先生成很长的推理，再执行一条很短的行动；推理延迟阻碍环境交互和轨迹收集。直接只生成行动虽快，却会降低采样质量。",
+        "method": "ActFirst-OPD 通过参考下一观察和当前上下文做逆动力学式行动推断，先推进环境；当实际转移偏离参考轨迹时，切回自主预测下一行动。完整的 think-then-act 回复随后异步生成，用于教师逐 token 监督，从而把环境交互与长推理解耦。",
+        "experiments": "在 ALFWorld、WebShop、ScienceWorld 上训练 0.6B、1.7B、4B 的 Qwen3 学生，每个设置做 250 次更新，并与 Vanilla OPD、TCOD-F2B、TurnOPD 及去除逆动力学的变体对照。相对 Vanilla OPD，平均训练墙钟时间加速分别为 2.3×、1.8×、4.9×；九个基准-模型组合中有八个在平均任务成功率上相当或更好。计时不包括教师训练、参考轨迹构建和最终评估，因此不能当作端到端总成本降低。",
+        "research_help": "多轮代理训练不必让每一次环境行动都等待完整推理文本完成：可以先用有校验的短行动快速交互，再异步补全训练所需的推理。是否真的节约成本，仍要把参考数据准备、教师模型和服务并发一起计入。",
+        "recommendation": {
+          "score": 93,
+          "level": "高",
+          "label": "值得精读",
+          "water_risk": "中",
+          "value_judgement": "论文指出，多轮 agent 的在线蒸馏把长推理放在每次短行动之前，导致轨迹采集慢。作者让模型参考下一观察先推断行动，遇到状态偏离时回退为自主预测，并异步生成完整的 think-then-act 回复用于 token 级监督。三个环境、三档学生模型的实验显示，相对普通 OPD，平均训练墙钟时间快约 1.8–4.9 倍，九种设置中的八种在平均成功率上相当或更好。去掉参考条件的消融说明单纯“直接行动”会损失轨迹质量。其启发是训练流水线可将环境推进与长推理并行，但端到端收益仍取决于参考数据、教师成本和服务并发。",
+          "reason": "论文指出，多轮 agent 的在线蒸馏把长推理放在每次短行动之前，导致轨迹采集慢。作者让模型参考下一观察先推断行动，遇到状态偏离时回退为自主预测，并异步生成完整的 think-then-act 回复用于 token 级监督。三个环境、三档学生模型的实验显示，相对普通 OPD，平均训练墙钟时间快约 1.8–4.9 倍，九种设置中的八种在平均成功率上相当或更好。去掉参考条件的消融说明单纯“直接行动”会损失轨迹质量。其启发是训练流水线可将环境推进与长推理并行，但端到端收益仍取决于参考数据、教师成本和服务并发。",
+          "signals": {
+            "agenticRl": true,
+            "multiTurn": true,
+            "longHorizon": true,
+            "memory": false,
+            "reliability": false,
+            "codeOrTool": true,
+            "experiments": true,
+            "survey": false
+          }
+        },
+        "insight": "多轮代理训练不必让每一次环境行动都等待完整推理文本完成：可以先用有校验的短行动快速交互，再异步补全训练所需的推理。是否真的节约成本，仍要把参考数据准备、教师模型和服务并发一起计入。",
+        "abstract_zh": "多轮在线策略蒸馏中，智能体常为一条短行动等待很长的推理生成，拖慢环境交互。ActFirst-OPD 让学生利用参考下一观察先预测并执行行动，偏离参考时改为自主行动；完整推理随后异步生成以接受教师监督。在三个基准和三档 Qwen3 学生上，训练墙钟时间平均加速约 1.8 至 4.9 倍。九个模型与任务组合中有八个保持或提高平均成功率，但加速统计并不包含参考轨迹和教师准备成本。",
+        "full_summary": "论文指出，多轮 agent 的在线蒸馏把长推理放在每次短行动之前，导致轨迹采集慢。作者让模型参考下一观察先推断行动，遇到状态偏离时回退为自主预测，并异步生成完整的 think-then-act 回复用于 token 级监督。三个环境、三档学生模型的实验显示，相对普通 OPD，平均训练墙钟时间快约 1.8–4.9 倍，九种设置中的八种在平均成功率上相当或更好。去掉参考条件的消融说明单纯“直接行动”会损失轨迹质量。其启发是训练流水线可将环境推进与长推理并行，但端到端收益仍取决于参考数据、教师成本和服务并发。",
+        "card_summary": "ActFirst-OPD 把“行动”从长推理生成中拆出来：先借参考转移快速推进环境，再异步生成完整回复做教师蒸馏。三类多轮任务上训练加速且多数设置保持成功率，但公开的墙钟时间不包含参考与教师准备。"
+      },
+      "analysis": {
+        "motivation": "多轮智能体的在线策略蒸馏常要先生成很长的推理，再执行一条很短的行动；推理延迟阻碍环境交互和轨迹收集。直接只生成行动虽快，却会降低采样质量。",
+        "method": "ActFirst-OPD 通过参考下一观察和当前上下文做逆动力学式行动推断，先推进环境；当实际转移偏离参考轨迹时，切回自主预测下一行动。完整的 think-then-act 回复随后异步生成，用于教师逐 token 监督，从而把环境交互与长推理解耦。",
+        "experiments": "在 ALFWorld、WebShop、ScienceWorld 上训练 0.6B、1.7B、4B 的 Qwen3 学生，每个设置做 250 次更新，并与 Vanilla OPD、TCOD-F2B、TurnOPD 及去除逆动力学的变体对照。相对 Vanilla OPD，平均训练墙钟时间加速分别为 2.3×、1.8×、4.9×；九个基准-模型组合中有八个在平均任务成功率上相当或更好。计时不包括教师训练、参考轨迹构建和最终评估，因此不能当作端到端总成本降低。",
+        "research_help": "多轮代理训练不必让每一次环境行动都等待完整推理文本完成：可以先用有校验的短行动快速交互，再异步补全训练所需的推理。是否真的节约成本，仍要把参考数据准备、教师模型和服务并发一起计入。",
+        "insight": "多轮代理训练不必让每一次环境行动都等待完整推理文本完成：可以先用有校验的短行动快速交互，再异步补全训练所需的推理。是否真的节约成本，仍要把参考数据准备、教师模型和服务并发一起计入。",
+        "abstract_zh": "多轮在线策略蒸馏中，智能体常为一条短行动等待很长的推理生成，拖慢环境交互。ActFirst-OPD 让学生利用参考下一观察先预测并执行行动，偏离参考时改为自主行动；完整推理随后异步生成以接受教师监督。在三个基准和三档 Qwen3 学生上，训练墙钟时间平均加速约 1.8 至 4.9 倍。九个模型与任务组合中有八个保持或提高平均成功率，但加速统计并不包含参考轨迹和教师准备成本。",
+        "card_summary": "ActFirst-OPD 把“行动”从长推理生成中拆出来：先借参考转移快速推进环境，再异步生成完整回复做教师蒸馏。三类多轮任务上训练加速且多数设置保持成功率，但公开的墙钟时间不包含参考与教师准备。",
+        "full_summary": "论文指出，多轮 agent 的在线蒸馏把长推理放在每次短行动之前，导致轨迹采集慢。作者让模型参考下一观察先推断行动，遇到状态偏离时回退为自主预测，并异步生成完整的 think-then-act 回复用于 token 级监督。三个环境、三档学生模型的实验显示，相对普通 OPD，平均训练墙钟时间快约 1.8–4.9 倍，九种设置中的八种在平均成功率上相当或更好。去掉参考条件的消融说明单纯“直接行动”会损失轨迹质量。其启发是训练流水线可将环境推进与长推理并行，但端到端收益仍取决于参考数据、教师成本和服务并发。",
+        "recommendation_level": "高",
+        "water_risk": "中",
+        "value_label": "值得精读",
+        "value_reason": "论文指出，多轮 agent 的在线蒸馏把长推理放在每次短行动之前，导致轨迹采集慢。作者让模型参考下一观察先推断行动，遇到状态偏离时回退为自主预测，并异步生成完整的 think-then-act 回复用于 token 级监督。三个环境、三档学生模型的实验显示，相对普通 OPD，平均训练墙钟时间快约 1.8–4.9 倍，九种设置中的八种在平均成功率上相当或更好。去掉参考条件的消融说明单纯“直接行动”会损失轨迹质量。其启发是训练流水线可将环境推进与长推理并行，但端到端收益仍取决于参考数据、教师成本和服务并发。",
+        "limitations": "方法依赖可用的离线参考轨迹、参考下一观察和任务专用教师；行动与参考转移失配后需要回退。训练时间指标排除了教师训练、参考构建与评估，结果仅来自三种基准和三档 Qwen3 学生，不可直接声称真实部署的端到端成本同比例下降。",
+        "source_scope": "full_text",
+        "source_note": "Reviewed the arXiv PDF full text and checked arXiv bibliographic metadata.",
+        "source_evidence": [
+          "arXiv PDF §5.1 列出三个基准、三档 Qwen3 学生、250 次更新和训练时间的排除项。",
+          "表 1、表 2 报告各模型的任务成功率和训练墙钟时间；正文概括八个组合保持或提高成功率。",
+          "图 4 的无参考逆动力学对照显示，直接生成行动虽快，但反复无效动作更多，参考条件可改善轨迹质量。"
+        ],
+        "model": "Codex full-text review",
+        "updated_at": "2026-09-30T03:52:16.025Z"
+      }
+    },
+    {
+      "id": "2609.34422v1",
+      "title": "Coding Agent Memory Post-training: Unlocking the Memory Potential of Pre-trained File Operations for Long-Horizon Tasks via Reinforcement Learning",
+      "summary": "Language-model agents increasingly tackle long-horizon tasks whose interaction histories exceed the model's active context. Recent work has begun to use reinforcement learning to make memory control part of the policy, often relying on predefined memory tools within domain-specific training environments of relatively short horizons. This setup ties learned memory behavior to environment-specific interfaces that lie outside the base model's pre-training and must be learned from scratch, so even after post-training, agents struggle to use memory in long-horizon tasks. To address these limitations, we introduce Coding Agent Memory Gym (CAMG), a suite of long-horizon agentic-RL environments spanning Shop, Coding, DeepResearch, and AutoResearch. Alongside each environment's native task interface, CAMG provides executable shell access and an episode-persistent workspace, enabling agents to create, revise, search, and reuse files as memory throughout an episode. We also introduce CAMG-RL, which trains a single policy jointly across all four environments with fully asynchronous PPO, learning this file-based memory behavior directly from downstream task reward, and we train CAMG-RL-4B and CAMG-RL-9B from Qwen3.5 models of matching size. On SWE-bench Verified and MLE-bench Lite, CAMG-RL-4B and CAMG-RL-9B are competitive with Qwen3.5-35B-A3B and Qwen3.5-122B-A10B, respectively.",
+      "url": "https://arxiv.org/abs/2609.34422",
+      "authors": [
+        "Lirui Luo",
+        "Kelong Mao",
+        "Heming Xia",
+        "Rongqing Li",
+        "Xinwei Yang",
+        "Luyu Chen",
+        "Kieran Wong",
+        "Yudong Guo",
+        "Xinrui Wang",
+        "Jiayin Zhu",
+        "Simiu Gu",
+        "Sulong Xu",
+        "Cong Fang"
+      ],
+      "report_date": "2026-09-30",
+      "published": "2026-09-28",
+      "updated": "2026-09-28",
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "cs.CL"
+      ],
+      "project_url": "",
+      "repo_url": "",
+      "venue_status": "未确认录用",
+      "recommendation": {
+        "score": 92,
+        "level": "高",
+        "label": "值得精读",
+        "water_risk": "中",
+        "value_judgement": "论文问的是：代理能否直接利用预训练时熟悉的文件工具，学会跨上下文保存和取回任务信息。CAMG 给四类长时程任务加上 episode 内持久工作区，CAMG-RL 则用任务奖励联合训练同一个 4B 或 9B 策略。4B 模型在四类测试任务上的平均成功率达到 54.4%，高于 CompactionRL 的 48.0%，完整“存储—检索—使用”链在训练中也逐渐增多。SWE-bench Verified 与 MLE-bench Lite 提供了一些外部迁移信号，但分数并不等于通用长期记忆已经解决。最有用的设计判断是：记忆应被评估为一条真实完成的操作链，同时必须另测跨 episode、跨用户和权限边界。",
+        "reason": "论文问的是：代理能否直接利用预训练时熟悉的文件工具，学会跨上下文保存和取回任务信息。CAMG 给四类长时程任务加上 episode 内持久工作区，CAMG-RL 则用任务奖励联合训练同一个 4B 或 9B 策略。4B 模型在四类测试任务上的平均成功率达到 54.4%，高于 CompactionRL 的 48.0%，完整“存储—检索—使用”链在训练中也逐渐增多。SWE-bench Verified 与 MLE-bench Lite 提供了一些外部迁移信号，但分数并不等于通用长期记忆已经解决。最有用的设计判断是：记忆应被评估为一条真实完成的操作链，同时必须另测跨 episode、跨用户和权限边界。",
+        "signals": {
+          "agenticRl": true,
+          "multiTurn": true,
+          "longHorizon": true,
+          "memory": true,
+          "reliability": true,
+          "codeOrTool": true,
+          "experiments": true,
+          "survey": false
+        }
+      },
+      "brief": {
+        "authors": [
+          "Lirui Luo",
+          "Kelong Mao",
+          "Heming Xia",
+          "Rongqing Li",
+          "Xinwei Yang",
+          "Luyu Chen",
+          "Kieran Wong",
+          "Yudong Guo",
+          "Xinrui Wang",
+          "Jiayin Zhu",
+          "Simiu Gu",
+          "Sulong Xu",
+          "Cong Fang"
+        ],
+        "affiliations": "JD.com",
+        "date": "2026-09-28",
+        "paper_url": "https://arxiv.org/abs/2609.34422",
+        "project_url": "",
+        "repo_url": "",
+        "venue_status": "未确认录用",
+        "contribution": "设计长时程 agent memory 时，值得利用模型已熟悉的文件与 shell 工具，而不总是增加一套新记忆 API；训练目标应奖励真正跨上下文的存储、检索与使用闭环。部署时还要单独测试跨 episode、跨用户持久性，因为本文未覆盖。",
+        "summary": "论文问的是：代理能否直接利用预训练时熟悉的文件工具，学会跨上下文保存和取回任务信息。CAMG 给四类长时程任务加上 episode 内持久工作区，CAMG-RL 则用任务奖励联合训练同一个 4B 或 9B 策略。4B 模型在四类测试任务上的平均成功率达到 54.4%，高于 CompactionRL 的 48.0%，完整“存储—检索—使用”链在训练中也逐渐增多。SWE-bench Verified 与 MLE-bench Lite 提供了一些外部迁移信号，但分数并不等于通用长期记忆已经解决。最有用的设计判断是：记忆应被评估为一条真实完成的操作链，同时必须另测跨 episode、跨用户和权限边界。",
+        "highlights": [
+          "设计长时程 agent memory 时，值得利用模型已熟悉的文件与 shell 工具，而不总是增加一套新记忆 API；训练目标应奖励真正跨上下文的存储、检索与使用闭环。部署时还要单独测试跨 episode、跨用户持久性，因为本文未覆盖。",
+          "偏水风险：中",
+          "阅读来源：arXiv PDF 全文"
+        ],
+        "motivation": "长时程任务会跨越当前上下文窗口，代理必须把先前获得的证据存到可再访问的记忆中。现有训练常使用专门设计的记忆工具，使模型难以迁移其预训练时已熟悉的文件操作能力。",
+        "method": "作者构建横跨 Shop、Coding、DeepResearch、AutoResearch 的 CAMG 环境，每个任务提供可在单次 episode 内持久保存的工作目录和普通 shell 文件操作。CAMG-RL 用完全异步 PPO 联合训练单一策略，让模型根据下游任务奖励学会创建、修改、搜索和读取文件，而不是只依赖预设记忆 API。",
+        "experiments": "Qwen3.5-4B 在四类环境上训练 200 次优化更新、共 12,800 个 episode；每类测试 128 题。CAMG-RL 平均成功率为 54.4%，高于最强对照 CompactionRL 的 48.0%；训练中完整“存储—检索—使用”链在 episode 中的比例由前四分之一阶段的 8.0% 升到末四分之一的 20.9%。外部 SWE-bench Verified 上 4B 和 9B 分别解决 15.8% 与 27.6% 的分配任务，但跨分布迁移仍需谨慎解读。",
+        "research_help": "设计长时程 agent memory 时，值得利用模型已熟悉的文件与 shell 工具，而不总是增加一套新记忆 API；训练目标应奖励真正跨上下文的存储、检索与使用闭环。部署时还要单独测试跨 episode、跨用户持久性，因为本文未覆盖。",
+        "recommendation": {
+          "score": 92,
+          "level": "高",
+          "label": "值得精读",
+          "water_risk": "中",
+          "value_judgement": "论文问的是：代理能否直接利用预训练时熟悉的文件工具，学会跨上下文保存和取回任务信息。CAMG 给四类长时程任务加上 episode 内持久工作区，CAMG-RL 则用任务奖励联合训练同一个 4B 或 9B 策略。4B 模型在四类测试任务上的平均成功率达到 54.4%，高于 CompactionRL 的 48.0%，完整“存储—检索—使用”链在训练中也逐渐增多。SWE-bench Verified 与 MLE-bench Lite 提供了一些外部迁移信号，但分数并不等于通用长期记忆已经解决。最有用的设计判断是：记忆应被评估为一条真实完成的操作链，同时必须另测跨 episode、跨用户和权限边界。",
+          "reason": "论文问的是：代理能否直接利用预训练时熟悉的文件工具，学会跨上下文保存和取回任务信息。CAMG 给四类长时程任务加上 episode 内持久工作区，CAMG-RL 则用任务奖励联合训练同一个 4B 或 9B 策略。4B 模型在四类测试任务上的平均成功率达到 54.4%，高于 CompactionRL 的 48.0%，完整“存储—检索—使用”链在训练中也逐渐增多。SWE-bench Verified 与 MLE-bench Lite 提供了一些外部迁移信号，但分数并不等于通用长期记忆已经解决。最有用的设计判断是：记忆应被评估为一条真实完成的操作链，同时必须另测跨 episode、跨用户和权限边界。",
+          "signals": {
+            "agenticRl": true,
+            "multiTurn": true,
+            "longHorizon": true,
+            "memory": true,
+            "reliability": true,
+            "codeOrTool": true,
+            "experiments": true,
+            "survey": false
+          }
+        },
+        "insight": "设计长时程 agent memory 时，值得利用模型已熟悉的文件与 shell 工具，而不总是增加一套新记忆 API；训练目标应奖励真正跨上下文的存储、检索与使用闭环。部署时还要单独测试跨 episode、跨用户持久性，因为本文未覆盖。",
+        "abstract_zh": "长时程代理的历史可能超出活动上下文，而专用记忆工具需要模型重新学会一种接口。论文提出 CAMG，在四类任务中给予代理 episode 内持久的工作区和普通文件操作，并用异步 PPO 根据最终任务奖励训练文件式记忆行为。CAMG-RL 在自建四任务测试集上的平均成功率为 54.4%，高于最强对照的 48.0%。作者也在 SWE-bench Verified 与 MLE-bench Lite 上测试迁移，但跨 episode 和多用户记忆仍未覆盖。",
+        "full_summary": "论文问的是：代理能否直接利用预训练时熟悉的文件工具，学会跨上下文保存和取回任务信息。CAMG 给四类长时程任务加上 episode 内持久工作区，CAMG-RL 则用任务奖励联合训练同一个 4B 或 9B 策略。4B 模型在四类测试任务上的平均成功率达到 54.4%，高于 CompactionRL 的 48.0%，完整“存储—检索—使用”链在训练中也逐渐增多。SWE-bench Verified 与 MLE-bench Lite 提供了一些外部迁移信号，但分数并不等于通用长期记忆已经解决。最有用的设计判断是：记忆应被评估为一条真实完成的操作链，同时必须另测跨 episode、跨用户和权限边界。",
+        "card_summary": "CAMG-RL 让长时程代理把普通文件操作当作可学习的记忆动作，而不是依赖专用记忆 API。四类任务中的平均成功率优于已比较的记忆方法，但目前只验证了单 episode、单用户的记忆。"
+      },
+      "analysis": {
+        "motivation": "长时程任务会跨越当前上下文窗口，代理必须把先前获得的证据存到可再访问的记忆中。现有训练常使用专门设计的记忆工具，使模型难以迁移其预训练时已熟悉的文件操作能力。",
+        "method": "作者构建横跨 Shop、Coding、DeepResearch、AutoResearch 的 CAMG 环境，每个任务提供可在单次 episode 内持久保存的工作目录和普通 shell 文件操作。CAMG-RL 用完全异步 PPO 联合训练单一策略，让模型根据下游任务奖励学会创建、修改、搜索和读取文件，而不是只依赖预设记忆 API。",
+        "experiments": "Qwen3.5-4B 在四类环境上训练 200 次优化更新、共 12,800 个 episode；每类测试 128 题。CAMG-RL 平均成功率为 54.4%，高于最强对照 CompactionRL 的 48.0%；训练中完整“存储—检索—使用”链在 episode 中的比例由前四分之一阶段的 8.0% 升到末四分之一的 20.9%。外部 SWE-bench Verified 上 4B 和 9B 分别解决 15.8% 与 27.6% 的分配任务，但跨分布迁移仍需谨慎解读。",
+        "research_help": "设计长时程 agent memory 时，值得利用模型已熟悉的文件与 shell 工具，而不总是增加一套新记忆 API；训练目标应奖励真正跨上下文的存储、检索与使用闭环。部署时还要单独测试跨 episode、跨用户持久性，因为本文未覆盖。",
+        "insight": "设计长时程 agent memory 时，值得利用模型已熟悉的文件与 shell 工具，而不总是增加一套新记忆 API；训练目标应奖励真正跨上下文的存储、检索与使用闭环。部署时还要单独测试跨 episode、跨用户持久性，因为本文未覆盖。",
+        "abstract_zh": "长时程代理的历史可能超出活动上下文，而专用记忆工具需要模型重新学会一种接口。论文提出 CAMG，在四类任务中给予代理 episode 内持久的工作区和普通文件操作，并用异步 PPO 根据最终任务奖励训练文件式记忆行为。CAMG-RL 在自建四任务测试集上的平均成功率为 54.4%，高于最强对照的 48.0%。作者也在 SWE-bench Verified 与 MLE-bench Lite 上测试迁移，但跨 episode 和多用户记忆仍未覆盖。",
+        "card_summary": "CAMG-RL 让长时程代理把普通文件操作当作可学习的记忆动作，而不是依赖专用记忆 API。四类任务中的平均成功率优于已比较的记忆方法，但目前只验证了单 episode、单用户的记忆。",
+        "full_summary": "论文问的是：代理能否直接利用预训练时熟悉的文件工具，学会跨上下文保存和取回任务信息。CAMG 给四类长时程任务加上 episode 内持久工作区，CAMG-RL 则用任务奖励联合训练同一个 4B 或 9B 策略。4B 模型在四类测试任务上的平均成功率达到 54.4%，高于 CompactionRL 的 48.0%，完整“存储—检索—使用”链在训练中也逐渐增多。SWE-bench Verified 与 MLE-bench Lite 提供了一些外部迁移信号，但分数并不等于通用长期记忆已经解决。最有用的设计判断是：记忆应被评估为一条真实完成的操作链，同时必须另测跨 episode、跨用户和权限边界。",
+        "recommendation_level": "高",
+        "water_risk": "中",
+        "value_label": "值得精读",
+        "value_reason": "论文问的是：代理能否直接利用预训练时熟悉的文件工具，学会跨上下文保存和取回任务信息。CAMG 给四类长时程任务加上 episode 内持久工作区，CAMG-RL 则用任务奖励联合训练同一个 4B 或 9B 策略。4B 模型在四类测试任务上的平均成功率达到 54.4%，高于 CompactionRL 的 48.0%，完整“存储—检索—使用”链在训练中也逐渐增多。SWE-bench Verified 与 MLE-bench Lite 提供了一些外部迁移信号，但分数并不等于通用长期记忆已经解决。最有用的设计判断是：记忆应被评估为一条真实完成的操作链，同时必须另测跨 episode、跨用户和权限边界。",
+        "limitations": "记忆只在单个 episode 和单个用户范围内保留，实验骨干不超过 9B；四类训练环境由作者统一设计，外部分布泛化证据有限。表 2 中 Shop 基准各方法差距异常大，跨任务平均值不能代替逐任务诊断；现实系统的长期记忆治理、权限与遗忘机制尚未验证。",
+        "source_scope": "full_text",
+        "source_note": "Reviewed the arXiv PDF full text and checked arXiv bibliographic metadata.",
+        "source_evidence": [
+          "arXiv PDF §6.1 描述四类任务、200 次更新、12,800 个 episode 与每类 128 道测试题。",
+          "表 2 报告 CAMG 四任务平均成功率 54.4%，最强对照 CompactionRL 为 48.0%；正文给出记忆链完成比例变化。",
+          "外部 SWE-bench Verified/MLE-bench Lite 结果及论文结尾说明，目前仅测试 episode 内、单用户和最高 9B 的模型。"
+        ],
+        "model": "Codex full-text review",
+        "updated_at": "2026-09-30T03:52:16.025Z"
+      }
+    },
     {
       "id": "2608.29897v2",
       "title": "When History Is Multimodal: Rethinking Context Management for Long-Horizon Agents",
