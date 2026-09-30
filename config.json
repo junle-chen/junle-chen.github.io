@@ -1,0 +1,45 @@
+{
+	"head": {
+		"title": "Junle Chen | Notes, Memos, Research",
+		"description": "Junle Chen personal homepage for notes, memos, daily papers, and research links.",
+		"favicon": "assets/favicon.ico?v=20260625-ghost-favicon-v1"
+	},
+	"intro": {
+		"title": "junle",
+		"subtitle": "Notes, memos, daily papers, and research notes",
+		"enter": "open workspace",
+		"supportAuthor": false,
+		"background": true
+	},
+	"main": {
+		"name": "Junle Chen",
+		"signature": "Notes, bugs, papers, and daily arXiv tracking",
+		"avatar": {
+			"link": "assets/avatar.png",
+			"height": "100",
+			"width": "100"
+		},
+		"ul": {
+			"first": {
+				"href": "#notes",
+				"icon": "bokeyuan",
+				"text": "Notes"
+			},
+			"second": {
+				"href": "#memos",
+				"icon": "xiaolian",
+				"text": "Memos"
+			},
+			"third": {
+				"href": "mailto:cshanppy@gmail.com",
+				"icon": "email",
+				"text": "Email"
+			},
+			"fourth": {
+				"href": "https://github.com/junle-chen",
+				"icon": "github",
+				"text": "Github"
+			}
+		}
+	}
+}

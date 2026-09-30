@@ -1,0 +1,556 @@
+{
+  "imported_at": "2026-07-02",
+  "source": "/Users/junle/Code/junle-cc-website",
+  "stats": {
+    "notes": 38,
+    "memos": 6,
+    "papers": 0,
+    "resources": 3,
+    "assets": 129
+  },
+  "highlights": [
+    "Notes and bug records migrated from the earlier personal site.",
+    "Memo data is shown as an owner-editable local timeline.",
+    "Paper Radar data is ready for future Zotero/arXiv updates."
+  ],
+  "notes": [
+    {
+      "title": "zsh 进入 /export 卡顿排查报告",
+      "date": "2026-07-02",
+      "category": "Engineering Log",
+      "tags": [
+        "note",
+        "zsh",
+        "powerlevel10k",
+        "NFS",
+        "autofs",
+        "Linux"
+      ],
+      "excerpt": "powerlevel10k prompt hook 在 autofs + NFS 路径上触发等待的排查记录。",
+      "url": "assets/content/notes/2026-7-2-zsh%E8%BF%9B%E5%85%A5export%E5%8D%A1%E9%A1%BF%E6%8E%92%E6%9F%A5%E6%8A%A5%E5%91%8A.md",
+      "search": "zsh 进入 /export 卡顿排查报告 2026-07-02 note zsh powerlevel10k nfs autofs linux powerlevel10k prompt hook 在 autofs + nfs 路径上触发等待的排查记录。"
+    },
+    {
+      "title": "Codex 服务器代理和 Codex App 远程 SSH 配置",
+      "date": "2026-06-23",
+      "category": "Engineering Log",
+      "tags": [
+        "Engineering Log"
+      ],
+      "excerpt": "Codex 远程代理配置备忘：SSH 端口转发、命令级代理和 Codex App app server。",
+      "url": "assets/content/notes/2026-6-23-Codex%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BB%A3%E7%90%86%E5%92%8CCodex%20App%E8%BF%9C%E7%A8%8BSSH%E9%85%8D%E7%BD%AE.md",
+      "search": "codex 服务器代理和 codex app 远程 ssh 配置 2026-06-23 engineering log codex 远程代理配置备忘：ssh 端口转发、命令级代理和 codex app app server。"
+    },
+    {
+      "title": "1*1卷积",
+      "date": "2025-09-17",
+      "category": "Notebook",
+      "tags": [
+        "Notebook"
+      ],
+      "excerpt": "https://www.zhihu.com/question/56024942 可以实现升维和降维 一个1 1 卷积核把3个通道压缩成1个，2个kernel形成2个，只要kernel数小于原来通道数，降维，反之升维，其实相当于全连接层，图上的降维一开始是3个神经元，权重是kernel的值，然后经过全连接变成2个神经元",
+      "url": "assets/content/notes/2025-9-17-1*1%E5%8D%B7%E7%A7%AF.md",
+      "search": "1*1卷积 2025-09-17 notebook https://www.zhihu.com/question/56024942 可以实现升维和降维 一个1 1 卷积核把3个通道压缩成1个，2个kernel形成2个，只要kernel数小于原来通道数，降维，反之升维，其实相当于全连接层，图上的降维一开始是3个神经元，权重是kernel的值，然后经过全连接变成2个神经元"
+    },
+    {
+      "title": "Unraveling Spatio Temporal Foundation Models viathe Pipeline Lens A Comprehensive Review",
+      "date": "2025-07-19",
+      "category": "Motion & Urban AI",
+      "tags": [
+        "Motion & Urban AI"
+      ],
+      "excerpt": "",
+      "url": "assets/content/notes/2025-7-19-Unraveling%20Spatio-Temporal%20Foundation%20Models%20viathe%20Pipeline%20Lens_A%20Comprehensive%20Review.md",
+      "search": "unraveling spatio temporal foundation models viathe pipeline lens a comprehensive review 2025-07-19 motion & urban ai "
+    },
+    {
+      "title": "Motion Forecasting in Continuous Driving",
+      "date": "2025-06-11",
+      "category": "Motion & Urban AI",
+      "tags": [
+        "Motion & Urban AI"
+      ],
+      "excerpt": "背景 自动驾驶中的智能体运动预测极具挑战性，因为每个智能体的下一步行动有多种可能性，并且它们在时空上存在复杂的交互 。 在实际应用中，运动预测是随着自动驾驶汽车的移动而重复连续地进行的 。 然而，现有的预测方法通常独立处理每个特定范围内的驾驶场景，完全忽略了连续驾驶场景之间的情境和上下文关系 。 这种简化使得解决方案次优且在实践中效率低...",
+      "url": "assets/content/notes/2025-6-11-Motion%20Forecasting%20in%20Continuous%20Driving.md",
+      "search": "motion forecasting in continuous driving 2025-06-11 motion & urban ai 背景 自动驾驶中的智能体运动预测极具挑战性，因为每个智能体的下一步行动有多种可能性，并且它们在时空上存在复杂的交互 。 在实际应用中，运动预测是随着自动驾驶汽车的移动而重复连续地进行的 。 然而，现有的预测方法通常独立处理每个特定范围内的驾驶场景，完全忽略了连续驾驶场景之间的情境和上下文关系 。 这种简化使得解决方案次优且在实践中效率低..."
+    },
+    {
+      "title": "MotionDiffuser Controllable Multi Agent Motion Prediction using Diffusion",
+      "date": "2025-06-02",
+      "category": "Motion & Urban AI",
+      "tags": [
+        "Motion & Urban AI"
+      ],
+      "excerpt": "本文介绍了 MotionDiffuser，一种基于去噪扩散模型（Denoising Diffusion Models）的创新框架，用于可控的多智能体未来轨迹预测。该模型旨在解决自动驾驶中运动预测的固有挑战：多模态性、联合推理和可控性 。 1. 核心思想与优势 扩散模型基础 ：MotionDiffuser 利用去噪扩散模型学习多智能体未来...",
+      "url": "assets/content/notes/2025-6-2-MotionDiffuser-Controllable%20Multi-Agent%20Motion%20Prediction%20using%20Diffusion.md",
+      "search": "motiondiffuser controllable multi agent motion prediction using diffusion 2025-06-02 motion & urban ai 本文介绍了 motiondiffuser，一种基于去噪扩散模型（denoising diffusion models）的创新框架，用于可控的多智能体未来轨迹预测。该模型旨在解决自动驾驶中运动预测的固有挑战：多模态性、联合推理和可控性 。 1. 核心思想与优势 扩散模型基础 ：motiondiffuser 利用去噪扩散模型学习多智能体未来..."
+    },
+    {
+      "title": "MULTIPATH++ EFFICIENT INFORMATION FUSION ANDTRAJECTORY AGGREGATION FOR BEHAVIOR PREDICTION",
+      "date": "2025-06-01",
+      "category": "Motion & Urban AI",
+      "tags": [
+        "Motion & Urban AI"
+      ],
+      "excerpt": "MultiPath++ 通过以下几个关键升级来应对这些挑战： 放弃了基于栅格化和 CNN 的方法，转而直接从紧凑的状态描述中建模稀疏世界状态对象 。 引入了一种新颖的上下文感知融合形式，称为多上下文门控（MCG） 。 开发了一种学习潜在锚点嵌入的方式，以简化模型创建并提高性能 。 通过应用集成技术获得了显著的额外收益 。 交互代理编码的...",
+      "url": "assets/content/notes/2025-6-1-MULTIPATH%2B%2B_EFFICIENT%20INFORMATION%20FUSION%20ANDTRAJECTORY%20AGGREGATION%20FOR%20BEHAVIOR%20PREDICTION.md",
+      "search": "multipath++ efficient information fusion andtrajectory aggregation for behavior prediction 2025-06-01 motion & urban ai multipath++ 通过以下几个关键升级来应对这些挑战： 放弃了基于栅格化和 cnn 的方法，转而直接从紧凑的状态描述中建模稀疏世界状态对象 。 引入了一种新颖的上下文感知融合形式，称为多上下文门控（mcg） 。 开发了一种学习潜在锚点嵌入的方式，以简化模型创建并提高性能 。 通过应用集成技术获得了显著的额外收益 。 交互代理编码的..."
+    },
+    {
+      "title": "DenseTNT End to end Trajectory Prediction from Dense Goal Sets",
+      "date": "2025-05-31",
+      "category": "Motion & Urban AI",
+      "tags": [
+        "Motion & Urban AI"
+      ],
+      "excerpt": "密集和稀疏概率分布区别 Sparse context encoder :文章使用了vectorNet,VectorNet是一种分层图神经网络，由子图模块（subgraph module）和全局图模块（global graph module）组成。其中，子图模块用于编码车道（lanes）和交通参与者（agents）的特征，全局图模块 使用...",
+      "url": "assets/content/notes/2025-5-31-DenseTNT_End-to-end%20Trajectory%20Prediction%20from%20Dense%20Goal%20Sets.md",
+      "search": "densetnt end to end trajectory prediction from dense goal sets 2025-05-31 motion & urban ai 密集和稀疏概率分布区别 sparse context encoder :文章使用了vectornet,vectornet是一种分层图神经网络，由子图模块（subgraph module）和全局图模块（global graph module）组成。其中，子图模块用于编码车道（lanes）和交通参与者（agents）的特征，全局图模块 使用..."
+    },
+    {
+      "title": "HiVT Hierarchical Vector Transformer for Multi Agent Motion Prediction",
+      "date": "2025-05-31",
+      "category": "Motion & Urban AI",
+      "tags": [
+        "Motion & Urban AI"
+      ],
+      "excerpt": "背景 近年来，矢量化方法（vectorized approaches）因其能够捕捉交通场景中复杂的交互作用，在运动预测领域占据了主导地位。 然而，现有方法忽略了问题的对称性，并面临着高昂的计算成本，因此在不牺牲预测性能的前提下，实现实时多智能体运动预测仍然面临挑战。 通过将问题分解为局部上下文提取和全局交互建模，我们的方法能够高效地对场...",
+      "url": "assets/content/notes/2025-5-31-HiVT_Hierarchical%20Vector%20Transformer%20for%20Multi-Agent%20Motion%20Prediction.md",
+      "search": "hivt hierarchical vector transformer for multi agent motion prediction 2025-05-31 motion & urban ai 背景 近年来，矢量化方法（vectorized approaches）因其能够捕捉交通场景中复杂的交互作用，在运动预测领域占据了主导地位。 然而，现有方法忽略了问题的对称性，并面临着高昂的计算成本，因此在不牺牲预测性能的前提下，实现实时多智能体运动预测仍然面临挑战。 通过将问题分解为局部上下文提取和全局交互建模，我们的方法能够高效地对场..."
+    },
+    {
+      "title": "MotionLM Multi Agent Motion Forecasting as Language Modeling",
+      "date": "2025-05-26",
+      "category": "Motion & Urban AI",
+      "tags": [
+        "Motion & Urban AI"
+      ],
+      "excerpt": "这篇论文提出了一种名为 MotionLM 的新方法，用于预测道路上多个智能体（如车辆、行人、自行车）的未来运动 。其核心创新在于将这个复杂的预测任务类比为 语言建模 。模型学习预测代表智能体轨迹的“运动标记”序列，而不是像传统语言模型那样预测文本序列中的下一个词 。 关键概念与方法详解 1. 运动标记 (Motion Tokens) 离...",
+      "url": "assets/content/notes/2025-5-26-MotionLM_Multi-Agent%20Motion%20Forecasting%20as%20Language%20Modeling.md",
+      "search": "motionlm multi agent motion forecasting as language modeling 2025-05-26 motion & urban ai 这篇论文提出了一种名为 motionlm 的新方法，用于预测道路上多个智能体（如车辆、行人、自行车）的未来运动 。其核心创新在于将这个复杂的预测任务类比为 语言建模 。模型学习预测代表智能体轨迹的“运动标记”序列，而不是像传统语言模型那样预测文本序列中的下一个词 。 关键概念与方法详解 1. 运动标记 (motion tokens) 离..."
+    },
+    {
+      "title": "Multiple Futures Prediction",
+      "date": "2025-05-25",
+      "category": "Notebook",
+      "tags": [
+        "Notebook"
+      ],
+      "excerpt": "历史输入 + 地图上下文 ↓ PoV 标准化 + 编码器（RNNEnc） ↓ 动态注意力编码器（DynEnc） ↓ 推断离散 latent 模式 z^n（每个 agent 一个） ↓ →→→ 解码器（RNN） →→→ 多步未来轨迹预测 y {t+1:t+T} ↑ 交互状态更新（所有 agent 协同预测） 输入模块：多 agent 状态...",
+      "url": "assets/content/notes/2025-5-25-Multiple%20Futures%20Prediction.md",
+      "search": "multiple futures prediction 2025-05-25 notebook 历史输入 + 地图上下文 ↓ pov 标准化 + 编码器（rnnenc） ↓ 动态注意力编码器（dynenc） ↓ 推断离散 latent 模式 z^n（每个 agent 一个） ↓ →→→ 解码器（rnn） →→→ 多步未来轨迹预测 y {t+1:t+t} ↑ 交互状态更新（所有 agent 协同预测） 输入模块：多 agent 状态..."
+    },
+    {
+      "title": "公式推导",
+      "date": "2025-05-24",
+      "category": "Research Notes",
+      "tags": [
+        "Research Notes"
+      ],
+      "excerpt": "对于原来的log sum 穷尽Z复杂度太高了 $\\begin{aligned}&\\sum {Z}q(Z \\mathbf{Y},\\mathbf{X})\\log\\frac{p(\\mathbf{Y},Z \\mathbf{X};\\mathbf{\\theta})}{q(Z \\mathbf{Y},\\mathbf{X})}=\\sum {Z}q(Z \\...",
+      "url": "assets/content/notes/2025-5-24-%E5%85%AC%E5%BC%8F%E6%8E%A8%E5%AF%BC.md",
+      "search": "公式推导 2025-05-24 research notes 对于原来的log sum 穷尽z复杂度太高了 $\\begin{aligned}&\\sum {z}q(z \\mathbf{y},\\mathbf{x})\\log\\frac{p(\\mathbf{y},z \\mathbf{x};\\mathbf{\\theta})}{q(z \\mathbf{y},\\mathbf{x})}=\\sum {z}q(z \\..."
+    },
+    {
+      "title": "LATENT VARIABLE SEQUENTIAL SET TRANSFORMERSFOR JOINT MULTI AGENT MOTION PREDICTION（特点：推理和训练很快）",
+      "date": "2025-05-20",
+      "category": "Motion & Urban AI",
+      "tags": [
+        "Motion & Urban AI"
+      ],
+      "excerpt": "AutoBot 是一种用于预测多智能体未来轨迹的生成式模型，它结合了： Set Transformers ：处理集合结构（如不定数量的代理人）。 Sequential Modeling ：处理时间序列依赖。 Latent Variables ：使用 离散隐变量 捕捉多模态未来。 Transformer Encoder Decoder 架...",
+      "url": "assets/content/notes/2025-5-20-LATENT%20VARIABLE%20SEQUENTIAL%20SET%20TRANSFORMERSFOR%20JOINT%20MULTI-AGENT%20MOTION%20PREDICTION%EF%BC%88%E7%89%B9%E7%82%B9%EF%BC%9A%E6%8E%A8%E7%90%86%E5%92%8C%E8%AE%AD%E7%BB%83%E5%BE%88%E5%BF%AB%EF%BC%89.md",
+      "search": "latent variable sequential set transformersfor joint multi agent motion prediction（特点：推理和训练很快） 2025-05-20 motion & urban ai autobot 是一种用于预测多智能体未来轨迹的生成式模型，它结合了： set transformers ：处理集合结构（如不定数量的代理人）。 sequential modeling ：处理时间序列依赖。 latent variables ：使用 离散隐变量 捕捉多模态未来。 transformer encoder decoder 架..."
+    },
+    {
+      "title": "training",
+      "date": "2025-05-19",
+      "category": "Research Notes",
+      "tags": [
+        "Research Notes"
+      ],
+      "excerpt": "混合精度训练 FP16 (Half Precision) : 占用内存小（16 bits），可以节省显存空间，提升计算吞吐量。 缺点是表示范围较小，容易出现梯度下溢（underflow）和溢出（overflow）问题。 FP32 (Single Precision) : 占用内存相对较大（32 bits），但表示范围更广，数值更稳定。...",
+      "url": "assets/content/notes/2025-5-19-training.md",
+      "search": "training 2025-05-19 research notes 混合精度训练 fp16 (half precision) : 占用内存小（16 bits），可以节省显存空间，提升计算吞吐量。 缺点是表示范围较小，容易出现梯度下溢（underflow）和溢出（overflow）问题。 fp32 (single precision) : 占用内存相对较大（32 bits），但表示范围更广，数值更稳定。..."
+    },
+    {
+      "title": "benchmark",
+      "date": "2025-05-18",
+      "category": "Research Notes",
+      "tags": [
+        "Research Notes"
+      ],
+      "excerpt": "封闭式评估与基准测试 许多 NLP 任务是“封闭式”的，这意味着潜在答案数量有限1，通常只有一个或少数几个正确答案。 例子包括：情感分类（例如情感标签）和抽取式问答（文档中包含答案的部分）。 封闭式任务的特点是便于自动评估，这与通常的机器学习评估方法相似。 单任务基准测试 专注于评估模型在特定任务上的表现：情感分析：SST, IMDB；...",
+      "url": "assets/content/notes/2025-5-18-benchmark.md",
+      "search": "benchmark 2025-05-18 research notes 封闭式评估与基准测试 许多 nlp 任务是“封闭式”的，这意味着潜在答案数量有限1，通常只有一个或少数几个正确答案。 例子包括：情感分类（例如情感标签）和抽取式问答（文档中包含答案的部分）。 封闭式任务的特点是便于自动评估，这与通常的机器学习评估方法相似。 单任务基准测试 专注于评估模型在特定任务上的表现：情感分析：sst, imdb；..."
+    },
+    {
+      "title": "PyTorch Layer and Tensor Notes",
+      "date": "2025-05-12",
+      "category": "Notebook",
+      "tags": [
+        "Notebook"
+      ],
+      "excerpt": "nn.linear w = nn.linear(4,2) w.weight.shape (2,4) nn.embedding 常用参数： ① num embeddings (int)： 词典中词的总数 ② embedding dim (int)： 词典中每个词的嵌入维度 ③ padding idx (int, optional)： 填充...",
+      "url": "assets/content/notes/2025-5-12-pytorch-layer-and-tensor-notes.md",
+      "search": "pytorch layer and tensor notes 2025-05-12 notebook nn.linear w = nn.linear(4,2) w.weight.shape (2,4) nn.embedding 常用参数： ① num embeddings (int)： 词典中词的总数 ② embedding dim (int)： 词典中每个词的嵌入维度 ③ padding idx (int, optional)： 填充..."
+    },
+    {
+      "title": "pyenv解除，优先conda",
+      "date": "2025-05-09",
+      "category": "Engineering Log",
+      "tags": [
+        "Engineering Log"
+      ],
+      "excerpt": "在zshrc注释即可，需要的时候取消注释 在vscode终端上 多次deactivate，然后activate即可",
+      "url": "assets/content/notes/2025-5-9-pyenv%E8%A7%A3%E9%99%A4%EF%BC%8C%E4%BC%98%E5%85%88conda.md",
+      "search": "pyenv解除，优先conda 2025-05-09 engineering log 在zshrc注释即可，需要的时候取消注释 在vscode终端上 多次deactivate，然后activate即可"
+    },
+    {
+      "title": "DeMo Decoupling Motion Forecasting intoDirectional Intentions and Dynamic States",
+      "date": "2025-05-02",
+      "category": "Motion & Urban AI",
+      "tags": [
+        "Motion & Urban AI"
+      ],
+      "excerpt": "Motivation 过去的方法对轨迹表示能力以及轨迹和时空环境的交互能力较弱，如只使用一种mode查询 文章的方法使用多个modes进行查询，同时将查询分成两部分：基于原始mode查询来捕获方向意图，和动态状态查询覆盖未来轨迹的多步，然后合起来就是图1(c)，多个状态和方向，覆盖多个可能状态，然后使用attention 和mamba来...",
+      "url": "assets/content/notes/2025-5-2-DeMo_Decoupling%20Motion%20Forecasting%20intoDirectional%20Intentions%20and%20Dynamic%20States.md",
+      "search": "demo decoupling motion forecasting intodirectional intentions and dynamic states 2025-05-02 motion & urban ai motivation 过去的方法对轨迹表示能力以及轨迹和时空环境的交互能力较弱，如只使用一种mode查询 文章的方法使用多个modes进行查询，同时将查询分成两部分：基于原始mode查询来捕获方向意图，和动态状态查询覆盖未来轨迹的多步，然后合起来就是图1(c)，多个状态和方向，覆盖多个可能状态，然后使用attention 和mamba来..."
+    },
+    {
+      "title": "AMP Autoregressive Motion Prediction Revisited with Next Token Prediction for Autonomous Driving",
+      "date": "2025-05-02",
+      "category": "Motion & Urban AI",
+      "tags": [
+        "Motion & Urban AI"
+      ],
+      "excerpt": "一、研究背景与动机 运动预测是自动驾驶系统的关键模块之一，任务是预测周围交通参与者（如车辆、行人等）在未来几秒内的位置。这有助于下游模块（如规划器）做出安全路径决策。 传统方法分为两类： （1）自回归预测（Autoregressive Prediction） 思想：像人一样“边思考边行动”，模型逐步地预测每一个时间步： $$P(S 1,...",
+      "url": "assets/content/notes/2025-5-2AMP_Autoregressive%20Motion%20Prediction%20Revisited%20with%20Next%20Token%20Prediction%20for%20Autonomous%20Driving.md",
+      "search": "amp autoregressive motion prediction revisited with next token prediction for autonomous driving 2025-05-02 motion & urban ai 一、研究背景与动机 运动预测是自动驾驶系统的关键模块之一，任务是预测周围交通参与者（如车辆、行人等）在未来几秒内的位置。这有助于下游模块（如规划器）做出安全路径决策。 传统方法分为两类： （1）自回归预测（autoregressive prediction） 思想：像人一样“边思考边行动”，模型逐步地预测每一个时间步： $$p(s 1,..."
+    },
+    {
+      "title": "Motion Transformer with Global IntentionLocalization and Local Movement Refinement",
+      "date": "2025-04-30",
+      "category": "Motion & Urban AI",
+      "tags": [
+        "Motion & Urban AI"
+      ],
+      "excerpt": "论文核心思想 目标： 为自动驾驶系统预测道路参与者（车辆、行人、自行车等）在复杂道路环境下的未来轨迹。 创新点： 提出一种新的预测框架 MTR，它结合了： 1. 全局意图定位（Global Intention Localization） ：确定可能的运动模式（如左转、右转、直行等）； 2. 局部运动细化（Local Movement R...",
+      "url": "assets/content/notes/2025-4-30-Motion%20Transformer%20with%20Global%20IntentionLocalization%20and%20Local%20Movement%20Refinement.md",
+      "search": "motion transformer with global intentionlocalization and local movement refinement 2025-04-30 motion & urban ai 论文核心思想 目标： 为自动驾驶系统预测道路参与者（车辆、行人、自行车等）在复杂道路环境下的未来轨迹。 创新点： 提出一种新的预测框架 mtr，它结合了： 1. 全局意图定位（global intention localization） ：确定可能的运动模式（如左转、右转、直行等）； 2. 局部运动细化（local movement r..."
+    },
+    {
+      "title": "mathjax渲染问题",
+      "date": "2025-04-23",
+      "category": "Research Notes",
+      "tags": [
+        "Research Notes"
+      ],
+      "excerpt": "发现 会导致网页端显示问题，需要转义，加上\\即可",
+      "url": "assets/content/notes/2025-4-23%20mathjax%E6%B8%B2%E6%9F%93%E9%97%AE%E9%A2%98.md",
+      "search": "mathjax渲染问题 2025-04-23 research notes 发现 会导致网页端显示问题，需要转义，加上\\即可"
+    },
+    {
+      "title": "Signed Graph Neural Ordinary Differential Equation for ModelingContinuous Time Dynamics",
+      "date": "2025-04-23",
+      "category": "Notebook",
+      "tags": [
+        "Notebook"
+      ],
+      "excerpt": "背景与问题 连续时间动态建模 ：许多现实世界的系统（如交通流量、基因调控、生态系统等）需要建模随时间连续变化的动态。现有的方法通常基于图神经网络（GNN）结合普通微分方程（ODE），如NDCN、STGODE和STG NCDE，但这些方法忽略了图中边的正负信息（例如，合作或竞争关系）。 问题 ：忽略正负信息可能导致模型无法准确捕捉复杂系统...",
+      "url": "assets/content/notes/2025-4-23-Signed%20Graph%20Neural%20Ordinary%20Differential%20Equation%20for%20ModelingContinuous-Time%20Dynamics.md",
+      "search": "signed graph neural ordinary differential equation for modelingcontinuous time dynamics 2025-04-23 notebook 背景与问题 连续时间动态建模 ：许多现实世界的系统（如交通流量、基因调控、生态系统等）需要建模随时间连续变化的动态。现有的方法通常基于图神经网络（gnn）结合普通微分方程（ode），如ndcn、stgode和stg ncde，但这些方法忽略了图中边的正负信息（例如，合作或竞争关系）。 问题 ：忽略正负信息可能导致模型无法准确捕捉复杂系统..."
+    },
+    {
+      "title": "2025-4-23-UrbanGPT_Spatio-Temporal Large Language Models",
+      "date": "2025-04-23",
+      "category": "Motion & Urban AI",
+      "tags": [
+        "Motion & Urban AI"
+      ],
+      "excerpt": "Motivation 目前的大多数方法都基于大量的标签数据进行训练，然后在一些的城市场景内的数据存在缺失性，我们需要构建一个泛化性强的时空大模型来进行优化流量，减少拥堵，提高移动性 目前的模型，如llama对于复杂的时空关系难以处理，对于baseline model, 他很容易出现overfit 在zero shot 场景 文章通过将时...",
+      "url": "assets/content/notes/2025-4-23-UrbanGPT_Spatio-Temporal%20Large%20Language%20Models.md",
+      "search": "2025-4-23-urbangpt_spatio-temporal large language models 2025-04-23 motion & urban ai motivation 目前的大多数方法都基于大量的标签数据进行训练，然后在一些的城市场景内的数据存在缺失性，我们需要构建一个泛化性强的时空大模型来进行优化流量，减少拥堵，提高移动性 目前的模型，如llama对于复杂的时空关系难以处理，对于baseline model, 他很容易出现overfit 在zero shot 场景 文章通过将时..."
+    },
+    {
+      "title": "校园网连接问题（mac版）",
+      "date": "2025-04-22",
+      "category": "Engineering Log",
+      "tags": [
+        "Engineering Log"
+      ],
+      "excerpt": "讲WIFI设置里面的私有wifi地址关闭或者改成固定 这样子mac地址就不会一直变，然后校园网的无感知服务就能连接，不需要一直设置",
+      "url": "assets/content/notes/2025-4-22-%E6%A0%A1%E5%9B%AD%E7%BD%91%E8%BF%9E%E6%8E%A5%E9%97%AE%E9%A2%98%EF%BC%88mac%E7%89%88%EF%BC%89.md",
+      "search": "校园网连接问题（mac版） 2025-04-22 engineering log 讲wifi设置里面的私有wifi地址关闭或者改成固定 这样子mac地址就不会一直变，然后校园网的无感知服务就能连接，不需要一直设置"
+    },
+    {
+      "title": "Trajectory Representation Learning on Grids andRoad Networks with Spatio-Temporal Dynamics",
+      "date": "2025-04-20",
+      "category": "Motion & Urban AI",
+      "tags": [
+        "Motion & Urban AI"
+      ],
+      "excerpt": "Motivation 目前的轨迹表示学习是基于这两个方法：基于网格的方法和基于道路的方法，这两个方法，两种模态在本质上是不同的，因此能够捕捉不同的轨迹特征并具有独特的优势。同时目前缺乏这两个模态的对比研究 此外，当前的路网表征学习（TRL）方法在很大程度上忽略了时空动态性。尽管最近的一些方法已经纳入了时间数据，但它们仍然将路网视为静态的...",
+      "url": "assets/content/notes/2025-4-20-Trajectory%20Representation%20Learning%20on%20Grids%20andRoad%20Networks%20with%20Spatio-Temporal%20Dynamics.md",
+      "search": "trajectory representation learning on grids androad networks with spatio-temporal dynamics 2025-04-20 motion & urban ai motivation 目前的轨迹表示学习是基于这两个方法：基于网格的方法和基于道路的方法，这两个方法，两种模态在本质上是不同的，因此能够捕捉不同的轨迹特征并具有独特的优势。同时目前缺乏这两个模态的对比研究 此外，当前的路网表征学习（trl）方法在很大程度上忽略了时空动态性。尽管最近的一些方法已经纳入了时间数据，但它们仍然将路网视为静态的..."
+    },
+    {
+      "title": "FlightBERT++ A Non autoregressive Multi Horizon FlightTrajectory Prediction Framework",
+      "date": "2025-04-17",
+      "category": "Motion & Urban AI",
+      "tags": [
+        "Motion & Urban AI"
+      ],
+      "excerpt": "这边的pt = [Lont, Latt, Altt, V xt, V yt, V zt] 包含了经纬度海拔，及其对应向量 由于这边是飞行任务，需要海拔，对于路面数据，只需经纬度 文章的问题是给定n给$p t$,输出未来n步 文章讲飞行轨迹预测任务转化为一个多元二分类任务，也就是讲经纬度变成二元序列，但是二元序列的高位会导致误差巨大，以及...",
+      "url": "assets/content/notes/2025-4-17-FlightBERT%2B%2B_A%20Non-autoregressive%20Multi-Horizon%20FlightTrajectory%20Prediction%20Framework.md",
+      "search": "flightbert++ a non autoregressive multi horizon flighttrajectory prediction framework 2025-04-17 motion & urban ai 这边的pt = [lont, latt, altt, v xt, v yt, v zt] 包含了经纬度海拔，及其对应向量 由于这边是飞行任务，需要海拔，对于路面数据，只需经纬度 文章的问题是给定n给$p t$,输出未来n步 文章讲飞行轨迹预测任务转化为一个多元二分类任务，也就是讲经纬度变成二元序列，但是二元序列的高位会导致误差巨大，以及..."
+    },
+    {
+      "title": "pyenv丝滑配置环境",
+      "date": "2025-04-04",
+      "category": "Engineering Log",
+      "tags": [
+        "Engineering Log"
+      ],
+      "excerpt": "安装 pyenv： 安装 Python 3.11（比如 3.11.7）： 为项目设置 Python 版本： 在 zsh 中配置 然后 最后 🎁 bonus：pyenv + virtualenv（可选增强） 然后",
+      "url": "assets/content/notes/2025-4-4-pyenv%E4%B8%9D%E6%BB%91%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83.md",
+      "search": "pyenv丝滑配置环境 2025-04-04 engineering log 安装 pyenv： 安装 python 3.11（比如 3.11.7）： 为项目设置 python 版本： 在 zsh 中配置 然后 最后 🎁 bonus：pyenv + virtualenv（可选增强） 然后"
+    },
+    {
+      "title": "Mac app中无法获取系统权限问题",
+      "date": "2025-04-02",
+      "category": "Engineering Log",
+      "tags": [
+        "Engineering Log"
+      ],
+      "excerpt": "Mac app中无法获取系统权限问题 猜测可能是因为删除app的时候没删干净，重新下载发现出现这个权限问题 使用swish即便打开系统设置，app依然显示无法获取系统设置，这个时候 获取bundle ID 然后 重新启动即可 Conda 安装requirement.txt中的pandas和numpy问题 problem 在pandas使...",
+      "url": "assets/content/notes/2025-4-2-Mac%20app%E4%B8%AD%E6%97%A0%E6%B3%95%E8%8E%B7%E5%8F%96%E7%B3%BB%E7%BB%9F%E6%9D%83%E9%99%90%E9%97%AE%E9%A2%98.md",
+      "search": "mac app中无法获取系统权限问题 2025-04-02 engineering log mac app中无法获取系统权限问题 猜测可能是因为删除app的时候没删干净，重新下载发现出现这个权限问题 使用swish即便打开系统设置，app依然显示无法获取系统设置，这个时候 获取bundle id 然后 重新启动即可 conda 安装requirement.txt中的pandas和numpy问题 problem 在pandas使..."
+    },
+    {
+      "title": "LLM for Data Management --Paper reading",
+      "date": "2024-12-06",
+      "category": "LLM Notes",
+      "tags": [
+        "LLM Notes"
+      ],
+      "excerpt": "LLM for Data Management Paper reading Abstract 感觉文章多次提到NL2SQL，目前也有很多工作是这个，似乎是LLM和DB结合的一个热点 RAG：将输入分成很多chunks，然后嵌入到vector databases,来增强查询，也是LLM和DB的结合 Fine tuning，微调可以来做一些...",
+      "url": "assets/content/notes/2024-12-6-LLM4DB.md",
+      "search": "llm for data management --paper reading 2024-12-06 llm notes llm for data management paper reading abstract 感觉文章多次提到nl2sql，目前也有很多工作是这个，似乎是llm和db结合的一个热点 rag：将输入分成很多chunks，然后嵌入到vector databases,来增强查询，也是llm和db的结合 fine tuning，微调可以来做一些..."
+    },
+    {
+      "title": "申请Azure云服务器",
+      "date": "2024-11-29",
+      "category": "Engineering Log",
+      "tags": [
+        "Engineering Log"
+      ],
+      "excerpt": "申请云服务器 在github的学生权益中，可以申请Microsoft Azure的云服务器，有100美刀的券 在这个过程中，需要登录认证，使用校园邮箱即可，收到验证信息即可认证成功 在主页创建虚拟机 点击虚拟机 创建虚拟机 具体配置 这个是找来的图，我自己配置的时候，虚拟机命名是us，选择是us west，ubuntu 22.04，使用...",
+      "url": "assets/content/notes/2024-11-29-Azure%E6%90%AD%E5%BB%BA%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8.md",
+      "search": "申请azure云服务器 2024-11-29 engineering log 申请云服务器 在github的学生权益中，可以申请microsoft azure的云服务器，有100美刀的券 在这个过程中，需要登录认证，使用校园邮箱即可，收到验证信息即可认证成功 在主页创建虚拟机 点击虚拟机 创建虚拟机 具体配置 这个是找来的图，我自己配置的时候，虚拟机命名是us，选择是us west，ubuntu 22.04，使用..."
+    },
+    {
+      "title": "Linux分区调整--gparted",
+      "date": "2024-11-22",
+      "category": "Engineering Log",
+      "tags": [
+        "Engineering Log"
+      ],
+      "excerpt": "分区分配上，/相当于windows的C盘，/home可以理解为d盘，在/目录下是需要sudo，软件的安装大多是在/目录，所以建议大一些，但是个人的数据是存在/home，以及一些配置文件（./zshrc，/.jdk等等）。 分区空间调整：用你之前的启动U盘，（我当时直接进入f12 manager发现没有disk启动项）先f2进入bios，...",
+      "url": "assets/content/notes/2024-11-22-Linux%E5%88%86%E5%8C%BA%E8%B0%83%E6%95%B4.md",
+      "search": "linux分区调整--gparted 2024-11-22 engineering log 分区分配上，/相当于windows的c盘，/home可以理解为d盘，在/目录下是需要sudo，软件的安装大多是在/目录，所以建议大一些，但是个人的数据是存在/home，以及一些配置文件（./zshrc，/.jdk等等）。 分区空间调整：用你之前的启动u盘，（我当时直接进入f12 manager发现没有disk启动项）先f2进入bios，..."
+    },
+    {
+      "title": "LLM-Evaluation",
+      "date": "2024-11-19",
+      "category": "LLM Notes",
+      "tags": [
+        "LLM Notes"
+      ],
+      "excerpt": "Perplexity of fixed length models PPL(perplexity) is one of the most common metrics for evaluating models. If we have a tokenized sequence $X = (x {0},x {1},\\dots x {t})...",
+      "url": "assets/content/notes/2024-11-19-Evaluation.md",
+      "search": "llm-evaluation 2024-11-19 llm notes perplexity of fixed length models ppl(perplexity) is one of the most common metrics for evaluating models. if we have a tokenized sequence $x = (x {0},x {1},\\dots x {t})..."
+    },
+    {
+      "title": "RHLF（基于人类反馈的强化学习）",
+      "date": "2024-11-18",
+      "category": "Notebook",
+      "tags": [
+        "Notebook"
+      ],
+      "excerpt": "在监督式微调之后，RLHF 是一个用于使大型语言模型（LLM）的答案与人类期望对齐的步骤。这个想法是从人类（或人工）反馈中学习偏好，这可以用来减少偏见、审查模型或使它们以更有用的方式行动。它比SFT更复杂，通常被视为可选的。 偏好数据集 ：这些数据集通常包含几个答案，并附有某种排名，这使得它们比指令数据集更难制作。 近端策略优化 近端策...",
+      "url": "assets/content/notes/2024-11-18-RLHF%EF%BC%88%E5%9F%BA%E4%BA%8E%E4%BA%BA%E7%B1%BB%E5%8F%8D%E9%A6%88%E7%9A%84%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%EF%BC%89.md",
+      "search": "rhlf（基于人类反馈的强化学习） 2024-11-18 notebook 在监督式微调之后，rlhf 是一个用于使大型语言模型（llm）的答案与人类期望对齐的步骤。这个想法是从人类（或人工）反馈中学习偏好，这可以用来减少偏见、审查模型或使它们以更有用的方式行动。它比sft更复杂，通常被视为可选的。 偏好数据集 ：这些数据集通常包含几个答案，并附有某种排名，这使得它们比指令数据集更难制作。 近端策略优化 近端策..."
+    },
+    {
+      "title": "Lora",
+      "date": "2024-11-17",
+      "category": "LLM Notes",
+      "tags": [
+        "LLM Notes"
+      ],
+      "excerpt": "Lora LoRA (Low Rank Adaptation) 是一种参数高效微调方法，主要目标是通过低秩矩阵分解高效地微调预训练语言模型。 核心思想 ： 冻结预训练模型的原始权重 WWW，通过引入低秩矩阵 AAA 和 BBB 来表示权重更新： $W′=W+ΔW,ΔW=\\frac{\\alpha}{r} AB$ 其中： $A \\in \\m...",
+      "url": "assets/content/notes/2024-11-17-Lora.md",
+      "search": "lora 2024-11-17 llm notes lora lora (low rank adaptation) 是一种参数高效微调方法，主要目标是通过低秩矩阵分解高效地微调预训练语言模型。 核心思想 ： 冻结预训练模型的原始权重 www，通过引入低秩矩阵 aaa 和 bbb 来表示权重更新： $w′=w+δw,δw=\\frac{\\alpha}{r} ab$ 其中： $a \\in \\m..."
+    },
+    {
+      "title": "LLM Notes",
+      "date": "2024-11-16",
+      "category": "LLM Notes",
+      "tags": [
+        "LLM Notes"
+      ],
+      "excerpt": "Configuring the Learning Rate base lr sqrt(supervised tokens in batch / pretrained bsz) 假设在微调 Mistral 模型，以下是已知的条件： base lr ：5e 5（预训练 Mistral 模型的学习率）。 总监督性标记数：2百万个标记（2,00...",
+      "url": "assets/content/notes/2024-11-16-LLM-Notes.md",
+      "search": "llm notes 2024-11-16 llm notes configuring the learning rate base lr sqrt(supervised tokens in batch / pretrained bsz) 假设在微调 mistral 模型，以下是已知的条件： base lr ：5e 5（预训练 mistral 模型的学习率）。 总监督性标记数：2百万个标记（2,00..."
+    },
+    {
+      "title": "搭建个人网站进行记录",
+      "date": "2024-11-16",
+      "category": "Notebook",
+      "tags": [
+        "Notebook"
+      ],
+      "excerpt": "申请域名及配置阿里云 DNS 首先在阿里云上申请一个域名，我这边申请了junle.cc，需要一系列的实名认证，然后交钱即可 在阿里云域名管理中，将域名指向 GitHub Pages 的服务器，点击 解析 或 DNS设置 添加以下解析记录： 主机记录 ： @ 记录类型 ： CNAME 记录值 ： .github.io TTL ：默认（通常...",
+      "url": "assets/content/notes/2024-11-16-%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99%E8%BF%9B%E8%A1%8C%E7%AC%94%E8%AE%B0%E8%AE%B0%E5%BD%95.md",
+      "search": "搭建个人网站进行记录 2024-11-16 notebook 申请域名及配置阿里云 dns 首先在阿里云上申请一个域名，我这边申请了junle.cc，需要一系列的实名认证，然后交钱即可 在阿里云域名管理中，将域名指向 github pages 的服务器，点击 解析 或 dns设置 添加以下解析记录： 主机记录 ： @ 记录类型 ： cname 记录值 ： .github.io ttl ：默认（通常..."
+    },
+    {
+      "title": "Are Language Models Actually Useful for Time Series Forecasting?",
+      "date": "",
+      "category": "Motion & Urban AI",
+      "tags": [
+        "Motion & Urban AI"
+      ],
+      "excerpt": "First, let's read some popular and recent LLM based time series forecasting CALF：基于跨模态微调的LLM时间序列预测框架",
+      "url": "assets/content/notes/Are%20Language%20Models%20Actually%20Useful%20for%20Time%20Series%20Forecasting%3F.md",
+      "search": "are language models actually useful for time series forecasting?  motion & urban ai first, let's read some popular and recent llm based time series forecasting calf：基于跨模态微调的llm时间序列预测框架"
+    },
+    {
+      "title": "URBANDIT A FOUNDATION MODEL FOR OPEN WORLD URBAN SPATIO TEMPORAL LEARNING",
+      "date": "",
+      "category": "Motion & Urban AI",
+      "tags": [
+        "Motion & Urban AI"
+      ],
+      "excerpt": "",
+      "url": "assets/content/notes/URBANDIT_A%20FOUNDATION%20MODEL%20FOR%20OPEN-WORLD%20URBAN%20SPATIO-TEMPORAL%20LEARNING.md",
+      "search": "urbandit a foundation model for open world urban spatio temporal learning  motion & urban ai "
+    }
+  ],
+  "memos": [
+    {
+      "id": 1764037413278,
+      "title": "COMP 6211J slide",
+      "content": "",
+      "category": "general",
+      "priority": "normal",
+      "date": "11/25/2025, 10:23 AM",
+      "completed": false
+    },
+    {
+      "id": 1764036717705,
+      "title": "COMP 6211J slide",
+      "content": "https://docs.google.com/presentation/d/1u-HweKcox0a6mzhpBX1aF55HlwWEF95kW5vUzvNNvic/edit?usp=sharing",
+      "category": "general",
+      "priority": "normal",
+      "date": "11/25/2025, 10:11 AM",
+      "completed": false
+    },
+    {
+      "id": 1763970345849,
+      "title": "welcome",
+      "content": "welcome",
+      "category": "general",
+      "priority": "normal",
+      "date": "11/24/2025, 03:45 PM",
+      "completed": false
+    },
+    {
+      "id": 1763969440883,
+      "title": "yyyy",
+      "content": "yyyy",
+      "category": "general",
+      "priority": "normal",
+      "date": "11/24/2025, 03:30 PM",
+      "completed": false
+    },
+    {
+      "id": 1763969112475,
+      "title": "hello",
+      "content": "hhh",
+      "category": "general",
+      "priority": "normal",
+      "date": "11/24/2025, 03:25 PM",
+      "completed": false
+    },
+    {
+      "id": 1763965893968,
+      "title": "hh",
+      "content": "hh",
+      "category": "general",
+      "priority": "normal",
+      "date": "11/24/2025, 02:31 PM",
+      "completed": false
+    }
+  ],
+  "papers": {
+    "updated_at": "2026-06-17",
+    "topics": [
+      "agent-planning",
+      "multi-turn agents",
+      "long-horizon planning",
+      "agent memory"
+    ],
+    "items": []
+  },
+  "paper_topics": {
+    "days_back": 3,
+    "max_results_per_query": 10,
+    "queries": [
+      {
+        "name": "Agent planning",
+        "query": "(all:\"agent planning\" OR all:\"LLM agent planning\" OR all:\"long-horizon planning\" OR all:\"multi-turn dialogue\" OR all:\"interactive replanning\" OR all:\"agent memory\" OR all:\"stateful agent\") AND (cat:cs.AI OR cat:cs.CL OR cat:cs.LG)",
+        "tags": [
+          "agent-planning",
+          "multi-turn",
+          "long-horizon",
+          "agent-memory"
+        ]
+      }
+    ]
+  },
+  "categories": [
+    "Notebook",
+    "Motion & Urban AI",
+    "Research Notes",
+    "Engineering Log",
+    "LLM Notes"
+  ],
+  "resources": [
+    {
+      "title": "Academic Page",
+      "description": "Existing academic homepage linked from the old Resources menu.",
+      "href": "https://junle-chen.github.io/",
+      "type": "External"
+    },
+    {
+      "title": "GitHub Repositories",
+      "description": "Project and research code collection.",
+      "href": "https://github.com/junle-chen?tab=repositories",
+      "type": "External"
+    },
+    {
+      "title": "Paper Radar Source",
+      "description": "Markdown source for the paper tracking view.",
+      "href": "assets/content/pages/papers.md",
+      "type": "Data"
+    },
+    {
+      "title": "Site Usage Guide",
+      "description": "Configuration, deployment, and citation notes for this homepage.",
+      "href": "assets/content/pages/README.md",
+      "type": "Archive"
+    }
+  ]
+}

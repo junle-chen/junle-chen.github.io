@@ -1,0 +1,63 @@
+script(src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js")
+script(src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2")
+script(src='js/realtime-config.js?v=20260618-realtime-auth-v2')
+script(src='js/visitor-regions.js?v=20260625-visitor-regions-v3')
+script(src='js/date-pagination.js?v=20260714-date-pages-v1')
+
+script.
+	window.MathJax = {
+		tex: {
+			inlineMath: [["$", "$"], ["\\(", "\\)"]],
+			displayMath: [["$$", "$$"], ["\\[", "\\]"]],
+			processEscapes: true,
+		},
+		options: {
+			skipHtmlTags: ["script", "noscript", "style", "textarea", "pre", "code"],
+		},
+	}
+script(src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js")
+
+script.
+	window.$ = selector => document.querySelector(selector)
+	const getOriginalContent = selector => {
+		const node = $(selector)
+		return node ? node.getAttribute("original-content") || "" : ""
+	}
+	window.subtitle = getOriginalContent(".content-subtitle")
+	window.signature = getOriginalContent("#signature")
+	window.config = {
+		SIM_RESOLUTION: 128,
+		DYE_RESOLUTION: 1024,
+		CAPTURE_RESOLUTION: 512,
+		DENSITY_DISSIPATION: 1,
+		VELOCITY_DISSIPATION: 0.2,
+		PRESSURE: 0.8,
+		PRESSURE_ITERATIONS: 20,
+		CURL: 30,
+		SPLAT_RADIUS: 0.25,
+		SPLAT_FORCE: 6000,
+		SHADING: true,
+		COLORFUL: true,
+		COLOR_UPDATE_SPEED: 10,
+		PAUSED: false,
+		BACK_COLOR: { r: 30, g: 31, b: 33 },
+		TRANSPARENT: false,
+		BLOOM: true,
+		BLOOM_ITERATIONS: 8,
+		BLOOM_RESOLUTION: 256,
+		BLOOM_INTENSITY: 0.4,
+		BLOOM_THRESHOLD: 0.8,
+		BLOOM_SOFT_KNEE: 0.7,
+		SUNRAYS: true,
+		SUNRAYS_RESOLUTION: 196,
+		SUNRAYS_WEIGHT: 1.0,
+	}
+
+script(src='js/main.js?v=20260714-date-pages-v1')
+
+if intro.background
+	script(src='js/background.js')
+
+if intro.supportAuthor
+	script.
+		console.info("Junle Chen HomePage | Based on SimonAKing/HomePage (LGPL-3.0-only)")
