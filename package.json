@@ -4,8 +4,8 @@
 	"author": "Junle Chen <cshanppy@gmail.com>",
 	"license": "LGPL-3.0-only",
 	"homepage": "https://junle-chen.github.io",
-	"repository": "https://github.com/junle-chen/ac-homepage",
-	"bugs": "https://github.com/junle-chen/ac-homepage/issues",
+	"repository": "https://github.com/junle-chen/junle-chen.github.io",
+	"bugs": "https://github.com/junle-chen/junle-chen.github.io/issues",
 	"description": "Junle Chen personal homepage",
 	"scripts": {
 		"import:content": "node scripts/import-junle-content.js",
@@ -18,8 +18,7 @@
 		"test:visitor-regions": "node tests/visitor-regions.test.js",
 		"predev": "gulp build",
 		"dev": "gulp watch",
-		"build": "gulp build",
-		"pages:publish": "node scripts/publish-pages.js"
+		"build": "gulp build"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.4.4",

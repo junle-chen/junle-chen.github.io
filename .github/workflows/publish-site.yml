@@ -1,0 +1,72 @@
+name: Publish junle-chen.github.io
+
+on:
+  push:
+    branches: [master]
+    paths-ignore:
+      - 'archive/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: homepage-pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the primary website repository
+        uses: actions/checkout@v6
+      - name: Set up Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: '24'
+          package-manager-cache: false
+      - name: Build the website
+        run: |
+          npm install --no-package-lock --no-audit --no-fund
+          npm run build
+      - name: Validate the root domain and record the deployed revision
+        env:
+          SOURCE_REVISION: ${{ github.sha }}
+        run: |
+          node <<'NODE'
+          const fs = require('node:fs');
+          const assert = require('node:assert/strict');
+          const pkg = JSON.parse(fs.readFileSync('package.json', 'utf8'));
+          assert.equal(pkg.homepage, 'https://junle-chen.github.io');
+          assert.equal(fs.existsSync('CNAME'), false, 'The root website must not bind a custom domain.');
+          assert.equal(fs.existsSync('dist/CNAME'), false, 'The generated website must not bind a custom domain.');
+          assert.ok(fs.existsSync('dist/index.html'));
+          assert.deepEqual(
+            fs.readFileSync('src/assets/content/data/daily-papers.json'),
+            fs.readFileSync('dist/assets/content/data/daily-papers.json'),
+            'The deployed Daily Paper data must match committed source.',
+          );
+          const manifest = {
+            sourceRepository: 'junle-chen/junle-chen.github.io',
+            sourceRevision: process.env.SOURCE_REVISION,
+          };
+          fs.writeFileSync('dist/deployment-source.json', JSON.stringify(manifest, null, 2) + '\n');
+          NODE
+      - name: Upload the website artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy the website artifact
+        id: deployment
+        uses: actions/deploy-pages@v4

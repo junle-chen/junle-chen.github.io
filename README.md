@@ -10,7 +10,7 @@ If you like this template or wish to use it, please consider giving this reposit
 [![License: LGPL-3.0](https://img.shields.io/badge/License-LGPL--3.0-blue.svg)](LICENSE)
 
 - 🌐 Live demo: [https://junle-chen.github.io](https://junle-chen.github.io)
-- 🧩 Repository: [junle-chen/ac-homepage](https://github.com/junle-chen/ac-homepage)
+- 🧩 Repository: [junle-chen/junle-chen.github.io](https://github.com/junle-chen/junle-chen.github.io)
 - ⭐ Like it? Star the repo and adapt it for your own academic homepage.
 
 ## ✨ What You Get
@@ -223,30 +223,31 @@ Required setup:
 4. Paste those values into `GISCUS_CONFIG`.
 
 Each note uses its own `data-comment-term`, so every note gets a separate discussion thread.
+The current site keeps its existing Giscus discussions in `junle-chen/ac-homepage` so
+existing comment threads remain available; changing that backend is a separate migration.
 
 ## 🚀 Deploy
 
-The source stays in [junle-chen/ac-homepage](https://github.com/junle-chen/ac-homepage).
-The root website, [https://junle-chen.github.io](https://junle-chen.github.io), is published by
-[junle-chen/junle-chen.github.io](https://github.com/junle-chen/junle-chen.github.io)
-using its `Publish ac-homepage` GitHub Actions workflow.
+This repository is the primary source for [https://junle-chen.github.io](https://junle-chen.github.io).
+Its [GitHub Actions workflow](.github/workflows/publish-site.yml) builds this repository's
+`master` branch and publishes `dist/` directly to the root GitHub Pages URL.
+The former Academic Pages website is preserved under [archive/academic-pages](archive/academic-pages/)
+and is not included in the deployed artifact.
 
 ```bash
 npm run build
-# Commit and push the intended source and generated changes to main first.
-npm run pages:publish -- --wait
+# Commit and push the intended website changes to master to publish them.
 ```
 
-The publisher submits the committed source revision to the publishing repository.
-The workflow builds `ac-homepage/main` and verifies the live source revision.
-A scheduled check also picks up source changes every 15 minutes; GitHub may delay scheduled runs.
-Local uncommitted files are never included in the deployment request.
+The workflow rebuilds from committed source after each push to `master` and records the
+deployed commit in `deployment-source.json`. Keep Daily Paper source and generated `dist`
+data consistent before committing; the Daily Paper automation now runs from this repository.
+Local uncommitted files are not included in the deployment.
 
 The GitHub root website must have no custom domain configured, and `dist/CNAME` must not exist.
-The `ac-homepage` Pages deployment keeps `junle.cc` as its custom domain and serves the
-HTTPS redirect from `redirects/junle.cc/`, preserving paths, query strings and fragments.
-Keep `.nojekyll` in that redirect deployment. Publishing the full `dist/` back to the
-`ac-homepage` `gh-pages` branch would replace the redirect, so use the publisher command above.
+The former [ac-homepage](https://github.com/junle-chen/ac-homepage) repository retains only
+the `junle.cc` GitHub Pages redirect on its `gh-pages` branch. Do not publish this site's
+full `dist/` to that branch: it would replace the redirect.
 
 Supabase Authentication URL Configuration:
 
