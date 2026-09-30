@@ -13,5 +13,7 @@ site and confirm that `src/assets/content/data/daily-papers.json` matches the
 generated `dist/assets/content/data/daily-papers.json` before publishing.
 
 The prior Academic Pages site is preserved under `archive/academic-pages/`.
-Keep its files and Git history intact. The `junle.cc` redirect is served by the
-separate `ac-homepage/gh-pages` branch.
+The previous default-branch commit history is preserved on
+[`archive/master-history-before-cleanup`](https://github.com/junle-chen/junle-chen.github.io/tree/archive/master-history-before-cleanup).
+Keep both archives intact. The `junle.cc` redirect is served by the separate
+`ac-homepage/gh-pages` branch.

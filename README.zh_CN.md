@@ -69,6 +69,6 @@ Pug、LESS 和 JavaScript 构建出静态网站，由 GitHub Pages 托管。Supa
 
 ## 维护者、贡献者与许可
 
-本站由 Junle Chen 维护，代码最初基于 [SimonAKing/HomePage](https://github.com/SimonAKing/HomePage)，仓库也保留了旧网站内容与历史提交。GitHub 侧栏的 **Contributors** 由这些历史提交的作者自动生成，不等于当前维护者名单。上游和第三方来源见 [ATTRIBUTION.md](ATTRIBUTION.md) 与 [NOTICE.md](NOTICE.md)。
+本站由 Junle Chen 维护，代码最初基于 [SimonAKing/HomePage](https://github.com/SimonAKing/HomePage)。当前 `master` 从网站现有文件重新开始；[此前的完整提交历史](https://github.com/junle-chen/junle-chen.github.io/tree/archive/master-history-before-cleanup)保存在独立分支，原作者和提交记录没有被改写。GitHub 侧栏的 **Contributors** 按当前默认分支统计。上游和第三方来源见 [ATTRIBUTION.md](ATTRIBUTION.md) 与 [NOTICE.md](NOTICE.md)。
 
 可复用代码沿用 [LGPL-3.0-only](LICENSE)；个人网站内容的说明见 [CONTENT_LICENSE.md](CONTENT_LICENSE.md)。

@@ -1,6 +1,6 @@
 # Attribution
 
-Academic Homepage Template keeps clear credit for runtime services, libraries, templates, and external data sources used by the site.
+This research homepage credits the services, libraries, templates, data sources, and prior contributors behind the site.
 
 ## Project
 
@@ -13,7 +13,7 @@ Academic Homepage Template keeps clear credit for runtime services, libraries, t
 
 | Website or service | How it is used |
 | --- | --- |
-| [GitHub Pages](https://pages.github.com/) | Static site hosting and custom domain deployment. |
+| [GitHub Pages](https://pages.github.com/) | Static hosting for the root website. |
 | [GitHub](https://github.com/) | Source hosting, Discussions, and OAuth App setup. |
 | [Giscus](https://giscus.app/) | Comment widget backed by GitHub Discussions. |
 | [Supabase](https://supabase.com/) | Realtime database and GitHub-authenticated owner writes for memos, stars, and archive state. |
@@ -39,6 +39,15 @@ Academic Homepage Template keeps clear credit for runtime services, libraries, t
 | [Beautiful Jekyll](https://github.com/daattali/beautiful-jekyll) | Some archived/imported content assets from the earlier personal notes site still carry Beautiful Jekyll lineage and are credited here. |
 | [bootstrap-social](https://github.com/lipis/bootstrap-social) | Historical imported CSS asset under the notes content tree. |
 
+## Historical Contributors
+
+The previous default-branch history is preserved at
+[`archive/master-history-before-cleanup`](https://github.com/junle-chen/junle-chen.github.io/tree/archive/master-history-before-cleanup).
+That branch retains the original commit authors and messages. The current
+`master` starts with the present website files, so GitHub's Contributors panel
+describes the new default-branch history rather than everyone who worked on
+the upstream template or earlier site.
+
 ## Operational References
 
 - [GitHub Docs: Duplicating a repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/duplicating-a-repository)
@@ -48,4 +57,4 @@ Academic Homepage Template keeps clear credit for runtime services, libraries, t
 
 If you reuse this project, keep project-specific secrets out of the repository. The Supabase anon key is intentionally public, but OAuth client secrets, deployment tokens, and private paper-library exports should stay outside Git.
 
-If this template helps your own homepage, a GitHub star is appreciated. Keep `LICENSE`, `NOTICE.md`, and this attribution file when redistributing the code.
+Keep `LICENSE`, `NOTICE.md`, and this attribution file when redistributing the code.

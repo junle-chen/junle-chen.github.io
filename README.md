@@ -258,6 +258,6 @@ Supabase Authentication URL Configuration:
 
 ## Maintainer, contributors, and license
 
-Junle Chen maintains this website. Its code grew from [SimonAKing/HomePage](https://github.com/SimonAKing/HomePage), and this repository also preserves earlier site material and commit history. GitHub's **Contributors** panel reflects authors in that history; it is not a manually curated list of current maintainers. See [ATTRIBUTION.md](ATTRIBUTION.md) and [NOTICE.md](NOTICE.md) for upstream and third-party credits.
+Junle Chen maintains this website. Its code grew from [SimonAKing/HomePage](https://github.com/SimonAKing/HomePage). The current `master` branch begins with this site's present files, while the [previous commit history](https://github.com/junle-chen/junle-chen.github.io/tree/archive/master-history-before-cleanup) remains available on a separate branch. GitHub's **Contributors** panel counts the current default branch; earlier authors retain their original commits in the history branch. See [ATTRIBUTION.md](ATTRIBUTION.md) and [NOTICE.md](NOTICE.md) for upstream and third-party credits.
 
 Reusable website code keeps the upstream [LGPL-3.0-only license](LICENSE). Personal site content has separate [content notes](CONTENT_LICENSE.md). Keep `LICENSE`, `NOTICE.md`, and `ATTRIBUTION.md` when redistributing the code.
