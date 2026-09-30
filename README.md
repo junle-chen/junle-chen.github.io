@@ -1,92 +1,47 @@
-# ⭐ Academic Homepage Template
+# Junle Chen · Research Homepage
 
-> A static academic homepage and research workspace for notes, memos, paper reading, and lightweight realtime interactions.
+A personal research workspace for notes, short thoughts, and papers worth reading.
 
-If you like this template or wish to use it, please consider giving this repository a ⭐ star.
+**[Visit the site](https://junle-chen.github.io/)** · [中文说明](README.zh_CN.md) · [Report an issue](https://github.com/junle-chen/junle-chen.github.io/issues)
 
-[![GitHub Pages](https://img.shields.io/badge/Deploy-GitHub%20Pages-222?logo=github)](https://pages.github.com/)
-[![Supabase](https://img.shields.io/badge/Realtime-Supabase-3FCF8E?logo=supabase&logoColor=white)](https://supabase.com/)
-[![Giscus](https://img.shields.io/badge/Comments-Giscus-7C3AED)](https://giscus.app/)
-[![License: LGPL-3.0](https://img.shields.io/badge/License-LGPL--3.0-blue.svg)](LICENSE)
+[![Publish site](https://github.com/junle-chen/junle-chen.github.io/actions/workflows/publish-site.yml/badge.svg)](https://github.com/junle-chen/junle-chen.github.io/actions/workflows/publish-site.yml)
+[![License: LGPL-3.0-only](https://img.shields.io/badge/code-LGPL--3.0--only-blue)](LICENSE)
 
-- 🌐 Live demo: [https://junle-chen.github.io](https://junle-chen.github.io)
-- 🧩 Repository: [junle-chen/junle-chen.github.io](https://github.com/junle-chen/junle-chen.github.io)
-- ⭐ Like it? Star the repo and adapt it for your own academic homepage.
+## Explore the site
 
-## ✨ What You Get
-
-| Area | What it provides |
+| Section | What you can do |
 | --- | --- |
-| 👤 `About` | Profile, research interests, selected publications, contact links, and workspace entry points. |
-| 📝 `Notes` | In-site Markdown reader with search, categories, archive state, outline, images, and MathJax. |
-| 💬 `Memos` | Timeline-style notes with owner-only realtime writes. |
-| 📚 `Academic` | Daily Paper, paper list, stars, paper details, reading summaries, and text export. |
-| ⚡ `Realtime` | Shared memo, paper-star, Zotero-star, and note-archive state through Supabase. |
-| 💭 `Comments` | Giscus comments backed by GitHub Discussions. |
-| 🚀 `Deploy` | Static build for GitHub Pages and optional custom domain. |
+| **About Me** | Read my profile, research interests, selected work, and contact links. |
+| **Blog / Notes** | Browse and search Markdown notes by category; read them with an outline, images, math rendering, and comments. |
+| **Memos** | Follow a timeline of short updates and links. The site owner can sign in with GitHub to manage entries. |
+| **Academic → Daily Paper** | Explore a curated arXiv reading feed with summaries, detailed notes, and paper links. |
+| **Academic → Paper List** | Browse a longer-term list populated from a Zotero export. |
 
-## 🧭 Template Map
+Paper stars and note archive state can sync across sessions through Supabase. Public reading does not require sign-in.
 
-Use this repository as a template if you want:
+## A look inside
 
-- a homepage that feels like a working research desk instead of a plain CV page
-- long-form notes that render inside the site rather than as raw Markdown
-- a paper-reading dashboard for daily arXiv tracking and Zotero exports
-- optional realtime state for memos, stars, and archived notes
-- optional GitHub Discussions comments for notes
-- static hosting without maintaining a backend server
+| Profile and entry points | Notes reader |
+| --- | --- |
+| ![About view](src/assets/screenshots/homepage-about.png) | ![In-site Markdown reader](src/assets/screenshots/homepage-note-reader.png) |
+| **Memos** | **Academic** |
+| ![Memo timeline](src/assets/screenshots/homepage-memos.png) | ![Academic paper view](src/assets/screenshots/homepage-academic.png) |
 
-## 🖼️ Screenshots
+## Develop locally
 
-### 👤 About / Profile
-
-![About view](src/assets/screenshots/homepage-about.png)
-
-The About screen works as the entry point for a compact academic profile, research interests, selected publications, contact links, and quick access to the workspace sections.
-
-### 💬 Memos
-
-![Memos view](src/assets/screenshots/homepage-memos.png)
-
-Memos provide a timeline-style writing area. Public visitors can read published memos, while the configured owner can sign in with GitHub to add or delete memos. Supabase realtime keeps open browser sessions synchronized.
-
-### 📚 Academic
-
-![Academic view](src/assets/screenshots/homepage-academic.png)
-
-The Academic section contains two research-reading views:
-
-- `Daily Paper`: curated arXiv paper tracking with stars, short summaries, long reading notes, and exportable text.
-- `Paper List`: a longer-term paper list generated from a Zotero or local library export.
-
-### 📝 Notes Reader
-
-![Notes reader](src/assets/screenshots/homepage-note-reader.png)
-
-Notes open inside the site reader instead of jumping to raw Markdown files. The reader supports rendered Markdown, images, MathJax, a right-side outline, archive state, and Giscus comments.
-
-## ⚡ Quick Start
+Requires Node.js and npm. The deployment workflow uses Node.js 24; this repository has no npm lockfile.
 
 ```bash
-npm install
+npm install --no-package-lock --no-audit --no-fund
 npm run build
 npm run dev
 ```
 
 `npm run build` generates `dist/`. `npm run dev` starts the gulp watcher and previews from `dist`.
 
-If you use pnpm and see `Ignored build scripts`, approve the dependency build scripts as prompted:
+## Where to edit
 
-```bash
-pnpm install
-pnpm approve-builds
-pnpm run build
-pnpm run dev
-```
-
-## 🛠️ Make It Yours
-
-Start with these files when turning the template into your own homepage:
+The files below are the main editing points for this website:
 
 | File or folder | What to change |
 | --- | --- |
@@ -100,17 +55,20 @@ Start with these files when turning the template into your own homepage:
 | `supabase/homepage-realtime.sql` | Supabase tables, RLS policies, owner checks, and realtime publication. |
 | `src/js/main.js` | Giscus config and frontend interaction logic. |
 
-## 🔌 Optional Integrations
+## Services and integrations
 
 | Integration | Required? | Purpose |
 | --- | --- | --- |
 | Supabase | Optional | Shared realtime memos, paper stars, Zotero stars, and note archive state. |
 | GitHub OAuth | Optional | Owner login for write permissions through Supabase Auth. |
 | Giscus | Optional | GitHub Discussions comments for notes. |
-| GitHub Pages | Recommended | Static hosting and custom domain deployment. |
+| GitHub Pages | Yes | Static hosting at the root GitHub Pages URL. |
 | Zotero export | Optional | Populate the long-term Paper List view. |
 
-## 🧱 Realtime Architecture
+<details>
+<summary><strong>Implementation details: realtime state, owner login, and comments</strong></summary>
+
+## Realtime architecture
 
 The site is statically hosted. Dynamic state is handled by Supabase Auth, Supabase Postgres, and Supabase Realtime:
 
@@ -226,7 +184,9 @@ Each note uses its own `data-comment-term`, so every note gets a separate discus
 The current site keeps its existing Giscus discussions in `junle-chen/ac-homepage` so
 existing comment threads remain available; changing that backend is a separate migration.
 
-## 🚀 Deploy
+</details>
+
+## Publish the site
 
 This repository is the primary source for [https://junle-chen.github.io](https://junle-chen.github.io).
 Its [GitHub Actions workflow](.github/workflows/publish-site.yml) builds this repository's
@@ -254,7 +214,7 @@ Supabase Authentication URL Configuration:
 - Site URL: `https://junle-chen.github.io`
 - Redirect URL: `https://junle-chen.github.io/`
 
-## 📁 Project Structure
+## Project structure
 
 | Path | Description |
 | --- | --- |
@@ -270,11 +230,14 @@ Supabase Authentication URL Configuration:
 | `supabase/homepage-realtime.sql` | Supabase schema, RLS policies, and realtime publication. |
 | `dist/` | Generated static site. |
 
-## 🌐 Websites And Services Used
+<details>
+<summary><strong>Services and upstream projects</strong></summary>
+
+## Websites and services used
 
 | Website or project | Use |
 | --- | --- |
-| [GitHub Pages](https://pages.github.com/) | Static hosting and custom domain deployment. |
+| [GitHub Pages](https://pages.github.com/) | Static hosting at the root GitHub Pages URL. |
 | [GitHub](https://github.com/) | Source hosting, Discussions, and OAuth App setup. |
 | [Giscus](https://giscus.app/) | Comment widget powered by GitHub Discussions. |
 | [Supabase](https://supabase.com/) | Realtime database, Auth, and owner-only writes. |
@@ -291,6 +254,10 @@ Supabase Authentication URL Configuration:
 | [Beautiful Jekyll](https://github.com/daattali/beautiful-jekyll) | Historical imported notes-site assets. |
 | [bootstrap-social](https://github.com/lipis/bootstrap-social) | Historical imported social-button CSS asset. |
 
-## 📄 License And Attribution
+</details>
 
-The reusable website source code keeps the upstream `LGPL-3.0-only` license from [SimonAKing/HomePage](https://github.com/SimonAKing/HomePage). Keep `LICENSE`, `NOTICE.md`, and `ATTRIBUTION.md` when redistributing the code.
+## Maintainer, contributors, and license
+
+Junle Chen maintains this website. Its code grew from [SimonAKing/HomePage](https://github.com/SimonAKing/HomePage), and this repository also preserves earlier site material and commit history. GitHub's **Contributors** panel reflects authors in that history; it is not a manually curated list of current maintainers. See [ATTRIBUTION.md](ATTRIBUTION.md) and [NOTICE.md](NOTICE.md) for upstream and third-party credits.
+
+Reusable website code keeps the upstream [LGPL-3.0-only license](LICENSE). Personal site content has separate [content notes](CONTENT_LICENSE.md). Keep `LICENSE`, `NOTICE.md`, and `ATTRIBUTION.md` when redistributing the code.
