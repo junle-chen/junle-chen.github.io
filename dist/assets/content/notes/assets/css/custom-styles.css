@@ -1,0 +1,19 @@
+/* 设置My Notes背景样式 */
+.home-banner {
+    background-image: url('/assets/images/path.jpg'); /* 替换为图片路径 */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: white; /* 根据背景调整文字颜色 */
+    padding: 50px 20px;
+    text-align: center;
+    border-radius: 10px; /* 可选：为背景容器增加圆角 */
+}
+
+/* 可选：调整页面的整体布局 */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5; /* 如果背景图没加载成功的默认背景色 */
+}

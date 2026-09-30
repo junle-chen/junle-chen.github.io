@@ -1,0 +1,11 @@
+{
+  "days_back": 3,
+  "max_results_per_query": 10,
+  "queries": [
+    {
+      "name": "Agent planning",
+      "query": "(all:\"agent planning\" OR all:\"LLM agent planning\" OR all:\"long-horizon planning\" OR all:\"multi-turn dialogue\" OR all:\"interactive replanning\" OR all:\"agent memory\" OR all:\"stateful agent\") AND (cat:cs.AI OR cat:cs.CL OR cat:cs.LG)",
+      "tags": ["agent-planning", "multi-turn", "long-horizon", "agent-memory"]
+    }
+  ]
+}

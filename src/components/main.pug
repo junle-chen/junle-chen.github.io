@@ -1,0 +1,388 @@
+- const hp = homepage || {}
+- const stats = hp.stats || {}
+- const notes = hp.notes || []
+- const memos = hp.memos || []
+- const resources = hp.resources || []
+- const paperData = hp.papers || {}
+- const paperItems = paperData.items || []
+- const paperTopics = paperData.topics || []
+- const importedAt = hp.imported_at || ''
+- const categories = hp.categories || []
+- const navItems = [main.ul.first, main.ul.second, main.ul.third, main.ul.fourth].filter(Boolean)
+- const isExternal = href => /^(https?:|mailto:)/.test(href || '')
+- const profileLinks = navItems.filter(item => isExternal(item.href))
+- const externalResources = resources.filter(resource => /external/i.test(resource.type || ""))
+- const externalMenuItems = externalResources
+- const paperRadarResources = resources.filter(resource => /paper radar|papers\.md/i.test([resource.type, resource.title, resource.description, resource.href].join(" ")))
+- const baseRailResources = resources.filter(resource => !/external|memo|workflow|paper radar|daily paper|papers\.md|daily-papers/i.test([resource.type, resource.title, resource.description, resource.href].join(" ")))
+- const railResources = baseRailResources
+- const noteCount = stats.notes || notes.length || 0
+- const memoCount = stats.memos || memos.length || 0
+- const resourceCount = railResources.length
+- const paperCount = stats.papers || paperItems.length || 0
+- const stripExcerptMath = value => String(value || '').replace(/\$\$[\s\S]*?(?:\$\$|$)/g, '').replace(/\$[^$]*(?:\$|$)/g, '').replace(/\\\[[\s\S]*?(?:\\\]|$)/g, '').replace(/\\\([\s\S]*?(?:\\\)|$)/g, '').replace(/\s+/g, ' ').trim()
+- const tagCounts = new Map()
+- notes.forEach(note => (note.tags || []).forEach(tag => tagCounts.set(tag, (tagCounts.get(tag) || 0) + 1)))
+- const tags = Array.from(tagCounts.entries()).sort((a, b) => b[1] - a[1])
+- const collectionItems = categories.map(category => ({ name: category, count: notes.filter(note => note.category === category || (note.tags || []).includes(category)).length }))
+- const escapeHtml = value => String(value || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;')
+- const boldSelfAuthor = value => escapeHtml(value).replace(/\bJunle Chen\b/g, '<span class="author-self">Junle Chen</span>')
+-
+	const infoActions = [
+		{ label: "Hong Kong", glyph: "HK" },
+		{ label: "GitHub", icon: "github", href: "https://github.com/junle-chen" },
+		{ label: "Scholar", glyph: "GS", href: "https://scholar.google.com/citations?user=EjiEmLUAAAAJ&hl=zh-CN" },
+		{ label: "Email", icon: "email", href: "mailto:jchenkg@connect.ust.hk" },
+		{ label: "Phone", glyph: "TEL", href: "tel:+85256029402" }
+	]
+	const educationItems = [
+		{ date: "Sept 2021 - Jun 2025", title: "Bachelor of Computer Science and Technology", org: "School of Future Technology, Harbin Institute of Technology", detail: "Formerly Honor School." },
+		{ date: "Jul 2023", title: "AI Cloud-Based Scientific Research with Data-Driven Knowledge", org: "LAMDA, Nanjing University", detail: "Project experience." },
+		{ date: "Sept 2025 -", title: "PhD in Computer Science and Engineering (CSE)", org: "The Hong Kong University of Science and Technology", detail: "Under the guidance of Professor Xiaofang Zhou." }
+	]
+	const researchInterests = [
+		{
+			stage: "Before execution",
+			title: "User Interaction",
+			description: "Deciding when and how LLM agents should clarify user intent, while avoiding unwarranted assumptions and preserving context across turns."
+		},
+		{
+			stage: "In execution",
+			title: "Environment Interaction",
+			description: "Enabling LLM agents to interact with external tools and environments during long-horizon task execution."
+		}
+	]
+	const publications = [
+		{ title: "Trip+: Benchmarking Agents in Personalized Interactive Travel Planning", authors: "Junle Chen, Wei Chen, Yehong Xu, Zhengjun Huang, Yuqian Wu, Zhoujin Tian, Kai Wang, Lei Wang, Xiaofang Zhou", venue: "EMNLP 2026 (Main)", href: "https://arxiv.org/abs/2606.21169" },
+		{ title: "M^3Exam: Benchmarking Multimodal Memory for Realistic User-Agent Interactions", authors: "Zhengjun Huang, Wenxuan Liu, Zhoujin Tian, Wei Chen, Junle Chen, Yuqian Wu, Fangyuan Zhang, Qintian Guo, Xiaofang Zhou", venue: "arXiv preprint arXiv:2606.07402, 2026", href: "https://arxiv.org/abs/2606.07402" },
+		{ title: "LifeSide: Benchmarking Agents as Lifelong Digital Companions", authors: "Yuqian Wu, Zhijie Deng, Wei Chen, Junwei Li, Yutian Jiang, Junle Chen, Zhengjun Huang, Qingxiang Liu, Jing Tang, Jiaheng Wei, Yuxuan Liang", venue: "arXiv preprint arXiv:2606.04660, 2026", href: "https://arxiv.org/abs/2606.04660" },
+		{ title: "Back to Basics: Let Conversational Agents Remember with Just Retrieval and Generation", authors: "Yuqian Wu, Wei Chen, Zhengjun Huang, Junle Chen, Qingxiang Liu, Kai Wang, Xiaofang Zhou, Yuxuan Liang", venue: "COLM 2026", href: "https://arxiv.org/abs/2604.11628" },
+		{ title: "UrbanFM: Scaling Urban Spatio-Temporal Foundation Models", authors: "Wei Chen, Yuqian Wu, Junle Chen, Xiaofang Zhou, Yuxuan Liang", venue: "KDD 2026 Oral", href: "https://arxiv.org/abs/2602.20677" },
+		{ title: "Learning from Complexity: Exploring Dynamic Sample Pruning of Spatio-Temporal Training", authors: "Wei Chen, Junle Chen, Yuqian Wu, Yuxuan Liang, Xiaofang Zhou", venue: "arXiv preprint arXiv:2602.19113, 2026", href: "https://arxiv.org/abs/2602.19113" },
+		{ title: "Adaptive Indexing for Coverage Queries over Transition Trajectories", authors: "Jian Chen†, Junle Chen†, Donghua Yang, Guangyu Sui, Jinbao Wang, Lina Chen", venue: "World Wide Web, 2025", href: "https://doi.org/10.1007/s11280-025-01368-6" },
+		{ title: "Maximizing Influence Query over Indoor Trajectories", authors: "Jian Chen, Hong Gao, Yuhong Shi, Junle Chen, Donghua Yang, Jianzhong Li", venue: "IEEE Transactions on Knowledge and Data Engineering (TKDE), 2025", href: "https://doi.org/10.1109/TKDE.2024.3514323" },
+		{ title: "Efficient Coverage Query over Transition Trajectories", authors: "Jian Chen, Junle Chen, Hong Gao, Donghua Yang, Kaiqi Zhang", venue: "APWeb-WAIM, 2024", href: "https://doi.org/10.1007/978-981-97-7235-3_32" }
+	]
+	const awards = ["HKUST Postgraduate Studentship (PGS)", "HKUST RedBird PhD Scholarship", "National Scholarship (2022-2023)", "First-Class People's Scholarship (awarded each semester)", "Finalist in the Mathematical Contest in Modeling (MCM), USA", "First Prize in College Mathematics Competition", "Outstanding Student Award (Provincial Level)", "Outstanding Graduate of Heilongjiang Province", "Outstanding Graduate of Harbin Institute of Technology"]
+	const contactItems = [
+		{ label: "Email", value: "jchenkg@connect.ust.hk", href: "mailto:jchenkg@connect.ust.hk" },
+		{ label: "Phone", value: "+852 56029402", href: "tel:+85256029402" },
+		{ label: "WeChat", value: "HIT_junle" }
+	]
+
+.content.content-main.theme-light
+	canvas.grid-background#gridCanvas
+	.about-intro-stage(data-about-intro-stage aria-hidden="true")
+		.about-fluid-field(aria-hidden="true")
+			span.fluid-blob.blob-one
+			span.fluid-blob.blob-two
+			span.fluid-blob.blob-three
+			span.fluid-blob.blob-four
+			span.fluid-blob.blob-five
+		.about-intro-copy
+			h2 junle
+			p Personal research workspace
+	.site-shell.app-shell
+		.workspace-panel
+			header.workspace-topbar
+				.topbar-title
+					p.workspace-kicker Personal homepage
+					h2 Blog Library
+				.topbar-nav(aria-label="Primary sections")
+					a(href="#notes" data-nav-section="blog") Blog
+					a(href="#memos") Memo
+					a(href="#papers" data-nav-section="academic") Academic
+					a(href="#info" data-nav-section="info") About Me
+					a.topbar-home-link(href="#about" data-nav-section="about" aria-label="Home")
+						svg.topbar-home-icon(viewBox="0 0 24 24" aria-hidden="true" focusable="false")
+							path(d="M3.5 10.5 12 3.5l8.5 7")
+							path(d="M5.5 10v9.5h13V10")
+							path(d="M9.5 19.5V15h5v4.5")
+				.topbar-actions
+					label.topbar-search(for="noteSearch")
+						span Search
+						input#noteSearch(type="search" placeholder="Search notes and tags..." autocomplete="off")
+					button.theme-toggle(type="button" aria-label="Switch to light mode" data-theme-toggle)
+						span.theme-toggle-icon(data-theme-icon) ☀
+
+			section.about-panel#about
+				.about-profile
+					.about-card.about-workspace-card
+						header.about-header
+							img(src=`${main.avatar.link}` width=`${main.avatar.width}` height=`${main.avatar.height}` alt="Junle Chen avatar")
+							p.profile-eyebrow Personal knowledge workspace
+							h1 #{main.name}
+							h2 #{main.signature}
+							p.about-bio This website contains my personal profile, research notes, memos, Daily Paper reading archive, Zotero paper list, publications, awards, and contact information.
+						if profileLinks.length
+							ul.primary-links.about-links
+								each item in profileLinks
+									li
+										a(href=`${item.href}` aria-label=`${item.text}` target=isExternal(item.href) ? "_blank" : null rel=isExternal(item.href) ? "noopener noreferrer" : null)
+											i(class=`icon icon-${item.icon}`)
+											span #{item.text}
+							.template-star-row
+								a.template-star-button(href="https://github.com/junle-chen/junle-chen.github.io" target="_blank" rel="noopener noreferrer" aria-label="Star this website template on GitHub")
+									svg.template-star-icon(viewBox="0 0 16 16" aria-hidden="true" focusable="false")
+										path(d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.193a.75.75 0 0 1-1.088.791L8 12.347l-3.766 1.981a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Z")
+									span Star this template
+
+			section.info-page#info
+				.info-shell.info-main-stack
+					aside.info-profile-card.info-card.info-profile-card-top
+						.info-window-dots(aria-hidden="true")
+							span
+							span
+							span
+						.info-profile-identity
+							img(src=`${main.avatar.link}` width=`${main.avatar.width}` height=`${main.avatar.height}` alt="Junle Chen avatar")
+							.info-profile-copy
+								h2 Junle Chen
+								p.info-profile-name-cn 陈俊乐
+								p.info-profile-role PhD student at HKUST CSE
+								ul.about-action-list.info-actions
+									each action in infoActions
+										li
+											if action.href
+												a.about-action-button(href=`${action.href}` target=/^https?:/.test(action.href) ? "_blank" : null rel=/^https?:/.test(action.href) ? "noopener noreferrer" : null)
+													if action.icon
+														i.about-action-icon.icon(class=`icon-${action.icon}` aria-hidden="true")
+													else
+														span.about-action-glyph #{action.glyph}
+													span #{action.label}
+											else
+												span.about-action-button
+													if action.icon
+														i.about-action-icon.icon(class=`icon-${action.icon}` aria-hidden="true")
+													else
+														span.about-action-glyph #{action.glyph}
+													span #{action.label}
+					article.info-card.info-about-card
+						h3 About Me
+						p.info-lead I am a PhD student in Computer Science and Engineering at The Hong Kong University of Science and Technology, advised by Professor Xiaofang Zhou. My research focuses on improving the multi-turn interaction capabilities of LLM agents, including user interaction before execution and environment interaction during long-horizon execution. I also do some work on spatiotemporal data.
+					article.info-card
+						h3 Education
+						.info-list
+							each item in educationItems
+								article.info-list-item
+									span.about-date #{item.date}
+									h4 #{item.title}
+									p #{item.org}
+									if item.detail
+										p.about-detail #{item.detail}
+					.info-two-column
+						article.info-card
+							h3 Research Interest
+							p.research-interest-intro My research focuses on improving the multi-turn interaction capabilities of LLM agents, including:
+							ul.research-interest-list
+								each interest in researchInterests
+									li
+										span #{interest.stage}
+										h4 #{interest.title}
+										p #{interest.description}
+						article.info-card
+							h3 Awards
+							ul.info-bullet-list
+								each award in awards
+									li #{award}
+					article.info-card.info-publications-card
+						h3 Publications
+						.about-publication-list
+							each paper, index in publications
+								article.about-publication
+									span.about-publication-index #{index + 1}
+									div
+										h4
+											a(href=`${paper.href}` target="_blank" rel="noopener noreferrer") #{paper.title}
+										p.about-publication-authors!= boldSelfAuthor(paper.authors)
+										strong #{paper.venue}
+						p.about-footnote † Co-first author
+					article.info-card.info-contact-card
+						h3 Contact
+						ul.about-contact-list.info-contact-list
+							each item in contactItems
+								li
+									span #{item.label}
+									if item.href
+										a(href=`${item.href}` target=/^https?:/.test(item.href) ? "_blank" : null rel=/^https?:/.test(item.href) ? "noopener noreferrer" : null) #{item.value}
+									else
+										strong #{item.value}
+					article.info-card.info-visitor-card(data-visitor-regions)
+						h3 Visitor Regions
+						p.info-card-subtitle Website visits grouped by region.
+						p.visitor-region-status(data-visitor-region-status) Loading visitor regions...
+						ul.visitor-region-list(data-visitor-region-list aria-label="Website visits by region")
+
+			section.memo-page#memos
+				.memo-workspace
+					header.memo-hero
+						.memo-brand
+							span.memo-logo M
+							div
+								p.section-eyebrow Timeline-first capture
+								h2 Memos
+						p.memo-intro Quick private memos live in this browser. Owner mode unlocks add and delete controls.
+					.memo-ownerbar
+						input(type="password" data-memo-owner-key placeholder="Owner key" autocomplete="current-password")
+						button(type="button" data-memo-owner) Owner
+						button(type="button" data-realtime-login hidden) GitHub
+						button(type="button" data-realtime-logout hidden) Sign out
+						span(data-memo-status) Locked
+						span(data-realtime-status) Local mode
+					form.memo-composer(data-memo-form hidden)
+						input(type="text" name="title" placeholder="Title")
+						textarea(name="content" placeholder="Write a memo, paste a link, capture a quick thought...")
+						.memo-composer-footer
+							span(data-memo-date-preview) Today
+							button(type="submit") Add Memo
+					.memo-timeline(data-memo-timeline)
+						each memo, index in memos
+							article.memo-entry(data-memo-card data-id=`seed-${index}` data-title=`${memo.title}` data-content=`${memo.content}` data-category=`${memo.category}` data-date=`${memo.date || ""}` data-priority=`${memo.priority || "normal"}` data-source="imported")
+								.memo-entry-dot(aria-hidden="true")
+								.memo-entry-body
+									.memo-entry-meta
+										span #{memo.date || "No date"}
+										span #{memo.category || "general"}
+										span #{memo.completed ? "done" : "open"}
+									h3 #{memo.title}
+									if memo.content
+										p #{memo.content}
+									else
+										p.muted Empty memo body in source data.
+									.memo-entry-actions
+										span #{memo.priority || "normal"}
+										if memo.content && /^https?:\/\//.test(memo.content)
+											a(href=`${memo.content}` target="_blank" rel="noopener noreferrer") Open link
+										button.memo-delete(type="button" data-memo-delete hidden) Delete
+
+			section.academic-page#papers
+				.academic-shell
+					header.academic-hero
+						p.section-eyebrow Academic
+						h2 Academic
+						p Daily arXiv reading and Zotero Planning paper list.
+					.academic-board
+						aside.academic-controls(aria-label="Academic sections")
+							.academic-control-card.academic-nav-card
+								p.sidebar-label Academic
+								a.academic-nav-link(href="#daily-paper" data-academic-nav)
+									strong Daily Paper
+									span 每日 arXiv 解读
+								a.academic-nav-link(href="#paper-list" data-academic-nav)
+									strong Paper List
+									span Zotero Planning
+						.academic-workspace
+							section.academic-section#daily-paper(data-academic-panel="daily-paper")
+								.academic-section-head
+									div
+										p.section-eyebrow Daily Paper
+										h3 Daily Paper
+										p 每日 arXiv agent paper 解读。
+								.category-strip.paper-date-list(aria-label="Daily Paper dates" data-paper-date-list)
+								.category-strip.daily-paper-filters(aria-label="Daily Paper categories" data-daily-paper-filter-bar)
+								.academic-paper-list(data-daily-paper-full)
+								p.empty-state(data-daily-paper-full-empty) Waiting for the first Daily Paper update.
+								.paper-modal(data-paper-modal hidden)
+									.paper-modal-backdrop(data-paper-modal-close)
+									.paper-modal-dialog(role="dialog" aria-modal="true" aria-labelledby="paperModalTitle")
+										.paper-modal-index(data-paper-modal-index) 1
+										button.paper-modal-close(type="button" aria-label="Close paper detail" data-paper-modal-close) ×
+										header.paper-modal-header
+											h3#paperModalTitle(data-paper-modal-title)
+											.paper-modal-meta
+												p(data-paper-modal-authors)
+												p(data-paper-modal-categories)
+												p(data-paper-modal-date)
+										.paper-modal-body
+											section.paper-modal-tldr
+												h4 TL;DR
+												p(data-paper-modal-summary)
+											.paper-modal-grid(data-paper-modal-grid)
+											.paper-modal-expanded(data-paper-modal-expanded)
+											section.paper-modal-limitations(data-paper-modal-limitations-section hidden)
+												h4 Notes
+												p(data-paper-modal-limitations)
+										footer.paper-modal-footer
+											.paper-modal-nav
+												button.paper-modal-nav-button(type="button" aria-label="Previous paper" data-paper-modal-prev) ‹
+												span(data-paper-modal-position)
+												button.paper-modal-nav-button(type="button" aria-label="Next paper" data-paper-modal-next) ›
+											.paper-modal-links(data-paper-modal-links)
+							section.academic-section#paper-list(data-academic-panel="paper-list")
+								.academic-section-head
+									div
+										p.section-eyebrow Zotero
+										h3 Paper List
+										p Zotero Planning 论文整理。
+								.paper-list-summary(data-paper-list-summary)
+								.category-strip.paper-list-filters(aria-label="Paper List categories" data-zotero-filter-bar)
+								.zotero-paper-list(data-zotero-paper-list)
+								p.empty-state(data-zotero-paper-empty) Waiting for Zotero paper list.
+
+			section.blog-layout#notes
+				div.feed-column
+					.feed-heading
+						div
+							p.section-eyebrow Research notes
+							h2 Notes
+							p(data-note-count data-total=`${noteCount}`) Showing #{noteCount} of #{noteCount} posts
+						.feed-actions
+							.note-view-toggle(aria-label="Note display mode")
+								button(type="button" data-note-view="site") Concise
+								button(type="button" data-note-view="image") Verbose
+					if categories.length
+						.category-strip(aria-label="Note categories")
+							button(type="button" data-filter-value="") All
+							each category in categories
+								button(type="button" data-filter-value=`${category}`) #{category}
+							button(type="button" data-filter-value="__archive" data-archive-filter) Archive
+					.post-feed.note-view-site(data-note-feed)
+						each note, index in notes
+							- const image = note.image || note.cover || note.hero || note.thumbnail || ""
+							- const hasImage = Boolean(image)
+							- const noteId = `note-${index}`
+							- const noteTags = (note.tags || []).join('|')
+							- const noteExcerpt = stripExcerptMath(note.excerpt || '')
+							- const readTime = Math.max(3, Math.ceil((noteExcerpt || note.title || '').length / 120))
+							article.note-card-shell(data-note-shell)
+								a.post-card.note-card(class=!hasImage ? "no-image" : null href=`#${noteId}` data-note-card data-note-open data-note-id=`${noteId}` data-note-key=`${note.url}` data-note-index=`${index}` data-note-url=`${note.url}` data-note-image=`${image}` data-note-archived=(note.archived || note.archive) ? "true" : "false" data-comment-term=`note:${note.url}` data-title=`${note.title}` data-tags=`${noteTags}` data-category=`${note.category || ''}` data-date=`${note.date || ''}` data-excerpt=`${noteExcerpt}` data-read-time=`${readTime}` style=hasImage ? `--card-image: url("${image}")` : null)
+									if hasImage
+										.post-art(aria-hidden="true")
+									.post-content
+										.post-meta
+											span #{note.date || "Undated"}
+										span #{note.category || "Note"}
+										h3 #{note.title}
+										if noteExcerpt
+											p #{noteExcerpt}
+										else
+											p.muted Preserved Markdown note from the old site.
+										.post-footer
+											span.read-time #{readTime} min read
+											if note.tags && note.tags.length
+												span.tags-inline #{note.tags.slice(0, 2).join(" / ")}
+									span.post-arrow(aria-hidden="true") >
+								button.note-archive-toggle(type="button" data-note-archive data-note-key=`${note.url}` hidden) Archive
+					p.empty-state#noteEmptyState(hidden) No matching notes.
+
+			section.note-reader#note-reader(data-note-reader hidden)
+				.note-reader-shell
+					article.note-article
+						button.note-reader-back(type="button" data-note-back) Back to Notes
+						.note-hero-image(data-reader-image aria-hidden="true")
+						.note-article-meta
+							span(data-reader-date)
+							span(data-reader-category)
+							span(data-reader-read-time)
+							span(data-reader-tags)
+						h1(data-reader-title)
+						p.note-lead(data-reader-excerpt)
+						.note-body(data-note-body)
+						section.note-comments
+							h2 Comments
+							p.comment-note GitHub Discussions comments. Markdown is supported after Giscus is installed for this repository.
+							.giscus-host(data-giscus-host)
+					aside.note-outline-panel
+						p.section-eyebrow Outline
+						h3 Table of contents
+						nav.note-outline(data-note-outline)
