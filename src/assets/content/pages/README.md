@@ -5,7 +5,7 @@ This page documents the current website, not the old template that originally se
 ## What This Site Contains
 
 - `Notes`: long-form Markdown notes opened inside the site reader.
-- `Saved Blogs`: owner-only external links, summaries, and editable categories.
+- `Saved Blogs`: owner-only external links; saving only a URL queues it for daily summaries and categorization.
 - `Memos`: short owner-editable updates backed by Supabase realtime state.
 - `Daily Paper`: daily arXiv-based paper recommendations and reading notes.
 - `Paper List`: Zotero/exported paper records with search and filters.

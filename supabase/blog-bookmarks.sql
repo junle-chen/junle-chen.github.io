@@ -17,7 +17,7 @@ create table if not exists public.site_blog_bookmarks (
 	url text not null check (length(url) between 1 and 2048 and url ~* '^https?://'),
 	title text not null check (length(trim(title)) between 1 and 300),
 	summary text not null default '' check (length(summary) <= 2000),
-	category text not null default '未分类' check (length(trim(category)) between 1 and 80),
+	category text not null default '待整理' check (length(trim(category)) between 1 and 80),
 	created_at timestamptz not null default now(),
 	updated_at timestamptz not null default now(),
 	unique (owner_id, url)

@@ -13,12 +13,14 @@ A personal research workspace for notes, short thoughts, and papers worth readin
 | --- | --- |
 | **About Me** | Read my profile, research interests, selected work, and contact links. |
 | **Blog / Notes** | Browse and search Markdown notes by category; read them with an outline, images, math rendering, and comments. |
-| **Saved Blogs** | Keep a private collection of external articles; import titles and summaries, edit entries, and manage categories after owner sign-in. |
+| **Saved Blogs** | Paste only a URL into a private collection. New links enter a daily sorting queue; you can still edit details and categories yourself. |
 | **Memos** | Follow a timeline of short updates and links. The site owner can sign in with GitHub to manage entries. |
 | **Academic → Daily Paper** | Explore a curated arXiv reading feed with summaries, detailed notes, and paper links. |
 | **Academic → Paper List** | Browse a longer-term list populated from a Zotero export. |
 
 Paper stars and note archive state can sync across sessions through Supabase. Public reading does not require sign-in. Saved Blogs are stored only in Supabase, never in the site's published JSON.
+
+For Saved Blogs, a new URL without a category is labeled `待整理`. The daily Codex task reads only those queued links, checks the source page, and fills a useful title, short summary, and broad category. A category you set manually is left alone. Use the optional fields when you want to edit a record immediately.
 
 ## A look inside
 

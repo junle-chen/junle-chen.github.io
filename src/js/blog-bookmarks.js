@@ -33,6 +33,7 @@
 		var logoutButton = document.querySelector("[data-bookmark-logout]");
 		var signoutButton = document.querySelector("[data-bookmark-signout]");
 		var form = document.querySelector("[data-bookmark-form]");
+		var advanced = document.querySelector("[data-bookmark-advanced]");
 		var formTitle = document.querySelector("[data-bookmark-form-title]");
 		var importButton = document.querySelector("[data-bookmark-import]");
 		var cancelButton = document.querySelector("[data-bookmark-cancel]");
@@ -67,24 +68,25 @@
 			return Boolean(auth.owner && auth.user && ids.indexOf(auth.user.id) !== -1);
 		}
 
-	function setBusy(next) {
-		busy = next;
-		saveButton.disabled = next;
-		importButton.disabled = next;
-		renameButton.disabled = next || !sortedCategories().length;
+		function setBusy(next) {
+			busy = next;
+			saveButton.disabled = next;
+			importButton.disabled = next;
+			renameButton.disabled = next || !sortedCategories().some(function (name) { return name !== "待整理"; });
 		}
 
 		function resetForm() {
 			form.reset();
 			form.dataset.editId = "";
 			formTitle.textContent = "Add a blog";
-			saveButton.textContent = "Save blog";
+			saveButton.textContent = "Save URL";
 			cancelButton.hidden = true;
+			advanced.open = false;
 		}
 
 		function sortedCategories() {
 			return Array.from(new Set(items.map(function (item) {
-				return text(item.category) || "未分类";
+				return text(item.category) || "待整理";
 			}))).sort(function (a, b) {
 				return a.localeCompare(b, "zh-CN");
 			});
@@ -114,12 +116,15 @@
 				var option = document.createElement("option");
 				option.value = category;
 				categoryOptions.appendChild(option);
-				var selectOption = element("option", "", category);
-				selectOption.value = category;
-				categoryFrom.appendChild(selectOption);
+				if (category !== "待整理") {
+					var selectOption = element("option", "", category);
+					selectOption.value = category;
+					categoryFrom.appendChild(selectOption);
+				}
 			});
-			categoryFrom.value = categories.indexOf(previous) !== -1 ? previous : categories[0] || "";
-			renameButton.disabled = busy || !categories.length;
+			var manageable = categories.filter(function (name) { return name !== "待整理"; });
+			categoryFrom.value = manageable.indexOf(previous) !== -1 ? previous : manageable[0] || "";
+			renameButton.disabled = busy || !manageable.length;
 		}
 
 		function renderItem(item) {
@@ -130,13 +135,14 @@
 			title.target = "_blank";
 			title.rel = "noopener noreferrer";
 			heading.appendChild(title);
-			heading.appendChild(element("span", "bookmark-card-category", item.category || "未分类"));
+			heading.appendChild(element("span", "bookmark-card-category", item.category || "待整理"));
 			card.appendChild(heading);
 			if (item.summary) card.appendChild(element("p", "bookmark-card-summary", item.summary));
 			var meta = element("div", "bookmark-card-meta");
 			var host = item.url;
 			try { host = new URL(item.url).hostname; } catch (error) { /* Keep the saved URL visible. */ }
 			meta.appendChild(element("span", "", host));
+			if (item.category === "待整理") meta.appendChild(element("span", "", "Daily sorting pending"));
 			meta.appendChild(element("span", "", item.updated_at ? new Date(item.updated_at).toLocaleDateString() : ""));
 			card.appendChild(meta);
 			var actions = element("div", "bookmark-card-actions");
@@ -147,6 +153,7 @@
 				form.elements.title.value = item.title;
 				form.elements.summary.value = item.summary || "";
 				form.elements.category.value = item.category || "";
+				advanced.open = true;
 				form.dataset.editId = item.id;
 				formTitle.textContent = "Edit saved blog";
 				saveButton.textContent = "Save changes";
@@ -246,14 +253,10 @@
 			}
 			var record = {
 				url: url,
-				title: text(form.elements.title.value),
+				title: text(form.elements.title.value) || new URL(url).hostname,
 				summary: text(form.elements.summary.value),
-				category: text(form.elements.category.value) || "未分类",
+				category: text(form.elements.category.value) || "待整理",
 			};
-			if (!record.title) {
-				setStatus("请输入标题", true);
-				return;
-			}
 			setBusy(true);
 			var query = form.dataset.editId
 				? getClient().from("site_blog_bookmarks").update(record).eq("id", form.dataset.editId)
@@ -287,6 +290,7 @@
 					}
 					form.elements.title.value = result.data.title || "";
 					form.elements.summary.value = result.data.summary || "";
+					advanced.open = true;
 					setStatus("网页信息已填写，可修改分类后保存。");
 				})
 				.catch(function () {

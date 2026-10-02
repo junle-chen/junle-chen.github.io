@@ -7,7 +7,9 @@ Use this repository for website fixes and Daily Paper corrections; the older
 
 Private Saved Blogs entries belong in the Supabase table, not in Git, public
 JSON, issues, or pull requests. The frontend and SQL policies may be reviewed
-here, but do not commit anyone's private collection data.
+here, but do not commit anyone's private collection data. New URL-only entries
+use the `待整理` category as the daily curation queue; a manually chosen
+category is outside that queue.
 
 For Daily Paper additions, include only papers strongly related to long-horizon
 agents, multi-turn interaction, agent planning, agent memory, or agentic RL.
