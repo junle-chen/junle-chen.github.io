@@ -8,7 +8,7 @@ Use the new Supabase-backed GitHub login instead:
 
 1. Run `supabase/homepage-realtime.sql` in Supabase.
 2. Enable GitHub Auth in Supabase.
-3. Fill `src/js/realtime-config.js` with the public Supabase URL, public anon key, and your GitHub owner id/login.
+3. Fill `src/js/realtime-config.js` with the public Supabase URL, public anon key, and the owner's Supabase Auth user UUID.
 4. Build and deploy the site.
 
 See `src/assets/content/pages/REALTIME_SETUP.md` for the full setup.

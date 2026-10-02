@@ -3,5 +3,6 @@ window.JUNLE_REALTIME_CONFIG = {
 	supabaseAnonKey: "sb_publishable_Fj3XdEYbSPFR9cmywgT31Q_yrOAQP86",
 	ownerGithubIds: ["108796659"],
 	ownerGithubLogins: ["junle-chen"],
+	ownerSupabaseUserIds: ["9cbda636-f280-4cff-af6c-408e6dd4e59a"],
 	redirectTo: window.location.origin + window.location.pathname,
 };

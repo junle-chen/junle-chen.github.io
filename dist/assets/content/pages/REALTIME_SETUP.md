@@ -1,6 +1,6 @@
 # HomePage Realtime Setup
 
-This site now supports GitHub sign-in, live memos, shared paper stars, and shared blog archive state through Supabase.
+This site supports GitHub sign-in, live memos, shared paper stars, shared note archive state, and private Saved Blogs through Supabase.
 
 ## 1. Create the Supabase project
 
@@ -17,14 +17,15 @@ Open Supabase SQL Editor and run:
 
 ```sql
 -- supabase/homepage-realtime.sql
+-- supabase/blog-bookmarks.sql (run second)
 ```
 
 The SQL is already configured for:
 
 - GitHub login: `junle-chen`
-- GitHub numeric id: `108796659`
+- Supabase Auth user id: `9cbda636-f280-4cff-af6c-408e6dd4e59a`
 
-The SQL enables RLS so everyone can read live state, but only your GitHub account can write.
+The SQL enables RLS so everyone can read public live state, but only the owner's Supabase Auth user ID can write. Saved Blogs are readable and editable only by that owner; anonymous users have no table grant.
 
 If the SQL fails only around `alter publication supabase_realtime`, the tables and RLS may already be created. Rerun the updated SQL in this repo; if Supabase still blocks that final publication step, enable Realtime for `site_memos` and `site_reactions` from the Supabase dashboard UI.
 
@@ -50,9 +51,12 @@ window.JUNLE_REALTIME_CONFIG = {
 	supabaseAnonKey: "<publishable-anon-key>",
 	ownerGithubIds: ["108796659"],
 	ownerGithubLogins: ["junle-chen"],
+	ownerSupabaseUserIds: ["9cbda636-f280-4cff-af6c-408e6dd4e59a"],
 	redirectTo: window.location.origin + window.location.pathname,
 };
 ```
+
+The site owner ID must match both SQL files and the `blog-metadata` Edge Function. Deploy that function with JWT verification enabled to import webpage titles and summaries. If metadata access fails, fill those fields manually.
 
 ## 5. Build and deploy
 

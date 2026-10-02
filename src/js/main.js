@@ -1144,6 +1144,10 @@ function createJunleRealtimeStore() {
 		if (!user) {
 			return false;
 		}
+		const ownerUserIds = normalizeStringList(config.ownerSupabaseUserIds);
+		if (ownerUserIds.length) {
+			return ownerUserIds.indexOf(String(user.id || "")) !== -1;
+		}
 		const ownerGithubIds = normalizeStringList(config.ownerGithubIds);
 		const ownerGithubLogins = normalizeStringList(config.ownerGithubLogins).map((login) => login.toLowerCase());
 		const githubId = getGithubId(user);
@@ -1454,6 +1458,7 @@ function createJunleRealtimeStore() {
 		canWrite: () => Boolean(state.enabled && state.owner),
 		getStatus: () => state.status,
 		getAuthState,
+		getClient: () => state.client,
 	};
 }
 
@@ -1501,7 +1506,7 @@ function isOAuthCallbackHash(hash) {
 
 function isSafeAppHash(hash) {
 	return (
-		["#about", "#info", "#notes", "#memos", "#papers", "#daily-paper", "#paper-list", "#note-reader"].indexOf(hash || "") !== -1 ||
+		["#about", "#info", "#notes", "#bookmarks", "#memos", "#papers", "#daily-paper", "#paper-list", "#note-reader"].indexOf(hash || "") !== -1 ||
 		isNoteHash(hash)
 	);
 }
@@ -1874,11 +1879,13 @@ function bindContentFilters() {
 			return;
 		}
 		const isMemoView = hash === "#memos";
+		const isBookmarkView = hash === "#bookmarks";
 		const isAcademicView = isAcademicHash(hash);
 		const isAboutView = hash === "#about";
 		const isInfoView = hash === "#info";
 		const isNoteView = isNoteHash(hash);
 		main.classList.toggle("view-memos", isMemoView);
+		main.classList.toggle("view-bookmarks", isBookmarkView);
 		main.classList.toggle("view-academic", isAcademicView);
 		main.classList.toggle("view-about", isAboutView);
 		main.classList.toggle("view-info", isInfoView);

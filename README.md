@@ -13,11 +13,12 @@ A personal research workspace for notes, short thoughts, and papers worth readin
 | --- | --- |
 | **About Me** | Read my profile, research interests, selected work, and contact links. |
 | **Blog / Notes** | Browse and search Markdown notes by category; read them with an outline, images, math rendering, and comments. |
+| **Saved Blogs** | Keep a private collection of external articles; import titles and summaries, edit entries, and manage categories after owner sign-in. |
 | **Memos** | Follow a timeline of short updates and links. The site owner can sign in with GitHub to manage entries. |
 | **Academic → Daily Paper** | Explore a curated arXiv reading feed with summaries, detailed notes, and paper links. |
 | **Academic → Paper List** | Browse a longer-term list populated from a Zotero export. |
 
-Paper stars and note archive state can sync across sessions through Supabase. Public reading does not require sign-in.
+Paper stars and note archive state can sync across sessions through Supabase. Public reading does not require sign-in. Saved Blogs are stored only in Supabase, never in the site's published JSON.
 
 ## A look inside
 
@@ -51,16 +52,18 @@ The files below are the main editing points for this website:
 | `src/assets/content/notes/` | Long-form Markdown notes. |
 | `src/assets/content/data/daily-papers.json` | Daily Paper data. |
 | `src/assets/content/data/zotero-paper-list.json` | Paper List data. |
-| `src/js/realtime-config.js` | Supabase public config and owner GitHub identity. |
+| `src/js/realtime-config.js` | Supabase public config and owner Supabase Auth user ID. |
 | `supabase/homepage-realtime.sql` | Supabase tables, RLS policies, owner checks, and realtime publication. |
+| `supabase/blog-bookmarks.sql` | Private blog collection and owner-only RLS policies. |
+| `supabase/functions/blog-metadata/` | Owner-only webpage title/summary importer. |
 | `src/js/main.js` | Giscus config and frontend interaction logic. |
 
 ## Services and integrations
 
 | Integration | Required? | Purpose |
 | --- | --- | --- |
-| Supabase | Optional | Shared realtime memos, paper stars, Zotero stars, and note archive state. |
-| GitHub OAuth | Optional | Owner login for write permissions through Supabase Auth. |
+| Supabase | Required for Saved Blogs | Private blog storage, plus shared realtime memos, paper stars, and note archive state. |
+| GitHub OAuth | Required for Saved Blogs | Owner login for private reads and site write permissions. |
 | Giscus | Optional | GitHub Discussions comments for notes. |
 | GitHub Pages | Yes | Static hosting at the root GitHub Pages URL. |
 | Zotero export | Optional | Populate the long-term Paper List view. |
@@ -87,32 +90,36 @@ flowchart LR
 | File | Role |
 | --- | --- |
 | `src/components/scripts.pug` | Loads `@supabase/supabase-js@2`, `js/realtime-config.js`, and `js/main.js`. |
-| `src/js/realtime-config.js` | Stores the public Supabase URL, anon key, owner GitHub ids/logins, and OAuth redirect URL. |
+| `src/js/realtime-config.js` | Stores the public Supabase URL, anon key, owner Supabase user ID, and OAuth redirect URL. |
 | `src/js/main.js` | Creates the realtime store, exposes the frontend realtime API, and updates UI modules through events. |
 
 ### Supabase Tables
 
-The full schema is in `supabase/homepage-realtime.sql`.
+The public site schema is in `supabase/homepage-realtime.sql`; the private collection is in `supabase/blog-bookmarks.sql`.
 
 | Table | Purpose |
 | --- | --- |
 | `site_memos` | Stores timeline memos with title, content, category, priority, source, owner id, timestamps, and a soft-delete field. |
 | `site_reactions` | Stores shared state for `daily_paper`, `zotero_paper`, and `note_archive` items. |
+| `site_blog_bookmarks` | Stores owner-only links, titles, summaries, and categories. It is not in the public Realtime publication. |
 
 `site_reactions` uses `unique (item_type, item_key)`, so each paper or note has one stable state row.
 
 ### Auth And RLS
 
-Supabase uses GitHub OAuth for owner login. The SQL helper `public.is_homepage_owner()` checks GitHub identity values from the Supabase JWT. Configure your own owner ids and logins in both:
+Supabase uses GitHub OAuth for owner login. The SQL helper `public.is_homepage_owner()` checks the authenticated Supabase user ID. It does not trust user-editable GitHub profile metadata. Configure your own owner Supabase user ID in:
 
 - `src/js/realtime-config.js`
 - `supabase/homepage-realtime.sql`
+- `supabase/blog-bookmarks.sql`
+- `supabase/functions/blog-metadata/index.ts`
 
 The intended Row Level Security behavior is:
 
 - visitors can read published memos and reactions
 - only configured owners can insert, update, or delete memos
 - only configured owners can insert, update, or delete reactions
+- only the owner can read or change Saved Blogs; anonymous visitors have no table grant
 
 The Supabase anon key can be public in frontend code because writes are controlled by Auth and RLS. Keep GitHub OAuth client secrets, deployment tokens, and other private credentials outside the repository.
 
@@ -140,18 +147,16 @@ If Supabase is not configured, the network is unavailable, or the visitor is not
 
 ## 🧩 Configure Supabase
 
-1. Create a Supabase project.
-2. Copy the Project URL and publishable anon key.
-3. Run `supabase/homepage-realtime.sql` in the Supabase SQL Editor.
-4. Enable GitHub in Supabase Authentication Providers.
-5. Create a GitHub OAuth App with this callback URL:
+1. Create a Supabase project and copy the Project URL and public anon key.
+2. Enable GitHub in Supabase Authentication Providers. Create a GitHub OAuth App with this callback URL:
 
 ```text
 https://<project-ref>.supabase.co/auth/v1/callback
 ```
 
-6. Put the GitHub Client ID and Client Secret into the Supabase GitHub provider settings.
-7. Update `src/js/realtime-config.js`:
+3. Put the GitHub Client ID and Client Secret into the Supabase GitHub provider settings. Sign in once, then find your Supabase Auth user UUID under Authentication → Users.
+4. Replace the owner UUID in `supabase/homepage-realtime.sql`, `supabase/blog-bookmarks.sql`, and `supabase/functions/blog-metadata/index.ts`. Run the two SQL files in that order. Deploy the `blog-metadata` Edge Function with JWT verification enabled if you want automatic title and summary import.
+5. Update `src/js/realtime-config.js` with the same UUID:
 
 ```js
 window.JUNLE_REALTIME_CONFIG = {
@@ -159,11 +164,12 @@ window.JUNLE_REALTIME_CONFIG = {
 	supabaseAnonKey: "<publishable-anon-key>",
 	ownerGithubIds: ["<github-numeric-id>"],
 	ownerGithubLogins: ["<github-login>"],
+	ownerSupabaseUserIds: ["<supabase-auth-user-uuid>"],
 	redirectTo: window.location.origin + window.location.pathname,
 };
 ```
 
-8. Update the allowed owner ids/logins in `supabase/homepage-realtime.sql` before running it.
+Saved Blogs stores only the link, title, summary, and category. It does not copy article text. If a website blocks metadata access, enter the title and summary manually.
 
 ## 💭 Configure Giscus
 
@@ -223,11 +229,14 @@ Supabase Authentication URL Configuration:
 | `src/css/` | LESS styles. |
 | `src/js/main.js` | Page interactions, note reader, Giscus, and realtime store. |
 | `src/js/realtime-config.js` | Public Supabase config. |
+| `src/js/blog-bookmarks.js` | Private collection UI and editing. |
 | `src/assets/content/notes/` | Long-form Markdown notes. |
 | `src/assets/content/pages/` | In-site Markdown pages. |
 | `src/assets/content/data/daily-papers.json` | Daily Paper data. |
 | `src/assets/content/data/zotero-paper-list.json` | Paper List data. |
 | `supabase/homepage-realtime.sql` | Supabase schema, RLS policies, and realtime publication. |
+| `supabase/blog-bookmarks.sql` | Owner-only blog collection schema and RLS. |
+| `supabase/functions/blog-metadata/` | Authenticated metadata importer. |
 | `dist/` | Generated static site. |
 
 <details>

@@ -13,11 +13,12 @@
 | --- | --- |
 | **About Me** | 个人介绍、研究方向、部分成果与联系方式。 |
 | **Blog / Notes** | 按分类浏览、搜索技术笔记；站内阅读支持目录、图片、公式和评论。 |
+| **Saved Blogs** | 私密收藏外部 Blog 网页；登录后可读取标题和摘要、增删修改、筛选和批量重命名分类。 |
 | **Memos** | 按时间线阅读简短想法与链接；站长可通过 GitHub 登录管理。 |
 | **Academic → Daily Paper** | 浏览精选 arXiv 论文、简要摘要、详细阅读记录与原文链接。 |
 | **Academic → Paper List** | 浏览从 Zotero 导出的长期论文清单。 |
 
-论文星标和笔记归档状态可通过 Supabase 跨会话同步；不登录也能阅读静态内容。
+论文星标和笔记归档状态可通过 Supabase 跨会话同步；不登录也能阅读静态内容。Saved Blogs 数据只保存在 Supabase，不写入公开仓库或网站 JSON。
 
 ## 页面预览
 
@@ -41,6 +42,8 @@ Pug、LESS 和 JavaScript 构建出静态网站，由 GitHub Pages 托管。Supa
 | 页面模板和样式 | [src/components/](src/components/) 与 [src/css/](src/css/) |
 | 实时服务与站长配置 | [realtime-config.js](src/js/realtime-config.js) |
 | 数据库结构和访问权限 | [homepage-realtime.sql](supabase/homepage-realtime.sql) |
+| 私密收藏及权限 | [blog-bookmarks.sql](supabase/blog-bookmarks.sql) |
+| 网页标题和摘要导入 | [blog-metadata](supabase/functions/blog-metadata/) |
 
 ## 本地运行
 
@@ -66,6 +69,8 @@ Pug、LESS 和 JavaScript 构建出静态网站，由 GitHub Pages 托管。Supa
 | [arXiv](https://arxiv.org/) 与 [Zotero](https://www.zotero.org/) | 提供论文链接和文献库元数据。 |
 
 前端的 Supabase 公共密钥可以公开；写权限由登录身份和 [SQL 中的 RLS 规则](supabase/homepage-realtime.sql)控制。OAuth 密钥和发布凭证不能提交到仓库。自行部署时，还需同时更新 SQL 与 [realtime-config.js](src/js/realtime-config.js) 中的站长身份，并在 Supabase 配置 GitHub 登录和允许的回调网址。Giscus 的仓库和分类 ID 位于 [main.js](src/js/main.js)。
+
+Saved Blogs 使用单独的[数据表和 RLS](supabase/blog-bookmarks.sql)：只有指定 Supabase 用户 ID 能读取与修改，匿名用户没有表权限。自动导入标题与摘要由仅限站长调用的 Edge Function 完成；网页限制抓取时可手动填写。收藏不会复制网页全文。
 
 ## 维护者、贡献者与许可
 

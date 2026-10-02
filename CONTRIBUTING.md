@@ -5,6 +5,10 @@ Use this repository for website fixes and Daily Paper corrections; the older
 `ac-homepage` repository is not the editing source. Pushing a reviewed change to
 `master` triggers the GitHub Pages build and deployment.
 
+Private Saved Blogs entries belong in the Supabase table, not in Git, public
+JSON, issues, or pull requests. The frontend and SQL policies may be reviewed
+here, but do not commit anyone's private collection data.
+
 For Daily Paper additions, include only papers strongly related to long-horizon
 agents, multi-turn interaction, agent planning, agent memory, or agentic RL.
 Check the paper text before making claims about methods or results, keep the card

@@ -1,5 +1,5 @@
 -- Supabase setup for HomePage live memos, paper stars, and note archives.
--- Owner account: junle-chen / 108796659.
+-- Owner account: junle-chen / Supabase Auth user 9cbda636-f280-4cff-af6c-408e6dd4e59a.
 
 create extension if not exists pgcrypto;
 
@@ -7,18 +7,9 @@ create or replace function public.is_homepage_owner()
 returns boolean
 language sql
 stable
+set search_path = ''
 as $$
-	select
-		auth.role() = 'authenticated'
-		and (
-			coalesce(auth.jwt() -> 'user_metadata' ->> 'provider_id', '') = '108796659'
-			or coalesce(auth.jwt() -> 'user_metadata' ->> 'sub', '') = '108796659'
-			or coalesce(auth.jwt() -> 'user_metadata' ->> 'user_id', '') = '108796659'
-			or lower(coalesce(auth.jwt() -> 'user_metadata' ->> 'user_name', '')) = lower('junle-chen')
-			or lower(coalesce(auth.jwt() -> 'user_metadata' ->> 'preferred_username', '')) = lower('junle-chen')
-			or lower(coalesce(auth.jwt() -> 'user_metadata' ->> 'nickname', '')) = lower('junle-chen')
-			or lower(coalesce(auth.jwt() -> 'user_metadata' ->> 'name', '')) = lower('junle-chen')
-		);
+	select (select auth.uid()) = '9cbda636-f280-4cff-af6c-408e6dd4e59a'::uuid;
 $$;
 
 create table if not exists public.site_memos (
@@ -59,6 +50,7 @@ create table if not exists public.site_visit_regions (
 create or replace function public.set_updated_at()
 returns trigger
 language plpgsql
+set search_path = ''
 as $$
 begin
 	new.updated_at = now();

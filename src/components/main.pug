@@ -90,6 +90,7 @@
 					h2 Blog Library
 				.topbar-nav(aria-label="Primary sections")
 					a(href="#notes" data-nav-section="blog") Blog
+					a(href="#bookmarks" data-nav-section="bookmarks") Saved
 					a(href="#memos") Memo
 					a(href="#papers" data-nav-section="academic") Academic
 					a(href="#info" data-nav-section="info") About Me
@@ -254,6 +255,50 @@
 										if memo.content && /^https?:\/\//.test(memo.content)
 											a(href=`${memo.content}` target="_blank" rel="noopener noreferrer") Open link
 										button.memo-delete(type="button" data-memo-delete hidden) Delete
+
+			section.bookmark-page#bookmarks
+				.bookmark-shell
+					header.bookmark-hero
+						div
+							p.section-eyebrow Private library
+							h2 Saved Blogs
+							p Save useful articles with a short summary and category. Only your GitHub owner account can read or edit this list.
+					.bookmark-locked(data-bookmark-locked)
+						p(data-bookmark-lock-message) Sign in with your GitHub owner account to open this private collection.
+						button(type="button" data-bookmark-login) Sign in with GitHub
+						button(type="button" data-bookmark-logout hidden) Sign out
+					.bookmark-workspace(data-bookmark-workspace hidden)
+						form.bookmark-form(data-bookmark-form)
+							.bookmark-form-heading
+								h3(data-bookmark-form-title) Add a blog
+								span URL, title, summary, and category stay in your private database.
+							label(for="bookmarkUrl") Webpage URL
+							.bookmark-url-row
+								input#bookmarkUrl(type="url" name="url" maxlength="2048" placeholder="https://example.com/article" required)
+								button(type="button" data-bookmark-import) Import title & summary
+							label(for="bookmarkTitle") Title
+							input#bookmarkTitle(type="text" name="title" maxlength="300" required)
+							label(for="bookmarkSummary") Summary
+							textarea#bookmarkSummary(name="summary" rows="3" maxlength="2000" placeholder="Why is this article useful?")
+							label(for="bookmarkCategory") Category
+							input#bookmarkCategory(type="text" name="category" list="bookmarkCategoryOptions" maxlength="80" placeholder="未分类")
+							datalist#bookmarkCategoryOptions(data-bookmark-category-options)
+							.bookmark-form-actions
+								button(type="submit" data-bookmark-save) Save blog
+								button(type="button" data-bookmark-cancel hidden) Cancel edit
+						.bookmark-controls
+							input(type="search" data-bookmark-search placeholder="Search saved blogs..." aria-label="Search saved blogs")
+							span(data-bookmark-count) 0 saved
+							button(type="button" data-bookmark-signout) Sign out
+						.bookmark-categories(data-bookmark-categories aria-label="Saved blog categories")
+						.bookmark-category-manager
+							label(for="bookmarkCategoryFrom") Rename category
+							select#bookmarkCategoryFrom(data-bookmark-category-from)
+							input(type="text" data-bookmark-category-to maxlength="80" placeholder="New category name" aria-label="New category name")
+							button(type="button" data-bookmark-rename) Rename for all
+						p.bookmark-status(data-bookmark-status role="status" aria-live="polite")
+						.bookmark-list(data-bookmark-list)
+						p.bookmark-empty(data-bookmark-empty hidden) No blogs match this view.
 
 			section.academic-page#papers
 				.academic-shell
