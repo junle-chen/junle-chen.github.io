@@ -1830,6 +1830,37 @@ a.about-action-button:focus {
 	font-weight: 950;
 }
 
+.about-publication-links {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 7px;
+	margin-top: 10px;
+}
+
+.about-publication-links a {
+	display: inline-flex;
+	align-items: center;
+	min-height: 30px;
+	padding: 5px 10px;
+	border: 1px solid var(--line);
+	border-radius: 8px;
+	background: rgba(112, 214, 195, 0.08);
+	color: var(--accent);
+	font-size: 0.74rem;
+	font-weight: 900;
+	line-height: 1.35;
+}
+
+.about-publication-links a:hover {
+	background: var(--card-strong);
+	color: var(--text);
+}
+
+.about-publication-links a:focus-visible {
+	outline: 2px solid var(--accent);
+	outline-offset: 2px;
+}
+
 .paper-scholar-link {
 	display: inline-flex;
 	align-items: center;
