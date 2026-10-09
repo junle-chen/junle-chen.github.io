@@ -4,25 +4,16 @@
 	column-gap: 17px;
 	align-items: center;
 }
-
 .education-emblem {
 	display: grid;
 	place-items: center;
 	width: 78px;
 	height: 78px;
-	border-radius: 10px;
 	border: 0;
-	background: #fff;
+	background: transparent;
 	box-shadow: none;
 }
-
-.education-emblem img {
-	display: block;
-	width: 62px;
-	height: 62px;
-	object-fit: contain;
-}
-
+.education-emblem img { display: block; width: 62px; height: 62px; object-fit: contain; }
 .education-copy { min-width: 0; }
 
 .cat-companion {
@@ -30,159 +21,103 @@
 	right: 8px;
 	bottom: 24px;
 	z-index: 100;
-	width: clamp(76px, calc((100vw - 1200px) / 2 - 14px), 128px);
+	width: clamp(80px, calc((100vw - 1200px) / 2 - 14px), 132px);
 	color: var(--text);
 	font-family: inherit;
+	user-select: none;
 }
-
 .cat-companion[data-side="left"] { left: 8px; right: auto; }
-
-.cat-panel {
-	display: grid;
-	grid-template-columns: 1fr;
-}
-
-.cat-heading {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	padding: 0 2px;
-	color: var(--subtle);
-	font-size: .7rem;
-	font-weight: 800;
-}
-
+.cat-companion.is-dragging { left: var(--cat-drag-x) !important; right: auto !important; }
+.cat-panel { position: relative; }
 .cat-companion button { font-family: inherit; cursor: pointer; }
 .cat-companion button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
-
-.cat-hide {
-	display: grid;
-	place-items: center;
-	width: 24px;
-	height: 24px;
-	padding: 0;
-	border: 0;
-	border-radius: 50%;
-	background: transparent;
-	color: var(--subtle);
-	font-size: 1.05rem;
+.cat-companion [hidden] { display: none !important; }
+.cat-pet { display: block; width: 100%; aspect-ratio: 1; margin: 0; padding: 0; border: 0; border-radius: 20px; background: transparent; cursor: grab !important; touch-action: none; }
+.is-dragging .cat-pet { cursor: grabbing !important; }
+.cat-sprite {
+	display: block;
+	width: 100%;
+	height: 100%;
+	background-image: url('../assets/pets/mochi-sprite-sheet.png');
+	background-size: 400% 400%;
+	background-repeat: no-repeat;
+	background-position: 0 0;
+	clip-path: inset(0 3% 0 3%);
+	image-rendering: pixelated;
+	transform-origin: 50% 88%;
 }
-
+.cat-sprite[data-frame="8"], .cat-sprite[data-frame="9"], .cat-sprite[data-frame="10"], .cat-sprite[data-frame="11"] { clip-path: inset(0 3% 7% 3%); }
+.cat-companion[data-state="walking"][data-facing="left"] .cat-sprite { transform: scaleX(-1); }
+.cat-companion[data-state="jumping"] .cat-sprite { animation: cat-hop 900ms ease-in-out; }
+.cat-companion[data-state="happy"] .cat-sprite { animation: cat-wiggle 800ms ease-in-out; }
+.cat-companion[data-state="idle"] .cat-sprite { animation: cat-breathe 4s ease-in-out infinite; }
+.cat-companion.is-paused *, .cat-companion.is-calm * { animation-play-state: paused !important; }
 .cat-menu-toggle {
-	width: 24px;
-	height: 24px;
+	position: absolute;
+	top: -12px;
+	right: 0;
+	z-index: 1;
+	width: 26px;
+	height: 26px;
 	padding: 0;
-	border: 0;
+	border: 1px solid var(--line);
 	border-radius: 50%;
 	background: var(--card-bg);
 	color: var(--muted);
 	font-size: 1rem;
 	line-height: 1;
+	opacity: 0;
+	transition: opacity 140ms ease;
 }
-
-.cat-hide:hover { background: var(--card-strong); color: var(--text); }
-
-.cat-scene { margin-top: -7px; }
-.cat-pet { display: block; width: 100%; margin: 0 auto; padding: 0; border: 0; border-radius: 28px; background: transparent; }
-.cat-pet svg { display: block; width: 100%; height: auto; overflow: visible; }
+.cat-companion:hover .cat-menu-toggle, .cat-companion:focus-within .cat-menu-toggle { opacity: 1; }
 .cat-copy {
 	position: absolute;
-	right: calc(100% + 9px);
-	bottom: 6px;
-	width: 176px;
+	right: calc(100% + 8px);
+	top: 0;
+	width: 196px;
 	padding: 12px;
 	border: 1px solid var(--line);
-	border-radius: 12px;
-	background: var(--card-bg);
-	box-shadow: 0 8px 28px rgba(26, 41, 36, .13);
-	backdrop-filter: blur(18px);
+	border-radius: 14px;
+	background: var(--panel-solid);
+	box-shadow: 0 8px 28px rgba(26, 41, 36, .16);
 	text-align: center;
 }
-.cat-companion[data-side="left"] .cat-copy { left: calc(100% + 9px); right: auto; }
-.cat-companion .cat-status { margin: -3px 0 5px; color: var(--muted); font-size: .66rem; line-height: 1.4; }
-.cat-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; }
-.cat-side { flex-basis: 100%; }
-.cat-actions button, .cat-restore {
-	min-height: 27px;
-	padding: 4px 11px;
-	border: 1px solid var(--line);
-	border-radius: 999px;
-	background: var(--card-bg);
-	color: var(--muted);
-	font-size: .65rem;
-	font-weight: 800;
-}
+.cat-companion[data-side="left"] .cat-copy { left: calc(100% + 8px); right: auto; }
+.cat-menu-heading { display: flex; align-items: center; justify-content: space-between; margin-bottom: 5px; font-size: .78rem; }
+.cat-hide { display: grid; place-items: center; width: 24px; height: 24px; padding: 0; border: 0; border-radius: 50%; background: transparent; color: var(--subtle); font-size: 1.05rem; }
+.cat-hide:hover { background: var(--card-strong); color: var(--text); }
+.cat-companion .cat-status { margin: 0 0 10px; color: var(--muted); font-size: .65rem; line-height: 1.4; }
+.cat-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+.cat-follow, .cat-side { grid-column: 1 / -1; }
+.cat-actions button, .cat-restore { min-height: 32px; padding: 5px 8px; border: 1px solid var(--line); border-radius: 999px; background: var(--card-bg); color: var(--muted); font-size: .66rem; font-weight: 800; }
 .cat-actions button:hover, .cat-actions button[aria-pressed="true"] { color: var(--accent); background: var(--card-strong); }
-.cat-restore { display: flex; align-items: center; justify-content: center; gap: 7px; width: 100%; }
-.cat-companion [hidden] { display: none !important; }
-
-.cat-character { transform-origin: 82px 155px; animation: cat-breathe 3.7s ease-in-out infinite; }
-.cat-tail { transform-origin: 111px 145px; animation: cat-tail 4s ease-in-out infinite; }
-.cat-eyes { transform-box: fill-box; transform-origin: center; animation: cat-blink 6.2s infinite; }
-.cat-gaze { transform: translate(var(--cat-look-x, 0px), var(--cat-look-y, 0px)); transition: transform 120ms ease-out; }
-.cat-ear-left { transform-origin: 48px 52px; animation: cat-ear 11s ease-in-out infinite; }
-.cat-closed-eyes, .cat-snooze, .cat-hearts { display: none; }
-.cat-toy { opacity: 0; }
-.cat-paw { transform-origin: 57px 143px; }
-
-.cat-companion[data-state="happy"], .cat-companion[data-state="sleeping"] {
-	.cat-eyes { display: none; }
-	.cat-closed-eyes { display: block; }
-}
-.cat-companion[data-state="happy"] {
-	.cat-hearts { display: block; animation: cat-hearts 1.6s ease-out both; }
-	.cat-paw { animation: cat-wave 650ms ease-in-out 2; }
-	.cat-blush { opacity: .65; }
-}
-.cat-companion[data-state="playing"] {
-	.cat-character { animation: cat-pounce 800ms ease-in-out 3; }
-	.cat-toy { opacity: 1; animation: cat-ball 2.4s ease-in-out both; }
-	.cat-paw { animation: cat-wave 600ms ease-in-out 4; }
-}
-.cat-companion[data-state="sleeping"] {
-	.cat-snooze { display: block; animation: cat-zzz 3s ease-in-out infinite; }
-	.cat-tail, .cat-ear-left { animation: none; }
-	.cat-character { animation-duration: 5s; }
-}
-.cat-companion.is-paused *, .cat-companion.is-calm * { animation-play-state: paused !important; }
-.cat-companion.is-calm .cat-gaze { transition: none; }
-
-@keyframes cat-breathe { 0%, 100% { transform: scaleY(1); } 50% { transform: scaleY(1.014); } }
-@keyframes cat-tail { 0%, 100% { transform: rotate(-5deg); } 50% { transform: rotate(8deg); } }
-@keyframes cat-blink { 0%, 41%, 45%, 100% { transform: scaleY(1); } 43% { transform: scaleY(.06); } }
-@keyframes cat-ear { 0%, 78%, 88%, 100% { transform: rotate(0); } 81%, 85% { transform: rotate(-9deg); } 83% { transform: rotate(4deg); } }
-@keyframes cat-wave { 0%, 100% { transform: rotate(0); } 50% { transform: translateY(-7px) rotate(-20deg); } }
-@keyframes cat-hearts { 0% { opacity: 0; transform: translateY(8px); } 18% { opacity: 1; } 100% { opacity: 0; transform: translateY(-18px); } }
-@keyframes cat-pounce { 0%, 100% { transform: translateY(0); } 40% { transform: translateY(-9px) rotate(3deg); } }
-@keyframes cat-ball { 0%, 100% { transform: translateX(0) rotate(0); } 50% { transform: translateX(107px) rotate(250deg); } }
-@keyframes cat-zzz { 0%, 100% { opacity: .4; transform: translateY(0); } 50% { opacity: 1; transform: translateY(-5px); } }
-
+.cat-restore { display: grid; place-items: center; width: 36px; height: 36px; margin-left: auto; }
+.cat-companion[data-side="left"] .cat-restore { margin-left: 0; }
+.cat-companion .cat-help { margin: 10px 0 0; color: var(--subtle); font-size: .58rem; line-height: 1.45; }
+.cat-companion .cat-bubble { position: absolute; bottom: calc(100% + 22px); right: 0; width: max-content; max-width: 150px; margin: 0; padding: 7px 10px; border: 1px solid var(--line); border-radius: 12px 12px 3px 12px; background: var(--panel-solid); color: var(--muted); font-size: .66rem; line-height: 1.35; pointer-events: none; }
+.cat-companion[data-side="left"] .cat-bubble { left: 0; right: auto; border-radius: 12px 12px 12px 3px; }
+@keyframes cat-breathe { 0%, 100% { transform: scaleY(1); } 50% { transform: scaleY(1.015); } }
+@keyframes cat-hop { 0%, 100% { transform: translateY(0); } 45% { transform: translateY(-24px); } }
+@keyframes cat-wiggle { 0%, 100% { transform: rotate(0); } 25% { transform: rotate(-4deg); } 75% { transform: rotate(4deg); } }
+@media (hover: none) { .cat-menu-toggle { opacity: 1; } }
 @media (max-width: 760px) {
-	.cat-companion ~ .app-shell { width: calc(100% - 72px); margin-left: 8px; margin-right: 64px; }
-	.cat-companion[data-side="left"] ~ .app-shell { margin-left: 64px; margin-right: 8px; }
+	.cat-companion ~ .app-shell { width: calc(100% - 84px); margin-left: 8px; margin-right: 76px; }
+	.cat-companion[data-side="left"] ~ .app-shell { margin-left: 76px; margin-right: 8px; }
 	.cat-companion.is-hidden ~ .app-shell { width: min(720px, calc(100% - 24px)); margin-left: auto; margin-right: auto; }
-	.cat-companion { width: 52px; bottom: max(10px, env(safe-area-inset-bottom)); right: 4px; }
+	.cat-companion { width: 64px; bottom: max(10px, env(safe-area-inset-bottom)); right: 4px; }
 	.cat-companion[data-side="left"] { left: 4px; }
-	.cat-heading { position: absolute; bottom: 100%; right: 0; padding: 0; width: 52px; }
-	.cat-heading > span { display: none; }
-	.cat-scene { margin-top: 0; }
-	.cat-copy { width: 174px; }
-	.cat-companion .cat-status { margin: 0 0 7px; font-size: .75rem; }
-	.cat-actions button { min-height: 36px; padding: 5px 14px; font-size: .73rem; }
-	.cat-restore { width: 42px; padding: 6px; }
-	.cat-restore > span:last-child { display: none; }
+	.cat-menu-toggle { opacity: 1; }
+	.cat-actions button { min-height: 36px; }
 	.info-education-item { grid-template-columns: 55px minmax(0, 1fr); gap: 12px; align-items: start; }
-	.education-emblem { width: 55px; height: 55px; border-radius: 10px; }
+	.education-emblem { width: 55px; height: 55px; }
 	.education-emblem img { width: 43px; height: 43px; }
 }
-
 @media (max-width: 560px) {
 	.cat-companion.is-hidden ~ .app-shell { width: calc(100% - 16px); }
 	.cat-companion ~ .app-shell .info-profile-identity { grid-template-columns: 64px minmax(0, 1fr); }
 	.cat-companion ~ .app-shell .info-profile-card img { width: 64px; height: 64px; }
 	.cat-companion ~ .app-shell .info-profile-card h2 { white-space: normal; }
 }
-
 @media (prefers-reduced-motion: reduce) {
 	.cat-companion *, .cat-companion *::before, .cat-companion *::after { animation: none !important; transition: none !important; }
 }
