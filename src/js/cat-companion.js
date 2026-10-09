@@ -3,7 +3,7 @@
 	if (!root) return;
 	const find = name => root.querySelector(`[data-cat-${name}]`);
 	const panel = find("panel"), pet = find("pet"), sprite = find("sprite");
-	const menu = find("menu"), controls = root.querySelector("#mochi-controls");
+	const menu = find("menu"), controls = root.querySelector("#ghost-controls");
 	const nap = find("nap"), side = find("side"), follow = find("follow");
 	const status = find("status"), bubble = find("bubble"), restore = find("restore");
 	const motion = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -33,7 +33,7 @@
 	const setMenu = value => {
 		controls.hidden = !value;
 		menu.setAttribute("aria-expanded", String(value));
-		menu.setAttribute("aria-label", value ? "Hide cat controls" : "Show cat controls");
+		menu.setAttribute("aria-label", value ? "Hide ghost controls" : "Show ghost controls");
 		if (value) { bubble.hidden = true; stopMovement(); placeMenu(); }
 	};
 	const setSide = value => {
@@ -41,7 +41,7 @@
 		root.dataset.facing = value === "left" ? "right" : "left";
 		const next = value === "left" ? "right" : "left";
 		side.textContent = `Move ${next}`;
-		side.setAttribute("aria-label", `Move Mochi to ${next} side`);
+		side.setAttribute("aria-label", `Move little ghost to ${next} side`);
 	};
 	const renderPose = () => {
 		const frames = poses[root.dataset.state] || poses.idle;
@@ -57,7 +57,7 @@
 		const asleep = state === "sleeping";
 		nap.textContent = asleep ? "Wake" : "Nap";
 		nap.setAttribute("aria-pressed", String(asleep));
-		pet.setAttribute("aria-label", asleep ? "Wake Mochi with a pet" : "Pet Mochi");
+		pet.setAttribute("aria-label", asleep ? "Wake little ghost with a pet" : "Pet little ghost");
 		renderPose();
 		if (duration) actionTimer = setTimeout(idle, duration);
 	};
@@ -135,13 +135,13 @@
 	};
 	pet.addEventListener("click", event => {
 		if (ignoreClick) { ignoreClick = false; return; }
-		if (event.detail < 2) act("happy", "Purr... thank you!", 1800);
+		if (event.detail < 2) act("happy", "Boo! Thanks for the pat.", 1800);
 	});
-	pet.addEventListener("dblclick", () => act("jumping", "Boing!", 900));
+	pet.addEventListener("dblclick", () => act("jumping", "Whoosh!", 900));
 	pet.addEventListener("contextmenu", event => { event.preventDefault(); setMenu(true); });
-	find("feed").addEventListener("click", () => act("feeding", "A fish for me? Yum!", 2300));
-	find("play").addEventListener("click", () => act("playing", "My favourite yarn ball!", 2800));
-	find("jump").addEventListener("click", () => act("jumping", "Boing!", 900));
+	find("feed").addEventListener("click", () => act("feeding", "A sweet treat. Thank you!", 2300));
+	find("play").addEventListener("click", () => act("playing", "Let's play with a little ball!", 2800));
+	find("jump").addEventListener("click", () => act("jumping", "Whoosh!", 900));
 	nap.addEventListener("click", () => { setFollow(false); if (root.dataset.state === "sleeping") act("happy", "Good morning!", 1500); else act("sleeping", "A tiny nap. Zzz..."); });
 	follow.addEventListener("click", () => { setFollow(!following); if (following) idle(); setMenu(false); speak(following ? "Move your cursor. I will follow!" : "Time for a rest."); });
 	menu.addEventListener("click", () => setMenu(controls.hidden));

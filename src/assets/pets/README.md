@@ -1,4 +1,8 @@
-# Mochi
+# Website companions
+
+The current companion is `ghost-sprite-sheet.png`, matching the homepage avatar. Its built-in imagegen prompt and generation details are in [ghost-generation.md](ghost-generation.md).
+
+## Retained cat atlas
 
 Original cat artwork generated with the built-in imagegen tool, using the user's supplied Codex pet screenshot as a style reference. The human character was not reused. The PNG has a transparent alpha channel and a 4 by 4 sprite grid. The website crops cells in CSS; the generated PNG is preserved unchanged.
 

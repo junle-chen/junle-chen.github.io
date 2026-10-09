@@ -1,15 +1,15 @@
-.cat-companion(data-cat-companion data-state="idle" data-side="right" data-facing="left" role="group" aria-label="Mochi the interactive cat")
-	button.cat-restore(type="button" data-cat-restore hidden aria-label="Show Mochi the cat")
-		span(aria-hidden="true") 🐾
+.cat-companion(data-cat-companion data-state="idle" data-side="right" data-facing="left" role="group" aria-label="Your little ghost companion")
+	button.cat-restore(type="button" data-cat-restore hidden aria-label="Show little ghost")
+		span(aria-hidden="true") 👻
 	.cat-panel(data-cat-panel)
-		button.cat-menu-toggle(type="button" data-cat-menu aria-label="Show cat controls" aria-expanded="false" aria-controls="mochi-controls" title="Cat controls") ⋯
-		button.cat-pet(type="button" data-cat-pet aria-label="Pet Mochi" aria-describedby="mochi-help" title="Pet Mochi · double-click to jump · drag to move")
+		button.cat-menu-toggle(type="button" data-cat-menu aria-label="Show ghost controls" aria-expanded="false" aria-controls="ghost-controls" title="Ghost controls") ⋯
+		button.cat-pet(type="button" data-cat-pet aria-label="Pet little ghost" aria-describedby="ghost-help" title="Pet little ghost · double-click to hop · drag to move")
 			span.cat-sprite(data-cat-sprite aria-hidden="true")
 		p.cat-bubble(data-cat-bubble hidden aria-live="polite")
-		.cat-copy#mochi-controls(hidden)
+		.cat-copy#ghost-controls(hidden)
 			.cat-menu-heading
-				strong Mochi
-				button.cat-hide(type="button" data-cat-hide aria-label="Hide Mochi" title="Hide cat") ×
+				strong Little Ghost
+				button.cat-hide(type="button" data-cat-hide aria-label="Hide little ghost" title="Hide ghost") ×
 			p.cat-status(data-cat-status aria-live="polite") Your little research companion.
 			.cat-actions
 				button(type="button" data-cat-feed) Feed
@@ -18,5 +18,5 @@
 				button(type="button" data-cat-nap aria-pressed="false") Nap
 				button.cat-follow(type="button" data-cat-follow aria-pressed="false") Follow cursor
 				button.cat-explore(type="button" data-cat-explore aria-pressed="true") Stay here
-				button.cat-side(type="button" data-cat-side aria-label="Move Mochi to left side") Move left
-			p.cat-help#mochi-help I explore window edges and peek around corners. Pet me, double-click to jump, or drag me to either side.
+				button.cat-side(type="button" data-cat-side aria-label="Move little ghost to left side") Move left
+			p.cat-help#ghost-help I float around, climb window edges and peek around corners. Pet me, double-click to hop, or drag me to either side.

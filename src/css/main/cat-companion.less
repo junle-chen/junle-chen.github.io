@@ -33,8 +33,9 @@
 .cat-companion.is-peeking .cat-pet { height: 46px; aspect-ratio: auto; overflow: hidden; border-radius: 0; }
 .cat-companion.is-peeking .cat-sprite { height: 64px; animation: cat-peek 3.3s ease-in-out both; }
 .cat-companion.is-peeking .cat-panel::after { content: ''; position: absolute; bottom: 0; left: 10px; right: 10px; height: 2px; border-radius: 2px; background: var(--line-strong); pointer-events: none; }
-.cat-companion[data-state="climbing"] .cat-sprite { transform: rotate(-90deg); transform-origin: 50% 50%; }
-.cat-companion[data-state="climbing"][data-wall="left"] .cat-sprite { transform: rotate(-90deg) scaleY(-1); }
+.cat-companion[data-state="climbing"] .cat-sprite { transform: rotate(-7deg); transform-origin: 50% 50%; }
+.cat-companion[data-state="climbing"][data-wall="left"] .cat-sprite { transform: rotate(7deg); }
+.cat-companion[data-state="climbing"] .cat-pet { overflow: hidden; }
 .cat-companion.is-exploring .cat-menu-toggle { visibility: hidden; }
 .cat-companion.is-exploring:hover .cat-menu-toggle, .cat-companion.is-exploring:focus-within .cat-menu-toggle { visibility: visible; }
 .cat-companion.is-dragging { left: var(--cat-drag-x) !important; right: auto !important; }
@@ -48,12 +49,12 @@
 	display: block;
 	width: 100%;
 	height: 100%;
-	background-image: url('../assets/pets/mochi-sprite-sheet.png');
+	background-image: url('../assets/pets/ghost-sprite-sheet.png');
 	background-size: 400% 400%;
 	background-repeat: no-repeat;
 	background-position: 0 0;
 	clip-path: inset(0 3% 0 3%);
-	image-rendering: pixelated;
+	image-rendering: auto;
 	transform-origin: 50% 88%;
 }
 .cat-sprite[data-frame="8"], .cat-sprite[data-frame="9"], .cat-sprite[data-frame="10"], .cat-sprite[data-frame="11"] { clip-path: inset(0 3% 7% 3%); }
