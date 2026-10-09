@@ -1,0 +1,58 @@
+.cat-companion(data-cat-companion data-state="idle" role="group" aria-label="Mochi the interactive cat")
+	button.cat-restore(type="button" data-cat-restore hidden aria-label="Show Mochi the cat")
+		span(aria-hidden="true") 🐾
+		span Show Mochi
+	.cat-panel(data-cat-panel)
+		.cat-heading
+			span Mochi
+			button.cat-hide(type="button" data-cat-hide aria-label="Hide Mochi" title="Hide cat") ×
+		.cat-scene
+			button.cat-pet(type="button" data-cat-pet aria-label="Pet Mochi" title="Pet Mochi")
+				svg(viewBox="0 0 160 174" aria-hidden="true" focusable="false")
+					ellipse(cx="82" cy="160" rx="48" ry="6" fill="#62483d" opacity=".10")
+					g.cat-toy
+						circle(cx="21" cy="148" r="11" fill="#9bd8c8" stroke="#478e7e" stroke-width="2")
+						path(d="M12 143c9 2 14 7 14 14M14 139c-2 7 1 14 8 19M11 150c7-5 13-5 20-1" fill="none" stroke="#478e7e" stroke-width="1.2")
+					g.cat-character
+						path.cat-tail(d="M111 145c29-2 36-29 17-37" fill="none" stroke="#dcaa78" stroke-width="13" stroke-linecap="round")
+						path(d="M54 100c-12 12-17 28-12 46 6 14 69 15 77 0 5-17-1-35-13-46Z" fill="#e8ba87" stroke="#62483d" stroke-width="2.3")
+						path(d="M65 111c-9 11-11 30-4 39h43c7-13 1-31-9-39" fill="#fff7eb")
+						g.cat-head
+							path.cat-ear-left(d="m43 57-14-35q-3-11 7-6l27 29Z" fill="#e8ba87" stroke="#62483d" stroke-width="2.3" stroke-linejoin="round")
+							path.cat-ear-right(d="m100 45 27-29q9-5 6 7l-10 34Z" fill="#e8ba87" stroke="#62483d" stroke-width="2.3" stroke-linejoin="round")
+							path(d="m36 25 7 24 10-8Z M126 25l-5 24-11-8Z" fill="#efb3a8")
+							path(d="M44 47c15-15 62-15 76 1 19 14 17 39 1 55-19 19-60 19-79 0-16-16-18-41 2-56Z" fill="#e8ba87" stroke="#62483d" stroke-width="2.3")
+							path(d="M59 94c0-17 46-17 46 0 0 16-46 17-46 0Z" fill="#fff7eb")
+							path(d="m72 38 3 13m7-15v14m10-12-3 13" fill="none" stroke="#bd865a" stroke-width="3.5" stroke-linecap="round")
+							g.cat-eyes
+								circle(cx="60" cy="74" r="7" fill="#483a36")
+								circle(cx="105" cy="74" r="7" fill="#483a36")
+								g.cat-gaze
+									circle(cx="58" cy="72" r="2.3" fill="white")
+									circle(cx="103" cy="72" r="2.3" fill="white")
+									circle(cx="63" cy="77" r="1" fill="white" opacity=".6")
+									circle(cx="108" cy="77" r="1" fill="white" opacity=".6")
+							g.cat-closed-eyes(fill="none" stroke="#62483d" stroke-width="2.4" stroke-linecap="round")
+								path(d="M53 75q7-7 14 0M98 75q7-7 14 0")
+							g.cat-blush(fill="#e59089" opacity=".35")
+								ellipse(cx="45" cy="86" rx="8" ry="4")
+								ellipse(cx="120" cy="86" rx="8" ry="4")
+							path(d="M78 87q5-4 10 0l-5 5Z" fill="#d18880")
+							path(d="M83 92v4m-7 0q3 5 7 0 4 5 7 0M34 84l-13-3m14 10-12 3m107-10 13-3m-14 10 12 3" fill="none" stroke="#62483d" stroke-width="1.8" stroke-linecap="round")
+						path(d="M57 110q26 15 50 0" fill="none" stroke="#6aafa0" stroke-width="5")
+						circle(cx="83" cy="119" r="4.5" fill="#f4d684" stroke="#947545" stroke-width="1.5")
+						g.cat-paw
+							path(d="M56 127c-8 0-14 11-10 19 3 5 18 4 20-1" fill="#fff7eb" stroke="#62483d" stroke-width="2.3" stroke-linecap="round")
+						ellipse(cx="102" cy="150" rx="15" ry="7" fill="#fff7eb" stroke="#62483d" stroke-width="2.3")
+						path(d="M99 148v4m6-4v4" stroke="#cbbcae" stroke-width="1.4" stroke-linecap="round")
+					g.cat-hearts(fill="#df8f96")
+						path(d="M24 56c-6-9-15 1 0 10 15-9 6-19 0-10Z")
+						path(d="M139 48c-5-8-13 1 0 9 13-8 5-17 0-9Z")
+					g.cat-snooze(fill="#6c9388" font-family="sans-serif" font-weight="700")
+						text(x="123" y="49" font-size="13") z
+						text(x="137" y="34" font-size="17") z
+		.cat-copy
+			p.cat-status(data-cat-status aria-live="polite") Click me to say hello.
+			.cat-actions
+				button(type="button" data-cat-play) Play
+				button(type="button" data-cat-nap aria-pressed="false") Nap

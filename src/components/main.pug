@@ -36,8 +36,8 @@
 		{ label: "Phone", glyph: "TEL", href: "tel:+85256029402" }
 	]
 	const educationItems = [
-		{ date: "Sept 2021 - Jun 2025", title: "Bachelor of Computer Science and Technology", org: "School of Future Technology, Harbin Institute of Technology", detail: "Formerly Honor School." },
-		{ date: "Sept 2025 -", title: "PhD in Computer Science and Engineering (CSE)", org: "The Hong Kong University of Science and Technology", detail: "Under the guidance of Professor Xiaofang Zhou." }
+		{ date: "Sept 2021 - Jun 2025", title: "Bachelor of Computer Science and Technology", org: "School of Future Technology, Harbin Institute of Technology", detail: "Formerly Honor School.", logo: "assets/schools/hit.png", logoAlt: "Harbin Institute of Technology emblem" },
+		{ date: "Sept 2025 -", title: "PhD in Computer Science and Engineering (CSE)", org: "The Hong Kong University of Science and Technology", detail: "Under the guidance of Professor Xiaofang Zhou.", logo: "assets/schools/hkust.svg", logoAlt: "HKUST emblem" }
 	]
 	const researchInterests = [
 		{
@@ -160,6 +160,7 @@
 													else
 														span.about-action-glyph #{action.glyph}
 													span #{action.label}
+						include cat-companion.pug
 					article.info-card.info-about-card
 						h3 About Me
 						p.info-lead I am a PhD student in Computer Science and Engineering at The Hong Kong University of Science and Technology, advised by Professor Xiaofang Zhou. My research focuses on improving the multi-turn interaction capabilities of LLM agents, including user interaction before execution and environment interaction during long-horizon execution. I also do some work on spatiotemporal data.
@@ -167,12 +168,15 @@
 						h3 Education
 						.info-list
 							each item in educationItems
-								article.info-list-item
-									span.about-date #{item.date}
-									h4 #{item.title}
-									p #{item.org}
-									if item.detail
-										p.about-detail #{item.detail}
+								article.info-list-item.info-education-item
+									.education-emblem
+										img(src=item.logo alt=item.logoAlt width="62" height="62" loading="lazy" decoding="async")
+									.education-copy
+										span.about-date #{item.date}
+										h4 #{item.title}
+										p #{item.org}
+										if item.detail
+											p.about-detail #{item.detail}
 					.info-two-column
 						article.info-card
 							h3 Research Interest
