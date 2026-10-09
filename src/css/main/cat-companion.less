@@ -18,15 +18,25 @@
 
 .cat-companion {
 	position: fixed;
-	right: 8px;
+	right: calc(8px + var(--cat-scrollbar, 0px));
 	bottom: 24px;
 	z-index: 100;
-	width: clamp(80px, calc((100vw - 1200px) / 2 - 14px), 132px);
+	width: clamp(64px, calc((100vw - 1200px) / 2 - 14px), 88px);
 	color: var(--text);
 	font-family: inherit;
 	user-select: none;
 }
 .cat-companion[data-side="left"] { left: 8px; right: auto; }
+.cat-companion.is-exploring[data-side] { left: var(--cat-roam-x); right: auto; width: 64px; }
+.cat-companion.is-tucked { opacity: 0; pointer-events: none; }
+.cat-companion.is-hidden { width: 36px; }
+.cat-companion.is-peeking .cat-pet { height: 46px; aspect-ratio: auto; overflow: hidden; border-radius: 0; }
+.cat-companion.is-peeking .cat-sprite { height: 64px; animation: cat-peek 3.3s ease-in-out both; }
+.cat-companion.is-peeking .cat-panel::after { content: ''; position: absolute; bottom: 0; left: 10px; right: 10px; height: 2px; border-radius: 2px; background: var(--line-strong); pointer-events: none; }
+.cat-companion[data-state="climbing"] .cat-sprite { transform: rotate(-90deg); transform-origin: 50% 50%; }
+.cat-companion[data-state="climbing"][data-wall="left"] .cat-sprite { transform: rotate(-90deg) scaleY(-1); }
+.cat-companion.is-exploring .cat-menu-toggle { visibility: hidden; }
+.cat-companion.is-exploring:hover .cat-menu-toggle, .cat-companion.is-exploring:focus-within .cat-menu-toggle { visibility: visible; }
 .cat-companion.is-dragging { left: var(--cat-drag-x) !important; right: auto !important; }
 .cat-panel { position: relative; }
 .cat-companion button { font-family: inherit; cursor: pointer; }
@@ -88,7 +98,7 @@
 .cat-hide:hover { background: var(--card-strong); color: var(--text); }
 .cat-companion .cat-status { margin: 0 0 10px; color: var(--muted); font-size: .65rem; line-height: 1.4; }
 .cat-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
-.cat-follow, .cat-side { grid-column: 1 / -1; }
+.cat-follow, .cat-side, .cat-explore { grid-column: 1 / -1; }
 .cat-actions button, .cat-restore { min-height: 32px; padding: 5px 8px; border: 1px solid var(--line); border-radius: 999px; background: var(--card-bg); color: var(--muted); font-size: .66rem; font-weight: 800; }
 .cat-actions button:hover, .cat-actions button[aria-pressed="true"] { color: var(--accent); background: var(--card-strong); }
 .cat-restore { display: grid; place-items: center; width: 36px; height: 36px; margin-left: auto; }
@@ -99,12 +109,18 @@
 @keyframes cat-breathe { 0%, 100% { transform: scaleY(1); } 50% { transform: scaleY(1.015); } }
 @keyframes cat-hop { 0%, 100% { transform: translateY(0); } 45% { transform: translateY(-24px); } }
 @keyframes cat-wiggle { 0%, 100% { transform: rotate(0); } 25% { transform: rotate(-4deg); } 75% { transform: rotate(4deg); } }
+@keyframes cat-peek { 0% { transform: translateY(44px); } 18%, 65% { transform: translateY(0); } 74% { transform: translateY(9px); } 85% { transform: translateY(0); } 100% { transform: translateY(44px); } }
+@media (min-width: 761px) {
+	.cat-companion ~ .app-shell { width: min(1320px, calc(100% - 192px)); }
+	.cat-companion.is-hidden ~ .app-shell { width: min(1320px, calc(100% - 112px)); }
+}
 @media (hover: none) { .cat-menu-toggle { opacity: 1; } }
 @media (max-width: 760px) {
 	.cat-companion ~ .app-shell { width: calc(100% - 84px); margin-left: 8px; margin-right: 76px; }
 	.cat-companion[data-side="left"] ~ .app-shell { margin-left: 76px; margin-right: 8px; }
-	.cat-companion.is-hidden ~ .app-shell { width: min(720px, calc(100% - 24px)); margin-left: auto; margin-right: auto; }
-	.cat-companion { width: 64px; bottom: max(10px, env(safe-area-inset-bottom)); right: 4px; }
+	.cat-companion.is-hidden ~ .app-shell { width: calc(100% - 60px); margin-left: 8px; margin-right: 52px; }
+	.cat-companion.is-hidden[data-side="left"] ~ .app-shell { margin-left: 52px; margin-right: 8px; }
+	.cat-companion { width: 64px; bottom: max(10px, env(safe-area-inset-bottom)); right: calc(4px + var(--cat-scrollbar, 0px)); }
 	.cat-companion[data-side="left"] { left: 4px; }
 	.cat-menu-toggle { opacity: 1; }
 	.cat-actions button { min-height: 36px; }
@@ -113,7 +129,6 @@
 	.education-emblem img { width: 43px; height: 43px; }
 }
 @media (max-width: 560px) {
-	.cat-companion.is-hidden ~ .app-shell { width: calc(100% - 16px); }
 	.cat-companion ~ .app-shell .info-profile-identity { grid-template-columns: 64px minmax(0, 1fr); }
 	.cat-companion ~ .app-shell .info-profile-card img { width: 64px; height: 64px; }
 	.cat-companion ~ .app-shell .info-profile-card h2 { white-space: normal; }

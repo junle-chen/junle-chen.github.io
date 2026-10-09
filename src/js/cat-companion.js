@@ -8,8 +8,8 @@
 	const status = find("status"), bubble = find("bubble"), restore = find("restore");
 	const motion = window.matchMedia("(prefers-reduced-motion: reduce)");
 	const prefix = "junle.homepage.mochi.";
-	const poses = { idle: [0, 0, 0, 0, 0, 0, 1], happy: [4, 5], walking: [2, 3], jumping: [6, 7], playing: [8, 9], sleeping: [10, 11], feeding: [12, 13], curious: [14, 15] };
-	let phase = 0, actionTimer, bubbleTimer, poseTimer, wanderTimer, movement;
+	const poses = { idle: [0, 0, 0, 0, 0, 0, 1], happy: [4, 5], walking: [2, 3], climbing: [2, 3], peeking: [0, 0, 1, 0, 5, 0], jumping: [6, 7], playing: [8, 9], sleeping: [10, 11], feeding: [12, 13], curious: [14, 15] };
+	let phase = 0, actionTimer, bubbleTimer, poseTimer, movement, playground;
 	let targetY, lastTime, drag, ignoreClick = false, following = false;
 	let position = 1;
 	const save = (key, value) => { try { localStorage.setItem(prefix + key, String(value)); } catch (error) { /* Preferences are optional. */ } };
@@ -66,9 +66,11 @@
 		clearTimeout(bubbleTimer);
 		bubble.textContent = message;
 		bubble.hidden = !controls.hidden || root.getBoundingClientRect().top < 150;
+		if (!bubble.hidden && playground && !playground.isClear(bubble.getBoundingClientRect())) bubble.hidden = true;
 		bubbleTimer = setTimeout(() => { bubble.hidden = true; }, 2400);
 	};
-	const stopMovement = () => {
+	const stopMovement = (dock = true) => {
+		if (playground) playground.pause(dock);
 		cancelAnimationFrame(movement);
 		movement = null;
 		targetY = null;
@@ -112,18 +114,13 @@
 	};
 	const updateActivity = () => {
 		clearInterval(poseTimer);
-		clearTimeout(wanderTimer);
+		if (playground) playground.sync();
 		root.classList.toggle("is-paused", paused());
 		root.classList.toggle("is-calm", motion.matches);
 		if (paused()) { stopMovement(); return; }
 		renderPose();
 		if (motion.matches) { stopMovement(); return; }
 		poseTimer = setInterval(renderPose, 260);
-		const wander = () => {
-			if (!following && !drag && controls.hidden && root.dataset.state === "idle") moveTo(root.getBoundingClientRect().top + (Math.random() - .5) * 100);
-			wanderTimer = setTimeout(wander, 14000 + Math.random() * 10000);
-		};
-		wanderTimer = setTimeout(wander, 18000);
 	};
 	const setHidden = (value, focus) => {
 		setMenu(false);
@@ -155,7 +152,7 @@
 		if (event.button !== 0 || !event.isPrimary) return;
 		stopMovement();
 		const rect = root.getBoundingClientRect();
-		drag = { id: event.pointerId, x: event.clientX, y: event.clientY, offsetX: event.clientX - rect.left, offsetY: event.clientY - rect.top, moved: false };
+		drag = { id: event.pointerId, x: event.clientX, y: event.clientY, offsetX: clamp(event.clientX - rect.left, 0, rect.width), offsetY: clamp(event.clientY - rect.top, 0, rect.height), moved: false };
 		pet.setPointerCapture(event.pointerId);
 	});
 	pet.addEventListener("pointermove", event => {
@@ -164,8 +161,14 @@
 		drag.moved = true;
 		setMenu(false);
 		root.classList.add("is-dragging");
-		root.style.setProperty("--cat-drag-x", `${clamp(event.clientX - drag.offsetX, 4, window.innerWidth - root.offsetWidth - 4)}px`);
-		place(event.clientY - drag.offsetY);
+		let x = clamp(event.clientX - drag.offsetX, 4, window.innerWidth - root.offsetWidth - 4);
+		const range = bounds(), y = clamp(event.clientY - drag.offsetY, range.min, range.max);
+		if (playground && !playground.isClear({ left: x, right: x + root.offsetWidth, top: y, bottom: y + root.offsetWidth })) {
+			const edge = window.innerWidth - document.querySelector(".content-main").clientWidth;
+			x = event.clientX < innerWidth / 2 ? 8 : innerWidth - edge - root.offsetWidth - 8;
+		}
+		root.style.setProperty("--cat-drag-x", `${x}px`);
+		place(y);
 		setState("curious", "Where are we going?");
 	});
 	const endDrag = event => {
@@ -192,7 +195,8 @@
 		else { place(root.getBoundingClientRect().top + (event.key === "ArrowUp" ? -36 : 36)); save("position", position); }
 	});
 	root.addEventListener("keydown", event => { if (event.key === "Escape") { setMenu(false); menu.focus(); } });
-	root.addEventListener("pointerenter", stopMovement);
+	root.addEventListener("pointerenter", () => stopMovement(false));
+	root.addEventListener("pointerleave", () => { if (playground) playground.resume(); });
 	document.addEventListener("pointerdown", event => { if (!root.contains(event.target)) setMenu(false); });
 	document.addEventListener("pointermove", event => {
 		if (event.pointerType !== "mouse" || paused() || drag || !controls.hidden || root.contains(event.target)) return;
@@ -208,4 +212,9 @@
 	const range = bounds();
 	place(range.min + position * (range.max - range.min));
 	setHidden(load("hidden") === "true", false);
+	if (window.createCatPlayground) playground = window.createCatPlayground(root, {
+		pose: setState, motion, paused, place,
+		busy: () => following || drag || !controls.hidden,
+		dock: () => { const range = bounds(); place(range.min + position * (range.max - range.min)); }
+	});
 })();
