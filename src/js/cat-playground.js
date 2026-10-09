@@ -6,6 +6,7 @@ window.createCatPlayground = (root, options) => {
 	let enabled = true, dirty = true, obstacles = [], scannedAt = 0;
 	let timer, transition, animation, generation = 0, active = null, lastWindow = null;
 	let walksSincePeek = 0;
+	let lastActivity = null;
 	try { enabled = localStorage.getItem("junle.homepage.mochi.explore") !== "false"; } catch (error) { /* Optional preference. */ }
 	const viewport = () => ({ width: main.clientWidth || innerWidth, height: innerHeight });
 	const rect = (x, y, width, height = width) => ({ left: x, top: y, right: x + width, bottom: y + height, width, height });
@@ -70,11 +71,44 @@ window.createCatPlayground = (root, options) => {
 			if (safe) root.classList.remove("is-tucked");
 		}
 	};
-	const eligible = () => enabled && !options.motion.matches && !options.paused() && !options.busy() && !root.matches(":hover") && !root.contains(document.activeElement) && ["idle", "curious"].includes(root.dataset.state);
-	const arm = (delay = 5500 + Math.random() * 4500) => {
+	const keyboardFocus = () => root.contains(document.activeElement) && document.activeElement.matches(":focus-visible");
+	const eligible = () => enabled && !options.motion.matches && !options.paused() && !options.busy() && !root.matches(":hover") && !keyboardFocus() && ["idle", "curious"].includes(root.dataset.state);
+	const arm = (delay = 2000 + Math.random() * 2500) => {
 		clearTimeout(timer);
 		if (!enabled || options.motion.matches || options.paused()) return;
 		timer = setTimeout(() => { if (eligible()) explore(); else arm(2500); }, delay);
+	};
+	const activityBounds = () => {
+		const box = root.getBoundingClientRect(), lift = active?.lift || 0;
+		return rect(box.left, box.top - lift, box.width, box.height + lift);
+	};
+	const spontaneous = () => {
+		const box = root.getBoundingClientRect();
+		const choices = [
+			{ state: "happy", message: "A little hello!", duration: 1800 },
+			{ state: "jumping", message: "Whoosh!", duration: 900, lift: 24 },
+			{ state: "playing", message: "A little game of catch!", duration: 2600 },
+			{ state: "curious", message: "What's happening over there?", duration: 1800 },
+			{ state: "feeding", message: "A tiny sweet break.", duration: 2000 },
+			{ state: "sleeping", message: "A tiny nap, then back to exploring.", duration: 2800 }
+		].filter(choice => clear(rect(box.left, box.top - (choice.lift || 0), size, size + (choice.lift || 0))));
+		if (!choices.length) return false;
+		const choice = choices[Math.floor(Math.random() * choices.length)], token = ++generation;
+		active = { kind: "gesture", lift: choice.lift || 0 };
+		root.classList.add("is-exploring");
+		root.classList.remove("is-peeking", "is-tucked");
+		point(box.left, box.top);
+		root.dataset.activity = "acting";
+		root.querySelector("[data-cat-bubble]").hidden = true;
+		options.pose(choice.state, choice.message);
+		transition = setTimeout(() => {
+			if (token !== generation) return;
+			active = { kind: "wanderRest" };
+			root.dataset.activity = "resting";
+			options.pose("idle", "Ready for another little adventure.");
+			arm(1300 + Math.random() * 1500);
+		}, choice.duration);
+		return true;
 	};
 	const randomRoute = start => {
 		const view = viewport(), grid = 24;
@@ -159,8 +193,10 @@ window.createCatPlayground = (root, options) => {
 		return true;
 	};
 	const explore = () => {
-		if (walksSincePeek < 2 && (walksSincePeek === 0 || Math.random() < .6) && wander()) { walksSincePeek++; return; }
+		if (lastActivity && lastActivity !== "gesture" && Math.random() < .4 && spontaneous()) { lastActivity = "gesture"; return; }
+		if (walksSincePeek < 2 && (walksSincePeek === 0 || Math.random() < .6) && wander()) { walksSincePeek++; lastActivity = "wander"; return; }
 		walksSincePeek = 0;
+		lastActivity = "window";
 		tour();
 	};
 	const peekPoints = element => {
@@ -254,7 +290,7 @@ window.createCatPlayground = (root, options) => {
 			const candidate = peekPoints(active.element)[0];
 			if (candidate) point(candidate.x, candidate.y); else { retreat(); return; }
 		}
-		if (active && !clear(root.getBoundingClientRect())) retreat();
+		if (active && !clear(activityBounds())) retreat();
 		else if (!active && !options.busy() && !root.classList.contains("is-dragging")) {
 			if (park()) root.classList.remove("is-tucked"); else root.classList.add("is-tucked");
 		}
@@ -279,11 +315,11 @@ window.createCatPlayground = (root, options) => {
 	label();
 	scan();
 	invalidate();
-	arm(4500);
+	arm(1500);
 	return {
 		isClear: clear,
-		pause: (dock = true) => { cancel(dock); if (dock) arm(10000); },
-		resume: (delay = 3000) => { if (root.classList.contains("is-exploring")) cancel(true); arm(delay); },
-		sync: () => { cancel(true); arm(4500); }
+		pause: (dock = true) => { cancel(dock); if (dock) arm(5000); },
+		resume: (delay = 1500) => { if (root.classList.contains("is-exploring")) cancel(true); arm(delay); },
+		sync: () => { cancel(true); arm(1500); }
 	};
 };

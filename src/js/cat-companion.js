@@ -142,7 +142,7 @@
 	find("feed").addEventListener("click", () => act("feeding", "A sweet treat. Thank you!", 2300));
 	find("play").addEventListener("click", () => act("playing", "Let's play with a little ball!", 2800));
 	find("jump").addEventListener("click", () => act("jumping", "Whoosh!", 900));
-	nap.addEventListener("click", () => { setFollow(false); if (root.dataset.state === "sleeping") act("happy", "Good morning!", 1500); else act("sleeping", "A tiny nap. Zzz..."); });
+	nap.addEventListener("click", () => { const waking = root.dataset.state === "sleeping"; setFollow(false); if (waking) act("happy", "Good morning!", 1500); else act("sleeping", "A tiny nap. Zzz..."); });
 	follow.addEventListener("click", () => { setFollow(!following); if (following) idle(); setMenu(false); speak(following ? "Move your cursor. I will follow!" : "Time for a rest."); });
 	menu.addEventListener("click", () => setMenu(controls.hidden));
 	find("hide").addEventListener("click", () => { setHidden(true, true); save("hidden", true); });

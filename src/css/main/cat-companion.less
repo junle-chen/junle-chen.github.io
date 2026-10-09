@@ -37,7 +37,7 @@
 .cat-companion[data-state="climbing"][data-wall="left"] .cat-sprite { transform: rotate(7deg); }
 .cat-companion[data-state="climbing"] .cat-pet { overflow: hidden; }
 .cat-companion.is-exploring .cat-menu-toggle { visibility: hidden; }
-.cat-companion.is-exploring:hover .cat-menu-toggle, .cat-companion.is-exploring:focus-within .cat-menu-toggle { visibility: visible; }
+.cat-companion.is-exploring:hover .cat-menu-toggle, .cat-companion.is-exploring:has(:focus-visible) .cat-menu-toggle { visibility: visible; }
 .cat-companion.is-dragging { left: var(--cat-drag-x) !important; right: auto !important; }
 .cat-panel { position: relative; }
 .cat-companion button { font-family: inherit; cursor: pointer; }
