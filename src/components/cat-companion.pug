@@ -1,10 +1,11 @@
-.cat-companion(data-cat-companion data-state="idle" role="group" aria-label="Mochi the interactive cat")
+.cat-companion(data-cat-companion data-state="idle" data-side="right" role="group" aria-label="Mochi the interactive cat")
 	button.cat-restore(type="button" data-cat-restore hidden aria-label="Show Mochi the cat")
 		span(aria-hidden="true") 🐾
 		span Show Mochi
 	.cat-panel(data-cat-panel)
 		.cat-heading
 			span Mochi
+			button.cat-menu-toggle(type="button" data-cat-menu aria-label="Show cat controls" aria-expanded="false" aria-controls="mochi-controls") ⋯
 			button.cat-hide(type="button" data-cat-hide aria-label="Hide Mochi" title="Hide cat") ×
 		.cat-scene
 			button.cat-pet(type="button" data-cat-pet aria-label="Pet Mochi" title="Pet Mochi")
@@ -51,8 +52,9 @@
 					g.cat-snooze(fill="#6c9388" font-family="sans-serif" font-weight="700")
 						text(x="123" y="49" font-size="13") z
 						text(x="137" y="34" font-size="17") z
-		.cat-copy
+		.cat-copy#mochi-controls(hidden)
 			p.cat-status(data-cat-status aria-live="polite") Click me to say hello.
 			.cat-actions
 				button(type="button" data-cat-play) Play
 				button(type="button" data-cat-nap aria-pressed="false") Nap
+				button.cat-side(type="button" data-cat-side aria-label="Move Mochi to left side") Move left

@@ -8,11 +8,26 @@
 	const hide = root.querySelector("[data-cat-hide]");
 	const restore = root.querySelector("[data-cat-restore]");
 	const status = root.querySelector("[data-cat-status]");
+	const menu = root.querySelector("[data-cat-menu]");
+	const controls = root.querySelector("#mochi-controls");
+	const side = root.querySelector("[data-cat-side]");
 	const motion = window.matchMedia("(prefers-reduced-motion: reduce)");
 	const storageKey = "junle.homepage.mochi.hidden";
+	const sideKey = "junle.homepage.mochi.side";
 	let timer;
 	let frame;
 	let pointer;
+	const setMenu = value => {
+		controls.hidden = !value;
+		menu.setAttribute("aria-expanded", String(value));
+		menu.setAttribute("aria-label", value ? "Hide cat controls" : "Show cat controls");
+	};
+	const setSide = value => {
+		root.dataset.side = value;
+		const next = value === "right" ? "left" : "right";
+		side.textContent = `Move ${next}`;
+		side.setAttribute("aria-label", `Move Mochi to ${next} side`);
+	};
 
 	const setState = (state, message) => {
 		window.clearTimeout(timer);
@@ -28,6 +43,8 @@
 		try { window.localStorage.setItem(storageKey, String(value)); } catch (error) { /* Optional preference storage. */ }
 	};
 	const setHidden = (value, focus) => {
+		setMenu(false);
+		root.classList.toggle("is-hidden", value);
 		panel.hidden = value;
 		restore.hidden = !value;
 		root.classList.toggle("is-paused", value || document.hidden);
@@ -36,6 +53,7 @@
 		if (focus) (value ? restore : pet).focus();
 	};
 	pet.addEventListener("click", () => {
+		setMenu(true);
 		setState("happy", "Purr... that feels lovely!");
 		timer = window.setTimeout(idle, 1900);
 	});
@@ -49,6 +67,15 @@
 	});
 	hide.addEventListener("click", () => { setHidden(true, true); rememberHidden(true); });
 	restore.addEventListener("click", () => { setHidden(false, true); rememberHidden(false); });
+	menu.addEventListener("click", () => setMenu(controls.hidden));
+	side.addEventListener("click", () => {
+		setSide(root.dataset.side === "right" ? "left" : "right");
+		try { window.localStorage.setItem(sideKey, root.dataset.side); } catch (error) { /* Optional preference storage. */ }
+		setMenu(false);
+		pet.focus();
+	});
+	document.addEventListener("pointerdown", event => { if (!root.contains(event.target)) setMenu(false); });
+	root.addEventListener("keydown", event => { if (event.key === "Escape") { setMenu(false); menu.focus(); } });
 
 	const updateMotion = () => root.classList.toggle("is-calm", motion.matches);
 	updateMotion();
@@ -66,5 +93,9 @@
 			root.style.setProperty("--cat-look-y", `${Math.max(-1.8, Math.min(1.8, pointer.y / 90))}px`);
 		});
 	}, { passive: true });
-	try { if (window.localStorage.getItem(storageKey) === "true") setHidden(true, false); } catch (error) { /* Storage may be disabled. */ }
+	setSide("right");
+	try {
+		if (window.localStorage.getItem(sideKey) === "left") setSide("left");
+		if (window.localStorage.getItem(storageKey) === "true") setHidden(true, false);
+	} catch (error) { /* Storage may be disabled. */ }
 })();
