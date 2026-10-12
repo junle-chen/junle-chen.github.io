@@ -32,7 +32,7 @@
 		{ label: "Hong Kong", glyph: "HK" },
 		{ label: "GitHub", icon: "github", href: "https://github.com/junle-chen" },
 		{ label: "Scholar", glyph: "GS", href: "https://scholar.google.com/citations?user=EjiEmLUAAAAJ&hl=zh-CN" },
-		{ label: "CV", glyph: "PDF", href: "assets/cv/Junle_Chen_CV.pdf?v=20261012-venues-bold", newTab: true },
+		{ label: "CV", glyph: "PDF", href: "assets/cv/Junle_Chen_CV.pdf?v=20261012-first-author", newTab: true },
 		{ label: "Email", icon: "email", href: "mailto:jchenkg@connect.ust.hk" },
 		{ label: "Phone", glyph: "TEL", href: "tel:+85256029402" }
 	]
@@ -54,9 +54,9 @@
 	]
 	const publications = [
 		{ title: "You Changed Your Mind, The Model Didn't: Demystifying Intent in Multi-Turn Dialogue", authors: "Junle Chen, Wei Chen, Zhengjun Huang, Zhoujin Tian, Yuxuan Liu, Kai Wang, Rui Chen, and Xiaofang Zhou", venue: "arXiv:2610.06496, 2026", href: "https://arxiv.org/abs/2610.06496v1", code: "https://github.com/junle-chen/intent", website: "https://junle-chen.github.io/intent-site/" },
+		{ title: "Trip+: Benchmarking Agents in Personalized Interactive Travel Planning", authors: "Junle Chen, Wei Chen, Yehong Xu, Zhengjun Huang, Yuqian Wu, Zhoujin Tian, Kai Wang, Rui Chen, and Xiaofang Zhou", venue: "EMNLP 2026 (Main)", href: "https://arxiv.org/abs/2606.21169", code: "https://github.com/junle-chen/trip-plus", website: "https://junle-chen.github.io/trip-plus-site/" },
 		{ title: "Flash-OPD: Fast On-Policy Distillation", authors: "Wei Chen, Junle Chen, Yitong Yang, Zhaoyang Xu, Jiaxin Lin, Yuxuan Liang, Xiaofang Zhou, Kai Wang, and Rui Chen", venue: "arXiv:2610.06105, 2026", href: "https://arxiv.org/abs/2610.06105", code: "https://github.com/Onedean/Flash-OPD", website: "https://onedean.github.io/Flash-OPD-Site/" },
 		{ title: "SkillScriptBench: Benchmarking Self-Evolution of Executable Agent Skill Packages Beyond Markdown", authors: "Yuxuan Liu, Haoran Li, Yuhao Zhang, Jiahe Guo, Hongyu Luo, Wenbin Hu, Huihao Jing, Kawai Chung, Junle Chen, Changxuan Fan, Qing Zong, Lingyun Xie, and Yangqiu Song", venue: "arXiv:2610.04008, 2026", href: "https://arxiv.org/abs/2610.04008" },
-		{ title: "Trip+: Benchmarking Agents in Personalized Interactive Travel Planning", authors: "Junle Chen, Wei Chen, Yehong Xu, Zhengjun Huang, Yuqian Wu, Zhoujin Tian, Kai Wang, Rui Chen, and Xiaofang Zhou", venue: "EMNLP 2026 (Main)", href: "https://arxiv.org/abs/2606.21169", code: "https://github.com/junle-chen/trip-plus", website: "https://junle-chen.github.io/trip-plus-site/" },
 		{ title: "M³Exam: Benchmarking Multimodal Memory for Realistic User-Agent Interactions", authors: "Zhengjun Huang, Wenxuan Liu, Zhoujin Tian, Wei Chen, Junle Chen, Yuqian Wu, Fangyuan Zhang, Qintian Guo, and Xiaofang Zhou", venue: "arXiv:2606.07402, 2026", href: "https://arxiv.org/abs/2606.07402", code: "https://github.com/EverM0re/M-3-Exam" },
 		{ title: "LifeSide: Benchmarking Agents as Lifelong Digital Companions", authors: "Yuqian Wu, Zhijie Deng, Wei Chen, Junwei Li, Yutian Jiang, Junle Chen, Zhengjun Huang, Qingxiang Liu, Jing Tang, Jiaheng Wei, and Yuxuan Liang", venue: "arXiv:2606.04660, 2026", href: "https://arxiv.org/abs/2606.04660" },
 		{ title: "Back to Basics: Let Conversational Agents Remember with Just Retrieval and Generation", authors: "Yuqian Wu, Wei Chen, Zhengjun Huang, Junle Chen, Qingxiang Liu, Kai Wang, Xiaofang Zhou, and Yuxuan Liang", venue: "COLM 2026", href: "https://arxiv.org/abs/2604.11628", code: "https://github.com/yuqian2003/Nano-Memory" },
@@ -203,7 +203,10 @@
 										h4
 											a(href=`${paper.href}` target="_blank" rel="noopener noreferrer") #{paper.title}
 										p.about-publication-authors!= boldSelfAuthor(paper.authors)
-										strong #{paper.venue}
+										if /^arXiv:/.test(paper.venue)
+											span.about-publication-preprint #{paper.venue}
+										else
+											strong #{paper.venue}
 										.about-publication-links(role="group" aria-label=`Resources for ${paper.title}`)
 											a(href=paper.href target="_blank" rel="noopener noreferrer") Paper
 											if paper.code
