@@ -1,4 +1,4 @@
-/* Free roaming: fade over content and remain solid in open spaces. */
+/* Solid routes through open spaces; translucency is reserved for dragging. */
 window.createCatPlayground = (root, options) => {
 	const main = root.closest(".content-main");
 	const toggle = root.querySelector("[data-cat-explore]");
@@ -40,7 +40,7 @@ window.createCatPlayground = (root, options) => {
 	};
 	const clear = box => inViewport(box) && !occupied(box);
 	const refresh = () => {
-		const phasing = !root.classList.contains("is-hidden") && occupied(activityBounds());
+		const phasing = root.classList.contains("is-dragging") && !root.classList.contains("is-hidden") && occupied(activityBounds());
 		root.classList.toggle("is-phasing", phasing);
 		if (phasing) root.querySelector("[data-cat-bubble]").hidden = true;
 	};
@@ -103,7 +103,7 @@ window.createCatPlayground = (root, options) => {
 			{ state: "curious", message: "What's happening over there?", duration: 1800 },
 			{ state: "feeding", message: "A tiny sweet break.", duration: 2000 },
 			{ state: "sleeping", message: "A tiny nap, then back to exploring.", duration: 2800 }
-		].filter(choice => inViewport(rect(box.left, box.top - (choice.lift || 0), size, size + (choice.lift || 0))));
+		].filter(choice => clear(rect(box.left, box.top - (choice.lift || 0), size, size + (choice.lift || 0))));
 		if (!choices.length) return false;
 		const choice = choices[Math.floor(Math.random() * choices.length)], token = ++generation;
 		active = { kind: "gesture", lift: choice.lift || 0 };
@@ -124,24 +124,36 @@ window.createCatPlayground = (root, options) => {
 		return true;
 	};
 	const randomRoute = start => {
-		const view = viewport(), minX = 4, maxX = view.width - size - 4, minY = 18, maxY = view.height - size - 8;
-		if (maxX <= minX || maxY <= minY) return null;
-		const middle = (minX + maxX) / 2, span = maxX - minX;
-		let left = minX, right = maxX;
-		if (Math.random() < .7) {
-			if (start.x < middle) left = middle + span * .12;
-			else right = middle - span * .12;
+		const view = viewport(), grid = 12;
+		const minX = Math.ceil((4 - start.x) / grid), maxX = Math.floor((view.width - size - 4 - start.x) / grid);
+		const minY = Math.ceil((18 - start.y) / grid), maxY = Math.floor((view.height - size - 8 - start.y) / grid);
+		const visited = new Set(["0:0"]), queue = [{ ix: 0, iy: 0, x: start.x, y: start.y, depth: 0, parent: null }];
+		for (let index = 0; index < queue.length && queue.length < 6000; index++) {
+			const current = queue[index];
+			if (current.depth >= 90) continue;
+			const neighbours = [[1, 0], [-1, 0], [0, 1], [0, -1]].sort(() => Math.random() - .5);
+			neighbours.forEach(([dx, dy]) => {
+				const ix = current.ix + dx, iy = current.iy + dy, key = `${ix}:${iy}`;
+				if (ix < minX || ix > maxX || iy < minY || iy > maxY || visited.has(key)) return;
+				visited.add(key);
+				const next = { ix, iy, x: start.x + ix * grid, y: start.y + iy * grid, depth: current.depth + 1, parent: current };
+				if (!clear(rect(next.x, next.y, size))) return;
+				queue.push(next);
+			});
 		}
-		for (let attempt = 0; attempt < 8; attempt++) {
-			const target = { x: left + Math.random() * (right - left), y: minY + Math.random() * (maxY - minY) };
-			if (Math.hypot(target.x - start.x, target.y - start.y) >= 72) return [start, target];
-		}
-		return null;
+		let candidates = queue.filter(node => node.depth >= 6 && Math.hypot(node.x - start.x, node.y - start.y) >= 72);
+		const sideways = candidates.filter(node => Math.abs(node.x - start.x) >= 96);
+		if (sideways.length && Math.random() < .7) candidates = sideways;
+		if (!candidates.length) return null;
+		let target = candidates[Math.floor(Math.random() * candidates.length)];
+		const route = [];
+		while (target) { route.unshift({ x: target.x, y: target.y }); target = target.parent; }
+		return route;
 	};
 	const wander = () => {
 		const box = root.getBoundingClientRect(), view = viewport();
 		const start = { x: Math.max(4, Math.min(view.width - size - 4, box.left)), y: Math.max(18, Math.min(view.height - size - 8, box.top)) };
-		if (!inViewport(rect(start.x, start.y, size))) return false;
+		if (!clear(rect(start.x, start.y, size))) return false;
 		const route = randomRoute(start);
 		if (!route) return false;
 		const token = ++generation, speed = 65 + Math.random() * 35;
@@ -161,7 +173,7 @@ window.createCatPlayground = (root, options) => {
 			const distance = Math.hypot(dx, dy), advance = Math.min(distance, Math.min((time - last) / 1000, .05) * speed);
 			last = time;
 			const nextX = distance ? x + dx / distance * advance : x, nextY = distance ? y + dy / distance * advance : y;
-			if (!inViewport(rect(nextX, nextY, size))) { retreat(); return; }
+			if (!clear(rect(Math.min(x, nextX), Math.min(y, nextY), size + Math.abs(nextX - x), size + Math.abs(nextY - y)))) { retreat(); return; }
 			if (dx) root.dataset.facing = dx > 0 ? "right" : "left";
 			x = nextX; y = nextY;
 			point(x, y);
@@ -213,8 +225,7 @@ window.createCatPlayground = (root, options) => {
 			{ x: box.left - size - 4, y: box.top + 12 }
 		];
 		return corners.concat(right ? outside : [outside[1], outside[0], outside[3], outside[2]])
-			.filter(p => inViewport(rect(p.x, p.y, size, headHeight)))
-			.sort((a, b) => Number(!clear(rect(a.x, a.y, size, headHeight))) - Number(!clear(rect(b.x, b.y, size, headHeight))));
+			.filter(p => clear(rect(p.x, p.y, size, headHeight)));
 	};
 	const windows = () => {
 		const view = viewport();
@@ -229,8 +240,7 @@ window.createCatPlayground = (root, options) => {
 		const endY = Math.max(64, Math.min(view.height - size - 16, box.top + 10));
 		const startY = Math.min(view.height - size - 16, endY + Math.min(150, Math.max(60, box.height - size - 16)));
 		const edges = root.dataset.side === "right" ? [box.right - 8, box.left - size + 8, box.right + 4, box.left - size - 4] : [box.left - size + 8, box.right - 8, box.left - size - 4, box.right + 4];
-		const x = edges.find(value => clear(rect(value, endY, size, startY - endY + size)))
-			?? edges.find(value => inViewport(rect(value, endY, size, startY - endY + size)));
+		const x = edges.find(value => clear(rect(value, endY, size, startY - endY + size)));
 		return x === undefined || startY - endY < 20 ? null : { x, startY, endY, wall: x > box.left + box.width / 2 ? "left" : "right" };
 	};
 	const retreat = () => { cancel(true); arm(); };
@@ -246,7 +256,7 @@ window.createCatPlayground = (root, options) => {
 			active = { element, kind: "peek" };
 			root.dataset.activity = "peeking";
 			options.pose("peeking", "Hello from this window!");
-			if (!inViewport(root.getBoundingClientRect())) { retreat(); return; }
+			if (!clear(root.getBoundingClientRect())) { retreat(); return; }
 			root.classList.remove("is-tucked");
 			lastWindow = element;
 			transition = setTimeout(retreat, 3300);
@@ -277,12 +287,12 @@ window.createCatPlayground = (root, options) => {
 				if (options.paused() || options.busy()) { retreat(); return; }
 				y = Math.max(path.endY, y - Math.min((time - last) / 1000, .05) * 80);
 				last = time;
-				if (!inViewport(rect(path.x, y, size))) { retreat(); return; }
+				if (!clear(rect(path.x, y, size))) { retreat(); return; }
 				point(path.x, y);
 				if (y <= path.endY) { animation = null; revealPeek(element, token); }
 				else animation = requestAnimationFrame(step);
 			};
-			if (!inViewport(root.getBoundingClientRect())) { retreat(); return; }
+			if (!clear(root.getBoundingClientRect())) { retreat(); return; }
 			animation = requestAnimationFrame(step);
 		}, 180);
 	};
@@ -292,7 +302,7 @@ window.createCatPlayground = (root, options) => {
 			const candidate = peekPoints(active.element)[0];
 			if (candidate) point(candidate.x, candidate.y); else { retreat(); return; }
 		}
-		if (active && !inViewport(activityBounds())) retreat();
+		if (active && !clear(activityBounds())) retreat();
 		else if (!active && !options.busy() && !root.classList.contains("is-dragging")) {
 			if (park()) root.classList.remove("is-tucked"); else root.classList.add("is-tucked");
 		}

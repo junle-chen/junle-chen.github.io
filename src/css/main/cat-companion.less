@@ -29,8 +29,7 @@
 .cat-companion[data-side="left"] { left: 8px; right: auto; }
 .cat-companion.is-exploring[data-side] { left: var(--cat-roam-x); right: auto; width: 64px; }
 .cat-companion.is-tucked { opacity: 0; pointer-events: none; }
-.cat-companion.is-phasing .cat-sprite { opacity: .16; }
-.cat-companion.is-phasing:not(.is-dragging) { pointer-events: none; }
+.cat-companion.is-dragging.is-phasing .cat-sprite { opacity: .16; }
 .cat-companion.is-phasing .cat-menu-toggle { visibility: hidden; }
 .cat-companion.is-hidden { width: 36px; }
 .cat-companion.is-peeking .cat-pet { height: 46px; aspect-ratio: auto; overflow: hidden; border-radius: 0; }

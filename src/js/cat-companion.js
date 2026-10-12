@@ -83,7 +83,9 @@
 		const delta = targetY - root.getBoundingClientRect().top;
 		const amount = Math.min(Math.abs(delta), Math.min((time - lastTime) / 1000, .05) * 95);
 		lastTime = time;
-		place(root.getBoundingClientRect().top + Math.sign(delta) * amount);
+		const box = root.getBoundingClientRect(), nextY = box.top + Math.sign(delta) * amount;
+		if (playground && !playground.isClear({ left: box.left, right: box.right, top: nextY, bottom: nextY + box.height })) { stopMovement(); return; }
+		place(nextY);
 		if (Math.abs(delta) < 2) {
 			movement = null;
 			targetY = null;
@@ -182,6 +184,7 @@
 		}
 		drag = null;
 		root.classList.remove("is-dragging");
+		if (playground) playground.refresh();
 	};
 	pet.addEventListener("pointerup", endDrag);
 	pet.addEventListener("pointercancel", endDrag);
