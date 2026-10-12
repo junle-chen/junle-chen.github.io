@@ -29,6 +29,9 @@
 .cat-companion[data-side="left"] { left: 8px; right: auto; }
 .cat-companion.is-exploring[data-side] { left: var(--cat-roam-x); right: auto; width: 64px; }
 .cat-companion.is-tucked { opacity: 0; pointer-events: none; }
+.cat-companion.is-phasing .cat-sprite { opacity: .16; }
+.cat-companion.is-phasing:not(.is-dragging) { pointer-events: none; }
+.cat-companion.is-phasing .cat-menu-toggle { visibility: hidden; }
 .cat-companion.is-hidden { width: 36px; }
 .cat-companion.is-peeking .cat-pet { height: 46px; aspect-ratio: auto; overflow: hidden; border-radius: 0; }
 .cat-companion.is-peeking .cat-sprite { height: 64px; animation: cat-peek 3.3s ease-in-out both; }
@@ -56,6 +59,8 @@
 	clip-path: inset(0 3% 0 3%);
 	image-rendering: auto;
 	transform-origin: 50% 88%;
+	opacity: 1;
+	transition: opacity 160ms ease;
 }
 .cat-sprite[data-frame="8"], .cat-sprite[data-frame="9"], .cat-sprite[data-frame="10"], .cat-sprite[data-frame="11"] { clip-path: inset(0 3% 7% 3%); }
 .cat-companion[data-state="walking"][data-facing="left"] .cat-sprite { transform: scaleX(-1); }
@@ -63,6 +68,7 @@
 .cat-companion[data-state="happy"] .cat-sprite { animation: cat-wiggle 800ms ease-in-out; }
 .cat-companion[data-state="idle"] .cat-sprite { animation: cat-breathe 4s ease-in-out infinite; }
 .cat-companion.is-paused *, .cat-companion.is-calm * { animation-play-state: paused !important; }
+.cat-companion.is-calm .cat-sprite { transition: none; }
 .cat-menu-toggle {
 	position: absolute;
 	top: -12px;

@@ -24,6 +24,7 @@
 		root.style.bottom = "auto";
 		position = range.max === range.min ? 1 : (top - range.min) / (range.max - range.min);
 		if (!controls.hidden) placeMenu();
+		if (playground) playground.refresh();
 	};
 	const placeMenu = () => {
 		const rect = root.getBoundingClientRect();
@@ -48,6 +49,7 @@
 		const frame = frames[(motion.matches ? 0 : phase++) % frames.length];
 		sprite.style.backgroundPosition = `${(frame % 4) * 100 / 3}% ${Math.floor(frame / 4) * 100 / 3}%`;
 		sprite.dataset.frame = String(frame);
+		if (playground) playground.refresh();
 	};
 	const setState = (state, message, duration) => {
 		clearTimeout(actionTimer);
@@ -161,12 +163,9 @@
 		drag.moved = true;
 		setMenu(false);
 		root.classList.add("is-dragging");
-		let x = clamp(event.clientX - drag.offsetX, 4, window.innerWidth - root.offsetWidth - 4);
+		const width = document.querySelector(".content-main").clientWidth;
+		const x = clamp(event.clientX - drag.offsetX, 4, width - root.offsetWidth - 4);
 		const range = bounds(), y = clamp(event.clientY - drag.offsetY, range.min, range.max);
-		if (playground && !playground.isClear({ left: x, right: x + root.offsetWidth, top: y, bottom: y + root.offsetWidth })) {
-			const edge = window.innerWidth - document.querySelector(".content-main").clientWidth;
-			x = event.clientX < innerWidth / 2 ? 8 : innerWidth - edge - root.offsetWidth - 8;
-		}
 		root.style.setProperty("--cat-drag-x", `${x}px`);
 		place(y);
 		setState("curious", "Where are we going?");
