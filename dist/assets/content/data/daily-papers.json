@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-16T01:46:13.758Z",
+  "updated_at": "2026-10-17T01:32:07.410Z",
   "source": "arxiv",
   "analysis_method": "Codex CLI paper reading from arXiv PDF text when extractable; fallback entries are marked as abstract.",
   "query_focus": "多轮交互式 agent planning、long-horizon planning、stateful/personalized planning、agent memory、planning reliability、agentic RL",
@@ -37,39 +37,35 @@
     "codex_reader": "Downloads arXiv PDFs, extracts text with pdftotext or bundled Python PDF libraries, then calls codex exec to write Chinese motivation/method/experiment/research-help fields."
   },
   "digest": {
-    "title": "2026-10-16 Daily Paper",
-    "report_date": "2026-10-16",
+    "title": "2026-10-17 Daily Paper",
+    "report_date": "2026-10-17",
     "focus": "long horizon、multi-turn、agentic RL、agent planning，以及直接服务这些方向的 agent memory / planning reliability",
-    "summary": "从16篇arXiv候选中，排除3篇已发布论文及4篇主题偏离候选，经PDF正文、表格与相关附录核验保留9篇强相关新增论文。覆盖多轮记忆编排、局部记忆机制修复、部分可观测规划承诺、长程agentic RL、动作预测辅助学习，以及过程合规和提示注入评估。训练成绩与测试泛化、样本效率与整体时间、防御子集与全基准均值在详情中分别说明，所有实验数字均为作者报告。",
+    "summary": "从16篇arXiv候选中排除5篇已收录论文，严格筛选后保留3篇新增论文，分别讨论多session agentic RL、重放驱动的多轮RL系统效率，以及持续一天的多智能体规划与恢复。详情基于PDF正文、实验与相关附录核验，区分答案似然代理与因果贡献、训练吞吐与泛化质量、单次成功与可靠成功率；实验数字均为作者报告。",
     "top_recommendations": [
-      "2610.21108v1",
-      "2610.20597v1",
-      "2610.21091v1"
+      "2610.22174v1",
+      "2610.21640v1",
+      "2610.22319v1"
     ],
     "low_priority": [
-      "2610.20256v1"
+      "2610.22319v1"
     ],
     "no_news_policy": "如果没有新的高相关论文，自动化应返回“今日无高相关新增论文”，不写邮件正文文件，也不发送邮件。",
-    "email_body": "2026-10-16 Daily Paper\n\n从16篇arXiv候选中，排除3篇已发布论文及4篇主题偏离候选，经PDF正文、表格与相关附录核验保留9篇强相关新增论文。覆盖多轮记忆编排、局部记忆机制修复、部分可观测规划承诺、长程agentic RL、动作预测辅助学习，以及过程合规和提示注入评估。训练成绩与测试泛化、样本效率与整体时间、防御子集与全基准均值在详情中分别说明，所有实验数字均为作者报告。\n\n最值得读的3篇\n\n1. Planning Commitment of LLM under Partial Observability\n- 作者：Cassie Huang, Zhanwei Cao, Yeawon Lee, Nathalia Gomez, Zhuoyi Yang, Ian G. Harris, Tiffany Do, Jiayuan Mao, Li Zhang\n- 单位：Drexel University；Northeastern University；University of California, Irvine；University of Pennsylvania\n- 日期：2026-10-15\n- 论文链接：https://arxiv.org/abs/2610.21108v1\n- 推荐：中；偏水风险：中\n- 概括：论文比较部分可观测环境中“先承诺长计划”和“只执行已知安全步骤”的取舍。保守策略通常减少失败但增加API调用；积极规划在先验有用时更省调用，混合策略也并非总能兼得两者。\n- Insight：多轮规划可以把“何时继续执行、何时获取观察并重规划”视为可学习的控制决策，结合先验可信度、动作失败代价和调用成本选择承诺范围。事实记忆与推测记忆应保留不同的来源和置信信息，尤其在生成符号模型时，求解器的正确性保证只针对输入模型，无法保证假设符合真实环境。后续实验应给各策略相同的先验访问权限，比较先验引导探索与先验支持执行，并加入未见布局和失准先验以识别各自贡献。对 long-horizon reliability，应同时追踪成功率、失败及恢复成本、状态跟踪错误和端到端开销；这些可以形成 agentic RL 的训练信号，但本文尚未验证这样的学习方案。\n\n2. Co-Evolving Acting and Forecasting for Language Agents\n- 作者：Haofei Yu, Yixing Chen, Yining Zhao, Xuyan Ye, Yuxiang Liu, Zhigang Hua, Yan Xie, Shuang Yang, Jiaxuan You\n- 单位：University of Illinois Urbana-Champaign；University of California San Diego；Meta AI\n- 日期：2026-10-14\n- 论文链接：https://arxiv.org/abs/2610.20597v1\n- 推荐：高；偏水风险：低\n- 概括：CoPE 用成功轨迹的多步未来动作作为辅助监督，让执行与预测共享同一策略骨干。它在五个基准的总体指标上提升样本效率，但τ²-bench航空域明显回退，说明成功轨迹监督可能强化容易任务上的偏差。\n- Insight：长程决策训练可以把成功轨迹中的未来动作作为辅助监督，在训练时学习跨步结构，并保持逐步观察、逐步执行的闭环。预测跨度应根据未来动作对尚未观察到的信息的依赖程度选择，跨度越长并不必然越好。成功过滤会放大容易成功的任务和行为模式，因此多轮系统应按任务类型审计成功样本组成，特别区分正确拒绝与错误不作为。可迁移的实验设计是同时比较成功动作模仿、不同预测跨度、独立预测器重排和共享参数训练，并分别记录交互量、训练耗时及困难子域成功率。\n\n3. MemComposer: Learning to Assemble Memories for LLM Agents via Reinforcement Learning\n- 作者：Yixuan Xie, Xueqiang Xu, Xinyi Fan, Xinxi Lyu, Tao Feng, Xing Fan, Chenlei Guo, Jie Hao, Shaowen Wang, Jiashuo Sun, Jiawei Han\n- 单位：University of Illinois Urbana-Champaign；Amazon\n- 日期：2026-10-15\n- 论文链接：https://arxiv.org/abs/2610.21091v1\n- 推荐：高；偏水风险：低\n- 概括：MemComposer 用多轮任务成功反馈训练记忆编排策略，联合决定选哪些经验、选多少以及如何排序。两个冻结执行器的平均成功率达到50.8%和63.5%，但记忆token节省并不代表整体计算成本下降。\n- Insight：记忆应按对当前完整交互轨迹的贡献来选择，而非仅按语义距离或历史成功标签排序，失败轨迹也可能提供可复用的操作与约束信息。对多轮系统，可以将上下文组装视为独立可训练策略，以冻结执行器的任务完成率提供监督，并用重复执行降低单次结果的随机性。可靠性评估应同时观察平均成功率与重复执行全部成功的比例，因为两者可能给出不同判断。迁移到长时域规划时，可检验记忆是否覆盖前置条件、工具依赖和失败恢复步骤，但本文尚未直接验证这些机制，也未证明静态任务前组装优于执行中的动态记忆更新。\n\n暂不优先：Long-Horizon RL Needs Muon 仅提供选定训练运行的早期证据，仍值得跟踪优化器消融。"
+    "email_body": "2026-10-17 Daily Paper\n\n从16篇arXiv候选中排除5篇已收录论文，严格筛选后保留3篇新增论文，分别讨论多session agentic RL、重放驱动的多轮RL系统效率，以及持续一天的多智能体规划与恢复。详情基于PDF正文、实验与相关附录核验，区分答案似然代理与因果贡献、训练吞吐与泛化质量、单次成功与可靠成功率；实验数字均为作者报告。\n\n1. Mosaic: Multi-Session Agentic Reinforcement Learning\n- 作者：Yilong Xu, Minrui Xu, Xinyu Zhou, Xiang Long, Haochen Tan, Zhijiang Guo\n- 单位：LARK, HKUST (Guangzhou)；Huawei Foundation Model Lab；City University of Hong Kong；HKUST\n- 日期：2026-10-15\n- 论文链接：http://arxiv.org/abs/2610.22174v1\n- 概括：Mosaic 将压缩上下文和分叉子智能体形成的多 session 轨迹纳入 RL，结合终局成功与 session 级贡献分配优势。BrowseComp 压缩模式准确率由 35.31% 升至 38.86%，但 session 数减少不等于总耗时下降。\n- Insight：Insight：长程 agent 的学习单位可以从单轮动作扩展到上下文边界，重点考察压缩、委派、返回结果整合后，后续决策所需状态是否仍然可用。这提示多轮系统应把信息交接质量纳入信用分配，并按操作类型建立局部基线，避免不同功能的会话因代理信号分布不同而受到系统性偏置。另一个可迁移设计是把任务成败作为全局锚点，再用有界调制表达计算分配偏好，并在同结果组中保留训练信号；不过，失败轨迹越长越值得保留只是一种启发式，不能替代对实际进展的判断。面向 planning reliability，更有价值的后续验证是比较状态交接前后的事实保留、约束遵守、后续任务成功率，以及多次交接后的错误累积，并用移除或替换某次交接的反事实实验检验贡献。正确答案似然差适合作为训练代理，但不能直接视为因果贡献或长期规划可靠性。\n- 局限：正文与附录 B.1/B.2 表明，局部贡献是训练时用标准答案 teacher forcing 得到的答案 token 平均对数似然差，属于当前 actor 的代理指标；终结 session 不计算该局部信号，并使用全失败与保持方向门控。实验限于 Qwen3.5-4B、一个训练集和 BrowseComp，未提供跨模型或多随机种子置信区间；session 数只是代理，不是完整 token、API 或端到端耗时成本。\n\n2. ReFlow: Replay-Driven Decoupling for Efficient RL Post-Training\n- 作者：Yukun Tian, Junwei Su, Haofeng Xu, Lansong Diao, Zhengping Qian, Weibo Zhao, Wenchao Zhou, Ruiting Zhou, Chuan Wu\n- 单位：The University of Hong Kong；University of Science and Technology of China；Alibaba Group；Southeast University\n- 日期：2026-10-15\n- 论文链接：http://arxiv.org/abs/2610.21640v1\n- 概括：ReFlow 用近期轨迹重放、弹性 GPU 分配和自适应调度缓解 agentic RL 的 rollout 瓶颈。多轮 APPS 编码任务的训练吞吐提升为 1.07–1.92×；摘要最高 2.06× 来自单轮数学任务。\n- Insight：Insight：昂贵的多轮agent训练可以分别控制轨迹复用数量与其梯度影响，将生成预算、样本年龄和更新强度作为联合设计变量。工具交互耗时不能仅由输出长度代表，调度应区分活跃LLM生成与环境等待。对长程可靠性而言，策略版本较新并不自动意味着轨迹仍适合当前策略；可迁移的研究方向是结合轨迹级策略偏移、失败样本覆盖与端到端任务成功率评估回放，而本文尚未验证这些可靠性收益。\n- 局限：吞吐定义为每训练步处理 token 数除以步耗时，包含重用数据，不能当作新轨迹产生速率或相同预算下的测试成功率。训练奖励随步数和时间的曲线提供收敛证据，但未建立独立 held-out 任务成功率结论。局部梯度误差分析假定 fresh 估计无偏、replay 偏差有界且中心化误差不相关，并非任意 off-policy 训练的全局保证。Availability 声明代码仍待审批，不能标为已开源。\n\n3. A team of Gemini 4 Argon agents beats Minecraft\n- 作者：Maxence Faldor, Satinder Singh, Roberta Raileanu\n- 单位：Google DeepMind\n- 日期：2026-10-15\n- 论文链接：http://arxiv.org/abs/2610.22319v1\n- 概括：四个 Gemini 4 Argon 编码智能体通过 Mineflayer、共享记忆和聊天，在 27 小时 14 分钟后完成一次 Minecraft 屠龙。案例展示长程协作与失败恢复，但仅一次 Easy 难度运行，且可读取游戏结构状态。\n- Insight：Insight：长时程系统可以把计划进度绑定到已验证的环境状态、资源位置和可恢复检查点，并通过动作后置条件检查减少错误成功报告的传播。共享记忆值得保存带适用条件的失败机制、修复步骤与验证结果，使上下文压缩后的执行仍能继承有效经验。多智能体协调可以围绕关键资源、交接期限和救援责任组织，并通过固定总预算的对照实验检验收益。对 agentic RL，可将故障恢复、重复错误、不可逆资源损失以及时间和调用成本纳入训练与评估目标，避免只奖励最终成功。还应分别测量持续运行时长、实际规划跨度与恢复能力，防止把长时间反复尝试直接解释为可靠的长程规划。\n- 局限：这是一次运行的能力案例，没有重复种子成功率、单智能体对照或共享记忆消融；不能据此归因多智能体收益或宣称稳定可靠。Mineflayer 提供包括遮挡方块与龙内部状态的结构化信息，并带寻路插件，不能与像素控制直接比较。27 小时 14 分钟含 6 次服务器重启、约 20 分钟停顿；605 次死亡、22% 程序报错。约 520 美元是作者按当时入门 API 标价和 token 计数估算的四名玩家获胜前费用，不是实测服务成本，含 Observer 和获胜后活动的整场估算约 810 美元。"
   },
   "latest_item_ids": [
-    "2610.21170v1",
-    "2610.21091v1",
-    "2610.21177v1",
-    "2610.21108v1",
-    "2610.20256v1",
-    "2610.19920v1",
-    "2610.20597v1",
-    "2610.20776v1",
-    "2610.20424v1"
+    "2610.22174v1",
+    "2610.21640v1",
+    "2610.22319v1"
   ],
   "archive": {
     "policy": "append_or_update_by_arxiv_id",
-    "fresh_items": 9,
-    "total_items": 491,
-    "previous_items": 482,
-    "latest_items": 9,
+    "fresh_items": 3,
+    "total_items": 494,
+    "previous_items": 491,
+    "latest_items": 3,
     "source_report_dates": {
+      "2026-10-17": 3,
+      "2026-10-16": 9,
       "2026-10-15": 11,
       "2026-10-13": 11,
       "2026-10-03": 8,
@@ -115,29 +111,377 @@
       "2026-07-06": 8,
       "2026-07-04": 8,
       "2026-07-02": 2,
-      "undefined": 39,
-      "2026-10-16": 9
+      "undefined": 39
     },
     "filtered_candidate_ids": [
-      "2610.21170v1",
-      "2610.21091v1",
-      "2610.21177v1",
-      "2610.21108v1",
-      "2610.20256v1",
-      "2610.19920v1",
-      "2610.20597v1",
-      "2610.20776v1",
-      "2610.20424v1"
+      "2610.22174v1",
+      "2610.21640v1",
+      "2610.22319v1"
     ],
-    "filtered_today": 9,
+    "filtered_today": 3,
     "rejected_candidate_ids": [
+      "2610.21900v1",
       "2610.21319v1",
+      "2610.22209v1",
       "2610.21233v1",
+      "2610.22287v1",
       "2610.21165v1",
+      "2610.22152v1",
       "2610.20191v1"
     ]
   },
   "items": [
+    {
+      "id": "2610.22174v1",
+      "title": "Mosaic: Multi-Session Agentic Reinforcement Learning",
+      "summary": "Most existing agentic reinforcement learning methods assume single-session trajectories, where interaction proceeds within one continuously accumulated context. However, agentic techniques such as context compaction and subagent forking may produce trajectories spanning multiple sessions, creating a mismatch between the single-session training assumption and inference-time execution. Therefore, we introduce Multi-Session Agentic Reinforcement Learning, a more general setting that supports an arbitrary number of sessions within a trajectory. Under this setting, a widely adopted method is to broadcast trajectory-level advantages to all sessions, but this does not distinguish contributions from various sessions or guide session allocation within trajectories. To address this issue, we propose Mosaic, a multi-session agentic RL method with critic-free hierarchical optimization. At the trajectory level, it incorporates session-usage signals into advantage estimation. At the session level, it shapes each session's advantage according to the estimated marginal contribution. Experiments on BrowseComp with Qwen3.5-4B show that Mosaic outperforms broadcasting in both context compaction and subagent forking scenarios while using fewer sessions on average. Further analyses show that our method achieves improvements in session utility and allocation, which we suggested is a promising target for future advances in multi-session agentic RL.",
+      "url": "http://arxiv.org/abs/2610.22174v1",
+      "authors": [
+        "Yilong Xu",
+        "Minrui Xu",
+        "Xinyu Zhou",
+        "Xiang Long",
+        "Haochen Tan",
+        "Zhijiang Guo"
+      ],
+      "report_date": "2026-10-17",
+      "published": "2026-10-15",
+      "updated": "2026-10-15",
+      "primary_category": "cs.CL",
+      "categories": [
+        "cs.CL",
+        "cs.AI",
+        "cs.LG"
+      ],
+      "project_url": "https://lark-ai-lab.github.io/Mosaic/",
+      "repo_url": "",
+      "venue_status": "未确认录用",
+      "recommendation": {
+        "score": 86,
+        "level": "高",
+        "label": "值得精读：跨会话信用分配",
+        "water_risk": "中",
+        "value_judgement": "与 agentic RL、长程多轮执行和上下文管理高度相关，方法有明确公式、可实现的训练信号及组件消融，具有实质技术增量，不能仅因采用 reward shaping 就认定为水文。偏水风险主要来自问题包装可能大于已验证范围：子代理提升较小，实验覆盖窄，效用分析依赖自身优化的代理指标，而更低成本、更好分配和长期可靠性之间的证据链尚不完整。阅读时应重点看优势构造、状态边界和对照设置，对通用多会话优化的外推保持保留。",
+        "reason": "与 agentic RL、长程多轮执行和上下文管理高度相关，方法有明确公式、可实现的训练信号及组件消融，具有实质技术增量，不能仅因采用 reward shaping 就认定为水文。偏水风险主要来自问题包装可能大于已验证范围：子代理提升较小，实验覆盖窄，效用分析依赖自身优化的代理指标，而更低成本、更好分配和长期可靠性之间的证据链尚不完整。阅读时应重点看优势构造、状态边界和对照设置，对通用多会话优化的外推保持保留。",
+        "signals": {
+          "agenticRl": true,
+          "multiTurn": true,
+          "longHorizon": false,
+          "memory": false,
+          "reliability": true,
+          "codeOrTool": false,
+          "experiments": true,
+          "survey": false
+        }
+      },
+      "brief": {
+        "authors": [
+          "Yilong Xu",
+          "Minrui Xu",
+          "Xinyu Zhou",
+          "Xiang Long",
+          "Haochen Tan",
+          "Zhijiang Guo"
+        ],
+        "affiliations": "LARK, HKUST (Guangzhou)；Huawei Foundation Model Lab；City University of Hong Kong；HKUST",
+        "date": "2026-10-15",
+        "paper_url": "https://arxiv.org/abs/2610.22174v1",
+        "project_url": "https://lark-ai-lab.github.io/Mosaic/",
+        "repo_url": "",
+        "venue_status": "未确认录用",
+        "contribution": "与 agentic RL、长程多轮执行和上下文管理高度相关，方法有明确公式、可实现的训练信号及组件消融，具有实质技术增量，不能仅因采用 reward shaping 就认定为水文。偏水风险主要来自问题包装可能大于已验证范围：子代理提升较小，实验覆盖窄，效用分析依赖自身优化的代理指标，而更低成本、更好分配和长期可靠性之间的证据链尚不完整。阅读时应重点看优势构造、状态边界和对照设置，对通用多会话优化的外推保持保留。",
+        "summary": "Mosaic 研究长程 agent 经历上下文压缩或子代理委派后，如何对包含多个独立上下文片段的任务轨迹进行强化学习。它认为，把最终成败优势统一广播给所有会话，会掩盖不同会话的信息贡献，也无法有效指导执行资源分配。方法在轨迹层按成败和会话数调整优势，在会话层用正确答案条件对数似然的变化构造局部信号，并按会话类型分别标准化。论文报告，在 Qwen3.5-4B 的 BrowseComp 实验中，相对 broadcasting，压缩场景准确率提高 3.55 个百分点，子代理场景提高 1.02 个百分点，两者平均会话数均下降。现有证据来自单一模型与基准，会话数也不能等同于 token、工具调用或实际耗时，因此尚不能推出普遍的成本优势或规划可靠性提升。它值得精读的部分是跨上下文边界的信用分配与状态交接思路，尤其值得进一步检验局部似然收益能否预测后续决策成功。",
+        "highlights": [
+          "与 agentic RL、长程多轮执行和上下文管理高度相关，方法有明确公式、可实现的训练信号及组件消融，具有实质技术增量，不能仅因采用 reward shaping 就认定为水文。偏水风险主要来自问题包装可能大于已验证范围：子代理提升较小，实验覆盖窄，效用分析依赖自身优化的代理指标，而更低成本、更好分配和长期可靠性之间的证据链尚不完整。阅读时应重点看优势构造、状态边界和对照设置，对通用多会话优化的外推保持保留。",
+          "偏水风险：中",
+          "阅读来源：arXiv PDF 正文、关键表格及相关附录人工核验"
+        ],
+        "motivation": "论文针对长程 agent 在上下文压缩、子代理委派后发生的上下文不连续：一条任务轨迹可能包含多个独立训练片段，把最终成败优势广播给所有片段，难以区分有效的信息交接和无用执行。这个问题与多轮系统的信用分配、上下文管理直接相关，但这里的 multi-session 主要指同一任务内部的上下文边界，并不等于跨用户会话的持久记忆。动机成立，但已有 broadcasting 和相关压缩训练方法能够处理这些工作流；本文的具体增量是优化跨会话信用与计算分配，而非首次让多会话 agent 可训练。",
+        "method": "Mosaic 在 GRPO 上叠加轨迹级与会话级优化信号，无需训练独立 critic。轨迹级先按成功或失败划分组内 rollout，再根据会话数的居中排名缩放原始优势：成功轨迹中，会话越少，正优势越强；失败轨迹中，会话越多，负优势越弱，但不会因此获得正优势。混合成败组中的缩放因子始终为正，因此保留原始成败优势的符号；全成功组与全失败组另设回退规则，使结果奖励相同时仍有学习信号。会话级则用更新前策略计算正确答案在会话输入、输出上下文下的平均 token 对数似然差，经同一 prompt 组内、同一会话类型分别标准化后，加到轨迹优势上；最后一个会话不添加该信号，以避免最终答案直接抬高似然。各会话的 token 损失按整条轨迹聚合，避免会话多的 rollout 自动获得更高权重。这里的层级是优化信号的层级，并未引入独立高层规划器；critic-free 也不代表无额外成本，仍需标准答案和额外似然前向计算。附录B.2还对标准化后的局部信号施加全失败门控与保持方向门控，避免局部修正反转非零轨迹优势。",
+        "experiments": "论文用 Qwen3.5-4B，在 REDSearcher_RL_1k 的 1,000 个任务上训练一轮，并在 BrowseComp 上评估上下文压缩与非嵌套子代理两种工作流。相对 broadcasting，压缩场景准确率由 35.31% 提升至 38.86%，增加 3.55 个百分点，对应约 10.1% 的相对提升；平均会话数由 3.17 降至 2.35。子代理场景准确率由 31.44% 提升至 32.46%，增加 1.02 个百分点，会话数由 4.43 降至 3.77，收益明显较小。需要注意，单会话 GRPO 训练后直接采用子代理推理已有 31.91% 准确率、平均 2.09 个会话，因此 Mosaic 相对该基线仅多 0.55 个百分点，同时使用更多会话，不能概括成全面降低执行成本。消融显示两个组件均有贡献，组合收益在压缩场景更清楚；正信息增益会话占比也提高，但该指标与训练 shaping 使用同一似然代理，不是独立的可靠性验证。论文比较了信息增益计算环节的耗时，未提供足以确认端到端训练或推理成本下降的完整核算，也未报告多随机种子误差或显著性检验。",
+        "research_help": "Insight：长程 agent 的学习单位可以从单轮动作扩展到上下文边界，重点考察压缩、委派、返回结果整合后，后续决策所需状态是否仍然可用。这提示多轮系统应把信息交接质量纳入信用分配，并按操作类型建立局部基线，避免不同功能的会话因代理信号分布不同而受到系统性偏置。另一个可迁移设计是把任务成败作为全局锚点，再用有界调制表达计算分配偏好，并在同结果组中保留训练信号；不过，失败轨迹越长越值得保留只是一种启发式，不能替代对实际进展的判断。面向 planning reliability，更有价值的后续验证是比较状态交接前后的事实保留、约束遵守、后续任务成功率，以及多次交接后的错误累积，并用移除或替换某次交接的反事实实验检验贡献。正确答案似然差适合作为训练代理，但不能直接视为因果贡献或长期规划可靠性。",
+        "recommendation": {
+          "score": 86,
+          "level": "高",
+          "label": "值得精读：跨会话信用分配",
+          "water_risk": "中",
+          "value_judgement": "与 agentic RL、长程多轮执行和上下文管理高度相关，方法有明确公式、可实现的训练信号及组件消融，具有实质技术增量，不能仅因采用 reward shaping 就认定为水文。偏水风险主要来自问题包装可能大于已验证范围：子代理提升较小，实验覆盖窄，效用分析依赖自身优化的代理指标，而更低成本、更好分配和长期可靠性之间的证据链尚不完整。阅读时应重点看优势构造、状态边界和对照设置，对通用多会话优化的外推保持保留。",
+          "reason": "与 agentic RL、长程多轮执行和上下文管理高度相关，方法有明确公式、可实现的训练信号及组件消融，具有实质技术增量，不能仅因采用 reward shaping 就认定为水文。偏水风险主要来自问题包装可能大于已验证范围：子代理提升较小，实验覆盖窄，效用分析依赖自身优化的代理指标，而更低成本、更好分配和长期可靠性之间的证据链尚不完整。阅读时应重点看优势构造、状态边界和对照设置，对通用多会话优化的外推保持保留。",
+          "signals": {
+            "agenticRl": true,
+            "multiTurn": true,
+            "longHorizon": false,
+            "memory": false,
+            "reliability": true,
+            "codeOrTool": false,
+            "experiments": true,
+            "survey": false
+          }
+        },
+        "insight": "Insight：长程 agent 的学习单位可以从单轮动作扩展到上下文边界，重点考察压缩、委派、返回结果整合后，后续决策所需状态是否仍然可用。这提示多轮系统应把信息交接质量纳入信用分配，并按操作类型建立局部基线，避免不同功能的会话因代理信号分布不同而受到系统性偏置。另一个可迁移设计是把任务成败作为全局锚点，再用有界调制表达计算分配偏好，并在同结果组中保留训练信号；不过，失败轨迹越长越值得保留只是一种启发式，不能替代对实际进展的判断。面向 planning reliability，更有价值的后续验证是比较状态交接前后的事实保留、约束遵守、后续任务成功率，以及多次交接后的错误累积，并用移除或替换某次交接的反事实实验检验贡献。正确答案似然差适合作为训练代理，但不能直接视为因果贡献或长期规划可靠性。",
+        "abstract_zh": "现有多数 agentic RL 方法假设交互始终处于连续累积上下文的单一会话中，而上下文压缩和子代理分叉可能产生跨多个会话的轨迹，造成训练假设与推理执行之间的不匹配。论文据此提出多会话 agentic RL 设置，支持一条轨迹包含任意数量的会话，并指出把轨迹级优势广播给所有会话无法区分各会话贡献，也难以指导会话分配。为此，作者提出采用无 critic 层级优化的 Mosaic，在轨迹层将会话使用信号纳入优势估计，在会话层依据估计的边际贡献调整优势。基于 Qwen3.5-4B 的 BrowseComp 实验表明，Mosaic 在上下文压缩和子代理分叉两种场景中均优于 broadcasting，同时平均使用更少会话。进一步分析显示，该方法改善了会话效用与分配，作者认为这可能是未来多会话 agentic RL 的重要优化方向。",
+        "full_summary": "Mosaic 研究长程 agent 经历上下文压缩或子代理委派后，如何对包含多个独立上下文片段的任务轨迹进行强化学习。它认为，把最终成败优势统一广播给所有会话，会掩盖不同会话的信息贡献，也无法有效指导执行资源分配。方法在轨迹层按成败和会话数调整优势，在会话层用正确答案条件对数似然的变化构造局部信号，并按会话类型分别标准化。论文报告，在 Qwen3.5-4B 的 BrowseComp 实验中，相对 broadcasting，压缩场景准确率提高 3.55 个百分点，子代理场景提高 1.02 个百分点，两者平均会话数均下降。现有证据来自单一模型与基准，会话数也不能等同于 token、工具调用或实际耗时，因此尚不能推出普遍的成本优势或规划可靠性提升。它值得精读的部分是跨上下文边界的信用分配与状态交接思路，尤其值得进一步检验局部似然收益能否预测后续决策成功。",
+        "card_summary": "Mosaic 将压缩上下文和分叉子智能体形成的多 session 轨迹纳入 RL，结合终局成功与 session 级贡献分配优势。BrowseComp 压缩模式准确率由 35.31% 升至 38.86%，但 session 数减少不等于总耗时下降。"
+      },
+      "analysis": {
+        "motivation": "论文针对长程 agent 在上下文压缩、子代理委派后发生的上下文不连续：一条任务轨迹可能包含多个独立训练片段，把最终成败优势广播给所有片段，难以区分有效的信息交接和无用执行。这个问题与多轮系统的信用分配、上下文管理直接相关，但这里的 multi-session 主要指同一任务内部的上下文边界，并不等于跨用户会话的持久记忆。动机成立，但已有 broadcasting 和相关压缩训练方法能够处理这些工作流；本文的具体增量是优化跨会话信用与计算分配，而非首次让多会话 agent 可训练。",
+        "method": "Mosaic 在 GRPO 上叠加轨迹级与会话级优化信号，无需训练独立 critic。轨迹级先按成功或失败划分组内 rollout，再根据会话数的居中排名缩放原始优势：成功轨迹中，会话越少，正优势越强；失败轨迹中，会话越多，负优势越弱，但不会因此获得正优势。混合成败组中的缩放因子始终为正，因此保留原始成败优势的符号；全成功组与全失败组另设回退规则，使结果奖励相同时仍有学习信号。会话级则用更新前策略计算正确答案在会话输入、输出上下文下的平均 token 对数似然差，经同一 prompt 组内、同一会话类型分别标准化后，加到轨迹优势上；最后一个会话不添加该信号，以避免最终答案直接抬高似然。各会话的 token 损失按整条轨迹聚合，避免会话多的 rollout 自动获得更高权重。这里的层级是优化信号的层级，并未引入独立高层规划器；critic-free 也不代表无额外成本，仍需标准答案和额外似然前向计算。附录B.2还对标准化后的局部信号施加全失败门控与保持方向门控，避免局部修正反转非零轨迹优势。",
+        "experiments": "论文用 Qwen3.5-4B，在 REDSearcher_RL_1k 的 1,000 个任务上训练一轮，并在 BrowseComp 上评估上下文压缩与非嵌套子代理两种工作流。相对 broadcasting，压缩场景准确率由 35.31% 提升至 38.86%，增加 3.55 个百分点，对应约 10.1% 的相对提升；平均会话数由 3.17 降至 2.35。子代理场景准确率由 31.44% 提升至 32.46%，增加 1.02 个百分点，会话数由 4.43 降至 3.77，收益明显较小。需要注意，单会话 GRPO 训练后直接采用子代理推理已有 31.91% 准确率、平均 2.09 个会话，因此 Mosaic 相对该基线仅多 0.55 个百分点，同时使用更多会话，不能概括成全面降低执行成本。消融显示两个组件均有贡献，组合收益在压缩场景更清楚；正信息增益会话占比也提高，但该指标与训练 shaping 使用同一似然代理，不是独立的可靠性验证。论文比较了信息增益计算环节的耗时，未提供足以确认端到端训练或推理成本下降的完整核算，也未报告多随机种子误差或显著性检验。",
+        "research_help": "Insight：长程 agent 的学习单位可以从单轮动作扩展到上下文边界，重点考察压缩、委派、返回结果整合后，后续决策所需状态是否仍然可用。这提示多轮系统应把信息交接质量纳入信用分配，并按操作类型建立局部基线，避免不同功能的会话因代理信号分布不同而受到系统性偏置。另一个可迁移设计是把任务成败作为全局锚点，再用有界调制表达计算分配偏好，并在同结果组中保留训练信号；不过，失败轨迹越长越值得保留只是一种启发式，不能替代对实际进展的判断。面向 planning reliability，更有价值的后续验证是比较状态交接前后的事实保留、约束遵守、后续任务成功率，以及多次交接后的错误累积，并用移除或替换某次交接的反事实实验检验贡献。正确答案似然差适合作为训练代理，但不能直接视为因果贡献或长期规划可靠性。",
+        "insight": "Insight：长程 agent 的学习单位可以从单轮动作扩展到上下文边界，重点考察压缩、委派、返回结果整合后，后续决策所需状态是否仍然可用。这提示多轮系统应把信息交接质量纳入信用分配，并按操作类型建立局部基线，避免不同功能的会话因代理信号分布不同而受到系统性偏置。另一个可迁移设计是把任务成败作为全局锚点，再用有界调制表达计算分配偏好，并在同结果组中保留训练信号；不过，失败轨迹越长越值得保留只是一种启发式，不能替代对实际进展的判断。面向 planning reliability，更有价值的后续验证是比较状态交接前后的事实保留、约束遵守、后续任务成功率，以及多次交接后的错误累积，并用移除或替换某次交接的反事实实验检验贡献。正确答案似然差适合作为训练代理，但不能直接视为因果贡献或长期规划可靠性。",
+        "abstract_zh": "现有多数 agentic RL 方法假设交互始终处于连续累积上下文的单一会话中，而上下文压缩和子代理分叉可能产生跨多个会话的轨迹，造成训练假设与推理执行之间的不匹配。论文据此提出多会话 agentic RL 设置，支持一条轨迹包含任意数量的会话，并指出把轨迹级优势广播给所有会话无法区分各会话贡献，也难以指导会话分配。为此，作者提出采用无 critic 层级优化的 Mosaic，在轨迹层将会话使用信号纳入优势估计，在会话层依据估计的边际贡献调整优势。基于 Qwen3.5-4B 的 BrowseComp 实验表明，Mosaic 在上下文压缩和子代理分叉两种场景中均优于 broadcasting，同时平均使用更少会话。进一步分析显示，该方法改善了会话效用与分配，作者认为这可能是未来多会话 agentic RL 的重要优化方向。",
+        "card_summary": "Mosaic 将压缩上下文和分叉子智能体形成的多 session 轨迹纳入 RL，结合终局成功与 session 级贡献分配优势。BrowseComp 压缩模式准确率由 35.31% 升至 38.86%，但 session 数减少不等于总耗时下降。",
+        "full_summary": "Mosaic 研究长程 agent 经历上下文压缩或子代理委派后，如何对包含多个独立上下文片段的任务轨迹进行强化学习。它认为，把最终成败优势统一广播给所有会话，会掩盖不同会话的信息贡献，也无法有效指导执行资源分配。方法在轨迹层按成败和会话数调整优势，在会话层用正确答案条件对数似然的变化构造局部信号，并按会话类型分别标准化。论文报告，在 Qwen3.5-4B 的 BrowseComp 实验中，相对 broadcasting，压缩场景准确率提高 3.55 个百分点，子代理场景提高 1.02 个百分点，两者平均会话数均下降。现有证据来自单一模型与基准，会话数也不能等同于 token、工具调用或实际耗时，因此尚不能推出普遍的成本优势或规划可靠性提升。它值得精读的部分是跨上下文边界的信用分配与状态交接思路，尤其值得进一步检验局部似然收益能否预测后续决策成功。",
+        "recommendation_level": "高",
+        "water_risk": "中",
+        "value_label": "值得精读：跨会话信用分配",
+        "value_reason": "与 agentic RL、长程多轮执行和上下文管理高度相关，方法有明确公式、可实现的训练信号及组件消融，具有实质技术增量，不能仅因采用 reward shaping 就认定为水文。偏水风险主要来自问题包装可能大于已验证范围：子代理提升较小，实验覆盖窄，效用分析依赖自身优化的代理指标，而更低成本、更好分配和长期可靠性之间的证据链尚不完整。阅读时应重点看优势构造、状态边界和对照设置，对通用多会话优化的外推保持保留。",
+        "limitations": "正文与附录 B.1/B.2 表明，局部贡献是训练时用标准答案 teacher forcing 得到的答案 token 平均对数似然差，属于当前 actor 的代理指标；终结 session 不计算该局部信号，并使用全失败与保持方向门控。实验限于 Qwen3.5-4B、一个训练集和 BrowseComp，未提供跨模型或多随机种子置信区间；session 数只是代理，不是完整 token、API 或端到端耗时成本。",
+        "source_scope": "full_text",
+        "source_note": "arXiv PDF全文抽取；人工核对正文、关键实验与相关附录。",
+        "source_evidence": [
+          "§3.1–3.2，式10–18：按成败子组内session数量排名调制轨迹优势，并按session类型标准化答案似然差。",
+          "Table 1：Compact 35.31→38.86，session 3.17→2.35；Subagent 31.44→32.46，session 4.43→3.77。",
+          "§4.1、4.5：REDSearcher_RL_1k训练，BrowseComp评估；session数只作为代理，不能等同执行成本。",
+          "Appendix B.1–B.2：边界token流、标准答案teacher forcing、终结session排除与两项门控。"
+        ],
+        "model": "gpt-6.1-sol",
+        "updated_at": "2026-10-17T01:28:51.675Z"
+      }
+    },
+    {
+      "id": "2610.21640v1",
+      "title": "ReFlow: Replay-Driven Decoupling for Efficient RL Post-Training",
+      "summary": "Reinforcement learning (RL) has been a critical paradigm for improving large language model (LLM) reasoning and agentic capabilities, but its efficiency remains a major bottleneck. Existing RL systems commonly rely on asynchronous execution to overlap rollout generation with policy optimization for enhanced efficiency. However, this approach faces inherent limitations: mild policy staleness offers only limited training efficiency gains, whereas aggressive asynchrony can degrade model quality and yields diminishing efficiency gains. The dynamic nature of LLM RL and multi-turn agentic workloads further challenges RL system design, as resource demands shift over time, making static resource allocation and generation strategy inefficient. This paper presents ReFlow, a system-algorithm co-designed RL framework for efficient LLM post-training. Its key insight is that, unlike existing RL frameworks which consume each trajectory only once, experience replay of recent trajectories enables effective sample reuse, thereby amortizing the high cost of rollout generation without incurring excessive policy staleness. To fully exploit this opportunity, ReFlow adopts a decoupled and adaptive architecture with three key designs: a dual replay data cycle supports efficient experience reuse while balancing training throughput and optimization stability; an elastic resource pool enables dynamic resource placement to accommodate evolving RL workloads; an adaptive scheduler coordinates generation strategies and resource allocation to improve resource utilization and boost generation throughput. Experiments across representative single-turn reasoning and multi-turn agentic RL tasks show that ReFlow improves training throughput by up to $2.06\\times$ over state-of-the-art synchronous and asynchronous RL systems, while maintaining comparable or better model performance.",
+      "url": "http://arxiv.org/abs/2610.21640v1",
+      "authors": [
+        "Yukun Tian",
+        "Junwei Su",
+        "Haofeng Xu",
+        "Lansong Diao",
+        "Zhengping Qian",
+        "Weibo Zhao",
+        "Wenchao Zhou",
+        "Ruiting Zhou",
+        "Chuan Wu"
+      ],
+      "report_date": "2026-10-17",
+      "published": "2026-10-15",
+      "updated": "2026-10-15",
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG",
+        "cs.DC"
+      ],
+      "project_url": "",
+      "repo_url": "",
+      "venue_status": "未确认录用",
+      "recommendation": {
+        "score": 76,
+        "level": "高",
+        "label": "值得读的agentic RL训练系统论文",
+        "water_risk": "中",
+        "value_judgement": "对多轮agentic RL的训练成本有直接参考价值：轨迹重放控制、双角色worker、资源分配与生成调度都有具体实现设计，并提供跨模型、GPU规模、按训练步及时间的奖励曲线和部分组件分析。证据支持所测配置中的系统效率收益；独立测试泛化、不同算法和真实长期任务上的稳定性仍未建立，代码当时待审批，复现也有限制。",
+        "reason": "对多轮agentic RL的训练成本有直接参考价值：轨迹重放控制、双角色worker、资源分配与生成调度都有具体实现设计，并提供跨模型、GPU规模、按训练步及时间的奖励曲线和部分组件分析。证据支持所测配置中的系统效率收益；独立测试泛化、不同算法和真实长期任务上的稳定性仍未建立，代码当时待审批，复现也有限制。",
+        "signals": {
+          "agenticRl": true,
+          "multiTurn": true,
+          "longHorizon": false,
+          "memory": false,
+          "reliability": false,
+          "codeOrTool": false,
+          "experiments": true,
+          "survey": false
+        }
+      },
+      "brief": {
+        "authors": [
+          "Yukun Tian",
+          "Junwei Su",
+          "Haofeng Xu",
+          "Lansong Diao",
+          "Zhengping Qian",
+          "Weibo Zhao",
+          "Wenchao Zhou",
+          "Ruiting Zhou",
+          "Chuan Wu"
+        ],
+        "affiliations": "The University of Hong Kong；University of Science and Technology of China；Alibaba Group；Southeast University",
+        "date": "2026-10-15",
+        "paper_url": "https://arxiv.org/abs/2610.21640v1",
+        "project_url": "",
+        "repo_url": "",
+        "venue_status": "未确认录用",
+        "contribution": "对多轮agentic RL的训练成本有直接参考价值：轨迹重放控制、双角色worker、资源分配与生成调度都有具体实现设计，并提供跨模型、GPU规模、按训练步及时间的奖励曲线和部分组件分析。证据支持所测配置中的系统效率收益；独立测试泛化、不同算法和真实长期任务上的稳定性仍未建立，代码当时待审批，复现也有限制。",
+        "summary": "ReFlow针对多轮agentic RL中rollout昂贵、完成时间不均和训练/生成资源需求漂移的问题，通过近期轨迹重放进一步解耦采样与更新。它分别控制每批重放数量、重放损失权重和策略版本年龄，再以预热双角色worker与调度器动态调整GPU分配和生成策略。实验在H800上覆盖单轮数学、多轮编码和工具交互，多轮编码训练吞吐最高为基线的1.92倍，并用墙钟时间对训练奖励的曲线提供更快达到相近奖励的证据。训练奖励、重复消费的训练token吞吐和未见任务质量应分别看待，不能把系统加速直接当作规划能力提升。局部理论在简化假设下分析重放权重对梯度误差的影响，不保证任意异步agent训练全局收敛。其阅读价值在于把生成预算、轨迹复用、更新强度与运行时资源共同设计；代码在论文发布时仍待审批。",
+        "highlights": [
+          "对多轮agentic RL的训练成本有直接参考价值：轨迹重放控制、双角色worker、资源分配与生成调度都有具体实现设计，并提供跨模型、GPU规模、按训练步及时间的奖励曲线和部分组件分析。证据支持所测配置中的系统效率收益；独立测试泛化、不同算法和真实长期任务上的稳定性仍未建立，代码当时待审批，复现也有限制。",
+          "偏水风险：中",
+          "阅读来源：arXiv PDF 正文、关键表格及相关附录人工核验"
+        ],
+        "motivation": "LLM RL后训练中，昂贵且耗时不均的rollout容易让训练GPU等待；多轮工具交互进一步放大这一问题。单纯增加异步程度会引入策略失配，而且吞吐收益逐渐递减。ReFlow试图通过复用近期轨迹减少新rollout需求，并让资源配置随样本供需变化，兼顾系统效率与优化稳定性。",
+        "method": "核心是回放驱动的解耦架构：rollout以样本级流式生成轨迹，trainer从缓冲区混合抽取未使用样本和已消费的回放样本，消费后的轨迹可再次回填。σ限制每批回放比例，τ调节回放样本的损失贡献并进行有效token归一化，δ限制全部样本的策略版本滞后。系统通过预热的双角色worker、CPU卸载和分片状态传输调整训练与生成的GPU配比，并依据KV缓存压力、抢占情况和样本供需动态调整并发及路由。实验采用随机采样和不筛选回放的配置，未依赖复杂的轨迹质量筛选。",
+        "experiments": "作者在最多128张H800上测试Qwen3-4B/8B/14B/32B，以VeRL、VeRL-async和one-step-off为基线。Figure 10的单轮DAPO-Math吞吐为基线的1.19–2.06倍；APPS多轮编码为1.07–1.92倍，按4B/8B/14B分别为1.07–1.92、1.17–1.67、1.36–1.71倍。Figure 11的ReTool工具交互为1.31–1.82倍。吞吐统计在预热后平均5步，编码任务为预热10步后平均10步。Figure 12按训练步数比较奖励，Figure 13按墙钟时间展示4B编码和8B数学任务更快达到相近训练奖励；这补充了单纯吞吐以外的证据，但不是独立测试集成功率。Figure 14中8B/32卡训练器空闲占比55.8%降至15.5%。Table 2两方向重配置分别5.72秒和9.20秒；Table 3自适应生成调度使生成吞吐1585.1升至1749.8 token/s（+10.4%）。",
+        "research_help": "Insight：昂贵的多轮agent训练可以分别控制轨迹复用数量与其梯度影响，将生成预算、样本年龄和更新强度作为联合设计变量。工具交互耗时不能仅由输出长度代表，调度应区分活跃LLM生成与环境等待。对长程可靠性而言，策略版本较新并不自动意味着轨迹仍适合当前策略；可迁移的研究方向是结合轨迹级策略偏移、失败样本覆盖与端到端任务成功率评估回放，而本文尚未验证这些可靠性收益。",
+        "recommendation": {
+          "score": 76,
+          "level": "高",
+          "label": "值得读的agentic RL训练系统论文",
+          "water_risk": "中",
+          "value_judgement": "对多轮agentic RL的训练成本有直接参考价值：轨迹重放控制、双角色worker、资源分配与生成调度都有具体实现设计，并提供跨模型、GPU规模、按训练步及时间的奖励曲线和部分组件分析。证据支持所测配置中的系统效率收益；独立测试泛化、不同算法和真实长期任务上的稳定性仍未建立，代码当时待审批，复现也有限制。",
+          "reason": "对多轮agentic RL的训练成本有直接参考价值：轨迹重放控制、双角色worker、资源分配与生成调度都有具体实现设计，并提供跨模型、GPU规模、按训练步及时间的奖励曲线和部分组件分析。证据支持所测配置中的系统效率收益；独立测试泛化、不同算法和真实长期任务上的稳定性仍未建立，代码当时待审批，复现也有限制。",
+          "signals": {
+            "agenticRl": true,
+            "multiTurn": true,
+            "longHorizon": false,
+            "memory": false,
+            "reliability": false,
+            "codeOrTool": false,
+            "experiments": true,
+            "survey": false
+          }
+        },
+        "insight": "Insight：昂贵的多轮agent训练可以分别控制轨迹复用数量与其梯度影响，将生成预算、样本年龄和更新强度作为联合设计变量。工具交互耗时不能仅由输出长度代表，调度应区分活跃LLM生成与环境等待。对长程可靠性而言，策略版本较新并不自动意味着轨迹仍适合当前策略；可迁移的研究方向是结合轨迹级策略偏移、失败样本覆盖与端到端任务成功率评估回放，而本文尚未验证这些可靠性收益。",
+        "abstract_zh": "强化学习能够提升大语言模型的推理与agent能力，但训练效率仍是主要瓶颈：有限异步带来的收益不足，过度异步又可能损害模型质量，动态工作负载也使静态资源配置效率低下。ReFlow提出一种系统与算法协同设计的框架，通过复用近期生成的轨迹摊薄rollout成本，同时避免过大的策略滞后。框架包括兼顾吞吐与优化稳定性的双重回放数据循环、支持动态资源放置的弹性资源池，以及协调生成策略和资源分配的自适应调度器。作者报告，在代表性的单轮推理与多轮agent强化学习任务上，ReFlow的训练吞吐最高达到现有同步和异步系统的2.06倍，同时保持相当或更好的模型表现。",
+        "full_summary": "ReFlow针对多轮agentic RL中rollout昂贵、完成时间不均和训练/生成资源需求漂移的问题，通过近期轨迹重放进一步解耦采样与更新。它分别控制每批重放数量、重放损失权重和策略版本年龄，再以预热双角色worker与调度器动态调整GPU分配和生成策略。实验在H800上覆盖单轮数学、多轮编码和工具交互，多轮编码训练吞吐最高为基线的1.92倍，并用墙钟时间对训练奖励的曲线提供更快达到相近奖励的证据。训练奖励、重复消费的训练token吞吐和未见任务质量应分别看待，不能把系统加速直接当作规划能力提升。局部理论在简化假设下分析重放权重对梯度误差的影响，不保证任意异步agent训练全局收敛。其阅读价值在于把生成预算、轨迹复用、更新强度与运行时资源共同设计；代码在论文发布时仍待审批。",
+        "card_summary": "ReFlow 用近期轨迹重放、弹性 GPU 分配和自适应调度缓解 agentic RL 的 rollout 瓶颈。多轮 APPS 编码任务的训练吞吐提升为 1.07–1.92×；摘要最高 2.06× 来自单轮数学任务。"
+      },
+      "analysis": {
+        "motivation": "LLM RL后训练中，昂贵且耗时不均的rollout容易让训练GPU等待；多轮工具交互进一步放大这一问题。单纯增加异步程度会引入策略失配，而且吞吐收益逐渐递减。ReFlow试图通过复用近期轨迹减少新rollout需求，并让资源配置随样本供需变化，兼顾系统效率与优化稳定性。",
+        "method": "核心是回放驱动的解耦架构：rollout以样本级流式生成轨迹，trainer从缓冲区混合抽取未使用样本和已消费的回放样本，消费后的轨迹可再次回填。σ限制每批回放比例，τ调节回放样本的损失贡献并进行有效token归一化，δ限制全部样本的策略版本滞后。系统通过预热的双角色worker、CPU卸载和分片状态传输调整训练与生成的GPU配比，并依据KV缓存压力、抢占情况和样本供需动态调整并发及路由。实验采用随机采样和不筛选回放的配置，未依赖复杂的轨迹质量筛选。",
+        "experiments": "作者在最多128张H800上测试Qwen3-4B/8B/14B/32B，以VeRL、VeRL-async和one-step-off为基线。Figure 10的单轮DAPO-Math吞吐为基线的1.19–2.06倍；APPS多轮编码为1.07–1.92倍，按4B/8B/14B分别为1.07–1.92、1.17–1.67、1.36–1.71倍。Figure 11的ReTool工具交互为1.31–1.82倍。吞吐统计在预热后平均5步，编码任务为预热10步后平均10步。Figure 12按训练步数比较奖励，Figure 13按墙钟时间展示4B编码和8B数学任务更快达到相近训练奖励；这补充了单纯吞吐以外的证据，但不是独立测试集成功率。Figure 14中8B/32卡训练器空闲占比55.8%降至15.5%。Table 2两方向重配置分别5.72秒和9.20秒；Table 3自适应生成调度使生成吞吐1585.1升至1749.8 token/s（+10.4%）。",
+        "research_help": "Insight：昂贵的多轮agent训练可以分别控制轨迹复用数量与其梯度影响，将生成预算、样本年龄和更新强度作为联合设计变量。工具交互耗时不能仅由输出长度代表，调度应区分活跃LLM生成与环境等待。对长程可靠性而言，策略版本较新并不自动意味着轨迹仍适合当前策略；可迁移的研究方向是结合轨迹级策略偏移、失败样本覆盖与端到端任务成功率评估回放，而本文尚未验证这些可靠性收益。",
+        "insight": "Insight：昂贵的多轮agent训练可以分别控制轨迹复用数量与其梯度影响，将生成预算、样本年龄和更新强度作为联合设计变量。工具交互耗时不能仅由输出长度代表，调度应区分活跃LLM生成与环境等待。对长程可靠性而言，策略版本较新并不自动意味着轨迹仍适合当前策略；可迁移的研究方向是结合轨迹级策略偏移、失败样本覆盖与端到端任务成功率评估回放，而本文尚未验证这些可靠性收益。",
+        "abstract_zh": "强化学习能够提升大语言模型的推理与agent能力，但训练效率仍是主要瓶颈：有限异步带来的收益不足，过度异步又可能损害模型质量，动态工作负载也使静态资源配置效率低下。ReFlow提出一种系统与算法协同设计的框架，通过复用近期生成的轨迹摊薄rollout成本，同时避免过大的策略滞后。框架包括兼顾吞吐与优化稳定性的双重回放数据循环、支持动态资源放置的弹性资源池，以及协调生成策略和资源分配的自适应调度器。作者报告，在代表性的单轮推理与多轮agent强化学习任务上，ReFlow的训练吞吐最高达到现有同步和异步系统的2.06倍，同时保持相当或更好的模型表现。",
+        "card_summary": "ReFlow 用近期轨迹重放、弹性 GPU 分配和自适应调度缓解 agentic RL 的 rollout 瓶颈。多轮 APPS 编码任务的训练吞吐提升为 1.07–1.92×；摘要最高 2.06× 来自单轮数学任务。",
+        "full_summary": "ReFlow针对多轮agentic RL中rollout昂贵、完成时间不均和训练/生成资源需求漂移的问题，通过近期轨迹重放进一步解耦采样与更新。它分别控制每批重放数量、重放损失权重和策略版本年龄，再以预热双角色worker与调度器动态调整GPU分配和生成策略。实验在H800上覆盖单轮数学、多轮编码和工具交互，多轮编码训练吞吐最高为基线的1.92倍，并用墙钟时间对训练奖励的曲线提供更快达到相近奖励的证据。训练奖励、重复消费的训练token吞吐和未见任务质量应分别看待，不能把系统加速直接当作规划能力提升。局部理论在简化假设下分析重放权重对梯度误差的影响，不保证任意异步agent训练全局收敛。其阅读价值在于把生成预算、轨迹复用、更新强度与运行时资源共同设计；代码在论文发布时仍待审批。",
+        "recommendation_level": "高",
+        "water_risk": "中",
+        "value_label": "值得读的agentic RL训练系统论文",
+        "value_reason": "对多轮agentic RL的训练成本有直接参考价值：轨迹重放控制、双角色worker、资源分配与生成调度都有具体实现设计，并提供跨模型、GPU规模、按训练步及时间的奖励曲线和部分组件分析。证据支持所测配置中的系统效率收益；独立测试泛化、不同算法和真实长期任务上的稳定性仍未建立，代码当时待审批，复现也有限制。",
+        "limitations": "吞吐定义为每训练步处理 token 数除以步耗时，包含重用数据，不能当作新轨迹产生速率或相同预算下的测试成功率。训练奖励随步数和时间的曲线提供收敛证据，但未建立独立 held-out 任务成功率结论。局部梯度误差分析假定 fresh 估计无偏、replay 偏差有界且中心化误差不相关，并非任意 off-policy 训练的全局保证。Availability 声明代码仍待审批，不能标为已开源。",
+        "source_scope": "full_text",
+        "source_note": "arXiv PDF全文抽取；人工核对正文、关键实验与相关附录。",
+        "source_evidence": [
+          "§4.1–4.2、Table 1：限制重放占比和数据年龄、归一化重放损失权重，并维护独立样本生命周期。",
+          "§7.2–7.3、Figure 10：H800上比较VeRL、VeRL-async与one-step-off；吞吐为训练token/步耗时，APPS多轮任务1.07–1.92×。",
+          "Figure 11–13：ReTool吞吐1.31–1.82×；训练奖励按步数和墙钟时间分别报告，不能替代测试泛化。",
+          "§4.1局部梯度误差分析的无偏/有界偏差/不相关假设；Availability声明代码待审批。"
+        ],
+        "model": "gpt-6.1-sol",
+        "updated_at": "2026-10-17T01:30:13.814Z"
+      }
+    },
+    {
+      "id": "2610.22319v1",
+      "title": "A team of Gemini 4 Argon agents beats Minecraft",
+      "summary": "We placed four Gemini 4 Argon agents in a sandboxed Minecraft survival world and gave them one goal: defeat the Ender Dragon. Each agent controlled a player via an open-source library called Mineflayer and coordinated with its teammates through in-game chat and shared memory. No one assigned roles or wrote game logic. The agents planned, wrote, and debugged every program themselves. Researchers could watch the run on a live dashboard and pause or stop it at any time, but they had no cause to intervene. Starting from a randomly generated world on Easy difficulty, the team wrote 2,783 programs and defeated the dragon in 27 hours and 14 minutes, dying 605 times along the way. To our knowledge, this is the first end-to-end autonomous completion of Minecraft by AI agents, achieved using only the standard Mineflayer library without pre-scouted seeds or other game-specific tools written by humans. Winning required the agents to keep a coherent plan across thousands of dependent steps for more than a day. Complex real-world software engineering and enterprise tasks demand the same long-horizon coding and multi-agent coordination. We describe the setup, how the run unfolded, the team's strategies (dividing the work, sharing what they learned, recovering each other's items), and the limits of the result.",
+      "url": "http://arxiv.org/abs/2610.22319v1",
+      "authors": [
+        "Maxence Faldor",
+        "Satinder Singh",
+        "Roberta Raileanu"
+      ],
+      "report_date": "2026-10-17",
+      "published": "2026-10-15",
+      "updated": "2026-10-15",
+      "primary_category": "cs.AI",
+      "categories": [
+        "cs.AI"
+      ],
+      "project_url": "",
+      "repo_url": "",
+      "venue_status": "未确认录用",
+      "recommendation": {
+        "score": 62,
+        "level": "中",
+        "label": "长时程协作与失败恢复案例",
+        "water_risk": "中",
+        "value_judgement": "值得有针对性阅读，优先关注执行接口、失败转规则、共享工具和结果核验。论文包含具体程序、事件时间线、成本与失败统计，并明确承认单次运行和接口优势，具有实质案例信息。偏水风险主要来自证据范围与标题观感之间的落差：一次最终成功不能证明稳定规划能力，也无法确立协作或记忆的因果贡献。文中还承认已有其他配置下的通关报告，因此其首次性应严格保留工具与环境条件限定。",
+        "reason": "值得有针对性阅读，优先关注执行接口、失败转规则、共享工具和结果核验。论文包含具体程序、事件时间线、成本与失败统计，并明确承认单次运行和接口优势，具有实质案例信息。偏水风险主要来自证据范围与标题观感之间的落差：一次最终成功不能证明稳定规划能力，也无法确立协作或记忆的因果贡献。文中还承认已有其他配置下的通关报告，因此其首次性应严格保留工具与环境条件限定。",
+        "signals": {
+          "agenticRl": false,
+          "multiTurn": false,
+          "longHorizon": true,
+          "memory": true,
+          "reliability": false,
+          "codeOrTool": true,
+          "experiments": false,
+          "survey": false
+        }
+      },
+      "brief": {
+        "authors": [
+          "Maxence Faldor",
+          "Satinder Singh",
+          "Roberta Raileanu"
+        ],
+        "affiliations": "Google DeepMind",
+        "date": "2026-10-15",
+        "paper_url": "https://arxiv.org/abs/2610.22319v1",
+        "project_url": "",
+        "repo_url": "",
+        "venue_status": "未确认录用",
+        "contribution": "值得有针对性阅读，优先关注执行接口、失败转规则、共享工具和结果核验。论文包含具体程序、事件时间线、成本与失败统计，并明确承认单次运行和接口优势，具有实质案例信息。偏水风险主要来自证据范围与标题观感之间的落差：一次最终成功不能证明稳定规划能力，也无法确立协作或记忆的因果贡献。文中还承认已有其他配置下的通关报告，因此其首次性应严格保留工具与环境条件限定。",
+        "summary": "这篇报告考察通用编码智能体团队能否在大量相互依赖的步骤和反复失败中，持续追求一个跨越一天的任务目标。四个智能体通过 Mineflayer 和寻路插件读取结构化游戏状态、执行自编程序，并借助聊天和共享记忆协调行动。文中报告团队在一个随机生成的 Easy 难度世界中，经过2783个程序和605次死亡，于27小时14分钟后击败末影龙。最有信息量的案例包括把损失转成操作规则、传播工具修复、限时救援关键资源，以及纠正未经验证的成功报告。与此同时，单次运行缺少重复实验和消融，接口还提供隐藏方块及末影龙内部状态，因此结果无法直接证明多智能体或记忆机制提升了可靠性。它值得作为长时程执行与恢复机制的案例阅读，对新规划算法或 agentic RL 训练方法的直接贡献有限。",
+        "highlights": [
+          "值得有针对性阅读，优先关注执行接口、失败转规则、共享工具和结果核验。论文包含具体程序、事件时间线、成本与失败统计，并明确承认单次运行和接口优势，具有实质案例信息。偏水风险主要来自证据范围与标题观感之间的落差：一次最终成功不能证明稳定规划能力，也无法确立协作或记忆的因果贡献。文中还承认已有其他配置下的通关报告，因此其首次性应严格保留工具与环境条件限定。",
+          "偏水风险：中",
+          "阅读来源：arXiv PDF 正文、关键表格及相关附录人工核验"
+        ],
+        "motivation": "论文考察通用编码智能体能否在跨越一天、包含大量依赖步骤与反复失败的任务中维持目标、协调分工并最终完成任务。Minecraft 的资源获取、跨维度探索与最终战斗要求持续维护任务状态，适合观察多轮执行与失败恢复。其贡献定位是长时程系统案例，文中没有提出新的强化学习训练方法或规划算法。",
+        "method": "四个 Gemini 4 Argon 编码智能体分别控制一个玩家，通过标准 Mineflayer 及其寻路插件编写、执行 JavaScript，并读取位置、库存、环境状态和错误反馈。团队利用游戏聊天与共享持久记忆协调工作，执行期间自行形成分工、编写辅助函数并记录失败教训；上下文过长时进行压缩。通用指令已明确要求验证动作结果、构建可复用工具和保存共享记忆，因此这些机制的存在来自预设框架，具体内容与协作策略由智能体生成。第五个 Observer 智能体负责监测与核对记录，不参与游戏；整个过程属于推理期适应，未报告模型参数更新。",
+        "experiments": "文中报告，团队在一个随机生成、Easy 难度的世界中，首次启动即于27小时14分钟后通关，期间执行2783个程序、发送229条聊天消息并死亡605次。约22%的程序以错误结束，进入末地后的阶段持续近14小时，说明最终完成任务伴随大量低效尝试；部分死亡也是主动回城或重置环境的策略，不能全部视为失误。日志案例展示了物品救援、工具修复传播、要塞三角定位和错误报告纠正，但没有单智能体、无共享记忆或不同模型的对照实验。四个玩家截至通关的估算 API 费用约为520美元，采用文中所述入门价格，且91%的输入 token 命中上下文缓存。单次成功只能支持该配置具有完成任务的可能性，无法估计跨种子成功率、协作增益或预算约束下的可靠性。",
+        "research_help": "Insight：长时程系统可以把计划进度绑定到已验证的环境状态、资源位置和可恢复检查点，并通过动作后置条件检查减少错误成功报告的传播。共享记忆值得保存带适用条件的失败机制、修复步骤与验证结果，使上下文压缩后的执行仍能继承有效经验。多智能体协调可以围绕关键资源、交接期限和救援责任组织，并通过固定总预算的对照实验检验收益。对 agentic RL，可将故障恢复、重复错误、不可逆资源损失以及时间和调用成本纳入训练与评估目标，避免只奖励最终成功。还应分别测量持续运行时长、实际规划跨度与恢复能力，防止把长时间反复尝试直接解释为可靠的长程规划。",
+        "recommendation": {
+          "score": 62,
+          "level": "中",
+          "label": "长时程协作与失败恢复案例",
+          "water_risk": "中",
+          "value_judgement": "值得有针对性阅读，优先关注执行接口、失败转规则、共享工具和结果核验。论文包含具体程序、事件时间线、成本与失败统计，并明确承认单次运行和接口优势，具有实质案例信息。偏水风险主要来自证据范围与标题观感之间的落差：一次最终成功不能证明稳定规划能力，也无法确立协作或记忆的因果贡献。文中还承认已有其他配置下的通关报告，因此其首次性应严格保留工具与环境条件限定。",
+          "reason": "值得有针对性阅读，优先关注执行接口、失败转规则、共享工具和结果核验。论文包含具体程序、事件时间线、成本与失败统计，并明确承认单次运行和接口优势，具有实质案例信息。偏水风险主要来自证据范围与标题观感之间的落差：一次最终成功不能证明稳定规划能力，也无法确立协作或记忆的因果贡献。文中还承认已有其他配置下的通关报告，因此其首次性应严格保留工具与环境条件限定。",
+          "signals": {
+            "agenticRl": false,
+            "multiTurn": false,
+            "longHorizon": true,
+            "memory": true,
+            "reliability": false,
+            "codeOrTool": true,
+            "experiments": false,
+            "survey": false
+          }
+        },
+        "insight": "Insight：长时程系统可以把计划进度绑定到已验证的环境状态、资源位置和可恢复检查点，并通过动作后置条件检查减少错误成功报告的传播。共享记忆值得保存带适用条件的失败机制、修复步骤与验证结果，使上下文压缩后的执行仍能继承有效经验。多智能体协调可以围绕关键资源、交接期限和救援责任组织，并通过固定总预算的对照实验检验收益。对 agentic RL，可将故障恢复、重复错误、不可逆资源损失以及时间和调用成本纳入训练与评估目标，避免只奖励最终成功。还应分别测量持续运行时长、实际规划跨度与恢复能力，防止把长时间反复尝试直接解释为可靠的长程规划。",
+        "abstract_zh": "作者将四个 Gemini 4 Argon 智能体放入沙盒化的 Minecraft 生存世界，给予击败末影龙这一目标，并让它们通过 Mineflayer 控制玩家、通过游戏聊天和共享记忆协作。研究人员没有分配角色或编写游戏策略，所有程序均由智能体自行规划、编写和调试，运行期间也没有发生人工干预。在随机生成的 Easy 难度世界中，团队编写了2783个程序，经历605次死亡，并在27小时14分钟后击败末影龙。作者称，据其所知，这是首次仅依靠标准 Mineflayer、无需预先勘察种子或额外人工编写游戏专用工具的端到端自主通关。文章介绍了运行设置、任务进程、团队分工、经验共享、物品救援与结果局限，并将这种跨越一天的目标维持和协作能力与复杂软件工程及企业任务联系起来。",
+        "full_summary": "这篇报告考察通用编码智能体团队能否在大量相互依赖的步骤和反复失败中，持续追求一个跨越一天的任务目标。四个智能体通过 Mineflayer 和寻路插件读取结构化游戏状态、执行自编程序，并借助聊天和共享记忆协调行动。文中报告团队在一个随机生成的 Easy 难度世界中，经过2783个程序和605次死亡，于27小时14分钟后击败末影龙。最有信息量的案例包括把损失转成操作规则、传播工具修复、限时救援关键资源，以及纠正未经验证的成功报告。与此同时，单次运行缺少重复实验和消融，接口还提供隐藏方块及末影龙内部状态，因此结果无法直接证明多智能体或记忆机制提升了可靠性。它值得作为长时程执行与恢复机制的案例阅读，对新规划算法或 agentic RL 训练方法的直接贡献有限。",
+        "card_summary": "四个 Gemini 4 Argon 编码智能体通过 Mineflayer、共享记忆和聊天，在 27 小时 14 分钟后完成一次 Minecraft 屠龙。案例展示长程协作与失败恢复，但仅一次 Easy 难度运行，且可读取游戏结构状态。"
+      },
+      "analysis": {
+        "motivation": "论文考察通用编码智能体能否在跨越一天、包含大量依赖步骤与反复失败的任务中维持目标、协调分工并最终完成任务。Minecraft 的资源获取、跨维度探索与最终战斗要求持续维护任务状态，适合观察多轮执行与失败恢复。其贡献定位是长时程系统案例，文中没有提出新的强化学习训练方法或规划算法。",
+        "method": "四个 Gemini 4 Argon 编码智能体分别控制一个玩家，通过标准 Mineflayer 及其寻路插件编写、执行 JavaScript，并读取位置、库存、环境状态和错误反馈。团队利用游戏聊天与共享持久记忆协调工作，执行期间自行形成分工、编写辅助函数并记录失败教训；上下文过长时进行压缩。通用指令已明确要求验证动作结果、构建可复用工具和保存共享记忆，因此这些机制的存在来自预设框架，具体内容与协作策略由智能体生成。第五个 Observer 智能体负责监测与核对记录，不参与游戏；整个过程属于推理期适应，未报告模型参数更新。",
+        "experiments": "文中报告，团队在一个随机生成、Easy 难度的世界中，首次启动即于27小时14分钟后通关，期间执行2783个程序、发送229条聊天消息并死亡605次。约22%的程序以错误结束，进入末地后的阶段持续近14小时，说明最终完成任务伴随大量低效尝试；部分死亡也是主动回城或重置环境的策略，不能全部视为失误。日志案例展示了物品救援、工具修复传播、要塞三角定位和错误报告纠正，但没有单智能体、无共享记忆或不同模型的对照实验。四个玩家截至通关的估算 API 费用约为520美元，采用文中所述入门价格，且91%的输入 token 命中上下文缓存。单次成功只能支持该配置具有完成任务的可能性，无法估计跨种子成功率、协作增益或预算约束下的可靠性。",
+        "research_help": "Insight：长时程系统可以把计划进度绑定到已验证的环境状态、资源位置和可恢复检查点，并通过动作后置条件检查减少错误成功报告的传播。共享记忆值得保存带适用条件的失败机制、修复步骤与验证结果，使上下文压缩后的执行仍能继承有效经验。多智能体协调可以围绕关键资源、交接期限和救援责任组织，并通过固定总预算的对照实验检验收益。对 agentic RL，可将故障恢复、重复错误、不可逆资源损失以及时间和调用成本纳入训练与评估目标，避免只奖励最终成功。还应分别测量持续运行时长、实际规划跨度与恢复能力，防止把长时间反复尝试直接解释为可靠的长程规划。",
+        "insight": "Insight：长时程系统可以把计划进度绑定到已验证的环境状态、资源位置和可恢复检查点，并通过动作后置条件检查减少错误成功报告的传播。共享记忆值得保存带适用条件的失败机制、修复步骤与验证结果，使上下文压缩后的执行仍能继承有效经验。多智能体协调可以围绕关键资源、交接期限和救援责任组织，并通过固定总预算的对照实验检验收益。对 agentic RL，可将故障恢复、重复错误、不可逆资源损失以及时间和调用成本纳入训练与评估目标，避免只奖励最终成功。还应分别测量持续运行时长、实际规划跨度与恢复能力，防止把长时间反复尝试直接解释为可靠的长程规划。",
+        "abstract_zh": "作者将四个 Gemini 4 Argon 智能体放入沙盒化的 Minecraft 生存世界，给予击败末影龙这一目标，并让它们通过 Mineflayer 控制玩家、通过游戏聊天和共享记忆协作。研究人员没有分配角色或编写游戏策略，所有程序均由智能体自行规划、编写和调试，运行期间也没有发生人工干预。在随机生成的 Easy 难度世界中，团队编写了2783个程序，经历605次死亡，并在27小时14分钟后击败末影龙。作者称，据其所知，这是首次仅依靠标准 Mineflayer、无需预先勘察种子或额外人工编写游戏专用工具的端到端自主通关。文章介绍了运行设置、任务进程、团队分工、经验共享、物品救援与结果局限，并将这种跨越一天的目标维持和协作能力与复杂软件工程及企业任务联系起来。",
+        "card_summary": "四个 Gemini 4 Argon 编码智能体通过 Mineflayer、共享记忆和聊天，在 27 小时 14 分钟后完成一次 Minecraft 屠龙。案例展示长程协作与失败恢复，但仅一次 Easy 难度运行，且可读取游戏结构状态。",
+        "full_summary": "这篇报告考察通用编码智能体团队能否在大量相互依赖的步骤和反复失败中，持续追求一个跨越一天的任务目标。四个智能体通过 Mineflayer 和寻路插件读取结构化游戏状态、执行自编程序，并借助聊天和共享记忆协调行动。文中报告团队在一个随机生成的 Easy 难度世界中，经过2783个程序和605次死亡，于27小时14分钟后击败末影龙。最有信息量的案例包括把损失转成操作规则、传播工具修复、限时救援关键资源，以及纠正未经验证的成功报告。与此同时，单次运行缺少重复实验和消融，接口还提供隐藏方块及末影龙内部状态，因此结果无法直接证明多智能体或记忆机制提升了可靠性。它值得作为长时程执行与恢复机制的案例阅读，对新规划算法或 agentic RL 训练方法的直接贡献有限。",
+        "recommendation_level": "中",
+        "water_risk": "中",
+        "value_label": "长时程协作与失败恢复案例",
+        "value_reason": "值得有针对性阅读，优先关注执行接口、失败转规则、共享工具和结果核验。论文包含具体程序、事件时间线、成本与失败统计，并明确承认单次运行和接口优势，具有实质案例信息。偏水风险主要来自证据范围与标题观感之间的落差：一次最终成功不能证明稳定规划能力，也无法确立协作或记忆的因果贡献。文中还承认已有其他配置下的通关报告，因此其首次性应严格保留工具与环境条件限定。",
+        "limitations": "这是一次运行的能力案例，没有重复种子成功率、单智能体对照或共享记忆消融；不能据此归因多智能体收益或宣称稳定可靠。Mineflayer 提供包括遮挡方块与龙内部状态的结构化信息，并带寻路插件，不能与像素控制直接比较。27 小时 14 分钟含 6 次服务器重启、约 20 分钟停顿；605 次死亡、22% 程序报错。约 520 美元是作者按当时入门 API 标价和 token 计数估算的四名玩家获胜前费用，不是实测服务成本，含 Observer 和获胜后活动的整场估算约 810 美元。",
+        "source_scope": "full_text",
+        "source_note": "arXiv PDF全文抽取；人工核对正文、关键实验与相关附录。",
+        "source_evidence": [
+          "§2、Figure 2：四个编码agent经Mineflayer和pathfinding插件操控游戏，聊天及共享/私有记忆支持协作；Observer只报告不参赛。",
+          "§3、§5：单次Easy随机世界运行；Free the End日志记录27h14，2783程序、229消息和605次死亡。",
+          "§6：约1.35B输入token（91%缓存）、16M输出token，约24000次调用；API标价费用是作者估算。",
+          "§8：结构状态特权、Easy难度、先验知识、22%程序报错、6次重启和单次运行限制。"
+        ],
+        "model": "gpt-6.1-sol",
+        "updated_at": "2026-10-17T01:31:51.232Z"
+      }
+    },
     {
       "id": "2610.21170v1",
       "title": "MemScope: Evolving Agent Memory Architectures through Localized Code Repair",
