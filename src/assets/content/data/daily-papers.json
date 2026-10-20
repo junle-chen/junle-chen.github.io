@@ -1,7 +1,7 @@
 {
-  "updated_at": "2026-10-19T01:33:44.947Z",
+  "updated_at": "2026-10-20T01:32:47.612Z",
   "source": "arxiv",
-  "analysis_method": "Codex CLI paper reading from arXiv PDF text when extractable; fallback entries are marked as abstract.",
+  "analysis_method": "Codex CLI full-text reading with manual PDF, table, appendix and resource verification; historical records preserved.",
   "query_focus": "多轮交互式 agent planning、long-horizon planning、stateful/personalized planning、agent memory、planning reliability、agentic RL",
   "query_terms": [
     "agentic reinforcement learning",
@@ -37,35 +37,30 @@
     "codex_reader": "Downloads arXiv PDFs, extracts text with pdftotext or bundled Python PDF libraries, then calls codex exec to write Chinese motivation/method/experiment/research-help fields."
   },
   "digest": {
-    "title": "2026-10-19 Daily Paper",
-    "report_date": "2026-10-19",
+    "title": "2026-10-20 Daily Paper",
+    "report_date": "2026-10-20",
     "focus": "long horizon、multi-turn、agentic RL、agent planning，以及直接服务这些方向的 agent memory / planning reliability",
-    "summary": "从16篇arXiv候选中识别3篇已收录论文，严格保留6篇新增：TreeOPSD、ETRO、WebCoder、RECAP、MFM及OPSD特权信息评估。内容覆盖多轮信用分配、跨上下文训练、状态相关遗忘和长程具身记忆；排除纯记忆QA、单次决策筛选、通用偏好对齐及普通通信MARL。详情已核对PDF正文、实验表格、相关附录与资源状态，明确跨论文比较、单检查点成本、部分里程碑和泄漏诊断的证据边界；数值均为作者报告。",
+    "summary": "从16篇arXiv候选中识别3篇已收录论文，严格保留2篇新增：OR-License与IMEP/ChainBench。聚焦长程工作流中的持续信息获取、可行交付，以及跨回合事实更新与决策评测；排除记忆QA、四选一习惯诊断、单次商品改写、通用偏好对齐及普通MARL。已核对PDF正文、结果表、相关附录与资源状态，明确harness敏感性、脚本读出和共享执行回放的证据边界；数值均为作者报告，未独立复现实验。",
     "top_recommendations": [
-      "2610.23181v1",
-      "2610.23048v1",
-      "2610.23104v1",
-      "2610.22512v1"
+      "2610.24087v1",
+      "2610.23372v1"
     ],
     "low_priority": [],
     "no_news_policy": "如果没有新的高相关论文，自动化应返回“今日无高相关新增论文”，不写邮件正文文件，也不发送邮件。",
-    "email_body": "2026-10-19 Daily Paper\n\n从16篇arXiv候选中识别3篇已收录论文，严格保留6篇新增：TreeOPSD、ETRO、WebCoder、RECAP、MFM及OPSD特权信息评估。内容覆盖多轮信用分配、跨上下文训练、状态相关遗忘和长程具身记忆；排除纯记忆QA、单次决策筛选、通用偏好对齐及普通通信MARL。详情已核对PDF正文、实验表格、相关附录与资源状态，明确跨论文比较、单检查点成本、部分里程碑和泄漏诊断的证据边界；数值均为作者报告。\n\n1. Tree-Aware Posterior Distillation for Long-Horizon Agentic Reinforcement Learning\n- 作者：Heming Zou, Qi Wang, Yixiu Mao, Yun Qu, Yuyi Guo, Zeyuan Liu, Chenglin Li, Weijie Liu, Saiyong Yang, Xiangyang Ji\n- 单位：Tsinghua University；Foundation Model Department, Tencent\n- 日期：2026-10-16\n- 论文链接：http://arxiv.org/abs/2610.23181v1\n- 概括：TreeOPSD 把 rollout 树的终局奖励回传为轮级信用，再转为有限的行为相对教师目标，抑制连续小批次更新过冲。30B-A3B 的 Deep Research 平均 EM 从 GRPO 的 16.23 升至 21.20；收益来自作者所测检索任务。\n- Insight：Insight：长程 agentic RL 可以把“如何从终局结果估计中间信用”和“如何使用已采集信用更新策略”分别设计，避免把收益全部归因于更好的探索。有限的行为相对目标提供了可迁移的反馈机制：监测当前轮次似然相对采样时的变化，让旧信用随策略漂移减弱或反向。共享前缀分叉可用于比较不同后续决策，但所得信用仍是采样树上的估计，不能直接视为动作的因果贡献。后续 planning reliability 研究应联合检查固定交互预算下的成功率、错误恢复和成本；更多交互轮数本身不足以证明规划更可靠，本文也未直接验证 agent memory。\n- 局限：理论针对固定采样树上的代理目标；教师目标有界不等于共享参数模型的真实策略变化有硬约束，也不保证真实环境回报单调改善。采样预算按期望近似匹配，不能视为逐次实测 token、工具调用或时间完全一致；附录 D.3 另给出了等训练时间曲线。主任务是检索问答，更多交互轮数不能直接证明规划更可靠或成本更低；4B 有五训练种子统计，30B 未给出对应多种子结果。附录 E.3 声明在预定评估窗口内每次运行报告一个 checkpoint，但未明确完整选取准则，须留意评估选择偏差。最终 Deep Research 允许最多 200 个 assistant turns 与 131072-token 响应预算。\n\n2. Distill Until Divergence: Error-Truncated Hindsight Distillation for Agentic RL\n- 作者：Yibin Huang, Conghui Zhu\n- 单位：Faculty of Computing, Harbin Institute of Technology\n- 日期：2026-10-16\n- 论文链接：http://arxiv.org/abs/2610.23048v1\n- 概括：ETRO 按错误边界分配 hindsight 蒸馏：错误前学工作流，错误处做纠正，错误后仅保留 GRPO。本地 WebShop 错误恢复成功率为 63.8%，两个继续监督后缀的变体为 54.6% 和 49.2%；主表基线来自既有报告。\n- Insight：Insight：多轮系统的辅助信用分配需要同时判断监督内容是否正确、对当前状态是否适用，以及应覆盖多长的决策区间。可以将工作流学习、局部纠错和错误后的重新规划分开处理，让纠错指导集中于它描述的决策，并保留后续依靠环境结果学习的通道。错误边界应结合后续是否恢复来定义，不能简单等同于第一个格式错误或非法动作。可迁移的实验设计是固定纠错内容与监督轮数，只移动监督位置，并从相同受扰状态比较恢复行为；这比只比较终局成功率更能检验规划可靠性的来源。对于包含多次偏离和恢复的长轨迹，进一步研究多个适用区间或状态相关门控比单一截断点更自然，但本文尚未验证。\n- 局限：主要限制包括：主表基线未统一复现；未报告多随机种子、置信区间或显著性检验；关键机制消融主要限于 1.5B 与 WebShop，跨规模和跨任务推广证据有限；区域相关性诊断未给出过滤后的覆盖规模与置信区间，其参考 advantage 也不是动作质量的真值；writer 审核仅覆盖 100 条失败 WebShop 轨迹，并由模型参照人工标注评分，尚未直接评估边界噪声对训练的敏感性；受控恢复实验未充分报告样本量、重复次数及错误构造细节；27B writer 和策略重评分的训练成本没有量化。交互预算最高为 15 轮，Search QA 为 4 轮，尚不足以验证更长时域的规划可靠性；单一未恢复错误边界也难以刻画多次错误与恢复交替的过程。附录C.2说明使用预先登记的可恢复错误与盲评，但仍未列出恢复套件规模及重复次数。\n\n3. WebCoder: Scaling General Frontend Development with Artifact-Grounded Agentic Reinforcement Learning\n- 作者：Zijun Dou, Zhen Yang, Xijun Liu, Dongzhuoran Zhou, Aohan Zeng, Jie Tang\n- 单位：Tsinghua University；Zhipu AI；Beihang University；University of Oslo\n- 日期：2026-10-16\n- 论文链接：http://arxiv.org/abs/2610.23104v1\n- 概括：WebCoder 用可运行应用的终局验收奖励和阶段进展分配信用，并通过压缩与消息树训练跨上下文轨迹。Webdev-Bench 的需求满足度由基座的 64.8 升至 72.8；40 个任务的自建基准与代码开放状态仍限制结论。\n- Insight：Insight：多轮 agent 可以围绕持续演化的外部产物组织状态与奖励，把新增目标和历史约束放进同一个验收体系，并在终局重新检查早期承诺，从而显式衡量长程回归。对于 agentic RL，可以把较昂贵的终局验证与较便宜的过程代理分开设计，再研究过程信号如何影响学习；本文的优势中心化只保证平均优势保持不变，不保证策略梯度或最优策略不变。上下文压缩后的历史去重与训练 token 归属，是训练跨窗口轨迹时值得迁移的实现细节。进一步研究应把进度代理与真实功能状态对齐，并分别测量历史约束遗忘、回归修复和跨压缩边界的信息保留，避免用文本覆盖或源码增长替代可靠性。\n- 局限：自建Webdev-Bench只有40任务，依赖模拟用户和LLM验收；评分一致性及局部人工审核不能保证所有功能正确。中间势函数主要取最近一次应用fetch中的预期内容覆盖，属于进展代理，不是每个动作的因果贡献；无fetch时沿用旧值。现有仓库子集RS没有超过基座，不能把平均提升解释为所有开发类型都改善。论文称录用后开放模型、基准与训练评估代码；本次核对公开GitHub仅含项目页和宣传片资源，模型/数据链接返回401，尚未验证可取得训练实现或权重。评估为特定框架与预算下的作者结果，未独立复现。Appendix C.2还说明生成任务的训练功能评分只看截图线索、不执行交互；Appendix H的160项人工偏好比较也主要依据截图，不能替代实测交互。无压缩消融同时改变训练样本覆盖，无法仅归因于压缩操作。\n\n4. When to Forget: Risk-Controlled Context Adaptation for Long-Horizon Agents\n- 作者：Chenle Chen, Yangbo Wei, Zhijie Zheng, Zhenyu Su, Qifan Wang, Junhong Qian, Chao Yao, Chen Wu, Lei He\n- 单位：University of California, Los Angeles；Shanghai Jiao Tong University；Arizona State University；Eastern Institute of Technology, Ningbo\n- 日期：2026-10-16\n- 论文链接：http://arxiv.org/abs/2610.22897v1\n- 概括：RECAP 根据失败记录对后续执行的价值选择保留、压缩或删除，并用独立任务束校准风险。Hunyuan 上维持观察到的 91.89% 续跑成功率，平均少用 2.13% prompt token；证据限于单检查点干预。\n- Insight：Insight：记忆保留应依据它对剩余约束、候选排除和子目标依赖的作用，而不是固定遗忘周期；这可转化为多轮系统的状态条件记忆门控。评估编辑动作时，应从同一环境状态比较完整后续轨迹，避免把缩短当前提示词误当成降低任务总成本。对 agentic RL，可借鉴这种匹配干预来构造记忆动作的收益与伤害监督，并将候选策略学习和独立可靠性检验分开，但本文没有验证这一 RL 扩展。长程系统还需要额外检验连续多次编辑的误差累积，因为单次干预证据无法直接支持整条轨迹的可靠性。\n- 局限：每次matched continuation只编辑一个检查点，不能把检查点节省相加当作完整episode节省或反复部署收益。筛选池来自已成功且至少出现两次自然失败的基线轨迹，外推至其他任务分布需验证。定理假设独立同分布任务束及固定有限种子测量协议，控制任务级有害干预事件和非正归一化收益事件，预算均为0.20、置信水平0.95；不保证每次编辑无损，也不控制损失大小、真实潜在成功概率或平均原始token节省。Hunyuan的开发标签没有伤害样本，其harm score恒定；测试与LEARNED-NOCERT结果相同。Qwen4B/8B观察成功率下降；控制器、特征提取和文本处理时间未单列。\n\n5. Multimodal Filesystem Memory For Long-Horizon Embodied Agents\n- 作者：Chloe Su, Jiahan Li, Zhenting Qi, Chaoran Cheng, Haoyu Chen, Sejoon Jun, Weirui Ye, Yilun Du\n- 单位：Harvard University；New York University；Massachusetts Institute of Technology；Kempner Institute；University of Illinois Urbana-Champaign；Northeastern University\n- 日期：2026-10-15\n- 论文链接：http://arxiv.org/abs/2610.22686v1\n- 概括：MFM 用带索引的原始视觉记录、空间信息和可回溯的知识/技能文件支持长程执行。GPT-6-Astra 在屠龙任务完成 16/24 个里程碑，KiCad平均奖励0.440；尚未完成屠龙，主实验每配置仅3种子。\n- Insight：Insight：长程规划的记忆可以将“定位经验的线索”和“支持判断的证据”分开存储，避免一次文字压缩永久固化感知错误。知识、程序和计划若保留证据引用，就能在执行结果异常时回溯、修正，并撤销不安全的旧程序。多轮系统还应把动作返回成功与目标状态实际达成分开验证，将检查步骤沉淀为可复用程序。对agentic RL的可迁移研究方向，是学习何时检索、复查、整合和停用技能，并以任务成功、失败恢复和总成本评估；这些属于本文启发，尚非论文验证的训练结论。\n- 局限：主实验每配置3种子，只有Minecraft与25个KiCad任务，尚未证明广泛环境泛化。Minecraft通过共享28个闭环原子过程读取结构化状态，每次计划至多400环境步，不能当作纯像素低层控制；Direct还不获得RECENT/MAP字段，须与记忆基线对照区分。KiCad允许记忆跨任务，结果是持续学习设定，不能当作独立任务成功率；奖励可为部分分。消融只覆盖一个基座；所有Dragon运行耗尽预算，16/24是里程碑而非完成率。附录成本/存储表来自单次运行，只说明量级；公开仓库含MFM与Direct实现，但未包含PRO-LONG/VISTA复现代码。基线适配也有解释空间：Table 6允许记忆方法写文件并执行程序，附录同时称基线缺少持久程序存放位置，不能仅凭完整系统差异归因某一记忆机制。\n\n6. Predicting Privileged Information Effectiveness for On-Policy Self-Distillation\n- 作者：Kaijian Zou, Emiliano Penaloza, MohammadHossein Rezaei, Anisha Gunjal, Mohit Raghavendra, Lu Wang, Yunzhong He, Anas Mahmoud\n- 单位：University of Michigan – Ann Arbor；Mila；Scale AI\n- 日期：2026-10-15\n- 论文链接：http://arxiv.org/abs/2610.22512v1\n- 概括：这项 OPSD 研究比较16种特权信息配置，提出用错误步 KL 对比筛选更有用的监督。正确密钥可让带提示作答达98.1%，但学生训练后仍为14.4%；教师获益不能直接代表可迁移的学习信号。\n- Insight：Insight：对多轮规划和 agentic RL，可迁移的核心是按监督是否修正学生实际犯错的位置来评估经验，而不是按教师看到经验后的成功率或分布变化幅度选数据。轨迹和记忆压缩应尽量保留动作前提、环境反馈和错误原因，避免只保留最终答案或成功叙述；这一点对 agent memory 的启发仍需独立实验验证。已有推理能力较强的策略可能被详细教师轨迹干扰，因此可以把错误针对性诊断作为辅助监督筛选依据。静态 PI 的早期收益和后期冗余提示，可以探索随训练退火蒸馏权重、刷新剩余错误对应的 PI，但论文没有验证这些自适应方案，也没有直接证明更长规划跨度上的可靠性提升。\n- 局限：KL对比是基于采样token概率及judge错误定位的经验筛选指标，不是真实信用或因果效应；较大分布位移可能强化错误。受控PI选择主要在4B-Instruct与ALFWorld，单一强源池及训练后期优势可消失；不能把它看成普适评分器。性能采用最佳连续三checkpoint窗口，有选择协议依赖，不能当作最终checkpoint结果。Passcode刻意改成仅检查密钥，是泄漏机制诊断，不能代表标准环境成功；静态PI可能加速过拟合并在一epoch后干扰GRPO。论文链接的PI-OPSD仓库本次返回404，未验证代码可取得；实验结果为作者报告，未独立复现。"
+    "email_body": "2026-10-20 Daily Paper\n\n从16篇arXiv候选中识别3篇已收录论文，严格保留2篇新增：OR-License与IMEP/ChainBench。聚焦长程工作流中的持续信息获取、可行交付，以及跨回合事实更新与决策评测；排除记忆QA、四选一习惯诊断、单次商品改写、通用偏好对齐及普通MARL。已核对PDF正文、结果表、相关附录与资源状态，明确harness敏感性、脚本读出和共享执行回放的证据边界；数值均为作者报告，未独立复现实验。\n\n1. OR-License: Evaluating LLM Agents as Real-World Operations Research Practitioners\n- 作者：Peisong Wang, Feixue Liu, Yize Meng, Bowen Liu, Ruoyu Chen, Gaoyang Dai, Xing He, Aiqian Li, Fengchi Yuan, Aochuan Chen, Chenyi Zi, Yuhan Li, Hongchuan Zeng, Yimo Yan, Nuo Chen, Jie Fu, Zuo-Jun Max Shen, Yong-Hong KUO, Jia Li\n- 单位：HKUST-GZ；The University of Hong Kong；Qingzhi Optimization；Hunyuan, Tencent；XM Capital；Tianjin Meta & Infinite Technology；CZBANK；American University of Sharjah；Independent Researcher\n- 日期：2026-10-16\n- 论文链接：https://arxiv.org/abs/2610.24087v1\n- 概括：OR-License 用31个真实业务实例评估 agent 持续问询、建模、求解与验证的完整流程。主实验最佳 DAQ 为86.55%，换用另一 harness 后有模型达到93.59%；结果显示可行交付与持续修正仍有缺口。\n- Insight：Insight：长程任务的可靠性应同时衡量是否形成可行交付、可行时质量如何，以及中途能否根据新证据重审业务假设。把客户事实查询作为整个规划过程中的可选动作，而非仅用于起始澄清，可以形成更贴近实际工作流的任务设计。HCAEU 链提供一种过程诊断：有解释、有实验或读懂输出，都不等于已据证据修订方案。对 agentic RL，可进一步研究信息缺口识别和修订行为的监督，但论文只提供评测与观察，尚未验证该训练方向；比较策略时还需固定 harness 和预算。\n- 局限：实例只有31个，来自特定行业与已完成项目；368万美元是来源项目的总价值，不是 agent 创造的收益。ORSim 依赖预先整理的事实目录与披露规则，不能代表开放式真实客户。后期澄清与问题解决的关联来自轨迹标注，未控制问题难度及样本选择，不能推出晚问更优；完整研究链缺失也不必然表示问题未解决。主表的±为任务内样本标准差的平均值，不是基准均值的标准误或置信区间；条件质量对应不同可行子集。500轮、12小时是上限而非实际耗时，harness 消融仅覆盖3模型。Tasks 26–31还需要语义审查，论文结果由专家复核，并非所有正确性都能由程序自动证明。代码、任务和评估实现可访问；大型金融与共享单车文件另行分发，未独立复现实验。\n\n2. Beyond Success Rate: Interventional Evaluation of Memory in Vision-Language-Action Systems\n- 作者：Keyuan Luo, Yi Xie, Wanyun Ling, Yuanzhe Li, Ziyue Li, Zhuoqi Zeng\n- 单位：Hainan Bielefeld University of Applied Sciences (BiUH)；Technical University of Munich；Technische Universität Berlin\n- 日期：2026-10-16\n- 论文链接：https://arxiv.org/abs/2610.23372v1\n- 概括：IMEP 用事实替换和数值扰动区分记忆净收益、行为敏感性与事实使用。ChainBench 的整理后记忆让202链成功率从39.1%升至74.3%，但主实验依赖脚本读出与共享执行回放，尚未证明完整在线系统可靠。\n- Insight：Insight：多轮规划系统应先确认当前观察是否缺少决策所需的历史信息，再核对相关事实是否经过写入、保留、检索和读出到达决策位置。评估记忆时，成对报告改善与退化比单一成功率更能暴露抵消效应；保事实替换、准确重放和微小扰动控制有助于区分事实作用与计算敏感性。应将“选对目标”和“执行成功”分别测量，并验证陈旧事实是否被正确更新。可迁移的是评测协议；脚本读出器的事实敏感性不能替代在线 memory agent 的端到端证据，也不是 agentic RL 训练效果。\n- 局限：四问题框架及解释准则是在实验结束后形成，部分分析、内容存活审查及阈值修订属于事后检查；协议虽有哈希但无第三方时间戳。学习向量库的替换不是经验证的语义编辑，且缺少决策读出和内容正控制，未检测到特异性不能解释为记忆绝对无用。ChainBench主实验不调用决策时LLM，latest-write状态由设定给出，不是在线写入、淘汰和检索全链路验证；与oracle等执行成功率部分由共享回放构造保证。401链正控制与特异性使用同一实验，不能视为独立证据；143链支持集重建有未解决的选择偏差。202链历史决策评估器源码摘要未记录，闭源planner不能逐位再生。匿名代码/归档链接本次返回403，无法验证其可访问内容或完整重跑能力；非匿名材料承诺发表后开放。"
   },
   "latest_item_ids": [
-    "2610.23181v1",
-    "2610.23048v1",
-    "2610.23104v1",
-    "2610.22897v1",
-    "2610.22686v1",
-    "2610.22512v1"
+    "2610.24087v1",
+    "2610.23372v1"
   ],
   "archive": {
     "policy": "append_or_update_by_arxiv_id",
-    "fresh_items": 6,
-    "total_items": 500,
-    "previous_items": 494,
-    "latest_items": 6,
+    "fresh_items": 2,
+    "total_items": 502,
+    "previous_items": 500,
+    "latest_items": 2,
     "source_report_dates": {
+      "2026-10-20": 2,
       "2026-10-19": 6,
       "2026-10-17": 3,
       "2026-10-16": 9,
@@ -117,25 +112,283 @@
       "undefined": 39
     },
     "filtered_candidate_ids": [
-      "2610.23181v1",
-      "2610.23048v1",
-      "2610.23104v1",
-      "2610.22897v1",
-      "2610.22686v1",
-      "2610.22512v1"
+      "2610.24087v1",
+      "2610.23372v1"
     ],
-    "filtered_today": 6,
+    "filtered_today": 2,
     "rejected_candidate_ids": [
+      "2610.24378v1",
+      "2610.24520v1",
+      "2610.23598v1",
       "2610.23313v1",
       "2610.22959v1",
       "2610.23256v1",
       "2610.22848v1",
+      "2610.23709v1",
       "2610.23266v1",
-      "2610.22884v1",
-      "2610.21900v1"
+      "2610.23820v1",
+      "2610.22884v1"
     ]
   },
   "items": [
+    {
+      "id": "2610.24087v1",
+      "title": "OR-License: Evaluating LLM Agents as Real-World Operations Research Practitioners",
+      "summary": "Can large language model (LLM) agents deliver expert-level operations research (OR) solutions directly from original client materials, without prior expert reformulation? Existing OR benchmarks typically begin with self-contained descriptions or predefined optimization tasks, underrepresenting the translation of original business materials into professionally validated solutions. We introduce OR-License, an end-to-end benchmark of 31 instances across 10 industrial scenarios from paid OR engagements totaling USD 3.68 million. It preserves original requirements, input data, deliverable formats, and information boundaries after de-identification. To study information acquisition, we introduce ORSim, a controlled client simulator that discloses business facts without supplying OR expertise. Hidden evaluation checks feasibility and compares objective quality against original expert solutions accepted by clients before benchmark construction. Deployment-Adjusted Quality (DAQ) averages expert-relative quality across instances, assigning zero to infeasible deliveries. Across 11 frontier LLMs using coding-agent harnesses, several exceed the expert reference in conditional objective quality, but none matches its DAQ; the strongest primary Claude Code configuration achieves 88.39% strict feasibility and a DAQ of 0.87 against the expert reference of 1. Client information acquisition extends beyond clarification into solution development and validation, with some later stages showing higher confirmed issue-resolution proportions. Trajectory analysis identifies formulation and implementation failures, while task-equalized research-chain completion rates range from 24% to 45% across models on evaluable tasks. These findings motivate sustained information-gap resolution, faithful problem formulation, and evidence-linked self-improvement for reliable long-horizon agents.",
+      "url": "https://arxiv.org/abs/2610.24087v1",
+      "authors": [
+        "Peisong Wang",
+        "Feixue Liu",
+        "Yize Meng",
+        "Bowen Liu",
+        "Ruoyu Chen",
+        "Gaoyang Dai",
+        "Xing He",
+        "Aiqian Li",
+        "Fengchi Yuan",
+        "Aochuan Chen",
+        "Chenyi Zi",
+        "Yuhan Li",
+        "Hongchuan Zeng",
+        "Yimo Yan",
+        "Nuo Chen",
+        "Jie Fu",
+        "Zuo-Jun Max Shen",
+        "Yong-Hong KUO",
+        "Jia Li"
+      ],
+      "report_date": "2026-10-20",
+      "published": "2026-10-16",
+      "updated": "2026-10-16",
+      "primary_category": "cs.CL",
+      "categories": [
+        "cs.CL",
+        "cs.AI"
+      ],
+      "project_url": "https://www.or-license.com/",
+      "repo_url": "https://github.com/NineAbyss/OR-License",
+      "venue_status": "未确认录用",
+      "recommendation": {
+        "level": "高",
+        "label": "值得精读：持续信息获取与可行交付评测",
+        "water_risk": "低",
+        "value_judgement": "直接覆盖多轮长程工作流，保留信息获取、建模、求解和验证的依赖关系；可行性门控质量与过程标注有实用诊断价值。结论需结合小规模实例、模拟客户和显著的 harness 敏感性阅读。",
+        "reason": "直接覆盖多轮长程工作流，保留信息获取、建模、求解和验证的依赖关系；可行性门控质量与过程标注有实用诊断价值。结论需结合小规模实例、模拟客户和显著的 harness 敏感性阅读。",
+        "signals": {
+          "agenticRl": false,
+          "multiTurn": true,
+          "longHorizon": true,
+          "memory": false,
+          "reliability": true,
+          "codeOrTool": true,
+          "experiments": true,
+          "survey": false
+        }
+      },
+      "brief": {
+        "authors": [
+          "Peisong Wang",
+          "Feixue Liu",
+          "Yize Meng",
+          "Bowen Liu",
+          "Ruoyu Chen",
+          "Gaoyang Dai",
+          "Xing He",
+          "Aiqian Li",
+          "Fengchi Yuan",
+          "Aochuan Chen",
+          "Chenyi Zi",
+          "Yuhan Li",
+          "Hongchuan Zeng",
+          "Yimo Yan",
+          "Nuo Chen",
+          "Jie Fu",
+          "Zuo-Jun Max Shen",
+          "Yong-Hong KUO",
+          "Jia Li"
+        ],
+        "affiliations": "HKUST-GZ；The University of Hong Kong；Qingzhi Optimization；Hunyuan, Tencent；XM Capital；Tianjin Meta & Infinite Technology；CZBANK；American University of Sharjah；Independent Researcher",
+        "date": "2026-10-16",
+        "paper_url": "https://arxiv.org/abs/2610.24087v1",
+        "project_url": "https://www.or-license.com/",
+        "repo_url": "https://github.com/NineAbyss/OR-License",
+        "venue_status": "未确认录用",
+        "contribution": "直接覆盖多轮长程工作流，保留信息获取、建模、求解和验证的依赖关系；可行性门控质量与过程标注有实用诊断价值。结论需结合小规模实例、模拟客户和显著的 harness 敏感性阅读。",
+        "summary": "OR-License 将经脱敏的真实运筹业务材料、受控客户模拟器和客户已验收专家解组织成长程 agent 评测。agent 可以在求解全程询问缺失业务事实，再提交可执行交付物，由隐藏检查评估可行性和专家相对质量。DAQ 对失败实例记零，避免只看成功子集掩盖交付风险。11模型、31任务、每对5次的主实验最佳 DAQ 为86.55%，多数问询集中在编写求解器之前，完整证据驱动研究链也不足半数。附录显示更换 harness 可明显改变成绩，说明结果属于模型、执行框架和协议的共同表现。",
+        "highlights": [
+          "直接覆盖多轮长程工作流，保留信息获取、建模、求解和验证的依赖关系；可行性门控质量与过程标注有实用诊断价值。结论需结合小规模实例、模拟客户和显著的 harness 敏感性阅读。",
+          "偏水风险：低",
+          "阅读来源：PDF 全文及相关附录人工核对"
+        ],
+        "motivation": "既有运筹优化评测常把完整问题描述交给模型，省略从业务材料发现缺失信息、形成正确模型、检查并修订交付物的工作。OR-License 将这些步骤放回持续交互的任务轨迹，研究 agent 能否达到客户已验收专家解的可行性与目标质量，以及执行反馈能否触发后续澄清和有证据的修正。它是长程 agent 评测，不是新的 RL 训练算法。",
+        "method": "收集经脱敏的10个工业场景、31个实例，保留原始需求、输入文件、交付格式和信息边界。ORSim 先用模型从隐藏的业务事实目录选择 ID，再由确定性控制器授权、最后仅据授权事实生成回复，每次最多新增披露3条非初始简报事实，不提供 OR 专业解法。agent 经 shell 查询客户、编写和运行求解器并自检；隐藏评估重算目标并检查约束，实例所有测试通过才算可行。DAQ 对不可行交付记零，再按实例等权平均专家相对质量；轨迹另标注假设、机制解释、实验、证据解释和修订组成的 HCAEU 链。",
+        "experiments": "主实验为11个模型×31任务×5次运行，统一使用 Claude Code。Table 1 中 Grok 4.6 可行率88.39%、可行子集质量97.92%、DAQ86.55%；GPT-5.6 Sol 的 DAQ 为85.02%，专家参考为100%。各模型可行子集不同，条件质量不能直接证明同等优化能力。24%–45%的研究机会形成完整 HCAEU 链，86.7%–98.3%的提问发生在开始编写求解器之前；少量后期澄清与更高问题解决比例相关，但不是提问时机的因果实验。Appendix D.7 换用 Codex 后，GPT-5.6 Sol 的 DAQ 升至93.59%、DeepSeek 升至78.27%，GLM 则从63.21%降至34.42%，表明 harness 与模型存在交互。",
+        "research_help": "Insight：长程任务的可靠性应同时衡量是否形成可行交付、可行时质量如何，以及中途能否根据新证据重审业务假设。把客户事实查询作为整个规划过程中的可选动作，而非仅用于起始澄清，可以形成更贴近实际工作流的任务设计。HCAEU 链提供一种过程诊断：有解释、有实验或读懂输出，都不等于已据证据修订方案。对 agentic RL，可进一步研究信息缺口识别和修订行为的监督，但论文只提供评测与观察，尚未验证该训练方向；比较策略时还需固定 harness 和预算。",
+        "recommendation": {
+          "level": "高",
+          "label": "值得精读：持续信息获取与可行交付评测",
+          "water_risk": "低",
+          "value_judgement": "直接覆盖多轮长程工作流，保留信息获取、建模、求解和验证的依赖关系；可行性门控质量与过程标注有实用诊断价值。结论需结合小规模实例、模拟客户和显著的 harness 敏感性阅读。",
+          "reason": "直接覆盖多轮长程工作流，保留信息获取、建模、求解和验证的依赖关系；可行性门控质量与过程标注有实用诊断价值。结论需结合小规模实例、模拟客户和显著的 harness 敏感性阅读。",
+          "signals": {
+            "agenticRl": false,
+            "multiTurn": true,
+            "longHorizon": true,
+            "memory": false,
+            "reliability": true,
+            "codeOrTool": true,
+            "experiments": true,
+            "survey": false
+          }
+        },
+        "insight": "Insight：长程任务的可靠性应同时衡量是否形成可行交付、可行时质量如何，以及中途能否根据新证据重审业务假设。把客户事实查询作为整个规划过程中的可选动作，而非仅用于起始澄清，可以形成更贴近实际工作流的任务设计。HCAEU 链提供一种过程诊断：有解释、有实验或读懂输出，都不等于已据证据修订方案。对 agentic RL，可进一步研究信息缺口识别和修订行为的监督，但论文只提供评测与观察，尚未验证该训练方向；比较策略时还需固定 harness 和预算。",
+        "abstract_zh": "论文研究大语言模型agent能否直接从客户原始材料出发，在没有专家预先重述问题的情况下交付专家级运筹优化方案。作者提出OR-License，包含来自总项目价值368万美元的付费运筹项目、覆盖10个工业场景的31个任务，并在脱敏后保留原始需求、输入数据、交付格式和信息边界。配套的ORSim提供客户掌握的业务事实而不提供运筹专业知识，隐藏评测检查方案可行性，并以基准构建前已获客户接受的专家方案衡量目标质量，DAQ则对不可行交付记零后进行汇总。在11个前沿模型的评测中，部分模型在可行交付上的条件目标质量超过专家参考，但没有模型达到专家的DAQ，主要Claude Code配置中的最佳严格可行率为88.39%。轨迹分析显示，信息获取延续到方案开发和验证阶段，部分后期阶段具有更高的已确认问题解决比例，而研究链完成比例仅为24%—45%，因此作者强调持续解决信息缺口、忠实建模和依据证据改进对于长程agent可靠性的重要性。",
+        "full_summary": "OR-License 将经脱敏的真实运筹业务材料、受控客户模拟器和客户已验收专家解组织成长程 agent 评测。agent 可以在求解全程询问缺失业务事实，再提交可执行交付物，由隐藏检查评估可行性和专家相对质量。DAQ 对失败实例记零，避免只看成功子集掩盖交付风险。11模型、31任务、每对5次的主实验最佳 DAQ 为86.55%，多数问询集中在编写求解器之前，完整证据驱动研究链也不足半数。附录显示更换 harness 可明显改变成绩，说明结果属于模型、执行框架和协议的共同表现。",
+        "card_summary": "OR-License 用31个真实业务实例评估 agent 持续问询、建模、求解与验证的完整流程。主实验最佳 DAQ 为86.55%，换用另一 harness 后有模型达到93.59%；结果显示可行交付与持续修正仍有缺口。",
+        "limitations": "实例只有31个，来自特定行业与已完成项目；368万美元是来源项目的总价值，不是 agent 创造的收益。ORSim 依赖预先整理的事实目录与披露规则，不能代表开放式真实客户。后期澄清与问题解决的关联来自轨迹标注，未控制问题难度及样本选择，不能推出晚问更优；完整研究链缺失也不必然表示问题未解决。主表的±为任务内样本标准差的平均值，不是基准均值的标准误或置信区间；条件质量对应不同可行子集。500轮、12小时是上限而非实际耗时，harness 消融仅覆盖3模型。Tasks 26–31还需要语义审查，论文结果由专家复核，并非所有正确性都能由程序自动证明。代码、任务和评估实现可访问；大型金融与共享单车文件另行分发，未独立复现实验。"
+      },
+      "analysis": {
+        "motivation": "既有运筹优化评测常把完整问题描述交给模型，省略从业务材料发现缺失信息、形成正确模型、检查并修订交付物的工作。OR-License 将这些步骤放回持续交互的任务轨迹，研究 agent 能否达到客户已验收专家解的可行性与目标质量，以及执行反馈能否触发后续澄清和有证据的修正。它是长程 agent 评测，不是新的 RL 训练算法。",
+        "method": "收集经脱敏的10个工业场景、31个实例，保留原始需求、输入文件、交付格式和信息边界。ORSim 先用模型从隐藏的业务事实目录选择 ID，再由确定性控制器授权、最后仅据授权事实生成回复，每次最多新增披露3条非初始简报事实，不提供 OR 专业解法。agent 经 shell 查询客户、编写和运行求解器并自检；隐藏评估重算目标并检查约束，实例所有测试通过才算可行。DAQ 对不可行交付记零，再按实例等权平均专家相对质量；轨迹另标注假设、机制解释、实验、证据解释和修订组成的 HCAEU 链。",
+        "experiments": "主实验为11个模型×31任务×5次运行，统一使用 Claude Code。Table 1 中 Grok 4.6 可行率88.39%、可行子集质量97.92%、DAQ86.55%；GPT-5.6 Sol 的 DAQ 为85.02%，专家参考为100%。各模型可行子集不同，条件质量不能直接证明同等优化能力。24%–45%的研究机会形成完整 HCAEU 链，86.7%–98.3%的提问发生在开始编写求解器之前；少量后期澄清与更高问题解决比例相关，但不是提问时机的因果实验。Appendix D.7 换用 Codex 后，GPT-5.6 Sol 的 DAQ 升至93.59%、DeepSeek 升至78.27%，GLM 则从63.21%降至34.42%，表明 harness 与模型存在交互。",
+        "research_help": "Insight：长程任务的可靠性应同时衡量是否形成可行交付、可行时质量如何，以及中途能否根据新证据重审业务假设。把客户事实查询作为整个规划过程中的可选动作，而非仅用于起始澄清，可以形成更贴近实际工作流的任务设计。HCAEU 链提供一种过程诊断：有解释、有实验或读懂输出，都不等于已据证据修订方案。对 agentic RL，可进一步研究信息缺口识别和修订行为的监督，但论文只提供评测与观察，尚未验证该训练方向；比较策略时还需固定 harness 和预算。",
+        "insight": "Insight：长程任务的可靠性应同时衡量是否形成可行交付、可行时质量如何，以及中途能否根据新证据重审业务假设。把客户事实查询作为整个规划过程中的可选动作，而非仅用于起始澄清，可以形成更贴近实际工作流的任务设计。HCAEU 链提供一种过程诊断：有解释、有实验或读懂输出，都不等于已据证据修订方案。对 agentic RL，可进一步研究信息缺口识别和修订行为的监督，但论文只提供评测与观察，尚未验证该训练方向；比较策略时还需固定 harness 和预算。",
+        "abstract_zh": "论文研究大语言模型agent能否直接从客户原始材料出发，在没有专家预先重述问题的情况下交付专家级运筹优化方案。作者提出OR-License，包含来自总项目价值368万美元的付费运筹项目、覆盖10个工业场景的31个任务，并在脱敏后保留原始需求、输入数据、交付格式和信息边界。配套的ORSim提供客户掌握的业务事实而不提供运筹专业知识，隐藏评测检查方案可行性，并以基准构建前已获客户接受的专家方案衡量目标质量，DAQ则对不可行交付记零后进行汇总。在11个前沿模型的评测中，部分模型在可行交付上的条件目标质量超过专家参考，但没有模型达到专家的DAQ，主要Claude Code配置中的最佳严格可行率为88.39%。轨迹分析显示，信息获取延续到方案开发和验证阶段，部分后期阶段具有更高的已确认问题解决比例，而研究链完成比例仅为24%—45%，因此作者强调持续解决信息缺口、忠实建模和依据证据改进对于长程agent可靠性的重要性。",
+        "card_summary": "OR-License 用31个真实业务实例评估 agent 持续问询、建模、求解与验证的完整流程。主实验最佳 DAQ 为86.55%，换用另一 harness 后有模型达到93.59%；结果显示可行交付与持续修正仍有缺口。",
+        "full_summary": "OR-License 将经脱敏的真实运筹业务材料、受控客户模拟器和客户已验收专家解组织成长程 agent 评测。agent 可以在求解全程询问缺失业务事实，再提交可执行交付物，由隐藏检查评估可行性和专家相对质量。DAQ 对失败实例记零，避免只看成功子集掩盖交付风险。11模型、31任务、每对5次的主实验最佳 DAQ 为86.55%，多数问询集中在编写求解器之前，完整证据驱动研究链也不足半数。附录显示更换 harness 可明显改变成绩，说明结果属于模型、执行框架和协议的共同表现。",
+        "recommendation_level": "高",
+        "water_risk": "低",
+        "value_label": "值得精读：持续信息获取与可行交付评测",
+        "value_reason": "直接覆盖多轮长程工作流，保留信息获取、建模、求解和验证的依赖关系；可行性门控质量与过程标注有实用诊断价值。结论需结合小规模实例、模拟客户和显著的 harness 敏感性阅读。",
+        "limitations": "实例只有31个，来自特定行业与已完成项目；368万美元是来源项目的总价值，不是 agent 创造的收益。ORSim 依赖预先整理的事实目录与披露规则，不能代表开放式真实客户。后期澄清与问题解决的关联来自轨迹标注，未控制问题难度及样本选择，不能推出晚问更优；完整研究链缺失也不必然表示问题未解决。主表的±为任务内样本标准差的平均值，不是基准均值的标准误或置信区间；条件质量对应不同可行子集。500轮、12小时是上限而非实际耗时，harness 消融仅覆盖3模型。Tasks 26–31还需要语义审查，论文结果由专家复核，并非所有正确性都能由程序自动证明。代码、任务和评估实现可访问；大型金融与共享单车文件另行分发，未独立复现实验。",
+        "source_scope": "full_text",
+        "source_note": "Extracted from arXiv PDF.",
+        "source_evidence": [
+          "Sections 3.1–3.5：31实例、ORSim、实例级可行性门控 DAQ 与 HCAEU 轨迹标注。",
+          "Table 1 / Section 4：11模型、每任务5次，Grok Feas88.39%、DAQ86.55%；Figure 5 显示初期提问占86.7%–98.3%。",
+          "Appendix D.3/D.4：500轮和12小时上限；Tasks26–31需语义审查。",
+          "Appendix D.7 Table 7：Codex下 GPT-5.6 Sol DAQ93.59%、GLM34.42%，对比主表85.02%和63.21%。"
+        ],
+        "model": "gpt-6.1-sol",
+        "updated_at": "2026-10-20T01:32:47.611Z"
+      }
+    },
+    {
+      "id": "2610.23372v1",
+      "title": "Beyond Success Rate: Interventional Evaluation of Memory in Vision-Language-Action Systems",
+      "summary": "When we say that a robot uses memory, does that memory actually play a role? Success-rate ablations alone cannot establish the use of task-relevant facts: they change information and computation together, while aggregate rates can hide offsetting gains and losses. We propose an Interventional Memory Evaluation Protocol (IMEP) for vision-language-action (VLA) systems to address four questions: (1) Does memory provide a net benefit? (2) Under what conditions does memory help? (3) Do changes to memory alter task outcomes? (4) Are these effects specific to task-relevant facts? At the retrieval interface, we compare target-fact substitutions with fact-preserving replacements, minimal numerical perturbations, and exact replicas, while assessing decision correctness separately from motor execution success. We evaluate within-episode, cross-episode, and agentic memory. In cross-episode learned-bank experiments, a one-unit-in-the-last-place (ULP) intervention, including its installation procedure, changes 11.9% of seed-paired outcomes, while changing key facts produces no clear additional effect over fact-preserving replacements. To examine when memory helps, we introduce ChainBench, where correct decisions require historical information unavailable in current observations. The full memory configuration raises task success from 39.1% to 74.3%, matching the oracle-decision condition under shared recorded executions. These results show that correct history can support robot decisions, but establishing whether a memory system realizes this benefit requires fact-specific evidence beyond aggregate success rates.",
+      "url": "https://arxiv.org/abs/2610.23372v1",
+      "authors": [
+        "Keyuan Luo",
+        "Yi Xie",
+        "Wanyun Ling",
+        "Yuanzhe Li",
+        "Ziyue Li",
+        "Zhuoqi Zeng"
+      ],
+      "report_date": "2026-10-20",
+      "published": "2026-10-16",
+      "updated": "2026-10-16",
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO",
+        "cs.LG"
+      ],
+      "project_url": "",
+      "repo_url": "",
+      "venue_status": "未确认录用",
+      "recommendation": {
+        "level": "高",
+        "label": "值得精读：跨回合记忆的事实干预评测",
+        "water_risk": "中",
+        "value_judgement": "对长程多轮任务的状态依赖和事实更新有直接方法启发，关键价值是把有收益、会变化和按事实变化分开验证。评测范围与归档来源有较多限制，应阅读控制设计和附录，而非把主数字当作通用 agent 能力。",
+        "reason": "对长程多轮任务的状态依赖和事实更新有直接方法启发，关键价值是把有收益、会变化和按事实变化分开验证。评测范围与归档来源有较多限制，应阅读控制设计和附录，而非把主数字当作通用 agent 能力。",
+        "signals": {
+          "agenticRl": false,
+          "multiTurn": true,
+          "longHorizon": true,
+          "memory": true,
+          "reliability": true,
+          "codeOrTool": false,
+          "experiments": true,
+          "survey": false
+        }
+      },
+      "brief": {
+        "authors": [
+          "Keyuan Luo",
+          "Yi Xie",
+          "Wanyun Ling",
+          "Yuanzhe Li",
+          "Ziyue Li",
+          "Zhuoqi Zeng"
+        ],
+        "affiliations": "Hainan Bielefeld University of Applied Sciences (BiUH)；Technical University of Munich；Technische Universität Berlin",
+        "date": "2026-10-16",
+        "paper_url": "https://arxiv.org/abs/2610.23372v1",
+        "project_url": "",
+        "repo_url": "",
+        "venue_status": "未确认录用",
+        "contribution": "对长程多轮任务的状态依赖和事实更新有直接方法启发，关键价值是把有收益、会变化和按事实变化分开验证。评测范围与归档来源有较多限制，应阅读控制设计和附录，而非把主数字当作通用 agent 能力。",
+        "summary": "IMEP 将机器人记忆评测拆成净收益、历史必要性、结果敏感性与事实特异性四个问题。它在匹配任务上比较改事实、保事实、微小数值扰动和准确复制，避免把行为变化直接解释为使用了记忆内容。学习记忆库的结果会对很小扰动发生变化，却未建立目标事实的独立作用。ChainBench 则要求跨 episode 保留和更新当前不可见的物体位置；202链主实验中，整理后的完整记忆达到100%决策准确率、74.3%执行成功率，无记忆为53.0%和39.1%。这里使用近邻读出器、规定的记忆状态和共享物理执行，证据支持该配置，不能推广为实时 LLM memory agent 的端到端成功。",
+        "highlights": [
+          "对长程多轮任务的状态依赖和事实更新有直接方法启发，关键价值是把有收益、会变化和按事实变化分开验证。评测范围与归档来源有较多限制，应阅读控制设计和附录，而非把主数字当作通用 agent 能力。",
+          "偏水风险：中",
+          "阅读来源：PDF 全文及相关附录人工核对"
+        ],
+        "motivation": "给机器人加记忆后成功率变化，既可能来自历史事实，也可能来自计算路径改变或执行噪声；总成功率不变还可能掩盖不同样本上的得失。论文希望区分记忆净收益、历史信息是否必要、行为是否敏感以及是否真正使用任务相关事实，并通过跨 episode 的 ChainBench 检验状态更新与后续决策的依赖。",
+        "method": "IMEP 在同一检索接口、匹配任务与种子上设置准确复制C、单浮点 ULP 扰动U、保留目标事实的替换S和改变目标事实的替换T，分别报告成功率、成对结果翻转以及可观察的决策正确率。覆盖单 episode 学习记忆库、跨 episode 记忆库与 agentic 文本记忆。ChainBench 先写入物体—抽屉关系，加入同场景干扰及事实更新，再让当前图像相同的 query 只选一个抽屉。202链主实验使用规定的 latest-write 记忆状态、校准存在门、两阶段检索和 leave-one-chain-out 近邻中心读出器；没有决策时 LLM 调用，也未评估在线遗忘策略。各条件共享每链两个已记录的物理执行。",
+        "experiments": "Remember Color 的388个配对结果中，复制C不翻转结果，单ULP扰动及其安装过程翻转11.9%，S与T分别13.1%和14.2%；这些结果未建立学习记忆库对目标事实的特异性，也不能证明小效应不存在。Table 2 的202链、K=2主实验中，完整记忆决策准确率100%，无记忆53.0%；任务成功率分别74.3%和39.1%，乱序记录为38.6%。完整记忆与 oracle 都选对且共享执行，故二者74.3%相等不能独立证明完整系统达到 oracle。另一个401链的脚本读出器实验在U/S下均0次决策变化、T下401次变化，只验证整理后记录上的决策读出。143链支持性实验使用不同执行器和重建 manifest，不能与主实验合并。",
+        "research_help": "Insight：多轮规划系统应先确认当前观察是否缺少决策所需的历史信息，再核对相关事实是否经过写入、保留、检索和读出到达决策位置。评估记忆时，成对报告改善与退化比单一成功率更能暴露抵消效应；保事实替换、准确重放和微小扰动控制有助于区分事实作用与计算敏感性。应将“选对目标”和“执行成功”分别测量，并验证陈旧事实是否被正确更新。可迁移的是评测协议；脚本读出器的事实敏感性不能替代在线 memory agent 的端到端证据，也不是 agentic RL 训练效果。",
+        "recommendation": {
+          "level": "高",
+          "label": "值得精读：跨回合记忆的事实干预评测",
+          "water_risk": "中",
+          "value_judgement": "对长程多轮任务的状态依赖和事实更新有直接方法启发，关键价值是把有收益、会变化和按事实变化分开验证。评测范围与归档来源有较多限制，应阅读控制设计和附录，而非把主数字当作通用 agent 能力。",
+          "reason": "对长程多轮任务的状态依赖和事实更新有直接方法启发，关键价值是把有收益、会变化和按事实变化分开验证。评测范围与归档来源有较多限制，应阅读控制设计和附录，而非把主数字当作通用 agent 能力。",
+          "signals": {
+            "agenticRl": false,
+            "multiTurn": true,
+            "longHorizon": true,
+            "memory": true,
+            "reliability": true,
+            "codeOrTool": false,
+            "experiments": true,
+            "survey": false
+          }
+        },
+        "insight": "Insight：多轮规划系统应先确认当前观察是否缺少决策所需的历史信息，再核对相关事实是否经过写入、保留、检索和读出到达决策位置。评估记忆时，成对报告改善与退化比单一成功率更能暴露抵消效应；保事实替换、准确重放和微小扰动控制有助于区分事实作用与计算敏感性。应将“选对目标”和“执行成功”分别测量，并验证陈旧事实是否被正确更新。可迁移的是评测协议；脚本读出器的事实敏感性不能替代在线 memory agent 的端到端证据，也不是 agentic RL 训练效果。",
+        "abstract_zh": "机器人配置了记忆，并不意味着其中的任务相关事实真正发挥了作用，因为成功率消融会同时改变信息与计算，汇总指标也可能掩盖相互抵消的收益和损失。论文提出面向视觉—语言—动作系统的干预式记忆评估协议IMEP，分别考察记忆的净收益、发挥作用的条件、对任务结果的影响及其事实特异性。在检索接口处，协议比较改变目标事实的替换、保留事实的替换、最小数值扰动与精确重复，并将决策正确性和动作执行成功率分别评估，覆盖回合内、跨回合和智能体记忆。跨回合学习式记忆库实验中，一个ULP的干预连同安装流程改变了11.9%的种子配对结果，而改变关键事实相较保留事实的替换没有显示明确的额外效应。作者进一步提出当前观测缺少必要历史信息的ChainBench，完整记忆配置将任务成功率从39.1%提高至74.3%，在共享录制执行的条件下达到oracle决策条件的表现，说明正确历史能够支持决策，但证明记忆系统实现了这一收益仍需要成功率之外的事实特异性证据。",
+        "full_summary": "IMEP 将机器人记忆评测拆成净收益、历史必要性、结果敏感性与事实特异性四个问题。它在匹配任务上比较改事实、保事实、微小数值扰动和准确复制，避免把行为变化直接解释为使用了记忆内容。学习记忆库的结果会对很小扰动发生变化，却未建立目标事实的独立作用。ChainBench 则要求跨 episode 保留和更新当前不可见的物体位置；202链主实验中，整理后的完整记忆达到100%决策准确率、74.3%执行成功率，无记忆为53.0%和39.1%。这里使用近邻读出器、规定的记忆状态和共享物理执行，证据支持该配置，不能推广为实时 LLM memory agent 的端到端成功。",
+        "card_summary": "IMEP 用事实替换和数值扰动区分记忆净收益、行为敏感性与事实使用。ChainBench 的整理后记忆让202链成功率从39.1%升至74.3%，但主实验依赖脚本读出与共享执行回放，尚未证明完整在线系统可靠。",
+        "limitations": "四问题框架及解释准则是在实验结束后形成，部分分析、内容存活审查及阈值修订属于事后检查；协议虽有哈希但无第三方时间戳。学习向量库的替换不是经验证的语义编辑，且缺少决策读出和内容正控制，未检测到特异性不能解释为记忆绝对无用。ChainBench主实验不调用决策时LLM，latest-write状态由设定给出，不是在线写入、淘汰和检索全链路验证；与oracle等执行成功率部分由共享回放构造保证。401链正控制与特异性使用同一实验，不能视为独立证据；143链支持集重建有未解决的选择偏差。202链历史决策评估器源码摘要未记录，闭源planner不能逐位再生。匿名代码/归档链接本次返回403，无法验证其可访问内容或完整重跑能力；非匿名材料承诺发表后开放。"
+      },
+      "analysis": {
+        "motivation": "给机器人加记忆后成功率变化，既可能来自历史事实，也可能来自计算路径改变或执行噪声；总成功率不变还可能掩盖不同样本上的得失。论文希望区分记忆净收益、历史信息是否必要、行为是否敏感以及是否真正使用任务相关事实，并通过跨 episode 的 ChainBench 检验状态更新与后续决策的依赖。",
+        "method": "IMEP 在同一检索接口、匹配任务与种子上设置准确复制C、单浮点 ULP 扰动U、保留目标事实的替换S和改变目标事实的替换T，分别报告成功率、成对结果翻转以及可观察的决策正确率。覆盖单 episode 学习记忆库、跨 episode 记忆库与 agentic 文本记忆。ChainBench 先写入物体—抽屉关系，加入同场景干扰及事实更新，再让当前图像相同的 query 只选一个抽屉。202链主实验使用规定的 latest-write 记忆状态、校准存在门、两阶段检索和 leave-one-chain-out 近邻中心读出器；没有决策时 LLM 调用，也未评估在线遗忘策略。各条件共享每链两个已记录的物理执行。",
+        "experiments": "Remember Color 的388个配对结果中，复制C不翻转结果，单ULP扰动及其安装过程翻转11.9%，S与T分别13.1%和14.2%；这些结果未建立学习记忆库对目标事实的特异性，也不能证明小效应不存在。Table 2 的202链、K=2主实验中，完整记忆决策准确率100%，无记忆53.0%；任务成功率分别74.3%和39.1%，乱序记录为38.6%。完整记忆与 oracle 都选对且共享执行，故二者74.3%相等不能独立证明完整系统达到 oracle。另一个401链的脚本读出器实验在U/S下均0次决策变化、T下401次变化，只验证整理后记录上的决策读出。143链支持性实验使用不同执行器和重建 manifest，不能与主实验合并。",
+        "research_help": "Insight：多轮规划系统应先确认当前观察是否缺少决策所需的历史信息，再核对相关事实是否经过写入、保留、检索和读出到达决策位置。评估记忆时，成对报告改善与退化比单一成功率更能暴露抵消效应；保事实替换、准确重放和微小扰动控制有助于区分事实作用与计算敏感性。应将“选对目标”和“执行成功”分别测量，并验证陈旧事实是否被正确更新。可迁移的是评测协议；脚本读出器的事实敏感性不能替代在线 memory agent 的端到端证据，也不是 agentic RL 训练效果。",
+        "insight": "Insight：多轮规划系统应先确认当前观察是否缺少决策所需的历史信息，再核对相关事实是否经过写入、保留、检索和读出到达决策位置。评估记忆时，成对报告改善与退化比单一成功率更能暴露抵消效应；保事实替换、准确重放和微小扰动控制有助于区分事实作用与计算敏感性。应将“选对目标”和“执行成功”分别测量，并验证陈旧事实是否被正确更新。可迁移的是评测协议；脚本读出器的事实敏感性不能替代在线 memory agent 的端到端证据，也不是 agentic RL 训练效果。",
+        "abstract_zh": "机器人配置了记忆，并不意味着其中的任务相关事实真正发挥了作用，因为成功率消融会同时改变信息与计算，汇总指标也可能掩盖相互抵消的收益和损失。论文提出面向视觉—语言—动作系统的干预式记忆评估协议IMEP，分别考察记忆的净收益、发挥作用的条件、对任务结果的影响及其事实特异性。在检索接口处，协议比较改变目标事实的替换、保留事实的替换、最小数值扰动与精确重复，并将决策正确性和动作执行成功率分别评估，覆盖回合内、跨回合和智能体记忆。跨回合学习式记忆库实验中，一个ULP的干预连同安装流程改变了11.9%的种子配对结果，而改变关键事实相较保留事实的替换没有显示明确的额外效应。作者进一步提出当前观测缺少必要历史信息的ChainBench，完整记忆配置将任务成功率从39.1%提高至74.3%，在共享录制执行的条件下达到oracle决策条件的表现，说明正确历史能够支持决策，但证明记忆系统实现了这一收益仍需要成功率之外的事实特异性证据。",
+        "card_summary": "IMEP 用事实替换和数值扰动区分记忆净收益、行为敏感性与事实使用。ChainBench 的整理后记忆让202链成功率从39.1%升至74.3%，但主实验依赖脚本读出与共享执行回放，尚未证明完整在线系统可靠。",
+        "full_summary": "IMEP 将机器人记忆评测拆成净收益、历史必要性、结果敏感性与事实特异性四个问题。它在匹配任务上比较改事实、保事实、微小数值扰动和准确复制，避免把行为变化直接解释为使用了记忆内容。学习记忆库的结果会对很小扰动发生变化，却未建立目标事实的独立作用。ChainBench 则要求跨 episode 保留和更新当前不可见的物体位置；202链主实验中，整理后的完整记忆达到100%决策准确率、74.3%执行成功率，无记忆为53.0%和39.1%。这里使用近邻读出器、规定的记忆状态和共享物理执行，证据支持该配置，不能推广为实时 LLM memory agent 的端到端成功。",
+        "recommendation_level": "高",
+        "water_risk": "中",
+        "value_label": "值得精读：跨回合记忆的事实干预评测",
+        "value_reason": "对长程多轮任务的状态依赖和事实更新有直接方法启发，关键价值是把有收益、会变化和按事实变化分开验证。评测范围与归档来源有较多限制，应阅读控制设计和附录，而非把主数字当作通用 agent 能力。",
+        "limitations": "四问题框架及解释准则是在实验结束后形成，部分分析、内容存活审查及阈值修订属于事后检查；协议虽有哈希但无第三方时间戳。学习向量库的替换不是经验证的语义编辑，且缺少决策读出和内容正控制，未检测到特异性不能解释为记忆绝对无用。ChainBench主实验不调用决策时LLM，latest-write状态由设定给出，不是在线写入、淘汰和检索全链路验证；与oracle等执行成功率部分由共享回放构造保证。401链正控制与特异性使用同一实验，不能视为独立证据；143链支持集重建有未解决的选择偏差。202链历史决策评估器源码摘要未记录，闭源planner不能逐位再生。匿名代码/归档链接本次返回403，无法验证其可访问内容或完整重跑能力；非匿名材料承诺发表后开放。",
+        "source_scope": "full_text",
+        "source_note": "Extracted from arXiv PDF.",
+        "source_evidence": [
+          "Section 3.5 / Appendix C.1：规定 latest-write 状态、校准门、两阶段检索、近邻读出，无决策时 LLM。",
+          "Section 4.3 / Figure 3：388配对中 C0%、U11.9%、S13.1%、T14.2%；未建立学习库事实特异性。",
+          "Table 2 / Appendix F.1：202链K2，完整记忆100%决策/74.3%任务成功，无记忆53.0%/39.1%；共享每链两次执行。",
+          "Appendices G/H、reproducibility statement：事后框架、143链重建、202链历史源码版本缺失；401链干预只测试脚本读出。"
+        ],
+        "model": "gpt-6.1-sol",
+        "updated_at": "2026-10-20T01:32:47.612Z"
+      }
+    },
     {
       "id": "2610.23181v1",
       "title": "Tree-Aware Posterior Distillation for Long-Horizon Agentic Reinforcement Learning",
