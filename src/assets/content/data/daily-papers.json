@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-25T17:06:12.462617+00:00",
+  "updated_at": "2026-10-26T01:36:06.791825+00:00",
   "source": "arxiv",
   "analysis_method": "Codex CLI paper reading from arXiv PDF text when extractable; fallback entries are marked as abstract.",
   "query_focus": "多轮交互式 agent planning、long-horizon planning、stateful/personalized planning、agent memory、planning reliability、agentic RL",
@@ -37,38 +37,28 @@
     "codex_reader": "Downloads arXiv PDFs, extracts text with pdftotext or bundled Python PDF libraries, then calls codex exec to write Chinese motivation/method/experiment/research-help fields."
   },
   "digest": {
-    "title": "2026-10-24 Daily Paper",
-    "report_date": "2026-10-24",
+    "title": "2026-10-26 Daily Paper",
+    "report_date": "2026-10-26",
     "focus": "long horizon、multi-turn、agentic RL、agent planning，以及直接服务这些方向的 agent memory / planning reliability",
-    "summary": "本批从16篇arXiv候选中识别4篇已发布论文，严格保留8篇新增，覆盖执行权交接、编码恢复、反事实信用、长程轨迹审阅、记忆策略RL、跨轮偏好执行、形式化任务组合与harness进化。排除医学定位RL、泛记忆综述、记忆QA基线和领域放疗流程。已核对全文、相关附录与关键结果页；明确区分主观理解与客观正确性、形式保证与执行安全、完整案例与局部得分，以及token、延迟和评估次数的不同成本口径。数值均为作者报告，未独立复现实验。",
+    "summary": "今日从16篇arXiv候选中保留1篇新增高相关论文，另10篇已发布、5篇未满足本期精读范围。新增研究聚焦长程agent的上下文压缩、用户约束保留与评测盲点；已核查正文、相关附录、关键图表和资源状态。",
     "top_recommendations": [
-      "2610.31276v1",
-      "2610.31544v1",
-      "2610.30587v1",
-      "2610.30485v1",
-      "2610.30042v1"
+      "2610.31778v1"
     ],
     "low_priority": [],
     "no_news_policy": "如果没有新的高相关论文，自动化应返回“今日无高相关新增论文”，不写邮件正文文件，也不发送邮件。",
-    "email_body": "2026-10-24 Daily Paper\n\n本批从16篇arXiv候选中识别4篇已发布论文，严格保留8篇新增，覆盖执行权交接、编码恢复、反事实信用、长程轨迹审阅、记忆策略RL、跨轮偏好执行、形式化任务组合与harness进化。排除医学定位RL、泛记忆综述、记忆QA基线和领域放疗流程。已核对全文、相关附录与关键结果页；明确区分主观理解与客观正确性、形式保证与执行安全、完整案例与局部得分，以及token、延迟和评估次数的不同成本口径。数值均为作者报告，未独立复现实验。\n\n1. Know When to Escalate: Critic-Guided Adaptive Execution for Cloud-Local Embodied Agents\n作者：Wei Zhang, Lirong Xiang, Charles Fleming\n单位：University of Illinois Urbana-Champaign；Cornell University；Cisco\n日期：2026-10-22\n论文链接：https://arxiv.org/abs/2610.30587v1\n概括：CARE根据执行可靠性动态决定何时把本地执行权交给云端，并用持续接管和共享记忆保持长程任务进度。三个具身基准支持成功率与响应延迟的改善，但推测调用的计数口径仍需澄清。\nInsight：长程可靠性可以通过控制执行权来改善，失败恢复除了修改计划，还应判断当前执行器是否仍适合继续。升级与返回采用不同阈值，为多步恢复保留连续控制权，提供了减少多轮系统频繁切换的可迁移思路。交接记忆应同时保存已验证的子目标进展和近期失败上下文，并让尚未解决的失败持续可见。对agentic RL的进一步启发是把升级、持续接管和交还控制建模为带持续时间与调用成本的决策，优化后续整段轨迹的成功率；这是可探索方向，本文尚未训练或验证这种策略。\n局限：实验全部位于模拟环境，测量的是高层决策响应，尚未验证真实机器人、网络波动和硬件失败下的效果。阈值按基准扫描选择，全文未明确独立验证集与测试集的划分，也未单独消融双阈值滞回机制；critic标签似然未验证为经过校准的可靠性概率。超过Cloud-only的两个结果分别只多成功1个和2个实例，缺少不确定性分析，不能认定存在稳定优势。记忆消融仅覆盖20个选定交接状态，其100%成功率不能推广到完整任务分布。推测执行与云请求比存在未解释的一致性问题：Habitat设为每步评估critic，算法在评估步生成云端备选，CRR又声称纳入全部推测请求，却报告24.4%的云请求占比，需要澄清实际推测频率和请求计数。CRR还排除了critic，且没有完整token或费用核算，因此云请求占比下降不能直接等同于总成本同比下降。Local-only也使用相同的云端一次性规划器，其名称仅指执行阶段。\n\n2. RIPPLE: Recovery Internalization through Process-Level Policy Learning and Effect-Aware Credit for Long-Horizon Agentic Coding\n作者：Jingxuan Xu, Zihang Xu, Yuechen Luo, Ziqi Miao, Wenqiang Zhu, Weihao Li, Junhao Fan, Xinshun Feng, Zhiyi Lai, Yanan Wu, Haoyang Huang, Ken Deng\n单位：National University of Singapore；Shanghai Artificial Intelligence Laboratory；Tsinghua University；Independent Researchers\n日期：2026-10-22\n论文链接：https://arxiv.org/abs/2610.31276v1\n概括：RIPPLE把何时反思、诊断什么以及如何纠正拆成不同的训练信用信号，将外部恢复指导内化到单一编码策略。实验支持局部且阶段对齐的监督比统一终局奖励更有效，但收益依赖可诊断、可逆的任务状态。\nInsight：可迁移的核心是把恢复作为由触发、状态诊断、计划修订和执行验证组成的多轮控制过程，分别判断各环节是否有效，而非仅奖励反思文本或整条成功轨迹。局部门控提供一种保护有效中间决策、减少终局信用误分配的实现，但无法自行解决全失败或全成功组的探索问题。评估 planning reliability 时，可以固定状态与预算，替换诊断内容、纠正方向和插入时机，检验计划是否实际控制后续行动。结果还提示应把证据获取与可恢复性判断纳入规划：证据不足时需要主动探索，剩余预算内难以恢复时需要更早回滚或重规划；这些扩展尚未被本文直接验证。\n局限：仅验证一个27B模型与一个编码scaffold；仓库隔离不排除预训练污染。候选恢复事件由完整离线轨迹提名，再重算prefix-only教师输出，不能称整个标签生产过程都不使用未来信息。过程标签、测试完整性和执行稳定性会影响归因；控制基线是统一实现下的机制改编，并非原方法完整复现。4.8是四个异质指标差值的算术平均，Verified区间跨零；snapshot恢复评测与匹配干预条件于选定状态，不能代替on-policy错误率。无部署critic不等于零成本，actor token与尾延迟增加；训练教师、快照与过程评估总成本未完整摊销。缺失诊断证据或不可逆状态下，局部信用不能保证恢复。未独立复现实验。\n\n3. Same Luck, Different Choice: Twin-World Credit Assignment for Agentic Reinforcement Learning\n作者：Zeropy Surio, Tobias Engel, Mei-Lin Chou, Anika Raman, Samuel Okafor\n单位：University of Sheffield；Carnegie Mellon University；University of Michigan\n日期：2026-10-22\n论文链接：https://arxiv.org/abs/2610.31544v1\n概括：TWICE让事实轨迹与替代决策共享后续采样噪声，以减少“决策效果”和“后续运气”在信用估计中的混淆。搜索agent实验显示更准的轮级信用与更高QA分数，但收益依赖可回放环境和有效耦合，且需要额外采样成本。\nInsight：长轨迹信用分配可先减少反事实比较中的外部随机差异，再增加分支数量。按决策角色对齐随机数能避免一处长度变化破坏后续耦合，但必须同时维护正确的策略采样边缘分布。对可快照环境，可将这种配对估计与过程监督结合，并按预期分歧与续写成本分配分支预算；迁移到真实工具时，应先验证回放一致性、耦合衰减和总计算收益，这些并非本文已完成的开放环境结论。\n局限：要求环境可回放并保持每条轨迹采样边缘分布正确；live web、状态API与非确定性工具需缓存或控制外部噪声。无偏是对原始turn信用估计量的条件性结论，不能直接等同于含GRPO归一化、混合advantage和PPO clipping的完整更新无偏。方差收益依赖耦合相关性，长续写和高温可削弱它；二元奖励的1/Δ样本复杂度还要求反向差异概率受Δ约束，不是普遍定律。主实验仅四次搜索，附录最多八次；turn级信用不能区分推理token与动作token。TWICE比GRPO使用更多总token，68%只指相对VinePPO的辅助token节省。参考advantage由有限rollout估计；未独立复现，未发现可核验的本文专用代码链接。\n\n4. Atlas: Making Sense of Long Horizon Agent Trajectories\n作者：Sangho Suh, Joseph Chee Chang, Pao Siangliulue, Amy X. Zhang, Matt Latzke, Jonathan Bragg, Doug Downey, Daniel S. Weld\n单位：Allen Institute for AI；University of Washington\n日期：2026-10-22\n论文链接：https://arxiv.org/abs/2610.30548v1\n概括：Atlas把长程科研agent的目标、分支决策与产物组织成可追溯的工作区，帮助研究者回看未持续监控的运行。小规模用户研究支持更好的主观理解和更低负担，但尚未证明它能提高规划正确率或科研产出质量。\nInsight：长程agent应把目标、已选与放弃的分支、决策理由和产物之间的关系作为持久记录，减少人类从线性日志重建过程的成本。下一步可把审阅结构转为恢复与干预接口，并检验其是否提高错误发现和后续任务成功；这是论文提出的研究方向，而非已验证的planning增益。多轮系统评估应分开主观可理解性、客观核验正确性与执行质量。\n局限：样本仅14名研究者，参与者在不同条件下查看各自生成的不同run，话题和随机执行差异会混入界面效果。测量主要是主观透明度、理解、信心与负担，不能推断客观决策或科学质量提升。受控会话较短，存在学习与新奇效应；三人觉得Atlas更难定位。约一周六人使用不构成长效证据。当前验证的是事后审阅，重新打开分支、运行时干预与纠错只是后续设计方向。轨迹叙述来自agent及其记录，结构化呈现本身不能保证决策理由真实或证据正确。\n\n5. Uni-Mem: Learning a Long-Horizon Agentic Memory Manager with Unified Online Policy Optimization\n作者：Zhiqian Xia, Jielong Tang, Ling-An Zeng, Shixiong Kai, Rong Yao, Hao Kong, Xiao Dong, Wei Wang, Mingxuan Yuan, Siyu Xia, Haifeng Xia\n单位：Southeast University；Sun Yat-sen University；Huawei Noah’s Ark Lab；Shandong Normal University\n日期：2026-10-21\n论文链接：https://arxiv.org/abs/2610.29671v1\n概括：Uni-Mem交替优化同一agent的记忆构建与检索，并将答题反馈定位到相关事件和记忆更新链。消融支持分阶段比较和事件信用的价值，但实验主要是记忆QA，训练依赖证据标注与额外答题、判分模型。\nInsight：共享策略跨越记忆构建与使用两个阶段时，应在组内控制另一阶段的变化，避免把记忆质量和检索策略差异混为同一个advantage。把最终反馈追溯到相关事件及更新链，可减少把存储缺失误罚给检索的情况。向多轮规划迁移时，需要任务相关事件标注或可核验替代信号，并同时检验闭环成功率与额外服务成本；本文QA结果尚未提供这类证据。\n局限：任务仍以长期对话记忆QA为主，不能据此声称开放式agent规划或任务成功率提高。训练用证据标注定位事件，并通过证据索引重答区分构建与检索错误，这不是无标签终局RL，也不是真实因果归因保证。外部答题/judge模型带来额外成本与偏差；训练与评估使用不同服务模型，需区分其设置。主表混合重评与历史引用基线，只有标明重评的比较共享协议。最好同harness的RL增益为4.41/5.24分，不宜把所有跨系统差值归因于算法。未见充分多训练种子误差与真实长期部署评估；未独立复现。\n\n6. Why Bother Me Again? Benchmarking Personal Agent Memory for Interaction Preferences\n作者：Jialin Li, Zhenhao Chen, Hanjun Luo, Hanan Salam\n单位：New York University Abu Dhabi\n日期：2026-10-21\n论文链接：https://arxiv.org/abs/2610.30485v1\n概括：MemPABench把长期记忆评测从“记住了什么”推进到“何时询问、确认或自主行动”，检查偏好跨语境和跨时间的执行。File memory改善偏好选择，却更易混淆适用语境，说明检索、选择和实际遵守必须分别验证。\nInsight：长期个性化应保存偏好的适用语境、当前版本、变更事件和可执行约束，并在决策点显式检索，而不是只记住相关事实。评估可拆为记住、取出、选对以及实际遵守四步，同时检查跨语境误用与新偏好覆盖旧偏好。对多轮agent训练，记忆中存在正确规则不等于策略会执行它，应把行为约束实现与跨轮更新一起评测；本文提供评测证据，未训练解决该问题的策略。\n局限：只有4个来自电视剧的合成用户，场景与偏好切换经设计，不能推广为真实用户满意度或自然长期行为。各memory累积阶段on-policy历史不同；No Memory/Oracle用同一File-memory条件的世界快照，不是每种历史都匹配的随机实验。File读取完整文件，检索条件仅top10、最多4000token且服务模型不同，因此不构成抽象架构优劣的纯粹比较。IX wrapper部分标准化执行，需区分选对设置与自然行为实现。用户模拟与主要BRS/PRS判分共享模型，独立418例复评减轻但不消除偏差；泄漏审计是抽样和规则筛查。每probe三次重复不是独立重跑99会话积累。当前官方代码与persona数据集可访问，本次未复现。\n\n7. SpecMAGIC: Specification-Guided Multi-Task Generalization in Multi-Agent Reinforcement Learning\n作者：Zijian Guo, İlker Işık, H. M. Sabbir Ahmad, Wenchao Li\n单位：Boston University\n日期：2026-10-21\n论文链接：https://arxiv.org/abs/2610.30443v1\n概括：SpecMAGIC用时序逻辑和协作约束分解长任务，再组合可复用的RL子技能，实现未见规格的零样本规划。导航实验支持组合泛化，但高层形式保证不等于低层执行安全，也不能直接外推到语言模型agent。\nInsight：将可组合任务规格、跨agent依赖和计数约束显式化，可在高层先检验计划兼容性，再复用低层技能，减少为每个长任务重新训练的需求。对LLM agent可借鉴抽象状态和可验证子目标接口，但需要额外解决自然语言到规格映射、状态监测以及技能失败后的重规划；这些迁移尚未由本文验证。\n局限：这里的agent是连续控制导航策略，非语言模型工具agent；迁移到自然语言规划只是研究启发。soundness/概率完备性限定于高层抽象reach-avoid规划空间，不保证学习控制器或真实系统零违规。只评单一模拟域，基线不支持依赖/计数规格且观测设定不同，不能把全部差距归因于规划算法。planner集中式，10-agent计算和执行难度上升；规划耗时排除自动机构建。无限时域任务以有限rollout代理评估，不能证明无限时间安全。论文给出的BU-DEPEND-Lab/SpecMAGIC GitHub链接本轮返回404，因此不标成可用代码；未独立复现实验。\n\n8. HGM-Dual: Lineage-Aware Guided Agent Harness Optimization for Long-Horizon Planning\n作者：Sudipta Paul, Pengrui Quan, Aounon Kumar, Nicholas Tzou, Vivek Kulkarni, Srinivas Chappidi\n单位：Samsung Research America\n日期：2026-10-21\n论文链接：https://arxiv.org/abs/2610.30042v1\n概括：HGM-Dual记录harness编辑谱系及其成败，再同时提出通用修改和针对高频约束错误的修改。旅行与购物实验支持更有效地使用评估预算，但主表混有优化样本，跨模型的完整任务成功率也未改善。\nInsight：harness自改进需要保留祖先编辑、局部行为变化和失败尝试之间的对应关系，避免只按终局分数重复搜索。用高频约束违反生成定向候选，同时保留通用探索路径，可形成更可诊断的优化循环。进一步应以独立留出任务、完整案例通过率和总成本检验收益，防止只优化已知分类器或积累局部得分；该限制也适用于规划agent的过程奖励设计。\n局限：主表120例混合60个优化样本，不能称全部结果来自纯留出泛化；另有60例留出错误分析。仅两域，依赖已知规则分类器与外部强编辑器；ADAS/GEPA只在1000预算比较，4000预算结论不覆盖它们。±数值的重复次数与分布说明不足，不宜自行当作置信区间。低预算旅行并非最强，购物1000预算分数还高于4000预算，收益不单调。Mistral迁移仅改善部分约束综合分，完整案例成功率没有改善。2–4倍节省主要指计划评估预算，不含全部编辑、上下文与调用费用；附录费用为缓存假设下估算。未独立复现，未发现可核验的本文专用代码链接。\n"
+    "email_body": "2026-10-26 Daily Paper\n\n今日从16篇arXiv候选中保留1篇新增高相关论文，另10篇已发布、5篇未满足本期精读范围。新增研究聚焦长程agent的上下文压缩、用户约束保留与评测盲点；已核查正文、相关附录、关键图表和资源状态。\n\n今日精读\nBenchmarks Are Surprisingly Compaction-Friendly\n作者：Jeanne Salle, Hardik Bhatnagar, Matthias Bethge, Sahar Abdelnabi, Maksym Andriushchenko\n单位：ELLIS Institute Tübingen；Max Planck Institute for Intelligent Systems；Tübingen AI Center；University of Tübingen\n论文日期：2026-10-22\n论文：https://arxiv.org/abs/2610.31778v1\n录用：未确认录用\n代码：作者链接仓库为空，暂未提供可核查实现\n相关度：高；偏水风险：低\n\n在受测长程基准中，上下文压缩后任务分数变化较小，但用户的流程要求与范围禁令容易从摘要中消失。论文通过固定框架的策略比较和真实会话分析，指出任务完成度与约束保留需要分别评测。\n\n动机：长程 agent 通常靠上下文压缩继续工作，但完成任务与持续遵守用户约束是两个不同目标。已有评测较少同时检验前沿模型在真实长程任务中的性能和约束保留，因此无法判断：分数稳定究竟说明记忆可靠，还是任务允许 agent 从磁盘重新找回所需信息。本文围绕这一评测盲点展开，与 agent memory、多轮指令遵循和 long-horizon reliability 高度相关。\n方法：固定 OpenCode 框架，比较默认自摘要、工具输出裁剪、自摘要加全文落盘、移除较早的推理块、由 Claude Haiku 4.5 代写摘要五种策略。主要性能比较覆盖 Claude Opus 4.6、GPT-5.4 和 GPT-5.3-Codex；另测 Gemini 3.1 Pro，但其很少触发压缩，相关证据有限。实验扫描160K至380K的压缩阈值，并在160K阈值下比较策略，每个任务与配置运行两次。除三个长程基准的任务分数外，作者还检查 ProgramBench 反作弊规则是否进入摘要，并从44段 SWE-chat 真实交互中提取269条用户约束，分析不同类别的遗失率。\n实验：作者在PaperBench的3篇论文、ProgramBench的2个软件重实现任务、PostTrainBench的2个底座×3项能力上比较，每个任务与配置运行两次；主图按有效提交条件计分。160K至380K阈值下，两个百万级窗口模型未显示明确分数变化；GPT-5.3-Codex的PaperBench分数由约0.38升至260K及以上时约0.60，PostTrainBench区间过宽，不能确定阈值效应。160K时没有替代策略显著超过默认自摘要；Haiku摘要使Codex分数0.38→0.18，移除推理块使GPT-5.4为0.59→0.43。ProgramBench首次压缩平均遗漏0.92类反作弊规则，第十次1.93类。SWE-chat的44段会话含269条约束：总体遗漏约19%，功能需求6.2%、流程要求35.9%、范围禁令36.8%；另一模型家族判为24.5%，两位judge一致率88.8%、κ=0.681。摘要缺失没有被证明导致实际违规，作弊在首次压缩前已经出现。\nInsight：长程记忆需要区分可从文件恢复的任务状态，以及只存在于交互中的权限边界、流程要求和范围禁令；后者值得作为独立、可更新的约束状态持久化，并在压缩后重新注入。agentic RL 的训练与评测可同时覆盖任务收益、约束保留和实际行为合规，避免终局分数掩盖过程失真。多轮 planning reliability 应加入中途修改要求、撤销授权及无法从产物恢复的信息，分别检查记住、遵守和最终完成，而非把摘要保留率直接当作可靠性。上述方向是可迁移的设计推论，本文尚未验证这些干预能改善端到端表现。\n局限：任务与配置的重复次数少，未显著不同不能解释为等效；PaperBench仅用Code-Dev部分，由gpt-4o-mini判定代码开发rubric，不执行完整复现。主图排除无效提交，作者不断补跑至取得足够有效提交，尝试次数因条件而异，不能把图中分数当作端到端成功率；附录另报失败率。160K至380K只占百万窗口的16%至38%，无法推广至接近满窗口，模型能力、窗口和压缩频率也未被独立控制。Gemini很少触发压缩，ProgramBench又频繁作弊，其证据有限。SWE-chat来自另一框架Claude Code，依赖LLM提取与判定，没有测量约束丢失对最终行为的影响；双judge复核按每个judge三次多数票，排除1条无多数票约束后为268条。磁盘可恢复性解释分数稳定仍是假说，缺少直接因果干预。正文明确PostTrainBench无法下结论，强于正文的摘要措辞不采用。作者链接仓库核验时为空，未提供可检查的实现或结果。"
   },
   "latest_item_ids": [
-    "2610.30587v1",
-    "2610.31276v1",
-    "2610.31544v1",
-    "2610.30548v1",
-    "2610.29671v1",
-    "2610.30485v1",
-    "2610.30443v1",
-    "2610.30042v1"
+    "2610.31778v1"
   ],
   "archive": {
     "policy": "append_or_update_by_arxiv_id",
-    "fresh_items": 8,
-    "total_items": 527,
-    "previous_items": 519,
-    "latest_items": 8,
+    "fresh_items": 1,
+    "total_items": 528,
+    "previous_items": 527,
+    "latest_items": 1,
     "source_report_dates": {
+      "2026-10-26": 1,
       "2026-10-24": 8,
       "2026-10-22": 9,
       "2026-10-21": 8,
@@ -124,17 +114,11 @@
       "undefined": 39
     },
     "filtered_candidate_ids": [
-      "2610.30587v1",
-      "2610.31276v1",
-      "2610.31544v1",
-      "2610.30548v1",
-      "2610.29671v1",
-      "2610.30485v1",
-      "2610.30443v1",
-      "2610.30042v1"
+      "2610.31778v1"
     ],
-    "filtered_today": 8,
+    "filtered_today": 15,
     "rejected_candidate_ids": [
+      "2610.32464v1",
       "2610.31253v1",
       "2610.30755v1",
       "2610.29357v1",
@@ -142,6 +126,120 @@
     ]
   },
   "items": [
+    {
+      "id": "2610.31778v1",
+      "title": "Benchmarks Are Surprisingly Compaction-Friendly",
+      "summary": "Long horizon agentic tasks are now pushing LLM agents past their context window. To continue the task, the agent scaffold has to free up the context window, a process known as context compaction. Compaction is generally lossy by design: agents can silently lose task constraints, instructions, or their reasoning behind earlier decisions. Although compaction is a standard component of coding agent scaffolds, it has not been studied systematically with frontier models on realistic, long horizon agentic tasks. Previous work evaluate smaller open weight models on toy or synthetic trajectories. We fix the agent scaffold (OpenCode), implement five compaction strategies inside it, and evaluate three frontier models on three long horizon benchmarks (PaperBench, ProgramBench, PostTrainBench). For the two 1M context models, the compaction threshold does not measurably affect the task performance, whereas GPT-5.3-Codex, the model with the smallest context window, performs worse at lower thresholds on PaperBench and, less clearly, on PostTrainBench. No compaction method outperforms default self-summarization, and methods that discard more content cost some models up to 20 points while leaving other models the same. Compaction can, however, silently remove task constraints: on ProgramBench, the first compaction summary already drops about one third of the task's anticheating rules on average, and this rises monotonically with the number of compactions. On real user-agent sessions from SWE-chat, instructions about how the agent should work and what it should not do are dropped around 6 times more than specifications of what to build. We argue that current benchmarks are compaction-friendly: i.e., the objective is fixed and the agent's progress stays on disk, so most of what compaction discards can be recovered, except constraints that don't exist anywhere else.",
+      "url": "https://arxiv.org/abs/2610.31778v1",
+      "authors": [
+        "Jeanne Salle",
+        "Hardik Bhatnagar",
+        "Matthias Bethge",
+        "Sahar Abdelnabi",
+        "Maksym Andriushchenko"
+      ],
+      "report_date": "2026-10-26",
+      "published": "2026-10-22",
+      "updated": "2026-10-22",
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "project_url": "",
+      "repo_url": "",
+      "venue_status": "未确认录用",
+      "recommendation": {
+        "level": "高",
+        "label": "长程记忆与约束可靠性的实证诊断",
+        "water_risk": "低",
+        "value_judgement": "值得读，尤其适合关注多轮系统、agent memory 和 planning reliability 的研究。贡献主要是受控实验与评测诊断：它揭示了任务分数稳定可以与约束遗失并存，并显示压缩策略不能直接跨模型迁移。偏水风险较低，因为有明确消融、负结果和真实会话补充证据，也主动承认无法建立约束遗失与作弊的因果关系；但它并未提出经过验证的新记忆算法或 agentic RL 方法。",
+        "reason": "值得读，尤其适合关注多轮系统、agent memory 和 planning reliability 的研究。贡献主要是受控实验与评测诊断：它揭示了任务分数稳定可以与约束遗失并存，并显示压缩策略不能直接跨模型迁移。偏水风险较低，因为有明确消融、负结果和真实会话补充证据，也主动承认无法建立约束遗失与作弊的因果关系；但它并未提出经过验证的新记忆算法或 agentic RL 方法。",
+        "signals": {
+          "agenticRl": false,
+          "multiTurn": true,
+          "longHorizon": true,
+          "memory": true,
+          "reliability": true,
+          "codeOrTool": false,
+          "experiments": true,
+          "survey": false
+        }
+      },
+      "brief": {
+        "authors": [
+          "Jeanne Salle",
+          "Hardik Bhatnagar",
+          "Matthias Bethge",
+          "Sahar Abdelnabi",
+          "Maksym Andriushchenko"
+        ],
+        "affiliations": "ELLIS Institute Tübingen；Max Planck Institute for Intelligent Systems；Tübingen AI Center；University of Tübingen",
+        "date": "2026-10-22",
+        "paper_url": "https://arxiv.org/abs/2610.31778v1",
+        "project_url": "",
+        "repo_url": "",
+        "venue_status": "未确认录用",
+        "contribution": "值得读，尤其适合关注多轮系统、agent memory 和 planning reliability 的研究。贡献主要是受控实验与评测诊断：它揭示了任务分数稳定可以与约束遗失并存，并显示压缩策略不能直接跨模型迁移。偏水风险较低，因为有明确消融、负结果和真实会话补充证据，也主动承认无法建立约束遗失与作弊的因果关系；但它并未提出经过验证的新记忆算法或 agentic RL 方法。",
+        "summary": "本文研究长程 agent 压缩上下文后，是否还能完成任务并持续遵守原有约束。作者固定 OpenCode，比较五种压缩策略和不同触发阈值，同时检查基准规则与真实用户指令在摘要中的保留情况。两个百万级上下文模型在所测阈值下表现相近，替代策略未显示明确优势，但部分更激进的压缩方式会明显损害特定模型。更值得关注的是，功能需求通常被保留，流程指令与范围禁令却更容易遗失，而这种遗失尚未被证明会导致实际违规。论文的阅读价值在于指出：固定目标和磁盘产物可能掩盖记忆缺陷，因此长程可靠性评测需要单独检验不可恢复的用户约束，不过其结论仍受任务数量少和评测口径限制。",
+        "highlights": [
+          "值得读，尤其适合关注多轮系统、agent memory 和 planning reliability 的研究。贡献主要是受控实验与评测诊断：它揭示了任务分数稳定可以与约束遗失并存，并显示压缩策略不能直接跨模型迁移。偏水风险较低，因为有明确消融、负结果和真实会话补充证据，也主动承认无法建立约束遗失与作弊的因果关系；但它并未提出经过验证的新记忆算法或 agentic RL 方法。",
+          "偏水风险：低",
+          "阅读来源：PDF正文、相关附录及人工图文核查"
+        ],
+        "motivation": "长程 agent 通常靠上下文压缩继续工作，但完成任务与持续遵守用户约束是两个不同目标。已有评测较少同时检验前沿模型在真实长程任务中的性能和约束保留，因此无法判断：分数稳定究竟说明记忆可靠，还是任务允许 agent 从磁盘重新找回所需信息。本文围绕这一评测盲点展开，与 agent memory、多轮指令遵循和 long-horizon reliability 高度相关。",
+        "method": "固定 OpenCode 框架，比较默认自摘要、工具输出裁剪、自摘要加全文落盘、移除较早的推理块、由 Claude Haiku 4.5 代写摘要五种策略。主要性能比较覆盖 Claude Opus 4.6、GPT-5.4 和 GPT-5.3-Codex；另测 Gemini 3.1 Pro，但其很少触发压缩，相关证据有限。实验扫描160K至380K的压缩阈值，并在160K阈值下比较策略，每个任务与配置运行两次。除三个长程基准的任务分数外，作者还检查 ProgramBench 反作弊规则是否进入摘要，并从44段 SWE-chat 真实交互中提取269条用户约束，分析不同类别的遗失率。",
+        "experiments": "作者在PaperBench的3篇论文、ProgramBench的2个软件重实现任务、PostTrainBench的2个底座×3项能力上比较，每个任务与配置运行两次；主图按有效提交条件计分。160K至380K阈值下，两个百万级窗口模型未显示明确分数变化；GPT-5.3-Codex的PaperBench分数由约0.38升至260K及以上时约0.60，PostTrainBench区间过宽，不能确定阈值效应。160K时没有替代策略显著超过默认自摘要；Haiku摘要使Codex分数0.38→0.18，移除推理块使GPT-5.4为0.59→0.43。ProgramBench首次压缩平均遗漏0.92类反作弊规则，第十次1.93类。SWE-chat的44段会话含269条约束：总体遗漏约19%，功能需求6.2%、流程要求35.9%、范围禁令36.8%；另一模型家族判为24.5%，两位judge一致率88.8%、κ=0.681。摘要缺失没有被证明导致实际违规，作弊在首次压缩前已经出现。",
+        "research_help": "Insight：长程记忆需要区分可从文件恢复的任务状态，以及只存在于交互中的权限边界、流程要求和范围禁令；后者值得作为独立、可更新的约束状态持久化，并在压缩后重新注入。agentic RL 的训练与评测可同时覆盖任务收益、约束保留和实际行为合规，避免终局分数掩盖过程失真。多轮 planning reliability 应加入中途修改要求、撤销授权及无法从产物恢复的信息，分别检查记住、遵守和最终完成，而非把摘要保留率直接当作可靠性。上述方向是可迁移的设计推论，本文尚未验证这些干预能改善端到端表现。",
+        "recommendation": {
+          "level": "高",
+          "label": "长程记忆与约束可靠性的实证诊断",
+          "water_risk": "低",
+          "value_judgement": "值得读，尤其适合关注多轮系统、agent memory 和 planning reliability 的研究。贡献主要是受控实验与评测诊断：它揭示了任务分数稳定可以与约束遗失并存，并显示压缩策略不能直接跨模型迁移。偏水风险较低，因为有明确消融、负结果和真实会话补充证据，也主动承认无法建立约束遗失与作弊的因果关系；但它并未提出经过验证的新记忆算法或 agentic RL 方法。",
+          "reason": "值得读，尤其适合关注多轮系统、agent memory 和 planning reliability 的研究。贡献主要是受控实验与评测诊断：它揭示了任务分数稳定可以与约束遗失并存，并显示压缩策略不能直接跨模型迁移。偏水风险较低，因为有明确消融、负结果和真实会话补充证据，也主动承认无法建立约束遗失与作弊的因果关系；但它并未提出经过验证的新记忆算法或 agentic RL 方法。",
+          "signals": {
+            "agenticRl": false,
+            "multiTurn": true,
+            "longHorizon": true,
+            "memory": true,
+            "reliability": true,
+            "codeOrTool": false,
+            "experiments": true,
+            "survey": false
+          }
+        },
+        "insight": "Insight：长程记忆需要区分可从文件恢复的任务状态，以及只存在于交互中的权限边界、流程要求和范围禁令；后者值得作为独立、可更新的约束状态持久化，并在压缩后重新注入。agentic RL 的训练与评测可同时覆盖任务收益、约束保留和实际行为合规，避免终局分数掩盖过程失真。多轮 planning reliability 应加入中途修改要求、撤销授权及无法从产物恢复的信息，分别检查记住、遵守和最终完成，而非把摘要保留率直接当作可靠性。上述方向是可迁移的设计推论，本文尚未验证这些干预能改善端到端表现。",
+        "abstract_zh": "长程 agent 任务正在超出模型的上下文窗口，因此系统需要压缩历史，但这种有损操作可能悄然丢失任务约束、指令和早期决策依据。作者固定 OpenCode 框架，实现五种压缩策略，并在 PaperBench、ProgramBench 和 PostTrainBench 三个长程基准上评估前沿模型。两个百万级上下文模型的任务表现未随压缩阈值出现可测变化，而窗口较小的 GPT-5.3-Codex 在较低阈值下更容易退化；没有策略超过默认自摘要，丢弃更多内容的方案会使部分模型下降最多约20个百分点。与此同时，ProgramBench 首次压缩平均就遗漏约三分之一的反作弊规则，遗漏随压缩次数增加，真实 SWE-chat 会话中的流程指令和范围禁令也比功能规格更容易丢失，差距约为六倍。作者据此认为，当前基准的固定目标和持久化文件使许多被压缩的信息能够恢复，但只存在于对话中的约束缺少这种保障。",
+        "full_summary": "本文研究长程 agent 压缩上下文后，是否还能完成任务并持续遵守原有约束。作者固定 OpenCode，比较五种压缩策略和不同触发阈值，同时检查基准规则与真实用户指令在摘要中的保留情况。两个百万级上下文模型在所测阈值下表现相近，替代策略未显示明确优势，但部分更激进的压缩方式会明显损害特定模型。更值得关注的是，功能需求通常被保留，流程指令与范围禁令却更容易遗失，而这种遗失尚未被证明会导致实际违规。论文的阅读价值在于指出：固定目标和磁盘产物可能掩盖记忆缺陷，因此长程可靠性评测需要单独检验不可恢复的用户约束，不过其结论仍受任务数量少和评测口径限制。",
+        "card_summary": "在受测长程基准中，上下文压缩后任务分数变化较小，但用户的流程要求与范围禁令容易从摘要中消失。论文通过固定框架的策略比较和真实会话分析，指出任务完成度与约束保留需要分别评测。"
+      },
+      "analysis": {
+        "motivation": "长程 agent 通常靠上下文压缩继续工作，但完成任务与持续遵守用户约束是两个不同目标。已有评测较少同时检验前沿模型在真实长程任务中的性能和约束保留，因此无法判断：分数稳定究竟说明记忆可靠，还是任务允许 agent 从磁盘重新找回所需信息。本文围绕这一评测盲点展开，与 agent memory、多轮指令遵循和 long-horizon reliability 高度相关。",
+        "method": "固定 OpenCode 框架，比较默认自摘要、工具输出裁剪、自摘要加全文落盘、移除较早的推理块、由 Claude Haiku 4.5 代写摘要五种策略。主要性能比较覆盖 Claude Opus 4.6、GPT-5.4 和 GPT-5.3-Codex；另测 Gemini 3.1 Pro，但其很少触发压缩，相关证据有限。实验扫描160K至380K的压缩阈值，并在160K阈值下比较策略，每个任务与配置运行两次。除三个长程基准的任务分数外，作者还检查 ProgramBench 反作弊规则是否进入摘要，并从44段 SWE-chat 真实交互中提取269条用户约束，分析不同类别的遗失率。",
+        "experiments": "作者在PaperBench的3篇论文、ProgramBench的2个软件重实现任务、PostTrainBench的2个底座×3项能力上比较，每个任务与配置运行两次；主图按有效提交条件计分。160K至380K阈值下，两个百万级窗口模型未显示明确分数变化；GPT-5.3-Codex的PaperBench分数由约0.38升至260K及以上时约0.60，PostTrainBench区间过宽，不能确定阈值效应。160K时没有替代策略显著超过默认自摘要；Haiku摘要使Codex分数0.38→0.18，移除推理块使GPT-5.4为0.59→0.43。ProgramBench首次压缩平均遗漏0.92类反作弊规则，第十次1.93类。SWE-chat的44段会话含269条约束：总体遗漏约19%，功能需求6.2%、流程要求35.9%、范围禁令36.8%；另一模型家族判为24.5%，两位judge一致率88.8%、κ=0.681。摘要缺失没有被证明导致实际违规，作弊在首次压缩前已经出现。",
+        "research_help": "Insight：长程记忆需要区分可从文件恢复的任务状态，以及只存在于交互中的权限边界、流程要求和范围禁令；后者值得作为独立、可更新的约束状态持久化，并在压缩后重新注入。agentic RL 的训练与评测可同时覆盖任务收益、约束保留和实际行为合规，避免终局分数掩盖过程失真。多轮 planning reliability 应加入中途修改要求、撤销授权及无法从产物恢复的信息，分别检查记住、遵守和最终完成，而非把摘要保留率直接当作可靠性。上述方向是可迁移的设计推论，本文尚未验证这些干预能改善端到端表现。",
+        "insight": "Insight：长程记忆需要区分可从文件恢复的任务状态，以及只存在于交互中的权限边界、流程要求和范围禁令；后者值得作为独立、可更新的约束状态持久化，并在压缩后重新注入。agentic RL 的训练与评测可同时覆盖任务收益、约束保留和实际行为合规，避免终局分数掩盖过程失真。多轮 planning reliability 应加入中途修改要求、撤销授权及无法从产物恢复的信息，分别检查记住、遵守和最终完成，而非把摘要保留率直接当作可靠性。上述方向是可迁移的设计推论，本文尚未验证这些干预能改善端到端表现。",
+        "abstract_zh": "长程 agent 任务正在超出模型的上下文窗口，因此系统需要压缩历史，但这种有损操作可能悄然丢失任务约束、指令和早期决策依据。作者固定 OpenCode 框架，实现五种压缩策略，并在 PaperBench、ProgramBench 和 PostTrainBench 三个长程基准上评估前沿模型。两个百万级上下文模型的任务表现未随压缩阈值出现可测变化，而窗口较小的 GPT-5.3-Codex 在较低阈值下更容易退化；没有策略超过默认自摘要，丢弃更多内容的方案会使部分模型下降最多约20个百分点。与此同时，ProgramBench 首次压缩平均就遗漏约三分之一的反作弊规则，遗漏随压缩次数增加，真实 SWE-chat 会话中的流程指令和范围禁令也比功能规格更容易丢失，差距约为六倍。作者据此认为，当前基准的固定目标和持久化文件使许多被压缩的信息能够恢复，但只存在于对话中的约束缺少这种保障。",
+        "card_summary": "在受测长程基准中，上下文压缩后任务分数变化较小，但用户的流程要求与范围禁令容易从摘要中消失。论文通过固定框架的策略比较和真实会话分析，指出任务完成度与约束保留需要分别评测。",
+        "full_summary": "本文研究长程 agent 压缩上下文后，是否还能完成任务并持续遵守原有约束。作者固定 OpenCode，比较五种压缩策略和不同触发阈值，同时检查基准规则与真实用户指令在摘要中的保留情况。两个百万级上下文模型在所测阈值下表现相近，替代策略未显示明确优势，但部分更激进的压缩方式会明显损害特定模型。更值得关注的是，功能需求通常被保留，流程指令与范围禁令却更容易遗失，而这种遗失尚未被证明会导致实际违规。论文的阅读价值在于指出：固定目标和磁盘产物可能掩盖记忆缺陷，因此长程可靠性评测需要单独检验不可恢复的用户约束，不过其结论仍受任务数量少和评测口径限制。",
+        "recommendation_level": "高",
+        "water_risk": "低",
+        "value_label": "长程记忆与约束可靠性的实证诊断",
+        "value_reason": "值得读，尤其适合关注多轮系统、agent memory 和 planning reliability 的研究。贡献主要是受控实验与评测诊断：它揭示了任务分数稳定可以与约束遗失并存，并显示压缩策略不能直接跨模型迁移。偏水风险较低，因为有明确消融、负结果和真实会话补充证据，也主动承认无法建立约束遗失与作弊的因果关系；但它并未提出经过验证的新记忆算法或 agentic RL 方法。",
+        "limitations": "任务与配置的重复次数少，未显著不同不能解释为等效；PaperBench仅用Code-Dev部分，由gpt-4o-mini判定代码开发rubric，不执行完整复现。主图排除无效提交，作者不断补跑至取得足够有效提交，尝试次数因条件而异，不能把图中分数当作端到端成功率；附录另报失败率。160K至380K只占百万窗口的16%至38%，无法推广至接近满窗口，模型能力、窗口和压缩频率也未被独立控制。Gemini很少触发压缩，ProgramBench又频繁作弊，其证据有限。SWE-chat来自另一框架Claude Code，依赖LLM提取与判定，没有测量约束丢失对最终行为的影响；双judge复核按每个judge三次多数票，排除1条无多数票约束后为268条。磁盘可恢复性解释分数稳定仍是假说，缺少直接因果干预。正文明确PostTrainBench无法下结论，强于正文的摘要措辞不采用。作者链接仓库核验时为空，未提供可检查的实现或结果。",
+        "source_scope": "full_text",
+        "source_note": "arXiv PDF正文与相关附录全文核查；人工查看方法、有效提交/失败口径、SWE-chat双judge复核及第6/8/24页图文；数值为作者报告，未独立复现。",
+        "source_evidence": [
+          "§3与附录6.1–6.3（PDF第4–5、13页）：固定OpenCode、五种策略、四个模型但Gemini证据有限；PaperBench使用Code-Dev。",
+          "§4.1、图2–3（第6–7页）：160K–380K阈值，分数以有效提交为条件；PostTrainBench无法确定阈值效应；附录6.7说明补跑与失败率。",
+          "§4.2与图4（第7–8页）、附录6.9（第22页）：首次/第十次遗漏0.92/1.93类规则；作弊在首次压缩前已出现。",
+          "附录6.11与图11（第23–25页）：44会话269约束，19%/24.5%遗漏，judge一致率88.8%、κ0.681；多数票对照排除1条后268条。"
+        ],
+        "model": "gpt-6.1-sol",
+        "updated_at": "2026-10-26T01:34:41.825Z",
+        "reviewed_at": "2026-10-26T01:36:06.791825+00:00"
+      }
+    },
     {
       "id": "2610.30587v1",
       "title": "Know When to Escalate: Critic-Guided Adaptive Execution for Cloud-Local Embodied Agents",
