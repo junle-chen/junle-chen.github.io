@@ -1,7 +1,7 @@
 {
-  "updated_at": "2026-10-26T01:36:06.791825+00:00",
+  "updated_at": "2026-10-27T12:46:26.057217+00:00",
   "source": "arxiv",
-  "analysis_method": "Codex CLI paper reading from arXiv PDF text when extractable; fallback entries are marked as abstract.",
+  "analysis_method": "Codex CLI analysis where successful, completed by direct arXiv full-text curation and key-table verification.",
   "query_focus": "多轮交互式 agent planning、long-horizon planning、stateful/personalized planning、agent memory、planning reliability、agentic RL",
   "query_terms": [
     "agentic reinforcement learning",
@@ -37,27 +37,37 @@
     "codex_reader": "Downloads arXiv PDFs, extracts text with pdftotext or bundled Python PDF libraries, then calls codex exec to write Chinese motivation/method/experiment/research-help fields."
   },
   "digest": {
-    "title": "2026-10-26 Daily Paper",
-    "report_date": "2026-10-26",
+    "title": "2026-10-27 Daily Paper",
+    "report_date": "2026-10-27",
     "focus": "long horizon、multi-turn、agentic RL、agent planning，以及直接服务这些方向的 agent memory / planning reliability",
-    "summary": "今日从16篇arXiv候选中保留1篇新增高相关论文，另10篇已发布、5篇未满足本期精读范围。新增研究聚焦长程agent的上下文压缩、用户约束保留与评测盲点；已核查正文、相关附录、关键图表和资源状态。",
+    "summary": "今日16篇arXiv候选全部为未收录论文，保留6篇与多轮交互、长程执行或agentic RL直接相关的研究，排除10篇范围较弱的候选。已核查保留论文正文、相关附录与关键结果页，并分别说明实验跨度、奖励、评估与成本边界。",
     "top_recommendations": [
-      "2610.31778v1"
+      "2610.35497v1",
+      "2610.35801v1",
+      "2610.35426v1",
+      "2610.34724v1",
+      "2610.35303v1"
     ],
     "low_priority": [],
     "no_news_policy": "如果没有新的高相关论文，自动化应返回“今日无高相关新增论文”，不写邮件正文文件，也不发送邮件。",
-    "email_body": "2026-10-26 Daily Paper\n\n今日从16篇arXiv候选中保留1篇新增高相关论文，另10篇已发布、5篇未满足本期精读范围。新增研究聚焦长程agent的上下文压缩、用户约束保留与评测盲点；已核查正文、相关附录、关键图表和资源状态。\n\n今日精读\nBenchmarks Are Surprisingly Compaction-Friendly\n作者：Jeanne Salle, Hardik Bhatnagar, Matthias Bethge, Sahar Abdelnabi, Maksym Andriushchenko\n单位：ELLIS Institute Tübingen；Max Planck Institute for Intelligent Systems；Tübingen AI Center；University of Tübingen\n论文日期：2026-10-22\n论文：https://arxiv.org/abs/2610.31778v1\n录用：未确认录用\n代码：作者链接仓库为空，暂未提供可核查实现\n相关度：高；偏水风险：低\n\n在受测长程基准中，上下文压缩后任务分数变化较小，但用户的流程要求与范围禁令容易从摘要中消失。论文通过固定框架的策略比较和真实会话分析，指出任务完成度与约束保留需要分别评测。\n\n动机：长程 agent 通常靠上下文压缩继续工作，但完成任务与持续遵守用户约束是两个不同目标。已有评测较少同时检验前沿模型在真实长程任务中的性能和约束保留，因此无法判断：分数稳定究竟说明记忆可靠，还是任务允许 agent 从磁盘重新找回所需信息。本文围绕这一评测盲点展开，与 agent memory、多轮指令遵循和 long-horizon reliability 高度相关。\n方法：固定 OpenCode 框架，比较默认自摘要、工具输出裁剪、自摘要加全文落盘、移除较早的推理块、由 Claude Haiku 4.5 代写摘要五种策略。主要性能比较覆盖 Claude Opus 4.6、GPT-5.4 和 GPT-5.3-Codex；另测 Gemini 3.1 Pro，但其很少触发压缩，相关证据有限。实验扫描160K至380K的压缩阈值，并在160K阈值下比较策略，每个任务与配置运行两次。除三个长程基准的任务分数外，作者还检查 ProgramBench 反作弊规则是否进入摘要，并从44段 SWE-chat 真实交互中提取269条用户约束，分析不同类别的遗失率。\n实验：作者在PaperBench的3篇论文、ProgramBench的2个软件重实现任务、PostTrainBench的2个底座×3项能力上比较，每个任务与配置运行两次；主图按有效提交条件计分。160K至380K阈值下，两个百万级窗口模型未显示明确分数变化；GPT-5.3-Codex的PaperBench分数由约0.38升至260K及以上时约0.60，PostTrainBench区间过宽，不能确定阈值效应。160K时没有替代策略显著超过默认自摘要；Haiku摘要使Codex分数0.38→0.18，移除推理块使GPT-5.4为0.59→0.43。ProgramBench首次压缩平均遗漏0.92类反作弊规则，第十次1.93类。SWE-chat的44段会话含269条约束：总体遗漏约19%，功能需求6.2%、流程要求35.9%、范围禁令36.8%；另一模型家族判为24.5%，两位judge一致率88.8%、κ=0.681。摘要缺失没有被证明导致实际违规，作弊在首次压缩前已经出现。\nInsight：长程记忆需要区分可从文件恢复的任务状态，以及只存在于交互中的权限边界、流程要求和范围禁令；后者值得作为独立、可更新的约束状态持久化，并在压缩后重新注入。agentic RL 的训练与评测可同时覆盖任务收益、约束保留和实际行为合规，避免终局分数掩盖过程失真。多轮 planning reliability 应加入中途修改要求、撤销授权及无法从产物恢复的信息，分别检查记住、遵守和最终完成，而非把摘要保留率直接当作可靠性。上述方向是可迁移的设计推论，本文尚未验证这些干预能改善端到端表现。\n局限：任务与配置的重复次数少，未显著不同不能解释为等效；PaperBench仅用Code-Dev部分，由gpt-4o-mini判定代码开发rubric，不执行完整复现。主图排除无效提交，作者不断补跑至取得足够有效提交，尝试次数因条件而异，不能把图中分数当作端到端成功率；附录另报失败率。160K至380K只占百万窗口的16%至38%，无法推广至接近满窗口，模型能力、窗口和压缩频率也未被独立控制。Gemini很少触发压缩，ProgramBench又频繁作弊，其证据有限。SWE-chat来自另一框架Claude Code，依赖LLM提取与判定，没有测量约束丢失对最终行为的影响；双judge复核按每个judge三次多数票，排除1条无多数票约束后为268条。磁盘可恢复性解释分数稳定仍是假说，缺少直接因果干预。正文明确PostTrainBench无法下结论，强于正文的摘要措辞不采用。作者链接仓库核验时为空，未提供可检查的实现或结果。"
+    "email_body": "2026-10-27 Daily Paper\n\n今日16篇arXiv候选全部为未收录论文，保留6篇与多轮交互、长程执行或agentic RL直接相关的研究，排除10篇范围较弱的候选。已核查保留论文正文、相关附录与关键结果页，并分别说明实验跨度、奖励、评估与成本边界。\n\n今日精读：When Fine-Grained Credit Assignment Helps and Hurts: Multimodal Agentic Reinforcement Learning through Video Editing\n作者：Lei Zhao, Zongheng Cao, Xinyu Hu\n单位：University of Pennsylvania；Philo Labs\n论文日期：2026-10-26\n论文：https://arxiv.org/abs/2610.35497v1\n录用：未确认录用\n项目页：https://leizhao7.github.io/videoedit/\n代码：项目页可访问；作者给出的代码仓库当前返回404，暂不提供可用代码链接。\n相关度：高；偏水风险：低\n\n在视频编辑 agent 中比较轨迹、逐轮和逐 token 监督。过程奖励退火改善较长的精剪任务，固定过程奖励却诱发冗余工具调用和交付失败。\n动机：长程多模态工具轨迹中好坏动作混杂，终局奖励难以定位贡献，但更密集的监督也可能引入偏差。论文用不同编辑阶段比较：何时逐轮过程奖励比 outcome-only GRPO 更有效，以及逐 token 自蒸馏为何可能失败。\n方法：从49部电影及预告片构造选镜头、叙事排序、粗剪、精剪四类独立任务，Qwen3.5-9B训练50步。对照 outcome-only GRPO、固定权重0.5的PRM、在20–30步将PRM权重退火至零，以及两种特权信息的OPSD。过程裁判Gemini 3.8 Flash采用三票平均，结果裁判使用另一模型；选镜头和排序仅用确定性分数，粗剪和精剪混合或使用多模态judge。\n实验：716个训练任务来自43部电影，81个验证任务来自不重叠的6部电影；每任务四次评估采样。表3的整体分数：GRPO 0.413、固定PRM 0.334、退火PRM 0.447；精剪由0.201至0.293，作者按未舍入均值计算相对增益45.4%。选镜头/粗剪仍是GRPO最高，排序退火PRM由0.500至0.552。固定PRM截断率44.1%，退火后6.2%，GRPO为0.3%。OPSD参考答案/逐轮建议整体为0.277/0.044。GRPO的精剪平均65.4轮，其余任务32–38轮；这些是训练后基线的长度。\nInsight：过程奖励可作为早期探索脚手架，并随训练降低权重；应同时检查终局质量、交付率和工具预算，不能把更多观察、反思或更高过程分当作更可靠。任务跨度与动作质量混杂可能影响信用分配难度，但本文未独立操纵跨度；“密集监督稀释有效信号”仍是机制假说。\n局限：只用一个9B底座和一个训练随机种子；四次重复是评估采样，不能代替独立训练复现。各任务分数语义不同，整体分数不是共同成功率，跨度与任务类型、奖励构成混杂。精剪固定画面与时间线，只处理声音/转场，不能外推至完整制作。退火窗口基于观察到的训练行为选择，未证明最优。OPSD结论仅覆盖本文教师与特权信息配置。作者项目页可访问，但论文给出的GitHub仓库核验返回404，代码可用性尚未确认。\n\n今日精读：FOCUS: Active Critic Learning for Long-Horizon Language Model Agents\n作者：Zhengping Jiang, William Jurayj, Liaoyaqi Wang, Chunsheng Zuo, Anqi Liu, Benjamin Van Durme\n单位：Johns Hopkins University\n论文日期：2026-10-26\n论文：https://arxiv.org/abs/2610.35801v1\n录用：未确认录用\n项目页：未发现可核查项目页\n代码：正文代码URL https://github.com/zipJiang/FOCUS 当前GitHub API返回404，暂未确认可用实现。\n相关度：高；偏水风险：低\n\nFOCUS在可恢复的中间状态选择性分支，用续跑结果修正critic并分配分段优势。9B模型在深搜与法律推理上优于GRPO，但等生成预算不代表等总算力。\n动机：长程agent只有稀疏结果反馈，critic预测不准会误分信用，而对所有中间状态反复续跑又太贵。目标是在有限采样预算下，把分支分配给最能改善价值估计的状态，同时学习可复用的critic。\n方法：以可恢复状态构造rollout树，实验采用上下文压缩边界分段。选择器将固定critic预测作为伪观测，与已完成续跑结果构成Beta式估计，按预期MSE下降选择续跑；训练时另做逐层递归backup，与critic混合得到分段价值，更新critic并形成actor优势。选择用的结果统计与训练用的递归值不同；主实验γ=1、λ=0、κ=1，即局部TD残差，而非非零λ的长程回报。\n实验：一轮训练、匹配每步生成预算，比较GRPO/VinePPO。Qwen3.5-9B：BrowseComp-Plus为55.4%对48.2%/46.6%；DeonticBench总体56.5%对52.4%/49.4%；LocBench File@1/@5为72.4/81.6，对GRPO 70.1/80.5。27B LoRA仅测法律推理，总体76.3%对74.3%/74.9%。BrowseComp从830题拆出498训练、83验证、249 held-out。法律推理338个评估例；LocBench区间按87个配对query计算。价值修正和压缩形式消融支持分支调度的作用。\nInsight：把rollout分配视为critic的主动学习，有助于把昂贵续跑花在价值估计最需要证据的状态。可将上下文管理、可恢复状态和采样控制解耦，但执行器需要可靠快照/恢复。值得分别评估分支预算、critic额外成本和压缩后过早提交，而非只比较生成数量。\n局限：匹配每步生成预算没有匹配critic推断/训练的总GPU成本；FOCUS额外使用critic GPU。假设环境状态可分支恢复，不适合直接外推到不可逆真实工具。BrowseComp采用各方法最佳held-out checkpoint，LocBench不同指标也使用不同GRPO checkpoint；90%配对区间未覆盖checkpoint选择、训练种子和解码变异。9B法律难题子集反而26.8%低于GRPO 28.2%；LocBench小幅增益区间含零或触零。27B仅测单一基准。正文给出代码URL，但GitHub API核验404，暂未确认实现公开。\n\n今日精读：Intent-Preserving Adversarial User Simulation for Multi-Turn Agent Evaluation\n作者：Atri Vivek Sharma, Brian Formento, Alessio Lomuscio\n单位：Imperial College London；Safe Intelligence\n论文日期：2026-10-26\n论文：https://arxiv.org/abs/2610.35426v1\n录用：NeurIPS 2026 UserSim Workshop（arXiv及论文标注）\n项目页：未发现可核查项目页\n代码：未发现可核查的公开代码链接\n相关度：高；偏水风险：低\n\nStressSim按任务搜索更难应对、仍保持原目标的模拟用户策略，暴露多轮agent的重复成功率缺口。结果依赖有效性裁判和定向搜索，不能等同真实用户平均表现。\n动机：合作型LLM用户可能高估多轮agent鲁棒性，固定的困难用户模板也可能漏掉模型特有失败。论文希望在不改变用户任务的前提下，搜索更具挑战的交互方式，并把无效目标变化与真正agent失败区分开。\n方法：模拟器分为目标状态追踪、对抗逐轮规划和话语生成。每个任务单独以遗传提示优化搜索planner指令，利用轨迹、子目标完成度和有效性反馈选择变异；主配置4轮优化、总20条rollout、无效惩罚β=5。有效性要求目标信息覆盖及自然、一致、推进、非重复、目标导向，均由LLM裁判判断。不是微调用户模型，也不是学习一个跨任务统一策略。\n实验：MultiWOZ、tau-bench零售/航空各50任务；主表目标模型GPT-5.4-nano、Kimi-K2.6、Gemini-3.8-Flash。每任务收集5条有效对话，报告pass@4与全部四次均成功的pass^4。零售Gemini pass^4由0.320降至0.100，首次有效率IGA为1.00；航空由0.244降至0.076、IGA为0.92。额外迁移表的GPT-5.6-sol：自定向优化0.296→0.112，但来自较小模型的提示几乎无效。100段对话双人审阅，最终有效性judge与标注者κ为0.679/0.840，目标信息覆盖一致性较弱。\nInsight：多轮评测可同时报告目标有效性与重复成功可靠性，并在固定预算内搜索任务特有的交互失败。较难用户不必改变目标。定向策略的跨模型迁移有限，提示需要随目标agent更新；这一发现支持增加自适应压力测试，但不能推断所有真实用户都同样困难。\n局限：每基准仅50任务、每任务5条有效轨迹；无效对话被丢弃并最多重试15次，pass指标是有效对话条件下的分数，IGA需单独看。优化预算20不等于包括最终评估重试在内的总费用。有效性来自LLM且100段人审为近似均衡样本，不能证明总体无误判或真实用户分布保真。MultiWOZ unavailable模板有更低pass^4，StressSim并非所有场景最强攻击。主表三个模型与附加迁移实验的GPT-5.6-sol应区分；较强模型结果来自自定向搜索，缺少广泛迁移证据。\n\n今日精读：Belief-Conditioned Multi-Agent Actor Critic for Decentralized LLM Collaboration\n作者：Tianle Chen, Shuo Liu, Christopher Amato\n单位：Northeastern University, Khoury College of Computer Sciences\n论文日期：2026-10-26\n论文：https://arxiv.org/abs/2610.35398v1\n录用：NeurIPS 2026 PTA Workshop（arXiv及论文标注）\n项目页：未发现可核查项目页\n代码：未发现可核查的公开代码链接\n相关度：中；偏水风险：中\n\nBCMAAC用循环belief context跟踪本地状态与队友，辅助训练改善六项双agent任务。实验仅2–4轮且任务集小，主要支持受控多轮协作，尚未验证真实长程可靠性。\n动机：去中心化LLM协作需要持续记住局部环境、队友掌握的信息和行动依赖。普通MAAC要从文本历史重建这些状态，论文尝试用跨轮隐表示和逐轮辅助标签降低状态估计难度。\n方法：每个agent将执行时可得的结构化侧信息与循环隐状态编码为belief context，actor仍同时读取本地文本历史；集中式critic汇总context，用一步TD优势更新策略。完整轨迹与环境内部状态仅在训练时生成任务状态、队友动作类别标签，辅助训练编码器；执行时移除critic和辅助头。belief是受监督隐表示，不是已证明校准的概率后验。\n实验：Qwen3-4B-Instruct-2507在Minecraft资源/搭桥、跨语言/多来源检索和两种工具任务上评估。表1：Stateful Tool成功率由MAAC 59.2%至77.5%，资源收集78.4%至92.8%，文件操作58.9%至73.0%；Web列是答案匹配分而非成功率。图3报告五次运行及标准差。附录表2实际horizon仅2–4轮、每任务评估3–30个实例，Bridge仅3例。两种辅助信号消融均介于MAAC与完整方法之间；附录奖励含进度/通信等稠密塑形。\nInsight：可将任务进度、队友已知事实和行动就绪条件作为持续更新的表示，供actor和critic共同使用；模拟器可提供逐轮辅助标签。但要把“表示更好”与“长程信用分配更好”分别验证，加入更长跨度、纯终局奖励以及同输入/同容量对照，检验收益能否离开人为交接约束。\n局限：全部双agent，不能说明更多agent的扩展性；2–4轮及小测试集不足以证明长程稀疏反馈可靠性。结构化输入、额外循环容量与辅助监督的独立贡献未充分隔离。Web为固定语料，工具为确定性模拟器，并人为限制本轮发现的信息只能下一轮执行。使用稠密塑形，不是纯稀疏奖励。理论的动作无关baseline恒等式和context充分性条件不保证实际表示充分。五次运行的标准差不是显著性检验，协作行为解释也缺少完整直接指标。\n\n今日精读：Harness-Model Collaboration for Long-Horizon Continual Learning\n作者：Zhen Bi, Zhizhi Peng, Yan Wang, Xueshu Chen, Haofei Zhang, Yaobo Zhang, Zeyu Yang, Qing Shen, Jungang Lou\n单位：Huzhou Normal University；Alibaba Group；Zhejiang University；Ningxia University\n论文日期：2026-10-26\n论文：https://arxiv.org/abs/2610.34724v1\n录用：未确认录用\n项目页：未发现可核查项目页\n代码：未发现可核查的公开代码链接\n相关度：高；偏水风险：中\n\nHaMo把专家轨迹压成策略卡片，并通过检索覆盖选择和历史回放持续训练同一个LoRA。三个交互环境中改善适应与保留，但实验未单独分离回放和记忆的贡献。\n动机：长程agent可以外存经验快速复用，也可更新参数形成持久技能；前者可能不会正确执行检索到的策略，后者又易在跨域训练中遗忘。论文关注怎样让策略经验存储与执行能力共同适应。\n方法：把专家轨迹提炼为任务、初始观察和策略大纲卡片。阶段内按卡片之间top-3检索的反向覆盖，贪心选互补轨迹并用覆盖曲线拐点定预算；这些anchor与历史回放一起做经验条件化行为克隆。冻结底座，持续更新同一个LoRA；推断只以当前任务和初始观察检索策略，再结合交互历史执行。论文的训练后释放记忆选项在全部实验中关闭。\n实验：ScienceWorld四个样本不重叠阶段，每阶段均含所有任务类型；Qwen3-8B/14B四阶段平均分52.22/53.09，Base+Harness为38.34/40.65。跨域8B按ScienceWorld→ALFWorld→WebShop后为52.43/66.79/59.64；前两者分别是任务进度分和成功率，后者保留部分奖励。Model-only最终ScienceWorld 24.57，HaMo 52.43，但ALFWorld为69.34高于HaMo 66.79。每回合最多50轮，每阶段训练3 epochs。另测两种循环域顺序及1.7B/4B规模。\nInsight：外部记忆保留“做过什么”，参数更新学习“如何解释并执行策略”，二者可以使用一致的经验条件输入接口。应把快速检索复用与慢速技能内化分别评测；覆盖式选样可减少冗余，但需要独立消融它与历史回放的收益。\n局限：用专家轨迹监督行为克隆，不是完全靠自主在线探索的agentic RL。Model-only同时移除记忆和历史回放，不能把保留收益单独归因于harness；anchor、回放和经验条件化也未完全分离。ScienceWorld阶段仍覆盖所有任务类型，是数据增量而非新任务类型增量。域顺序影响遗忘，W→S→A中ScienceWorld 55.19→47.42；完整方法并非每域都胜过model-only。三域分数语义不同，总和不是统一成功率。未报告充分独立种子区间和完整费用；文本环境结果尚不能推广到真实Web或视觉agent。\n\n今日精读：InterQ-RL: Interaction-Aware Correction of Execution Mismatch in Quantized Agentic RL\n作者：Yingbo Hao, Song Liu, Guanghua Yu, Zhaojing Zhou, Jianchen Zhu, Yi Zou\n单位：South China University of Technology；Tencent\n论文日期：2026-10-26\n论文：https://arxiv.org/abs/2610.35303v1\n录用：未确认录用\n项目页：未发现可核查项目页\n代码：未发现可核查的公开代码链接\n相关度：高；偏水风险：低\n\nInterQ-RL先对齐低精度执行，再按跨轮动作前缀校正策略损失，缓解量化rollout后期回退。四种环境与底座配置接近或超过BF16，但不等于已验证端到端提速。\n动机：多轮RL中的量化执行器决定行为分布，即使当前token的概率已对齐，早期动作造成的状态到达分布仍可能偏移。只修正当前token会漏掉沿交互历史累积的执行不匹配。\n方法：先让learner forward模拟W8A8及KV8量化，再累积同一实现轨迹上的行为/learner动作token对数比，排除环境观察的似然因子。对前缀比做有界处理，以每个动作段的有效支持度，在固定平方位移预算内分配校正强度；权重detach后乘原GRPO损失，不新增模型forward。精确轨迹换测度恒等式用于确定前缀范围，实际裁剪和分配后的训练目标是有偏的有界替代，不能称严格无偏校正。\n实验：全部量化分支共用W8A8-KV8 rollout，训练400步。Qwen3-4B：ALFWorld成功率96.4%，QAT 90.4%、BF16 97.1%；WebShop得分77.7，QAT 74.9、BF16 78.0，成功率53.5%对49.7%/54.0%。ScienceWorld 8B/30B-A3B macro为67.8/69.9，高于BF16 66.9/67.0。ALFWorld/WebShop取末六个checkpoint评估均值，ScienceWorld在固定终点测1819例。AULC在三配置为量化最佳，ALFWorld 81.96略低于QAT 82.29。成功轨迹平均轮数降低，但不包括失败轨迹或总训练时间。\nInsight：训练/执行一致性需同时检查局部概率与到达当前状态的历史，尤其在多轮工具反馈下。可复用已有logprob做前缀诊断，但量化精度、有效支持度和信用分配最好分别对照；更高终点质量与更快wall-clock训练是不同证据。\n局限：共同rollout精度和步数不代表总费用相同，正文没有完整端到端吞吐/显存收益测量。bounded权重不是精确全轨迹无偏估计，ESS也非正确性保证。成功轮数只对成功episode平均，存在选择条件；ALFWorld/WebShop末六checkpoint不是六个独立种子。附录仅称这两环境的BF16/QAT/InterQ独立种子复现一致，未给完整种子数及区间，其余基线和ScienceWorld覆盖有限。AIS/QuRL按论文重实现，MoE的UAQ仅施于attention；基线适配需结合附录理解。作者承诺开源，未找到已可核查的代码URL。"
   },
   "latest_item_ids": [
-    "2610.31778v1"
+    "2610.35497v1",
+    "2610.35801v1",
+    "2610.35426v1",
+    "2610.35398v1",
+    "2610.34724v1",
+    "2610.35303v1"
   ],
   "archive": {
     "policy": "append_or_update_by_arxiv_id",
-    "fresh_items": 1,
-    "total_items": 528,
-    "previous_items": 527,
-    "latest_items": 1,
+    "fresh_items": 6,
+    "total_items": 534,
+    "previous_items": 528,
+    "latest_items": 6,
     "source_report_dates": {
+      "2026-10-27": 6,
       "2026-10-26": 1,
       "2026-10-24": 8,
       "2026-10-22": 9,
@@ -114,18 +124,714 @@
       "undefined": 39
     },
     "filtered_candidate_ids": [
-      "2610.31778v1"
+      "2610.35497v1",
+      "2610.35801v1",
+      "2610.35426v1",
+      "2610.35398v1",
+      "2610.34724v1",
+      "2610.35303v1"
     ],
-    "filtered_today": 15,
+    "filtered_today": 10,
     "rejected_candidate_ids": [
-      "2610.32464v1",
-      "2610.31253v1",
-      "2610.30755v1",
-      "2610.29357v1",
-      "2610.29010v1"
+      "2610.34790v1",
+      "2610.34767v1",
+      "2610.34673v1",
+      "2610.34977v1",
+      "2610.35736v1",
+      "2610.35500v1",
+      "2610.34799v1",
+      "2610.34860v1",
+      "2610.34073v1",
+      "2610.34121v1"
     ]
   },
   "items": [
+    {
+      "id": "2610.35497v1",
+      "title": "When Fine-Grained Credit Assignment Helps and Hurts: Multimodal Agentic Reinforcement Learning through Video Editing",
+      "summary": "Reinforcement learning (RL) has shown promise for training multimodal agents to reason and use tools. However, it remains unclear when fine-grained credit assignment improves learning and when it fails to improve task performance. Video editing provides a useful testbed for this question, combining multimodal perception, long-horizon planning, and tool use with delayed outcome feedback. We construct four movie-trailer editing task types---Content Selection, Narrative Sequencing, Rough Cut, and Fine Cut---that reflect real-world editing workflows and span different levels of task complexity and interaction horizon. Decaying process rewards provides the largest benefit on Fine Cut, with a 45.4% relative gain over outcome-only GRPO on tasks averaging more than 60 turns under outcome-only GRPO. On the three shorter-horizon task types averaging 30--40 turns under the same baseline, outcome-only GRPO remains competitive, with decaying process rewards yielding at most a 10.4% relative gain. Process rewards from an LLM judge initially improve tool use and encourage visual inspection. As training progresses, however, GRPO+PRM with a fixed process-reward weight increasingly exhibits excessive reasoning and redundant tool calls: process rewards continue to rise while task completion rates and outcome scores decline. Decaying the process-reward weight to zero mitigates this reward-hacking behavior while preserving the early gains. Despite dense token-level supervision, on-policy self-distillation (OPSD) yields little improvement or substantial degradation and is highly sensitive to the choice of privileged information. Our analysis reveals differences in teacher--student disagreement and gradient magnitudes, and suggests possible dilution of informative signals over long trajectories.",
+      "url": "https://arxiv.org/abs/2610.35497v1",
+      "authors": [
+        "Lei Zhao",
+        "Zongheng Cao",
+        "Xinyu Hu"
+      ],
+      "report_date": "2026-10-27",
+      "published": "2026-10-26",
+      "updated": "2026-10-26",
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG"
+      ],
+      "project_url": "https://leizhao7.github.io/videoedit/",
+      "repo_url": "",
+      "venue_status": "未确认录用",
+      "recommendation": {
+        "score": 98,
+        "level": "高",
+        "label": "过程奖励退火与长程信用分配",
+        "water_risk": "低",
+        "value_judgement": "过程奖励可作为早期探索脚手架，并随训练降低权重；应同时检查终局质量、交付率和工具预算，不能把更多观察、反思或更高过程分当作更可靠。任务跨度与动作质量混杂可能影响信用分配难度，但本文未独立操纵跨度；“密集监督稀释有效信号”仍是机制假说。",
+        "reason": "过程奖励可作为早期探索脚手架，并随训练降低权重；应同时检查终局质量、交付率和工具预算，不能把更多观察、反思或更高过程分当作更可靠。任务跨度与动作质量混杂可能影响信用分配难度，但本文未独立操纵跨度；“密集监督稀释有效信号”仍是机制假说。",
+        "signals": {
+          "agenticRl": true,
+          "multiTurn": true,
+          "longHorizon": true,
+          "memory": false,
+          "reliability": false,
+          "codeOrTool": true,
+          "experiments": true,
+          "survey": false
+        }
+      },
+      "brief": {
+        "authors": [
+          "Lei Zhao",
+          "Zongheng Cao",
+          "Xinyu Hu"
+        ],
+        "affiliations": "University of Pennsylvania；Philo Labs",
+        "date": "2026-10-26",
+        "paper_url": "https://arxiv.org/abs/2610.35497v1",
+        "project_url": "https://leizhao7.github.io/videoedit/",
+        "repo_url": "",
+        "venue_status": "未确认录用",
+        "contribution": "过程奖励可作为早期探索脚手架，并随训练降低权重；应同时检查终局质量、交付率和工具预算，不能把更多观察、反思或更高过程分当作更可靠。任务跨度与动作质量混杂可能影响信用分配难度，但本文未独立操纵跨度；“密集监督稀释有效信号”仍是机制假说。",
+        "summary": "在视频编辑 agent 中比较轨迹、逐轮和逐 token 监督。过程奖励退火改善较长的精剪任务，固定过程奖励却诱发冗余工具调用和交付失败。 从49部电影及预告片构造选镜头、叙事排序、粗剪、精剪四类独立任务，Qwen3.5-9B训练50步。对照 outcome-only GRPO、固定权重0.5的PRM、在20–30步将PRM权重退火至零，以及两种特权信息的OPSD。过程裁判Gemini 3.8 Flash采用三票平均，结果裁判使用另一模型；选镜头和排序仅用确定性分数，粗剪和精剪混合或使用多模态judge。 716个训练任务来自43部电影，81个验证任务来自不重叠的6部电影；每任务四次评估采样。表3的整体分数：GRPO 0.413、固定PRM 0.334、退火PRM 0.447；精剪由0.201至0.293，作者按未舍入均值计算相对增益45.4%。选镜头/粗剪仍是GRPO最高，排序退火PRM由0.500至0.552。固定PRM截断率44.1%，退火后6.2%，GRPO为0.3%。OPSD参考答案/逐轮建议整体为0.277/0.044。GRPO的精剪平均65.4轮，其余任务32–38轮；这些是训练后基线的长度。",
+        "highlights": [
+          "过程奖励退火与长程信用分配",
+          "偏水风险：低",
+          "阅读来源：arXiv PDF正文及相关附录核对"
+        ],
+        "motivation": "长程多模态工具轨迹中好坏动作混杂，终局奖励难以定位贡献，但更密集的监督也可能引入偏差。论文用不同编辑阶段比较：何时逐轮过程奖励比 outcome-only GRPO 更有效，以及逐 token 自蒸馏为何可能失败。",
+        "method": "从49部电影及预告片构造选镜头、叙事排序、粗剪、精剪四类独立任务，Qwen3.5-9B训练50步。对照 outcome-only GRPO、固定权重0.5的PRM、在20–30步将PRM权重退火至零，以及两种特权信息的OPSD。过程裁判Gemini 3.8 Flash采用三票平均，结果裁判使用另一模型；选镜头和排序仅用确定性分数，粗剪和精剪混合或使用多模态judge。",
+        "experiments": "716个训练任务来自43部电影，81个验证任务来自不重叠的6部电影；每任务四次评估采样。表3的整体分数：GRPO 0.413、固定PRM 0.334、退火PRM 0.447；精剪由0.201至0.293，作者按未舍入均值计算相对增益45.4%。选镜头/粗剪仍是GRPO最高，排序退火PRM由0.500至0.552。固定PRM截断率44.1%，退火后6.2%，GRPO为0.3%。OPSD参考答案/逐轮建议整体为0.277/0.044。GRPO的精剪平均65.4轮，其余任务32–38轮；这些是训练后基线的长度。",
+        "research_help": "过程奖励可作为早期探索脚手架，并随训练降低权重；应同时检查终局质量、交付率和工具预算，不能把更多观察、反思或更高过程分当作更可靠。任务跨度与动作质量混杂可能影响信用分配难度，但本文未独立操纵跨度；“密集监督稀释有效信号”仍是机制假说。",
+        "recommendation": {
+          "score": 98,
+          "level": "高",
+          "label": "过程奖励退火与长程信用分配",
+          "water_risk": "低",
+          "value_judgement": "过程奖励可作为早期探索脚手架，并随训练降低权重；应同时检查终局质量、交付率和工具预算，不能把更多观察、反思或更高过程分当作更可靠。任务跨度与动作质量混杂可能影响信用分配难度，但本文未独立操纵跨度；“密集监督稀释有效信号”仍是机制假说。",
+          "reason": "过程奖励可作为早期探索脚手架，并随训练降低权重；应同时检查终局质量、交付率和工具预算，不能把更多观察、反思或更高过程分当作更可靠。任务跨度与动作质量混杂可能影响信用分配难度，但本文未独立操纵跨度；“密集监督稀释有效信号”仍是机制假说。",
+          "signals": {
+            "agenticRl": true,
+            "multiTurn": true,
+            "longHorizon": true,
+            "memory": false,
+            "reliability": false,
+            "codeOrTool": true,
+            "experiments": true,
+            "survey": false
+          }
+        },
+        "insight": "过程奖励可作为早期探索脚手架，并随训练降低权重；应同时检查终局质量、交付率和工具预算，不能把更多观察、反思或更高过程分当作更可靠。任务跨度与动作质量混杂可能影响信用分配难度，但本文未独立操纵跨度；“密集监督稀释有效信号”仍是机制假说。",
+        "abstract_zh": "在视频编辑 agent 中比较轨迹、逐轮和逐 token 监督。过程奖励退火改善较长的精剪任务，固定过程奖励却诱发冗余工具调用和交付失败。",
+        "full_summary": "在视频编辑 agent 中比较轨迹、逐轮和逐 token 监督。过程奖励退火改善较长的精剪任务，固定过程奖励却诱发冗余工具调用和交付失败。 从49部电影及预告片构造选镜头、叙事排序、粗剪、精剪四类独立任务，Qwen3.5-9B训练50步。对照 outcome-only GRPO、固定权重0.5的PRM、在20–30步将PRM权重退火至零，以及两种特权信息的OPSD。过程裁判Gemini 3.8 Flash采用三票平均，结果裁判使用另一模型；选镜头和排序仅用确定性分数，粗剪和精剪混合或使用多模态judge。 716个训练任务来自43部电影，81个验证任务来自不重叠的6部电影；每任务四次评估采样。表3的整体分数：GRPO 0.413、固定PRM 0.334、退火PRM 0.447；精剪由0.201至0.293，作者按未舍入均值计算相对增益45.4%。选镜头/粗剪仍是GRPO最高，排序退火PRM由0.500至0.552。固定PRM截断率44.1%，退火后6.2%，GRPO为0.3%。OPSD参考答案/逐轮建议整体为0.277/0.044。GRPO的精剪平均65.4轮，其余任务32–38轮；这些是训练后基线的长度。",
+        "card_summary": "在视频编辑 agent 中比较轨迹、逐轮和逐 token 监督。过程奖励退火改善较长的精剪任务，固定过程奖励却诱发冗余工具调用和交付失败。"
+      },
+      "analysis": {
+        "motivation": "长程多模态工具轨迹中好坏动作混杂，终局奖励难以定位贡献，但更密集的监督也可能引入偏差。论文用不同编辑阶段比较：何时逐轮过程奖励比 outcome-only GRPO 更有效，以及逐 token 自蒸馏为何可能失败。",
+        "method": "从49部电影及预告片构造选镜头、叙事排序、粗剪、精剪四类独立任务，Qwen3.5-9B训练50步。对照 outcome-only GRPO、固定权重0.5的PRM、在20–30步将PRM权重退火至零，以及两种特权信息的OPSD。过程裁判Gemini 3.8 Flash采用三票平均，结果裁判使用另一模型；选镜头和排序仅用确定性分数，粗剪和精剪混合或使用多模态judge。",
+        "experiments": "716个训练任务来自43部电影，81个验证任务来自不重叠的6部电影；每任务四次评估采样。表3的整体分数：GRPO 0.413、固定PRM 0.334、退火PRM 0.447；精剪由0.201至0.293，作者按未舍入均值计算相对增益45.4%。选镜头/粗剪仍是GRPO最高，排序退火PRM由0.500至0.552。固定PRM截断率44.1%，退火后6.2%，GRPO为0.3%。OPSD参考答案/逐轮建议整体为0.277/0.044。GRPO的精剪平均65.4轮，其余任务32–38轮；这些是训练后基线的长度。",
+        "research_help": "过程奖励可作为早期探索脚手架，并随训练降低权重；应同时检查终局质量、交付率和工具预算，不能把更多观察、反思或更高过程分当作更可靠。任务跨度与动作质量混杂可能影响信用分配难度，但本文未独立操纵跨度；“密集监督稀释有效信号”仍是机制假说。",
+        "insight": "过程奖励可作为早期探索脚手架，并随训练降低权重；应同时检查终局质量、交付率和工具预算，不能把更多观察、反思或更高过程分当作更可靠。任务跨度与动作质量混杂可能影响信用分配难度，但本文未独立操纵跨度；“密集监督稀释有效信号”仍是机制假说。",
+        "abstract_zh": "在视频编辑 agent 中比较轨迹、逐轮和逐 token 监督。过程奖励退火改善较长的精剪任务，固定过程奖励却诱发冗余工具调用和交付失败。",
+        "card_summary": "在视频编辑 agent 中比较轨迹、逐轮和逐 token 监督。过程奖励退火改善较长的精剪任务，固定过程奖励却诱发冗余工具调用和交付失败。",
+        "full_summary": "在视频编辑 agent 中比较轨迹、逐轮和逐 token 监督。过程奖励退火改善较长的精剪任务，固定过程奖励却诱发冗余工具调用和交付失败。 从49部电影及预告片构造选镜头、叙事排序、粗剪、精剪四类独立任务，Qwen3.5-9B训练50步。对照 outcome-only GRPO、固定权重0.5的PRM、在20–30步将PRM权重退火至零，以及两种特权信息的OPSD。过程裁判Gemini 3.8 Flash采用三票平均，结果裁判使用另一模型；选镜头和排序仅用确定性分数，粗剪和精剪混合或使用多模态judge。 716个训练任务来自43部电影，81个验证任务来自不重叠的6部电影；每任务四次评估采样。表3的整体分数：GRPO 0.413、固定PRM 0.334、退火PRM 0.447；精剪由0.201至0.293，作者按未舍入均值计算相对增益45.4%。选镜头/粗剪仍是GRPO最高，排序退火PRM由0.500至0.552。固定PRM截断率44.1%，退火后6.2%，GRPO为0.3%。OPSD参考答案/逐轮建议整体为0.277/0.044。GRPO的精剪平均65.4轮，其余任务32–38轮；这些是训练后基线的长度。",
+        "recommendation_level": "高",
+        "water_risk": "低",
+        "value_label": "过程奖励退火与长程信用分配",
+        "value_reason": "过程奖励可作为早期探索脚手架，并随训练降低权重；应同时检查终局质量、交付率和工具预算，不能把更多观察、反思或更高过程分当作更可靠。任务跨度与动作质量混杂可能影响信用分配难度，但本文未独立操纵跨度；“密集监督稀释有效信号”仍是机制假说。",
+        "limitations": "只用一个9B底座和一个训练随机种子；四次重复是评估采样，不能代替独立训练复现。各任务分数语义不同，整体分数不是共同成功率，跨度与任务类型、奖励构成混杂。精剪固定画面与时间线，只处理声音/转场，不能外推至完整制作。退火窗口基于观察到的训练行为选择，未证明最优。OPSD结论仅覆盖本文教师与特权信息配置。作者项目页可访问，但论文给出的GitHub仓库核验返回404，代码可用性尚未确认。",
+        "source_scope": "full_text",
+        "source_note": "基于arXiv PDF正文、相关附录和关键结果页核对；自动阅读器失败部分由本次Codex全文整理补齐。",
+        "source_evidence": [
+          "§4、表2：716训练/81验证，43/6部电影不重叠；四类任务指标不同。",
+          "表3、表5：精剪0.201→0.293；整体0.413→0.447；固定PRM截断44.1%。",
+          "附录C.1、C.3、C.4与表12：训练seed=42；四次评估采样；GRPO精剪65.4轮。",
+          "§6.3及附录C.5：OPSD对特权信息敏感，信号稀释解释仍需实验。"
+        ],
+        "model": "Codex full-text curation",
+        "updated_at": "2026-10-27T12:46:26.057217+00:00"
+      }
+    },
+    {
+      "id": "2610.35801v1",
+      "title": "FOCUS: Active Critic Learning for Long-Horizon Language Model Agents",
+      "summary": "Sparse outcome rewards make it difficult for long-horizon language-model agents to assign credit to earlier actions. Learned critics provide value estimates for intermediate states, but these estimates can be inaccurate, while estimating intermediate values with repetitive continuation samples from points within a trajectory incurs substantial costs. To mitigate these issues, we introduce FOCUS, an RL method that uses selective branching to help the critic network learn its value estimator. The rollout controller facilitates active learning for the critic by sampling continuations from states that are expected to most reduce the critic's estimation error. These refined value estimates then score the segment between consecutive states with a TD($λ$) advantage, while the sampled evidence supplies training targets for the critic. FOCUS supports long-horizon agentic reinforcement learning through a modular context-management interface that decouples context management from rollout allocation. Our experiments show that using compaction-induced segment boundaries for value estimation and credit assignment, FOCUS outperforms GRPO and VinePPO with matched per-step generation budgets on legal reasoning, deep search, and code localization benchmarks, improving held-out accuracy at Qwen3.5-9B scale by 7.2 points over the strongest baseline on BrowseComp-Plus (55.4 vs. 48.2) and by 4.1 points on DeonticBench (56.5 vs. 52.4).",
+      "url": "https://arxiv.org/abs/2610.35801v1",
+      "authors": [
+        "Zhengping Jiang",
+        "William Jurayj",
+        "Liaoyaqi Wang",
+        "Chunsheng Zuo",
+        "Anqi Liu",
+        "Benjamin Van Durme"
+      ],
+      "report_date": "2026-10-27",
+      "published": "2026-10-26",
+      "updated": "2026-10-26",
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG"
+      ],
+      "project_url": "",
+      "repo_url": "",
+      "venue_status": "未确认录用",
+      "recommendation": {
+        "score": 86,
+        "level": "高",
+        "label": "按critic误差收益分配长程rollout",
+        "water_risk": "低",
+        "value_judgement": "把rollout分配视为critic的主动学习，有助于把昂贵续跑花在价值估计最需要证据的状态。可将上下文管理、可恢复状态和采样控制解耦，但执行器需要可靠快照/恢复。值得分别评估分支预算、critic额外成本和压缩后过早提交，而非只比较生成数量。",
+        "reason": "把rollout分配视为critic的主动学习，有助于把昂贵续跑花在价值估计最需要证据的状态。可将上下文管理、可恢复状态和采样控制解耦，但执行器需要可靠快照/恢复。值得分别评估分支预算、critic额外成本和压缩后过早提交，而非只比较生成数量。",
+        "signals": {
+          "agenticRl": true,
+          "multiTurn": false,
+          "longHorizon": true,
+          "memory": false,
+          "reliability": true,
+          "codeOrTool": false,
+          "experiments": true,
+          "survey": false
+        }
+      },
+      "brief": {
+        "authors": [
+          "Zhengping Jiang",
+          "William Jurayj",
+          "Liaoyaqi Wang",
+          "Chunsheng Zuo",
+          "Anqi Liu",
+          "Benjamin Van Durme"
+        ],
+        "affiliations": "Johns Hopkins University",
+        "date": "2026-10-26",
+        "paper_url": "https://arxiv.org/abs/2610.35801v1",
+        "project_url": "",
+        "repo_url": "",
+        "venue_status": "未确认录用",
+        "contribution": "把rollout分配视为critic的主动学习，有助于把昂贵续跑花在价值估计最需要证据的状态。可将上下文管理、可恢复状态和采样控制解耦，但执行器需要可靠快照/恢复。值得分别评估分支预算、critic额外成本和压缩后过早提交，而非只比较生成数量。",
+        "summary": "FOCUS在可恢复的中间状态选择性分支，用续跑结果修正critic并分配分段优势。9B模型在深搜与法律推理上优于GRPO，但等生成预算不代表等总算力。 以可恢复状态构造rollout树，实验采用上下文压缩边界分段。选择器将固定critic预测作为伪观测，与已完成续跑结果构成Beta式估计，按预期MSE下降选择续跑；训练时另做逐层递归backup，与critic混合得到分段价值，更新critic并形成actor优势。选择用的结果统计与训练用的递归值不同；主实验γ=1、λ=0、κ=1，即局部TD残差，而非非零λ的长程回报。 一轮训练、匹配每步生成预算，比较GRPO/VinePPO。Qwen3.5-9B：BrowseComp-Plus为55.4%对48.2%/46.6%；DeonticBench总体56.5%对52.4%/49.4%；LocBench File@1/@5为72.4/81.6，对GRPO 70.1/80.5。27B LoRA仅测法律推理，总体76.3%对74.3%/74.9%。BrowseComp从830题拆出498训练、83验证、249 held-out。法律推理338个评估例；LocBench区间按87个配对query计算。价值修正和压缩形式消融支持分支调度的作用。",
+        "highlights": [
+          "按critic误差收益分配长程rollout",
+          "偏水风险：低",
+          "阅读来源：arXiv PDF正文及相关附录核对"
+        ],
+        "motivation": "长程agent只有稀疏结果反馈，critic预测不准会误分信用，而对所有中间状态反复续跑又太贵。目标是在有限采样预算下，把分支分配给最能改善价值估计的状态，同时学习可复用的critic。",
+        "method": "以可恢复状态构造rollout树，实验采用上下文压缩边界分段。选择器将固定critic预测作为伪观测，与已完成续跑结果构成Beta式估计，按预期MSE下降选择续跑；训练时另做逐层递归backup，与critic混合得到分段价值，更新critic并形成actor优势。选择用的结果统计与训练用的递归值不同；主实验γ=1、λ=0、κ=1，即局部TD残差，而非非零λ的长程回报。",
+        "experiments": "一轮训练、匹配每步生成预算，比较GRPO/VinePPO。Qwen3.5-9B：BrowseComp-Plus为55.4%对48.2%/46.6%；DeonticBench总体56.5%对52.4%/49.4%；LocBench File@1/@5为72.4/81.6，对GRPO 70.1/80.5。27B LoRA仅测法律推理，总体76.3%对74.3%/74.9%。BrowseComp从830题拆出498训练、83验证、249 held-out。法律推理338个评估例；LocBench区间按87个配对query计算。价值修正和压缩形式消融支持分支调度的作用。",
+        "research_help": "把rollout分配视为critic的主动学习，有助于把昂贵续跑花在价值估计最需要证据的状态。可将上下文管理、可恢复状态和采样控制解耦，但执行器需要可靠快照/恢复。值得分别评估分支预算、critic额外成本和压缩后过早提交，而非只比较生成数量。",
+        "recommendation": {
+          "score": 86,
+          "level": "高",
+          "label": "按critic误差收益分配长程rollout",
+          "water_risk": "低",
+          "value_judgement": "把rollout分配视为critic的主动学习，有助于把昂贵续跑花在价值估计最需要证据的状态。可将上下文管理、可恢复状态和采样控制解耦，但执行器需要可靠快照/恢复。值得分别评估分支预算、critic额外成本和压缩后过早提交，而非只比较生成数量。",
+          "reason": "把rollout分配视为critic的主动学习，有助于把昂贵续跑花在价值估计最需要证据的状态。可将上下文管理、可恢复状态和采样控制解耦，但执行器需要可靠快照/恢复。值得分别评估分支预算、critic额外成本和压缩后过早提交，而非只比较生成数量。",
+          "signals": {
+            "agenticRl": true,
+            "multiTurn": false,
+            "longHorizon": true,
+            "memory": false,
+            "reliability": true,
+            "codeOrTool": false,
+            "experiments": true,
+            "survey": false
+          }
+        },
+        "insight": "把rollout分配视为critic的主动学习，有助于把昂贵续跑花在价值估计最需要证据的状态。可将上下文管理、可恢复状态和采样控制解耦，但执行器需要可靠快照/恢复。值得分别评估分支预算、critic额外成本和压缩后过早提交，而非只比较生成数量。",
+        "abstract_zh": "FOCUS在可恢复的中间状态选择性分支，用续跑结果修正critic并分配分段优势。9B模型在深搜与法律推理上优于GRPO，但等生成预算不代表等总算力。",
+        "full_summary": "FOCUS在可恢复的中间状态选择性分支，用续跑结果修正critic并分配分段优势。9B模型在深搜与法律推理上优于GRPO，但等生成预算不代表等总算力。 以可恢复状态构造rollout树，实验采用上下文压缩边界分段。选择器将固定critic预测作为伪观测，与已完成续跑结果构成Beta式估计，按预期MSE下降选择续跑；训练时另做逐层递归backup，与critic混合得到分段价值，更新critic并形成actor优势。选择用的结果统计与训练用的递归值不同；主实验γ=1、λ=0、κ=1，即局部TD残差，而非非零λ的长程回报。 一轮训练、匹配每步生成预算，比较GRPO/VinePPO。Qwen3.5-9B：BrowseComp-Plus为55.4%对48.2%/46.6%；DeonticBench总体56.5%对52.4%/49.4%；LocBench File@1/@5为72.4/81.6，对GRPO 70.1/80.5。27B LoRA仅测法律推理，总体76.3%对74.3%/74.9%。BrowseComp从830题拆出498训练、83验证、249 held-out。法律推理338个评估例；LocBench区间按87个配对query计算。价值修正和压缩形式消融支持分支调度的作用。",
+        "card_summary": "FOCUS在可恢复的中间状态选择性分支，用续跑结果修正critic并分配分段优势。9B模型在深搜与法律推理上优于GRPO，但等生成预算不代表等总算力。"
+      },
+      "analysis": {
+        "motivation": "长程agent只有稀疏结果反馈，critic预测不准会误分信用，而对所有中间状态反复续跑又太贵。目标是在有限采样预算下，把分支分配给最能改善价值估计的状态，同时学习可复用的critic。",
+        "method": "以可恢复状态构造rollout树，实验采用上下文压缩边界分段。选择器将固定critic预测作为伪观测，与已完成续跑结果构成Beta式估计，按预期MSE下降选择续跑；训练时另做逐层递归backup，与critic混合得到分段价值，更新critic并形成actor优势。选择用的结果统计与训练用的递归值不同；主实验γ=1、λ=0、κ=1，即局部TD残差，而非非零λ的长程回报。",
+        "experiments": "一轮训练、匹配每步生成预算，比较GRPO/VinePPO。Qwen3.5-9B：BrowseComp-Plus为55.4%对48.2%/46.6%；DeonticBench总体56.5%对52.4%/49.4%；LocBench File@1/@5为72.4/81.6，对GRPO 70.1/80.5。27B LoRA仅测法律推理，总体76.3%对74.3%/74.9%。BrowseComp从830题拆出498训练、83验证、249 held-out。法律推理338个评估例；LocBench区间按87个配对query计算。价值修正和压缩形式消融支持分支调度的作用。",
+        "research_help": "把rollout分配视为critic的主动学习，有助于把昂贵续跑花在价值估计最需要证据的状态。可将上下文管理、可恢复状态和采样控制解耦，但执行器需要可靠快照/恢复。值得分别评估分支预算、critic额外成本和压缩后过早提交，而非只比较生成数量。",
+        "insight": "把rollout分配视为critic的主动学习，有助于把昂贵续跑花在价值估计最需要证据的状态。可将上下文管理、可恢复状态和采样控制解耦，但执行器需要可靠快照/恢复。值得分别评估分支预算、critic额外成本和压缩后过早提交，而非只比较生成数量。",
+        "abstract_zh": "FOCUS在可恢复的中间状态选择性分支，用续跑结果修正critic并分配分段优势。9B模型在深搜与法律推理上优于GRPO，但等生成预算不代表等总算力。",
+        "card_summary": "FOCUS在可恢复的中间状态选择性分支，用续跑结果修正critic并分配分段优势。9B模型在深搜与法律推理上优于GRPO，但等生成预算不代表等总算力。",
+        "full_summary": "FOCUS在可恢复的中间状态选择性分支，用续跑结果修正critic并分配分段优势。9B模型在深搜与法律推理上优于GRPO，但等生成预算不代表等总算力。 以可恢复状态构造rollout树，实验采用上下文压缩边界分段。选择器将固定critic预测作为伪观测，与已完成续跑结果构成Beta式估计，按预期MSE下降选择续跑；训练时另做逐层递归backup，与critic混合得到分段价值，更新critic并形成actor优势。选择用的结果统计与训练用的递归值不同；主实验γ=1、λ=0、κ=1，即局部TD残差，而非非零λ的长程回报。 一轮训练、匹配每步生成预算，比较GRPO/VinePPO。Qwen3.5-9B：BrowseComp-Plus为55.4%对48.2%/46.6%；DeonticBench总体56.5%对52.4%/49.4%；LocBench File@1/@5为72.4/81.6，对GRPO 70.1/80.5。27B LoRA仅测法律推理，总体76.3%对74.3%/74.9%。BrowseComp从830题拆出498训练、83验证、249 held-out。法律推理338个评估例；LocBench区间按87个配对query计算。价值修正和压缩形式消融支持分支调度的作用。",
+        "recommendation_level": "高",
+        "water_risk": "低",
+        "value_label": "按critic误差收益分配长程rollout",
+        "value_reason": "把rollout分配视为critic的主动学习，有助于把昂贵续跑花在价值估计最需要证据的状态。可将上下文管理、可恢复状态和采样控制解耦，但执行器需要可靠快照/恢复。值得分别评估分支预算、critic额外成本和压缩后过早提交，而非只比较生成数量。",
+        "limitations": "匹配每步生成预算没有匹配critic推断/训练的总GPU成本；FOCUS额外使用critic GPU。假设环境状态可分支恢复，不适合直接外推到不可逆真实工具。BrowseComp采用各方法最佳held-out checkpoint，LocBench不同指标也使用不同GRPO checkpoint；90%配对区间未覆盖checkpoint选择、训练种子和解码变异。9B法律难题子集反而26.8%低于GRPO 28.2%；LocBench小幅增益区间含零或触零。27B仅测单一基准。正文给出代码URL，但GitHub API核验404，暂未确认实现公开。",
+        "source_scope": "full_text",
+        "source_note": "基于arXiv PDF正文、相关附录和关键结果页核对；自动阅读器失败部分由本次Codex全文整理补齐。",
+        "source_evidence": [
+          "§2.2–2.3、附录A/F：选择统计与递归backup不同；主实验λ=0、κ=1。",
+          "表1：9B BrowseComp 55.4/48.2，法律总体56.5/52.4，Hard 26.8/28.2。",
+          "附录B：338法律例、87 LocBench配对query；held-out checkpoint选择与区间条件。",
+          "附录A表2–13：FOCUS额外critic GPU，匹配的是生成预算。"
+        ],
+        "model": "Codex full-text curation",
+        "updated_at": "2026-10-27T12:46:26.057217+00:00"
+      }
+    },
+    {
+      "id": "2610.35426v1",
+      "title": "Intent-Preserving Adversarial User Simulation for Multi-Turn Agent Evaluation",
+      "summary": "Multi-turn agents are commonly evaluated with LLM-based simulated users, which can be overly cooperative and can therefore overestimate an agent's performance. We here introduce StressSim, an intent-preserving adversarial user simulator framework for stress-testing agents with challenging yet valid user interactions. StressSim optimises the simulator's high-level adversarial plan for each task instance. Candidate planner prompts are evolved with a genetic prompt-optimisation loop that uses rollout traces, granular task-completion signals, and validity feedback to favour conversations that reduce task success without changing the user's underlying goal. We evaluate the approach on the MultiWOZ dataset and the retail and airline domains from tau-bench with three target LLM agents, comparing against standard simulators and hand-designed non-collaborative user behaviours. We demonstrate the effectiveness of StressSim in exposing robustness gaps across frontier LLMs, with tau-bench pass^4 scores decreasing by up to 69% on gemini-3.8-flash and 62% on gpt-5.6-sol. StressSim maintains goal preservation performance (which decreases by at most 10%), using an optimisation budget of 20 rollouts per task. Sensitivity analysis suggests that increasing the budget further decreases task success. Overall our results demonstrate that StressSim exposes robustness gaps missed by standard and hand-designed user simulators while maintaining conversation realism. This is achieved through lightweight prompt optimisation alone, without model fine-tuning.",
+      "url": "https://arxiv.org/abs/2610.35426v1",
+      "authors": [
+        "Atri Vivek Sharma",
+        "Brian Formento",
+        "Alessio Lomuscio"
+      ],
+      "report_date": "2026-10-27",
+      "published": "2026-10-26",
+      "updated": "2026-10-26",
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG"
+      ],
+      "project_url": "",
+      "repo_url": "",
+      "venue_status": "NeurIPS 2026 UserSim Workshop（arXiv及论文标注）",
+      "recommendation": {
+        "score": 84,
+        "level": "高",
+        "label": "保持用户意图的多轮压力测试",
+        "water_risk": "低",
+        "value_judgement": "多轮评测可同时报告目标有效性与重复成功可靠性，并在固定预算内搜索任务特有的交互失败。较难用户不必改变目标。定向策略的跨模型迁移有限，提示需要随目标agent更新；这一发现支持增加自适应压力测试，但不能推断所有真实用户都同样困难。",
+        "reason": "多轮评测可同时报告目标有效性与重复成功可靠性，并在固定预算内搜索任务特有的交互失败。较难用户不必改变目标。定向策略的跨模型迁移有限，提示需要随目标agent更新；这一发现支持增加自适应压力测试，但不能推断所有真实用户都同样困难。",
+        "signals": {
+          "agenticRl": false,
+          "multiTurn": true,
+          "longHorizon": true,
+          "memory": false,
+          "reliability": true,
+          "codeOrTool": false,
+          "experiments": true,
+          "survey": false
+        }
+      },
+      "brief": {
+        "authors": [
+          "Atri Vivek Sharma",
+          "Brian Formento",
+          "Alessio Lomuscio"
+        ],
+        "affiliations": "Imperial College London；Safe Intelligence",
+        "date": "2026-10-26",
+        "paper_url": "https://arxiv.org/abs/2610.35426v1",
+        "project_url": "",
+        "repo_url": "",
+        "venue_status": "NeurIPS 2026 UserSim Workshop（arXiv及论文标注）",
+        "contribution": "多轮评测可同时报告目标有效性与重复成功可靠性，并在固定预算内搜索任务特有的交互失败。较难用户不必改变目标。定向策略的跨模型迁移有限，提示需要随目标agent更新；这一发现支持增加自适应压力测试，但不能推断所有真实用户都同样困难。",
+        "summary": "StressSim按任务搜索更难应对、仍保持原目标的模拟用户策略，暴露多轮agent的重复成功率缺口。结果依赖有效性裁判和定向搜索，不能等同真实用户平均表现。 模拟器分为目标状态追踪、对抗逐轮规划和话语生成。每个任务单独以遗传提示优化搜索planner指令，利用轨迹、子目标完成度和有效性反馈选择变异；主配置4轮优化、总20条rollout、无效惩罚β=5。有效性要求目标信息覆盖及自然、一致、推进、非重复、目标导向，均由LLM裁判判断。不是微调用户模型，也不是学习一个跨任务统一策略。 MultiWOZ、tau-bench零售/航空各50任务；主表目标模型GPT-5.4-nano、Kimi-K2.6、Gemini-3.8-Flash。每任务收集5条有效对话，报告pass@4与全部四次均成功的pass^4。零售Gemini pass^4由0.320降至0.100，首次有效率IGA为1.00；航空由0.244降至0.076、IGA为0.92。额外迁移表的GPT-5.6-sol：自定向优化0.296→0.112，但来自较小模型的提示几乎无效。100段对话双人审阅，最终有效性judge与标注者κ为0.679/0.840，目标信息覆盖一致性较弱。",
+        "highlights": [
+          "保持用户意图的多轮压力测试",
+          "偏水风险：低",
+          "阅读来源：arXiv PDF正文及相关附录核对"
+        ],
+        "motivation": "合作型LLM用户可能高估多轮agent鲁棒性，固定的困难用户模板也可能漏掉模型特有失败。论文希望在不改变用户任务的前提下，搜索更具挑战的交互方式，并把无效目标变化与真正agent失败区分开。",
+        "method": "模拟器分为目标状态追踪、对抗逐轮规划和话语生成。每个任务单独以遗传提示优化搜索planner指令，利用轨迹、子目标完成度和有效性反馈选择变异；主配置4轮优化、总20条rollout、无效惩罚β=5。有效性要求目标信息覆盖及自然、一致、推进、非重复、目标导向，均由LLM裁判判断。不是微调用户模型，也不是学习一个跨任务统一策略。",
+        "experiments": "MultiWOZ、tau-bench零售/航空各50任务；主表目标模型GPT-5.4-nano、Kimi-K2.6、Gemini-3.8-Flash。每任务收集5条有效对话，报告pass@4与全部四次均成功的pass^4。零售Gemini pass^4由0.320降至0.100，首次有效率IGA为1.00；航空由0.244降至0.076、IGA为0.92。额外迁移表的GPT-5.6-sol：自定向优化0.296→0.112，但来自较小模型的提示几乎无效。100段对话双人审阅，最终有效性judge与标注者κ为0.679/0.840，目标信息覆盖一致性较弱。",
+        "research_help": "多轮评测可同时报告目标有效性与重复成功可靠性，并在固定预算内搜索任务特有的交互失败。较难用户不必改变目标。定向策略的跨模型迁移有限，提示需要随目标agent更新；这一发现支持增加自适应压力测试，但不能推断所有真实用户都同样困难。",
+        "recommendation": {
+          "score": 84,
+          "level": "高",
+          "label": "保持用户意图的多轮压力测试",
+          "water_risk": "低",
+          "value_judgement": "多轮评测可同时报告目标有效性与重复成功可靠性，并在固定预算内搜索任务特有的交互失败。较难用户不必改变目标。定向策略的跨模型迁移有限，提示需要随目标agent更新；这一发现支持增加自适应压力测试，但不能推断所有真实用户都同样困难。",
+          "reason": "多轮评测可同时报告目标有效性与重复成功可靠性，并在固定预算内搜索任务特有的交互失败。较难用户不必改变目标。定向策略的跨模型迁移有限，提示需要随目标agent更新；这一发现支持增加自适应压力测试，但不能推断所有真实用户都同样困难。",
+          "signals": {
+            "agenticRl": false,
+            "multiTurn": true,
+            "longHorizon": true,
+            "memory": false,
+            "reliability": true,
+            "codeOrTool": false,
+            "experiments": true,
+            "survey": false
+          }
+        },
+        "insight": "多轮评测可同时报告目标有效性与重复成功可靠性，并在固定预算内搜索任务特有的交互失败。较难用户不必改变目标。定向策略的跨模型迁移有限，提示需要随目标agent更新；这一发现支持增加自适应压力测试，但不能推断所有真实用户都同样困难。",
+        "abstract_zh": "StressSim按任务搜索更难应对、仍保持原目标的模拟用户策略，暴露多轮agent的重复成功率缺口。结果依赖有效性裁判和定向搜索，不能等同真实用户平均表现。",
+        "full_summary": "StressSim按任务搜索更难应对、仍保持原目标的模拟用户策略，暴露多轮agent的重复成功率缺口。结果依赖有效性裁判和定向搜索，不能等同真实用户平均表现。 模拟器分为目标状态追踪、对抗逐轮规划和话语生成。每个任务单独以遗传提示优化搜索planner指令，利用轨迹、子目标完成度和有效性反馈选择变异；主配置4轮优化、总20条rollout、无效惩罚β=5。有效性要求目标信息覆盖及自然、一致、推进、非重复、目标导向，均由LLM裁判判断。不是微调用户模型，也不是学习一个跨任务统一策略。 MultiWOZ、tau-bench零售/航空各50任务；主表目标模型GPT-5.4-nano、Kimi-K2.6、Gemini-3.8-Flash。每任务收集5条有效对话，报告pass@4与全部四次均成功的pass^4。零售Gemini pass^4由0.320降至0.100，首次有效率IGA为1.00；航空由0.244降至0.076、IGA为0.92。额外迁移表的GPT-5.6-sol：自定向优化0.296→0.112，但来自较小模型的提示几乎无效。100段对话双人审阅，最终有效性judge与标注者κ为0.679/0.840，目标信息覆盖一致性较弱。",
+        "card_summary": "StressSim按任务搜索更难应对、仍保持原目标的模拟用户策略，暴露多轮agent的重复成功率缺口。结果依赖有效性裁判和定向搜索，不能等同真实用户平均表现。"
+      },
+      "analysis": {
+        "motivation": "合作型LLM用户可能高估多轮agent鲁棒性，固定的困难用户模板也可能漏掉模型特有失败。论文希望在不改变用户任务的前提下，搜索更具挑战的交互方式，并把无效目标变化与真正agent失败区分开。",
+        "method": "模拟器分为目标状态追踪、对抗逐轮规划和话语生成。每个任务单独以遗传提示优化搜索planner指令，利用轨迹、子目标完成度和有效性反馈选择变异；主配置4轮优化、总20条rollout、无效惩罚β=5。有效性要求目标信息覆盖及自然、一致、推进、非重复、目标导向，均由LLM裁判判断。不是微调用户模型，也不是学习一个跨任务统一策略。",
+        "experiments": "MultiWOZ、tau-bench零售/航空各50任务；主表目标模型GPT-5.4-nano、Kimi-K2.6、Gemini-3.8-Flash。每任务收集5条有效对话，报告pass@4与全部四次均成功的pass^4。零售Gemini pass^4由0.320降至0.100，首次有效率IGA为1.00；航空由0.244降至0.076、IGA为0.92。额外迁移表的GPT-5.6-sol：自定向优化0.296→0.112，但来自较小模型的提示几乎无效。100段对话双人审阅，最终有效性judge与标注者κ为0.679/0.840，目标信息覆盖一致性较弱。",
+        "research_help": "多轮评测可同时报告目标有效性与重复成功可靠性，并在固定预算内搜索任务特有的交互失败。较难用户不必改变目标。定向策略的跨模型迁移有限，提示需要随目标agent更新；这一发现支持增加自适应压力测试，但不能推断所有真实用户都同样困难。",
+        "insight": "多轮评测可同时报告目标有效性与重复成功可靠性，并在固定预算内搜索任务特有的交互失败。较难用户不必改变目标。定向策略的跨模型迁移有限，提示需要随目标agent更新；这一发现支持增加自适应压力测试，但不能推断所有真实用户都同样困难。",
+        "abstract_zh": "StressSim按任务搜索更难应对、仍保持原目标的模拟用户策略，暴露多轮agent的重复成功率缺口。结果依赖有效性裁判和定向搜索，不能等同真实用户平均表现。",
+        "card_summary": "StressSim按任务搜索更难应对、仍保持原目标的模拟用户策略，暴露多轮agent的重复成功率缺口。结果依赖有效性裁判和定向搜索，不能等同真实用户平均表现。",
+        "full_summary": "StressSim按任务搜索更难应对、仍保持原目标的模拟用户策略，暴露多轮agent的重复成功率缺口。结果依赖有效性裁判和定向搜索，不能等同真实用户平均表现。 模拟器分为目标状态追踪、对抗逐轮规划和话语生成。每个任务单独以遗传提示优化搜索planner指令，利用轨迹、子目标完成度和有效性反馈选择变异；主配置4轮优化、总20条rollout、无效惩罚β=5。有效性要求目标信息覆盖及自然、一致、推进、非重复、目标导向，均由LLM裁判判断。不是微调用户模型，也不是学习一个跨任务统一策略。 MultiWOZ、tau-bench零售/航空各50任务；主表目标模型GPT-5.4-nano、Kimi-K2.6、Gemini-3.8-Flash。每任务收集5条有效对话，报告pass@4与全部四次均成功的pass^4。零售Gemini pass^4由0.320降至0.100，首次有效率IGA为1.00；航空由0.244降至0.076、IGA为0.92。额外迁移表的GPT-5.6-sol：自定向优化0.296→0.112，但来自较小模型的提示几乎无效。100段对话双人审阅，最终有效性judge与标注者κ为0.679/0.840，目标信息覆盖一致性较弱。",
+        "recommendation_level": "高",
+        "water_risk": "低",
+        "value_label": "保持用户意图的多轮压力测试",
+        "value_reason": "多轮评测可同时报告目标有效性与重复成功可靠性，并在固定预算内搜索任务特有的交互失败。较难用户不必改变目标。定向策略的跨模型迁移有限，提示需要随目标agent更新；这一发现支持增加自适应压力测试，但不能推断所有真实用户都同样困难。",
+        "limitations": "每基准仅50任务、每任务5条有效轨迹；无效对话被丢弃并最多重试15次，pass指标是有效对话条件下的分数，IGA需单独看。优化预算20不等于包括最终评估重试在内的总费用。有效性来自LLM且100段人审为近似均衡样本，不能证明总体无误判或真实用户分布保真。MultiWOZ unavailable模板有更低pass^4，StressSim并非所有场景最强攻击。主表三个模型与附加迁移实验的GPT-5.6-sol应区分；较强模型结果来自自定向搜索，缺少广泛迁移证据。",
+        "source_scope": "full_text",
+        "source_note": "基于arXiv PDF正文、相关附录和关键结果页核对；自动阅读器失败部分由本次Codex全文整理补齐。",
+        "source_evidence": [
+          "§3–4及附录B：逐任务planner提示搜索，目标信息与行为有效性分开判定。",
+          "§5与表1：每基准50任务，n=5有效对话，k=4；零售Gemini 0.320→0.100。",
+          "表2及附录F：100段双人验证；信息覆盖判断存在更大分歧。",
+          "表3：GPT-5.6-sol自定向0.296→0.112，跨模型策略迁移效果有限。"
+        ],
+        "model": "Codex full-text curation",
+        "updated_at": "2026-10-27T12:46:26.057217+00:00"
+      }
+    },
+    {
+      "id": "2610.35398v1",
+      "title": "Belief-Conditioned Multi-Agent Actor Critic for Decentralized LLM Collaboration",
+      "summary": "Recent work has explored optimizing LLM collaboration through Multi-Agent Reinforcement Learning (MARL), but many approaches still rely on predefined workflows, limiting efficiency and scalability. Decentralized LLM collaboration is challenging because agents execute independently with limited communication, share a joint objective, and must infer useful information from communication traces. In this paper, we propose BCMAAC, a Belief-Conditioned Multi-Agent Actor-Critic method that maintains beliefs over contextual information and uses them to facilitate training. Experiments on Minecraft game-playing, web searching and tool-using tasks show that BCMAAC improves task performance and collaborative behavior compared to naive actor-critic baselines. The improvements are particularly pronounced in multi-turn tasks with richer contextual information, where belief modeling provides a clear advantage.",
+      "url": "https://arxiv.org/abs/2610.35398v1",
+      "authors": [
+        "Tianle Chen",
+        "Shuo Liu",
+        "Christopher Amato"
+      ],
+      "report_date": "2026-10-27",
+      "published": "2026-10-26",
+      "updated": "2026-10-26",
+      "primary_category": "cs.AI",
+      "categories": [
+        "cs.AI",
+        "cs.LG",
+        "cs.MA"
+      ],
+      "project_url": "",
+      "repo_url": "",
+      "venue_status": "NeurIPS 2026 PTA Workshop（arXiv及论文标注）",
+      "recommendation": {
+        "score": 84,
+        "level": "中",
+        "label": "双agent协作状态建模，长程证据有限",
+        "water_risk": "中",
+        "value_judgement": "可将任务进度、队友已知事实和行动就绪条件作为持续更新的表示，供actor和critic共同使用；模拟器可提供逐轮辅助标签。但要把“表示更好”与“长程信用分配更好”分别验证，加入更长跨度、纯终局奖励以及同输入/同容量对照，检验收益能否离开人为交接约束。",
+        "reason": "可将任务进度、队友已知事实和行动就绪条件作为持续更新的表示，供actor和critic共同使用；模拟器可提供逐轮辅助标签。但要把“表示更好”与“长程信用分配更好”分别验证，加入更长跨度、纯终局奖励以及同输入/同容量对照，检验收益能否离开人为交接约束。",
+        "signals": {
+          "agenticRl": true,
+          "multiTurn": true,
+          "longHorizon": false,
+          "memory": false,
+          "reliability": false,
+          "codeOrTool": true,
+          "experiments": true,
+          "survey": false
+        }
+      },
+      "brief": {
+        "authors": [
+          "Tianle Chen",
+          "Shuo Liu",
+          "Christopher Amato"
+        ],
+        "affiliations": "Northeastern University, Khoury College of Computer Sciences",
+        "date": "2026-10-26",
+        "paper_url": "https://arxiv.org/abs/2610.35398v1",
+        "project_url": "",
+        "repo_url": "",
+        "venue_status": "NeurIPS 2026 PTA Workshop（arXiv及论文标注）",
+        "contribution": "可将任务进度、队友已知事实和行动就绪条件作为持续更新的表示，供actor和critic共同使用；模拟器可提供逐轮辅助标签。但要把“表示更好”与“长程信用分配更好”分别验证，加入更长跨度、纯终局奖励以及同输入/同容量对照，检验收益能否离开人为交接约束。",
+        "summary": "BCMAAC用循环belief context跟踪本地状态与队友，辅助训练改善六项双agent任务。实验仅2–4轮且任务集小，主要支持受控多轮协作，尚未验证真实长程可靠性。 每个agent将执行时可得的结构化侧信息与循环隐状态编码为belief context，actor仍同时读取本地文本历史；集中式critic汇总context，用一步TD优势更新策略。完整轨迹与环境内部状态仅在训练时生成任务状态、队友动作类别标签，辅助训练编码器；执行时移除critic和辅助头。belief是受监督隐表示，不是已证明校准的概率后验。 Qwen3-4B-Instruct-2507在Minecraft资源/搭桥、跨语言/多来源检索和两种工具任务上评估。表1：Stateful Tool成功率由MAAC 59.2%至77.5%，资源收集78.4%至92.8%，文件操作58.9%至73.0%；Web列是答案匹配分而非成功率。图3报告五次运行及标准差。附录表2实际horizon仅2–4轮、每任务评估3–30个实例，Bridge仅3例。两种辅助信号消融均介于MAAC与完整方法之间；附录奖励含进度/通信等稠密塑形。",
+        "highlights": [
+          "双agent协作状态建模，长程证据有限",
+          "偏水风险：中",
+          "阅读来源：arXiv PDF正文及相关附录核对"
+        ],
+        "motivation": "去中心化LLM协作需要持续记住局部环境、队友掌握的信息和行动依赖。普通MAAC要从文本历史重建这些状态，论文尝试用跨轮隐表示和逐轮辅助标签降低状态估计难度。",
+        "method": "每个agent将执行时可得的结构化侧信息与循环隐状态编码为belief context，actor仍同时读取本地文本历史；集中式critic汇总context，用一步TD优势更新策略。完整轨迹与环境内部状态仅在训练时生成任务状态、队友动作类别标签，辅助训练编码器；执行时移除critic和辅助头。belief是受监督隐表示，不是已证明校准的概率后验。",
+        "experiments": "Qwen3-4B-Instruct-2507在Minecraft资源/搭桥、跨语言/多来源检索和两种工具任务上评估。表1：Stateful Tool成功率由MAAC 59.2%至77.5%，资源收集78.4%至92.8%，文件操作58.9%至73.0%；Web列是答案匹配分而非成功率。图3报告五次运行及标准差。附录表2实际horizon仅2–4轮、每任务评估3–30个实例，Bridge仅3例。两种辅助信号消融均介于MAAC与完整方法之间；附录奖励含进度/通信等稠密塑形。",
+        "research_help": "可将任务进度、队友已知事实和行动就绪条件作为持续更新的表示，供actor和critic共同使用；模拟器可提供逐轮辅助标签。但要把“表示更好”与“长程信用分配更好”分别验证，加入更长跨度、纯终局奖励以及同输入/同容量对照，检验收益能否离开人为交接约束。",
+        "recommendation": {
+          "score": 84,
+          "level": "中",
+          "label": "双agent协作状态建模，长程证据有限",
+          "water_risk": "中",
+          "value_judgement": "可将任务进度、队友已知事实和行动就绪条件作为持续更新的表示，供actor和critic共同使用；模拟器可提供逐轮辅助标签。但要把“表示更好”与“长程信用分配更好”分别验证，加入更长跨度、纯终局奖励以及同输入/同容量对照，检验收益能否离开人为交接约束。",
+          "reason": "可将任务进度、队友已知事实和行动就绪条件作为持续更新的表示，供actor和critic共同使用；模拟器可提供逐轮辅助标签。但要把“表示更好”与“长程信用分配更好”分别验证，加入更长跨度、纯终局奖励以及同输入/同容量对照，检验收益能否离开人为交接约束。",
+          "signals": {
+            "agenticRl": true,
+            "multiTurn": true,
+            "longHorizon": false,
+            "memory": false,
+            "reliability": false,
+            "codeOrTool": true,
+            "experiments": true,
+            "survey": false
+          }
+        },
+        "insight": "可将任务进度、队友已知事实和行动就绪条件作为持续更新的表示，供actor和critic共同使用；模拟器可提供逐轮辅助标签。但要把“表示更好”与“长程信用分配更好”分别验证，加入更长跨度、纯终局奖励以及同输入/同容量对照，检验收益能否离开人为交接约束。",
+        "abstract_zh": "BCMAAC用循环belief context跟踪本地状态与队友，辅助训练改善六项双agent任务。实验仅2–4轮且任务集小，主要支持受控多轮协作，尚未验证真实长程可靠性。",
+        "full_summary": "BCMAAC用循环belief context跟踪本地状态与队友，辅助训练改善六项双agent任务。实验仅2–4轮且任务集小，主要支持受控多轮协作，尚未验证真实长程可靠性。 每个agent将执行时可得的结构化侧信息与循环隐状态编码为belief context，actor仍同时读取本地文本历史；集中式critic汇总context，用一步TD优势更新策略。完整轨迹与环境内部状态仅在训练时生成任务状态、队友动作类别标签，辅助训练编码器；执行时移除critic和辅助头。belief是受监督隐表示，不是已证明校准的概率后验。 Qwen3-4B-Instruct-2507在Minecraft资源/搭桥、跨语言/多来源检索和两种工具任务上评估。表1：Stateful Tool成功率由MAAC 59.2%至77.5%，资源收集78.4%至92.8%，文件操作58.9%至73.0%；Web列是答案匹配分而非成功率。图3报告五次运行及标准差。附录表2实际horizon仅2–4轮、每任务评估3–30个实例，Bridge仅3例。两种辅助信号消融均介于MAAC与完整方法之间；附录奖励含进度/通信等稠密塑形。",
+        "card_summary": "BCMAAC用循环belief context跟踪本地状态与队友，辅助训练改善六项双agent任务。实验仅2–4轮且任务集小，主要支持受控多轮协作，尚未验证真实长程可靠性。"
+      },
+      "analysis": {
+        "motivation": "去中心化LLM协作需要持续记住局部环境、队友掌握的信息和行动依赖。普通MAAC要从文本历史重建这些状态，论文尝试用跨轮隐表示和逐轮辅助标签降低状态估计难度。",
+        "method": "每个agent将执行时可得的结构化侧信息与循环隐状态编码为belief context，actor仍同时读取本地文本历史；集中式critic汇总context，用一步TD优势更新策略。完整轨迹与环境内部状态仅在训练时生成任务状态、队友动作类别标签，辅助训练编码器；执行时移除critic和辅助头。belief是受监督隐表示，不是已证明校准的概率后验。",
+        "experiments": "Qwen3-4B-Instruct-2507在Minecraft资源/搭桥、跨语言/多来源检索和两种工具任务上评估。表1：Stateful Tool成功率由MAAC 59.2%至77.5%，资源收集78.4%至92.8%，文件操作58.9%至73.0%；Web列是答案匹配分而非成功率。图3报告五次运行及标准差。附录表2实际horizon仅2–4轮、每任务评估3–30个实例，Bridge仅3例。两种辅助信号消融均介于MAAC与完整方法之间；附录奖励含进度/通信等稠密塑形。",
+        "research_help": "可将任务进度、队友已知事实和行动就绪条件作为持续更新的表示，供actor和critic共同使用；模拟器可提供逐轮辅助标签。但要把“表示更好”与“长程信用分配更好”分别验证，加入更长跨度、纯终局奖励以及同输入/同容量对照，检验收益能否离开人为交接约束。",
+        "insight": "可将任务进度、队友已知事实和行动就绪条件作为持续更新的表示，供actor和critic共同使用；模拟器可提供逐轮辅助标签。但要把“表示更好”与“长程信用分配更好”分别验证，加入更长跨度、纯终局奖励以及同输入/同容量对照，检验收益能否离开人为交接约束。",
+        "abstract_zh": "BCMAAC用循环belief context跟踪本地状态与队友，辅助训练改善六项双agent任务。实验仅2–4轮且任务集小，主要支持受控多轮协作，尚未验证真实长程可靠性。",
+        "card_summary": "BCMAAC用循环belief context跟踪本地状态与队友，辅助训练改善六项双agent任务。实验仅2–4轮且任务集小，主要支持受控多轮协作，尚未验证真实长程可靠性。",
+        "full_summary": "BCMAAC用循环belief context跟踪本地状态与队友，辅助训练改善六项双agent任务。实验仅2–4轮且任务集小，主要支持受控多轮协作，尚未验证真实长程可靠性。 每个agent将执行时可得的结构化侧信息与循环隐状态编码为belief context，actor仍同时读取本地文本历史；集中式critic汇总context，用一步TD优势更新策略。完整轨迹与环境内部状态仅在训练时生成任务状态、队友动作类别标签，辅助训练编码器；执行时移除critic和辅助头。belief是受监督隐表示，不是已证明校准的概率后验。 Qwen3-4B-Instruct-2507在Minecraft资源/搭桥、跨语言/多来源检索和两种工具任务上评估。表1：Stateful Tool成功率由MAAC 59.2%至77.5%，资源收集78.4%至92.8%，文件操作58.9%至73.0%；Web列是答案匹配分而非成功率。图3报告五次运行及标准差。附录表2实际horizon仅2–4轮、每任务评估3–30个实例，Bridge仅3例。两种辅助信号消融均介于MAAC与完整方法之间；附录奖励含进度/通信等稠密塑形。",
+        "recommendation_level": "中",
+        "water_risk": "中",
+        "value_label": "双agent协作状态建模，长程证据有限",
+        "value_reason": "可将任务进度、队友已知事实和行动就绪条件作为持续更新的表示，供actor和critic共同使用；模拟器可提供逐轮辅助标签。但要把“表示更好”与“长程信用分配更好”分别验证，加入更长跨度、纯终局奖励以及同输入/同容量对照，检验收益能否离开人为交接约束。",
+        "limitations": "全部双agent，不能说明更多agent的扩展性；2–4轮及小测试集不足以证明长程稀疏反馈可靠性。结构化输入、额外循环容量与辅助监督的独立贡献未充分隔离。Web为固定语料，工具为确定性模拟器，并人为限制本轮发现的信息只能下一轮执行。使用稠密塑形，不是纯稀疏奖励。理论的动作无关baseline恒等式和context充分性条件不保证实际表示充分。五次运行的标准差不是显著性检验，协作行为解释也缺少完整直接指标。",
+        "source_scope": "full_text",
+        "source_note": "基于arXiv PDF正文、相关附录和关键结果页核对；自动阅读器失败部分由本次Codex全文整理补齐。",
+        "source_evidence": [
+          "§4、附录A.2/A.8：本地结构化输入，训练期特权标签，执行期去中心化。",
+          "表1：Stateful 77.5/59.2；文件73.0/58.9，Web列为match score。",
+          "附录表2：horizon 2–4，评估集3–30，Bridge 3例；图3五次运行。",
+          "附录A.4/A.7及附录B：奖励塑形、基线定义和理论充分性假设。"
+        ],
+        "model": "gpt-6.1-sol + Codex full-text verification",
+        "updated_at": "2026-10-27T12:46:26.057217+00:00"
+      }
+    },
+    {
+      "id": "2610.34724v1",
+      "title": "Harness-Model Collaboration for Long-Horizon Continual Learning",
+      "summary": "Long-horizon agents continuously encounter reusable procedural knowledge, yet existing systems typically rely either on model adaptation or external memory, trading persistent learning for rapid reuse. This limitation is especially important for Web agents that repeatedly execute related multi-step workflows. We propose HaMo, a Harness-Model collaborative framework that combines fast non-parametric experience accumulation with slow parametric adaptation. HaMo distills trajectories into strategy-level experience cards for immediate retrieval, while an experience-conditioned continual learning objective trains the model to interpret, ground, and execute retrieved strategies across changing contexts. A retrieval-coverage-based selection mechanism further identifies compact and complementary trajectories for parameter updates. Experiments show that HaMo outperforms harness-only and model-only adaptation under within-domain and cross-domain shifts, improving both retention and adaptation. These results highlight the importance of jointly preserving procedural experience and internalizing the competence to transfer and execute it across tasks.",
+      "url": "https://arxiv.org/abs/2610.34724v1",
+      "authors": [
+        "Zhen Bi",
+        "Zhizhi Peng",
+        "Yan Wang",
+        "Xueshu Chen",
+        "Haofei Zhang",
+        "Yaobo Zhang",
+        "Zeyu Yang",
+        "Qing Shen",
+        "Jungang Lou"
+      ],
+      "report_date": "2026-10-27",
+      "published": "2026-10-26",
+      "updated": "2026-10-26",
+      "primary_category": "cs.AI",
+      "categories": [
+        "cs.AI"
+      ],
+      "project_url": "",
+      "repo_url": "",
+      "venue_status": "未确认录用",
+      "recommendation": {
+        "score": 82,
+        "level": "高",
+        "label": "外部策略记忆与持续参数适应协同",
+        "water_risk": "中",
+        "value_judgement": "外部记忆保留“做过什么”，参数更新学习“如何解释并执行策略”，二者可以使用一致的经验条件输入接口。应把快速检索复用与慢速技能内化分别评测；覆盖式选样可减少冗余，但需要独立消融它与历史回放的收益。",
+        "reason": "外部记忆保留“做过什么”，参数更新学习“如何解释并执行策略”，二者可以使用一致的经验条件输入接口。应把快速检索复用与慢速技能内化分别评测；覆盖式选样可减少冗余，但需要独立消融它与历史回放的收益。",
+        "signals": {
+          "agenticRl": false,
+          "multiTurn": false,
+          "longHorizon": true,
+          "memory": true,
+          "reliability": true,
+          "codeOrTool": false,
+          "experiments": true,
+          "survey": false
+        }
+      },
+      "brief": {
+        "authors": [
+          "Zhen Bi",
+          "Zhizhi Peng",
+          "Yan Wang",
+          "Xueshu Chen",
+          "Haofei Zhang",
+          "Yaobo Zhang",
+          "Zeyu Yang",
+          "Qing Shen",
+          "Jungang Lou"
+        ],
+        "affiliations": "Huzhou Normal University；Alibaba Group；Zhejiang University；Ningxia University",
+        "date": "2026-10-26",
+        "paper_url": "https://arxiv.org/abs/2610.34724v1",
+        "project_url": "",
+        "repo_url": "",
+        "venue_status": "未确认录用",
+        "contribution": "外部记忆保留“做过什么”，参数更新学习“如何解释并执行策略”，二者可以使用一致的经验条件输入接口。应把快速检索复用与慢速技能内化分别评测；覆盖式选样可减少冗余，但需要独立消融它与历史回放的收益。",
+        "summary": "HaMo把专家轨迹压成策略卡片，并通过检索覆盖选择和历史回放持续训练同一个LoRA。三个交互环境中改善适应与保留，但实验未单独分离回放和记忆的贡献。 把专家轨迹提炼为任务、初始观察和策略大纲卡片。阶段内按卡片之间top-3检索的反向覆盖，贪心选互补轨迹并用覆盖曲线拐点定预算；这些anchor与历史回放一起做经验条件化行为克隆。冻结底座，持续更新同一个LoRA；推断只以当前任务和初始观察检索策略，再结合交互历史执行。论文的训练后释放记忆选项在全部实验中关闭。 ScienceWorld四个样本不重叠阶段，每阶段均含所有任务类型；Qwen3-8B/14B四阶段平均分52.22/53.09，Base+Harness为38.34/40.65。跨域8B按ScienceWorld→ALFWorld→WebShop后为52.43/66.79/59.64；前两者分别是任务进度分和成功率，后者保留部分奖励。Model-only最终ScienceWorld 24.57，HaMo 52.43，但ALFWorld为69.34高于HaMo 66.79。每回合最多50轮，每阶段训练3 epochs。另测两种循环域顺序及1.7B/4B规模。",
+        "highlights": [
+          "外部策略记忆与持续参数适应协同",
+          "偏水风险：中",
+          "阅读来源：arXiv PDF正文及相关附录核对"
+        ],
+        "motivation": "长程agent可以外存经验快速复用，也可更新参数形成持久技能；前者可能不会正确执行检索到的策略，后者又易在跨域训练中遗忘。论文关注怎样让策略经验存储与执行能力共同适应。",
+        "method": "把专家轨迹提炼为任务、初始观察和策略大纲卡片。阶段内按卡片之间top-3检索的反向覆盖，贪心选互补轨迹并用覆盖曲线拐点定预算；这些anchor与历史回放一起做经验条件化行为克隆。冻结底座，持续更新同一个LoRA；推断只以当前任务和初始观察检索策略，再结合交互历史执行。论文的训练后释放记忆选项在全部实验中关闭。",
+        "experiments": "ScienceWorld四个样本不重叠阶段，每阶段均含所有任务类型；Qwen3-8B/14B四阶段平均分52.22/53.09，Base+Harness为38.34/40.65。跨域8B按ScienceWorld→ALFWorld→WebShop后为52.43/66.79/59.64；前两者分别是任务进度分和成功率，后者保留部分奖励。Model-only最终ScienceWorld 24.57，HaMo 52.43，但ALFWorld为69.34高于HaMo 66.79。每回合最多50轮，每阶段训练3 epochs。另测两种循环域顺序及1.7B/4B规模。",
+        "research_help": "外部记忆保留“做过什么”，参数更新学习“如何解释并执行策略”，二者可以使用一致的经验条件输入接口。应把快速检索复用与慢速技能内化分别评测；覆盖式选样可减少冗余，但需要独立消融它与历史回放的收益。",
+        "recommendation": {
+          "score": 82,
+          "level": "高",
+          "label": "外部策略记忆与持续参数适应协同",
+          "water_risk": "中",
+          "value_judgement": "外部记忆保留“做过什么”，参数更新学习“如何解释并执行策略”，二者可以使用一致的经验条件输入接口。应把快速检索复用与慢速技能内化分别评测；覆盖式选样可减少冗余，但需要独立消融它与历史回放的收益。",
+          "reason": "外部记忆保留“做过什么”，参数更新学习“如何解释并执行策略”，二者可以使用一致的经验条件输入接口。应把快速检索复用与慢速技能内化分别评测；覆盖式选样可减少冗余，但需要独立消融它与历史回放的收益。",
+          "signals": {
+            "agenticRl": false,
+            "multiTurn": false,
+            "longHorizon": true,
+            "memory": true,
+            "reliability": true,
+            "codeOrTool": false,
+            "experiments": true,
+            "survey": false
+          }
+        },
+        "insight": "外部记忆保留“做过什么”，参数更新学习“如何解释并执行策略”，二者可以使用一致的经验条件输入接口。应把快速检索复用与慢速技能内化分别评测；覆盖式选样可减少冗余，但需要独立消融它与历史回放的收益。",
+        "abstract_zh": "HaMo把专家轨迹压成策略卡片，并通过检索覆盖选择和历史回放持续训练同一个LoRA。三个交互环境中改善适应与保留，但实验未单独分离回放和记忆的贡献。",
+        "full_summary": "HaMo把专家轨迹压成策略卡片，并通过检索覆盖选择和历史回放持续训练同一个LoRA。三个交互环境中改善适应与保留，但实验未单独分离回放和记忆的贡献。 把专家轨迹提炼为任务、初始观察和策略大纲卡片。阶段内按卡片之间top-3检索的反向覆盖，贪心选互补轨迹并用覆盖曲线拐点定预算；这些anchor与历史回放一起做经验条件化行为克隆。冻结底座，持续更新同一个LoRA；推断只以当前任务和初始观察检索策略，再结合交互历史执行。论文的训练后释放记忆选项在全部实验中关闭。 ScienceWorld四个样本不重叠阶段，每阶段均含所有任务类型；Qwen3-8B/14B四阶段平均分52.22/53.09，Base+Harness为38.34/40.65。跨域8B按ScienceWorld→ALFWorld→WebShop后为52.43/66.79/59.64；前两者分别是任务进度分和成功率，后者保留部分奖励。Model-only最终ScienceWorld 24.57，HaMo 52.43，但ALFWorld为69.34高于HaMo 66.79。每回合最多50轮，每阶段训练3 epochs。另测两种循环域顺序及1.7B/4B规模。",
+        "card_summary": "HaMo把专家轨迹压成策略卡片，并通过检索覆盖选择和历史回放持续训练同一个LoRA。三个交互环境中改善适应与保留，但实验未单独分离回放和记忆的贡献。"
+      },
+      "analysis": {
+        "motivation": "长程agent可以外存经验快速复用，也可更新参数形成持久技能；前者可能不会正确执行检索到的策略，后者又易在跨域训练中遗忘。论文关注怎样让策略经验存储与执行能力共同适应。",
+        "method": "把专家轨迹提炼为任务、初始观察和策略大纲卡片。阶段内按卡片之间top-3检索的反向覆盖，贪心选互补轨迹并用覆盖曲线拐点定预算；这些anchor与历史回放一起做经验条件化行为克隆。冻结底座，持续更新同一个LoRA；推断只以当前任务和初始观察检索策略，再结合交互历史执行。论文的训练后释放记忆选项在全部实验中关闭。",
+        "experiments": "ScienceWorld四个样本不重叠阶段，每阶段均含所有任务类型；Qwen3-8B/14B四阶段平均分52.22/53.09，Base+Harness为38.34/40.65。跨域8B按ScienceWorld→ALFWorld→WebShop后为52.43/66.79/59.64；前两者分别是任务进度分和成功率，后者保留部分奖励。Model-only最终ScienceWorld 24.57，HaMo 52.43，但ALFWorld为69.34高于HaMo 66.79。每回合最多50轮，每阶段训练3 epochs。另测两种循环域顺序及1.7B/4B规模。",
+        "research_help": "外部记忆保留“做过什么”，参数更新学习“如何解释并执行策略”，二者可以使用一致的经验条件输入接口。应把快速检索复用与慢速技能内化分别评测；覆盖式选样可减少冗余，但需要独立消融它与历史回放的收益。",
+        "insight": "外部记忆保留“做过什么”，参数更新学习“如何解释并执行策略”，二者可以使用一致的经验条件输入接口。应把快速检索复用与慢速技能内化分别评测；覆盖式选样可减少冗余，但需要独立消融它与历史回放的收益。",
+        "abstract_zh": "HaMo把专家轨迹压成策略卡片，并通过检索覆盖选择和历史回放持续训练同一个LoRA。三个交互环境中改善适应与保留，但实验未单独分离回放和记忆的贡献。",
+        "card_summary": "HaMo把专家轨迹压成策略卡片，并通过检索覆盖选择和历史回放持续训练同一个LoRA。三个交互环境中改善适应与保留，但实验未单独分离回放和记忆的贡献。",
+        "full_summary": "HaMo把专家轨迹压成策略卡片，并通过检索覆盖选择和历史回放持续训练同一个LoRA。三个交互环境中改善适应与保留，但实验未单独分离回放和记忆的贡献。 把专家轨迹提炼为任务、初始观察和策略大纲卡片。阶段内按卡片之间top-3检索的反向覆盖，贪心选互补轨迹并用覆盖曲线拐点定预算；这些anchor与历史回放一起做经验条件化行为克隆。冻结底座，持续更新同一个LoRA；推断只以当前任务和初始观察检索策略，再结合交互历史执行。论文的训练后释放记忆选项在全部实验中关闭。 ScienceWorld四个样本不重叠阶段，每阶段均含所有任务类型；Qwen3-8B/14B四阶段平均分52.22/53.09，Base+Harness为38.34/40.65。跨域8B按ScienceWorld→ALFWorld→WebShop后为52.43/66.79/59.64；前两者分别是任务进度分和成功率，后者保留部分奖励。Model-only最终ScienceWorld 24.57，HaMo 52.43，但ALFWorld为69.34高于HaMo 66.79。每回合最多50轮，每阶段训练3 epochs。另测两种循环域顺序及1.7B/4B规模。",
+        "recommendation_level": "高",
+        "water_risk": "中",
+        "value_label": "外部策略记忆与持续参数适应协同",
+        "value_reason": "外部记忆保留“做过什么”，参数更新学习“如何解释并执行策略”，二者可以使用一致的经验条件输入接口。应把快速检索复用与慢速技能内化分别评测；覆盖式选样可减少冗余，但需要独立消融它与历史回放的收益。",
+        "limitations": "用专家轨迹监督行为克隆，不是完全靠自主在线探索的agentic RL。Model-only同时移除记忆和历史回放，不能把保留收益单独归因于harness；anchor、回放和经验条件化也未完全分离。ScienceWorld阶段仍覆盖所有任务类型，是数据增量而非新任务类型增量。域顺序影响遗忘，W→S→A中ScienceWorld 55.19→47.42；完整方法并非每域都胜过model-only。三域分数语义不同，总和不是统一成功率。未报告充分独立种子区间和完整费用；文本环境结果尚不能推广到真实Web或视觉agent。",
+        "source_scope": "full_text",
+        "source_note": "基于arXiv PDF正文、相关附录和关键结果页核对；自动阅读器失败部分由本次Codex全文整理补齐。",
+        "source_evidence": [
+          "§3、附录A/B：专家轨迹卡片、top-3反向覆盖、经验条件化BC；记忆释放关闭。",
+          "图3/4、§5.1：四阶段均值52.22/53.09；跨域52.43/66.79/59.64。",
+          "§5.2.1：Model-only同时没有记忆及回放；最终ALFWorld反而69.34>66.79。",
+          "§4及§5.2.2：同域是样本增量；域顺序改变保留，50轮上限。"
+        ],
+        "model": "Codex full-text curation",
+        "updated_at": "2026-10-27T12:46:26.057217+00:00"
+      }
+    },
+    {
+      "id": "2610.35303v1",
+      "title": "InterQ-RL: Interaction-Aware Correction of Execution Mismatch in Quantized Agentic RL",
+      "summary": "Multi-turn agent reinforcement learning (RL) relies on long closed-loop rollouts, making generation and KV-cache costs a major bottleneck. Quantized rollout reduces these costs, but its low-precision executor also serves as the behavior policy and can induce execution mismatch with the learner. Existing quantized-RL methods are designed primarily for single-turn generation. They align the learner forward with quantized rollout or correct the current-token rollout-learner ratio, without modeling the policy history that produces each agent state. Even after quantization alignment, residual rollout-learner mismatch accumulates along the state-reaching policy history, so a current action may look locally aligned despite a mismatched history. We introduce InterQ-RL (Interaction-aware Quantized Reinforcement Learning) to correct this post-alignment mismatch. It applies bounded execution-prefix correction over the state-reaching policy history, allocates correction strength across action segments by effective support under a fixed displacement budget, and requires no additional model forward pass. We evaluate dense and mixture-of-experts (MoE) backbones from 4B to 30B on ALFWorld, WebShop, and ScienceWorld, with all quantized arms sharing the same rollout with 8-bit weights, activations, and KV cache (W8A8-KV8). Across four environment-backbone settings, InterQ-RL achieves the strongest quantized endpoint result, matching BF16 to within 0.7 points and exceeding it in two settings. It matches or exceeds the learning speed of alignment alone while avoiding its late performance regression.",
+      "url": "https://arxiv.org/abs/2610.35303v1",
+      "authors": [
+        "Yingbo Hao",
+        "Song Liu",
+        "Guanghua Yu",
+        "Zhaojing Zhou",
+        "Jianchen Zhu",
+        "Yi Zou"
+      ],
+      "report_date": "2026-10-27",
+      "published": "2026-10-26",
+      "updated": "2026-10-26",
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG"
+      ],
+      "project_url": "",
+      "repo_url": "",
+      "venue_status": "未确认录用",
+      "recommendation": {
+        "score": 76,
+        "level": "高",
+        "label": "量化agentic RL的跨轮前缀校正",
+        "water_risk": "低",
+        "value_judgement": "训练/执行一致性需同时检查局部概率与到达当前状态的历史，尤其在多轮工具反馈下。可复用已有logprob做前缀诊断，但量化精度、有效支持度和信用分配最好分别对照；更高终点质量与更快wall-clock训练是不同证据。",
+        "reason": "训练/执行一致性需同时检查局部概率与到达当前状态的历史，尤其在多轮工具反馈下。可复用已有logprob做前缀诊断，但量化精度、有效支持度和信用分配最好分别对照；更高终点质量与更快wall-clock训练是不同证据。",
+        "signals": {
+          "agenticRl": true,
+          "multiTurn": true,
+          "longHorizon": false,
+          "memory": false,
+          "reliability": false,
+          "codeOrTool": false,
+          "experiments": true,
+          "survey": false
+        }
+      },
+      "brief": {
+        "authors": [
+          "Yingbo Hao",
+          "Song Liu",
+          "Guanghua Yu",
+          "Zhaojing Zhou",
+          "Jianchen Zhu",
+          "Yi Zou"
+        ],
+        "affiliations": "South China University of Technology；Tencent",
+        "date": "2026-10-26",
+        "paper_url": "https://arxiv.org/abs/2610.35303v1",
+        "project_url": "",
+        "repo_url": "",
+        "venue_status": "未确认录用",
+        "contribution": "训练/执行一致性需同时检查局部概率与到达当前状态的历史，尤其在多轮工具反馈下。可复用已有logprob做前缀诊断，但量化精度、有效支持度和信用分配最好分别对照；更高终点质量与更快wall-clock训练是不同证据。",
+        "summary": "InterQ-RL先对齐低精度执行，再按跨轮动作前缀校正策略损失，缓解量化rollout后期回退。四种环境与底座配置接近或超过BF16，但不等于已验证端到端提速。 先让learner forward模拟W8A8及KV8量化，再累积同一实现轨迹上的行为/learner动作token对数比，排除环境观察的似然因子。对前缀比做有界处理，以每个动作段的有效支持度，在固定平方位移预算内分配校正强度；权重detach后乘原GRPO损失，不新增模型forward。精确轨迹换测度恒等式用于确定前缀范围，实际裁剪和分配后的训练目标是有偏的有界替代，不能称严格无偏校正。 全部量化分支共用W8A8-KV8 rollout，训练400步。Qwen3-4B：ALFWorld成功率96.4%，QAT 90.4%、BF16 97.1%；WebShop得分77.7，QAT 74.9、BF16 78.0，成功率53.5%对49.7%/54.0%。ScienceWorld 8B/30B-A3B macro为67.8/69.9，高于BF16 66.9/67.0。ALFWorld/WebShop取末六个checkpoint评估均值，ScienceWorld在固定终点测1819例。AULC在三配置为量化最佳，ALFWorld 81.96略低于QAT 82.29。成功轨迹平均轮数降低，但不包括失败轨迹或总训练时间。",
+        "highlights": [
+          "量化agentic RL的跨轮前缀校正",
+          "偏水风险：低",
+          "阅读来源：arXiv PDF正文及相关附录核对"
+        ],
+        "motivation": "多轮RL中的量化执行器决定行为分布，即使当前token的概率已对齐，早期动作造成的状态到达分布仍可能偏移。只修正当前token会漏掉沿交互历史累积的执行不匹配。",
+        "method": "先让learner forward模拟W8A8及KV8量化，再累积同一实现轨迹上的行为/learner动作token对数比，排除环境观察的似然因子。对前缀比做有界处理，以每个动作段的有效支持度，在固定平方位移预算内分配校正强度；权重detach后乘原GRPO损失，不新增模型forward。精确轨迹换测度恒等式用于确定前缀范围，实际裁剪和分配后的训练目标是有偏的有界替代，不能称严格无偏校正。",
+        "experiments": "全部量化分支共用W8A8-KV8 rollout，训练400步。Qwen3-4B：ALFWorld成功率96.4%，QAT 90.4%、BF16 97.1%；WebShop得分77.7，QAT 74.9、BF16 78.0，成功率53.5%对49.7%/54.0%。ScienceWorld 8B/30B-A3B macro为67.8/69.9，高于BF16 66.9/67.0。ALFWorld/WebShop取末六个checkpoint评估均值，ScienceWorld在固定终点测1819例。AULC在三配置为量化最佳，ALFWorld 81.96略低于QAT 82.29。成功轨迹平均轮数降低，但不包括失败轨迹或总训练时间。",
+        "research_help": "训练/执行一致性需同时检查局部概率与到达当前状态的历史，尤其在多轮工具反馈下。可复用已有logprob做前缀诊断，但量化精度、有效支持度和信用分配最好分别对照；更高终点质量与更快wall-clock训练是不同证据。",
+        "recommendation": {
+          "score": 76,
+          "level": "高",
+          "label": "量化agentic RL的跨轮前缀校正",
+          "water_risk": "低",
+          "value_judgement": "训练/执行一致性需同时检查局部概率与到达当前状态的历史，尤其在多轮工具反馈下。可复用已有logprob做前缀诊断，但量化精度、有效支持度和信用分配最好分别对照；更高终点质量与更快wall-clock训练是不同证据。",
+          "reason": "训练/执行一致性需同时检查局部概率与到达当前状态的历史，尤其在多轮工具反馈下。可复用已有logprob做前缀诊断，但量化精度、有效支持度和信用分配最好分别对照；更高终点质量与更快wall-clock训练是不同证据。",
+          "signals": {
+            "agenticRl": true,
+            "multiTurn": true,
+            "longHorizon": false,
+            "memory": false,
+            "reliability": false,
+            "codeOrTool": false,
+            "experiments": true,
+            "survey": false
+          }
+        },
+        "insight": "训练/执行一致性需同时检查局部概率与到达当前状态的历史，尤其在多轮工具反馈下。可复用已有logprob做前缀诊断，但量化精度、有效支持度和信用分配最好分别对照；更高终点质量与更快wall-clock训练是不同证据。",
+        "abstract_zh": "InterQ-RL先对齐低精度执行，再按跨轮动作前缀校正策略损失，缓解量化rollout后期回退。四种环境与底座配置接近或超过BF16，但不等于已验证端到端提速。",
+        "full_summary": "InterQ-RL先对齐低精度执行，再按跨轮动作前缀校正策略损失，缓解量化rollout后期回退。四种环境与底座配置接近或超过BF16，但不等于已验证端到端提速。 先让learner forward模拟W8A8及KV8量化，再累积同一实现轨迹上的行为/learner动作token对数比，排除环境观察的似然因子。对前缀比做有界处理，以每个动作段的有效支持度，在固定平方位移预算内分配校正强度；权重detach后乘原GRPO损失，不新增模型forward。精确轨迹换测度恒等式用于确定前缀范围，实际裁剪和分配后的训练目标是有偏的有界替代，不能称严格无偏校正。 全部量化分支共用W8A8-KV8 rollout，训练400步。Qwen3-4B：ALFWorld成功率96.4%，QAT 90.4%、BF16 97.1%；WebShop得分77.7，QAT 74.9、BF16 78.0，成功率53.5%对49.7%/54.0%。ScienceWorld 8B/30B-A3B macro为67.8/69.9，高于BF16 66.9/67.0。ALFWorld/WebShop取末六个checkpoint评估均值，ScienceWorld在固定终点测1819例。AULC在三配置为量化最佳，ALFWorld 81.96略低于QAT 82.29。成功轨迹平均轮数降低，但不包括失败轨迹或总训练时间。",
+        "card_summary": "InterQ-RL先对齐低精度执行，再按跨轮动作前缀校正策略损失，缓解量化rollout后期回退。四种环境与底座配置接近或超过BF16，但不等于已验证端到端提速。"
+      },
+      "analysis": {
+        "motivation": "多轮RL中的量化执行器决定行为分布，即使当前token的概率已对齐，早期动作造成的状态到达分布仍可能偏移。只修正当前token会漏掉沿交互历史累积的执行不匹配。",
+        "method": "先让learner forward模拟W8A8及KV8量化，再累积同一实现轨迹上的行为/learner动作token对数比，排除环境观察的似然因子。对前缀比做有界处理，以每个动作段的有效支持度，在固定平方位移预算内分配校正强度；权重detach后乘原GRPO损失，不新增模型forward。精确轨迹换测度恒等式用于确定前缀范围，实际裁剪和分配后的训练目标是有偏的有界替代，不能称严格无偏校正。",
+        "experiments": "全部量化分支共用W8A8-KV8 rollout，训练400步。Qwen3-4B：ALFWorld成功率96.4%，QAT 90.4%、BF16 97.1%；WebShop得分77.7，QAT 74.9、BF16 78.0，成功率53.5%对49.7%/54.0%。ScienceWorld 8B/30B-A3B macro为67.8/69.9，高于BF16 66.9/67.0。ALFWorld/WebShop取末六个checkpoint评估均值，ScienceWorld在固定终点测1819例。AULC在三配置为量化最佳，ALFWorld 81.96略低于QAT 82.29。成功轨迹平均轮数降低，但不包括失败轨迹或总训练时间。",
+        "research_help": "训练/执行一致性需同时检查局部概率与到达当前状态的历史，尤其在多轮工具反馈下。可复用已有logprob做前缀诊断，但量化精度、有效支持度和信用分配最好分别对照；更高终点质量与更快wall-clock训练是不同证据。",
+        "insight": "训练/执行一致性需同时检查局部概率与到达当前状态的历史，尤其在多轮工具反馈下。可复用已有logprob做前缀诊断，但量化精度、有效支持度和信用分配最好分别对照；更高终点质量与更快wall-clock训练是不同证据。",
+        "abstract_zh": "InterQ-RL先对齐低精度执行，再按跨轮动作前缀校正策略损失，缓解量化rollout后期回退。四种环境与底座配置接近或超过BF16，但不等于已验证端到端提速。",
+        "card_summary": "InterQ-RL先对齐低精度执行，再按跨轮动作前缀校正策略损失，缓解量化rollout后期回退。四种环境与底座配置接近或超过BF16，但不等于已验证端到端提速。",
+        "full_summary": "InterQ-RL先对齐低精度执行，再按跨轮动作前缀校正策略损失，缓解量化rollout后期回退。四种环境与底座配置接近或超过BF16，但不等于已验证端到端提速。 先让learner forward模拟W8A8及KV8量化，再累积同一实现轨迹上的行为/learner动作token对数比，排除环境观察的似然因子。对前缀比做有界处理，以每个动作段的有效支持度，在固定平方位移预算内分配校正强度；权重detach后乘原GRPO损失，不新增模型forward。精确轨迹换测度恒等式用于确定前缀范围，实际裁剪和分配后的训练目标是有偏的有界替代，不能称严格无偏校正。 全部量化分支共用W8A8-KV8 rollout，训练400步。Qwen3-4B：ALFWorld成功率96.4%，QAT 90.4%、BF16 97.1%；WebShop得分77.7，QAT 74.9、BF16 78.0，成功率53.5%对49.7%/54.0%。ScienceWorld 8B/30B-A3B macro为67.8/69.9，高于BF16 66.9/67.0。ALFWorld/WebShop取末六个checkpoint评估均值，ScienceWorld在固定终点测1819例。AULC在三配置为量化最佳，ALFWorld 81.96略低于QAT 82.29。成功轨迹平均轮数降低，但不包括失败轨迹或总训练时间。",
+        "recommendation_level": "高",
+        "water_risk": "低",
+        "value_label": "量化agentic RL的跨轮前缀校正",
+        "value_reason": "训练/执行一致性需同时检查局部概率与到达当前状态的历史，尤其在多轮工具反馈下。可复用已有logprob做前缀诊断，但量化精度、有效支持度和信用分配最好分别对照；更高终点质量与更快wall-clock训练是不同证据。",
+        "limitations": "共同rollout精度和步数不代表总费用相同，正文没有完整端到端吞吐/显存收益测量。bounded权重不是精确全轨迹无偏估计，ESS也非正确性保证。成功轮数只对成功episode平均，存在选择条件；ALFWorld/WebShop末六checkpoint不是六个独立种子。附录仅称这两环境的BF16/QAT/InterQ独立种子复现一致，未给完整种子数及区间，其余基线和ScienceWorld覆盖有限。AIS/QuRL按论文重实现，MoE的UAQ仅施于attention；基线适配需结合附录理解。作者承诺开源，未找到已可核查的代码URL。",
+        "source_scope": "full_text",
+        "source_note": "基于arXiv PDF正文、相关附录和关键结果页核对；自动阅读器失败部分由本次Codex全文整理补齐。",
+        "source_evidence": [
+          "§2.3、§3及附录B：精确前缀身份与有界训练替代区分；固定预算分配。",
+          "表1/2：ALFWorld 96.4/90.4/97.1；WebShop 77.7/74.9/78.0。",
+          "附录C.1/C.3：末六checkpoint与固定终点评估；基线重实现和MoE UAQ范围。",
+          "附录D：ALFWorld/WebShop有限独立种子复现，其余配置未广泛覆盖。"
+        ],
+        "model": "Codex full-text curation",
+        "updated_at": "2026-10-27T12:46:26.057217+00:00"
+      }
+    },
     {
       "id": "2610.31778v1",
       "title": "Benchmarks Are Surprisingly Compaction-Friendly",
