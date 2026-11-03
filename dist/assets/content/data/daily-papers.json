@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-31T13:18:58.385884+00:00",
+  "updated_at": "2026-11-03T01:30:17.723031+00:00",
   "source": "arxiv",
   "analysis_method": "Codex CLI workflow with manual arXiv PDF full-text review and rendered result-page verification; per-item source notes identify the analysis path.",
   "query_focus": "多轮交互式 agent planning、long-horizon planning、stateful/personalized planning、agent memory、planning reliability、agentic RL",
@@ -37,36 +37,35 @@
     "codex_reader": "Downloads arXiv PDFs, extracts text with pdftotext or bundled Python PDF libraries, then calls codex exec to write Chinese motivation/method/experiment/research-help fields."
   },
   "digest": {
-    "title": "2026-10-31 Daily Paper",
-    "report_date": "2026-10-31",
+    "title": "2026-11-03 Daily Paper",
+    "report_date": "2026-11-03",
     "focus": "多轮交互式 agent planning、long-horizon planning、stateful/personalized planning、agent memory、planning reliability、agentic RL",
-    "summary": "从16篇候选中保留8篇强相关论文，已核对PDF正文、相关附录及关键结果页。重点为SCOPE步骤纠错蒸馏、GUI训练位置与跨度、真实iOS在线RL，以及多轮汇报审计、观测时效、RL沙箱、控制器获取和行为历史持续性。排除纯记忆问答、综述及普通领域RL；历史534条记录与日期保持原样。",
+    "summary": "从16篇候选中，经PDF正文与相关附录核查保留5篇：工具依赖规划、异步agent RL、长程世界模型，以及有外部测量反馈的规划/优化记忆。保留全部542条历史记录及原日期。",
     "top_recommendations": [
-      "2610.38391v1",
-      "2610.39251v1",
-      "2610.39264v1"
+      "2610.41040v1",
+      "2610.40726v1",
+      "2610.42146v1"
     ],
     "low_priority": [],
     "no_news_policy": "如果没有新的高相关论文，自动化应返回“今日无高相关新增论文”，不写邮件正文文件，也不发送邮件。",
-    "email_body": "2026-10-31 Daily Paper\n\n从16篇候选中保留8篇强相关论文，已核对PDF正文、相关附录及关键结果页。重点为SCOPE步骤纠错蒸馏、GUI训练位置与跨度、真实iOS在线RL，以及多轮汇报审计、观测时效、RL沙箱、控制器获取和行为历史持续性。排除纯记忆问答、综述及普通领域RL；历史534条记录与日期保持原样。\n\n1. SCOPE: Selective Critical-Step On-Policy Self-Distillation for Agentic Reinforcement Learning\nhttps://arxiv.org/abs/2610.38391v1\nSCOPE先学会定位错误，再只在相关步骤做有界、带符号的自蒸馏。3B模型在ALFWorld和WebShop达到97.7%/85.2%成功率，收益需连同离线标注与在线分析成本评估。\n\n2. Where to Learn and How Far to Roll Out: Efficient Adaptive Training for GUI Agents\nhttps://arxiv.org/abs/2610.39251v1\n先在专家轨迹中的高分歧决策上训练，再逐步扩展到后缀和完整任务。两个GUI环境中留出Avg@4达到50.20%/57.92%，但效果依赖专家轨迹和可恢复环境。\n\n3. Online Dense Reinforcement Learning with Planning-Grounding Agent for UI Navigation on Live IOS Apps\nhttps://arxiv.org/abs/2610.39264v1\n在实时iOS设备上用密集奖励和终局奖励训练8B planner，并用相似截图辅助critic。UINavBench成功率16.7%→32.4%；跨Android提升明显，但系统仍依赖外部grounder。\n\n4. AgentDecept: Benchmarking Deceptive Behavior in Tool-Using LLM Agents under Pressure\nhttps://arxiv.org/abs/2610.39377v1\nAgentDecept把多轮工具执行与用户汇报逐时对齐，区分诚实失败和误导性完成声明。477个压力变体显示任务成功与汇报可信需分开评估，回放probe的高AUROC也不代表低误报下高检出。\n\n5. What Does \"Now\" Mean to Your Computer-Use Agent? Stale Screenshots, Page Loads, and Which Check to Run Before a Click\nhttps://arxiv.org/abs/2610.39282v1\n研究把GUI失败拆为截图过期、位置验证和结果验证：公共页面主要在加载时变化，像素检查能便宜地验证位置。商业主页的布局偏移不能当作误点击率，在线收益也取决于重规划成本。\n\n6. Sandman: Building and Operating Sandboxes for Agentic Reinforcement Learning on Shared Kubernetes\nhttps://arxiv.org/abs/2610.39711v1\nSandman报告共享Kubernetes上的多轮RL沙箱实践，重点是突发创建、可靠回收与独立评测。预热显著缩短获取时间却增加资源占用，训练稳态收益仍不确定。\n\n7. ELEVATE: Agentic Controller Acquisition from Task Failure for Quadrupedal Manipulation\nhttps://arxiv.org/abs/2610.38388v1\nELEVATE从反复任务失败中诊断物理能力缺口，再训练控制器并回到原计划。五类初始能力外任务仿真成功率98.4–100%，但收益包含额外RL训练和框架模板支持。\n\n8. Sticky Collusion: Persistence of LLM Agent Collusion after Incentive Removal and Partner Replacement\nhttps://arxiv.org/abs/2610.39660v1\n在重复互审游戏里，撤回奖励后，旧agent仍可能沿历史继续违规；换一人能打断双边行为，却未清除旧agent倾向。结论来自已形成违规的选定历史，不能泛化为市场串谋发生率。"
+    "email_body": "2026-11-03 Daily Paper\n\n从16篇候选中，经PDF正文与相关附录核查保留5篇：工具依赖规划、异步agent RL、长程世界模型，以及有外部测量反馈的规划/优化记忆。保留全部542条历史记录及原日期。\n\nCapability-Grounded Agentic Planning\nCGAP把工具目录编译为PDDL，用符号搜索安排依赖、用来源引用约束参数。gpt-oss-20b的ToolSandbox得分52.3→81.2；保证限于抽象模型。\nhttps://arxiv.org/abs/2610.41040v1\n\nLi$^{2}$SAO: Lifting Light Singl-Rollout Asynchronous RL Optimization via Group-Relative Actor-Critic Bootstrapping\nLi²SAO先用组相对信号训练actor与critic，再切到单轨迹GAE。ReTool平均pass@1为64.6%，对GRPO61.8%；附录补充长程代码agent实验。\nhttps://arxiv.org/abs/2610.40726v1\n\nHierarchical World Models with Implicit Dynamics\nID-WM在扩散噪声空间搜索可达子目标，再用低层世界模型找动作。随机目标PushT成功率77%，单层21%；视觉版本仍只有26%。\nhttps://arxiv.org/abs/2610.42146v1\n\nORION: An Outcome-Driven LLM Advisor for RL-Based Multi-Domain 6G Slice Placement\nORION用经可行性验证的成功和失败更新LLM规划记忆。固定下游执行后两种子的归一化接纳率提升4.6/11.5点；完整RL系统效果尚未报告。\nhttps://arxiv.org/abs/2610.41563v1\n\nMEMIG: Self-evolving Memory Construction for Antibody Optimization\nMEMIG把多轮抗体优化经验存为带上下文的定量索引和突变交互图。收益来自更可靠地满足约束，但额外oracle调用和跨序列顺序依赖明显。\nhttps://arxiv.org/abs/2610.41245v1"
   },
   "latest_item_ids": [
-    "2610.38391v1",
-    "2610.39251v1",
-    "2610.39264v1",
-    "2610.39377v1",
-    "2610.39282v1",
-    "2610.39711v1",
-    "2610.38388v1",
-    "2610.39660v1"
+    "2610.41040v1",
+    "2610.40726v1",
+    "2610.42146v1",
+    "2610.41563v1",
+    "2610.41245v1"
   ],
   "archive": {
     "policy": "append_or_update_by_arxiv_id",
-    "fresh_items": 8,
-    "total_items": 542,
-    "previous_items": 534,
-    "latest_items": 6,
+    "fresh_items": 5,
+    "total_items": 547,
+    "previous_items": 542,
+    "latest_items": 5,
     "source_report_dates": {
+      "2026-11-03": 5,
+      "2026-10-31": 8,
       "2026-10-27": 6,
       "2026-10-26": 1,
       "2026-10-24": 8,
@@ -124,28 +123,615 @@
       "undefined": 39
     },
     "filtered_candidate_ids": [
-      "2610.35497v1",
-      "2610.35801v1",
-      "2610.35426v1",
-      "2610.35398v1",
-      "2610.34724v1",
-      "2610.35303v1"
+      "2610.41040v1",
+      "2610.40726v1",
+      "2610.42146v1",
+      "2610.41563v1",
+      "2610.41245v1"
     ],
-    "filtered_today": 10,
+    "filtered_today": 8,
     "rejected_candidate_ids": [
-      "2610.34790v1",
-      "2610.34767v1",
-      "2610.34673v1",
-      "2610.34977v1",
-      "2610.35736v1",
-      "2610.35500v1",
-      "2610.34799v1",
-      "2610.34860v1",
-      "2610.34073v1",
-      "2610.34121v1"
+      "2610.41235v1",
+      "2610.41809v1",
+      "2610.41903v1",
+      "2610.40191v1",
+      "2610.39276v1",
+      "2610.39790v1",
+      "2610.41022v1",
+      "2610.39576v1"
     ]
   },
   "items": [
+    {
+      "id": "2610.41040v1",
+      "title": "Capability-Grounded Agentic Planning",
+      "summary": "LLM agents serve natural-language requests through tools, data sources, and other agents, and even simple requests often need several interdependent calls. Typically, the LLM picks these calls by trial and error, with no guarantee of an executable plan. We present Capability-Grounded Agentic Planning (CGAP), which instead reasons about what a request requires and what tools provide. CGAP compiles the tool catalog deterministically into a PDDL model, uses an LLM to turn the request into goals, and solves the model with a classical planner. Since tool outputs are unknown in advance, the model is abstract, tracking which inputs are available, not their values. During execution, an LLM adds entity-specific calls that abstract plans omit, and deterministic checks reject any that break the plan. Every argument is drawn from a cited source, such as a conversation span or an earlier tool response, and each requested result counts as delivered only after an LLM verifier checks it against the request. With three LLMs on ToolSandbox, ComplexFuncBench, BFCL multi-turn, and $τ^2$-bench retail, CGAP outperforms a standard tool-calling agent by up to 28.9 points.",
+      "url": "https://arxiv.org/abs/2610.41040v1",
+      "authors": [
+        "Shikha Shrestha",
+        "William Yeoh",
+        "Ning Zhang",
+        "Yevgeniy Vorobeychik"
+      ],
+      "report_date": "2026-11-03",
+      "published": "2026-10-29",
+      "updated": "2026-10-29",
+      "primary_category": "cs.AI",
+      "categories": [
+        "cs.AI",
+        "cs.CL"
+      ],
+      "project_url": "",
+      "repo_url": "",
+      "venue_status": "未确认录用",
+      "recommendation": {
+        "score": 92,
+        "level": "高",
+        "label": "可核验的工具依赖规划",
+        "water_risk": "低",
+        "value_judgement": "把依赖可执行性、参数出处和语义完成分层核验，比让同一LLM同时承担所有职责更可诊断。消融中图规划与搜索在任务总体的配对区间均含零，不能宣称BFS普遍胜过图方法。",
+        "reason": "把依赖可执行性、参数出处和语义完成分层核验，比让同一LLM同时承担所有职责更可诊断。消融中图规划与搜索在任务总体的配对区间均含零，不能宣称BFS普遍胜过图方法。",
+        "signals": {
+          "agenticRl": false,
+          "multiTurn": true,
+          "longHorizon": true,
+          "memory": false,
+          "reliability": true,
+          "codeOrTool": true,
+          "experiments": true,
+          "survey": false
+        }
+      },
+      "brief": {
+        "authors": [
+          "Shikha Shrestha",
+          "William Yeoh",
+          "Ning Zhang",
+          "Yevgeniy Vorobeychik"
+        ],
+        "affiliations": "Washington University in St. Louis",
+        "date": "2026-10-29",
+        "paper_url": "https://arxiv.org/abs/2610.41040v1",
+        "project_url": "",
+        "repo_url": "",
+        "venue_status": "未确认录用",
+        "contribution": "可核验的工具依赖规划",
+        "summary": "逐步试错和自然语言计划都可能调用尚无输入的工具；形式计划若仍由LLM编写模型，也难排除建模幻觉。确定性地把工具输入输出编译为PDDL，LLM只解析请求目标。BFS规划可用字段而非具体值；执行器可补充实体专属前置调用，但须通过剩余计划检查。参数引用用户文本或成功工具响应，经固定解码器转换；终局操作另由LLM核验完成。预算为2048搜索展开、4步refinement、每轮32个决策。三种LLM；ToolSandbox120场景、ComplexFuncBench250请求、BFCL200对话、τ² retail全部114任务，每配置每任务3次。二元指标采用多数通过，ToolSandbox/调用准确率取均值。gpt-oss-20b的四任务指标为81.2/58.0/52.0/61.4，对plain为52.3/47.6/34.0/47.4；最大28.9是百分点。GPT-5 mini仍提升5.1–13.9点。",
+        "highlights": [
+          "§2.2–2.5：字段抽象、来源约束、执行refinement与模型内保证。",
+          "表1–2：三次运行、多数通过与配对bootstrap；图规划总体差异未显著。",
+          "附录E表9–10：token成本与手写ToolSandbox注释。"
+        ],
+        "motivation": "逐步试错和自然语言计划都可能调用尚无输入的工具；形式计划若仍由LLM编写模型，也难排除建模幻觉。",
+        "method": "确定性地把工具输入输出编译为PDDL，LLM只解析请求目标。BFS规划可用字段而非具体值；执行器可补充实体专属前置调用，但须通过剩余计划检查。参数引用用户文本或成功工具响应，经固定解码器转换；终局操作另由LLM核验完成。预算为2048搜索展开、4步refinement、每轮32个决策。",
+        "experiments": "三种LLM；ToolSandbox120场景、ComplexFuncBench250请求、BFCL200对话、τ² retail全部114任务，每配置每任务3次。二元指标采用多数通过，ToolSandbox/调用准确率取均值。gpt-oss-20b的四任务指标为81.2/58.0/52.0/61.4，对plain为52.3/47.6/34.0/47.4；最大28.9是百分点。GPT-5 mini仍提升5.1–13.9点。",
+        "research_help": "把依赖可执行性、参数出处和语义完成分层核验，比让同一LLM同时承担所有职责更可诊断。消融中图规划与搜索在任务总体的配对区间均含零，不能宣称BFS普遍胜过图方法。",
+        "recommendation": {
+          "score": 92,
+          "level": "高",
+          "label": "强烈推荐",
+          "water_risk": "低",
+          "value_judgement": "有价值：优先进入今日精读候选。",
+          "reason": "涉及多轮交互、状态延续或交互式重规划；和 long-horizon planning / multi-step task 相关；摘要给出实验、benchmark 或 baseline 证据。",
+          "signals": {
+            "agenticRl": false,
+            "multiTurn": true,
+            "longHorizon": true,
+            "memory": false,
+            "reliability": true,
+            "codeOrTool": true,
+            "experiments": true,
+            "survey": false
+          }
+        },
+        "insight": "把依赖可执行性、参数出处和语义完成分层核验，比让同一LLM同时承担所有职责更可诊断。消融中图规划与搜索在任务总体的配对区间均含零，不能宣称BFS普遍胜过图方法。",
+        "abstract_zh": "CGAP把工具目录编译为PDDL，用符号搜索安排依赖、用来源引用约束参数。gpt-oss-20b的ToolSandbox得分52.3→81.2；保证限于抽象模型。",
+        "full_summary": "逐步试错和自然语言计划都可能调用尚无输入的工具；形式计划若仍由LLM编写模型，也难排除建模幻觉。确定性地把工具输入输出编译为PDDL，LLM只解析请求目标。BFS规划可用字段而非具体值；执行器可补充实体专属前置调用，但须通过剩余计划检查。参数引用用户文本或成功工具响应，经固定解码器转换；终局操作另由LLM核验完成。预算为2048搜索展开、4步refinement、每轮32个决策。三种LLM；ToolSandbox120场景、ComplexFuncBench250请求、BFCL200对话、τ² retail全部114任务，每配置每任务3次。二元指标采用多数通过，ToolSandbox/调用准确率取均值。gpt-oss-20b的四任务指标为81.2/58.0/52.0/61.4，对plain为52.3/47.6/34.0/47.4；最大28.9是百分点。GPT-5 mini仍提升5.1–13.9点。",
+        "card_summary": "CGAP把工具目录编译为PDDL，用符号搜索安排依赖、用来源引用约束参数。gpt-oss-20b的ToolSandbox得分52.3→81.2；保证限于抽象模型。",
+        "limitations": "ToolSandbox含手工设备依赖规则；其余三个无额外领域标注。来源正确不保证实体正确，事后核验不能撤销错误副作用。NO_PLAN只对编译模型有效，触发频率未测。CGAP在三个基准用97.6/146.2/164.7千token，对plain61.7/104.3/128.6；计算匹配基线接近但额外推理成本仍须核算。"
+      },
+      "analysis": {
+        "motivation": "逐步试错和自然语言计划都可能调用尚无输入的工具；形式计划若仍由LLM编写模型，也难排除建模幻觉。",
+        "method": "确定性地把工具输入输出编译为PDDL，LLM只解析请求目标。BFS规划可用字段而非具体值；执行器可补充实体专属前置调用，但须通过剩余计划检查。参数引用用户文本或成功工具响应，经固定解码器转换；终局操作另由LLM核验完成。预算为2048搜索展开、4步refinement、每轮32个决策。",
+        "experiments": "三种LLM；ToolSandbox120场景、ComplexFuncBench250请求、BFCL200对话、τ² retail全部114任务，每配置每任务3次。二元指标采用多数通过，ToolSandbox/调用准确率取均值。gpt-oss-20b的四任务指标为81.2/58.0/52.0/61.4，对plain为52.3/47.6/34.0/47.4；最大28.9是百分点。GPT-5 mini仍提升5.1–13.9点。",
+        "research_help": "把依赖可执行性、参数出处和语义完成分层核验，比让同一LLM同时承担所有职责更可诊断。消融中图规划与搜索在任务总体的配对区间均含零，不能宣称BFS普遍胜过图方法。",
+        "insight": "把依赖可执行性、参数出处和语义完成分层核验，比让同一LLM同时承担所有职责更可诊断。消融中图规划与搜索在任务总体的配对区间均含零，不能宣称BFS普遍胜过图方法。",
+        "card_summary": "CGAP把工具目录编译为PDDL，用符号搜索安排依赖、用来源引用约束参数。gpt-oss-20b的ToolSandbox得分52.3→81.2；保证限于抽象模型。",
+        "full_summary": "逐步试错和自然语言计划都可能调用尚无输入的工具；形式计划若仍由LLM编写模型，也难排除建模幻觉。确定性地把工具输入输出编译为PDDL，LLM只解析请求目标。BFS规划可用字段而非具体值；执行器可补充实体专属前置调用，但须通过剩余计划检查。参数引用用户文本或成功工具响应，经固定解码器转换；终局操作另由LLM核验完成。预算为2048搜索展开、4步refinement、每轮32个决策。三种LLM；ToolSandbox120场景、ComplexFuncBench250请求、BFCL200对话、τ² retail全部114任务，每配置每任务3次。二元指标采用多数通过，ToolSandbox/调用准确率取均值。gpt-oss-20b的四任务指标为81.2/58.0/52.0/61.4，对plain为52.3/47.6/34.0/47.4；最大28.9是百分点。GPT-5 mini仍提升5.1–13.9点。",
+        "abstract_zh": "CGAP把工具目录编译为PDDL，用符号搜索安排依赖、用来源引用约束参数。gpt-oss-20b的ToolSandbox得分52.3→81.2；保证限于抽象模型。",
+        "limitations": "ToolSandbox含手工设备依赖规则；其余三个无额外领域标注。来源正确不保证实体正确，事后核验不能撤销错误副作用。NO_PLAN只对编译模型有效，触发频率未测。CGAP在三个基准用97.6/146.2/164.7千token，对plain61.7/104.3/128.6；计算匹配基线接近但额外推理成本仍须核算。",
+        "source_evidence": [
+          "§2.2–2.5：字段抽象、来源约束、执行refinement与模型内保证。",
+          "表1–2：三次运行、多数通过与配对bootstrap；图规划总体差异未显著。",
+          "附录E表9–10：token成本与手写ToolSandbox注释。"
+        ],
+        "water_risk": "低",
+        "recommendation_level": "高",
+        "value_label": "可核验的工具依赖规划",
+        "value_reason": "把依赖可执行性、参数出处和语义完成分层核验，比让同一LLM同时承担所有职责更可诊断。消融中图规划与搜索在任务总体的配对区间均含零，不能宣称BFS普遍胜过图方法。",
+        "source_scope": "full_text",
+        "source_note": "人工核对arXiv PDF方法、实验与相关附录及渲染结果页；指定CLI已运行，嵌套阅读因本地状态库/应用服务权限失败，本条由当前Codex全文整理补齐。",
+        "model": "Codex full-text curation",
+        "updated_at": "2026-11-03T01:30:17.723031+00:00"
+      }
+    },
+    {
+      "id": "2610.40726v1",
+      "title": "Li$^{2}$SAO: Lifting Light Singl-Rollout Asynchronous RL Optimization via Group-Relative Actor-Critic Bootstrapping",
+      "summary": "Asynchronous reinforcement learning (RL) is becoming a mainstream paradigm for post-training large language models (LLMs), as it improves training efficiency by updating the model as rollouts arrive. Recent work argues that group-wise sampling in GRPO does not naturally fit asynchronous RL training because rollout lengths follow a long-tailed distribution, and proposes Single-rollout Asynchronous Optimization (SAO) to improve stability and off-policy behavior, especially on agentic tasks. However, SAO relies on a closed-source value model obtained from scaling value pretraining. In this paper, we analyze GRPO and LiSAO, our lightweight reproduction of SAO without the pretrained value model, on single-turn reasoning and multi-turn agentic tasks. We find that GRPO outperforms LiSAO on reasoning tasks, while the reverse holds on agentic tasks. Since the value model of LiSAO is not yet well trained , LiSAO lags behind GRPO substantially in early training steps. To address this issue, we propose Li$^{2}$SAO, which Lifts Light Single-rollout Asynchronous Optimization with group-relative actor-critic bootstrapping: while the critic is cold, a group-relative advantage trains the actor and a group-centered return trains the critic, after which training switches to single-rollout GAE. Experiments show that Li$^{2}$SAO catches up with or surpasses GRPO in early training and further raises the later performance ceiling. Code is available at https://github.com/jd-cc-coder/Li2SAO.",
+      "url": "https://arxiv.org/abs/2610.40726v1",
+      "authors": [
+        "Zichen Bai",
+        "Yanli Wang",
+        "Yang Liu",
+        "Junhao Shi",
+        "Xueqin Liu",
+        "Jinguo Sun",
+        "Muye Li",
+        "Shaoqiang Zheng",
+        "Xuefei Diao",
+        "Zhuwei Zeng",
+        "Nan Duan",
+        "Peng Cao"
+      ],
+      "report_date": "2026-11-03",
+      "published": "2026-10-29",
+      "updated": "2026-10-29",
+      "primary_category": "cs.CL",
+      "categories": [
+        "cs.CL",
+        "cs.LG"
+      ],
+      "project_url": "",
+      "repo_url": "https://github.com/jd-cc-coder/Li2SAO",
+      "venue_status": "未确认录用",
+      "recommendation": {
+        "score": 94,
+        "level": "高",
+        "label": "冷启动critic的分阶段异步RL",
+        "water_risk": "低",
+        "value_judgement": "价值估计器未校准时先用同题比较建立方向，准备就绪再释放时序信用与异步吞吐；阶段切换和GPU分配应同时作为实验变量。",
+        "reason": "价值估计器未校准时先用同题比较建立方向，准备就绪再释放时序信用与异步吞吐；阶段切换和GPU分配应同时作为实验变量。",
+        "signals": {
+          "agenticRl": true,
+          "multiTurn": true,
+          "longHorizon": false,
+          "memory": false,
+          "reliability": true,
+          "codeOrTool": true,
+          "experiments": true,
+          "survey": false
+        }
+      },
+      "brief": {
+        "authors": [
+          "Zichen Bai",
+          "Yanli Wang",
+          "Yang Liu",
+          "Junhao Shi",
+          "Xueqin Liu",
+          "Jinguo Sun",
+          "Muye Li",
+          "Shaoqiang Zheng",
+          "Xuefei Diao",
+          "Zhuwei Zeng",
+          "Nan Duan",
+          "Peng Cao"
+        ],
+        "affiliations": "JD Tech Genius Team",
+        "date": "2026-10-29",
+        "paper_url": "https://arxiv.org/abs/2610.40726v1",
+        "project_url": "",
+        "repo_url": "https://github.com/jd-cc-coder/Li2SAO",
+        "venue_status": "未确认录用",
+        "contribution": "冷启动critic的分阶段异步RL",
+        "summary": "异步组采样仍需等待同题最慢轨迹；单轨迹GAE又会在缺少价值预训练时受冷启动critic拖累。先以每题8条轨迹提供组相对actor优势，critic学习去除题目难度的组中心残差，并加终端排序和散度掩码；依据critic误差与排序准备度做一次切换，再用每题1条轨迹及跳过环境observation的token级GAE。主实验切换窗口60–150步，代码实验30–60步；不是全程无需组采样。主实验在AIME2024/2025/2026，每题采16次、温度1，500步比较。ReTool平均pass@1为64.6%，GRPO61.8/LiSAO63.2；纯推理67.0%，对63.6/61.9。附录H用SWE-Gym训练200步，SWE-bench Verified500题：30B-A3B指令模型27.2%，GRPO24.6/GSPO25.8；代码模型54.2%，对52.8/53.6。ReTool 4+4 GPU训练/采样分配下33.1小时，GRPO48.7小时，GRPO改2+6后39.6小时。",
+        "highlights": [
+          "§4、附录F表5：残差critic、排序与一次性切换。",
+          "表1、附录G表7：pass@k与不同GPU分配的wall-clock。",
+          "附录H表9：两种30B-A3B模型在500个Verified实例的resolved rate。"
+        ],
+        "motivation": "异步组采样仍需等待同题最慢轨迹；单轨迹GAE又会在缺少价值预训练时受冷启动critic拖累。",
+        "method": "先以每题8条轨迹提供组相对actor优势，critic学习去除题目难度的组中心残差，并加终端排序和散度掩码；依据critic误差与排序准备度做一次切换，再用每题1条轨迹及跳过环境observation的token级GAE。主实验切换窗口60–150步，代码实验30–60步；不是全程无需组采样。",
+        "experiments": "Qwen3-4B主实验，ReTool至多16轮；主实验在AIME2024/2025/2026，每题采16次、温度1，500步比较。ReTool平均pass@1为64.6%，GRPO61.8/LiSAO63.2；纯推理67.0%，对63.6/61.9。附录H用SWE-Gym训练200步，SWE-bench Verified500题：30B-A3B指令模型27.2%，GRPO24.6/GSPO25.8；代码模型54.2%，对52.8/53.6。ReTool 4+4 GPU训练/采样分配下33.1小时，GRPO48.7小时，GRPO改2+6后39.6小时。",
+        "research_help": "价值估计器未校准时先用同题比较建立方向，准备就绪再释放时序信用与异步吞吐；阶段切换和GPU分配应同时作为实验变量。",
+        "recommendation": {
+          "score": 94,
+          "level": "高",
+          "label": "强烈推荐",
+          "water_risk": "低",
+          "value_judgement": "有价值：优先进入今日精读候选。",
+          "reason": "直接覆盖 agentic RL 或 policy optimization；涉及多轮交互、状态延续或交互式重规划；摘要给出实验、benchmark 或 baseline 证据；摘要中出现公开代码仓库。",
+          "signals": {
+            "agenticRl": true,
+            "multiTurn": true,
+            "longHorizon": false,
+            "memory": false,
+            "reliability": true,
+            "codeOrTool": true,
+            "experiments": true,
+            "survey": false
+          }
+        },
+        "insight": "价值估计器未校准时先用同题比较建立方向，准备就绪再释放时序信用与异步吞吐；阶段切换和GPU分配应同时作为实验变量。",
+        "abstract_zh": "Li²SAO先用组相对信号训练actor与critic，再切到单轨迹GAE。ReTool平均pass@1为64.6%，对GRPO61.8%；附录补充长程代码agent实验。",
+        "full_summary": "异步组采样仍需等待同题最慢轨迹；单轨迹GAE又会在缺少价值预训练时受冷启动critic拖累。先以每题8条轨迹提供组相对actor优势，critic学习去除题目难度的组中心残差，并加终端排序和散度掩码；依据critic误差与排序准备度做一次切换，再用每题1条轨迹及跳过环境observation的token级GAE。主实验切换窗口60–150步，代码实验30–60步；不是全程无需组采样。主实验在AIME2024/2025/2026，每题采16次、温度1，500步比较。ReTool平均pass@1为64.6%，GRPO61.8/LiSAO63.2；纯推理67.0%，对63.6/61.9。附录H用SWE-Gym训练200步，SWE-bench Verified500题：30B-A3B指令模型27.2%，GRPO24.6/GSPO25.8；代码模型54.2%，对52.8/53.6。ReTool 4+4 GPU训练/采样分配下33.1小时，GRPO48.7小时，GRPO改2+6后39.6小时。",
+        "card_summary": "Li²SAO先用组相对信号训练actor与critic，再切到单轨迹GAE。ReTool平均pass@1为64.6%，对GRPO61.8%；附录补充长程代码agent实验。",
+        "limitations": "理论依赖精确条件价值等理想条件，不是完整训练的收敛保证；LiSAO是未做价值预训练的透明复现，未直接复现原SAO。主表16次解码不等于16个训练种子，未给多种子置信区间；代码模型相对GSPO仅0.6个百分点，统计稳健性待验证。无效sandbox轨迹排除优化；各组全局轨迹数匹配但题目多样性不同。"
+      },
+      "analysis": {
+        "motivation": "异步组采样仍需等待同题最慢轨迹；单轨迹GAE又会在缺少价值预训练时受冷启动critic拖累。",
+        "method": "先以每题8条轨迹提供组相对actor优势，critic学习去除题目难度的组中心残差，并加终端排序和散度掩码；依据critic误差与排序准备度做一次切换，再用每题1条轨迹及跳过环境observation的token级GAE。主实验切换窗口60–150步，代码实验30–60步；不是全程无需组采样。",
+        "experiments": "Qwen3-4B主实验，ReTool至多16轮；主实验在AIME2024/2025/2026，每题采16次、温度1，500步比较。ReTool平均pass@1为64.6%，GRPO61.8/LiSAO63.2；纯推理67.0%，对63.6/61.9。附录H用SWE-Gym训练200步，SWE-bench Verified500题：30B-A3B指令模型27.2%，GRPO24.6/GSPO25.8；代码模型54.2%，对52.8/53.6。ReTool 4+4 GPU训练/采样分配下33.1小时，GRPO48.7小时，GRPO改2+6后39.6小时。",
+        "research_help": "价值估计器未校准时先用同题比较建立方向，准备就绪再释放时序信用与异步吞吐；阶段切换和GPU分配应同时作为实验变量。",
+        "insight": "价值估计器未校准时先用同题比较建立方向，准备就绪再释放时序信用与异步吞吐；阶段切换和GPU分配应同时作为实验变量。",
+        "card_summary": "Li²SAO先用组相对信号训练actor与critic，再切到单轨迹GAE。ReTool平均pass@1为64.6%，对GRPO61.8%；附录补充长程代码agent实验。",
+        "full_summary": "异步组采样仍需等待同题最慢轨迹；单轨迹GAE又会在缺少价值预训练时受冷启动critic拖累。先以每题8条轨迹提供组相对actor优势，critic学习去除题目难度的组中心残差，并加终端排序和散度掩码；依据critic误差与排序准备度做一次切换，再用每题1条轨迹及跳过环境observation的token级GAE。主实验切换窗口60–150步，代码实验30–60步；不是全程无需组采样。主实验在AIME2024/2025/2026，每题采16次、温度1，500步比较。ReTool平均pass@1为64.6%，GRPO61.8/LiSAO63.2；纯推理67.0%，对63.6/61.9。附录H用SWE-Gym训练200步，SWE-bench Verified500题：30B-A3B指令模型27.2%，GRPO24.6/GSPO25.8；代码模型54.2%，对52.8/53.6。ReTool 4+4 GPU训练/采样分配下33.1小时，GRPO48.7小时，GRPO改2+6后39.6小时。",
+        "abstract_zh": "Li²SAO先用组相对信号训练actor与critic，再切到单轨迹GAE。ReTool平均pass@1为64.6%，对GRPO61.8%；附录补充长程代码agent实验。",
+        "limitations": "理论依赖精确条件价值等理想条件，不是完整训练的收敛保证；LiSAO是未做价值预训练的透明复现，未直接复现原SAO。主表16次解码不等于16个训练种子，未给多种子置信区间；代码模型相对GSPO仅0.6个百分点，统计稳健性待验证。无效sandbox轨迹排除优化；各组全局轨迹数匹配但题目多样性不同。",
+        "source_evidence": [
+          "§4、附录F表5：残差critic、排序与一次性切换。",
+          "表1、附录G表7：pass@k与不同GPU分配的wall-clock。",
+          "附录H表9：两种30B-A3B模型在500个Verified实例的resolved rate。"
+        ],
+        "water_risk": "低",
+        "recommendation_level": "高",
+        "value_label": "冷启动critic的分阶段异步RL",
+        "value_reason": "价值估计器未校准时先用同题比较建立方向，准备就绪再释放时序信用与异步吞吐；阶段切换和GPU分配应同时作为实验变量。",
+        "source_scope": "full_text",
+        "source_note": "人工核对arXiv PDF方法、实验与相关附录及渲染结果页；指定CLI已运行，嵌套阅读因本地状态库/应用服务权限失败，本条由当前Codex全文整理补齐。",
+        "model": "Codex full-text curation",
+        "updated_at": "2026-11-03T01:30:17.723031+00:00"
+      }
+    },
+    {
+      "id": "2610.42146v1",
+      "title": "Hierarchical World Models with Implicit Dynamics",
+      "summary": "Planning with world models enables test-time adaptation for embodied agents, offering superior generalization over direct policy learning. However, long-horizon tasks remain hindered by cumulative errors and search complexity. Existing hierarchical methods often use rigid macro-actions or latent skills, leading to brittle representations and limited fine-grained control. We introduce ID-WM (Implicit Dynamics World Models), a hierarchical world model that decouples state-space reachability from local control. Our framework utilizes a high-level model to sample feasible transitions across the state manifold and a low-level world model as an inverse dynamics solver to ground these transitions into precise actions. This allows the planner to identify reachable subgoals without being constrained by low-level execution details. By prioritizing local physical feasibility over global behavioral patterns, ID-WM synthesizes novel long-horizon plans from short segments, transcending the specific behavioral modes seen during training. We demonstrate its effectiveness across three navigation and manipulation suites, achieving a 38.5% improvement over state-of-the-art policy and diffusion-based planners. Crucially, by leveraging this hierarchical structure to mitigate compounding errors, our approach yields a 135% performance gain over single-level world model MPC, particularly in complex, unseen configurations for long-horizon tasks. Videos can be viewed at https://id-wm.github.io",
+      "url": "https://arxiv.org/abs/2610.42146v1",
+      "authors": [
+        "Gaoyue Zhou",
+        "Yvonne Wu",
+        "Zichen Jeff Cui",
+        "Nicolas Ballas",
+        "Mido Assran",
+        "Lerrel Pinto",
+        "Yann LeCun"
+      ],
+      "report_date": "2026-11-03",
+      "published": "2026-10-30",
+      "updated": "2026-10-30",
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO",
+        "cs.AI"
+      ],
+      "project_url": "",
+      "repo_url": "",
+      "venue_status": "未确认录用",
+      "recommendation": {
+        "score": 50,
+        "level": "高",
+        "label": "局部可达性拼接长程规划",
+        "water_risk": "低",
+        "value_judgement": "将“局部可达状态生成”与“全局路径搜索”分离，有助于把短片段拼成分布外长程行为；对LLM工具agent的子目标可达性设计有借鉴价值，但不是已验证的LLM迁移结果。",
+        "reason": "将“局部可达状态生成”与“全局路径搜索”分离，有助于把短片段拼成分布外长程行为；对LLM工具agent的子目标可达性设计有借鉴价值，但不是已验证的LLM迁移结果。",
+        "signals": {
+          "agenticRl": false,
+          "multiTurn": false,
+          "longHorizon": true,
+          "memory": false,
+          "reliability": false,
+          "codeOrTool": true,
+          "experiments": false,
+          "survey": false
+        }
+      },
+      "brief": {
+        "authors": [
+          "Gaoyue Zhou",
+          "Yvonne Wu",
+          "Zichen Jeff Cui",
+          "Nicolas Ballas",
+          "Mido Assran",
+          "Lerrel Pinto",
+          "Yann LeCun"
+        ],
+        "affiliations": "Courant Institute, New York University；Meta-FAIR；AMI Labs",
+        "date": "2026-10-30",
+        "paper_url": "https://arxiv.org/abs/2610.42146v1",
+        "project_url": "",
+        "repo_url": "",
+        "venue_status": "未确认录用",
+        "contribution": "局部可达性拼接长程规划",
+        "summary": "平坦世界模型长程展开会累积误差，整轨迹生成和固定宏动作又受训练行为覆盖限制。无奖励离线数据训练高层条件扩散模型与低层确定性动作条件世界模型。DDIM初始噪声充当隐式高层动作，CEM搜索子目标；低层通过动作序列搜索实现逆动力学，而非直接学习逆策略。高层5个子目标、每个对应25环境步，可执行后重规划。Maze、Wall、PushT三套环境，每设置50组起终点，主表三种子均值±标准差，最大2000环境步。随机目标PushT为0.77±0.01，单层0.21±0.04；增强数据随机目标约1.00，单层0.10。视觉PushT的50/75步目标成功率60%/50%，DINO-WM16%/0%；随机目标26%对0%。将单层重规划增至45次做时间匹配后随机目标仅28%，仍低于77%。",
+        "highlights": [
+          "§3：扩散噪声隐式动作，低层前向模型经规划实现逆动力学。",
+          "表1–3：三种子主表与视觉PushT结果。",
+          "附录6.8–6.9表5–8：仅成功步数、时间与匹配预算。"
+        ],
+        "motivation": "平坦世界模型长程展开会累积误差，整轨迹生成和固定宏动作又受训练行为覆盖限制。",
+        "method": "无奖励离线数据训练高层条件扩散模型与低层确定性动作条件世界模型。DDIM初始噪声充当隐式高层动作，CEM搜索子目标；低层通过动作序列搜索实现逆动力学，而非直接学习逆策略。高层5个子目标、每个对应25环境步，可执行后重规划。",
+        "experiments": "Maze、Wall、PushT三套环境，每设置50组起终点，主表三种子均值±标准差，最大2000环境步。随机目标PushT为0.77±0.01，单层0.21±0.04；增强数据随机目标约1.00，单层0.10。视觉PushT的50/75步目标成功率60%/50%，DINO-WM16%/0%；随机目标26%对0%。将单层重规划增至45次做时间匹配后随机目标仅28%，仍低于77%。",
+        "research_help": "将“局部可达状态生成”与“全局路径搜索”分离，有助于把短片段拼成分布外长程行为；对LLM工具agent的子目标可达性设计有借鉴价值，但不是已验证的LLM迁移结果。",
+        "recommendation": {
+          "score": 50,
+          "level": "低",
+          "label": "暂不优先",
+          "water_risk": "高",
+          "value_judgement": "可能偏水：主题或实验信号偏弱，除非和当前问题强相关，否则不优先。",
+          "reason": "和 long-horizon planning / multi-step task 相关。",
+          "signals": {
+            "agenticRl": false,
+            "multiTurn": false,
+            "longHorizon": true,
+            "memory": false,
+            "reliability": false,
+            "codeOrTool": true,
+            "experiments": false,
+            "survey": false
+          }
+        },
+        "insight": "将“局部可达状态生成”与“全局路径搜索”分离，有助于把短片段拼成分布外长程行为；对LLM工具agent的子目标可达性设计有借鉴价值，但不是已验证的LLM迁移结果。",
+        "abstract_zh": "ID-WM在扩散噪声空间搜索可达子目标，再用低层世界模型找动作。随机目标PushT成功率77%，单层21%；视觉版本仍只有26%。",
+        "full_summary": "平坦世界模型长程展开会累积误差，整轨迹生成和固定宏动作又受训练行为覆盖限制。无奖励离线数据训练高层条件扩散模型与低层确定性动作条件世界模型。DDIM初始噪声充当隐式高层动作，CEM搜索子目标；低层通过动作序列搜索实现逆动力学，而非直接学习逆策略。高层5个子目标、每个对应25环境步，可执行后重规划。Maze、Wall、PushT三套环境，每设置50组起终点，主表三种子均值±标准差，最大2000环境步。随机目标PushT为0.77±0.01，单层0.21±0.04；增强数据随机目标约1.00，单层0.10。视觉PushT的50/75步目标成功率60%/50%，DINO-WM16%/0%；随机目标26%对0%。将单层重规划增至45次做时间匹配后随机目标仅28%，仍低于77%。",
+        "card_summary": "ID-WM在扩散噪声空间搜索可达子目标，再用低层世界模型找动作。随机目标PushT成功率77%，单层21%；视觉版本仍只有26%。",
+        "limitations": "主要为低维模拟控制，视觉只测PushT，无真实机器人或LLM agent结果。摘要38.5%与135%为作者汇总相对提升，不能当百分点或每任务收益。附录单L40S到目标推理53.08秒，单层16.93秒、HIQL5.61秒；成功轨迹的步数统计不能代表全部尝试。扩散可达性由学到的数据分布近似，并非严格物理保证。"
+      },
+      "analysis": {
+        "motivation": "平坦世界模型长程展开会累积误差，整轨迹生成和固定宏动作又受训练行为覆盖限制。",
+        "method": "无奖励离线数据训练高层条件扩散模型与低层确定性动作条件世界模型。DDIM初始噪声充当隐式高层动作，CEM搜索子目标；低层通过动作序列搜索实现逆动力学，而非直接学习逆策略。高层5个子目标、每个对应25环境步，可执行后重规划。",
+        "experiments": "Maze、Wall、PushT三套环境，每设置50组起终点，主表三种子均值±标准差，最大2000环境步。随机目标PushT为0.77±0.01，单层0.21±0.04；增强数据随机目标约1.00，单层0.10。视觉PushT的50/75步目标成功率60%/50%，DINO-WM16%/0%；随机目标26%对0%。将单层重规划增至45次做时间匹配后随机目标仅28%，仍低于77%。",
+        "research_help": "将“局部可达状态生成”与“全局路径搜索”分离，有助于把短片段拼成分布外长程行为；对LLM工具agent的子目标可达性设计有借鉴价值，但不是已验证的LLM迁移结果。",
+        "insight": "将“局部可达状态生成”与“全局路径搜索”分离，有助于把短片段拼成分布外长程行为；对LLM工具agent的子目标可达性设计有借鉴价值，但不是已验证的LLM迁移结果。",
+        "card_summary": "ID-WM在扩散噪声空间搜索可达子目标，再用低层世界模型找动作。随机目标PushT成功率77%，单层21%；视觉版本仍只有26%。",
+        "full_summary": "平坦世界模型长程展开会累积误差，整轨迹生成和固定宏动作又受训练行为覆盖限制。无奖励离线数据训练高层条件扩散模型与低层确定性动作条件世界模型。DDIM初始噪声充当隐式高层动作，CEM搜索子目标；低层通过动作序列搜索实现逆动力学，而非直接学习逆策略。高层5个子目标、每个对应25环境步，可执行后重规划。Maze、Wall、PushT三套环境，每设置50组起终点，主表三种子均值±标准差，最大2000环境步。随机目标PushT为0.77±0.01，单层0.21±0.04；增强数据随机目标约1.00，单层0.10。视觉PushT的50/75步目标成功率60%/50%，DINO-WM16%/0%；随机目标26%对0%。将单层重规划增至45次做时间匹配后随机目标仅28%，仍低于77%。",
+        "abstract_zh": "ID-WM在扩散噪声空间搜索可达子目标，再用低层世界模型找动作。随机目标PushT成功率77%，单层21%；视觉版本仍只有26%。",
+        "limitations": "主要为低维模拟控制，视觉只测PushT，无真实机器人或LLM agent结果。摘要38.5%与135%为作者汇总相对提升，不能当百分点或每任务收益。附录单L40S到目标推理53.08秒，单层16.93秒、HIQL5.61秒；成功轨迹的步数统计不能代表全部尝试。扩散可达性由学到的数据分布近似，并非严格物理保证。",
+        "source_evidence": [
+          "§3：扩散噪声隐式动作，低层前向模型经规划实现逆动力学。",
+          "表1–3：三种子主表与视觉PushT结果。",
+          "附录6.8–6.9表5–8：仅成功步数、时间与匹配预算。"
+        ],
+        "water_risk": "低",
+        "recommendation_level": "高",
+        "value_label": "局部可达性拼接长程规划",
+        "value_reason": "将“局部可达状态生成”与“全局路径搜索”分离，有助于把短片段拼成分布外长程行为；对LLM工具agent的子目标可达性设计有借鉴价值，但不是已验证的LLM迁移结果。",
+        "source_scope": "full_text",
+        "source_note": "人工核对arXiv PDF方法、实验与相关附录及渲染结果页；指定CLI已运行，嵌套阅读因本地状态库/应用服务权限失败，本条由当前Codex全文整理补齐。",
+        "model": "Codex full-text curation",
+        "updated_at": "2026-11-03T01:30:17.723031+00:00"
+      }
+    },
+    {
+      "id": "2610.41563v1",
+      "title": "ORION: An Outcome-Driven LLM Advisor for RL-Based Multi-Domain 6G Slice Placement",
+      "summary": "Deploying 6G network slices across administrative domains requires an online decision for each arriving request: which domain hosts each virtual network function, how traffic crosses domain boundaries, and whether the slice is admitted. This joint decision problem is NP-hard under continuous arrivals. Experiments on a parametrized family of multi-domain topologies show that no fixed planning strategy dominates across all regimes: the performance ranking reverses between topology classes, and feasible placements exist for most rejected requests but remain undiscovered. These findings identify the plan layer as the decisive performance lever. We introduce ORION, a hierarchical orchestrator in which two LLM agents translate service intents into structured requests and generate abstract placement plans. A cooperative multi-agent RL coordinator selects the cross-domain partition, treating the plan as a persistent soft prior, while per-domain agents place the functions. ORION main contribution lies at the plan layer: an outcome-driven episodic memory that records, for each completed attempt, the network-condition profile, the proposed plan, and its verified feasibility outcome. The memory feeds verified successes and labelled failures back to the planner, thereby closing the adaptation loop using deployment feasibility rather than a scalar reward assigned to the planner's own proposals. To isolate the effect of the plan quality, we evaluate the planner on held-out topology families while keeping the downstream selection and execution mechanisms fixed. Under this controlled setting, the proposed memory improves admission by $4.6$--$11.5$ percentage points over the same planner without memory, while importance-based retention accounts for most of the improvement over a first-in-first-out store.",
+      "url": "https://arxiv.org/abs/2610.41563v1",
+      "authors": [
+        "Mahmoud S. Mayaleh",
+        "Fetia Bannour",
+        "Nour-El-Houda Yellas"
+      ],
+      "report_date": "2026-11-03",
+      "published": "2026-10-30",
+      "updated": "2026-10-30",
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "cs.MA",
+        "cs.NI"
+      ],
+      "project_url": "",
+      "repo_url": "",
+      "venue_status": "作者在arXiv注明Accepted at IEEE MobiWac 2026；未独立核对会议名单",
+      "recommendation": {
+        "score": 98,
+        "level": "高",
+        "label": "用验证结果闭环更新规划记忆",
+        "water_risk": "中",
+        "value_judgement": "记忆应记录经过外部可行性验证的计划结构及失败条件，并单独固定执行器检验规划改进；系统蓝图与完成的因果隔离实验必须分开报告。",
+        "reason": "记忆应记录经过外部可行性验证的计划结构及失败条件，并单独固定执行器检验规划改进；系统蓝图与完成的因果隔离实验必须分开报告。",
+        "signals": {
+          "agenticRl": true,
+          "multiTurn": false,
+          "longHorizon": true,
+          "memory": true,
+          "reliability": true,
+          "codeOrTool": false,
+          "experiments": true,
+          "survey": false
+        }
+      },
+      "brief": {
+        "authors": [
+          "Mahmoud S. Mayaleh",
+          "Fetia Bannour",
+          "Nour-El-Houda Yellas"
+        ],
+        "affiliations": "SAMOVAR, Télécom SudParis, Institut Polytechnique de Paris；ensIIE",
+        "date": "2026-10-30",
+        "paper_url": "https://arxiv.org/abs/2610.41563v1",
+        "project_url": "",
+        "repo_url": "",
+        "venue_status": "作者在arXiv注明Accepted at IEEE MobiWac 2026；未独立核对会议名单",
+        "contribution": "用验证结果闭环更新规划记忆",
+        "summary": "网络切片部署失败可能来自未找到可行方案，而非资源不足；不同拓扑下固定规划策略排名反转，需要由真实执行结果修正规划。LLM将意图结构化并提出跨域部署计划；语法解码和结构检查限制无效分配。episodic memory按拓扑签名、计划形状及验证失败类型存储，BM25加近期权重检索成功/反例；重要性保留替代FIFO。系统设计以计划作PPO协调器软先验，域内执行actor经行为克隆后冻结。主要已完成证据是固定确定性selector和执行器的计划质量隔离，四个训练拓扑族、四个未见评估族。表II的分母是verifier ceiling：种子0/1 Full为61.5/65.8%，无记忆56.9/54.3%，FIFO50.4/53.5%。因此相对无记忆+4.6/+11.5归一化百分点。拥有完整节点信息的启发式约94%，信息条件不同，不能直接作公平竞争基线。",
+        "highlights": [
+          "§V–VI：验证结果记忆、选择性写入、冻结域内actor。",
+          "§VII-C表II：固定selector、两种子、verifier ceiling归一化。",
+          "§VII-D：完整系统仍为预先规定协议；§VII-B：调用开销。"
+        ],
+        "motivation": "网络切片部署失败可能来自未找到可行方案，而非资源不足；不同拓扑下固定规划策略排名反转，需要由真实执行结果修正规划。",
+        "method": "LLM将意图结构化并提出跨域部署计划；语法解码和结构检查限制无效分配。episodic memory按拓扑签名、计划形状及验证失败类型存储，BM25加近期权重检索成功/反例；重要性保留替代FIFO。系统设计以计划作PPO协调器软先验，域内执行actor经行为克隆后冻结。",
+        "experiments": "主要已完成证据是固定确定性selector和执行器的计划质量隔离，四个训练拓扑族、四个未见评估族。表II的分母是verifier ceiling：种子0/1 Full为61.5/65.8%，无记忆56.9/54.3%，FIFO50.4/53.5%。因此相对无记忆+4.6/+11.5归一化百分点。拥有完整节点信息的启发式约94%，信息条件不同，不能直接作公平竞争基线。",
+        "research_help": "记忆应记录经过外部可行性验证的计划结构及失败条件，并单独固定执行器检验规划改进；系统蓝图与完成的因果隔离实验必须分开报告。",
+        "recommendation": {
+          "score": 98,
+          "level": "高",
+          "label": "强烈推荐",
+          "water_risk": "低",
+          "value_judgement": "有价值：优先进入今日精读候选。",
+          "reason": "直接覆盖 agentic RL 或 policy optimization；和 long-horizon planning / multi-step task 相关；包含 agent memory、stateful 或 personalized agent 信号；摘要给出实验、benchmark 或 baseline 证据。",
+          "signals": {
+            "agenticRl": true,
+            "multiTurn": false,
+            "longHorizon": true,
+            "memory": true,
+            "reliability": true,
+            "codeOrTool": false,
+            "experiments": true,
+            "survey": false
+          }
+        },
+        "insight": "记忆应记录经过外部可行性验证的计划结构及失败条件，并单独固定执行器检验规划改进；系统蓝图与完成的因果隔离实验必须分开报告。",
+        "abstract_zh": "ORION用经可行性验证的成功和失败更新LLM规划记忆。固定下游执行后两种子的归一化接纳率提升4.6/11.5点；完整RL系统效果尚未报告。",
+        "full_summary": "网络切片部署失败可能来自未找到可行方案，而非资源不足；不同拓扑下固定规划策略排名反转，需要由真实执行结果修正规划。LLM将意图结构化并提出跨域部署计划；语法解码和结构检查限制无效分配。episodic memory按拓扑签名、计划形状及验证失败类型存储，BM25加近期权重检索成功/反例；重要性保留替代FIFO。系统设计以计划作PPO协调器软先验，域内执行actor经行为克隆后冻结。主要已完成证据是固定确定性selector和执行器的计划质量隔离，四个训练拓扑族、四个未见评估族。表II的分母是verifier ceiling：种子0/1 Full为61.5/65.8%，无记忆56.9/54.3%，FIFO50.4/53.5%。因此相对无记忆+4.6/+11.5归一化百分点。拥有完整节点信息的启发式约94%，信息条件不同，不能直接作公平竞争基线。",
+        "card_summary": "ORION用经可行性验证的成功和失败更新LLM规划记忆。固定下游执行后两种子的归一化接纳率提升4.6/11.5点；完整RL系统效果尚未报告。",
+        "limitations": "只有两个隔离种子，方向一致不代表幅度稳健。完整训练RL协调器的端到端结果及可行性标签对标量奖励标签对照仅预先规定协议，留待扩展版。每次到达实验为单次提交，不是已证明的多轮重试。单LLM调用中位3.94秒、RL决策5ms；cache在隔离实验关闭，不能把收益直接推成线上吞吐提升。"
+      },
+      "analysis": {
+        "motivation": "网络切片部署失败可能来自未找到可行方案，而非资源不足；不同拓扑下固定规划策略排名反转，需要由真实执行结果修正规划。",
+        "method": "LLM将意图结构化并提出跨域部署计划；语法解码和结构检查限制无效分配。episodic memory按拓扑签名、计划形状及验证失败类型存储，BM25加近期权重检索成功/反例；重要性保留替代FIFO。系统设计以计划作PPO协调器软先验，域内执行actor经行为克隆后冻结。",
+        "experiments": "主要已完成证据是固定确定性selector和执行器的计划质量隔离，四个训练拓扑族、四个未见评估族。表II的分母是verifier ceiling：种子0/1 Full为61.5/65.8%，无记忆56.9/54.3%，FIFO50.4/53.5%。因此相对无记忆+4.6/+11.5归一化百分点。拥有完整节点信息的启发式约94%，信息条件不同，不能直接作公平竞争基线。",
+        "research_help": "记忆应记录经过外部可行性验证的计划结构及失败条件，并单独固定执行器检验规划改进；系统蓝图与完成的因果隔离实验必须分开报告。",
+        "insight": "记忆应记录经过外部可行性验证的计划结构及失败条件，并单独固定执行器检验规划改进；系统蓝图与完成的因果隔离实验必须分开报告。",
+        "card_summary": "ORION用经可行性验证的成功和失败更新LLM规划记忆。固定下游执行后两种子的归一化接纳率提升4.6/11.5点；完整RL系统效果尚未报告。",
+        "full_summary": "网络切片部署失败可能来自未找到可行方案，而非资源不足；不同拓扑下固定规划策略排名反转，需要由真实执行结果修正规划。LLM将意图结构化并提出跨域部署计划；语法解码和结构检查限制无效分配。episodic memory按拓扑签名、计划形状及验证失败类型存储，BM25加近期权重检索成功/反例；重要性保留替代FIFO。系统设计以计划作PPO协调器软先验，域内执行actor经行为克隆后冻结。主要已完成证据是固定确定性selector和执行器的计划质量隔离，四个训练拓扑族、四个未见评估族。表II的分母是verifier ceiling：种子0/1 Full为61.5/65.8%，无记忆56.9/54.3%，FIFO50.4/53.5%。因此相对无记忆+4.6/+11.5归一化百分点。拥有完整节点信息的启发式约94%，信息条件不同，不能直接作公平竞争基线。",
+        "abstract_zh": "ORION用经可行性验证的成功和失败更新LLM规划记忆。固定下游执行后两种子的归一化接纳率提升4.6/11.5点；完整RL系统效果尚未报告。",
+        "limitations": "只有两个隔离种子，方向一致不代表幅度稳健。完整训练RL协调器的端到端结果及可行性标签对标量奖励标签对照仅预先规定协议，留待扩展版。每次到达实验为单次提交，不是已证明的多轮重试。单LLM调用中位3.94秒、RL决策5ms；cache在隔离实验关闭，不能把收益直接推成线上吞吐提升。",
+        "source_evidence": [
+          "§V–VI：验证结果记忆、选择性写入、冻结域内actor。",
+          "§VII-C表II：固定selector、两种子、verifier ceiling归一化。",
+          "§VII-D：完整系统仍为预先规定协议；§VII-B：调用开销。"
+        ],
+        "water_risk": "中",
+        "recommendation_level": "高",
+        "value_label": "用验证结果闭环更新规划记忆",
+        "value_reason": "记忆应记录经过外部可行性验证的计划结构及失败条件，并单独固定执行器检验规划改进；系统蓝图与完成的因果隔离实验必须分开报告。",
+        "source_scope": "full_text",
+        "source_note": "人工核对arXiv PDF方法、实验与相关附录及渲染结果页；指定CLI已运行，嵌套阅读因本地状态库/应用服务权限失败，本条由当前Codex全文整理补齐。",
+        "model": "Codex full-text curation",
+        "updated_at": "2026-11-03T01:30:17.723031+00:00"
+      }
+    },
+    {
+      "id": "2610.41245v1",
+      "title": "MEMIG: Self-evolving Memory Construction for Antibody Optimization",
+      "summary": "Memory has become central to self-evolving LLM agents, which store and retrieve experience from past rollouts to guide future decisions. Existing systems represent this experience as free-form natural language and maintain it by rewriting, which fits tasks whose experience is narratable. However, in scientific discovery and optimization, experience is often a quantity measured by an oracle under a specific context. Rewriting it as text leaves no index for where a record should be, replaces a measurement with a description, and cannot express how interventions interact. To address this, we argue that agent memory for biomolecule optimization should instead be indexable, quantitative, and structured, and we introduce MEMIG. This memory construction framework realizes these three properties. In detail, MEMIG addresses each insight with a domain-grounded identifier and accumulates the quantitative effect measured by a property oracle, so that updates remain local and retrieval becomes an exact lookup. Next, MEMIG connects insights whose interventions are applied together and measures their epistasis by decomposing each evaluated set. Our results show that MEMIG improves performance in most settings across in silico antibody optimization tasks.",
+      "url": "https://arxiv.org/abs/2610.41245v1",
+      "authors": [
+        "Yunhui Jang",
+        "Zach Wang",
+        "Jai Doshi",
+        "Kangway Chuang",
+        "Sidney Lisanza",
+        "Taylor Joren"
+      ],
+      "report_date": "2026-11-03",
+      "published": "2026-10-30",
+      "updated": "2026-10-30",
+      "primary_category": "cs.AI",
+      "categories": [
+        "cs.AI"
+      ],
+      "project_url": "",
+      "repo_url": "",
+      "venue_status": "未确认录用",
+      "recommendation": {
+        "score": 58,
+        "level": "高",
+        "label": "面向多轮优化的定量经验记忆",
+        "water_risk": "中",
+        "value_judgement": "交互agent的跨任务记忆可保留可寻址测量和干预结构，再在读取时解释，而非反复重写文字；必须同时衡量约束通过、最优轮分数和获取测量的成本。",
+        "reason": "交互agent的跨任务记忆可保留可寻址测量和干预结构，再在读取时解释，而非反复重写文字；必须同时衡量约束通过、最优轮分数和获取测量的成本。",
+        "signals": {
+          "agenticRl": false,
+          "multiTurn": false,
+          "longHorizon": false,
+          "memory": true,
+          "reliability": false,
+          "codeOrTool": false,
+          "experiments": true,
+          "survey": false
+        }
+      },
+      "brief": {
+        "authors": [
+          "Yunhui Jang",
+          "Zach Wang",
+          "Jai Doshi",
+          "Kangway Chuang",
+          "Sidney Lisanza",
+          "Taylor Joren"
+        ],
+        "affiliations": "KAIST；Genentech",
+        "date": "2026-10-30",
+        "paper_url": "https://arxiv.org/abs/2610.41245v1",
+        "project_url": "",
+        "repo_url": "",
+        "venue_status": "未确认录用",
+        "contribution": "面向多轮优化的定量经验记忆",
+        "summary": "多轮工具优化中把测量值改写成自由文本，会丢失精确上下文与干预交互，难以把经验用于下一个决策。以性质、germline、区域、对齐突变作精确索引，累计效应均值/次数/方向票；额外评价单突变和成对突变，以联合效应减单项效应构建epistasis边。按匹配上下文检索节点及一跳邻居，LLM仅把数值转成指导文本，不改统计。每序列全部rollout评分后再写记忆，同序列共享快照，迁移来自此前序列。Haiku-4.5和GLM-5.3-Flash在两类in-silico抗体任务，rollout预算15/10轮；pass@k及改进量按每rollout最佳轮评估。三个结合优化cluster消融均值：MEMIG pass@1/3为0.149/0.278，vanilla0.015/0.047；去交互边0.049/0.130。附录匹配oracle信息后三个cluster仍有更高pass@1/3，例如193为0.194/0.374，对ACE0.028/0.081。",
+        "highlights": [
+          "§2：精确索引、额外oracle分解及序列级写入时机。",
+          "§3表1、附录B表A3：三cluster消融和10/15轮预算。",
+          "附录C表A4–A6：匹配oracle信息、token与oracle成本。"
+        ],
+        "motivation": "多轮工具优化中把测量值改写成自由文本，会丢失精确上下文与干预交互，难以把经验用于下一个决策。",
+        "method": "以性质、germline、区域、对齐突变作精确索引，累计效应均值/次数/方向票；额外评价单突变和成对突变，以联合效应减单项效应构建epistasis边。按匹配上下文检索节点及一跳邻居，LLM仅把数值转成指导文本，不改统计。每序列全部rollout评分后再写记忆，同序列共享快照，迁移来自此前序列。",
+        "experiments": "Haiku-4.5和GLM-5.3-Flash在两类in-silico抗体任务，rollout预算15/10轮；pass@k及改进量按每rollout最佳轮评估。三个结合优化cluster消融均值：MEMIG pass@1/3为0.149/0.278，vanilla0.015/0.047；去交互边0.049/0.130。附录匹配oracle信息后三个cluster仍有更高pass@1/3，例如193为0.194/0.374，对ACE0.028/0.081。",
+        "research_help": "交互agent的跨任务记忆可保留可寻址测量和干预结构，再在读取时解释，而非反复重写文字；必须同时衡量约束通过、最优轮分数和获取测量的成本。",
+        "recommendation": {
+          "score": 58,
+          "level": "中",
+          "label": "可略读",
+          "water_risk": "中",
+          "value_judgement": "需要谨慎：可能有启发，但先看实验和设定是否扎实。",
+          "reason": "包含 agent memory、stateful 或 personalized agent 信号；摘要给出实验、benchmark 或 baseline 证据。",
+          "signals": {
+            "agenticRl": false,
+            "multiTurn": false,
+            "longHorizon": false,
+            "memory": true,
+            "reliability": false,
+            "codeOrTool": false,
+            "experiments": true,
+            "survey": false
+          }
+        },
+        "insight": "交互agent的跨任务记忆可保留可寻址测量和干预结构，再在读取时解释，而非反复重写文字；必须同时衡量约束通过、最优轮分数和获取测量的成本。",
+        "abstract_zh": "MEMIG把多轮抗体优化经验存为带上下文的定量索引和突变交互图。收益来自更可靠地满足约束，但额外oracle调用和跨序列顺序依赖明显。",
+        "full_summary": "多轮工具优化中把测量值改写成自由文本，会丢失精确上下文与干预交互，难以把经验用于下一个决策。以性质、germline、区域、对齐突变作精确索引，累计效应均值/次数/方向票；额外评价单突变和成对突变，以联合效应减单项效应构建epistasis边。按匹配上下文检索节点及一跳邻居，LLM仅把数值转成指导文本，不改统计。每序列全部rollout评分后再写记忆，同序列共享快照，迁移来自此前序列。Haiku-4.5和GLM-5.3-Flash在两类in-silico抗体任务，rollout预算15/10轮；pass@k及改进量按每rollout最佳轮评估。三个结合优化cluster消融均值：MEMIG pass@1/3为0.149/0.278，vanilla0.015/0.047；去交互边0.049/0.130。附录匹配oracle信息后三个cluster仍有更高pass@1/3，例如193为0.194/0.374，对ACE0.028/0.081。",
+        "card_summary": "MEMIG把多轮抗体优化经验存为带上下文的定量索引和突变交互图。收益来自更可靠地满足约束，但额外oracle调用和跨序列顺序依赖明显。",
+        "limitations": "只验证模拟oracle，未验证湿实验效果；10–15轮不是超长程规划或权重RL。序列处理顺序影响累积记忆，未证明无顺序偏差。cluster193每rollout oracle输入37.38次对vanilla7.03次，输入token270.1k对98.1k；每成功token较低不等于总成本更低。匹配oracle信息的对照仍不证明所有成本严格相等；去图后改进量更高但通过率更低。"
+      },
+      "analysis": {
+        "motivation": "多轮工具优化中把测量值改写成自由文本，会丢失精确上下文与干预交互，难以把经验用于下一个决策。",
+        "method": "以性质、germline、区域、对齐突变作精确索引，累计效应均值/次数/方向票；额外评价单突变和成对突变，以联合效应减单项效应构建epistasis边。按匹配上下文检索节点及一跳邻居，LLM仅把数值转成指导文本，不改统计。每序列全部rollout评分后再写记忆，同序列共享快照，迁移来自此前序列。",
+        "experiments": "Haiku-4.5和GLM-5.3-Flash在两类in-silico抗体任务，rollout预算15/10轮；pass@k及改进量按每rollout最佳轮评估。三个结合优化cluster消融均值：MEMIG pass@1/3为0.149/0.278，vanilla0.015/0.047；去交互边0.049/0.130。附录匹配oracle信息后三个cluster仍有更高pass@1/3，例如193为0.194/0.374，对ACE0.028/0.081。",
+        "research_help": "交互agent的跨任务记忆可保留可寻址测量和干预结构，再在读取时解释，而非反复重写文字；必须同时衡量约束通过、最优轮分数和获取测量的成本。",
+        "insight": "交互agent的跨任务记忆可保留可寻址测量和干预结构，再在读取时解释，而非反复重写文字；必须同时衡量约束通过、最优轮分数和获取测量的成本。",
+        "card_summary": "MEMIG把多轮抗体优化经验存为带上下文的定量索引和突变交互图。收益来自更可靠地满足约束，但额外oracle调用和跨序列顺序依赖明显。",
+        "full_summary": "多轮工具优化中把测量值改写成自由文本，会丢失精确上下文与干预交互，难以把经验用于下一个决策。以性质、germline、区域、对齐突变作精确索引，累计效应均值/次数/方向票；额外评价单突变和成对突变，以联合效应减单项效应构建epistasis边。按匹配上下文检索节点及一跳邻居，LLM仅把数值转成指导文本，不改统计。每序列全部rollout评分后再写记忆，同序列共享快照，迁移来自此前序列。Haiku-4.5和GLM-5.3-Flash在两类in-silico抗体任务，rollout预算15/10轮；pass@k及改进量按每rollout最佳轮评估。三个结合优化cluster消融均值：MEMIG pass@1/3为0.149/0.278，vanilla0.015/0.047；去交互边0.049/0.130。附录匹配oracle信息后三个cluster仍有更高pass@1/3，例如193为0.194/0.374，对ACE0.028/0.081。",
+        "abstract_zh": "MEMIG把多轮抗体优化经验存为带上下文的定量索引和突变交互图。收益来自更可靠地满足约束，但额外oracle调用和跨序列顺序依赖明显。",
+        "limitations": "只验证模拟oracle，未验证湿实验效果；10–15轮不是超长程规划或权重RL。序列处理顺序影响累积记忆，未证明无顺序偏差。cluster193每rollout oracle输入37.38次对vanilla7.03次，输入token270.1k对98.1k；每成功token较低不等于总成本更低。匹配oracle信息的对照仍不证明所有成本严格相等；去图后改进量更高但通过率更低。",
+        "source_evidence": [
+          "§2：精确索引、额外oracle分解及序列级写入时机。",
+          "§3表1、附录B表A3：三cluster消融和10/15轮预算。",
+          "附录C表A4–A6：匹配oracle信息、token与oracle成本。"
+        ],
+        "water_risk": "中",
+        "recommendation_level": "高",
+        "value_label": "面向多轮优化的定量经验记忆",
+        "value_reason": "交互agent的跨任务记忆可保留可寻址测量和干预结构，再在读取时解释，而非反复重写文字；必须同时衡量约束通过、最优轮分数和获取测量的成本。",
+        "source_scope": "full_text",
+        "source_note": "人工核对arXiv PDF方法、实验与相关附录及渲染结果页；指定CLI已运行，嵌套阅读因本地状态库/应用服务权限失败，本条由当前Codex全文整理补齐。",
+        "model": "Codex full-text curation",
+        "updated_at": "2026-11-03T01:30:17.723031+00:00"
+      }
+    },
     {
       "id": "2610.38391v1",
       "title": "SCOPE: Selective Critical-Step On-Policy Self-Distillation for Agentic Reinforcement Learning",
