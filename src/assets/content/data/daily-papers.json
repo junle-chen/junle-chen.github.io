@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-03T01:30:17.723031+00:00",
+  "updated_at": "2026-11-04T01:35:54.116494+00:00",
   "source": "arxiv",
   "analysis_method": "Codex CLI workflow with manual arXiv PDF full-text review and rendered result-page verification; per-item source notes identify the analysis path.",
   "query_focus": "多轮交互式 agent planning、long-horizon planning、stateful/personalized planning、agent memory、planning reliability、agentic RL",
@@ -37,33 +37,36 @@
     "codex_reader": "Downloads arXiv PDFs, extracts text with pdftotext or bundled Python PDF libraries, then calls codex exec to write Chinese motivation/method/experiment/research-help fields."
   },
   "digest": {
-    "title": "2026-11-03 Daily Paper",
-    "report_date": "2026-11-03",
+    "title": "2026-11-04 Daily Paper",
+    "report_date": "2026-11-04",
     "focus": "多轮交互式 agent planning、long-horizon planning、stateful/personalized planning、agent memory、planning reliability、agentic RL",
-    "summary": "从16篇候选中，经PDF正文与相关附录核查保留5篇：工具依赖规划、异步agent RL、长程世界模型，以及有外部测量反馈的规划/优化记忆。保留全部542条历史记录及原日期。",
+    "summary": "从16篇候选中经PDF正文及相关附录核读保留7篇：两篇agentic RL信用分配、信念空间规划、需求澄清与长程交付、状态依赖修订、记忆使用归因及反馈反思规划。保留547条历史记录及原日期；详情区分受控基准、仿真、观察归因与线上实验。",
     "top_recommendations": [
-      "2610.41040v1",
-      "2610.40726v1",
-      "2610.42146v1"
+      "2611.02414v1",
+      "2611.02706v1",
+      "2611.03584v1"
     ],
     "low_priority": [],
     "no_news_policy": "如果没有新的高相关论文，自动化应返回“今日无高相关新增论文”，不写邮件正文文件，也不发送邮件。",
-    "email_body": "2026-11-03 Daily Paper\n\n从16篇候选中，经PDF正文与相关附录核查保留5篇：工具依赖规划、异步agent RL、长程世界模型，以及有外部测量反馈的规划/优化记忆。保留全部542条历史记录及原日期。\n\nCapability-Grounded Agentic Planning\nCGAP把工具目录编译为PDDL，用符号搜索安排依赖、用来源引用约束参数。gpt-oss-20b的ToolSandbox得分52.3→81.2；保证限于抽象模型。\nhttps://arxiv.org/abs/2610.41040v1\n\nLi$^{2}$SAO: Lifting Light Singl-Rollout Asynchronous RL Optimization via Group-Relative Actor-Critic Bootstrapping\nLi²SAO先用组相对信号训练actor与critic，再切到单轨迹GAE。ReTool平均pass@1为64.6%，对GRPO61.8%；附录补充长程代码agent实验。\nhttps://arxiv.org/abs/2610.40726v1\n\nHierarchical World Models with Implicit Dynamics\nID-WM在扩散噪声空间搜索可达子目标，再用低层世界模型找动作。随机目标PushT成功率77%，单层21%；视觉版本仍只有26%。\nhttps://arxiv.org/abs/2610.42146v1\n\nORION: An Outcome-Driven LLM Advisor for RL-Based Multi-Domain 6G Slice Placement\nORION用经可行性验证的成功和失败更新LLM规划记忆。固定下游执行后两种子的归一化接纳率提升4.6/11.5点；完整RL系统效果尚未报告。\nhttps://arxiv.org/abs/2610.41563v1\n\nMEMIG: Self-evolving Memory Construction for Antibody Optimization\nMEMIG把多轮抗体优化经验存为带上下文的定量索引和突变交互图。收益来自更可靠地满足约束，但额外oracle调用和跨序列顺序依赖明显。\nhttps://arxiv.org/abs/2610.41245v1"
+    "email_body": "2026-11-04 Daily Paper\n\n从16篇候选中经PDF正文及相关附录核读保留7篇：两篇agentic RL信用分配、信念空间规划、需求澄清与长程交付、状态依赖修订、记忆使用归因及反馈反思规划。保留547条历史记录及原日期；详情区分受控基准、仿真、观察归因与线上实验。\n\nSGR-OPSD: Learning from Subgoal Plans with Graph-Regularized Credit Assignment for Agentic Reinforcement Learning\nSGR-OPSD用子目标教师与交互图校准回合信用；7B WebShop成功率70.6%→78.2%，无需推理期图。\nhttp://arxiv.org/abs/2611.02414v1\n\nHindsight Credit Assignment over Trees for Agentic RL\nTriGRPO在匹配状态注入成功动作，并结合题内、分支与历史信用；ALFWorld 3B峰值验证成功率93.8%。\nhttp://arxiv.org/abs/2611.02706v1\n\nTAMPAgent: Agentic Belief-Space Planning for Mobile Manipulation\nTAMPAgent把语言信念、经典规划和几何认证接入闭环；仿真厨房平均成功率77%，优于57/61%的工具调用基线。\nhttp://arxiv.org/abs/2611.03584v1\n\nCan LLM Agents Be Forward-Deployed Engineers? Requirement Discovery and Delivery for Enterprise Text-to-SQL\n企业需求澄清到部署评测：15模型平均恢复60%的隐藏事实，8次主交付仅2次同时满足准确率、生产编译和延迟要求。\nhttp://arxiv.org/abs/2611.03551v1\n\nA State Change Is Local, Its Consequences Are Not: Dependency-Aware State Revision for Long-Term Agent Memory\nStateGraph追踪前提变更后的下游失效；50例受控基准中影响F1为79.5%，但尚未报告下游动作决策结果。\nhttp://arxiv.org/abs/2611.02912v1\n\nDelivered, Not Used: Evaluating Agent Memory at Its Point of Use\nMemUse追踪记忆送达后的实际行动；8000个编码episode中成功率近似，但大多数记忆未用，观察效果也常被最终成败遮蔽。\nhttp://arxiv.org/abs/2611.01718v1\n\nEvoRec: A Unified Self-Evolving Agentic Recommender with Dynamic Reflection Trees\nEvoRec用用户反馈修复检索计划并累积反思记忆；反思使全用户Hit@50相对增2.4%，部署范围线上收入增4.6%。\nhttp://arxiv.org/abs/2611.01977v1"
   },
   "latest_item_ids": [
-    "2610.41040v1",
-    "2610.40726v1",
-    "2610.42146v1",
-    "2610.41563v1",
-    "2610.41245v1"
+    "2611.02414v1",
+    "2611.02706v1",
+    "2611.03584v1",
+    "2611.03551v1",
+    "2611.02912v1",
+    "2611.01718v1",
+    "2611.01977v1"
   ],
   "archive": {
     "policy": "append_or_update_by_arxiv_id",
-    "fresh_items": 5,
-    "total_items": 547,
-    "previous_items": 542,
-    "latest_items": 5,
+    "fresh_items": 7,
+    "total_items": 554,
+    "previous_items": 547,
+    "latest_items": 7,
     "source_report_dates": {
+      "2026-11-04": 7,
       "2026-11-03": 5,
       "2026-10-31": 8,
       "2026-10-27": 6,
@@ -123,25 +126,848 @@
       "undefined": 39
     },
     "filtered_candidate_ids": [
-      "2610.41040v1",
-      "2610.40726v1",
-      "2610.42146v1",
-      "2610.41563v1",
-      "2610.41245v1"
+      "2611.02414v1",
+      "2611.02706v1",
+      "2611.03584v1",
+      "2611.03551v1",
+      "2611.02912v1",
+      "2611.01718v1",
+      "2611.01977v1"
     ],
-    "filtered_today": 8,
+    "filtered_today": 9,
     "rejected_candidate_ids": [
-      "2610.41235v1",
-      "2610.41809v1",
-      "2610.41903v1",
-      "2610.40191v1",
-      "2610.39276v1",
-      "2610.39790v1",
-      "2610.41022v1",
-      "2610.39576v1"
+      "2611.02310v1",
+      "2611.03138v1",
+      "2611.02511v1",
+      "2611.03121v1",
+      "2611.02361v1",
+      "2611.03596v1",
+      "2611.02216v1",
+      "2611.01700v1",
+      "2611.01831v1"
     ]
   },
   "items": [
+    {
+      "id": "2611.02414v1",
+      "title": "SGR-OPSD: Learning from Subgoal Plans with Graph-Regularized Credit Assignment for Agentic Reinforcement Learning",
+      "summary": "OPSD provides dense supervision for agentic reinforcement learning through privileged information feedback. However, existing privileged information often lacks explicit task-progression planning, while teacher-student log-probability gaps reflect shifts in model preference rather than true task progress. To address these limitations, we propose Subgoal-Guided Graph-Regularized OPSD (SGR-OPSD), a framework that combines subgoal supervision with interaction-derived evidence for turn-level credit assignment. Specifically, SGR-OPSD uses LLM-generated subgoal plans to provide dense action-level guidance, converting them into advantage weights via a constrained, KL-regularized objective. To ground credit in observed outcomes, we construct a Subgoal Progress Graph that estimates empirical returns from sampled transition frequencies. The graph compares empirical action returns against the state average to derive preferences that calibrate the teacher's credit weights. Evaluated on ALFWorld, WebShop, and Search-QA across two model scales (Qwen2.5-3B and 7B), SGR-OPSD consistently outperforms GRPO and strong self-distillation baselines, improving success rates over GRPO by up to 7.4 percentage points and reaching 85.8% on ALFWorld with Qwen2.5-7B. Ablation studies confirm that subgoal guidance and graph-based weight calibration are key to these performance gains.",
+      "url": "http://arxiv.org/abs/2611.02414v1",
+      "authors": [
+        "Shu Liu",
+        "Yang Chong",
+        "WenShi Chen",
+        "Man Lan"
+      ],
+      "report_date": "2026-11-04",
+      "published": "2026-11-02",
+      "updated": "2026-11-02",
+      "primary_category": "cs.AI",
+      "categories": [
+        "cs.AI"
+      ],
+      "project_url": "",
+      "repo_url": "",
+      "venue_status": "未确认录用",
+      "recommendation": {
+        "score": 98,
+        "level": "高",
+        "label": "子目标与图证据校准信用",
+        "water_risk": "中",
+        "value_judgement": "值得迁移的是把任务规划教师作为参考，再用实际交互结果校准信用，而不是把教师概率直接当进展奖励。",
+        "reason": "值得迁移的是把任务规划教师作为参考，再用实际交互结果校准信用，而不是把教师概率直接当进展奖励。",
+        "signals": {
+          "agenticRl": true,
+          "multiTurn": true,
+          "longHorizon": true,
+          "memory": true,
+          "reliability": true,
+          "codeOrTool": false,
+          "experiments": true,
+          "survey": false
+        }
+      },
+      "brief": {
+        "authors": [
+          "Shu Liu",
+          "Yang Chong",
+          "WenShi Chen",
+          "Man Lan"
+        ],
+        "affiliations": "East China Normal University; Meituan",
+        "date": "2026-11-02",
+        "paper_url": "https://arxiv.org/abs/2611.02414v1",
+        "project_url": "",
+        "repo_url": "",
+        "venue_status": "未确认录用",
+        "contribution": "子目标与图证据校准信用",
+        "summary": "教师偏好变化未必代表真实任务进展，整条轨迹同一优势也无法定位关键动作。任务描述先生成固定子目标，冻结的同一策略分别带计划与普通上下文打分；约束KL目标把似然差转成保留优势符号、固定token加权预算的回合权重。匹配状态的经验Q−V提供动作偏好，图正则再校准权重；推理时不需计划或图。Qwen2.5-3B/7B，三个训练种子，ALFWorld/WebShop/SearchQA最长50/15/4轮；150更新、8张A100。表1的7B ALFWorld宏平均85.8%，GRPO78.2%；WebShop成功率78.2%对70.6%，SearchQA宏平均46.4%对44.3%。表3/正文另写ALFWorld85.6%，不能消解该内部差异。3B去图ALFWorld77.4%略高于完整76.9%，并非每个消融都支持图有益。",
+        "highlights": [
+          "§3：有约束权重与图校准",
+          "表1、表2–3：主结果与非一致消融",
+          "附录C：三种子、评估与匹配覆盖"
+        ],
+        "motivation": "教师偏好变化未必代表真实任务进展，整条轨迹同一优势也无法定位关键动作。",
+        "method": "任务描述先生成固定子目标，冻结的同一策略分别带计划与普通上下文打分；约束KL目标把似然差转成保留优势符号、固定token加权预算的回合权重。匹配状态的经验Q−V提供动作偏好，图正则再校准权重；推理时不需计划或图。",
+        "experiments": "Qwen2.5-3B/7B，三个训练种子，ALFWorld/WebShop/SearchQA最长50/15/4轮；150更新、8张A100。表1的7B ALFWorld宏平均85.8%，GRPO78.2%；WebShop成功率78.2%对70.6%，SearchQA宏平均46.4%对44.3%。表3/正文另写ALFWorld85.6%，不能消解该内部差异。3B去图ALFWorld77.4%略高于完整76.9%，并非每个消融都支持图有益。",
+        "research_help": "值得迁移的是把任务规划教师作为参考，再用实际交互结果校准信用，而不是把教师概率直接当进展奖励。",
+        "recommendation": {
+          "score": 98,
+          "level": "高",
+          "label": "子目标与图证据校准信用",
+          "water_risk": "中",
+          "value_judgement": "值得迁移的是把任务规划教师作为参考，再用实际交互结果校准信用，而不是把教师概率直接当进展奖励。",
+          "reason": "值得迁移的是把任务规划教师作为参考，再用实际交互结果校准信用，而不是把教师概率直接当进展奖励。",
+          "signals": {
+            "agenticRl": true,
+            "multiTurn": true,
+            "longHorizon": true,
+            "memory": true,
+            "reliability": true,
+            "codeOrTool": false,
+            "experiments": true,
+            "survey": false
+          }
+        },
+        "insight": "值得迁移的是把任务规划教师作为参考，再用实际交互结果校准信用，而不是把教师概率直接当进展奖励。",
+        "abstract_zh": "SGR-OPSD用子目标教师与交互图校准回合信用；7B WebShop成功率70.6%→78.2%，无需推理期图。",
+        "full_summary": "教师偏好变化未必代表真实任务进展，整条轨迹同一优势也无法定位关键动作。任务描述先生成固定子目标，冻结的同一策略分别带计划与普通上下文打分；约束KL目标把似然差转成保留优势符号、固定token加权预算的回合权重。匹配状态的经验Q−V提供动作偏好，图正则再校准权重；推理时不需计划或图。Qwen2.5-3B/7B，三个训练种子，ALFWorld/WebShop/SearchQA最长50/15/4轮；150更新、8张A100。表1的7B ALFWorld宏平均85.8%，GRPO78.2%；WebShop成功率78.2%对70.6%，SearchQA宏平均46.4%对44.3%。表3/正文另写ALFWorld85.6%，不能消解该内部差异。3B去图ALFWorld77.4%略高于完整76.9%，并非每个消融都支持图有益。",
+        "card_summary": "SGR-OPSD用子目标教师与交互图校准回合信用；7B WebShop成功率70.6%→78.2%，无需推理期图。",
+        "limitations": "固定计划无法响应新信息；图覆盖依赖探索与状态匹配，无可比较动作时退回教师参考。模型和环境外推未验证；摘要称最多7.4点而正文WebShop是7.6点。"
+      },
+      "analysis": {
+        "motivation": "教师偏好变化未必代表真实任务进展，整条轨迹同一优势也无法定位关键动作。",
+        "method": "任务描述先生成固定子目标，冻结的同一策略分别带计划与普通上下文打分；约束KL目标把似然差转成保留优势符号、固定token加权预算的回合权重。匹配状态的经验Q−V提供动作偏好，图正则再校准权重；推理时不需计划或图。",
+        "experiments": "Qwen2.5-3B/7B，三个训练种子，ALFWorld/WebShop/SearchQA最长50/15/4轮；150更新、8张A100。表1的7B ALFWorld宏平均85.8%，GRPO78.2%；WebShop成功率78.2%对70.6%，SearchQA宏平均46.4%对44.3%。表3/正文另写ALFWorld85.6%，不能消解该内部差异。3B去图ALFWorld77.4%略高于完整76.9%，并非每个消融都支持图有益。",
+        "research_help": "值得迁移的是把任务规划教师作为参考，再用实际交互结果校准信用，而不是把教师概率直接当进展奖励。",
+        "insight": "值得迁移的是把任务规划教师作为参考，再用实际交互结果校准信用，而不是把教师概率直接当进展奖励。",
+        "card_summary": "SGR-OPSD用子目标教师与交互图校准回合信用；7B WebShop成功率70.6%→78.2%，无需推理期图。",
+        "abstract_zh": "SGR-OPSD用子目标教师与交互图校准回合信用；7B WebShop成功率70.6%→78.2%，无需推理期图。",
+        "full_summary": "教师偏好变化未必代表真实任务进展，整条轨迹同一优势也无法定位关键动作。任务描述先生成固定子目标，冻结的同一策略分别带计划与普通上下文打分；约束KL目标把似然差转成保留优势符号、固定token加权预算的回合权重。匹配状态的经验Q−V提供动作偏好，图正则再校准权重；推理时不需计划或图。Qwen2.5-3B/7B，三个训练种子，ALFWorld/WebShop/SearchQA最长50/15/4轮；150更新、8张A100。表1的7B ALFWorld宏平均85.8%，GRPO78.2%；WebShop成功率78.2%对70.6%，SearchQA宏平均46.4%对44.3%。表3/正文另写ALFWorld85.6%，不能消解该内部差异。3B去图ALFWorld77.4%略高于完整76.9%，并非每个消融都支持图有益。",
+        "limitations": "固定计划无法响应新信息；图覆盖依赖探索与状态匹配，无可比较动作时退回教师参考。模型和环境外推未验证；摘要称最多7.4点而正文WebShop是7.6点。",
+        "source_scope": "full_text",
+        "source_note": "人工核读arXiv PDF正文及相关附录；关键表图经渲染核对。嵌套gpt-6.1-sol阅读器因本地状态库权限失败，本条由当前自动化人工核读补全。",
+        "source_evidence": [
+          "§3：有约束权重与图校准",
+          "表1、表2–3：主结果与非一致消融",
+          "附录C：三种子、评估与匹配覆盖"
+        ],
+        "model": "manual-full-text-review",
+        "updated_at": "2026-11-04T01:35:54.116494+00:00",
+        "recommendation_level": "高",
+        "water_risk": "中",
+        "value_label": "子目标与图证据校准信用",
+        "value_reason": "值得迁移的是把任务规划教师作为参考，再用实际交互结果校准信用，而不是把教师概率直接当进展奖励。"
+      }
+    },
+    {
+      "id": "2611.02706v1",
+      "title": "Hindsight Credit Assignment over Trees for Agentic RL",
+      "summary": "Reinforcement learning for long-horizon LLM agents faces a fundamental dilemma: successful experiences are essential for policy improvement, yet limited policy capabilities make such experiences difficult to discover. Sparse outcome rewards compound this challenge, leaving sampled trajectories with little relative feedback for learning. In this paper, we propose TriGRPO, a tree-based reinforcement learning framework that turns scarce successes into exploration and learning signals through hindsight credit assignment within and across rollout trees. TriGRPO constructs rollout trees through hindsight-guided branching: when an ongoing trajectory reaches a matched decision state, a successful action discovered during rollout initiates a sibling branch that continues autonomously, enabling further exploration and parent-sibling comparisons. Three complementary groups organize policy optimization over these trees: root groups capture within-prompt relative returns, node groups assign credit from parent-sibling outcome differences, and cross groups supplement sparse feedback with historical performance on related tasks. Experimental results demonstrate consistent gains in task performance and rollout efficiency across model scales, highlighting structured hindsight credit assignment as an effective approach to long-horizon agent learning.",
+      "url": "http://arxiv.org/abs/2611.02706v1",
+      "authors": [
+        "Penghong Zhao",
+        "Yihao Chen",
+        "Maoheng Yuan",
+        "Yunjian Zhang",
+        "Abudukelimu Wuerkaixi",
+        "Haoran Xu",
+        "Man Lv",
+        "Yaolong Wang",
+        "Zhijie Sun",
+        "Guohua Liu",
+        "Yuewei Zhang"
+      ],
+      "report_date": "2026-11-04",
+      "published": "2026-11-02",
+      "updated": "2026-11-02",
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "project_url": "",
+      "repo_url": "",
+      "venue_status": "未确认录用",
+      "recommendation": {
+        "score": 58,
+        "level": "高",
+        "label": "成功动作引导树状agent RL",
+        "water_risk": "中",
+        "value_judgement": "把成功经验用作可比较的局部干预，并用历史基线解决零方差，是比单纯复制整条成功轨迹更可诊断的训练设计。",
+        "reason": "把成功经验用作可比较的局部干预，并用历史基线解决零方差，是比单纯复制整条成功轨迹更可诊断的训练设计。",
+        "signals": {
+          "agenticRl": true,
+          "multiTurn": true,
+          "longHorizon": true,
+          "memory": false,
+          "reliability": false,
+          "codeOrTool": false,
+          "experiments": false,
+          "survey": false
+        }
+      },
+      "brief": {
+        "authors": [
+          "Penghong Zhao",
+          "Yihao Chen",
+          "Maoheng Yuan",
+          "Yunjian Zhang",
+          "Abudukelimu Wuerkaixi",
+          "Haoran Xu",
+          "Man Lv",
+          "Yaolong Wang",
+          "Zhijie Sun",
+          "Guohua Liu",
+          "Yuewei Zhang"
+        ],
+        "affiliations": "Alibaba Cloud Computing; Fudan University",
+        "date": "2026-11-02",
+        "paper_url": "https://arxiv.org/abs/2611.02706v1",
+        "project_url": "",
+        "repo_url": "",
+        "venue_status": "未确认录用",
+        "contribution": "成功动作引导树状agent RL",
+        "summary": "长程稀疏奖励下，弱策略很难发现成功轨迹，同组全失败又让GRPO相对信号消失。TriGRPO在当前rollout匹配同题成功轨迹状态且动作不同时分出兄弟分支；注入动作以行为克隆学习，后续自主动作使用父子结果差信用。根组提供题内优势，跨树组用任务/类型历史EMA补充反馈；有引导分支不污染自主历史基线。Qwen2.5-1.5B/3B/7B在ALFWorld的三种子峰值验证成功率88.3/93.8/93.8%，比GRPO高15.5–20.9点。3B消融去跨树信用93.8→81.9，去节点信用→89.8。SearchQA多跳宏平均1.5B/3B为26.6/38.3%，GRPO11.3/31.8%；并非每个单任务都胜GiGPO。报告token数累计至各自峰值，非统一预算终点。",
+        "highlights": [
+          "§3：条件增益假设、三组信用与注入动作BC",
+          "表1–3：峰值验证与消融",
+          "附录C：前缀信用、token效率及局限"
+        ],
+        "motivation": "长程稀疏奖励下，弱策略很难发现成功轨迹，同组全失败又让GRPO相对信号消失。",
+        "method": "TriGRPO在当前rollout匹配同题成功轨迹状态且动作不同时分出兄弟分支；注入动作以行为克隆学习，后续自主动作使用父子结果差信用。根组提供题内优势，跨树组用任务/类型历史EMA补充反馈；有引导分支不污染自主历史基线。",
+        "experiments": "Qwen2.5-1.5B/3B/7B在ALFWorld的三种子峰值验证成功率88.3/93.8/93.8%，比GRPO高15.5–20.9点。3B消融去跨树信用93.8→81.9，去节点信用→89.8。SearchQA多跳宏平均1.5B/3B为26.6/38.3%，GRPO11.3/31.8%；并非每个单任务都胜GiGPO。报告token数累计至各自峰值，非统一预算终点。",
+        "research_help": "把成功经验用作可比较的局部干预，并用历史基线解决零方差，是比单纯复制整条成功轨迹更可诊断的训练设计。",
+        "recommendation": {
+          "score": 58,
+          "level": "高",
+          "label": "成功动作引导树状agent RL",
+          "water_risk": "中",
+          "value_judgement": "把成功经验用作可比较的局部干预，并用历史基线解决零方差，是比单纯复制整条成功轨迹更可诊断的训练设计。",
+          "reason": "把成功经验用作可比较的局部干预，并用历史基线解决零方差，是比单纯复制整条成功轨迹更可诊断的训练设计。",
+          "signals": {
+            "agenticRl": true,
+            "multiTurn": true,
+            "longHorizon": true,
+            "memory": false,
+            "reliability": false,
+            "codeOrTool": false,
+            "experiments": false,
+            "survey": false
+          }
+        },
+        "insight": "把成功经验用作可比较的局部干预，并用历史基线解决零方差，是比单纯复制整条成功轨迹更可诊断的训练设计。",
+        "abstract_zh": "TriGRPO在匹配状态注入成功动作，并结合题内、分支与历史信用；ALFWorld 3B峰值验证成功率93.8%。",
+        "full_summary": "长程稀疏奖励下，弱策略很难发现成功轨迹，同组全失败又让GRPO相对信号消失。TriGRPO在当前rollout匹配同题成功轨迹状态且动作不同时分出兄弟分支；注入动作以行为克隆学习，后续自主动作使用父子结果差信用。根组提供题内优势，跨树组用任务/类型历史EMA补充反馈；有引导分支不污染自主历史基线。Qwen2.5-1.5B/3B/7B在ALFWorld的三种子峰值验证成功率88.3/93.8/93.8%，比GRPO高15.5–20.9点。3B消融去跨树信用93.8→81.9，去节点信用→89.8。SearchQA多跳宏平均1.5B/3B为26.6/38.3%，GRPO11.3/31.8%；并非每个单任务都胜GiGPO。报告token数累计至各自峰值，非统一预算终点。",
+        "card_summary": "TriGRPO在匹配状态注入成功动作，并结合题内、分支与历史信用；ALFWorld 3B峰值验证成功率93.8%。",
+        "limitations": "理论非负增益需要充分决策状态精确匹配、同策略续跑；实际环境须能中途重置。峰值验证成绩不能当成独立盲测终点，连续或不可逆任务尚未验证。"
+      },
+      "analysis": {
+        "motivation": "长程稀疏奖励下，弱策略很难发现成功轨迹，同组全失败又让GRPO相对信号消失。",
+        "method": "TriGRPO在当前rollout匹配同题成功轨迹状态且动作不同时分出兄弟分支；注入动作以行为克隆学习，后续自主动作使用父子结果差信用。根组提供题内优势，跨树组用任务/类型历史EMA补充反馈；有引导分支不污染自主历史基线。",
+        "experiments": "Qwen2.5-1.5B/3B/7B在ALFWorld的三种子峰值验证成功率88.3/93.8/93.8%，比GRPO高15.5–20.9点。3B消融去跨树信用93.8→81.9，去节点信用→89.8。SearchQA多跳宏平均1.5B/3B为26.6/38.3%，GRPO11.3/31.8%；并非每个单任务都胜GiGPO。报告token数累计至各自峰值，非统一预算终点。",
+        "research_help": "把成功经验用作可比较的局部干预，并用历史基线解决零方差，是比单纯复制整条成功轨迹更可诊断的训练设计。",
+        "insight": "把成功经验用作可比较的局部干预，并用历史基线解决零方差，是比单纯复制整条成功轨迹更可诊断的训练设计。",
+        "card_summary": "TriGRPO在匹配状态注入成功动作，并结合题内、分支与历史信用；ALFWorld 3B峰值验证成功率93.8%。",
+        "abstract_zh": "TriGRPO在匹配状态注入成功动作，并结合题内、分支与历史信用；ALFWorld 3B峰值验证成功率93.8%。",
+        "full_summary": "长程稀疏奖励下，弱策略很难发现成功轨迹，同组全失败又让GRPO相对信号消失。TriGRPO在当前rollout匹配同题成功轨迹状态且动作不同时分出兄弟分支；注入动作以行为克隆学习，后续自主动作使用父子结果差信用。根组提供题内优势，跨树组用任务/类型历史EMA补充反馈；有引导分支不污染自主历史基线。Qwen2.5-1.5B/3B/7B在ALFWorld的三种子峰值验证成功率88.3/93.8/93.8%，比GRPO高15.5–20.9点。3B消融去跨树信用93.8→81.9，去节点信用→89.8。SearchQA多跳宏平均1.5B/3B为26.6/38.3%，GRPO11.3/31.8%；并非每个单任务都胜GiGPO。报告token数累计至各自峰值，非统一预算终点。",
+        "limitations": "理论非负增益需要充分决策状态精确匹配、同策略续跑；实际环境须能中途重置。峰值验证成绩不能当成独立盲测终点，连续或不可逆任务尚未验证。",
+        "source_scope": "full_text",
+        "source_note": "人工核读arXiv PDF正文及相关附录；关键表图经渲染核对。嵌套gpt-6.1-sol阅读器因本地状态库权限失败，本条由当前自动化人工核读补全。",
+        "source_evidence": [
+          "§3：条件增益假设、三组信用与注入动作BC",
+          "表1–3：峰值验证与消融",
+          "附录C：前缀信用、token效率及局限"
+        ],
+        "model": "manual-full-text-review",
+        "updated_at": "2026-11-04T01:35:54.116494+00:00",
+        "recommendation_level": "高",
+        "water_risk": "中",
+        "value_label": "成功动作引导树状agent RL",
+        "value_reason": "把成功经验用作可比较的局部干预，并用历史基线解决零方差，是比单纯复制整条成功轨迹更可诊断的训练设计。"
+      }
+    },
+    {
+      "id": "2611.03584v1",
+      "title": "TAMPAgent: Agentic Belief-Space Planning for Mobile Manipulation",
+      "summary": "Open-world robotic mobile manipulation requires acting in physical environments with only partial information. While recent Large Vision-Language Model (LVLM) agents show strong open-world reasoning capabilities, existing architectures that rely on direct tool calling struggle with geometric uncertainty and thus are limited to fully-observable tabletop environments. In contrast, Task and Motion Planning (TAMP) systems can solve long-horizon tasks under partial observability but incur high computational costs and require closed worlds. We propose \\textbf{TAMPAgent}, an agentic planning framework that unifies the reasoning of LVLMs with the structured constraint satisfaction of TAMP systems. We endow an LVLM agent with a belief-space planning model operating over an extensible API of perception, planning, and control tools. The agent formulates a partial task plan composed of parameterized observation and execution actions, which is subsequently completed using classical search algorithms. After extracting the plan's geometric constraints, the agent leverages its tool API to bind valid parameter values, satisfying feasibility requirements and producing an executable motion plan. Upon execution, the agent continuously updates its belief history and repeats this closed-loop process by interleaving observation and manipulation actions. Evaluated across complex household mobile manipulation tasks on Rainbow Y1 and Unitree G1 platforms, TAMPAgent significantly outperforms direct tool-calling agentic baselines, demonstrating that integrating TAMP constraint satisfaction into agentic planning loops is essential for unstructured, partially observable environments.",
+      "url": "http://arxiv.org/abs/2611.03584v1",
+      "authors": [
+        "Utkarsh A. Mishra",
+        "Alperen Degirmenci",
+        "Yongxin Chen",
+        "Danfei Xu",
+        "Tucker Hermans",
+        "Caelan Garrett"
+      ],
+      "report_date": "2026-11-04",
+      "published": "2026-11-02",
+      "updated": "2026-11-02",
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO"
+      ],
+      "project_url": "https://umishra.me/TAMPAgent/",
+      "repo_url": "",
+      "venue_status": "未确认录用",
+      "recommendation": {
+        "score": 78,
+        "level": "高",
+        "label": "信念规划与几何约束认证",
+        "water_risk": "中",
+        "value_judgement": "把开放语言假设保留给模型，把行动的几何前置条件交给认证工具，可让重规划失败定位到未满足的具体约束。",
+        "reason": "把开放语言假设保留给模型，把行动的几何前置条件交给认证工具，可让重规划失败定位到未满足的具体约束。",
+        "signals": {
+          "agenticRl": false,
+          "multiTurn": true,
+          "longHorizon": true,
+          "memory": false,
+          "reliability": true,
+          "codeOrTool": true,
+          "experiments": true,
+          "survey": false
+        }
+      },
+      "brief": {
+        "authors": [
+          "Utkarsh A. Mishra",
+          "Alperen Degirmenci",
+          "Yongxin Chen",
+          "Danfei Xu",
+          "Tucker Hermans",
+          "Caelan Garrett"
+        ],
+        "affiliations": "NVIDIA Research; Georgia Institute of Technology; University of Utah",
+        "date": "2026-11-02",
+        "paper_url": "https://arxiv.org/abs/2611.03584v1",
+        "project_url": "https://umishra.me/TAMPAgent/",
+        "repo_url": "",
+        "venue_status": "未确认录用",
+        "contribution": "信念规划与几何约束认证",
+        "summary": "直接工具调用难以同时处理遮挡、几何不确定性及跨步骤可达性，固定TAMP又缺少开放世界推理。LVLM把语言位置假设与工具认证的Mask/RGBD/抓取/轨迹组合为混合信念，提出观察与执行部分计划；经典搜索补全计划，约束编译器要求工具认证具体参数后才能执行。观察后更新历史并重新规划。MuJoCo仿真RBY1厨房9个主任务每方法每任务20次；图7平均绝对成功率TAMPAgent77%，CaP57%、GaP61%，部分成功85%对69/71%。遮挡T3为65%对35/25%。另有三房间任务各5次、G1六任务各5次及T9学习实验。RBY1/G1所用模型与推理配置不同，不能合并为同配置证据。",
+        "highlights": [
+          "§3：混合信念与认证执行循环",
+          "§4图7：仿真任务、重复数与均值",
+          "§7及附录D：固定域限制与G1协议"
+        ],
+        "motivation": "直接工具调用难以同时处理遮挡、几何不确定性及跨步骤可达性，固定TAMP又缺少开放世界推理。",
+        "method": "LVLM把语言位置假设与工具认证的Mask/RGBD/抓取/轨迹组合为混合信念，提出观察与执行部分计划；经典搜索补全计划，约束编译器要求工具认证具体参数后才能执行。观察后更新历史并重新规划。",
+        "experiments": "MuJoCo仿真RBY1厨房9个主任务每方法每任务20次；图7平均绝对成功率TAMPAgent77%，CaP57%、GaP61%，部分成功85%对69/71%。遮挡T3为65%对35/25%。另有三房间任务各5次、G1六任务各5次及T9学习实验。RBY1/G1所用模型与推理配置不同，不能合并为同配置证据。",
+        "research_help": "把开放语言假设保留给模型，把行动的几何前置条件交给认证工具，可让重规划失败定位到未满足的具体约束。",
+        "recommendation": {
+          "score": 78,
+          "level": "高",
+          "label": "信念规划与几何约束认证",
+          "water_risk": "中",
+          "value_judgement": "把开放语言假设保留给模型，把行动的几何前置条件交给认证工具，可让重规划失败定位到未满足的具体约束。",
+          "reason": "把开放语言假设保留给模型，把行动的几何前置条件交给认证工具，可让重规划失败定位到未满足的具体约束。",
+          "signals": {
+            "agenticRl": false,
+            "multiTurn": true,
+            "longHorizon": true,
+            "memory": false,
+            "reliability": true,
+            "codeOrTool": true,
+            "experiments": true,
+            "survey": false
+          }
+        },
+        "insight": "把开放语言假设保留给模型，把行动的几何前置条件交给认证工具，可让重规划失败定位到未满足的具体约束。",
+        "abstract_zh": "TAMPAgent把语言信念、经典规划和几何认证接入闭环；仿真厨房平均成功率77%，优于57/61%的工具调用基线。",
+        "full_summary": "直接工具调用难以同时处理遮挡、几何不确定性及跨步骤可达性，固定TAMP又缺少开放世界推理。LVLM把语言位置假设与工具认证的Mask/RGBD/抓取/轨迹组合为混合信念，提出观察与执行部分计划；经典搜索补全计划，约束编译器要求工具认证具体参数后才能执行。观察后更新历史并重新规划。MuJoCo仿真RBY1厨房9个主任务每方法每任务20次；图7平均绝对成功率TAMPAgent77%，CaP57%、GaP61%，部分成功85%对69/71%。遮挡T3为65%对35/25%。另有三房间任务各5次、G1六任务各5次及T9学习实验。RBY1/G1所用模型与推理配置不同，不能合并为同配置证据。",
+        "card_summary": "TAMPAgent把语言信念、经典规划和几何认证接入闭环；仿真厨房平均成功率77%，优于57/61%的工具调用基线。",
+        "limitations": "结果是仿真机器人而非实机部署证明；动作域固定，语言信念无校准概率；认证依赖感知和工具正确性，不能保证任务理解，过度搜索仍会超时。"
+      },
+      "analysis": {
+        "motivation": "直接工具调用难以同时处理遮挡、几何不确定性及跨步骤可达性，固定TAMP又缺少开放世界推理。",
+        "method": "LVLM把语言位置假设与工具认证的Mask/RGBD/抓取/轨迹组合为混合信念，提出观察与执行部分计划；经典搜索补全计划，约束编译器要求工具认证具体参数后才能执行。观察后更新历史并重新规划。",
+        "experiments": "MuJoCo仿真RBY1厨房9个主任务每方法每任务20次；图7平均绝对成功率TAMPAgent77%，CaP57%、GaP61%，部分成功85%对69/71%。遮挡T3为65%对35/25%。另有三房间任务各5次、G1六任务各5次及T9学习实验。RBY1/G1所用模型与推理配置不同，不能合并为同配置证据。",
+        "research_help": "把开放语言假设保留给模型，把行动的几何前置条件交给认证工具，可让重规划失败定位到未满足的具体约束。",
+        "insight": "把开放语言假设保留给模型，把行动的几何前置条件交给认证工具，可让重规划失败定位到未满足的具体约束。",
+        "card_summary": "TAMPAgent把语言信念、经典规划和几何认证接入闭环；仿真厨房平均成功率77%，优于57/61%的工具调用基线。",
+        "abstract_zh": "TAMPAgent把语言信念、经典规划和几何认证接入闭环；仿真厨房平均成功率77%，优于57/61%的工具调用基线。",
+        "full_summary": "直接工具调用难以同时处理遮挡、几何不确定性及跨步骤可达性，固定TAMP又缺少开放世界推理。LVLM把语言位置假设与工具认证的Mask/RGBD/抓取/轨迹组合为混合信念，提出观察与执行部分计划；经典搜索补全计划，约束编译器要求工具认证具体参数后才能执行。观察后更新历史并重新规划。MuJoCo仿真RBY1厨房9个主任务每方法每任务20次；图7平均绝对成功率TAMPAgent77%，CaP57%、GaP61%，部分成功85%对69/71%。遮挡T3为65%对35/25%。另有三房间任务各5次、G1六任务各5次及T9学习实验。RBY1/G1所用模型与推理配置不同，不能合并为同配置证据。",
+        "limitations": "结果是仿真机器人而非实机部署证明；动作域固定，语言信念无校准概率；认证依赖感知和工具正确性，不能保证任务理解，过度搜索仍会超时。",
+        "source_scope": "full_text",
+        "source_note": "人工核读arXiv PDF正文及相关附录；关键表图经渲染核对。嵌套gpt-6.1-sol阅读器因本地状态库权限失败，本条由当前自动化人工核读补全。",
+        "source_evidence": [
+          "§3：混合信念与认证执行循环",
+          "§4图7：仿真任务、重复数与均值",
+          "§7及附录D：固定域限制与G1协议"
+        ],
+        "model": "manual-full-text-review",
+        "updated_at": "2026-11-04T01:35:54.116494+00:00",
+        "recommendation_level": "高",
+        "water_risk": "中",
+        "value_label": "信念规划与几何约束认证",
+        "value_reason": "把开放语言假设保留给模型，把行动的几何前置条件交给认证工具，可让重规划失败定位到未满足的具体约束。"
+      }
+    },
+    {
+      "id": "2611.03551v1",
+      "title": "Can LLM Agents Be Forward-Deployed Engineers? Requirement Discovery and Delivery for Enterprise Text-to-SQL",
+      "summary": "LLM coding agents can increasingly automate model post-training, but whether they can act as forward-deployed engineer (FDE) agents, discovering customer requirements and turning them into deployment decisions, remains unclear. We study this on a real enterprise text-to-SQL engagement: a simulated customer, grounded in the real use case's requirements, starts with an ambiguous request. An agent must discover acceptance criteria, data permissions, and hardware constraints in the discovery phase, then plan and execute a post-training recipe in the delivery phase. Across 15 models, the strongest discover over 80% of withheld requirements and open-weight models discover 40-50%; in the delivery phase, only 25% of runs across eight coding-agent configurations pass all acceptance criteria. We identify four bottlenecks in this engagement: (1) incomplete discovery, with 40% of withheld requirements missing or misrepresented; (2) unreliable execution; (3) underused compute budgets and a lack of systematic comparisons across base models and post-training methods; and (4) benchmark accuracy does not guarantee production readiness. We suggest human review of discovered requirements, monitoring of the agent's plan during execution, and an explicit experiment-environment specification covering hardware, budget scope, and production checks.",
+      "url": "http://arxiv.org/abs/2611.03551v1",
+      "authors": [
+        "Marianne Menglin Liu",
+        "Rongguang Wang",
+        "Zheng Wang",
+        "Yewen Wang",
+        "Leonid Boytsov",
+        "Tao Sheng",
+        "Sujith Ravi",
+        "Dan Roth"
+      ],
+      "report_date": "2026-11-04",
+      "published": "2026-11-02",
+      "updated": "2026-11-02",
+      "primary_category": "cs.CL",
+      "categories": [
+        "cs.CL",
+        "cs.AI"
+      ],
+      "project_url": "",
+      "repo_url": "",
+      "venue_status": "未确认录用",
+      "recommendation": {
+        "score": 62,
+        "level": "高",
+        "label": "需求澄清到交付的长程评测",
+        "water_risk": "中",
+        "value_judgement": "多轮代理应分别量化问到信息、保留信息、转成执行约束三条链路；更多提问或更高公开benchmark分数不保证交付成功。",
+        "reason": "多轮代理应分别量化问到信息、保留信息、转成执行约束三条链路；更多提问或更高公开benchmark分数不保证交付成功。",
+        "signals": {
+          "agenticRl": false,
+          "multiTurn": true,
+          "longHorizon": true,
+          "memory": false,
+          "reliability": true,
+          "codeOrTool": false,
+          "experiments": true,
+          "survey": true
+        }
+      },
+      "brief": {
+        "authors": [
+          "Marianne Menglin Liu",
+          "Rongguang Wang",
+          "Zheng Wang",
+          "Yewen Wang",
+          "Leonid Boytsov",
+          "Tao Sheng",
+          "Sujith Ravi",
+          "Dan Roth"
+        ],
+        "affiliations": "Oracle AI",
+        "date": "2026-11-02",
+        "paper_url": "https://arxiv.org/abs/2611.03551v1",
+        "project_url": "",
+        "repo_url": "",
+        "venue_status": "未确认录用",
+        "contribution": "需求澄清到交付的长程评测",
+        "summary": "编码代理能训练模型，不代表能主动发现客户约束、管理实验预算并交付满足生产要求的系统。以四个月企业Oracle text-to-SQL项目为依据，构造17个核心事实和三级模糊开场。发现阶段让代理向有事实表的模拟客户提问、索取材料并提交需求；交付阶段比较接收既定需求与自主发现后执行两种流程，联合验收SQL准确率、生产编译与CPU延迟。15模型×3模糊级×10次发现，共7050个被隐藏事实实例，恢复4227个(60.0%)；已披露4122个中874个未进入最终需求。四模型×两流程的8次主交付仅2次过全部验收，即25%；门槛Spider EX≥60%、100条生产查询失败≤10%、CPU p90<15秒，BIRD只报告不验收。",
+        "highlights": [
+          "§3–4：两阶段协议与表1–2",
+          "附录C：事实统计、人工审计",
+          "附录E：交付约束与部分重复实验"
+        ],
+        "motivation": "编码代理能训练模型，不代表能主动发现客户约束、管理实验预算并交付满足生产要求的系统。",
+        "method": "以四个月企业Oracle text-to-SQL项目为依据，构造17个核心事实和三级模糊开场。发现阶段让代理向有事实表的模拟客户提问、索取材料并提交需求；交付阶段比较接收既定需求与自主发现后执行两种流程，联合验收SQL准确率、生产编译与CPU延迟。",
+        "experiments": "15模型×3模糊级×10次发现，共7050个被隐藏事实实例，恢复4227个(60.0%)；已披露4122个中874个未进入最终需求。四模型×两流程的8次主交付仅2次过全部验收，即25%；门槛Spider EX≥60%、100条生产查询失败≤10%、CPU p90<15秒，BIRD只报告不验收。",
+        "research_help": "多轮代理应分别量化问到信息、保留信息、转成执行约束三条链路；更多提问或更高公开benchmark分数不保证交付成功。",
+        "recommendation": {
+          "score": 62,
+          "level": "高",
+          "label": "需求澄清到交付的长程评测",
+          "water_risk": "中",
+          "value_judgement": "多轮代理应分别量化问到信息、保留信息、转成执行约束三条链路；更多提问或更高公开benchmark分数不保证交付成功。",
+          "reason": "多轮代理应分别量化问到信息、保留信息、转成执行约束三条链路；更多提问或更高公开benchmark分数不保证交付成功。",
+          "signals": {
+            "agenticRl": false,
+            "multiTurn": true,
+            "longHorizon": true,
+            "memory": false,
+            "reliability": true,
+            "codeOrTool": false,
+            "experiments": true,
+            "survey": true
+          }
+        },
+        "insight": "多轮代理应分别量化问到信息、保留信息、转成执行约束三条链路；更多提问或更高公开benchmark分数不保证交付成功。",
+        "abstract_zh": "企业需求澄清到部署评测：15模型平均恢复60%的隐藏事实，8次主交付仅2次同时满足准确率、生产编译和延迟要求。",
+        "full_summary": "编码代理能训练模型，不代表能主动发现客户约束、管理实验预算并交付满足生产要求的系统。以四个月企业Oracle text-to-SQL项目为依据，构造17个核心事实和三级模糊开场。发现阶段让代理向有事实表的模拟客户提问、索取材料并提交需求；交付阶段比较接收既定需求与自主发现后执行两种流程，联合验收SQL准确率、生产编译与CPU延迟。15模型×3模糊级×10次发现，共7050个被隐藏事实实例，恢复4227个(60.0%)；已披露4122个中874个未进入最终需求。四模型×两流程的8次主交付仅2次过全部验收，即25%；门槛Spider EX≥60%、100条生产查询失败≤10%、CPU p90<15秒，BIRD只报告不验收。",
+        "card_summary": "企业需求澄清到部署评测：15模型平均恢复60%的隐藏事实，8次主交付仅2次同时满足准确率、生产编译和延迟要求。",
+        "limitations": "单一企业案例与模拟客户，发现评分的人审一致率有限；25%来自8次主交付，不能视作广泛工程任务的通用成功率。附录对部分配置重复，仍不是大规模跨任务验证。"
+      },
+      "analysis": {
+        "motivation": "编码代理能训练模型，不代表能主动发现客户约束、管理实验预算并交付满足生产要求的系统。",
+        "method": "以四个月企业Oracle text-to-SQL项目为依据，构造17个核心事实和三级模糊开场。发现阶段让代理向有事实表的模拟客户提问、索取材料并提交需求；交付阶段比较接收既定需求与自主发现后执行两种流程，联合验收SQL准确率、生产编译与CPU延迟。",
+        "experiments": "15模型×3模糊级×10次发现，共7050个被隐藏事实实例，恢复4227个(60.0%)；已披露4122个中874个未进入最终需求。四模型×两流程的8次主交付仅2次过全部验收，即25%；门槛Spider EX≥60%、100条生产查询失败≤10%、CPU p90<15秒，BIRD只报告不验收。",
+        "research_help": "多轮代理应分别量化问到信息、保留信息、转成执行约束三条链路；更多提问或更高公开benchmark分数不保证交付成功。",
+        "insight": "多轮代理应分别量化问到信息、保留信息、转成执行约束三条链路；更多提问或更高公开benchmark分数不保证交付成功。",
+        "card_summary": "企业需求澄清到部署评测：15模型平均恢复60%的隐藏事实，8次主交付仅2次同时满足准确率、生产编译和延迟要求。",
+        "abstract_zh": "企业需求澄清到部署评测：15模型平均恢复60%的隐藏事实，8次主交付仅2次同时满足准确率、生产编译和延迟要求。",
+        "full_summary": "编码代理能训练模型，不代表能主动发现客户约束、管理实验预算并交付满足生产要求的系统。以四个月企业Oracle text-to-SQL项目为依据，构造17个核心事实和三级模糊开场。发现阶段让代理向有事实表的模拟客户提问、索取材料并提交需求；交付阶段比较接收既定需求与自主发现后执行两种流程，联合验收SQL准确率、生产编译与CPU延迟。15模型×3模糊级×10次发现，共7050个被隐藏事实实例，恢复4227个(60.0%)；已披露4122个中874个未进入最终需求。四模型×两流程的8次主交付仅2次过全部验收，即25%；门槛Spider EX≥60%、100条生产查询失败≤10%、CPU p90<15秒，BIRD只报告不验收。",
+        "limitations": "单一企业案例与模拟客户，发现评分的人审一致率有限；25%来自8次主交付，不能视作广泛工程任务的通用成功率。附录对部分配置重复，仍不是大规模跨任务验证。",
+        "source_scope": "full_text",
+        "source_note": "人工核读arXiv PDF正文及相关附录；关键表图经渲染核对。嵌套gpt-6.1-sol阅读器因本地状态库权限失败，本条由当前自动化人工核读补全。",
+        "source_evidence": [
+          "§3–4：两阶段协议与表1–2",
+          "附录C：事实统计、人工审计",
+          "附录E：交付约束与部分重复实验"
+        ],
+        "model": "manual-full-text-review",
+        "updated_at": "2026-11-04T01:35:54.116494+00:00",
+        "recommendation_level": "高",
+        "water_risk": "中",
+        "value_label": "需求澄清到交付的长程评测",
+        "value_reason": "多轮代理应分别量化问到信息、保留信息、转成执行约束三条链路；更多提问或更高公开benchmark分数不保证交付成功。"
+      }
+    },
+    {
+      "id": "2611.02912v1",
+      "title": "A State Change Is Local, Its Consequences Are Not: Dependency-Aware State Revision for Long-Term Agent Memory",
+      "summary": "Long-lived agents rely on persistent memory of users, tasks and decisions, and this memory must stay consistent with a world that keeps changing. When an upstream fact changes, however, memory systems can revise the contradicted memory itself while the beliefs, plans and actions derived from it remain accepted, even though they have lost their support. We therefore formulate dependency-aware state revision, which asks not only what changed but also which dependent states should no longer be trusted. To address it, StateGraph maintains an evolving state dependency graph whose edges are recovered from interaction histories. Its core design is counterfactual verification: each candidate edge is tested by asking whether the dependent state would survive the loss of its premise, which separates support dependence from semantic relatedness, and revision then invalidates a dependent state only when a strict dependency fails and no independent support path survives. To test this design, we introduce StateChangeBench, a controlled benchmark of 50 author-constructed cases annotated with cascade depth, hard negatives and action consequences. On it, StateGraph's Impact-F1 margin over a CUPMem reimplementation is 6.9 percentage points at depth 1 and 26.0 at depth 3+. On public long-term memory benchmarks, its point estimates are comparable to or higher than those of the evaluated baselines on most datasets. These results provide initial evidence that explicit dependency tracking can improve selective memory revision under changing conditions.",
+      "url": "http://arxiv.org/abs/2611.02912v1",
+      "authors": [
+        "Yiqi Wang",
+        "Tongyuan Zhao",
+        "Jiaqi Zhang",
+        "Yiqun Duan",
+        "Zhangkai Wu",
+        "Mingkai Zheng",
+        "Taotao Cai"
+      ],
+      "report_date": "2026-11-04",
+      "published": "2026-11-02",
+      "updated": "2026-11-02",
+      "primary_category": "cs.CL",
+      "categories": [
+        "cs.CL"
+      ],
+      "project_url": "",
+      "repo_url": "",
+      "venue_status": "未确认录用",
+      "recommendation": {
+        "score": 98,
+        "level": "高",
+        "label": "长程状态依赖修订",
+        "water_risk": "中",
+        "value_judgement": "状态记忆需要记录结论的支持路径；对长期计划而言，前提失效后的选择性撤回比简单时间衰减更贴近一致性需求。",
+        "reason": "状态记忆需要记录结论的支持路径；对长期计划而言，前提失效后的选择性撤回比简单时间衰减更贴近一致性需求。",
+        "signals": {
+          "agenticRl": false,
+          "multiTurn": true,
+          "longHorizon": true,
+          "memory": true,
+          "reliability": true,
+          "codeOrTool": false,
+          "experiments": true,
+          "survey": false
+        }
+      },
+      "brief": {
+        "authors": [
+          "Yiqi Wang",
+          "Tongyuan Zhao",
+          "Jiaqi Zhang",
+          "Yiqun Duan",
+          "Zhangkai Wu",
+          "Mingkai Zheng",
+          "Taotao Cai"
+        ],
+        "affiliations": "University of Southern Queensland; Jiangsu University; Uploading Inc.; University of Sydney; Southern University of Science and Technology",
+        "date": "2026-11-02",
+        "paper_url": "https://arxiv.org/abs/2611.02912v1",
+        "project_url": "",
+        "repo_url": "",
+        "venue_status": "未确认录用",
+        "contribution": "长程状态依赖修订",
+        "summary": "上游事实变化后，只改被直接否定的记忆，会留下失去依据的计划和结论。StateGraph从交互史恢复有向状态依赖，用反事实问题区分严格依赖、弱关联与无关；上游失效时只有严格依赖且无独立支持路径的下游状态才级联失效，保留范围缩小和临时例外。作者构造50个StateChangeBench案例，深度0/1/2/3+为10/15/15/10。DeepSeek-v4-Flash下，40个非零深度案例加权Impact-F1为79.5%，重实现CUPMem64.3%；深度3+为75.1%对49.1%，过度失效5.2%对10.6%。最终依赖边F1只有61.7%，与状态影响F1分母不同；公开记忆集并非全部最优。",
+        "highlights": [
+          "§4：反事实依赖与保守修订",
+          "§5–6表2–3：案例分层、指标与消融",
+          "Limitations/附录A：记录缺失及动作结果缺口"
+        ],
+        "motivation": "上游事实变化后，只改被直接否定的记忆，会留下失去依据的计划和结论。",
+        "method": "StateGraph从交互史恢复有向状态依赖，用反事实问题区分严格依赖、弱关联与无关；上游失效时只有严格依赖且无独立支持路径的下游状态才级联失效，保留范围缩小和临时例外。",
+        "experiments": "作者构造50个StateChangeBench案例，深度0/1/2/3+为10/15/15/10。DeepSeek-v4-Flash下，40个非零深度案例加权Impact-F1为79.5%，重实现CUPMem64.3%；深度3+为75.1%对49.1%，过度失效5.2%对10.6%。最终依赖边F1只有61.7%，与状态影响F1分母不同；公开记忆集并非全部最优。",
+        "research_help": "状态记忆需要记录结论的支持路径；对长期计划而言，前提失效后的选择性撤回比简单时间衰减更贴近一致性需求。",
+        "recommendation": {
+          "score": 98,
+          "level": "高",
+          "label": "长程状态依赖修订",
+          "water_risk": "中",
+          "value_judgement": "状态记忆需要记录结论的支持路径；对长期计划而言，前提失效后的选择性撤回比简单时间衰减更贴近一致性需求。",
+          "reason": "状态记忆需要记录结论的支持路径；对长期计划而言，前提失效后的选择性撤回比简单时间衰减更贴近一致性需求。",
+          "signals": {
+            "agenticRl": false,
+            "multiTurn": true,
+            "longHorizon": true,
+            "memory": true,
+            "reliability": true,
+            "codeOrTool": false,
+            "experiments": true,
+            "survey": false
+          }
+        },
+        "insight": "状态记忆需要记录结论的支持路径；对长期计划而言，前提失效后的选择性撤回比简单时间衰减更贴近一致性需求。",
+        "abstract_zh": "StateGraph追踪前提变更后的下游失效；50例受控基准中影响F1为79.5%，但尚未报告下游动作决策结果。",
+        "full_summary": "上游事实变化后，只改被直接否定的记忆，会留下失去依据的计划和结论。StateGraph从交互史恢复有向状态依赖，用反事实问题区分严格依赖、弱关联与无关；上游失效时只有严格依赖且无独立支持路径的下游状态才级联失效，保留范围缩小和临时例外。作者构造50个StateChangeBench案例，深度0/1/2/3+为10/15/15/10。DeepSeek-v4-Flash下，40个非零深度案例加权Impact-F1为79.5%，重实现CUPMem64.3%；深度3+为75.1%对49.1%，过度失效5.2%对10.6%。最终依赖边F1只有61.7%，与状态影响F1分母不同；公开记忆集并非全部最优。",
+        "card_summary": "StateGraph追踪前提变更后的下游失效；50例受控基准中影响F1为79.5%，但尚未报告下游动作决策结果。",
+        "limitations": "小型作者构造英文基准，仅一模型；重复次数记录缺失、标注双审子集大小未保留，无显著性检验。此版未报告动作决策成绩，不能宣称提升真实执行安全；同模型提议与验证仍有相关错误。"
+      },
+      "analysis": {
+        "motivation": "上游事实变化后，只改被直接否定的记忆，会留下失去依据的计划和结论。",
+        "method": "StateGraph从交互史恢复有向状态依赖，用反事实问题区分严格依赖、弱关联与无关；上游失效时只有严格依赖且无独立支持路径的下游状态才级联失效，保留范围缩小和临时例外。",
+        "experiments": "作者构造50个StateChangeBench案例，深度0/1/2/3+为10/15/15/10。DeepSeek-v4-Flash下，40个非零深度案例加权Impact-F1为79.5%，重实现CUPMem64.3%；深度3+为75.1%对49.1%，过度失效5.2%对10.6%。最终依赖边F1只有61.7%，与状态影响F1分母不同；公开记忆集并非全部最优。",
+        "research_help": "状态记忆需要记录结论的支持路径；对长期计划而言，前提失效后的选择性撤回比简单时间衰减更贴近一致性需求。",
+        "insight": "状态记忆需要记录结论的支持路径；对长期计划而言，前提失效后的选择性撤回比简单时间衰减更贴近一致性需求。",
+        "card_summary": "StateGraph追踪前提变更后的下游失效；50例受控基准中影响F1为79.5%，但尚未报告下游动作决策结果。",
+        "abstract_zh": "StateGraph追踪前提变更后的下游失效；50例受控基准中影响F1为79.5%，但尚未报告下游动作决策结果。",
+        "full_summary": "上游事实变化后，只改被直接否定的记忆，会留下失去依据的计划和结论。StateGraph从交互史恢复有向状态依赖，用反事实问题区分严格依赖、弱关联与无关；上游失效时只有严格依赖且无独立支持路径的下游状态才级联失效，保留范围缩小和临时例外。作者构造50个StateChangeBench案例，深度0/1/2/3+为10/15/15/10。DeepSeek-v4-Flash下，40个非零深度案例加权Impact-F1为79.5%，重实现CUPMem64.3%；深度3+为75.1%对49.1%，过度失效5.2%对10.6%。最终依赖边F1只有61.7%，与状态影响F1分母不同；公开记忆集并非全部最优。",
+        "limitations": "小型作者构造英文基准，仅一模型；重复次数记录缺失、标注双审子集大小未保留，无显著性检验。此版未报告动作决策成绩，不能宣称提升真实执行安全；同模型提议与验证仍有相关错误。",
+        "source_scope": "full_text",
+        "source_note": "人工核读arXiv PDF正文及相关附录；关键表图经渲染核对。嵌套gpt-6.1-sol阅读器因本地状态库权限失败，本条由当前自动化人工核读补全。",
+        "source_evidence": [
+          "§4：反事实依赖与保守修订",
+          "§5–6表2–3：案例分层、指标与消融",
+          "Limitations/附录A：记录缺失及动作结果缺口"
+        ],
+        "model": "manual-full-text-review",
+        "updated_at": "2026-11-04T01:35:54.116494+00:00",
+        "recommendation_level": "高",
+        "water_risk": "中",
+        "value_label": "长程状态依赖修订",
+        "value_reason": "状态记忆需要记录结论的支持路径；对长期计划而言，前提失效后的选择性撤回比简单时间衰减更贴近一致性需求。"
+      }
+    },
+    {
+      "id": "2611.01718v1",
+      "title": "Delivered, Not Used: Evaluating Agent Memory at Its Point of Use",
+      "summary": "Task success, retrieval quality, and cost do not show whether an LLM agent used a delivered memory or what followed from that use. We introduce MemUse, which evaluates memory at its point of use in recorded trajectories: each memory delivery is compared with what the agent could already see and followed through the agent's later actions and their consequences. An agentic judge rates each delivered entry's relevance, accuracy, novelty, influence, and observed effect; programmatic checks enforce complete reading of cited evidence, and fixed rules aggregate the ratings into verdicts linked to memory histories and delivery cost. On 8,000 SWE-bench Verified episodes from three memory systems, resolve rates stay within 0.4 percentage points of a no-memory baseline, yet MemUse shows that most delivered entries were irrelevant, most relevant entries went unused, and in two systems most deliveries restated content the agent could still see. It also surfaces effects that outcomes hide: 23.2\\% of episodes with beneficial memory use still failed, and 5 of 16 with harmful use still succeeded.",
+      "url": "http://arxiv.org/abs/2611.01718v1",
+      "authors": [
+        "Changran Xu",
+        "Zeju Li",
+        "Qiang Xu"
+      ],
+      "report_date": "2026-11-04",
+      "published": "2026-11-01",
+      "updated": "2026-11-01",
+      "primary_category": "cs.AI",
+      "categories": [
+        "cs.AI"
+      ],
+      "project_url": "",
+      "repo_url": "",
+      "venue_status": "未确认录用",
+      "recommendation": {
+        "score": 58,
+        "level": "高",
+        "label": "多步骤代理记忆使用归因",
+        "water_risk": "中",
+        "value_judgement": "为长期工具代理增加“送达→被采用→局部效果→最终结果”的分解，避免把最终失败等同于记忆无用，也避免检索指标替代行为证据。",
+        "reason": "为长期工具代理增加“送达→被采用→局部效果→最终结果”的分解，避免把最终失败等同于记忆无用，也避免检索指标替代行为证据。",
+        "signals": {
+          "agenticRl": false,
+          "multiTurn": true,
+          "longHorizon": true,
+          "memory": true,
+          "reliability": false,
+          "codeOrTool": false,
+          "experiments": true,
+          "survey": false
+        }
+      },
+      "brief": {
+        "authors": [
+          "Changran Xu",
+          "Zeju Li",
+          "Qiang Xu"
+        ],
+        "affiliations": "The Chinese University of Hong Kong",
+        "date": "2026-11-01",
+        "paper_url": "https://arxiv.org/abs/2611.01718v1",
+        "project_url": "",
+        "repo_url": "",
+        "venue_status": "未确认录用",
+        "contribution": "多步骤代理记忆使用归因",
+        "summary": "检索到相关记忆与最终任务通过，都不能证明代理在何时用了什么记忆、产生什么效果。MemUse以每次投递及后续信用窗口为单位，比较代理原有上下文，让agentic judge读取证据并分别判相关、准确、新颖、影响和观察效果；程序检查引用是否完整阅读，再用固定规则聚合。沿记录轨迹追踪跨任务记忆来源及重复投递成本。SWE-bench Verified全500题，四种记忆配置各4次，共8000记忆episode，另2000无记忆对照。成功率72.7–73.4%，无记忆73.0%，差值95%配对区间均含零；成本增8.8–293.2%。平均71.5–98.6%投递条目不相关，相关条目51.3–79.7%未用；23.2%的有益使用episode仍失败。",
+        "highlights": [
+          "§3：投递、信用窗口与五维判定",
+          "§4表2、图3–5：配对区间、使用率与成本",
+          "附录A.6.7：MemGovern语料来源重叠"
+        ],
+        "motivation": "检索到相关记忆与最终任务通过，都不能证明代理在何时用了什么记忆、产生什么效果。",
+        "method": "MemUse以每次投递及后续信用窗口为单位，比较代理原有上下文，让agentic judge读取证据并分别判相关、准确、新颖、影响和观察效果；程序检查引用是否完整阅读，再用固定规则聚合。沿记录轨迹追踪跨任务记忆来源及重复投递成本。",
+        "experiments": "SWE-bench Verified全500题，四种记忆配置各4次，共8000记忆episode，另2000无记忆对照。成功率72.7–73.4%，无记忆73.0%，差值95%配对区间均含零；成本增8.8–293.2%。平均71.5–98.6%投递条目不相关，相关条目51.3–79.7%未用；23.2%的有益使用episode仍失败。",
+        "research_help": "为长期工具代理增加“送达→被采用→局部效果→最终结果”的分解，避免把最终失败等同于记忆无用，也避免检索指标替代行为证据。",
+        "recommendation": {
+          "score": 58,
+          "level": "高",
+          "label": "多步骤代理记忆使用归因",
+          "water_risk": "中",
+          "value_judgement": "为长期工具代理增加“送达→被采用→局部效果→最终结果”的分解，避免把最终失败等同于记忆无用，也避免检索指标替代行为证据。",
+          "reason": "为长期工具代理增加“送达→被采用→局部效果→最终结果”的分解，避免把最终失败等同于记忆无用，也避免检索指标替代行为证据。",
+          "signals": {
+            "agenticRl": false,
+            "multiTurn": true,
+            "longHorizon": true,
+            "memory": true,
+            "reliability": false,
+            "codeOrTool": false,
+            "experiments": true,
+            "survey": false
+          }
+        },
+        "insight": "为长期工具代理增加“送达→被采用→局部效果→最终结果”的分解，避免把最终失败等同于记忆无用，也避免检索指标替代行为证据。",
+        "abstract_zh": "MemUse追踪记忆送达后的实际行动；8000个编码episode中成功率近似，但大多数记忆未用，观察效果也常被最终成败遮蔽。",
+        "full_summary": "检索到相关记忆与最终任务通过，都不能证明代理在何时用了什么记忆、产生什么效果。MemUse以每次投递及后续信用窗口为单位，比较代理原有上下文，让agentic judge读取证据并分别判相关、准确、新颖、影响和观察效果；程序检查引用是否完整阅读，再用固定规则聚合。沿记录轨迹追踪跨任务记忆来源及重复投递成本。SWE-bench Verified全500题，四种记忆配置各4次，共8000记忆episode，另2000无记忆对照。成功率72.7–73.4%，无记忆73.0%，差值95%配对区间均含零；成本增8.8–293.2%。平均71.5–98.6%投递条目不相关，相关条目51.3–79.7%未用；23.2%的有益使用episode仍失败。",
+        "card_summary": "MemUse追踪记忆送达后的实际行动；8000个编码episode中成功率近似，但大多数记忆未用，观察效果也常被最终成败遮蔽。",
+        "limitations": "观察性LLM归因而非随机干预因果效应；judge看到gold patch，单一编码代理/模型与固定任务序列，MemGovern固定语料存在benchmark源讨论和修复细节重叠。不能据此断言记忆普遍无效。"
+      },
+      "analysis": {
+        "motivation": "检索到相关记忆与最终任务通过，都不能证明代理在何时用了什么记忆、产生什么效果。",
+        "method": "MemUse以每次投递及后续信用窗口为单位，比较代理原有上下文，让agentic judge读取证据并分别判相关、准确、新颖、影响和观察效果；程序检查引用是否完整阅读，再用固定规则聚合。沿记录轨迹追踪跨任务记忆来源及重复投递成本。",
+        "experiments": "SWE-bench Verified全500题，四种记忆配置各4次，共8000记忆episode，另2000无记忆对照。成功率72.7–73.4%，无记忆73.0%，差值95%配对区间均含零；成本增8.8–293.2%。平均71.5–98.6%投递条目不相关，相关条目51.3–79.7%未用；23.2%的有益使用episode仍失败。",
+        "research_help": "为长期工具代理增加“送达→被采用→局部效果→最终结果”的分解，避免把最终失败等同于记忆无用，也避免检索指标替代行为证据。",
+        "insight": "为长期工具代理增加“送达→被采用→局部效果→最终结果”的分解，避免把最终失败等同于记忆无用，也避免检索指标替代行为证据。",
+        "card_summary": "MemUse追踪记忆送达后的实际行动；8000个编码episode中成功率近似，但大多数记忆未用，观察效果也常被最终成败遮蔽。",
+        "abstract_zh": "MemUse追踪记忆送达后的实际行动；8000个编码episode中成功率近似，但大多数记忆未用，观察效果也常被最终成败遮蔽。",
+        "full_summary": "检索到相关记忆与最终任务通过，都不能证明代理在何时用了什么记忆、产生什么效果。MemUse以每次投递及后续信用窗口为单位，比较代理原有上下文，让agentic judge读取证据并分别判相关、准确、新颖、影响和观察效果；程序检查引用是否完整阅读，再用固定规则聚合。沿记录轨迹追踪跨任务记忆来源及重复投递成本。SWE-bench Verified全500题，四种记忆配置各4次，共8000记忆episode，另2000无记忆对照。成功率72.7–73.4%，无记忆73.0%，差值95%配对区间均含零；成本增8.8–293.2%。平均71.5–98.6%投递条目不相关，相关条目51.3–79.7%未用；23.2%的有益使用episode仍失败。",
+        "limitations": "观察性LLM归因而非随机干预因果效应；judge看到gold patch，单一编码代理/模型与固定任务序列，MemGovern固定语料存在benchmark源讨论和修复细节重叠。不能据此断言记忆普遍无效。",
+        "source_scope": "full_text",
+        "source_note": "人工核读arXiv PDF正文及相关附录；关键表图经渲染核对。嵌套gpt-6.1-sol阅读器因本地状态库权限失败，本条由当前自动化人工核读补全。",
+        "source_evidence": [
+          "§3：投递、信用窗口与五维判定",
+          "§4表2、图3–5：配对区间、使用率与成本",
+          "附录A.6.7：MemGovern语料来源重叠"
+        ],
+        "model": "manual-full-text-review",
+        "updated_at": "2026-11-04T01:35:54.116494+00:00",
+        "recommendation_level": "高",
+        "water_risk": "中",
+        "value_label": "多步骤代理记忆使用归因",
+        "value_reason": "为长期工具代理增加“送达→被采用→局部效果→最终结果”的分解，避免把最终失败等同于记忆无用，也避免检索指标替代行为证据。"
+      }
+    },
+    {
+      "id": "2611.01977v1",
+      "title": "EvoRec: A Unified Self-Evolving Agentic Recommender with Dynamic Reflection Trees",
+      "summary": "Conventional recommender systems rely on fixed cascaded pipelines, limiting their ability to adapt to evolving user needs and feedback. Existing agentic recommenders introduce reasoning and tool use but often lack end-to-end decision control and systematic failure reflection. We propose EvoRec, a unified agentic recommendation framework that combines autonomous decision-making with reflection-driven self-evolution. A Need Agent infers user needs from long-term, short-term, and working memory. A Planning Agent adaptively allocates retrieval budgets between Behavior Continuation and Need Satisfaction, selects retrieval tools, and sets ranking-fusion weights. An Acting Executor executes the plan and records decision traces. Following user feedback, a Dynamic Reflection Tree identifies failures in need inference, planning, or previous repairs, proposes personalized corrections, and validates them through replay. Verified repairs update working memory and are distilled into reusable cross-user strategies, enabling continual improvement without parameter updates. Experiments on a Kuaishou local-services advertising dataset show a 15.7% Hit@50 improvement over the strongest baseline. Hierarchical reflection further improves Hit@50 by 13.1% among users with prior repairs. In a seven-day online A/B test, nearline EvoRec increases advertising revenue by 4.6% and CTCVR by 3.5%, with a 14.5% revenue gain for high-intent users. These results demonstrate the effectiveness of reflection-driven self-evolution in industrial-scale recommendation.",
+      "url": "http://arxiv.org/abs/2611.01977v1",
+      "authors": [
+        "Mengting Li",
+        "Long Zhang",
+        "Hao Jiang",
+        "Sheng Yu",
+        "Fei Pan",
+        "Peng Jiang"
+      ],
+      "report_date": "2026-11-04",
+      "published": "2026-11-01",
+      "updated": "2026-11-01",
+      "primary_category": "cs.IR",
+      "categories": [
+        "cs.IR"
+      ],
+      "project_url": "",
+      "repo_url": "",
+      "venue_status": "未确认录用",
+      "recommendation": {
+        "score": 90,
+        "level": "高",
+        "label": "反馈驱动的规划与反思记忆",
+        "water_risk": "中",
+        "value_judgement": "把任务决策分解成可定位的反思节点，再让修复经过反馈重放验证，可以避免每次失败都写成泛化“经验”；近线与在线分工也使多步骤推理成本可控。",
+        "reason": "把任务决策分解成可定位的反思节点，再让修复经过反馈重放验证，可以避免每次失败都写成泛化“经验”；近线与在线分工也使多步骤推理成本可控。",
+        "signals": {
+          "agenticRl": false,
+          "multiTurn": true,
+          "longHorizon": true,
+          "memory": true,
+          "reliability": true,
+          "codeOrTool": true,
+          "experiments": true,
+          "survey": false
+        }
+      },
+      "brief": {
+        "authors": [
+          "Mengting Li",
+          "Long Zhang",
+          "Hao Jiang",
+          "Sheng Yu",
+          "Fei Pan",
+          "Peng Jiang"
+        ],
+        "affiliations": "Kuaishou",
+        "date": "2026-11-01",
+        "paper_url": "https://arxiv.org/abs/2611.01977v1",
+        "project_url": "",
+        "repo_url": "",
+        "venue_status": "未确认录用",
+        "contribution": "反馈驱动的规划与反思记忆",
+        "summary": "固定推荐流水线难以随用户需求调整工具预算，简单反思也难定位需求、计划或既有修复中的错误。Need读取长短期及工作记忆，Plan分配两条检索路径预算、选择工具及融合权重，Act执行并留痕。动态反思树根据后续点击/转化定位错误，以重放验证个性化修复，再提炼跨用户策略；无参数更新。近线预计算候选，线上复用现有精排器。28227用户、355163候选，过去7天反馈积累后预测次日。Hit@50较最强基线相对增15.7%；反思对全用户仅增2.4%，有工作记忆的18.5%用户增13.1%。七天线上A/B各约5%合格流量，在部署范围广告收入+4.6%、CTCVR+3.5%；均为相对变化，非百分点或整个平台增益。",
+        "highlights": [
+          "§3.2–3.4：预算规划、重放验证与近线服务",
+          "表1、5：总体与记忆用户子群",
+          "§4.4表6：七天A/B及部署范围"
+        ],
+        "motivation": "固定推荐流水线难以随用户需求调整工具预算，简单反思也难定位需求、计划或既有修复中的错误。",
+        "method": "Need读取长短期及工作记忆，Plan分配两条检索路径预算、选择工具及融合权重，Act执行并留痕。动态反思树根据后续点击/转化定位错误，以重放验证个性化修复，再提炼跨用户策略；无参数更新。近线预计算候选，线上复用现有精排器。",
+        "experiments": "28227用户、355163候选，过去7天反馈积累后预测次日。Hit@50较最强基线相对增15.7%；反思对全用户仅增2.4%，有工作记忆的18.5%用户增13.1%。七天线上A/B各约5%合格流量，在部署范围广告收入+4.6%、CTCVR+3.5%；均为相对变化，非百分点或整个平台增益。",
+        "research_help": "把任务决策分解成可定位的反思节点，再让修复经过反馈重放验证，可以避免每次失败都写成泛化“经验”；近线与在线分工也使多步骤推理成本可控。",
+        "recommendation": {
+          "score": 90,
+          "level": "高",
+          "label": "反馈驱动的规划与反思记忆",
+          "water_risk": "中",
+          "value_judgement": "把任务决策分解成可定位的反思节点，再让修复经过反馈重放验证，可以避免每次失败都写成泛化“经验”；近线与在线分工也使多步骤推理成本可控。",
+          "reason": "把任务决策分解成可定位的反思节点，再让修复经过反馈重放验证，可以避免每次失败都写成泛化“经验”；近线与在线分工也使多步骤推理成本可控。",
+          "signals": {
+            "agenticRl": false,
+            "multiTurn": true,
+            "longHorizon": true,
+            "memory": true,
+            "reliability": true,
+            "codeOrTool": true,
+            "experiments": true,
+            "survey": false
+          }
+        },
+        "insight": "把任务决策分解成可定位的反思节点，再让修复经过反馈重放验证，可以避免每次失败都写成泛化“经验”；近线与在线分工也使多步骤推理成本可控。",
+        "abstract_zh": "EvoRec用用户反馈修复检索计划并累积反思记忆；反思使全用户Hit@50相对增2.4%，部署范围线上收入增4.6%。",
+        "full_summary": "固定推荐流水线难以随用户需求调整工具预算，简单反思也难定位需求、计划或既有修复中的错误。Need读取长短期及工作记忆，Plan分配两条检索路径预算、选择工具及融合权重，Act执行并留痕。动态反思树根据后续点击/转化定位错误，以重放验证个性化修复，再提炼跨用户策略；无参数更新。近线预计算候选，线上复用现有精排器。28227用户、355163候选，过去7天反馈积累后预测次日。Hit@50较最强基线相对增15.7%；反思对全用户仅增2.4%，有工作记忆的18.5%用户增13.1%。七天线上A/B各约5%合格流量，在部署范围广告收入+4.6%、CTCVR+3.5%；均为相对变化，非百分点或整个平台增益。",
+        "card_summary": "EvoRec用用户反馈修复检索计划并累积反思记忆；反思使全用户Hit@50相对增2.4%，部署范围线上收入增4.6%。",
+        "limitations": "单一私有广告业务；收益是全系统效果，不能单独归因反思树。线上反思限高意图用户，未披露绝对样本规模及置信区间；不属于agentic RL训练或自由多轮对话评测。"
+      },
+      "analysis": {
+        "motivation": "固定推荐流水线难以随用户需求调整工具预算，简单反思也难定位需求、计划或既有修复中的错误。",
+        "method": "Need读取长短期及工作记忆，Plan分配两条检索路径预算、选择工具及融合权重，Act执行并留痕。动态反思树根据后续点击/转化定位错误，以重放验证个性化修复，再提炼跨用户策略；无参数更新。近线预计算候选，线上复用现有精排器。",
+        "experiments": "28227用户、355163候选，过去7天反馈积累后预测次日。Hit@50较最强基线相对增15.7%；反思对全用户仅增2.4%，有工作记忆的18.5%用户增13.1%。七天线上A/B各约5%合格流量，在部署范围广告收入+4.6%、CTCVR+3.5%；均为相对变化，非百分点或整个平台增益。",
+        "research_help": "把任务决策分解成可定位的反思节点，再让修复经过反馈重放验证，可以避免每次失败都写成泛化“经验”；近线与在线分工也使多步骤推理成本可控。",
+        "insight": "把任务决策分解成可定位的反思节点，再让修复经过反馈重放验证，可以避免每次失败都写成泛化“经验”；近线与在线分工也使多步骤推理成本可控。",
+        "card_summary": "EvoRec用用户反馈修复检索计划并累积反思记忆；反思使全用户Hit@50相对增2.4%，部署范围线上收入增4.6%。",
+        "abstract_zh": "EvoRec用用户反馈修复检索计划并累积反思记忆；反思使全用户Hit@50相对增2.4%，部署范围线上收入增4.6%。",
+        "full_summary": "固定推荐流水线难以随用户需求调整工具预算，简单反思也难定位需求、计划或既有修复中的错误。Need读取长短期及工作记忆，Plan分配两条检索路径预算、选择工具及融合权重，Act执行并留痕。动态反思树根据后续点击/转化定位错误，以重放验证个性化修复，再提炼跨用户策略；无参数更新。近线预计算候选，线上复用现有精排器。28227用户、355163候选，过去7天反馈积累后预测次日。Hit@50较最强基线相对增15.7%；反思对全用户仅增2.4%，有工作记忆的18.5%用户增13.1%。七天线上A/B各约5%合格流量，在部署范围广告收入+4.6%、CTCVR+3.5%；均为相对变化，非百分点或整个平台增益。",
+        "limitations": "单一私有广告业务；收益是全系统效果，不能单独归因反思树。线上反思限高意图用户，未披露绝对样本规模及置信区间；不属于agentic RL训练或自由多轮对话评测。",
+        "source_scope": "full_text",
+        "source_note": "人工核读arXiv PDF正文及相关附录；关键表图经渲染核对。嵌套gpt-6.1-sol阅读器因本地状态库权限失败，本条由当前自动化人工核读补全。",
+        "source_evidence": [
+          "§3.2–3.4：预算规划、重放验证与近线服务",
+          "表1、5：总体与记忆用户子群",
+          "§4.4表6：七天A/B及部署范围"
+        ],
+        "model": "manual-full-text-review",
+        "updated_at": "2026-11-04T01:35:54.116494+00:00",
+        "recommendation_level": "高",
+        "water_risk": "中",
+        "value_label": "反馈驱动的规划与反思记忆",
+        "value_reason": "把任务决策分解成可定位的反思节点，再让修复经过反馈重放验证，可以避免每次失败都写成泛化“经验”；近线与在线分工也使多步骤推理成本可控。"
+      }
+    },
     {
       "id": "2610.41040v1",
       "title": "Capability-Grounded Agentic Planning",
