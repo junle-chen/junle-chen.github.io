@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-05T01:30:32.742780+00:00",
+  "updated_at": "2026-11-06T01:30:17.840835+00:00",
   "source": "arxiv",
   "analysis_method": "Codex CLI workflow with manual arXiv PDF full-text review and rendered result-page verification; per-item source notes identify the analysis path.",
   "query_focus": "多轮交互式 agent planning、long-horizon planning、stateful/personalized planning、agent memory、planning reliability、agentic RL",
@@ -37,59 +37,404 @@
     "codex_reader": "Downloads arXiv PDFs, extracts text with pdftotext or bundled Python PDF libraries, then calls codex exec to write Chinese motivation/method/experiment/research-help fields."
   },
   "digest": {
-    "title": "2026-11-05 Daily Paper",
-    "report_date": "2026-11-05",
+    "title": "2026-11-06 Daily Paper",
+    "report_date": "2026-11-06",
     "focus": "多轮交互式 agent planning、long-horizon planning、stateful/personalized planning、agent memory、planning reliability、agentic RL",
-    "summary": "今日从16篇候选中核读并新增7篇强相关论文，覆盖联合规划执行RL、在线harness演化、动态规划评测、推测解码数值机制、工具环境合成、回合反馈稳定性与实体闭环重规划。详情区分作者报告、机制假说和实验适用边界。",
+    "summary": "今日核读并新增3篇强相关论文：多轮RL的预算依赖与BudgetMix、以重建奖励训练的轨迹压缩器SumOne、历史归因的反事实与恢复校验规范。详情区分实验结果、机制线索与未执行提案，并标注正文和表格的不一致。",
     "top_recommendations": [
-      "2611.05263v1",
-      "2611.05139v1",
-      "2611.05036v1"
+      "2611.06483v1",
+      "2611.06445v1",
+      "2611.05650v1"
     ],
     "low_priority": [],
     "no_news_policy": "如果没有新的高相关论文，自动化应返回“今日无高相关新增论文”，不写邮件正文文件，也不发送邮件。",
-    "email_body": "2026-11-05 Daily Paper\n\n今日从16篇候选中核读并新增7篇强相关论文，覆盖联合规划执行RL、在线harness演化、动态规划评测、推测解码数值机制、工具环境合成、回合反馈稳定性与实体闭环重规划。详情区分作者报告、机制假说和实验适用边界。\n\nJHiMA-WebRL: A Joint Hierarchical Multi-Agent Reinforcement Learning Framework for Long-Horizon Web Tasks\nhttp://arxiv.org/abs/2611.05263v1\n联合训练7B规划器与7B执行器，WebArena-Lite-v2成功率37.2%；规划只在起点生成。\n\nMeta$^2$: Precomputing Reusable Knowledge for Online Harness Evolution in Long-Horizon Agents\nhttp://arxiv.org/abs/2611.05139v1\nMeta²离线学习如何演化harness，再在当前任务内修改；两个留出集得81.00%和44.44%。\n\nDualWorldBench: Can Agents Plan Deliveries across Symbolic and Grounded Worlds?\nhttp://arxiv.org/abs/2611.04228v1\nDualWorldBench把动态派送规划与地图拓扑分开评测，区分计划可行、完成率和路线效率。\n\nAdversarial Speculative Reasoning Improves Long Horizon Agents\nhttp://arxiv.org/abs/2611.05345v1\n训练draft在关键决策处被拒绝，编码任务出现增益；KV精度解释仍需独立验证。\n\nToolSpace: Scaling Tool-Centric Environment Synthesis for Long-Horizon Agents\nhttp://arxiv.org/abs/2611.05036v1\nToolSpace从真实工具调用依赖合成可回放长程任务，35B七项平均23.0→41.0，RL后43.2。\n\nStabilizing On-Policy Targeted Guidance in Agentic Reinforcement Learning\nhttp://arxiv.org/abs/2611.05266v1\n仅对失败回合蒸馏文本反馈，并配合RL，改善工具格式和风格且保持编码通过率约0.33。\n\nActOR: Ambient AI-Based Agentic Orchestration for Humanoid Autonomy in Operating Rooms\nhttp://arxiv.org/abs/2611.04255v1\nActOR结合房间相机、数字孪生与失败反馈重规划；模拟扰动成功31/60，实体单物体14/20。"
+    "email_body": "2026-11-06 Daily Paper\n\n今日核读并新增3篇强相关论文：多轮RL的预算依赖与BudgetMix、以重建奖励训练的轨迹压缩器SumOne、历史归因的反事实与恢复校验规范。详情区分实验结果、机制线索与未执行提案，并标注正文和表格的不一致。\n\nWhat Does Multi-Turn Reinforcement Learning Really Improve in LLM Agents?\nhttp://arxiv.org/abs/2611.06483v1\n多轮RL更擅长纠错而非均匀提升每步决策；混合交互预算训练改善紧预算表现。\n\nSUMONE: A Simple and Efficient Summarizer for Plug-and-Play Agent Memory\nhttp://arxiv.org/abs/2611.06445v1\nSumOne用掩码重建奖励训练2B轨迹压缩器，以少量性能损失降低长程搜索和编码成本。\n\nAttributing Agent Failures to Their History Needs an Executed Counterfactual: Toward a Reporting Standard\nhttp://arxiv.org/abs/2611.05650v1\n历史导致agent失败的解释需要执行反事实，并用真实续跑校验恢复状态；本文是规范提案。"
   },
   "latest_item_ids": [
-    "2611.05263v1",
-    "2611.05139v1",
-    "2611.04228v1",
-    "2611.05345v1",
-    "2611.05036v1",
-    "2611.05266v1",
-    "2611.04255v1"
+    "2611.06483v1",
+    "2611.06445v1",
+    "2611.05650v1"
   ],
   "archive": {
     "policy": "append_or_update_by_arxiv_id",
-    "fresh_items": 7,
-    "total_items": 561,
-    "previous_items": 554,
-    "latest_items": 7,
+    "fresh_items": 3,
+    "total_items": 564,
+    "previous_items": 561,
+    "latest_items": 3,
     "source_report_dates": {
+      "2026-11-06": 3,
       "2026-11-05": 7,
       "undefined": 554
     },
     "filtered_candidate_ids": [
-      "2611.05263v1",
-      "2611.05139v1",
-      "2611.04228v1",
-      "2611.05345v1",
-      "2611.05036v1",
-      "2611.05266v1",
-      "2611.04255v1"
+      "2611.06483v1",
+      "2611.06445v1",
+      "2611.05650v1"
     ],
-    "filtered_today": 7,
+    "filtered_today": 3,
     "rejected_candidate_ids": [
-      "2611.04957v1",
-      "2611.04774v1",
-      "2611.04838v1",
-      "2611.03868v1",
-      "2611.02310v1",
-      "2611.03930v1",
-      "2611.03138v1"
+      "2611.06523v1",
+      "2611.05847v1",
+      "2611.05791v1",
+      "2611.05266v2",
+      "2611.05524v1",
+      "2611.05636v1",
+      "2611.04957v1"
     ]
   },
   "items": [
+    {
+      "id": "2611.06483v1",
+      "title": "What Does Multi-Turn Reinforcement Learning Really Improve in LLM Agents?",
+      "summary": "While multi-turn agentic reinforcement learning (RL) excels on long-horizon tasks, its performance gains remain highly sensitive to interaction constraints. Evaluating across sampling breadth $K$ and interaction depth $T$ via $Pass@(K,T)$, we show that trajectory-level RL advantages depend on sufficient turn budgets, diminishing significantly when budgets tighten. Besides, agentic RL does not uniformly elevate single-step decision quality; rather, its strength concentrates in error recovery and long-horizon resilience. To mitigate the deployment risks caused by this budget dependence, we provide a preliminary discussion on the benefits and limitations of process supervision signals and introduce BudgetMix RL as an alternative that varies interaction budgets during training. Experiments demonstrate that BudgetMix RL achieves robust performance across diverse execution settings. Project Page: https://rethinking-agentic-rl.github.io/",
+      "url": "http://arxiv.org/abs/2611.06483v1",
+      "authors": [
+        "Kejian Zhu",
+        "Zhuoran Jin",
+        "Shangqing Tu",
+        "Tianyi Men",
+        "Yupu Hao",
+        "Jiachun Li",
+        "Kang Liu",
+        "Jun Zhao"
+      ],
+      "report_date": "2026-11-06",
+      "published": "2026-11-04",
+      "updated": "2026-11-04",
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG",
+        "cs.CL"
+      ],
+      "project_url": "https://rethinking-agentic-rl.github.io/",
+      "repo_url": "",
+      "venue_status": "未确认录用",
+      "recommendation": {
+        "score": 98,
+        "level": "高",
+        "label": "多轮RL更擅长纠错而非均匀提升每步决策",
+        "water_risk": "中",
+        "value_judgement": "研究多轮RL时应同时报告K、T、匹配状态上的动作质量及错误恢复率；可把部署资源约束作为训练分布的一部分。轨迹收益不自动证明每一步更聪明。",
+        "reason": "研究多轮RL时应同时报告K、T、匹配状态上的动作质量及错误恢复率；可把部署资源约束作为训练分布的一部分。轨迹收益不自动证明每一步更聪明。",
+        "signals": {
+          "agenticRl": true,
+          "multiTurn": true,
+          "longHorizon": true,
+          "memory": false,
+          "reliability": true,
+          "codeOrTool": true,
+          "experiments": true,
+          "survey": false
+        }
+      },
+      "brief": {
+        "authors": [
+          "Kejian Zhu",
+          "Zhuoran Jin",
+          "Shangqing Tu",
+          "Tianyi Men",
+          "Yupu Hao",
+          "Jiachun Li",
+          "Kang Liu",
+          "Jun Zhao"
+        ],
+        "affiliations": "中国科学院自动化研究所；中国科学院大学；清华大学",
+        "date": "2026-11-04",
+        "paper_url": "https://arxiv.org/abs/2611.06483v1",
+        "project_url": "https://rethinking-agentic-rl.github.io/",
+        "repo_url": "",
+        "venue_status": "未确认录用",
+        "contribution": "研究多轮RL时应同时报告K、T、匹配状态上的动作质量及错误恢复率；可把部署资源约束作为训练分布的一部分。轨迹收益不自动证明每一步更聪明。",
+        "summary": "只看整轨迹成功率会掩盖部署预算缩小时的退化，也无法判断RL究竟提高局部动作质量还是恢复能力。用Pass@(K,T)分别扫描采样广度和交互深度，在相同状态及历史上比较下一步动作。BudgetMix在每个任务组均匀采样最大预算10%到100%的去重取整预算，并提示总预算及剩余预算；超预算未完成记零奖励，可配合GRPO、GiGPO或PPO。Qwen3-4B/8B在FrozenLake、DeepCoder-MT、BFCL-v3、InterCode-SQL评测，表1为Pass@8。8B GRPO在DeepCoder-MT的25%预算下从Full的31.5%到BudgetMix的45.5%，完整预算66.5%到66.8%。BFCL的191个相同错误前缀上，RL下一步纠错率41.4%，Base为27.2%。标准GRPO在DeepCoder-MT训练中轨迹奖励增0.331而单步奖励降0.097；BudgetMix分别增0.323/0.006。",
+        "highlights": [
+          "研究多轮RL时应同时报告K、T、匹配状态上的动作质量及错误恢复率；可把部署资源约束作为训练分布的一部分。轨迹收益不自动证明每一步更聪明。",
+          "阅读来源：arXiv PDF全文"
+        ],
+        "motivation": "只看整轨迹成功率会掩盖部署预算缩小时的退化，也无法判断RL究竟提高局部动作质量还是恢复能力。",
+        "method": "用Pass@(K,T)分别扫描采样广度和交互深度，在相同状态及历史上比较下一步动作。BudgetMix在每个任务组均匀采样最大预算10%到100%的去重取整预算，并提示总预算及剩余预算；超预算未完成记零奖励，可配合GRPO、GiGPO或PPO。",
+        "experiments": "Qwen3-4B/8B在FrozenLake、DeepCoder-MT、BFCL-v3、InterCode-SQL评测，表1为Pass@8。8B GRPO在DeepCoder-MT的25%预算下从Full的31.5%到BudgetMix的45.5%，完整预算66.5%到66.8%。BFCL的191个相同错误前缀上，RL下一步纠错率41.4%，Base为27.2%。标准GRPO在DeepCoder-MT训练中轨迹奖励增0.331而单步奖励降0.097；BudgetMix分别增0.323/0.006。",
+        "research_help": "研究多轮RL时应同时报告K、T、匹配状态上的动作质量及错误恢复率；可把部署资源约束作为训练分布的一部分。轨迹收益不自动证明每一步更聪明。",
+        "recommendation": {
+          "score": 98,
+          "level": "高",
+          "label": "多轮RL更擅长纠错而非均匀提升每步决策",
+          "water_risk": "中",
+          "value_judgement": "研究多轮RL时应同时报告K、T、匹配状态上的动作质量及错误恢复率；可把部署资源约束作为训练分布的一部分。轨迹收益不自动证明每一步更聪明。",
+          "reason": "研究多轮RL时应同时报告K、T、匹配状态上的动作质量及错误恢复率；可把部署资源约束作为训练分布的一部分。轨迹收益不自动证明每一步更聪明。",
+          "signals": {
+            "agenticRl": true,
+            "multiTurn": true,
+            "longHorizon": true,
+            "memory": false,
+            "reliability": true,
+            "codeOrTool": true,
+            "experiments": true,
+            "survey": false
+          }
+        },
+        "insight": "研究多轮RL时应同时报告K、T、匹配状态上的动作质量及错误恢复率；可把部署资源约束作为训练分布的一部分。轨迹收益不自动证明每一步更聪明。",
+        "card_summary": "多轮RL更擅长纠错而非均匀提升每步决策；混合交互预算训练改善紧预算表现。",
+        "abstract_zh": "只看整轨迹成功率会掩盖部署预算缩小时的退化，也无法判断RL究竟提高局部动作质量还是恢复能力。用Pass@(K,T)分别扫描采样广度和交互深度，在相同状态及历史上比较下一步动作。BudgetMix在每个任务组均匀采样最大预算10%到100%的去重取整预算，并提示总预算及剩余预算；超预算未完成记零奖励，可配合GRPO、GiGPO或PPO。",
+        "full_summary": "只看整轨迹成功率会掩盖部署预算缩小时的退化，也无法判断RL究竟提高局部动作质量还是恢复能力。用Pass@(K,T)分别扫描采样广度和交互深度，在相同状态及历史上比较下一步动作。BudgetMix在每个任务组均匀采样最大预算10%到100%的去重取整预算，并提示总预算及剩余预算；超预算未完成记零奖励，可配合GRPO、GiGPO或PPO。Qwen3-4B/8B在FrozenLake、DeepCoder-MT、BFCL-v3、InterCode-SQL评测，表1为Pass@8。8B GRPO在DeepCoder-MT的25%预算下从Full的31.5%到BudgetMix的45.5%，完整预算66.5%到66.8%。BFCL的191个相同错误前缀上，RL下一步纠错率41.4%，Base为27.2%。标准GRPO在DeepCoder-MT训练中轨迹奖励增0.331而单步奖励降0.097；BudgetMix分别增0.323/0.006。",
+        "limitations": "局部动作质量依赖任务特定打分和状态采样，不能推广成所有agentic RL只学会纠错。似然分析是机制线索；不证明新能力的严格支持集变化。Pass@8不是单次成功率。表1个别满预算格略降，如8B GiGPO BFCL 43.5→43.2，因此“始终更优”不成立；未独立复现实验。"
+      },
+      "analysis": {
+        "motivation": "只看整轨迹成功率会掩盖部署预算缩小时的退化，也无法判断RL究竟提高局部动作质量还是恢复能力。",
+        "method": "用Pass@(K,T)分别扫描采样广度和交互深度，在相同状态及历史上比较下一步动作。BudgetMix在每个任务组均匀采样最大预算10%到100%的去重取整预算，并提示总预算及剩余预算；超预算未完成记零奖励，可配合GRPO、GiGPO或PPO。",
+        "experiments": "Qwen3-4B/8B在FrozenLake、DeepCoder-MT、BFCL-v3、InterCode-SQL评测，表1为Pass@8。8B GRPO在DeepCoder-MT的25%预算下从Full的31.5%到BudgetMix的45.5%，完整预算66.5%到66.8%。BFCL的191个相同错误前缀上，RL下一步纠错率41.4%，Base为27.2%。标准GRPO在DeepCoder-MT训练中轨迹奖励增0.331而单步奖励降0.097；BudgetMix分别增0.323/0.006。",
+        "research_help": "研究多轮RL时应同时报告K、T、匹配状态上的动作质量及错误恢复率；可把部署资源约束作为训练分布的一部分。轨迹收益不自动证明每一步更聪明。",
+        "insight": "研究多轮RL时应同时报告K、T、匹配状态上的动作质量及错误恢复率；可把部署资源约束作为训练分布的一部分。轨迹收益不自动证明每一步更聪明。",
+        "card_summary": "多轮RL更擅长纠错而非均匀提升每步决策；混合交互预算训练改善紧预算表现。",
+        "abstract_zh": "只看整轨迹成功率会掩盖部署预算缩小时的退化，也无法判断RL究竟提高局部动作质量还是恢复能力。用Pass@(K,T)分别扫描采样广度和交互深度，在相同状态及历史上比较下一步动作。BudgetMix在每个任务组均匀采样最大预算10%到100%的去重取整预算，并提示总预算及剩余预算；超预算未完成记零奖励，可配合GRPO、GiGPO或PPO。",
+        "full_summary": "只看整轨迹成功率会掩盖部署预算缩小时的退化，也无法判断RL究竟提高局部动作质量还是恢复能力。用Pass@(K,T)分别扫描采样广度和交互深度，在相同状态及历史上比较下一步动作。BudgetMix在每个任务组均匀采样最大预算10%到100%的去重取整预算，并提示总预算及剩余预算；超预算未完成记零奖励，可配合GRPO、GiGPO或PPO。Qwen3-4B/8B在FrozenLake、DeepCoder-MT、BFCL-v3、InterCode-SQL评测，表1为Pass@8。8B GRPO在DeepCoder-MT的25%预算下从Full的31.5%到BudgetMix的45.5%，完整预算66.5%到66.8%。BFCL的191个相同错误前缀上，RL下一步纠错率41.4%，Base为27.2%。标准GRPO在DeepCoder-MT训练中轨迹奖励增0.331而单步奖励降0.097；BudgetMix分别增0.323/0.006。",
+        "limitations": "局部动作质量依赖任务特定打分和状态采样，不能推广成所有agentic RL只学会纠错。似然分析是机制线索；不证明新能力的严格支持集变化。Pass@8不是单次成功率。表1个别满预算格略降，如8B GiGPO BFCL 43.5→43.2，因此“始终更优”不成立；未独立复现实验。",
+        "source_scope": "full_text",
+        "source_note": "直接核读arXiv PDF正文及相关附录；BudgetMix与SumOne主表经渲染核对。嵌套阅读器权限失败，本条由当前自动化全文核读补全。",
+        "source_evidence": [
+          "§2–3：Pass@(K,T)及匹配状态协议",
+          "§5.2、表1（PDF第9页渲染）：预算采样和Pass@8",
+          "图8、附录E.4：奖励变化和191前缀纠错"
+        ],
+        "model": "manual-full-text-review",
+        "updated_at": "2026-11-06T01:30:17.840835+00:00",
+        "recommendation_level": "高",
+        "water_risk": "中",
+        "value_label": "多轮RL更擅长纠错而非均匀提升每步决策",
+        "value_reason": "研究多轮RL时应同时报告K、T、匹配状态上的动作质量及错误恢复率；可把部署资源约束作为训练分布的一部分。轨迹收益不自动证明每一步更聪明。"
+      },
+      "source_report_date": "2026-11-06",
+      "affiliations": [
+        "中国科学院自动化研究所",
+        "中国科学院大学",
+        "清华大学"
+      ]
+    },
+    {
+      "id": "2611.06445v1",
+      "title": "SUMONE: A Simple and Efficient Summarizer for Plug-and-Play Agent Memory",
+      "summary": "Long-horizon language-model agents accumulate increasingly large interaction histories, making context compaction essential for efficient execution. Existing learned compaction methods often rely on downstream task outcomes or solver behavior, coupling training to specific tasks or agents. We introduce SumOne, a standalone summarizer trained to preserve information in agent histories through masked reconstruction. Given a summary of the expired history, a frozen reconstructor recovers randomly masked portions of the original trajectory; reconstruction quality, combined with a length penalty, provides a task-agnostic reward for optimizing the summarizer with GRPO. This yields self-supervision directly from raw trajectories, without reference summaries or downstream task execution. At inference time, only the lightweight summarizer is retained, enabling plug-and-play context compression for otherwise unchanged agents. We conduct a systematic evaluation of SumOne in long-horizon search and software-engineering tasks. SumOne reduces estimated inference cost by approximately 78\\% on DeepSearchQA and 75\\% on SWE-bench Verified relative to operating with full context, with absolute decreases of 0.04. The same checkpoint also transfers across downstream models and agent harnesses without additional fine-tuning.",
+      "url": "http://arxiv.org/abs/2611.06445v1",
+      "authors": [
+        "Jizhe Zhang",
+        "Ang Li",
+        "Chenheng Zhang",
+        "Yisen Wang"
+      ],
+      "report_date": "2026-11-06",
+      "published": "2026-11-04",
+      "updated": "2026-11-04",
+      "primary_category": "cs.AI",
+      "categories": [
+        "cs.AI"
+      ],
+      "project_url": "",
+      "repo_url": "",
+      "venue_status": "未确认录用",
+      "recommendation": {
+        "score": 94,
+        "level": "高",
+        "label": "SumOne用掩码重建奖励训练2B轨迹压缩器，以少量性能损失降低长程搜索和编码成本。",
+        "water_risk": "中",
+        "value_judgement": "无需每轮执行下游任务，可用可恢复性监督学习长轨迹信息保留；值得区分“摘要看起来好”与“摘要支持后续行动”。压缩质量应联合报告成本、任务成功和关键事实保留。",
+        "reason": "无需每轮执行下游任务，可用可恢复性监督学习长轨迹信息保留；值得区分“摘要看起来好”与“摘要支持后续行动”。压缩质量应联合报告成本、任务成功和关键事实保留。",
+        "signals": {
+          "agenticRl": true,
+          "multiTurn": true,
+          "longHorizon": true,
+          "memory": true,
+          "reliability": true,
+          "codeOrTool": false,
+          "experiments": false,
+          "survey": false
+        }
+      },
+      "brief": {
+        "authors": [
+          "Jizhe Zhang",
+          "Ang Li",
+          "Chenheng Zhang",
+          "Yisen Wang"
+        ],
+        "affiliations": "北京大学",
+        "date": "2026-11-04",
+        "paper_url": "https://arxiv.org/abs/2611.06445v1",
+        "project_url": "",
+        "repo_url": "",
+        "venue_status": "未确认录用",
+        "contribution": "无需每轮执行下游任务，可用可恢复性监督学习长轨迹信息保留；值得区分“摘要看起来好”与“摘要支持后续行动”。压缩质量应联合报告成本、任务成功和关键事实保留。",
+        "summary": "面向特定solver或任务终局奖励训练压缩器，容易耦合下游系统；希望只从原始交互轨迹学出可复用的信息保留模块。Qwen3.5-2B生成摘要；将过期历史按约512token分块，随机遮掉50%，冻结9B重建器依据摘要及可见上下文恢复内容。LLM裁判给precision/recall奖励，加长度惩罚后用GRPO训练；约5K搜索/编码压缩实例、600步。推理只保留摘要器，32K阈值触发压缩。表1以Qwen3.5-35B-A3B/OpenCode评测：DeepSearchQA F1从Full History 0.52到0.48，每查询估算成本$0.170→$0.038；SWE-bench Verified解决率0.63→0.59，成本$0.286→$0.071，分别约降78%/75%。相对Self-Summary的0.44/0.56均有提升。LongMemEval-S为0.47，高于Prompt-2B 0.43，但低于Full History 0.77。另测5种下游模型与4种harness迁移。",
+        "highlights": [
+          "无需每轮执行下游任务，可用可恢复性监督学习长轨迹信息保留；值得区分“摘要看起来好”与“摘要支持后续行动”。压缩质量应联合报告成本、任务成功和关键事实保留。",
+          "阅读来源：arXiv PDF全文"
+        ],
+        "motivation": "面向特定solver或任务终局奖励训练压缩器，容易耦合下游系统；希望只从原始交互轨迹学出可复用的信息保留模块。",
+        "method": "Qwen3.5-2B生成摘要；将过期历史按约512token分块，随机遮掉50%，冻结9B重建器依据摘要及可见上下文恢复内容。LLM裁判给precision/recall奖励，加长度惩罚后用GRPO训练；约5K搜索/编码压缩实例、600步。推理只保留摘要器，32K阈值触发压缩。",
+        "experiments": "表1以Qwen3.5-35B-A3B/OpenCode评测：DeepSearchQA F1从Full History 0.52到0.48，每查询估算成本$0.170→$0.038；SWE-bench Verified解决率0.63→0.59，成本$0.286→$0.071，分别约降78%/75%。相对Self-Summary的0.44/0.56均有提升。LongMemEval-S为0.47，高于Prompt-2B 0.43，但低于Full History 0.77。另测5种下游模型与4种harness迁移。",
+        "research_help": "无需每轮执行下游任务，可用可恢复性监督学习长轨迹信息保留；值得区分“摘要看起来好”与“摘要支持后续行动”。压缩质量应联合报告成本、任务成功和关键事实保留。",
+        "recommendation": {
+          "score": 94,
+          "level": "高",
+          "label": "SumOne用掩码重建奖励训练2B轨迹压缩器，以少量性能损失降低长程搜索和编码成本。",
+          "water_risk": "中",
+          "value_judgement": "无需每轮执行下游任务，可用可恢复性监督学习长轨迹信息保留；值得区分“摘要看起来好”与“摘要支持后续行动”。压缩质量应联合报告成本、任务成功和关键事实保留。",
+          "reason": "无需每轮执行下游任务，可用可恢复性监督学习长轨迹信息保留；值得区分“摘要看起来好”与“摘要支持后续行动”。压缩质量应联合报告成本、任务成功和关键事实保留。",
+          "signals": {
+            "agenticRl": true,
+            "multiTurn": true,
+            "longHorizon": true,
+            "memory": true,
+            "reliability": true,
+            "codeOrTool": false,
+            "experiments": false,
+            "survey": false
+          }
+        },
+        "insight": "无需每轮执行下游任务，可用可恢复性监督学习长轨迹信息保留；值得区分“摘要看起来好”与“摘要支持后续行动”。压缩质量应联合报告成本、任务成功和关键事实保留。",
+        "card_summary": "SumOne用掩码重建奖励训练2B轨迹压缩器，以少量性能损失降低长程搜索和编码成本。",
+        "abstract_zh": "面向特定solver或任务终局奖励训练压缩器，容易耦合下游系统；希望只从原始交互轨迹学出可复用的信息保留模块。Qwen3.5-2B生成摘要；将过期历史按约512token分块，随机遮掉50%，冻结9B重建器依据摘要及可见上下文恢复内容。LLM裁判给precision/recall奖励，加长度惩罚后用GRPO训练；约5K搜索/编码压缩实例、600步。推理只保留摘要器，32K阈值触发压缩。",
+        "full_summary": "面向特定solver或任务终局奖励训练压缩器，容易耦合下游系统；希望只从原始交互轨迹学出可复用的信息保留模块。Qwen3.5-2B生成摘要；将过期历史按约512token分块，随机遮掉50%，冻结9B重建器依据摘要及可见上下文恢复内容。LLM裁判给precision/recall奖励，加长度惩罚后用GRPO训练；约5K搜索/编码压缩实例、600步。推理只保留摘要器，32K阈值触发压缩。表1以Qwen3.5-35B-A3B/OpenCode评测：DeepSearchQA F1从Full History 0.52到0.48，每查询估算成本$0.170→$0.038；SWE-bench Verified解决率0.63→0.59，成本$0.286→$0.071，分别约降78%/75%。相对Self-Summary的0.44/0.56均有提升。LongMemEval-S为0.47，高于Prompt-2B 0.43，但低于Full History 0.77。另测5种下游模型与4种harness迁移。",
+        "limitations": "成本为论文按API价格估算，未独立验证实际计费或延迟。§4.2写SWE成本为Full的58%，与表1的0.071/0.286约25%矛盾；此处按渲染表格计算。表3 Codex与Self-Summary同为0.47，不能称所有harness都严格优于。重建裁判有偏差且训练集中于搜索/代码，未证明跨任意领域泛化。"
+      },
+      "analysis": {
+        "motivation": "面向特定solver或任务终局奖励训练压缩器，容易耦合下游系统；希望只从原始交互轨迹学出可复用的信息保留模块。",
+        "method": "Qwen3.5-2B生成摘要；将过期历史按约512token分块，随机遮掉50%，冻结9B重建器依据摘要及可见上下文恢复内容。LLM裁判给precision/recall奖励，加长度惩罚后用GRPO训练；约5K搜索/编码压缩实例、600步。推理只保留摘要器，32K阈值触发压缩。",
+        "experiments": "表1以Qwen3.5-35B-A3B/OpenCode评测：DeepSearchQA F1从Full History 0.52到0.48，每查询估算成本$0.170→$0.038；SWE-bench Verified解决率0.63→0.59，成本$0.286→$0.071，分别约降78%/75%。相对Self-Summary的0.44/0.56均有提升。LongMemEval-S为0.47，高于Prompt-2B 0.43，但低于Full History 0.77。另测5种下游模型与4种harness迁移。",
+        "research_help": "无需每轮执行下游任务，可用可恢复性监督学习长轨迹信息保留；值得区分“摘要看起来好”与“摘要支持后续行动”。压缩质量应联合报告成本、任务成功和关键事实保留。",
+        "insight": "无需每轮执行下游任务，可用可恢复性监督学习长轨迹信息保留；值得区分“摘要看起来好”与“摘要支持后续行动”。压缩质量应联合报告成本、任务成功和关键事实保留。",
+        "card_summary": "SumOne用掩码重建奖励训练2B轨迹压缩器，以少量性能损失降低长程搜索和编码成本。",
+        "abstract_zh": "面向特定solver或任务终局奖励训练压缩器，容易耦合下游系统；希望只从原始交互轨迹学出可复用的信息保留模块。Qwen3.5-2B生成摘要；将过期历史按约512token分块，随机遮掉50%，冻结9B重建器依据摘要及可见上下文恢复内容。LLM裁判给precision/recall奖励，加长度惩罚后用GRPO训练；约5K搜索/编码压缩实例、600步。推理只保留摘要器，32K阈值触发压缩。",
+        "full_summary": "面向特定solver或任务终局奖励训练压缩器，容易耦合下游系统；希望只从原始交互轨迹学出可复用的信息保留模块。Qwen3.5-2B生成摘要；将过期历史按约512token分块，随机遮掉50%，冻结9B重建器依据摘要及可见上下文恢复内容。LLM裁判给precision/recall奖励，加长度惩罚后用GRPO训练；约5K搜索/编码压缩实例、600步。推理只保留摘要器，32K阈值触发压缩。表1以Qwen3.5-35B-A3B/OpenCode评测：DeepSearchQA F1从Full History 0.52到0.48，每查询估算成本$0.170→$0.038；SWE-bench Verified解决率0.63→0.59，成本$0.286→$0.071，分别约降78%/75%。相对Self-Summary的0.44/0.56均有提升。LongMemEval-S为0.47，高于Prompt-2B 0.43，但低于Full History 0.77。另测5种下游模型与4种harness迁移。",
+        "limitations": "成本为论文按API价格估算，未独立验证实际计费或延迟。§4.2写SWE成本为Full的58%，与表1的0.071/0.286约25%矛盾；此处按渲染表格计算。表3 Codex与Self-Summary同为0.47，不能称所有harness都严格优于。重建裁判有偏差且训练集中于搜索/代码，未证明跨任意领域泛化。",
+        "source_scope": "full_text",
+        "source_note": "直接核读arXiv PDF正文及相关附录；BudgetMix与SumOne主表经渲染核对。嵌套阅读器权限失败，本条由当前自动化全文核读补全。",
+        "source_evidence": [
+          "§3–4.1：重建奖励、训练数据与32K阈值",
+          "表1（PDF第6页渲染）：分数与估算成本",
+          "表3–6、§5：迁移、消融和局限"
+        ],
+        "model": "manual-full-text-review",
+        "updated_at": "2026-11-06T01:30:17.840835+00:00",
+        "recommendation_level": "高",
+        "water_risk": "中",
+        "value_label": "SumOne用掩码重建奖励训练2B轨迹压缩器，以少量性能损失降低长程搜索和编码成本。",
+        "value_reason": "无需每轮执行下游任务，可用可恢复性监督学习长轨迹信息保留；值得区分“摘要看起来好”与“摘要支持后续行动”。压缩质量应联合报告成本、任务成功和关键事实保留。"
+      },
+      "source_report_date": "2026-11-06",
+      "affiliations": [
+        "北京大学"
+      ]
+    },
+    {
+      "id": "2611.05650v1",
+      "title": "Attributing Agent Failures to Their History Needs an Executed Counterfactual: Toward a Reporting Standard",
+      "summary": "Published explanations of why long-horizon agents fail are commonly taxonomies labeled over completed trajectories: a judge reads a transcript and names the failure. We argue that a claim attributing an agent's behavior to its history should carry intervention-verified evidence, per instance or via a validated estimator: freeze an executable mid-trajectory state, alter only the history the agent sees, and continue - executed rather than inferred from the transcript, at a state whose restoration has been measured, with a replay certificate matched to the estimand. Each of the four manipulation classes we name has a precedent, and several methods already execute interventions from checkpoints, re-executed prefixes or recorded conversation states (for example DoVer, REFLECT, Min et al., Who&When Pro, Causal Agent Replay), but none reports a measured replay certificate. Two cautionary measurements, neither applying the standard, follow: a carrier taxonomy whose \"concentration\" could not be separated from benchmark construction (adjusted odds ratio 1.15, interval crossing 1), and hash-identical snapshots that, restored into identically seeded processes, agreed with one another in 24 of 24 states while differing from the live continuation in 9 and 20 of 24. Restoring the captured position of a random stream made all 24 agree with the live run.",
+      "url": "http://arxiv.org/abs/2611.05650v1",
+      "authors": [
+        "Egor Pakhomov",
+        "Erik Nijkamp"
+      ],
+      "report_date": "2026-11-06",
+      "published": "2026-11-03",
+      "updated": "2026-11-03",
+      "primary_category": "cs.AI",
+      "categories": [
+        "cs.AI"
+      ],
+      "project_url": "",
+      "repo_url": "",
+      "venue_status": "未确认录用",
+      "recommendation": {
+        "score": 70,
+        "level": "高",
+        "label": "历史导致agent失败的解释需要执行反事实，并用真实续跑校验恢复状态",
+        "water_risk": "中",
+        "value_judgement": "长程agent压缩、纠错和记忆实验应加入未修改历史的live-vs-restored对照；克隆互相一致不足以证明恢复忠实。先明确估计的是路径行为、分布变化还是任务结局。",
+        "reason": "长程agent压缩、纠错和记忆实验应加入未修改历史的live-vs-restored对照；克隆互相一致不足以证明恢复忠实。先明确估计的是路径行为、分布变化还是任务结局。",
+        "signals": {
+          "agenticRl": false,
+          "multiTurn": false,
+          "longHorizon": true,
+          "memory": false,
+          "reliability": true,
+          "codeOrTool": false,
+          "experiments": true,
+          "survey": false
+        }
+      },
+      "brief": {
+        "authors": [
+          "Egor Pakhomov",
+          "Erik Nijkamp"
+        ],
+        "affiliations": "Salesforce AI Research",
+        "date": "2026-11-03",
+        "paper_url": "https://arxiv.org/abs/2611.05650v1",
+        "project_url": "",
+        "repo_url": "",
+        "venue_status": "未确认录用",
+        "contribution": "长程agent压缩、纠错和记忆实验应加入未修改历史的live-vs-restored对照；克隆互相一致不足以证明恢复忠实。先明确估计的是路径行为、分布变化还是任务结局。",
+        "summary": "事后阅读失败轨迹只能发现共现；即便快照哈希相同，遗漏随机流位置也会让恢复续跑偏离原轨迹，从而混淆历史归因。提出在冻结的可执行状态上只修改agent所见历史，再以同一策略续跑：修复、来源替换、等长安慰剂、反事实注入四类干预。按路径级或分布级估计目标报告恢复与真实续跑的一致性证书；若错误已改变环境，只修历史估计的是固定世界下直接效应，总效应需更早分叉或联合改状态。ActBench观察分析：266个有标签任务对中服务来源225个，占84.6%；9199条攻击阳性轨迹中占84.9%，调整OR为1.148、区间[0.627,2.016]跨1，不能断言来源因果效应。无模型参与的24状态探针中，同种子恢复克隆互相一致24/24，却与真实续跑在两个失败率下分别分歧9/24与20/24；补存随机流状态后该探针分歧归零。最终评分本来就均无分歧，单看结果会漏检。",
+        "highlights": [
+          "长程agent压缩、纠错和记忆实验应加入未修改历史的live-vs-restored对照；克隆互相一致不足以证明恢复忠实。先明确估计的是路径行为、分布变化还是任务结局。",
+          "阅读来源：arXiv PDF全文"
+        ],
+        "motivation": "事后阅读失败轨迹只能发现共现；即便快照哈希相同，遗漏随机流位置也会让恢复续跑偏离原轨迹，从而混淆历史归因。",
+        "method": "提出在冻结的可执行状态上只修改agent所见历史，再以同一策略续跑：修复、来源替换、等长安慰剂、反事实注入四类干预。按路径级或分布级估计目标报告恢复与真实续跑的一致性证书；若错误已改变环境，只修历史估计的是固定世界下直接效应，总效应需更早分叉或联合改状态。",
+        "experiments": "ActBench观察分析：266个有标签任务对中服务来源225个，占84.6%；9199条攻击阳性轨迹中占84.9%，调整OR为1.148、区间[0.627,2.016]跨1，不能断言来源因果效应。无模型参与的24状态探针中，同种子恢复克隆互相一致24/24，却与真实续跑在两个失败率下分别分歧9/24与20/24；补存随机流状态后该探针分歧归零。最终评分本来就均无分歧，单看结果会漏检。",
+        "research_help": "长程agent压缩、纠错和记忆实验应加入未修改历史的live-vs-restored对照；克隆互相一致不足以证明恢复忠实。先明确估计的是路径行为、分布变化还是任务结局。",
+        "recommendation": {
+          "score": 70,
+          "level": "高",
+          "label": "历史导致agent失败的解释需要执行反事实，并用真实续跑校验恢复状态",
+          "water_risk": "中",
+          "value_judgement": "长程agent压缩、纠错和记忆实验应加入未修改历史的live-vs-restored对照；克隆互相一致不足以证明恢复忠实。先明确估计的是路径行为、分布变化还是任务结局。",
+          "reason": "长程agent压缩、纠错和记忆实验应加入未修改历史的live-vs-restored对照；克隆互相一致不足以证明恢复忠实。先明确估计的是路径行为、分布变化还是任务结局。",
+          "signals": {
+            "agenticRl": false,
+            "multiTurn": false,
+            "longHorizon": true,
+            "memory": false,
+            "reliability": true,
+            "codeOrTool": false,
+            "experiments": true,
+            "survey": false
+          }
+        },
+        "insight": "长程agent压缩、纠错和记忆实验应加入未修改历史的live-vs-restored对照；克隆互相一致不足以证明恢复忠实。先明确估计的是路径行为、分布变化还是任务结局。",
+        "card_summary": "历史导致agent失败的解释需要执行反事实，并用真实续跑校验恢复状态；本文是规范提案。",
+        "abstract_zh": "事后阅读失败轨迹只能发现共现；即便快照哈希相同，遗漏随机流位置也会让恢复续跑偏离原轨迹，从而混淆历史归因。提出在冻结的可执行状态上只修改agent所见历史，再以同一策略续跑：修复、来源替换、等长安慰剂、反事实注入四类干预。按路径级或分布级估计目标报告恢复与真实续跑的一致性证书；若错误已改变环境，只修历史估计的是固定世界下直接效应，总效应需更早分叉或联合改状态。",
+        "full_summary": "事后阅读失败轨迹只能发现共现；即便快照哈希相同，遗漏随机流位置也会让恢复续跑偏离原轨迹，从而混淆历史归因。提出在冻结的可执行状态上只修改agent所见历史，再以同一策略续跑：修复、来源替换、等长安慰剂、反事实注入四类干预。按路径级或分布级估计目标报告恢复与真实续跑的一致性证书；若错误已改变环境，只修历史估计的是固定世界下直接效应，总效应需更早分叉或联合改状态。ActBench观察分析：266个有标签任务对中服务来源225个，占84.6%；9199条攻击阳性轨迹中占84.9%，调整OR为1.148、区间[0.627,2.016]跨1，不能断言来源因果效应。无模型参与的24状态探针中，同种子恢复克隆互相一致24/24，却与真实续跑在两个失败率下分别分歧9/24与20/24；补存随机流状态后该探针分歧归零。最终评分本来就均无分歧，单看结果会漏检。",
+        "limitations": "两项测量均未真正实施完整标准：来源分析未通过恢复率门槛，快照实验不含LLM，不能推出模型行为会改变。论文承认若干协议事后修订；附录分布配对方案只是提案。其先例文献统计有编码分歧，不能把“所读论文未报告”当成穷尽性结论。"
+      },
+      "analysis": {
+        "motivation": "事后阅读失败轨迹只能发现共现；即便快照哈希相同，遗漏随机流位置也会让恢复续跑偏离原轨迹，从而混淆历史归因。",
+        "method": "提出在冻结的可执行状态上只修改agent所见历史，再以同一策略续跑：修复、来源替换、等长安慰剂、反事实注入四类干预。按路径级或分布级估计目标报告恢复与真实续跑的一致性证书；若错误已改变环境，只修历史估计的是固定世界下直接效应，总效应需更早分叉或联合改状态。",
+        "experiments": "ActBench观察分析：266个有标签任务对中服务来源225个，占84.6%；9199条攻击阳性轨迹中占84.9%，调整OR为1.148、区间[0.627,2.016]跨1，不能断言来源因果效应。无模型参与的24状态探针中，同种子恢复克隆互相一致24/24，却与真实续跑在两个失败率下分别分歧9/24与20/24；补存随机流状态后该探针分歧归零。最终评分本来就均无分歧，单看结果会漏检。",
+        "research_help": "长程agent压缩、纠错和记忆实验应加入未修改历史的live-vs-restored对照；克隆互相一致不足以证明恢复忠实。先明确估计的是路径行为、分布变化还是任务结局。",
+        "insight": "长程agent压缩、纠错和记忆实验应加入未修改历史的live-vs-restored对照；克隆互相一致不足以证明恢复忠实。先明确估计的是路径行为、分布变化还是任务结局。",
+        "card_summary": "历史导致agent失败的解释需要执行反事实，并用真实续跑校验恢复状态；本文是规范提案。",
+        "abstract_zh": "事后阅读失败轨迹只能发现共现；即便快照哈希相同，遗漏随机流位置也会让恢复续跑偏离原轨迹，从而混淆历史归因。提出在冻结的可执行状态上只修改agent所见历史，再以同一策略续跑：修复、来源替换、等长安慰剂、反事实注入四类干预。按路径级或分布级估计目标报告恢复与真实续跑的一致性证书；若错误已改变环境，只修历史估计的是固定世界下直接效应，总效应需更早分叉或联合改状态。",
+        "full_summary": "事后阅读失败轨迹只能发现共现；即便快照哈希相同，遗漏随机流位置也会让恢复续跑偏离原轨迹，从而混淆历史归因。提出在冻结的可执行状态上只修改agent所见历史，再以同一策略续跑：修复、来源替换、等长安慰剂、反事实注入四类干预。按路径级或分布级估计目标报告恢复与真实续跑的一致性证书；若错误已改变环境，只修历史估计的是固定世界下直接效应，总效应需更早分叉或联合改状态。ActBench观察分析：266个有标签任务对中服务来源225个，占84.6%；9199条攻击阳性轨迹中占84.9%，调整OR为1.148、区间[0.627,2.016]跨1，不能断言来源因果效应。无模型参与的24状态探针中，同种子恢复克隆互相一致24/24，却与真实续跑在两个失败率下分别分歧9/24与20/24；补存随机流状态后该探针分歧归零。最终评分本来就均无分歧，单看结果会漏检。",
+        "limitations": "两项测量均未真正实施完整标准：来源分析未通过恢复率门槛，快照实验不含LLM，不能推出模型行为会改变。论文承认若干协议事后修订；附录分布配对方案只是提案。其先例文献统计有编码分歧，不能把“所读论文未报告”当成穷尽性结论。",
+        "source_scope": "full_text",
+        "source_note": "直接核读arXiv PDF正文及相关附录；BudgetMix与SumOne主表经渲染核对。嵌套阅读器权限失败，本条由当前自动化全文核读补全。",
+        "source_evidence": [
+          "§2：四类干预、估计目标和恢复证书",
+          "§3.1–3.2：OR、24状态续跑与随机流修复",
+          "§4–5、附录B/D：修订、无模型边界及未执行提案"
+        ],
+        "model": "manual-full-text-review",
+        "updated_at": "2026-11-06T01:30:17.840835+00:00",
+        "recommendation_level": "高",
+        "water_risk": "中",
+        "value_label": "历史导致agent失败的解释需要执行反事实，并用真实续跑校验恢复状态",
+        "value_reason": "长程agent压缩、纠错和记忆实验应加入未修改历史的live-vs-restored对照；克隆互相一致不足以证明恢复忠实。先明确估计的是路径行为、分布变化还是任务结局。"
+      },
+      "source_report_date": "2026-11-06",
+      "affiliations": [
+        "Salesforce AI Research"
+      ]
+    },
     {
       "id": "2611.05263v1",
       "title": "JHiMA-WebRL: A Joint Hierarchical Multi-Agent Reinforcement Learning Framework for Long-Horizon Web Tasks",
