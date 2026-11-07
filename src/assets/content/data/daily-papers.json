@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-06T01:30:17.840835+00:00",
+  "updated_at": "2026-11-07T01:36:00.229247+00:00",
   "source": "arxiv",
   "analysis_method": "Codex CLI workflow with manual arXiv PDF full-text review and rendered result-page verification; per-item source notes identify the analysis path.",
   "query_focus": "多轮交互式 agent planning、long-horizon planning、stateful/personalized planning、agent memory、planning reliability、agentic RL",
@@ -37,52 +37,285 @@
     "codex_reader": "Downloads arXiv PDFs, extracts text with pdftotext or bundled Python PDF libraries, then calls codex exec to write Chinese motivation/method/experiment/research-help fields."
   },
   "digest": {
-    "title": "2026-11-06 Daily Paper",
-    "report_date": "2026-11-06",
+    "title": "2026-11-07 Daily Paper",
+    "report_date": "2026-11-07",
     "focus": "多轮交互式 agent planning、long-horizon planning、stateful/personalized planning、agent memory、planning reliability、agentic RL",
-    "summary": "今日核读并新增3篇强相关论文：多轮RL的预算依赖与BudgetMix、以重建奖励训练的轨迹压缩器SumOne、历史归因的反事实与恢复校验规范。详情区分实验结果、机制线索与未执行提案，并标注正文和表格的不一致。",
+    "summary": "今日全文核读并新增2篇：AttnSR的注意力步骤奖励与Octopus的分支KV共享/RL训练。详情区分任务采样与训练方差、实际推理预算及不同checkpoint成绩，并标注Octopus网页摘要与正文的差异。",
     "top_recommendations": [
-      "2611.06483v1",
-      "2611.06445v1",
-      "2611.05650v1"
+      "2611.07932v1",
+      "2611.06956v1"
     ],
     "low_priority": [],
     "no_news_policy": "如果没有新的高相关论文，自动化应返回“今日无高相关新增论文”，不写邮件正文文件，也不发送邮件。",
-    "email_body": "2026-11-06 Daily Paper\n\n今日核读并新增3篇强相关论文：多轮RL的预算依赖与BudgetMix、以重建奖励训练的轨迹压缩器SumOne、历史归因的反事实与恢复校验规范。详情区分实验结果、机制线索与未执行提案，并标注正文和表格的不一致。\n\nWhat Does Multi-Turn Reinforcement Learning Really Improve in LLM Agents?\nhttp://arxiv.org/abs/2611.06483v1\n多轮RL更擅长纠错而非均匀提升每步决策；混合交互预算训练改善紧预算表现。\n\nSUMONE: A Simple and Efficient Summarizer for Plug-and-Play Agent Memory\nhttp://arxiv.org/abs/2611.06445v1\nSumOne用掩码重建奖励训练2B轨迹压缩器，以少量性能损失降低长程搜索和编码成本。\n\nAttributing Agent Failures to Their History Needs an Executed Counterfactual: Toward a Reporting Standard\nhttp://arxiv.org/abs/2611.05650v1\n历史导致agent失败的解释需要执行反事实，并用真实续跑校验恢复状态；本文是规范提案。"
+    "email_body": "2026-11-07 Daily Paper\n\n今日全文核读并新增2篇：AttnSR的注意力步骤奖励与Octopus的分支KV共享/RL训练。详情区分任务采样与训练方差、实际推理预算及不同checkpoint成绩，并标注Octopus网页摘要与正文的差异。\n\nAttnSR: Attention Step Reward for Long-Horizon Agentic RL\nhttp://arxiv.org/abs/2611.07932v1\nAttnSR用策略注意力分配步骤奖励，改善长程交互RL；收益主要见于ALFWorld。\n\nOctopus: One Brain, Many Branches for Latent-KV Multi-Agent Reinforcement Learning\nhttp://arxiv.org/abs/2611.06956v1\nOctopus把分支搜索、KV共享和RL训练统一为DAG；需注意正文与网页摘要的差异。"
   },
   "latest_item_ids": [
-    "2611.06483v1",
-    "2611.06445v1",
-    "2611.05650v1"
+    "2611.07932v1",
+    "2611.06956v1"
   ],
   "archive": {
     "policy": "append_or_update_by_arxiv_id",
-    "fresh_items": 3,
-    "total_items": 564,
-    "previous_items": 561,
-    "latest_items": 3,
+    "fresh_items": 2,
+    "total_items": 566,
+    "previous_items": 564,
+    "latest_items": 2,
     "source_report_dates": {
+      "2026-11-07": 2,
       "2026-11-06": 3,
       "2026-11-05": 7,
       "undefined": 554
     },
     "filtered_candidate_ids": [
-      "2611.06483v1",
-      "2611.06445v1",
-      "2611.05650v1"
+      "2611.07932v1",
+      "2611.06956v1"
     ],
-    "filtered_today": 3,
+    "filtered_today": 2,
     "rejected_candidate_ids": [
+      "2611.07996v1",
+      "2611.08341v1",
+      "2611.08335v1",
       "2611.06523v1",
+      "2611.07066v1",
       "2611.05847v1",
       "2611.05791v1",
-      "2611.05266v2",
-      "2611.05524v1",
-      "2611.05636v1",
-      "2611.04957v1"
+      "2611.07201v1",
+      "2611.07122v1"
     ]
   },
   "items": [
+    {
+      "id": "2611.07932v1",
+      "title": "AttnSR: Attention Step Reward for Long-Horizon Agentic RL",
+      "summary": "Long-horizon LLM agents make multi-step decisions, yet outcome-reward-only reinforcement learning provides little direct supervision for individual steps. We introduce AttnSR, a step-level reward augmentation method that derives reward allocations from policy attention extracted during training replay, without a separately trained reward model or additional rollouts. AttnSR traces backward through the policy model attention graph to estimate the relevance of earlier steps to the final response. The terminal step, measured relative to a running baseline, determines whether these rewards reinforce or penalize the selected steps. In a controlled Qwen2.5-7B-Instruct study, AttnSR consistently outperforms the PPO baseline across all evaluated checkpoints on ALFWorld, raising final held-out success from 91.2% to 97.1%. The ablation experiment shows that the benefit depends on how intermediate rewards are assigned, rather than simple accumulation of step rewards over time. AttnSR also improves ScienceWorld at every checkpoint while cutting environment interactions by 29.9%. These results support policy attention as a practical prior for step-level reward allocation in long-horizon agentic RL. Code is available at https://github.com/fairyshine/AttnSR .",
+      "url": "http://arxiv.org/abs/2611.07932v1",
+      "authors": [
+        "Mengsong Wu",
+        "Tianchen Zhou",
+        "Zhaochen Su",
+        "Zhenhua Liu",
+        "Zhe Cui",
+        "Aimin Zhou"
+      ],
+      "report_date": "2026-11-07",
+      "published": "2026-11-05",
+      "updated": "2026-11-05",
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "project_url": "",
+      "repo_url": "https://github.com/fairyshine/AttnSR",
+      "venue_status": "未确认录用",
+      "recommendation": {
+        "score": 98,
+        "level": "高",
+        "label": "步骤奖励与信用分配",
+        "water_risk": "中",
+        "value_judgement": "可把已有policy内部信号用于奖励接口，但应分开验证成功率、过程相关性与真实成本；聚合轨迹缩短也可能来自长失败减少，不代表每条成功解更短。",
+        "reason": "可把已有policy内部信号用于奖励接口，但应分开验证成功率、过程相关性与真实成本；聚合轨迹缩短也可能来自长失败减少，不代表每条成功解更短。",
+        "signals": {
+          "agenticRl": true,
+          "multiTurn": true,
+          "longHorizon": true,
+          "memory": false,
+          "reliability": true,
+          "codeOrTool": true,
+          "experiments": true,
+          "survey": false
+        }
+      },
+      "brief": {
+        "authors": [
+          "Mengsong Wu",
+          "Tianchen Zhou",
+          "Zhaochen Su",
+          "Zhenhua Liu",
+          "Zhe Cui",
+          "Aimin Zhou"
+        ],
+        "affiliations": "华东师范大学；上海创智学院；Hithink Research；香港科技大学",
+        "date": "2026-11-05",
+        "paper_url": "https://arxiv.org/abs/2611.07932v1",
+        "project_url": "",
+        "repo_url": "https://github.com/fairyshine/AttnSR",
+        "venue_status": "未确认录用",
+        "contribution": "可把已有policy内部信号用于奖励接口，但应分开验证成功率、过程相关性与真实成本；聚合轨迹缩短也可能来自长失败减少，不代表每条成功解更短。",
+        "summary": "终局奖励难以区分长轨迹中哪些动作和观察值得强化；额外标注、rollout或奖励模型又会增加成本。在PPO已有actor replay中提取选定层注意力，构造动作/观察的步骤依赖图，从终步向前传播相关性；经近因修正、跨层几何融合和置信门控，按终局分数相对运行均值的正负给中间assistant末token加奖励，保留原终局奖励再计算GAE。注意力是相关性先验，不是因果贡献。Qwen2.5-7B、rank64 LoRA、8张H200，固定第4epoch贪心评测。表1：ALFWorld 274题成功率91.24%→97.08%；匹配任务bootstrap增益区间[2.55,9.49]个百分点。ScienceWorld完整1819题分数44.53→46.35、成功28.59%→30.90%，均值交互30.68→21.51步。WebShop成功40.20%→41.00%，但分数70.74→69.71。只有ALFWorld成功检验通过三任务Bonferroni校正；线性位置奖励对照为92.34%。",
+        "highlights": [
+          "可把已有policy内部信号用于奖励接口，但应分开验证成功率、过程相关性与真实成本；聚合轨迹缩短也可能来自长失败减少，不代表每条成功解更短。",
+          "阅读来源：arXiv PDF全文；详见局限与核实边界"
+        ],
+        "motivation": "终局奖励难以区分长轨迹中哪些动作和观察值得强化；额外标注、rollout或奖励模型又会增加成本。",
+        "method": "在PPO已有actor replay中提取选定层注意力，构造动作/观察的步骤依赖图，从终步向前传播相关性；经近因修正、跨层几何融合和置信门控，按终局分数相对运行均值的正负给中间assistant末token加奖励，保留原终局奖励再计算GAE。注意力是相关性先验，不是因果贡献。",
+        "experiments": "Qwen2.5-7B、rank64 LoRA、8张H200，固定第4epoch贪心评测。表1：ALFWorld 274题成功率91.24%→97.08%；匹配任务bootstrap增益区间[2.55,9.49]个百分点。ScienceWorld完整1819题分数44.53→46.35、成功28.59%→30.90%，均值交互30.68→21.51步。WebShop成功40.20%→41.00%，但分数70.74→69.71。只有ALFWorld成功检验通过三任务Bonferroni校正；线性位置奖励对照为92.34%。",
+        "research_help": "可把已有policy内部信号用于奖励接口，但应分开验证成功率、过程相关性与真实成本；聚合轨迹缩短也可能来自长失败减少，不代表每条成功解更短。",
+        "recommendation": {
+          "score": 98,
+          "level": "高",
+          "label": "步骤奖励与信用分配",
+          "water_risk": "中",
+          "value_judgement": "可把已有policy内部信号用于奖励接口，但应分开验证成功率、过程相关性与真实成本；聚合轨迹缩短也可能来自长失败减少，不代表每条成功解更短。",
+          "reason": "可把已有policy内部信号用于奖励接口，但应分开验证成功率、过程相关性与真实成本；聚合轨迹缩短也可能来自长失败减少，不代表每条成功解更短。",
+          "signals": {
+            "agenticRl": true,
+            "multiTurn": true,
+            "longHorizon": true,
+            "memory": false,
+            "reliability": true,
+            "codeOrTool": true,
+            "experiments": true,
+            "survey": false
+          }
+        },
+        "insight": "可把已有policy内部信号用于奖励接口，但应分开验证成功率、过程相关性与真实成本；聚合轨迹缩短也可能来自长失败减少，不代表每条成功解更短。",
+        "card_summary": "AttnSR用策略注意力分配步骤奖励，改善长程交互RL；收益主要见于ALFWorld。",
+        "abstract_zh": "终局奖励难以区分长轨迹中哪些动作和观察值得强化；额外标注、rollout或奖励模型又会增加成本。在PPO已有actor replay中提取选定层注意力，构造动作/观察的步骤依赖图，从终步向前传播相关性；经近因修正、跨层几何融合和置信门控，按终局分数相对运行均值的正负给中间assistant末token加奖励，保留原终局奖励再计算GAE。注意力是相关性先验，不是因果贡献。",
+        "full_summary": "终局奖励难以区分长轨迹中哪些动作和观察值得强化；额外标注、rollout或奖励模型又会增加成本。在PPO已有actor replay中提取选定层注意力，构造动作/观察的步骤依赖图，从终步向前传播相关性；经近因修正、跨层几何融合和置信门控，按终局分数相对运行均值的正负给中间assistant末token加奖励，保留原终局奖励再计算GAE。注意力是相关性先验，不是因果贡献。Qwen2.5-7B、rank64 LoRA、8张H200，固定第4epoch贪心评测。表1：ALFWorld 274题成功率91.24%→97.08%；匹配任务bootstrap增益区间[2.55,9.49]个百分点。ScienceWorld完整1819题分数44.53→46.35、成功28.59%→30.90%，均值交互30.68→21.51步。WebShop成功40.20%→41.00%，但分数70.74→69.71。只有ALFWorld成功检验通过三任务Bonferroni校正；线性位置奖励对照为92.34%。",
+        "limitations": "单次训练，置信区间只反映给定策略下任务采样，不含训练种子方差。线性对照同时改变分配和门控，不能单独归因于注意力。附加奖励改变回报且不保证策略不变；仍有二次注意力算术，墙钟和峰值内存开销未测。ScienceWorld匹配分析仅1488题，不能混用完整集分母；相对TARL仅多解1题。未独立复现。"
+      },
+      "analysis": {
+        "motivation": "终局奖励难以区分长轨迹中哪些动作和观察值得强化；额外标注、rollout或奖励模型又会增加成本。",
+        "method": "在PPO已有actor replay中提取选定层注意力，构造动作/观察的步骤依赖图，从终步向前传播相关性；经近因修正、跨层几何融合和置信门控，按终局分数相对运行均值的正负给中间assistant末token加奖励，保留原终局奖励再计算GAE。注意力是相关性先验，不是因果贡献。",
+        "experiments": "Qwen2.5-7B、rank64 LoRA、8张H200，固定第4epoch贪心评测。表1：ALFWorld 274题成功率91.24%→97.08%；匹配任务bootstrap增益区间[2.55,9.49]个百分点。ScienceWorld完整1819题分数44.53→46.35、成功28.59%→30.90%，均值交互30.68→21.51步。WebShop成功40.20%→41.00%，但分数70.74→69.71。只有ALFWorld成功检验通过三任务Bonferroni校正；线性位置奖励对照为92.34%。",
+        "research_help": "可把已有policy内部信号用于奖励接口，但应分开验证成功率、过程相关性与真实成本；聚合轨迹缩短也可能来自长失败减少，不代表每条成功解更短。",
+        "insight": "可把已有policy内部信号用于奖励接口，但应分开验证成功率、过程相关性与真实成本；聚合轨迹缩短也可能来自长失败减少，不代表每条成功解更短。",
+        "card_summary": "AttnSR用策略注意力分配步骤奖励，改善长程交互RL；收益主要见于ALFWorld。",
+        "abstract_zh": "终局奖励难以区分长轨迹中哪些动作和观察值得强化；额外标注、rollout或奖励模型又会增加成本。在PPO已有actor replay中提取选定层注意力，构造动作/观察的步骤依赖图，从终步向前传播相关性；经近因修正、跨层几何融合和置信门控，按终局分数相对运行均值的正负给中间assistant末token加奖励，保留原终局奖励再计算GAE。注意力是相关性先验，不是因果贡献。",
+        "full_summary": "终局奖励难以区分长轨迹中哪些动作和观察值得强化；额外标注、rollout或奖励模型又会增加成本。在PPO已有actor replay中提取选定层注意力，构造动作/观察的步骤依赖图，从终步向前传播相关性；经近因修正、跨层几何融合和置信门控，按终局分数相对运行均值的正负给中间assistant末token加奖励，保留原终局奖励再计算GAE。注意力是相关性先验，不是因果贡献。Qwen2.5-7B、rank64 LoRA、8张H200，固定第4epoch贪心评测。表1：ALFWorld 274题成功率91.24%→97.08%；匹配任务bootstrap增益区间[2.55,9.49]个百分点。ScienceWorld完整1819题分数44.53→46.35、成功28.59%→30.90%，均值交互30.68→21.51步。WebShop成功40.20%→41.00%，但分数70.74→69.71。只有ALFWorld成功检验通过三任务Bonferroni校正；线性位置奖励对照为92.34%。",
+        "limitations": "单次训练，置信区间只反映给定策略下任务采样，不含训练种子方差。线性对照同时改变分配和门控，不能单独归因于注意力。附加奖励改变回报且不保证策略不变；仍有二次注意力算术，墙钟和峰值内存开销未测。ScienceWorld匹配分析仅1488题，不能混用完整集分母；相对TARL仅多解1题。未独立复现。",
+        "source_scope": "full_text",
+        "source_note": "直接核读arXiv PDF正文与相关附录，主结果表已渲染核对；结果为作者报告，未独立复现。",
+        "source_evidence": [
+          "§2–3：奖励放置、依赖图、门控与GAE",
+          "§4、表1（PDF第7页渲染）：主结果和统计协议",
+          "表2–3、附录D/E：对照、匹配子集及交互成本"
+        ],
+        "model": "manual-full-text-review",
+        "updated_at": "2026-11-07T01:36:00.229247+00:00",
+        "recommendation_level": "高",
+        "water_risk": "中",
+        "value_label": "步骤奖励与信用分配",
+        "value_reason": "可把已有policy内部信号用于奖励接口，但应分开验证成功率、过程相关性与真实成本；聚合轨迹缩短也可能来自长失败减少，不代表每条成功解更短。"
+      },
+      "source_report_date": "2026-11-07",
+      "affiliations": [
+        "华东师范大学",
+        "上海创智学院",
+        "Hithink Research",
+        "香港科技大学"
+      ]
+    },
+    {
+      "id": "2611.06956v1",
+      "title": "Octopus: One Brain, Many Branches for Latent-KV Multi-Agent Reinforcement Learning",
+      "summary": "Multi-agent LLM systems explore in parallel by spawning sub-agents with isolated context windows, whereas single-agent systems append every search and verification step into one growing trajectory. However, existing multi-agent frameworks duplicate prefix KV caches across branches, exchange findings by re-prefilling text summaries, and flatten or drop cross-branch dependencies during reinforcement learning (RL). We introduce Octopus, a single-model multi-agent RL framework in which all threads share one backbone and coordinate over a GPU-resident directed acyclic graph (DAG) of KV states through five primitives (fork, read_thread, wait_threads, rewind, commit). Octopus combines three co-designed mechanisms: (1) Zero-Copy Radix Forking, which spawns branches as $\\mathcal{O}(1)$ cursor views over shared physical KV pages; (2) Attention-Only KV Mounting, which mounts a sibling thread's terminal KV blocks directly into full-attention layers while bypassing linear-recurrent states (Gated DeltaNet / Mamba-2), cutting off-task hijacking by $21\\times$ ($57.9\\% \\to 2.7\\%$) while retaining $92.2\\%$ of full-text mutual information at zero extra KV allocation; and (3) a Packed DAG-GRPO Trainer, which packs all episode branches into one block-sparse attention pass and assigns counterfactual branch credit via leave-one-branch-out marginal rewards. Trained end-to-end with GRPO on Qwen3.5-4B over a sparse BM25 corpus, Octopus reaches $49.6\\%$ accuracy on BrowseComp-Plus ($+17.5$ points over single-agent GRPO at 143K context and $+12.5$ points over text-summary multi-agent RL) and $51.2\\%$ on OpenResearcher, outperforming dense-retrieval agents up to $250\\times$ larger while increasing training throughput $3.3\\times$ and cutting peak KV memory $2.8\\times$.",
+      "url": "http://arxiv.org/abs/2611.06956v1",
+      "authors": [
+        "Tianming Sha"
+      ],
+      "report_date": "2026-11-07",
+      "published": "2026-11-03",
+      "updated": "2026-11-03",
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG",
+        "cs.CL"
+      ],
+      "project_url": "",
+      "repo_url": "https://github.com/shatianming5/octopus",
+      "venue_status": "未确认录用",
+      "recommendation": {
+        "score": 84,
+        "level": "中",
+        "label": "分支执行与训练图一致性",
+        "water_risk": "中",
+        "value_judgement": "值得研究的是执行状态、上下文隔离和训练图的一致性：共享证据时保留私有目标，训练时既避免重复前缀计权，也避免丢弃KV依赖。应以总推理成本匹配后再比较多分支收益。",
+        "reason": "值得研究的是执行状态、上下文隔离和训练图的一致性：共享证据时保留私有目标，训练时既避免重复前缀计权，也避免丢弃KV依赖。应以总推理成本匹配后再比较多分支收益。",
+        "signals": {
+          "agenticRl": true,
+          "multiTurn": false,
+          "longHorizon": false,
+          "memory": true,
+          "reliability": true,
+          "codeOrTool": false,
+          "experiments": true,
+          "survey": false
+        }
+      },
+      "brief": {
+        "authors": [
+          "Tianming Sha"
+        ],
+        "affiliations": "Stony Brook University（PDF另列University of Wisconsin–Madison和University of Minnesota；作者列表与arXiv元数据不一致）",
+        "date": "2026-11-03",
+        "paper_url": "https://arxiv.org/abs/2611.06956v1",
+        "project_url": "",
+        "repo_url": "https://github.com/shatianming5/octopus",
+        "venue_status": "未确认录用",
+        "contribution": "值得研究的是执行状态、上下文隔离和训练图的一致性：共享证据时保留私有目标，训练时既避免重复前缀计权，也避免丢弃KV依赖。应以总推理成本匹配后再比较多分支收益。",
+        "summary": "长程搜索的并行子任务既要隔离工作记忆，又要共享证据；平铺轨迹会重复前缀、污染上下文并丢失跨分支训练依赖。单模型GPU驻留radix cursor支持fork、read_thread、wait、rewind、done；只在全注意力层挂载兄弟KV，循环层跳过原始兄弟token，后续位置单调跳转。训练按前缀去重，每个生成token只计一次，保留挂载边反向梯度。§3.4实际使用跨整棵rollout树的RLOO优势并广播所有分支，不是网页摘要所称逐分支反事实边际奖励。Qwen3.5-4B rank64 LoRA在3040条OpenResearcher训练，500条验证，BCP为独立固定语料830题。表3递归Step45的BCP为49.6%（严格按830题为49.3%），单agent143K GRPO为32.1%；推理2.00对0.43 PFLOPs/题。51.2%的OR验证成绩来自深度1的Step55，不能当作递归同一checkpoint成绩。表5的366次挂载探针中离题率57.9%→2.7%，92.2%是全文答案log-prob增益保留比例，非已估计的互信息。",
+        "highlights": [
+          "值得研究的是执行状态、上下文隔离和训练图的一致性：共享证据时保留私有目标，训练时既避免重复前缀计权，也避免丢弃KV依赖。应以总推理成本匹配后再比较多分支收益。",
+          "阅读来源：arXiv PDF全文；详见局限与核实边界"
+        ],
+        "motivation": "长程搜索的并行子任务既要隔离工作记忆，又要共享证据；平铺轨迹会重复前缀、污染上下文并丢失跨分支训练依赖。",
+        "method": "单模型GPU驻留radix cursor支持fork、read_thread、wait、rewind、done；只在全注意力层挂载兄弟KV，循环层跳过原始兄弟token，后续位置单调跳转。训练按前缀去重，每个生成token只计一次，保留挂载边反向梯度。§3.4实际使用跨整棵rollout树的RLOO优势并广播所有分支，不是网页摘要所称逐分支反事实边际奖励。",
+        "experiments": "Qwen3.5-4B rank64 LoRA在3040条OpenResearcher训练，500条验证，BCP为独立固定语料830题。表3递归Step45的BCP为49.6%（严格按830题为49.3%），单agent143K GRPO为32.1%；推理2.00对0.43 PFLOPs/题。51.2%的OR验证成绩来自深度1的Step55，不能当作递归同一checkpoint成绩。表5的366次挂载探针中离题率57.9%→2.7%，92.2%是全文答案log-prob增益保留比例，非已估计的互信息。",
+        "research_help": "值得研究的是执行状态、上下文隔离和训练图的一致性：共享证据时保留私有目标，训练时既避免重复前缀计权，也避免丢弃KV依赖。应以总推理成本匹配后再比较多分支收益。",
+        "recommendation": {
+          "score": 84,
+          "level": "中",
+          "label": "分支执行与训练图一致性",
+          "water_risk": "中",
+          "value_judgement": "值得研究的是执行状态、上下文隔离和训练图的一致性：共享证据时保留私有目标，训练时既避免重复前缀计权，也避免丢弃KV依赖。应以总推理成本匹配后再比较多分支收益。",
+          "reason": "值得研究的是执行状态、上下文隔离和训练图的一致性：共享证据时保留私有目标，训练时既避免重复前缀计权，也避免丢弃KV依赖。应以总推理成本匹配后再比较多分支收益。",
+          "signals": {
+            "agenticRl": true,
+            "multiTurn": false,
+            "longHorizon": false,
+            "memory": true,
+            "reliability": true,
+            "codeOrTool": false,
+            "experiments": true,
+            "survey": false
+          }
+        },
+        "insight": "值得研究的是执行状态、上下文隔离和训练图的一致性：共享证据时保留私有目标，训练时既避免重复前缀计权，也避免丢弃KV依赖。应以总推理成本匹配后再比较多分支收益。",
+        "card_summary": "Octopus把分支搜索、KV共享和RL训练统一为DAG；需注意正文与网页摘要的差异。",
+        "abstract_zh": "长程搜索的并行子任务既要隔离工作记忆，又要共享证据；平铺轨迹会重复前缀、污染上下文并丢失跨分支训练依赖。单模型GPU驻留radix cursor支持fork、read_thread、wait、rewind、done；只在全注意力层挂载兄弟KV，循环层跳过原始兄弟token，后续位置单调跳转。训练按前缀去重，每个生成token只计一次，保留挂载边反向梯度。§3.4实际使用跨整棵rollout树的RLOO优势并广播所有分支，不是网页摘要所称逐分支反事实边际奖励。",
+        "full_summary": "长程搜索的并行子任务既要隔离工作记忆，又要共享证据；平铺轨迹会重复前缀、污染上下文并丢失跨分支训练依赖。单模型GPU驻留radix cursor支持fork、read_thread、wait、rewind、done；只在全注意力层挂载兄弟KV，循环层跳过原始兄弟token，后续位置单调跳转。训练按前缀去重，每个生成token只计一次，保留挂载边反向梯度。§3.4实际使用跨整棵rollout树的RLOO优势并广播所有分支，不是网页摘要所称逐分支反事实边际奖励。Qwen3.5-4B rank64 LoRA在3040条OpenResearcher训练，500条验证，BCP为独立固定语料830题。表3递归Step45的BCP为49.6%（严格按830题为49.3%），单agent143K GRPO为32.1%；推理2.00对0.43 PFLOPs/题。51.2%的OR验证成绩来自深度1的Step55，不能当作递归同一checkpoint成绩。表5的366次挂载探针中离题率57.9%→2.7%，92.2%是全文答案log-prob增益保留比例，非已估计的互信息。",
+        "limitations": "网页元数据仅列Tianming Sha，PDF还列Junnan Li和Siqi Zhao；保留arXiv元数据并提示差异。网页摘要称commit、逐分支反事实奖励及3.3倍吞吐/2.8倍内存，正文对应done、树级RLOO，未定位后两数字的同协议表格，故不采用。大模型比较混合检索器和工具协议，4B对照也非等推理预算；未报告多训练种子。§4.2称打开gold页验证答案后终止，其实现及是否对所有对照一致尚未独立核实，影响成本可比性。单节点同模型KV只存一episode，不能推为跨episode记忆。未运行代码复现。"
+      },
+      "analysis": {
+        "motivation": "长程搜索的并行子任务既要隔离工作记忆，又要共享证据；平铺轨迹会重复前缀、污染上下文并丢失跨分支训练依赖。",
+        "method": "单模型GPU驻留radix cursor支持fork、read_thread、wait、rewind、done；只在全注意力层挂载兄弟KV，循环层跳过原始兄弟token，后续位置单调跳转。训练按前缀去重，每个生成token只计一次，保留挂载边反向梯度。§3.4实际使用跨整棵rollout树的RLOO优势并广播所有分支，不是网页摘要所称逐分支反事实边际奖励。",
+        "experiments": "Qwen3.5-4B rank64 LoRA在3040条OpenResearcher训练，500条验证，BCP为独立固定语料830题。表3递归Step45的BCP为49.6%（严格按830题为49.3%），单agent143K GRPO为32.1%；推理2.00对0.43 PFLOPs/题。51.2%的OR验证成绩来自深度1的Step55，不能当作递归同一checkpoint成绩。表5的366次挂载探针中离题率57.9%→2.7%，92.2%是全文答案log-prob增益保留比例，非已估计的互信息。",
+        "research_help": "值得研究的是执行状态、上下文隔离和训练图的一致性：共享证据时保留私有目标，训练时既避免重复前缀计权，也避免丢弃KV依赖。应以总推理成本匹配后再比较多分支收益。",
+        "insight": "值得研究的是执行状态、上下文隔离和训练图的一致性：共享证据时保留私有目标，训练时既避免重复前缀计权，也避免丢弃KV依赖。应以总推理成本匹配后再比较多分支收益。",
+        "card_summary": "Octopus把分支搜索、KV共享和RL训练统一为DAG；需注意正文与网页摘要的差异。",
+        "abstract_zh": "长程搜索的并行子任务既要隔离工作记忆，又要共享证据；平铺轨迹会重复前缀、污染上下文并丢失跨分支训练依赖。单模型GPU驻留radix cursor支持fork、read_thread、wait、rewind、done；只在全注意力层挂载兄弟KV，循环层跳过原始兄弟token，后续位置单调跳转。训练按前缀去重，每个生成token只计一次，保留挂载边反向梯度。§3.4实际使用跨整棵rollout树的RLOO优势并广播所有分支，不是网页摘要所称逐分支反事实边际奖励。",
+        "full_summary": "长程搜索的并行子任务既要隔离工作记忆，又要共享证据；平铺轨迹会重复前缀、污染上下文并丢失跨分支训练依赖。单模型GPU驻留radix cursor支持fork、read_thread、wait、rewind、done；只在全注意力层挂载兄弟KV，循环层跳过原始兄弟token，后续位置单调跳转。训练按前缀去重，每个生成token只计一次，保留挂载边反向梯度。§3.4实际使用跨整棵rollout树的RLOO优势并广播所有分支，不是网页摘要所称逐分支反事实边际奖励。Qwen3.5-4B rank64 LoRA在3040条OpenResearcher训练，500条验证，BCP为独立固定语料830题。表3递归Step45的BCP为49.6%（严格按830题为49.3%），单agent143K GRPO为32.1%；推理2.00对0.43 PFLOPs/题。51.2%的OR验证成绩来自深度1的Step55，不能当作递归同一checkpoint成绩。表5的366次挂载探针中离题率57.9%→2.7%，92.2%是全文答案log-prob增益保留比例，非已估计的互信息。",
+        "limitations": "网页元数据仅列Tianming Sha，PDF还列Junnan Li和Siqi Zhao；保留arXiv元数据并提示差异。网页摘要称commit、逐分支反事实奖励及3.3倍吞吐/2.8倍内存，正文对应done、树级RLOO，未定位后两数字的同协议表格，故不采用。大模型比较混合检索器和工具协议，4B对照也非等推理预算；未报告多训练种子。§4.2称打开gold页验证答案后终止，其实现及是否对所有对照一致尚未独立核实，影响成本可比性。单节点同模型KV只存一episode，不能推为跨episode记忆。未运行代码复现。",
+        "source_scope": "full_text",
+        "source_note": "直接核读arXiv PDF正文与相关附录，主结果表已渲染核对；结果为作者报告，未独立复现。",
+        "source_evidence": [
+          "§3.1–3.4：cursor、注意力层挂载与树级RLOO",
+          "表3（PDF第10页渲染）、表6：checkpoint、严格分母与推理成本",
+          "§4.2、表5、§5：探针指标、终止表述和范围限制"
+        ],
+        "model": "manual-full-text-review",
+        "updated_at": "2026-11-07T01:36:00.229247+00:00",
+        "recommendation_level": "中",
+        "water_risk": "中",
+        "value_label": "分支执行与训练图一致性",
+        "value_reason": "值得研究的是执行状态、上下文隔离和训练图的一致性：共享证据时保留私有目标，训练时既避免重复前缀计权，也避免丢弃KV依赖。应以总推理成本匹配后再比较多分支收益。"
+      },
+      "source_report_date": "2026-11-07",
+      "affiliations": [
+        "Stony Brook University（PDF另列University of Wisconsin–Madison和University of Minnesota；作者列表与arXiv元数据不一致）"
+      ]
+    },
     {
       "id": "2611.06483v1",
       "title": "What Does Multi-Turn Reinforcement Learning Really Improve in LLM Agents?",
