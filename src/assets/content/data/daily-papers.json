@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-07T01:36:00.229247+00:00",
+  "updated_at": "2026-11-10T01:34:37.774179+00:00",
   "source": "arxiv",
   "analysis_method": "Codex CLI workflow with manual arXiv PDF full-text review and rendered result-page verification; per-item source notes identify the analysis path.",
   "query_focus": "多轮交互式 agent planning、long-horizon planning、stateful/personalized planning、agent memory、planning reliability、agentic RL",
@@ -37,52 +37,652 @@
     "codex_reader": "Downloads arXiv PDFs, extracts text with pdftotext or bundled Python PDF libraries, then calls codex exec to write Chinese motivation/method/experiment/research-help fields."
   },
   "digest": {
-    "title": "2026-11-07 Daily Paper",
-    "report_date": "2026-11-07",
+    "title": "2026-11-10 Daily Paper",
+    "report_date": "2026-11-10",
     "focus": "多轮交互式 agent planning、long-horizon planning、stateful/personalized planning、agent memory、planning reliability、agentic RL",
-    "summary": "今日全文核读并新增2篇：AttnSR的注意力步骤奖励与Octopus的分支KV共享/RL训练。详情区分任务采样与训练方差、实际推理预算及不同checkpoint成绩，并标注Octopus网页摘要与正文的差异。",
+    "summary": "今日新增5篇全文核读：s³异步协作RL、WAAC依赖感知轨迹压缩、MemoryDojo跨会话记忆安全、Decision Context行为规则记忆与Video-Coder交互编码RL。详情核对实验分母、预算及统计范围，并明确数据规模和结果口径的不一致。",
     "top_recommendations": [
-      "2611.07932v1",
-      "2611.06956v1"
+      "2611.08615v1",
+      "2611.08865v1"
     ],
     "low_priority": [],
     "no_news_policy": "如果没有新的高相关论文，自动化应返回“今日无高相关新增论文”，不写邮件正文文件，也不发送邮件。",
-    "email_body": "2026-11-07 Daily Paper\n\n今日全文核读并新增2篇：AttnSR的注意力步骤奖励与Octopus的分支KV共享/RL训练。详情区分任务采样与训练方差、实际推理预算及不同checkpoint成绩，并标注Octopus网页摘要与正文的差异。\n\nAttnSR: Attention Step Reward for Long-Horizon Agentic RL\nhttp://arxiv.org/abs/2611.07932v1\nAttnSR用策略注意力分配步骤奖励，改善长程交互RL；收益主要见于ALFWorld。\n\nOctopus: One Brain, Many Branches for Latent-KV Multi-Agent Reinforcement Learning\nhttp://arxiv.org/abs/2611.06956v1\nOctopus把分支搜索、KV共享和RL训练统一为DAG；需注意正文与网页摘要的差异。"
+    "email_body": "2026-11-10 Daily Paper\n\n今日新增5篇全文核读：s³异步协作RL、WAAC依赖感知轨迹压缩、MemoryDojo跨会话记忆安全、Decision Context行为规则记忆与Video-Coder交互编码RL。详情核对实验分母、预算及统计范围，并明确数据规模和结果口径的不一致。\n\ns$^3$: Simple Scaling of Swarms via Cooperative Multi-agent RL\nhttps://arxiv.org/abs/2611.08615v1\ns³用共享团队奖励训练异步通信，让LLM团队学会分享和分工；证据来自两类小模型合成任务。\n\nRethinking Agent Trajectory Compression: A Workflow-Aware Perspective\nhttps://arxiv.org/abs/2611.08865v1\nWAAC按工作流依赖决定哪些历史字段保留原值、摘要或引用，在长程工具任务中改善完成率与输入开销。\n\nMemoryDojo: Benchmarking Poisoning Through LLM Agent Memory\nhttps://arxiv.org/abs/2611.09721v1\nMemoryDojo追踪一次恶意工具观察如何经记忆影响后续会话；持久化、被检索与真正改变行为需要分开评估。\n\nDecision Context: Persistent Behavioral Learning for AI Agents\nhttps://arxiv.org/abs/2611.08644v1\nDecision Context把用户纠正与工具失败经验编译成有触发条件的规则，在决策点注入；结果衡量行为遵从而非通用任务成功。\n\nVideo-Coder: Reinforcing Agentic Coding for Video Generation\nhttps://arxiv.org/abs/2611.09894v1\nVideo-Coder以多轮Blender代码执行和双奖励RL生成视频结构草稿，提高物理维度评分，但论文存在数据规模和增益口径不一致。"
   },
   "latest_item_ids": [
-    "2611.07932v1",
-    "2611.06956v1"
+    "2611.08615v1",
+    "2611.08865v1",
+    "2611.09721v1",
+    "2611.08644v1",
+    "2611.09894v1"
   ],
   "archive": {
     "policy": "append_or_update_by_arxiv_id",
-    "fresh_items": 2,
-    "total_items": 566,
-    "previous_items": 564,
-    "latest_items": 2,
+    "fresh_items": 5,
+    "total_items": 571,
+    "previous_items": 566,
+    "latest_items": 5,
     "source_report_dates": {
+      "2026-11-10": 5,
       "2026-11-07": 2,
       "2026-11-06": 3,
       "2026-11-05": 7,
       "undefined": 554
     },
     "filtered_candidate_ids": [
-      "2611.07932v1",
-      "2611.06956v1"
+      "2611.08615v1",
+      "2611.08865v1",
+      "2611.09721v1",
+      "2611.08644v1",
+      "2611.09894v1"
     ],
-    "filtered_today": 2,
+    "filtered_today": 5,
     "rejected_candidate_ids": [
+      "2611.09139v1",
+      "2611.09644v1",
       "2611.07996v1",
       "2611.08341v1",
-      "2611.08335v1",
+      "2611.08335v2",
       "2611.06523v1",
       "2611.07066v1",
-      "2611.05847v1",
-      "2611.05791v1",
-      "2611.07201v1",
-      "2611.07122v1"
+      "2611.05847v1"
     ]
   },
   "items": [
+    {
+      "id": "2611.08615v1",
+      "title": "s$^3$: Simple Scaling of Swarms via Cooperative Multi-agent RL",
+      "summary": "Groups can achieve more than individuals in the same amount of time, but only if their members coordinate: they must decide who works on what and what to share. However, this organization in multi-agent systems today usually comes from arbitrary, static harnesses designed a priori without adapting to agent behaviors or task specifications. We ask whether agents can instead learn to organize themselves. We introduce s$^3$, the first multi-agent reinforcement learning method in which agents decide for themselves how long to work alone and when to share findings or read teammates' messages, with no predefined organization or roles. Our s$^3$ agents learn to take different approaches, read each other's work, exhibit emergent roles that complement each other in the swarm, and generalize to bigger teams. We study both coordination, where agents must combine private information, and parallel exploration, where sharing discoveries can make search more efficient. With matched training and inference budgets, s$^3$, swarms evaluated with twice as many agents as in training solve over 25$\\times$ more coordination problems than the strongest baseline, and in exploration, communicating agents reduce repeated work by nearly 50% and outperform best-of-N by up to 9.4 percentage points. Rather than being designed in advance, s$^3$ enables organization to emerge from a shared goal. This opens the door to capable systems built from many models that learn to work together.",
+      "url": "http://arxiv.org/abs/2611.08615v1",
+      "authors": [
+        "Kunal Jha",
+        "Gonçalo Faria",
+        "Shuyue Stella Li",
+        "Scott Geng",
+        "Faeze Brahman",
+        "Noah A. Smith",
+        "Yulia Tsvetkov",
+        "Max Kleiman-Weiner",
+        "Natasha Jaques"
+      ],
+      "report_date": "2026-11-10",
+      "published": "2026-11-05",
+      "updated": "2026-11-05",
+      "primary_category": "cs.MA",
+      "categories": [
+        "cs.MA",
+        "cs.AI"
+      ],
+      "project_url": "",
+      "repo_url": "",
+      "venue_status": "未确认录用",
+      "recommendation": {
+        "level": "高",
+        "label": "值得核读",
+        "water_risk": "中",
+        "value_judgement": "共享奖励的价值取决于信息结构：数字聚合中分享只帮助别人，个人奖励导致等待和沉默；探索中帮助别人也能帮助自己，个人奖励对照接近共享奖励。应先识别协作中的激励冲突，再设计信用分配，并匹配总预算。",
+        "reason": "共享奖励的价值取决于信息结构：数字聚合中分享只帮助别人，个人奖励导致等待和沉默；探索中帮助别人也能帮助自己，个人奖励对照接近共享奖励。应先识别协作中的激励冲突，再设计信用分配，并匹配总预算。",
+        "signals": {
+          "agenticRl": true,
+          "multiTurn": false,
+          "longHorizon": false,
+          "memory": false,
+          "reliability": true,
+          "codeOrTool": false,
+          "experiments": true,
+          "survey": false
+        }
+      },
+      "brief": {
+        "authors": [
+          "Kunal Jha",
+          "Gonçalo Faria",
+          "Shuyue Stella Li",
+          "Scott Geng",
+          "Faeze Brahman",
+          "Noah A. Smith",
+          "Yulia Tsvetkov",
+          "Max Kleiman-Weiner",
+          "Natasha Jaques"
+        ],
+        "affiliations": "University of Washington；Allen Institute for AI",
+        "date": "2026-11-05",
+        "paper_url": "https://arxiv.org/abs/2611.08615v1",
+        "project_url": "",
+        "repo_url": "",
+        "venue_status": "未确认录用",
+        "contribution": "共享奖励的价值取决于信息结构：数字聚合中分享只帮助别人，个人奖励导致等待和沉默；探索中帮助别人也能帮助自己，个人奖励对照接近共享奖励。应先识别协作中的激励冲突，再设计信用分配，并匹配总预算。",
+        "summary": "s³用共享团队奖励训练异步通信，让LLM团队学会分享和分工；证据来自两类小模型合成任务。固定角色和通信轮次难以适应任务；团队优于单体也可能只是使用了更多推理资源，需要匹配训练和推理预算。共享策略的Agent各自持有私有历史，通过message和read_messages自主通信。奖励取团队是否有成员成功，并对成功团队施加归一化token成本；同题采样8个团队，按团队回报归一化优势并赋给其所有生成token。异步调度限制每次推理最多1024个新token，避免单个成员长期占据资源；接收消息和工具输出只作上下文，不参与生成损失。Qwen3-0.6B用于私有数字聚合，1.7B用于树状房间探索；4成员训练200次更新，探索先做50次SFT。32道留出题、6个评测种子，测试1–16成员。探索中关闭通信使4成员成功率下降19个百分点；相对独立best-of-4增益9.4±3.1个百分点，但Bonferroni校正后不显著；6成员约提升7个百分点且校正后显著。数字聚合的优势可迁移至8/12成员，16成员时所有方法均困难。",
+        "highlights": [
+          "共享奖励的价值取决于信息结构：数字聚合中分享只帮助别人，个人奖励导致等待和沉默；探索中帮助别人也能帮助自己，个人奖励对照接近共享奖励。应先识别协作中的激励冲突，再设计信用分配，并匹配总预算。",
+          "阅读来源：arXiv PDF全文；结果限制见详情"
+        ],
+        "motivation": "固定角色和通信轮次难以适应任务；团队优于单体也可能只是使用了更多推理资源，需要匹配训练和推理预算。",
+        "method": "共享策略的Agent各自持有私有历史，通过message和read_messages自主通信。奖励取团队是否有成员成功，并对成功团队施加归一化token成本；同题采样8个团队，按团队回报归一化优势并赋给其所有生成token。异步调度限制每次推理最多1024个新token，避免单个成员长期占据资源；接收消息和工具输出只作上下文，不参与生成损失。",
+        "experiments": "Qwen3-0.6B用于私有数字聚合，1.7B用于树状房间探索；4成员训练200次更新，探索先做50次SFT。32道留出题、6个评测种子，测试1–16成员。探索中关闭通信使4成员成功率下降19个百分点；相对独立best-of-4增益9.4±3.1个百分点，但Bonferroni校正后不显著；6成员约提升7个百分点且校正后显著。数字聚合的优势可迁移至8/12成员，16成员时所有方法均困难。",
+        "research_help": "共享奖励的价值取决于信息结构：数字聚合中分享只帮助别人，个人奖励导致等待和沉默；探索中帮助别人也能帮助自己，个人奖励对照接近共享奖励。应先识别协作中的激励冲突，再设计信用分配，并匹配总预算。",
+        "recommendation": {
+          "level": "高",
+          "label": "值得核读",
+          "water_risk": "中",
+          "value_judgement": "共享奖励的价值取决于信息结构：数字聚合中分享只帮助别人，个人奖励导致等待和沉默；探索中帮助别人也能帮助自己，个人奖励对照接近共享奖励。应先识别协作中的激励冲突，再设计信用分配，并匹配总预算。",
+          "reason": "共享奖励的价值取决于信息结构：数字聚合中分享只帮助别人，个人奖励导致等待和沉默；探索中帮助别人也能帮助自己，个人奖励对照接近共享奖励。应先识别协作中的激励冲突，再设计信用分配，并匹配总预算。",
+          "signals": {
+            "agenticRl": true,
+            "multiTurn": false,
+            "longHorizon": false,
+            "memory": false,
+            "reliability": true,
+            "codeOrTool": false,
+            "experiments": true,
+            "survey": false
+          }
+        },
+        "card_summary": "s³用共享团队奖励训练异步通信，让LLM团队学会分享和分工；证据来自两类小模型合成任务。",
+        "insight": "共享奖励的价值取决于信息结构：数字聚合中分享只帮助别人，个人奖励导致等待和沉默；探索中帮助别人也能帮助自己，个人奖励对照接近共享奖励。应先识别协作中的激励冲突，再设计信用分配，并匹配总预算。",
+        "limitations": "每条件仅一次训练，6个评测种子不能当成独立训练重复。仅两个合成任务和小模型；探索依赖SFT，4成员对best-of-N优势经多重校正不显著。所谓自主组织仍有工具、通知、调度器和协作提示约束，不能推广为完全无结构或通用大型Agent能力。未独立复现。",
+        "abstract_zh": "固定角色和通信轮次难以适应任务；团队优于单体也可能只是使用了更多推理资源，需要匹配训练和推理预算。共享策略的Agent各自持有私有历史，通过message和read_messages自主通信。奖励取团队是否有成员成功，并对成功团队施加归一化token成本；同题采样8个团队，按团队回报归一化优势并赋给其所有生成token。异步调度限制每次推理最多1024个新token，避免单个成员长期占据资源；接收消息和工具输出只作上下文，不参与生成损失。",
+        "full_summary": "s³用共享团队奖励训练异步通信，让LLM团队学会分享和分工；证据来自两类小模型合成任务。固定角色和通信轮次难以适应任务；团队优于单体也可能只是使用了更多推理资源，需要匹配训练和推理预算。共享策略的Agent各自持有私有历史，通过message和read_messages自主通信。奖励取团队是否有成员成功，并对成功团队施加归一化token成本；同题采样8个团队，按团队回报归一化优势并赋给其所有生成token。异步调度限制每次推理最多1024个新token，避免单个成员长期占据资源；接收消息和工具输出只作上下文，不参与生成损失。Qwen3-0.6B用于私有数字聚合，1.7B用于树状房间探索；4成员训练200次更新，探索先做50次SFT。32道留出题、6个评测种子，测试1–16成员。探索中关闭通信使4成员成功率下降19个百分点；相对独立best-of-4增益9.4±3.1个百分点，但Bonferroni校正后不显著；6成员约提升7个百分点且校正后显著。数字聚合的优势可迁移至8/12成员，16成员时所有方法均困难。"
+      },
+      "analysis": {
+        "card_summary": "s³用共享团队奖励训练异步通信，让LLM团队学会分享和分工；证据来自两类小模型合成任务。",
+        "motivation": "固定角色和通信轮次难以适应任务；团队优于单体也可能只是使用了更多推理资源，需要匹配训练和推理预算。",
+        "method": "共享策略的Agent各自持有私有历史，通过message和read_messages自主通信。奖励取团队是否有成员成功，并对成功团队施加归一化token成本；同题采样8个团队，按团队回报归一化优势并赋给其所有生成token。异步调度限制每次推理最多1024个新token，避免单个成员长期占据资源；接收消息和工具输出只作上下文，不参与生成损失。",
+        "experiments": "Qwen3-0.6B用于私有数字聚合，1.7B用于树状房间探索；4成员训练200次更新，探索先做50次SFT。32道留出题、6个评测种子，测试1–16成员。探索中关闭通信使4成员成功率下降19个百分点；相对独立best-of-4增益9.4±3.1个百分点，但Bonferroni校正后不显著；6成员约提升7个百分点且校正后显著。数字聚合的优势可迁移至8/12成员，16成员时所有方法均困难。",
+        "research_help": "共享奖励的价值取决于信息结构：数字聚合中分享只帮助别人，个人奖励导致等待和沉默；探索中帮助别人也能帮助自己，个人奖励对照接近共享奖励。应先识别协作中的激励冲突，再设计信用分配，并匹配总预算。",
+        "insight": "共享奖励的价值取决于信息结构：数字聚合中分享只帮助别人，个人奖励导致等待和沉默；探索中帮助别人也能帮助自己，个人奖励对照接近共享奖励。应先识别协作中的激励冲突，再设计信用分配，并匹配总预算。",
+        "limitations": "每条件仅一次训练，6个评测种子不能当成独立训练重复。仅两个合成任务和小模型；探索依赖SFT，4成员对best-of-N优势经多重校正不显著。所谓自主组织仍有工具、通知、调度器和协作提示约束，不能推广为完全无结构或通用大型Agent能力。未独立复现。",
+        "abstract_zh": "固定角色和通信轮次难以适应任务；团队优于单体也可能只是使用了更多推理资源，需要匹配训练和推理预算。共享策略的Agent各自持有私有历史，通过message和read_messages自主通信。奖励取团队是否有成员成功，并对成功团队施加归一化token成本；同题采样8个团队，按团队回报归一化优势并赋给其所有生成token。异步调度限制每次推理最多1024个新token，避免单个成员长期占据资源；接收消息和工具输出只作上下文，不参与生成损失。",
+        "full_summary": "s³用共享团队奖励训练异步通信，让LLM团队学会分享和分工；证据来自两类小模型合成任务。固定角色和通信轮次难以适应任务；团队优于单体也可能只是使用了更多推理资源，需要匹配训练和推理预算。共享策略的Agent各自持有私有历史，通过message和read_messages自主通信。奖励取团队是否有成员成功，并对成功团队施加归一化token成本；同题采样8个团队，按团队回报归一化优势并赋给其所有生成token。异步调度限制每次推理最多1024个新token，避免单个成员长期占据资源；接收消息和工具输出只作上下文，不参与生成损失。Qwen3-0.6B用于私有数字聚合，1.7B用于树状房间探索；4成员训练200次更新，探索先做50次SFT。32道留出题、6个评测种子，测试1–16成员。探索中关闭通信使4成员成功率下降19个百分点；相对独立best-of-4增益9.4±3.1个百分点，但Bonferroni校正后不显著；6成员约提升7个百分点且校正后显著。数字聚合的优势可迁移至8/12成员，16成员时所有方法均困难。",
+        "source_scope": "full_text",
+        "source_note": "直接核读arXiv PDF正文与相关附录，主结果页已渲染核对；数值为作者报告，未独立复现。",
+        "source_evidence": [
+          "§3：异步harness、团队奖励和优势归一化",
+          "§5、图3–5（PDF第5页渲染）、附录表8–9：预算对照与统计检验",
+          "§7：每条件一次训练及两任务范围"
+        ],
+        "model": "manual-full-text-review",
+        "updated_at": "2026-11-10T01:34:37.774179+00:00",
+        "recommendation_level": "高",
+        "water_risk": "中",
+        "value_label": "值得核读",
+        "value_reason": "共享奖励的价值取决于信息结构：数字聚合中分享只帮助别人，个人奖励导致等待和沉默；探索中帮助别人也能帮助自己，个人奖励对照接近共享奖励。应先识别协作中的激励冲突，再设计信用分配，并匹配总预算。"
+      },
+      "source_report_date": "2026-11-10",
+      "affiliations": [
+        "University of Washington",
+        "Allen Institute for AI"
+      ]
+    },
+    {
+      "id": "2611.08865v1",
+      "title": "Rethinking Agent Trajectory Compression: A Workflow-Aware Perspective",
+      "summary": "As long-horizon agents increasingly rely on multi-step tool interactions to accomplish complex tasks, their execution trajectories continuously accumulate structured outputs and intermediate artifacts, leading to growing context overhead. Existing compression methods primarily rely on text importance or fixed truncation rules, often overlooking cross-step dependencies within workflows and potentially discarding critical information required for subsequent task execution. To address this challenge, we propose WAAC, a workflow-aware framework for agent trajectory compression. WAAC structurally models successful historical trajectories to extract reusable workflow compression experience and incorporates online backward dependency analysis to dynamically identify information retention requirements. By combining current dependency constraints with historical experience, WAAC selects appropriate compression strategies for different types of historical information. Experiments on PinchBench and Odysseys demonstrate that WAAC achieves an overall score of 87.6 and a perfect completion rate of 19.0%, respectively, while reducing execution costs by 19.7% and 29.1% compared with the strongest baseline methods. These results demonstrate the effectiveness of workflow-aware trajectory compression in improving task performance and cost efficiency for long-horizon agents. Code and resources are available at https://anonymous.4open.science/r/waac-6527/.",
+      "url": "http://arxiv.org/abs/2611.08865v1",
+      "authors": [
+        "Qijia Zhuang",
+        "Rui Liu",
+        "Yuxiang Ren"
+      ],
+      "report_date": "2026-11-10",
+      "published": "2026-11-06",
+      "updated": "2026-11-06",
+      "primary_category": "cs.AI",
+      "categories": [
+        "cs.AI"
+      ],
+      "project_url": "",
+      "repo_url": "",
+      "venue_status": "未确认录用",
+      "recommendation": {
+        "level": "高",
+        "label": "值得核读",
+        "water_risk": "中",
+        "value_judgement": "信息保留价值取决于未来操作需要的表示精度，而非文本长度；但只能基于可观察前缀推导当前义务。历史保留约束取保守并集并不在同状态下直接增加压缩，累计节省可能来自减少后续重复探索。",
+        "reason": "信息保留价值取决于未来操作需要的表示精度，而非文本长度；但只能基于可观察前缀推导当前义务。历史保留约束取保守并集并不在同状态下直接增加压缩，累计节省可能来自减少后续重复探索。",
+        "signals": {
+          "agenticRl": false,
+          "multiTurn": true,
+          "longHorizon": true,
+          "memory": false,
+          "reliability": false,
+          "codeOrTool": true,
+          "experiments": true,
+          "survey": true
+        }
+      },
+      "brief": {
+        "authors": [
+          "Qijia Zhuang",
+          "Rui Liu",
+          "Yuxiang Ren"
+        ],
+        "affiliations": "南京大学；东北大学（中国）",
+        "date": "2026-11-06",
+        "paper_url": "https://arxiv.org/abs/2611.08865v1",
+        "project_url": "",
+        "repo_url": "",
+        "venue_status": "未确认录用",
+        "contribution": "信息保留价值取决于未来操作需要的表示精度，而非文本长度；但只能基于可观察前缀推导当前义务。历史保留约束取保守并集并不在同状态下直接增加压缩，累计节省可能来自减少后续重复探索。",
+        "summary": "WAAC按工作流依赖决定哪些历史字段保留原值、摘要或引用，在长程工具任务中改善完成率与输入开销。轨迹中简短的路径、ID和约束可能比长段描述更关键；纯文本重要性压缩会破坏后续工具调用的可执行性。把已执行事件转为字段级Typed DAG，以当前待完成义务反向追踪数据和控制依赖；从开发集已验证成功轨迹匹配历史保留策略，再与在线需求保守合并。选择EXACT、SUMMARY、POINTER或DROP，只压缩模型可见历史，原始事件和工件留在运行态；引用无法可靠恢复或依赖不确定时退回EXACT。gpt-5.4-mini、温度0，在147项PinchBench和200项Odysseys测试，历史库评测时只读。表1 PinchBench Overall为87.6，对LLMLingua-2的84.3；输入7.174M对9.037M，减少约20.6%，对Vanilla减少24.5%，耗时13155秒且慢于Keep-Last-N的12950秒。表2 Odysseys Perfect为19.0%对AgentFold的15.0%，Rubric Avg为48.0对42.1，输入41.49M对58.47M，减少约29.0%；平均58步对62步。移除在线或离线模块均降低表现。",
+        "highlights": [
+          "信息保留价值取决于未来操作需要的表示精度，而非文本长度；但只能基于可观察前缀推导当前义务。历史保留约束取保守并集并不在同状态下直接增加压缩，累计节省可能来自减少后续重复探索。",
+          "阅读来源：arXiv PDF全文；结果限制见详情"
+        ],
+        "motivation": "轨迹中简短的路径、ID和约束可能比长段描述更关键；纯文本重要性压缩会破坏后续工具调用的可执行性。",
+        "method": "把已执行事件转为字段级Typed DAG，以当前待完成义务反向追踪数据和控制依赖；从开发集已验证成功轨迹匹配历史保留策略，再与在线需求保守合并。选择EXACT、SUMMARY、POINTER或DROP，只压缩模型可见历史，原始事件和工件留在运行态；引用无法可靠恢复或依赖不确定时退回EXACT。",
+        "experiments": "gpt-5.4-mini、温度0，在147项PinchBench和200项Odysseys测试，历史库评测时只读。表1 PinchBench Overall为87.6，对LLMLingua-2的84.3；输入7.174M对9.037M，减少约20.6%，对Vanilla减少24.5%，耗时13155秒且慢于Keep-Last-N的12950秒。表2 Odysseys Perfect为19.0%对AgentFold的15.0%，Rubric Avg为48.0对42.1，输入41.49M对58.47M，减少约29.0%；平均58步对62步。移除在线或离线模块均降低表现。",
+        "research_help": "信息保留价值取决于未来操作需要的表示精度，而非文本长度；但只能基于可观察前缀推导当前义务。历史保留约束取保守并集并不在同状态下直接增加压缩，累计节省可能来自减少后续重复探索。",
+        "recommendation": {
+          "level": "高",
+          "label": "值得核读",
+          "water_risk": "中",
+          "value_judgement": "信息保留价值取决于未来操作需要的表示精度，而非文本长度；但只能基于可观察前缀推导当前义务。历史保留约束取保守并集并不在同状态下直接增加压缩，累计节省可能来自减少后续重复探索。",
+          "reason": "信息保留价值取决于未来操作需要的表示精度，而非文本长度；但只能基于可观察前缀推导当前义务。历史保留约束取保守并集并不在同状态下直接增加压缩，累计节省可能来自减少后续重复探索。",
+          "signals": {
+            "agenticRl": false,
+            "multiTurn": true,
+            "longHorizon": true,
+            "memory": false,
+            "reliability": false,
+            "codeOrTool": true,
+            "experiments": true,
+            "survey": true
+          }
+        },
+        "card_summary": "WAAC按工作流依赖决定哪些历史字段保留原值、摘要或引用，在长程工具任务中改善完成率与输入开销。",
+        "insight": "信息保留价值取决于未来操作需要的表示精度，而非文本长度；但只能基于可观察前缀推导当前义务。历史保留约束取保守并集并不在同状态下直接增加压缩，累计节省可能来自减少后续重复探索。",
+        "limitations": "保留保证仅覆盖已注册schema和已识别依赖，不能保证未知未来需求。摘要称成本减少19.7%/29.1%，表格分别给输入、输出与时间，不能把输入token降幅等同美元成本。部分基线使用专用checkpoint或适配，非全部同模型严格控制；未见训练/评测重复的方差报告。未独立复现。",
+        "abstract_zh": "轨迹中简短的路径、ID和约束可能比长段描述更关键；纯文本重要性压缩会破坏后续工具调用的可执行性。把已执行事件转为字段级Typed DAG，以当前待完成义务反向追踪数据和控制依赖；从开发集已验证成功轨迹匹配历史保留策略，再与在线需求保守合并。选择EXACT、SUMMARY、POINTER或DROP，只压缩模型可见历史，原始事件和工件留在运行态；引用无法可靠恢复或依赖不确定时退回EXACT。",
+        "full_summary": "WAAC按工作流依赖决定哪些历史字段保留原值、摘要或引用，在长程工具任务中改善完成率与输入开销。轨迹中简短的路径、ID和约束可能比长段描述更关键；纯文本重要性压缩会破坏后续工具调用的可执行性。把已执行事件转为字段级Typed DAG，以当前待完成义务反向追踪数据和控制依赖；从开发集已验证成功轨迹匹配历史保留策略，再与在线需求保守合并。选择EXACT、SUMMARY、POINTER或DROP，只压缩模型可见历史，原始事件和工件留在运行态；引用无法可靠恢复或依赖不确定时退回EXACT。gpt-5.4-mini、温度0，在147项PinchBench和200项Odysseys测试，历史库评测时只读。表1 PinchBench Overall为87.6，对LLMLingua-2的84.3；输入7.174M对9.037M，减少约20.6%，对Vanilla减少24.5%，耗时13155秒且慢于Keep-Last-N的12950秒。表2 Odysseys Perfect为19.0%对AgentFold的15.0%，Rubric Avg为48.0对42.1，输入41.49M对58.47M，减少约29.0%；平均58步对62步。移除在线或离线模块均降低表现。"
+      },
+      "analysis": {
+        "card_summary": "WAAC按工作流依赖决定哪些历史字段保留原值、摘要或引用，在长程工具任务中改善完成率与输入开销。",
+        "motivation": "轨迹中简短的路径、ID和约束可能比长段描述更关键；纯文本重要性压缩会破坏后续工具调用的可执行性。",
+        "method": "把已执行事件转为字段级Typed DAG，以当前待完成义务反向追踪数据和控制依赖；从开发集已验证成功轨迹匹配历史保留策略，再与在线需求保守合并。选择EXACT、SUMMARY、POINTER或DROP，只压缩模型可见历史，原始事件和工件留在运行态；引用无法可靠恢复或依赖不确定时退回EXACT。",
+        "experiments": "gpt-5.4-mini、温度0，在147项PinchBench和200项Odysseys测试，历史库评测时只读。表1 PinchBench Overall为87.6，对LLMLingua-2的84.3；输入7.174M对9.037M，减少约20.6%，对Vanilla减少24.5%，耗时13155秒且慢于Keep-Last-N的12950秒。表2 Odysseys Perfect为19.0%对AgentFold的15.0%，Rubric Avg为48.0对42.1，输入41.49M对58.47M，减少约29.0%；平均58步对62步。移除在线或离线模块均降低表现。",
+        "research_help": "信息保留价值取决于未来操作需要的表示精度，而非文本长度；但只能基于可观察前缀推导当前义务。历史保留约束取保守并集并不在同状态下直接增加压缩，累计节省可能来自减少后续重复探索。",
+        "insight": "信息保留价值取决于未来操作需要的表示精度，而非文本长度；但只能基于可观察前缀推导当前义务。历史保留约束取保守并集并不在同状态下直接增加压缩，累计节省可能来自减少后续重复探索。",
+        "limitations": "保留保证仅覆盖已注册schema和已识别依赖，不能保证未知未来需求。摘要称成本减少19.7%/29.1%，表格分别给输入、输出与时间，不能把输入token降幅等同美元成本。部分基线使用专用checkpoint或适配，非全部同模型严格控制；未见训练/评测重复的方差报告。未独立复现。",
+        "abstract_zh": "轨迹中简短的路径、ID和约束可能比长段描述更关键；纯文本重要性压缩会破坏后续工具调用的可执行性。把已执行事件转为字段级Typed DAG，以当前待完成义务反向追踪数据和控制依赖；从开发集已验证成功轨迹匹配历史保留策略，再与在线需求保守合并。选择EXACT、SUMMARY、POINTER或DROP，只压缩模型可见历史，原始事件和工件留在运行态；引用无法可靠恢复或依赖不确定时退回EXACT。",
+        "full_summary": "WAAC按工作流依赖决定哪些历史字段保留原值、摘要或引用，在长程工具任务中改善完成率与输入开销。轨迹中简短的路径、ID和约束可能比长段描述更关键；纯文本重要性压缩会破坏后续工具调用的可执行性。把已执行事件转为字段级Typed DAG，以当前待完成义务反向追踪数据和控制依赖；从开发集已验证成功轨迹匹配历史保留策略，再与在线需求保守合并。选择EXACT、SUMMARY、POINTER或DROP，只压缩模型可见历史，原始事件和工件留在运行态；引用无法可靠恢复或依赖不确定时退回EXACT。gpt-5.4-mini、温度0，在147项PinchBench和200项Odysseys测试，历史库评测时只读。表1 PinchBench Overall为87.6，对LLMLingua-2的84.3；输入7.174M对9.037M，减少约20.6%，对Vanilla减少24.5%，耗时13155秒且慢于Keep-Last-N的12950秒。表2 Odysseys Perfect为19.0%对AgentFold的15.0%，Rubric Avg为48.0对42.1，输入41.49M对58.47M，减少约29.0%；平均58步对62步。移除在线或离线模块均降低表现。",
+        "source_scope": "full_text",
+        "source_note": "直接核读arXiv PDF正文与相关附录，主结果页已渲染核对；数值为作者报告，未独立复现。",
+        "source_evidence": [
+          "§3及附录A：依赖、保守融合和引用恢复条件",
+          "§4.1–4.4、表1–3（PDF第7页渲染）：设置、结果及消融",
+          "附录B：100K预算、基线适配和开发库隔离"
+        ],
+        "model": "manual-full-text-review",
+        "updated_at": "2026-11-10T01:34:37.774179+00:00",
+        "recommendation_level": "高",
+        "water_risk": "中",
+        "value_label": "值得核读",
+        "value_reason": "信息保留价值取决于未来操作需要的表示精度，而非文本长度；但只能基于可观察前缀推导当前义务。历史保留约束取保守并集并不在同状态下直接增加压缩，累计节省可能来自减少后续重复探索。"
+      },
+      "source_report_date": "2026-11-10",
+      "affiliations": [
+        "南京大学",
+        "东北大学（中国）"
+      ]
+    },
+    {
+      "id": "2611.09721v1",
+      "title": "MemoryDojo: Benchmarking Poisoning Through LLM Agent Memory",
+      "summary": "LLM agents benefit from using memory systems to improve performance on long-horizon, multi-session tasks. However, memory introduces a critical attack surface. Malicious instructions encountered in one session may be stored and propagated through memory before being retrieved and acted upon in later sessions. Because memory systems differ in how they process and retrieve information, the downstream effects of poisoning can vary significantly across systems. To quantify the effects of poisoning across different memory architectures, we introduce MemoryDojo, a benchmark for tracing the lifecycle of poisoned information through agent memory and measuring its influence on subsequent agent behavior. MemoryDojo is easily extensible, consists of 155 multi-session long-horizon trajectories covering four domains, and supports five different memory systems. Through our evaluation, we find that all memory systems are susceptible to memory poisoning, with substantial variation in downstream effects. We further propose a memory-aware poison optimization process that increases the poisoning efficacy, highlighting differences between memory architectures. We hope that MemoryDojo will support research on understanding and mitigating agentic memory risks.",
+      "url": "http://arxiv.org/abs/2611.09721v1",
+      "authors": [
+        "David H. Yang",
+        "Blake Bullwinkel",
+        "Amanda Minnich",
+        "Mohammad Mohammadi Amiri",
+        "Giorgio Severi"
+      ],
+      "report_date": "2026-11-10",
+      "published": "2026-11-06",
+      "updated": "2026-11-06",
+      "primary_category": "cs.CR",
+      "categories": [
+        "cs.CR",
+        "cs.AI",
+        "cs.CL"
+      ],
+      "project_url": "",
+      "repo_url": "",
+      "venue_status": "未确认录用",
+      "recommendation": {
+        "level": "中",
+        "label": "值得核读",
+        "water_risk": "中",
+        "value_judgement": "安全评估应沿写入→传播→检索→执行测量，不能用是否检索到攻击内容代替行为后果。更高攻击触达可能伴随任务能力损伤；长期行为记忆系统应同时核对来源、效用和跨会话影响。",
+        "reason": "安全评估应沿写入→传播→检索→执行测量，不能用是否检索到攻击内容代替行为后果。更高攻击触达可能伴随任务能力损伤；长期行为记忆系统应同时核对来源、效用和跨会话影响。",
+        "signals": {
+          "agenticRl": true,
+          "multiTurn": false,
+          "longHorizon": true,
+          "memory": true,
+          "reliability": true,
+          "codeOrTool": false,
+          "experiments": true,
+          "survey": false
+        }
+      },
+      "brief": {
+        "authors": [
+          "David H. Yang",
+          "Blake Bullwinkel",
+          "Amanda Minnich",
+          "Mohammad Mohammadi Amiri",
+          "Giorgio Severi"
+        ],
+        "affiliations": "Rensselaer Polytechnic Institute；Microsoft",
+        "date": "2026-11-06",
+        "paper_url": "https://arxiv.org/abs/2611.09721v1",
+        "project_url": "",
+        "repo_url": "",
+        "venue_status": "未确认录用",
+        "contribution": "安全评估应沿写入→传播→检索→执行测量，不能用是否检索到攻击内容代替行为后果。更高攻击触达可能伴随任务能力损伤；长期行为记忆系统应同时核对来源、效用和跨会话影响。",
+        "summary": "MemoryDojo追踪一次恶意工具观察如何经记忆影响后续会话；持久化、被检索与真正改变行为需要分开评估。长程Agent把外部观察写入记忆后，不可信指令可能变成长期偏好或流程；单会话攻击成功率无法衡量这种延迟影响。155条多会话轨迹覆盖4域，比较A-MEM、Graphiti、Letta、Mem0和Memora。攻击者仅在一次工具观察后附加内容，之后正常执行与写入；区分插入、持久化/传播归因、检索、后续任务触达BRT及轨迹触达BR。记忆感知优化在辅助轨迹上迭代候选，以效用阈值约束下的BRT选择payload。表1同域GPT-5.6-Luna设置：优化后A-MEM后续任务触达21.02%→44.01%，Letta 15.30%→46.26%，Graphiti 7.76%→9.31%；这些是后续任务比例，非轨迹BR或插入会话ASR。A-MEM任务效用72.25%→60.74%，Letta 69.46%→53.67%。迁移模型、跨域及约50会话良性历史前缀亦有测试；历史前缀下Letta后续触达为0，不能声称所有系统所有设置都成功。",
+        "highlights": [
+          "安全评估应沿写入→传播→检索→执行测量，不能用是否检索到攻击内容代替行为后果。更高攻击触达可能伴随任务能力损伤；长期行为记忆系统应同时核对来源、效用和跨会话影响。",
+          "阅读来源：arXiv PDF全文；结果限制见详情"
+        ],
+        "motivation": "长程Agent把外部观察写入记忆后，不可信指令可能变成长期偏好或流程；单会话攻击成功率无法衡量这种延迟影响。",
+        "method": "155条多会话轨迹覆盖4域，比较A-MEM、Graphiti、Letta、Mem0和Memora。攻击者仅在一次工具观察后附加内容，之后正常执行与写入；区分插入、持久化/传播归因、检索、后续任务触达BRT及轨迹触达BR。记忆感知优化在辅助轨迹上迭代候选，以效用阈值约束下的BRT选择payload。",
+        "experiments": "表1同域GPT-5.6-Luna设置：优化后A-MEM后续任务触达21.02%→44.01%，Letta 15.30%→46.26%，Graphiti 7.76%→9.31%；这些是后续任务比例，非轨迹BR或插入会话ASR。A-MEM任务效用72.25%→60.74%，Letta 69.46%→53.67%。迁移模型、跨域及约50会话良性历史前缀亦有测试；历史前缀下Letta后续触达为0，不能声称所有系统所有设置都成功。",
+        "research_help": "安全评估应沿写入→传播→检索→执行测量，不能用是否检索到攻击内容代替行为后果。更高攻击触达可能伴随任务能力损伤；长期行为记忆系统应同时核对来源、效用和跨会话影响。",
+        "recommendation": {
+          "level": "中",
+          "label": "值得核读",
+          "water_risk": "中",
+          "value_judgement": "安全评估应沿写入→传播→检索→执行测量，不能用是否检索到攻击内容代替行为后果。更高攻击触达可能伴随任务能力损伤；长期行为记忆系统应同时核对来源、效用和跨会话影响。",
+          "reason": "安全评估应沿写入→传播→检索→执行测量，不能用是否检索到攻击内容代替行为后果。更高攻击触达可能伴随任务能力损伤；长期行为记忆系统应同时核对来源、效用和跨会话影响。",
+          "signals": {
+            "agenticRl": true,
+            "multiTurn": false,
+            "longHorizon": true,
+            "memory": true,
+            "reliability": true,
+            "codeOrTool": false,
+            "experiments": true,
+            "survey": false
+          }
+        },
+        "card_summary": "MemoryDojo追踪一次恶意工具观察如何经记忆影响后续会话；持久化、被检索与真正改变行为需要分开评估。",
+        "insight": "安全评估应沿写入→传播→检索→执行测量，不能用是否检索到攻击内容代替行为后果。更高攻击触达可能伴随任务能力损伤；长期行为记忆系统应同时核对来源、效用和跨会话影响。",
+        "limitations": "比较的是原生检索策略与预算不同的完整集成，不能把差异因果归于数据结构。使用LLM语义裁判、合成/沙箱任务及单次注入；模型名称和数值为论文报告，未独立运行或验证供应商可用性。正文称代码稍后发布，不能宣称已开源。未独立复现。",
+        "abstract_zh": "长程Agent把外部观察写入记忆后，不可信指令可能变成长期偏好或流程；单会话攻击成功率无法衡量这种延迟影响。155条多会话轨迹覆盖4域，比较A-MEM、Graphiti、Letta、Mem0和Memora。攻击者仅在一次工具观察后附加内容，之后正常执行与写入；区分插入、持久化/传播归因、检索、后续任务触达BRT及轨迹触达BR。记忆感知优化在辅助轨迹上迭代候选，以效用阈值约束下的BRT选择payload。",
+        "full_summary": "MemoryDojo追踪一次恶意工具观察如何经记忆影响后续会话；持久化、被检索与真正改变行为需要分开评估。长程Agent把外部观察写入记忆后，不可信指令可能变成长期偏好或流程；单会话攻击成功率无法衡量这种延迟影响。155条多会话轨迹覆盖4域，比较A-MEM、Graphiti、Letta、Mem0和Memora。攻击者仅在一次工具观察后附加内容，之后正常执行与写入；区分插入、持久化/传播归因、检索、后续任务触达BRT及轨迹触达BR。记忆感知优化在辅助轨迹上迭代候选，以效用阈值约束下的BRT选择payload。表1同域GPT-5.6-Luna设置：优化后A-MEM后续任务触达21.02%→44.01%，Letta 15.30%→46.26%，Graphiti 7.76%→9.31%；这些是后续任务比例，非轨迹BR或插入会话ASR。A-MEM任务效用72.25%→60.74%，Letta 69.46%→53.67%。迁移模型、跨域及约50会话良性历史前缀亦有测试；历史前缀下Letta后续触达为0，不能声称所有系统所有设置都成功。"
+      },
+      "analysis": {
+        "card_summary": "MemoryDojo追踪一次恶意工具观察如何经记忆影响后续会话；持久化、被检索与真正改变行为需要分开评估。",
+        "motivation": "长程Agent把外部观察写入记忆后，不可信指令可能变成长期偏好或流程；单会话攻击成功率无法衡量这种延迟影响。",
+        "method": "155条多会话轨迹覆盖4域，比较A-MEM、Graphiti、Letta、Mem0和Memora。攻击者仅在一次工具观察后附加内容，之后正常执行与写入；区分插入、持久化/传播归因、检索、后续任务触达BRT及轨迹触达BR。记忆感知优化在辅助轨迹上迭代候选，以效用阈值约束下的BRT选择payload。",
+        "experiments": "表1同域GPT-5.6-Luna设置：优化后A-MEM后续任务触达21.02%→44.01%，Letta 15.30%→46.26%，Graphiti 7.76%→9.31%；这些是后续任务比例，非轨迹BR或插入会话ASR。A-MEM任务效用72.25%→60.74%，Letta 69.46%→53.67%。迁移模型、跨域及约50会话良性历史前缀亦有测试；历史前缀下Letta后续触达为0，不能声称所有系统所有设置都成功。",
+        "research_help": "安全评估应沿写入→传播→检索→执行测量，不能用是否检索到攻击内容代替行为后果。更高攻击触达可能伴随任务能力损伤；长期行为记忆系统应同时核对来源、效用和跨会话影响。",
+        "insight": "安全评估应沿写入→传播→检索→执行测量，不能用是否检索到攻击内容代替行为后果。更高攻击触达可能伴随任务能力损伤；长期行为记忆系统应同时核对来源、效用和跨会话影响。",
+        "limitations": "比较的是原生检索策略与预算不同的完整集成，不能把差异因果归于数据结构。使用LLM语义裁判、合成/沙箱任务及单次注入；模型名称和数值为论文报告，未独立运行或验证供应商可用性。正文称代码稍后发布，不能宣称已开源。未独立复现。",
+        "abstract_zh": "长程Agent把外部观察写入记忆后，不可信指令可能变成长期偏好或流程；单会话攻击成功率无法衡量这种延迟影响。155条多会话轨迹覆盖4域，比较A-MEM、Graphiti、Letta、Mem0和Memora。攻击者仅在一次工具观察后附加内容，之后正常执行与写入；区分插入、持久化/传播归因、检索、后续任务触达BRT及轨迹触达BR。记忆感知优化在辅助轨迹上迭代候选，以效用阈值约束下的BRT选择payload。",
+        "full_summary": "MemoryDojo追踪一次恶意工具观察如何经记忆影响后续会话；持久化、被检索与真正改变行为需要分开评估。长程Agent把外部观察写入记忆后，不可信指令可能变成长期偏好或流程；单会话攻击成功率无法衡量这种延迟影响。155条多会话轨迹覆盖4域，比较A-MEM、Graphiti、Letta、Mem0和Memora。攻击者仅在一次工具观察后附加内容，之后正常执行与写入；区分插入、持久化/传播归因、检索、后续任务触达BRT及轨迹触达BR。记忆感知优化在辅助轨迹上迭代候选，以效用阈值约束下的BRT选择payload。表1同域GPT-5.6-Luna设置：优化后A-MEM后续任务触达21.02%→44.01%，Letta 15.30%→46.26%，Graphiti 7.76%→9.31%；这些是后续任务比例，非轨迹BR或插入会话ASR。A-MEM任务效用72.25%→60.74%，Letta 69.46%→53.67%。迁移模型、跨域及约50会话良性历史前缀亦有测试；历史前缀下Letta后续触达为0，不能声称所有系统所有设置都成功。",
+        "source_scope": "full_text",
+        "source_note": "直接核读arXiv PDF正文与相关附录，主结果页已渲染核对；数值为作者报告，未独立复现。",
+        "source_evidence": [
+          "§3–5：攻击权限边界、生命周期指标及辅助优化",
+          "§6、表1（PDF第7页渲染）：触达与任务效用",
+          "§6.4、附录A.7：历史前缀与原生检索预算"
+        ],
+        "model": "manual-full-text-review",
+        "updated_at": "2026-11-10T01:34:37.774179+00:00",
+        "recommendation_level": "中",
+        "water_risk": "中",
+        "value_label": "值得核读",
+        "value_reason": "安全评估应沿写入→传播→检索→执行测量，不能用是否检索到攻击内容代替行为后果。更高攻击触达可能伴随任务能力损伤；长期行为记忆系统应同时核对来源、效用和跨会话影响。"
+      },
+      "source_report_date": "2026-11-10",
+      "affiliations": [
+        "Rensselaer Polytechnic Institute",
+        "Microsoft"
+      ]
+    },
+    {
+      "id": "2611.08644v1",
+      "title": "Decision Context: Persistent Behavioral Learning for AI Agents",
+      "summary": "LLM agents do not learn from corrections across sessions. A user fixes the same mistake at the start of every conversation. Existing agent memory systems primarily handle facts, such as preferences, entities, and conversational history, rather than procedural knowledge. We present Forge Decision Context (forge_dc), a system that captures behavioral signals from human corrections and self-assessed tool-call failures, compiles them into imperative RULE directives, and injects them at the decision points where they apply. We evaluate forge_dc alongside four predecessor approaches on DC-Bench, a new benchmark of 71 scenarios across nine behavioral dimensions, built from real executed agent traces in a deterministic mocked-tool environment. forge_dc reaches 95% compliance, up from 55% with naive retrieval, while injecting approximately 10 times fewer tokens per query. Across the five-stage progression, the strongest systems represent behavioral memory as explicit directives and deliver it at the decision points where it applies. The results identify representation, activation, and placement as central design choices for persistent behavioral learning.",
+      "url": "http://arxiv.org/abs/2611.08644v1",
+      "authors": [
+        "Nima Vahdat",
+        "Pashootan Vaezipoor"
+      ],
+      "report_date": "2026-11-10",
+      "published": "2026-11-05",
+      "updated": "2026-11-05",
+      "primary_category": "cs.AI",
+      "categories": [
+        "cs.AI"
+      ],
+      "project_url": "",
+      "repo_url": "",
+      "venue_status": "未确认录用",
+      "recommendation": {
+        "level": "中",
+        "label": "值得核读",
+        "water_risk": "中",
+        "value_judgement": "优化目标应从找回纠正文本转为是否在适当决策点改变行为，并测不应触发时的负迁移。规则表达、激活时机与注入通道是联合设计，不能把遵从提升单独归因于图存储或RULE措辞。",
+        "reason": "优化目标应从找回纠正文本转为是否在适当决策点改变行为，并测不应触发时的负迁移。规则表达、激活时机与注入通道是联合设计，不能把遵从提升单独归因于图存储或RULE措辞。",
+        "signals": {
+          "agenticRl": false,
+          "multiTurn": false,
+          "longHorizon": false,
+          "memory": true,
+          "reliability": true,
+          "codeOrTool": true,
+          "experiments": true,
+          "survey": false
+        }
+      },
+      "brief": {
+        "authors": [
+          "Nima Vahdat",
+          "Pashootan Vaezipoor"
+        ],
+        "affiliations": "Georgian AI Lab",
+        "date": "2026-11-05",
+        "paper_url": "https://arxiv.org/abs/2611.08644v1",
+        "project_url": "",
+        "repo_url": "",
+        "venue_status": "未确认录用",
+        "contribution": "优化目标应从找回纠正文本转为是否在适当决策点改变行为，并测不应触发时的负迁移。规则表达、激活时机与注入通道是联合设计，不能把遵从提升单独归因于图存储或RULE措辞。",
+        "summary": "Decision Context把用户纠正与工具失败经验编译成有触发条件的规则，在决策点注入；结果衡量行为遵从而非通用任务成功。跨会话记住事实不等于在新对象上正确应用行为纠正，规则还需保留作用域、例外和来源，并在相关工具结果出现后激活。Capture–Store–Retrieve–Inject管线从显式纠正和工具失败/重试提取信号，存成带actor和条件的图节点，编译RULE指令。无条件格式规则在启动时注入，后续按累计工具上下文重检索；冲突先取当前actor规则，否则按支持纠正的多数选择，无多数则弃权。无需更新Agent权重。DC-Bench含财务和客服两域71情境、9维度，每情境从新记忆库开始，在对象A纠正后测试对象B；每情境/方法5次运行。Opus 4.7骨干、GPT-4裁判加程序检查下，宏平均遵从55%（朴素检索）→95%（forge）；平均注入1705→159 token。表4一次捕获25185个LLM token，单次Agent运行5621对11871 token，约4次查询后才摊销捕获。",
+        "highlights": [
+          "优化目标应从找回纠正文本转为是否在适当决策点改变行为，并测不应触发时的负迁移。规则表达、激活时机与注入通道是联合设计，不能把遵从提升单独归因于图存储或RULE措辞。",
+          "阅读来源：arXiv PDF全文；结果限制见详情"
+        ],
+        "motivation": "跨会话记住事实不等于在新对象上正确应用行为纠正，规则还需保留作用域、例外和来源，并在相关工具结果出现后激活。",
+        "method": "Capture–Store–Retrieve–Inject管线从显式纠正和工具失败/重试提取信号，存成带actor和条件的图节点，编译RULE指令。无条件格式规则在启动时注入，后续按累计工具上下文重检索；冲突先取当前actor规则，否则按支持纠正的多数选择，无多数则弃权。无需更新Agent权重。",
+        "experiments": "DC-Bench含财务和客服两域71情境、9维度，每情境从新记忆库开始，在对象A纠正后测试对象B；每情境/方法5次运行。Opus 4.7骨干、GPT-4裁判加程序检查下，宏平均遵从55%（朴素检索）→95%（forge）；平均注入1705→159 token。表4一次捕获25185个LLM token，单次Agent运行5621对11871 token，约4次查询后才摊销捕获。",
+        "research_help": "优化目标应从找回纠正文本转为是否在适当决策点改变行为，并测不应触发时的负迁移。规则表达、激活时机与注入通道是联合设计，不能把遵从提升单独归因于图存储或RULE措辞。",
+        "recommendation": {
+          "level": "中",
+          "label": "值得核读",
+          "water_risk": "中",
+          "value_judgement": "优化目标应从找回纠正文本转为是否在适当决策点改变行为，并测不应触发时的负迁移。规则表达、激活时机与注入通道是联合设计，不能把遵从提升单独归因于图存储或RULE措辞。",
+          "reason": "优化目标应从找回纠正文本转为是否在适当决策点改变行为，并测不应触发时的负迁移。规则表达、激活时机与注入通道是联合设计，不能把遵从提升单独归因于图存储或RULE措辞。",
+          "signals": {
+            "agenticRl": false,
+            "multiTurn": false,
+            "longHorizon": false,
+            "memory": true,
+            "reliability": true,
+            "codeOrTool": true,
+            "experiments": true,
+            "survey": false
+          }
+        },
+        "card_summary": "Decision Context把用户纠正与工具失败经验编译成有触发条件的规则，在决策点注入；结果衡量行为遵从而非通用任务成功。",
+        "insight": "优化目标应从找回纠正文本转为是否在适当决策点改变行为，并测不应触发时的负迁移。规则表达、激活时机与注入通道是联合设计，不能把遵从提升单独归因于图存储或RULE措辞。",
+        "limitations": "作者同时构建benchmark、评分rubric、系统和AWM/Memp适配；工具输出确定性mock，主要指标是行为遵从而非真实环境任务成功。累积架构消融未分离编译、触发、冲突和位置的独立效应；10倍指注入token，不含一次捕获成本，也不是10倍总体价格下降。注意力机制解释是作者假说，未经白盒实验验证。未独立复现。",
+        "abstract_zh": "跨会话记住事实不等于在新对象上正确应用行为纠正，规则还需保留作用域、例外和来源，并在相关工具结果出现后激活。Capture–Store–Retrieve–Inject管线从显式纠正和工具失败/重试提取信号，存成带actor和条件的图节点，编译RULE指令。无条件格式规则在启动时注入，后续按累计工具上下文重检索；冲突先取当前actor规则，否则按支持纠正的多数选择，无多数则弃权。无需更新Agent权重。",
+        "full_summary": "Decision Context把用户纠正与工具失败经验编译成有触发条件的规则，在决策点注入；结果衡量行为遵从而非通用任务成功。跨会话记住事实不等于在新对象上正确应用行为纠正，规则还需保留作用域、例外和来源，并在相关工具结果出现后激活。Capture–Store–Retrieve–Inject管线从显式纠正和工具失败/重试提取信号，存成带actor和条件的图节点，编译RULE指令。无条件格式规则在启动时注入，后续按累计工具上下文重检索；冲突先取当前actor规则，否则按支持纠正的多数选择，无多数则弃权。无需更新Agent权重。DC-Bench含财务和客服两域71情境、9维度，每情境从新记忆库开始，在对象A纠正后测试对象B；每情境/方法5次运行。Opus 4.7骨干、GPT-4裁判加程序检查下，宏平均遵从55%（朴素检索）→95%（forge）；平均注入1705→159 token。表4一次捕获25185个LLM token，单次Agent运行5621对11871 token，约4次查询后才摊销捕获。"
+      },
+      "analysis": {
+        "card_summary": "Decision Context把用户纠正与工具失败经验编译成有触发条件的规则，在决策点注入；结果衡量行为遵从而非通用任务成功。",
+        "motivation": "跨会话记住事实不等于在新对象上正确应用行为纠正，规则还需保留作用域、例外和来源，并在相关工具结果出现后激活。",
+        "method": "Capture–Store–Retrieve–Inject管线从显式纠正和工具失败/重试提取信号，存成带actor和条件的图节点，编译RULE指令。无条件格式规则在启动时注入，后续按累计工具上下文重检索；冲突先取当前actor规则，否则按支持纠正的多数选择，无多数则弃权。无需更新Agent权重。",
+        "experiments": "DC-Bench含财务和客服两域71情境、9维度，每情境从新记忆库开始，在对象A纠正后测试对象B；每情境/方法5次运行。Opus 4.7骨干、GPT-4裁判加程序检查下，宏平均遵从55%（朴素检索）→95%（forge）；平均注入1705→159 token。表4一次捕获25185个LLM token，单次Agent运行5621对11871 token，约4次查询后才摊销捕获。",
+        "research_help": "优化目标应从找回纠正文本转为是否在适当决策点改变行为，并测不应触发时的负迁移。规则表达、激活时机与注入通道是联合设计，不能把遵从提升单独归因于图存储或RULE措辞。",
+        "insight": "优化目标应从找回纠正文本转为是否在适当决策点改变行为，并测不应触发时的负迁移。规则表达、激活时机与注入通道是联合设计，不能把遵从提升单独归因于图存储或RULE措辞。",
+        "limitations": "作者同时构建benchmark、评分rubric、系统和AWM/Memp适配；工具输出确定性mock，主要指标是行为遵从而非真实环境任务成功。累积架构消融未分离编译、触发、冲突和位置的独立效应；10倍指注入token，不含一次捕获成本，也不是10倍总体价格下降。注意力机制解释是作者假说，未经白盒实验验证。未独立复现。",
+        "abstract_zh": "跨会话记住事实不等于在新对象上正确应用行为纠正，规则还需保留作用域、例外和来源，并在相关工具结果出现后激活。Capture–Store–Retrieve–Inject管线从显式纠正和工具失败/重试提取信号，存成带actor和条件的图节点，编译RULE指令。无条件格式规则在启动时注入，后续按累计工具上下文重检索；冲突先取当前actor规则，否则按支持纠正的多数选择，无多数则弃权。无需更新Agent权重。",
+        "full_summary": "Decision Context把用户纠正与工具失败经验编译成有触发条件的规则，在决策点注入；结果衡量行为遵从而非通用任务成功。跨会话记住事实不等于在新对象上正确应用行为纠正，规则还需保留作用域、例外和来源，并在相关工具结果出现后激活。Capture–Store–Retrieve–Inject管线从显式纠正和工具失败/重试提取信号，存成带actor和条件的图节点，编译RULE指令。无条件格式规则在启动时注入，后续按累计工具上下文重检索；冲突先取当前actor规则，否则按支持纠正的多数选择，无多数则弃权。无需更新Agent权重。DC-Bench含财务和客服两域71情境、9维度，每情境从新记忆库开始，在对象A纠正后测试对象B；每情境/方法5次运行。Opus 4.7骨干、GPT-4裁判加程序检查下，宏平均遵从55%（朴素检索）→95%（forge）；平均注入1705→159 token。表4一次捕获25185个LLM token，单次Agent运行5621对11871 token，约4次查询后才摊销捕获。",
+        "source_scope": "full_text",
+        "source_note": "直接核读arXiv PDF正文与相关附录，主结果页已渲染核对；数值为作者报告，未独立复现。",
+        "source_evidence": [
+          "§4–5：规则编译、触发、冲突与隔离评测",
+          "§6、表2–4（PDF第7页渲染）：遵从与token账目",
+          "§8：累积设计、mock环境及机制假说限制"
+        ],
+        "model": "manual-full-text-review",
+        "updated_at": "2026-11-10T01:34:37.774179+00:00",
+        "recommendation_level": "中",
+        "water_risk": "中",
+        "value_label": "值得核读",
+        "value_reason": "优化目标应从找回纠正文本转为是否在适当决策点改变行为，并测不应触发时的负迁移。规则表达、激活时机与注入通道是联合设计，不能把遵从提升单独归因于图存储或RULE措辞。"
+      },
+      "source_report_date": "2026-11-10",
+      "affiliations": [
+        "Georgian AI Lab"
+      ]
+    },
+    {
+      "id": "2611.09894v1",
+      "title": "Video-Coder: Reinforcing Agentic Coding for Video Generation",
+      "summary": "Recent years have witnessed remarkable progress in video generation in terms of visual quality and temporal consistency. However, generating videos with precise spatial structure, coherent motion dynamics, and controllable scene composition remains challenging. In this paper, we introduce Video-Coder, the first attempt to train a code-driven video generation agent, which autonomously writes and executes code to construct a dynamic 3D scene (Draft Video) that provides structure and motion signals to downstream video generators. To support this paradigm, we design a dedicated data pipeline and curate two high-quality datasets, Video-Coder-SFT-6k and Video-Coder-RL-2k, which contain diverse prompts and ground-truth reference videos. We further develop the Video- Coder Harness, a unified interactive environment integrating code execution, 3D scene rendering, and execution feedback for agent training and inference. We then train Video-Coder with SFT fol- lowed by harness-native agentic reinforcement learning with dual reward feedback, which combines execution-based and video-based rewards. Additionally, we design an annealing training strategy that gradually reduces the execution reward over time, allowing the model to rely more on the video reward in the later training stages. Experiments show that Video-Coder achieves significant gains, improving Minimax-H3 by approximately 7 points on PhyGenBench and 24 points on VBench-2.0. We hope this work can serve as an open foundation for coding agents in video generation, and we fully open-source our data, models, and code",
+      "url": "http://arxiv.org/abs/2611.09894v1",
+      "authors": [
+        "Chaoyang Wang",
+        "Sicheng Gao",
+        "Junan Hu",
+        "Kunyang Li",
+        "Dongyang Chen",
+        "Yiyang Zhou",
+        "Huaxiu Yao",
+        "Yong Jae Lee",
+        "Radu Timofte",
+        "Yuzhang Shang"
+      ],
+      "report_date": "2026-11-10",
+      "published": "2026-11-06",
+      "updated": "2026-11-06",
+      "primary_category": "cs.CV",
+      "categories": [
+        "cs.CV"
+      ],
+      "project_url": "",
+      "repo_url": "",
+      "venue_status": "未确认录用",
+      "recommendation": {
+        "level": "中",
+        "label": "值得核读",
+        "water_risk": "中",
+        "value_judgement": "把生成任务改写成可执行交互环境，能把错误反馈与最终质量奖励连接起来；应同时评估代码可靠性、输出质量和推理/渲染成本，不能用能运行替代物理正确。",
+        "reason": "把生成任务改写成可执行交互环境，能把错误反馈与最终质量奖励连接起来；应同时评估代码可靠性、输出质量和推理/渲染成本，不能用能运行替代物理正确。",
+        "signals": {
+          "agenticRl": true,
+          "multiTurn": true,
+          "longHorizon": false,
+          "memory": false,
+          "reliability": false,
+          "codeOrTool": true,
+          "experiments": true,
+          "survey": false
+        }
+      },
+      "brief": {
+        "authors": [
+          "Chaoyang Wang",
+          "Sicheng Gao",
+          "Junan Hu",
+          "Kunyang Li",
+          "Dongyang Chen",
+          "Yiyang Zhou",
+          "Huaxiu Yao",
+          "Yong Jae Lee",
+          "Radu Timofte",
+          "Yuzhang Shang"
+        ],
+        "affiliations": "University of Central Florida；University of Würzburg；Microsoft Research；清华大学；UNC-Chapel Hill；UW–Madison",
+        "date": "2026-11-06",
+        "paper_url": "https://arxiv.org/abs/2611.09894v1",
+        "project_url": "",
+        "repo_url": "",
+        "venue_status": "未确认录用",
+        "contribution": "把生成任务改写成可执行交互环境，能把错误反馈与最终质量奖励连接起来；应同时评估代码可靠性、输出质量和推理/渲染成本，不能用能运行替代物理正确。",
+        "summary": "Video-Coder以多轮Blender代码执行和双奖励RL生成视频结构草稿，提高物理维度评分，但论文存在数据规模和增益口径不一致。像素视频模型难精确约束物体数目、空间结构和运动；可执行3D程序可提供可检查的结构与运动中间表示。Qwen3.5-9B先SFT再GRPO，在harness里写代码、检查、渲染并根据错误和帧反馈修改；提交需在干净目录重执行。灰模draft指导固定下游视频生成器。奖励为0.5倍视频裁判分数加exp(-step/T)倍执行奖励，逐渐降低执行信号权重；并非降至零。表1 MiniMax-H3基线PhyGenBench均分0.61，完整模型0.67；表3 SFT为0.63、固定权重RL为0.65、仅执行/仅视频奖励为0.64/0.63。表2 VBench-2.0物理维度平均54.58%→78.19%，提升23.61个百分点，但Material 75.02%低于CogVideoX的83.19%。文中称8张H100训练，并另用16张H100做生成rollout，约3天；最多100轮、120K上下文。",
+        "highlights": [
+          "把生成任务改写成可执行交互环境，能把错误反馈与最终质量奖励连接起来；应同时评估代码可靠性、输出质量和推理/渲染成本，不能用能运行替代物理正确。",
+          "阅读来源：arXiv PDF全文；结果限制见详情"
+        ],
+        "motivation": "像素视频模型难精确约束物体数目、空间结构和运动；可执行3D程序可提供可检查的结构与运动中间表示。",
+        "method": "Qwen3.5-9B先SFT再GRPO，在harness里写代码、检查、渲染并根据错误和帧反馈修改；提交需在干净目录重执行。灰模draft指导固定下游视频生成器。奖励为0.5倍视频裁判分数加exp(-step/T)倍执行奖励，逐渐降低执行信号权重；并非降至零。",
+        "experiments": "表1 MiniMax-H3基线PhyGenBench均分0.61，完整模型0.67；表3 SFT为0.63、固定权重RL为0.65、仅执行/仅视频奖励为0.64/0.63。表2 VBench-2.0物理维度平均54.58%→78.19%，提升23.61个百分点，但Material 75.02%低于CogVideoX的83.19%。文中称8张H100训练，并另用16张H100做生成rollout，约3天；最多100轮、120K上下文。",
+        "research_help": "把生成任务改写成可执行交互环境，能把错误反馈与最终质量奖励连接起来；应同时评估代码可靠性、输出质量和推理/渲染成本，不能用能运行替代物理正确。",
+        "recommendation": {
+          "level": "中",
+          "label": "值得核读",
+          "water_risk": "中",
+          "value_judgement": "把生成任务改写成可执行交互环境，能把错误反馈与最终质量奖励连接起来；应同时评估代码可靠性、输出质量和推理/渲染成本，不能用能运行替代物理正确。",
+          "reason": "把生成任务改写成可执行交互环境，能把错误反馈与最终质量奖励连接起来；应同时评估代码可靠性、输出质量和推理/渲染成本，不能用能运行替代物理正确。",
+          "signals": {
+            "agenticRl": true,
+            "multiTurn": true,
+            "longHorizon": false,
+            "memory": false,
+            "reliability": false,
+            "codeOrTool": true,
+            "experiments": true,
+            "survey": false
+          }
+        },
+        "card_summary": "Video-Coder以多轮Blender代码执行和双奖励RL生成视频结构草稿，提高物理维度评分，但论文存在数据规模和增益口径不一致。",
+        "insight": "把生成任务改写成可执行交互环境，能把错误反馈与最终质量奖励连接起来；应同时评估代码可靠性、输出质量和推理/渲染成本，不能用能运行替代物理正确。",
+        "limitations": "摘要/数据段称SFT-6k和RL-2k，实验设置/结论却称10k和4k，实际规模未能确认。表1为0.61→0.67而非摘要约7点；OmniWeaving 0.48→0.51不能支持正文16.28点增益，故不采用该说法。视频裁判和合成参考依赖特定模型，未报告多种子方差或同成本端到端比较；100轮上限不证明实际长程成功。开源为作者声明，未独立验证全部资产可用性。未独立复现。",
+        "abstract_zh": "像素视频模型难精确约束物体数目、空间结构和运动；可执行3D程序可提供可检查的结构与运动中间表示。Qwen3.5-9B先SFT再GRPO，在harness里写代码、检查、渲染并根据错误和帧反馈修改；提交需在干净目录重执行。灰模draft指导固定下游视频生成器。奖励为0.5倍视频裁判分数加exp(-step/T)倍执行奖励，逐渐降低执行信号权重；并非降至零。",
+        "full_summary": "Video-Coder以多轮Blender代码执行和双奖励RL生成视频结构草稿，提高物理维度评分，但论文存在数据规模和增益口径不一致。像素视频模型难精确约束物体数目、空间结构和运动；可执行3D程序可提供可检查的结构与运动中间表示。Qwen3.5-9B先SFT再GRPO，在harness里写代码、检查、渲染并根据错误和帧反馈修改；提交需在干净目录重执行。灰模draft指导固定下游视频生成器。奖励为0.5倍视频裁判分数加exp(-step/T)倍执行奖励，逐渐降低执行信号权重；并非降至零。表1 MiniMax-H3基线PhyGenBench均分0.61，完整模型0.67；表3 SFT为0.63、固定权重RL为0.65、仅执行/仅视频奖励为0.64/0.63。表2 VBench-2.0物理维度平均54.58%→78.19%，提升23.61个百分点，但Material 75.02%低于CogVideoX的83.19%。文中称8张H100训练，并另用16张H100做生成rollout，约3天；最多100轮、120K上下文。"
+      },
+      "analysis": {
+        "card_summary": "Video-Coder以多轮Blender代码执行和双奖励RL生成视频结构草稿，提高物理维度评分，但论文存在数据规模和增益口径不一致。",
+        "motivation": "像素视频模型难精确约束物体数目、空间结构和运动；可执行3D程序可提供可检查的结构与运动中间表示。",
+        "method": "Qwen3.5-9B先SFT再GRPO，在harness里写代码、检查、渲染并根据错误和帧反馈修改；提交需在干净目录重执行。灰模draft指导固定下游视频生成器。奖励为0.5倍视频裁判分数加exp(-step/T)倍执行奖励，逐渐降低执行信号权重；并非降至零。",
+        "experiments": "表1 MiniMax-H3基线PhyGenBench均分0.61，完整模型0.67；表3 SFT为0.63、固定权重RL为0.65、仅执行/仅视频奖励为0.64/0.63。表2 VBench-2.0物理维度平均54.58%→78.19%，提升23.61个百分点，但Material 75.02%低于CogVideoX的83.19%。文中称8张H100训练，并另用16张H100做生成rollout，约3天；最多100轮、120K上下文。",
+        "research_help": "把生成任务改写成可执行交互环境，能把错误反馈与最终质量奖励连接起来；应同时评估代码可靠性、输出质量和推理/渲染成本，不能用能运行替代物理正确。",
+        "insight": "把生成任务改写成可执行交互环境，能把错误反馈与最终质量奖励连接起来；应同时评估代码可靠性、输出质量和推理/渲染成本，不能用能运行替代物理正确。",
+        "limitations": "摘要/数据段称SFT-6k和RL-2k，实验设置/结论却称10k和4k，实际规模未能确认。表1为0.61→0.67而非摘要约7点；OmniWeaving 0.48→0.51不能支持正文16.28点增益，故不采用该说法。视频裁判和合成参考依赖特定模型，未报告多种子方差或同成本端到端比较；100轮上限不证明实际长程成功。开源为作者声明，未独立验证全部资产可用性。未独立复现。",
+        "abstract_zh": "像素视频模型难精确约束物体数目、空间结构和运动；可执行3D程序可提供可检查的结构与运动中间表示。Qwen3.5-9B先SFT再GRPO，在harness里写代码、检查、渲染并根据错误和帧反馈修改；提交需在干净目录重执行。灰模draft指导固定下游视频生成器。奖励为0.5倍视频裁判分数加exp(-step/T)倍执行奖励，逐渐降低执行信号权重；并非降至零。",
+        "full_summary": "Video-Coder以多轮Blender代码执行和双奖励RL生成视频结构草稿，提高物理维度评分，但论文存在数据规模和增益口径不一致。像素视频模型难精确约束物体数目、空间结构和运动；可执行3D程序可提供可检查的结构与运动中间表示。Qwen3.5-9B先SFT再GRPO，在harness里写代码、检查、渲染并根据错误和帧反馈修改；提交需在干净目录重执行。灰模draft指导固定下游视频生成器。奖励为0.5倍视频裁判分数加exp(-step/T)倍执行奖励，逐渐降低执行信号权重；并非降至零。表1 MiniMax-H3基线PhyGenBench均分0.61，完整模型0.67；表3 SFT为0.63、固定权重RL为0.65、仅执行/仅视频奖励为0.64/0.63。表2 VBench-2.0物理维度平均54.58%→78.19%，提升23.61个百分点，但Material 75.02%低于CogVideoX的83.19%。文中称8张H100训练，并另用16张H100做生成rollout，约3天；最多100轮、120K上下文。",
+        "source_scope": "full_text",
+        "source_note": "直接核读arXiv PDF正文与相关附录，主结果页已渲染核对；数值为作者报告，未独立复现。",
+        "source_evidence": [
+          "§3：harness、双奖励及退火公式",
+          "§4、表1–3（PDF第7页渲染）：主结果与消融",
+          "§3.1对照§4.1/§5：训练集规模不一致"
+        ],
+        "model": "manual-full-text-review",
+        "updated_at": "2026-11-10T01:34:37.774179+00:00",
+        "recommendation_level": "中",
+        "water_risk": "中",
+        "value_label": "值得核读",
+        "value_reason": "把生成任务改写成可执行交互环境，能把错误反馈与最终质量奖励连接起来；应同时评估代码可靠性、输出质量和推理/渲染成本，不能用能运行替代物理正确。"
+      },
+      "source_report_date": "2026-11-10",
+      "affiliations": [
+        "University of Central Florida",
+        "University of Würzburg",
+        "Microsoft Research",
+        "清华大学",
+        "UNC-Chapel Hill",
+        "UW–Madison"
+      ]
+    },
     {
       "id": "2611.07932v1",
       "title": "AttnSR: Attention Step Reward for Long-Horizon Agentic RL",
