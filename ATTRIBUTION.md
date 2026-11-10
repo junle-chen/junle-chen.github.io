@@ -28,6 +28,7 @@ This research homepage credits the services, libraries, templates, data sources,
 | [anime.js](https://animejs.com/) | Homepage animation timing and transitions. |
 | [MathJax](https://www.mathjax.org/) | LaTeX rendering in notes and paper details. |
 | [Supabase JS](https://supabase.com/docs/reference/javascript/introduction) | Browser client for Supabase auth and realtime state. |
+| [Noto Sans SC](https://github.com/google/fonts/tree/main/ofl/notosanssc) | Self-hosted variable web font for aligned Chinese and Latin typography; subset and SIL OFL license in `src/assets/fonts/`. |
 | [Alibaba Iconfont](https://www.iconfont.cn/) | Icon font used by the homepage link buttons. |
 
 ## Adapted Or Referenced Code

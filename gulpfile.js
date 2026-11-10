@@ -12,6 +12,7 @@ const pug = require('gulp-pug')
 const less = require('gulp-less')
 
 const config = require('./config.json')
+const fs = require('fs')
 
 function getHomepageContent() {
 	try {
@@ -57,7 +58,11 @@ gulp.task('js', function () {
 gulp.task('pug', function () {
 	return gulp
 		.src('./src/index.pug')
-		.pipe(pug({ data: { ...config, homepage: getHomepageContent() } }))
+		.pipe(pug({ data: {
+			...config,
+			homepage: getHomepageContent(),
+			profile: JSON.parse(fs.readFileSync('./src/data/profile.json', 'utf8')),
+		} }))
 		.pipe(gulp.dest('./dist'))
 })
 
@@ -79,7 +84,8 @@ gulp.task('default', gulp.series('build'))
 gulp.task('watch', function () {
 	gulp.watch('./src/components/*.pug', gulp.parallel('pug'))
 	gulp.watch('./src/index.pug', gulp.parallel('pug'))
-	gulp.watch('./src/css/**/*.scss', gulp.parallel(['css']))
+	gulp.watch('./src/data/profile.json', gulp.parallel('pug'))
+	gulp.watch('./src/css/**/*.less', gulp.parallel(['css']))
 	gulp.watch('./src/js/*.js', gulp.parallel(['js']))
 	connect.server({
 		root: 'dist',

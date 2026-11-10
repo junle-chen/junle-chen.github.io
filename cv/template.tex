@@ -1,0 +1,19 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[margin=12mm]{geometry}
+\usepackage{fontspec}
+\usepackage{xeCJK}
+\setmainfont{texgyretermes-regular.otf}[BoldFont=texgyretermes-bold.otf,ItalicFont=texgyretermes-italic.otf,BoldItalicFont=texgyretermes-bolditalic.otf]
+\setCJKmainfont{FandolSong-Regular.otf}[BoldFont=FandolSong-Bold.otf]
+\usepackage{enumitem,tabularx,titlesec,xcolor}
+\usepackage[colorlinks=true,urlcolor=blue!45!black,linkcolor=blue!45!black]{hyperref}
+\hypersetup{pdftitle={@@TITLE@@},pdfauthor={Junle Chen},pdfsubject={Academic Curriculum Vitae}}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\setlength{\tabcolsep}{4pt}
+\setlength{\emergencystretch}{2em}
+@@SECTION_FORMAT@@
+\begin{document}
+\fontsize{9.7}{11.2}\selectfont
+@@CONTENT@@
+\end{document}

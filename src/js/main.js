@@ -2025,9 +2025,14 @@ function bindThemeToggle() {
 		icon.textContent = isLight ? "☾" : "☀";
 		button.setAttribute(
 			"aria-label",
-			isLight ? "Switch to dark mode" : "Switch to light mode"
+			window.JunleLanguage && window.JunleLanguage.current === "zh"
+				? (isLight ? "切换到深色模式" : "切换到浅色模式")
+				: (isLight ? "Switch to dark mode" : "Switch to light mode")
 		);
 	}
+	document.addEventListener("junle:languagechange", () => {
+		applyTheme(main.classList.contains("theme-light") ? "light" : "dark");
+	});
 
 	const savedTheme = window.localStorage.getItem(THEME_STORAGE_KEY) || "light";
 	applyTheme(savedTheme);

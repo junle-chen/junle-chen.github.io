@@ -1,0 +1,322 @@
+{
+  "name": {
+    "en": "Junle Chen",
+    "zh": "陈俊乐"
+  },
+  "role": {
+    "en": "PhD student at HKUST CSE",
+    "zh": "香港科技大学计算机科学与工程系博士生"
+  },
+  "cvRole": {
+    "en": "PhD Student in Computer Science and Engineering",
+    "zh": "计算机科学与工程博士生"
+  },
+  "location": {
+    "en": "Hong Kong",
+    "zh": "香港"
+  },
+  "summary": {
+    "en": "I am a PhD student in Computer Science and Engineering at The Hong Kong University of Science and Technology, advised by Professor Xiaofang Zhou. My research focuses on improving the multi-turn interaction capabilities of LLM agents, including user interaction before execution and environment interaction during long-horizon execution. I also do some work on spatiotemporal data.",
+    "zh": "我是香港科技大学计算机科学与工程系的博士生，导师为周晓方教授。我的研究主要关注提升大语言模型智能体的多轮交互能力，包括执行前的用户交互，以及长程任务执行过程中的环境交互。我也开展一些时空数据相关研究。"
+  },
+  "cvSummary": {
+    "en": "PhD student in Computer Science and Engineering at The Hong Kong University of Science and Technology (HKUST), advised by Professor Xiaofang Zhou. My research focuses on interaction and context management for LLM agents, enabling them to maintain user intent and task goals across multi-turn, long-horizon interactions.",
+    "zh": "香港科技大学计算机科学与工程系博士生，导师为周晓方教授。研究聚焦大语言模型智能体的交互与上下文管理，使其在多轮、长程交互中持续维护用户意图与任务目标。"
+  },
+  "researchIntro": {
+    "en": "My research focuses on improving the multi-turn interaction capabilities of LLM agents, including:",
+    "zh": "我的研究主要关注提升大语言模型智能体的多轮交互能力，包括："
+  },
+  "cvResearchIntro": {
+    "en": "Interaction and Context Management for LLM Agents, with emphasis on:",
+    "zh": "大语言模型智能体的交互与上下文管理，重点包括："
+  },
+  "education": [
+    {
+      "date": {
+        "en": "Sept 2021 - Jun 2025",
+        "zh": "2021 年 9 月 - 2025 年 6 月"
+      },
+      "title": {
+        "en": "Bachelor of Computer Science and Technology",
+        "zh": "计算机科学与技术学士"
+      },
+      "org": {
+        "en": "School of Future Technology, Harbin Institute of Technology",
+        "zh": "哈尔滨工业大学未来技术学院"
+      },
+      "detail": {
+        "en": "Formerly Honor School.",
+        "zh": "原英才学院。"
+      },
+      "logo": "assets/schools/hit.png",
+      "logoAlt": {
+        "en": "Harbin Institute of Technology emblem",
+        "zh": "哈尔滨工业大学校徽"
+      },
+      "institution": {
+        "en": "Harbin Institute of Technology",
+        "zh": "哈尔滨工业大学"
+      },
+      "cvDate": {
+        "en": "Sep 2021 - Jun 2025",
+        "zh": "2021 年 9 月 - 2025 年 6 月"
+      },
+      "cvDegree": {
+        "en": "Bachelor of Computer Science and Technology, School of Future Technology (formerly Honor School)",
+        "zh": "计算机科学与技术学士，未来技术学院（原英才学院）"
+      }
+    },
+    {
+      "date": {
+        "en": "Sept 2025 -",
+        "zh": "2025 年 9 月至今"
+      },
+      "title": {
+        "en": "PhD in Computer Science and Engineering (CSE)",
+        "zh": "计算机科学与工程博士（在读）"
+      },
+      "org": {
+        "en": "The Hong Kong University of Science and Technology",
+        "zh": "香港科技大学"
+      },
+      "detail": {
+        "en": "Under the guidance of Professor Xiaofang Zhou.",
+        "zh": "导师：周晓方教授。"
+      },
+      "logo": "assets/schools/hkust-blue-gold.png",
+      "logoAlt": {
+        "en": "HKUST blue and gold emblem",
+        "zh": "香港科技大学校徽"
+      },
+      "institution": {
+        "en": "The Hong Kong University of Science and Technology (HKUST)",
+        "zh": "香港科技大学（HKUST）"
+      },
+      "cvDate": {
+        "en": "Sep 2025 - Present",
+        "zh": "2025 年 9 月至今"
+      },
+      "cvDegree": {
+        "en": "PhD in Computer Science and Engineering; Advisor: Prof. Xiaofang Zhou",
+        "zh": "计算机科学与工程博士（在读）；导师：周晓方教授"
+      }
+    }
+  ],
+  "research": [
+    {
+      "stage": {
+        "en": "Before execution",
+        "zh": "执行前"
+      },
+      "title": {
+        "en": "User Interaction",
+        "zh": "用户交互"
+      },
+      "description": {
+        "en": "Deciding when and how LLM agents should clarify user intent, while avoiding unwarranted assumptions and preserving context across turns.",
+        "zh": "研究大语言模型智能体何时、如何澄清用户意图，减少无根据的假设，并在多轮对话中保持上下文。"
+      },
+      "cvDescription": {
+        "en": "Tracking user intent and preference changes in multi-turn dialogue.",
+        "zh": "跟踪多轮对话中用户意图与偏好的变化。"
+      }
+    },
+    {
+      "stage": {
+        "en": "In execution",
+        "zh": "执行过程中"
+      },
+      "title": {
+        "en": "Environment Interaction",
+        "zh": "环境交互"
+      },
+      "description": {
+        "en": "Enabling LLM agents to interact with external tools and environments during long-horizon task execution.",
+        "zh": "支持大语言模型智能体在长程任务执行过程中与外部工具和环境交互。"
+      },
+      "cvDescription": {
+        "en": "Maintaining user intent and task goals throughout long-horizon execution.",
+        "zh": "在长程执行中持续维护用户意图与任务目标。"
+      }
+    }
+  ],
+  "publications": [
+    {
+      "title": "You Changed Your Mind, The Model Didn't: Demystifying Intent in Multi-Turn Dialogue",
+      "authors": "Junle Chen, Wei Chen, Zhengjun Huang, Zhoujin Tian, Yuxuan Liu, Kai Wang, Rui Chen, and Xiaofang Zhou",
+      "venue": "arXiv:2610.06496, 2026",
+      "href": "https://arxiv.org/abs/2610.06496v1",
+      "code": "https://github.com/junle-chen/intent",
+      "website": "https://junle-chen.github.io/intent-site/"
+    },
+    {
+      "title": "Trip+: Benchmarking Agents in Personalized Interactive Travel Planning",
+      "authors": "Junle Chen, Wei Chen, Yehong Xu, Zhengjun Huang, Yuqian Wu, Zhoujin Tian, Kai Wang, Rui Chen, and Xiaofang Zhou",
+      "venue": "EMNLP 2026 (Main)",
+      "href": "https://arxiv.org/abs/2606.21169",
+      "code": "https://github.com/junle-chen/trip-plus",
+      "website": "https://junle-chen.github.io/trip-plus-site/"
+    },
+    {
+      "title": "Flash-OPD: Fast On-Policy Distillation",
+      "authors": "Wei Chen, Junle Chen, Yitong Yang, Zhaoyang Xu, Jiaxin Lin, Yuxuan Liang, Xiaofang Zhou, Kai Wang, and Rui Chen",
+      "venue": "arXiv:2610.06105, 2026",
+      "href": "https://arxiv.org/abs/2610.06105",
+      "code": "https://github.com/Onedean/Flash-OPD",
+      "website": "https://onedean.github.io/Flash-OPD-Site/"
+    },
+    {
+      "title": "SkillScriptBench: Benchmarking Self-Evolution of Executable Agent Skill Packages Beyond Markdown",
+      "authors": "Yuxuan Liu, Haoran Li, Yuhao Zhang, Jiahe Guo, Hongyu Luo, Wenbin Hu, Huihao Jing, Kawai Chung, Junle Chen, Changxuan Fan, Qing Zong, Lingyun Xie, and Yangqiu Song",
+      "venue": "arXiv:2610.04008, 2026",
+      "href": "https://arxiv.org/abs/2610.04008"
+    },
+    {
+      "title": "M³Exam: Benchmarking Multimodal Memory for Realistic User-Agent Interactions",
+      "authors": "Zhengjun Huang, Wenxuan Liu, Zhoujin Tian, Wei Chen, Junle Chen, Yuqian Wu, Fangyuan Zhang, Qintian Guo, and Xiaofang Zhou",
+      "venue": "arXiv:2606.07402, 2026",
+      "href": "https://arxiv.org/abs/2606.07402",
+      "code": "https://github.com/EverM0re/M-3-Exam"
+    },
+    {
+      "title": "LifeSide: Benchmarking Agents as Lifelong Digital Companions",
+      "authors": "Yuqian Wu, Zhijie Deng, Wei Chen, Junwei Li, Yutian Jiang, Junle Chen, Zhengjun Huang, Qingxiang Liu, Jing Tang, Jiaheng Wei, and Yuxuan Liang",
+      "venue": "arXiv:2606.04660, 2026",
+      "href": "https://arxiv.org/abs/2606.04660"
+    },
+    {
+      "title": "Back to Basics: Let Conversational Agents Remember with Just Retrieval and Generation",
+      "authors": "Yuqian Wu, Wei Chen, Zhengjun Huang, Junle Chen, Qingxiang Liu, Kai Wang, Xiaofang Zhou, and Yuxuan Liang",
+      "venue": "COLM 2026",
+      "href": "https://arxiv.org/abs/2604.11628",
+      "code": "https://github.com/yuqian2003/Nano-Memory"
+    },
+    {
+      "title": "UrbanFM: Scaling Urban Spatio-Temporal Foundation Models",
+      "authors": "Wei Chen, Yuqian Wu, Junle Chen, Xiaofang Zhou, and Yuxuan Liang",
+      "venue": "KDD 2026 Oral",
+      "href": "https://arxiv.org/abs/2602.20677",
+      "code": "https://github.com/Onedean/UrbanFM"
+    },
+    {
+      "title": "Learning from Complexity: Exploring Dynamic Sample Pruning of Spatio-Temporal Training",
+      "authors": "Wei Chen, Junle Chen, Yuqian Wu, Yuxuan Liang, and Xiaofang Zhou",
+      "venue": "arXiv:2602.19113, 2026",
+      "href": "https://arxiv.org/abs/2602.19113"
+    },
+    {
+      "title": "Adaptive Indexing for Coverage Queries over Transition Trajectories",
+      "authors": "Jian Chen†, Junle Chen†, Donghua Yang, Guangyu Sui, Jinbao Wang, and Lina Chen",
+      "venue": "World Wide Web, 2025",
+      "href": "https://doi.org/10.1007/s11280-025-01368-6"
+    },
+    {
+      "title": "Maximizing Influence Query over Indoor Trajectories",
+      "authors": "Jian Chen, Hong Gao, Yuhong Shi, Junle Chen, Donghua Yang, and Jianzhong Li",
+      "venue": "IEEE Transactions on Knowledge and Data Engineering (TKDE), 2025",
+      "href": "https://doi.org/10.1109/TKDE.2024.3514323"
+    },
+    {
+      "title": "Efficient Coverage Query over Transition Trajectories",
+      "authors": "Jian Chen, Junle Chen, Hong Gao, Donghua Yang, and Kaiqi Zhang",
+      "venue": "APWeb-WAIM, 2024",
+      "href": "https://doi.org/10.1007/978-981-97-7235-3_32"
+    }
+  ],
+  "awards": [
+    {
+      "en": "HKUST Postgraduate Studentship (PGS)",
+      "zh": "香港科技大学研究生助学金（PGS）"
+    },
+    {
+      "en": "HKUST RedBird PhD Scholarship",
+      "zh": "香港科技大学 RedBird 博士奖学金"
+    },
+    {
+      "en": "National Scholarship (2022-2023)",
+      "zh": "国家奖学金（2022-2023 学年）"
+    },
+    {
+      "en": "First-Class People's Scholarship (awarded each semester)",
+      "zh": "人民一等奖学金（每学期获得）"
+    },
+    {
+      "en": "Finalist in the Mathematical Contest in Modeling (MCM), USA",
+      "zh": "美国大学生数学建模竞赛 Finalist 奖"
+    },
+    {
+      "en": "First Prize in College Mathematics Competition",
+      "zh": "大学生数学竞赛一等奖"
+    },
+    {
+      "en": "Outstanding Student Award (Provincial Level)",
+      "zh": "省级优秀学生"
+    },
+    {
+      "en": "Outstanding Graduate of Heilongjiang Province",
+      "zh": "黑龙江省优秀毕业生"
+    },
+    {
+      "en": "Outstanding Graduate of Harbin Institute of Technology",
+      "zh": "哈尔滨工业大学优秀毕业生"
+    }
+  ],
+  "contact": [
+    {
+      "label": {
+        "en": "Email",
+        "zh": "邮箱"
+      },
+      "value": "jchenkg@connect.ust.hk",
+      "href": "mailto:jchenkg@connect.ust.hk"
+    },
+    {
+      "label": {
+        "en": "Phone",
+        "zh": "电话"
+      },
+      "value": "+852 56029402",
+      "href": "tel:+85256029402"
+    },
+    {
+      "label": {
+        "en": "WeChat",
+        "zh": "微信"
+      },
+      "value": "HIT_junle"
+    }
+  ],
+  "experience": {
+    "org": {
+      "en": "LAMDA, Nanjing University",
+      "zh": "南京大学 LAMDA 实验室"
+    },
+    "date": {
+      "en": "Jul 2023",
+      "zh": "2023 年 7 月"
+    },
+    "detail": {
+      "en": "AI Cloud-Based Scientific Research with Data-Driven Knowledge; Project Experience",
+      "zh": "数据驱动知识的人工智能云端科研项目；项目经历"
+    }
+  },
+  "cv": {
+    "en": "assets/cv/Junle_Chen_CV.pdf?v=20261111-bilingual-v1",
+    "zh": "assets/cv/Junle_Chen_CV_ZH.pdf?v=20261111-contact-spacing-v2"
+  },
+  "links": {
+    "website": "https://junle-chen.github.io",
+    "github": "https://github.com/junle-chen",
+    "scholar": "https://scholar.google.com/citations?user=EjiEmLUAAAAJ&hl=zh-CN"
+  },
+  "cvContact": {
+    "zh": {
+      "phone": {
+        "value": "+86 15259695906",
+        "href": "tel:+8615259695906"
+      },
+      "wechat": "15259695906"
+    }
+  }
+}

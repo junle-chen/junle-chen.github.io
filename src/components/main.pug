@@ -29,49 +29,19 @@
 - const boldSelfAuthor = value => escapeHtml(value).replace(/\bJunle Chen\b/g, '<span class="author-self">Junle Chen</span>')
 -
 	const infoActions = [
-		{ label: "Hong Kong", glyph: "HK" },
-		{ label: "GitHub", icon: "github", href: "https://github.com/junle-chen" },
-		{ label: "Scholar", glyph: "GS", href: "https://scholar.google.com/citations?user=EjiEmLUAAAAJ&hl=zh-CN" },
-		{ label: "CV", glyph: "PDF", href: "assets/cv/Junle_Chen_CV.pdf?v=20261012-first-author", newTab: true },
-		{ label: "Email", icon: "email", href: "mailto:jchenkg@connect.ust.hk" },
-		{ label: "Phone", glyph: "TEL", href: "tel:+85256029402" }
+	  { label: "Hong Kong", zh: "香港", glyph: "HK" },
+	  { label: "GitHub", glyph: "GH", icon: "github", href: profile.links.github },
+	  { label: "Scholar", zh: "学术主页", glyph: "GS", href: profile.links.scholar },
+	  { label: "CV", zh: "简历", glyph: "PDF", href: profile.cv.en, cv: true, newTab: true },
+	  { label: "Email", zh: "邮箱", icon: "email", href: "mailto:jchenkg@connect.ust.hk" },
+	  { label: "Phone", zh: "电话", glyph: "TEL", href: "tel:+85256029402" }
 	]
-	const educationItems = [
-		{ date: "Sept 2021 - Jun 2025", title: "Bachelor of Computer Science and Technology", org: "School of Future Technology, Harbin Institute of Technology", detail: "Formerly Honor School.", logo: "assets/schools/hit.png", logoAlt: "Harbin Institute of Technology emblem" },
-		{ date: "Sept 2025 -", title: "PhD in Computer Science and Engineering (CSE)", org: "The Hong Kong University of Science and Technology", detail: "Under the guidance of Professor Xiaofang Zhou.", logo: "assets/schools/hkust-blue-gold.png", logoAlt: "HKUST blue and gold emblem" }
-	]
-	const researchInterests = [
-		{
-			stage: "Before execution",
-			title: "User Interaction",
-			description: "Deciding when and how LLM agents should clarify user intent, while avoiding unwarranted assumptions and preserving context across turns."
-		},
-		{
-			stage: "In execution",
-			title: "Environment Interaction",
-			description: "Enabling LLM agents to interact with external tools and environments during long-horizon task execution."
-		}
-	]
-	const publications = [
-		{ title: "You Changed Your Mind, The Model Didn't: Demystifying Intent in Multi-Turn Dialogue", authors: "Junle Chen, Wei Chen, Zhengjun Huang, Zhoujin Tian, Yuxuan Liu, Kai Wang, Rui Chen, and Xiaofang Zhou", venue: "arXiv:2610.06496, 2026", href: "https://arxiv.org/abs/2610.06496v1", code: "https://github.com/junle-chen/intent", website: "https://junle-chen.github.io/intent-site/" },
-		{ title: "Trip+: Benchmarking Agents in Personalized Interactive Travel Planning", authors: "Junle Chen, Wei Chen, Yehong Xu, Zhengjun Huang, Yuqian Wu, Zhoujin Tian, Kai Wang, Rui Chen, and Xiaofang Zhou", venue: "EMNLP 2026 (Main)", href: "https://arxiv.org/abs/2606.21169", code: "https://github.com/junle-chen/trip-plus", website: "https://junle-chen.github.io/trip-plus-site/" },
-		{ title: "Flash-OPD: Fast On-Policy Distillation", authors: "Wei Chen, Junle Chen, Yitong Yang, Zhaoyang Xu, Jiaxin Lin, Yuxuan Liang, Xiaofang Zhou, Kai Wang, and Rui Chen", venue: "arXiv:2610.06105, 2026", href: "https://arxiv.org/abs/2610.06105", code: "https://github.com/Onedean/Flash-OPD", website: "https://onedean.github.io/Flash-OPD-Site/" },
-		{ title: "SkillScriptBench: Benchmarking Self-Evolution of Executable Agent Skill Packages Beyond Markdown", authors: "Yuxuan Liu, Haoran Li, Yuhao Zhang, Jiahe Guo, Hongyu Luo, Wenbin Hu, Huihao Jing, Kawai Chung, Junle Chen, Changxuan Fan, Qing Zong, Lingyun Xie, and Yangqiu Song", venue: "arXiv:2610.04008, 2026", href: "https://arxiv.org/abs/2610.04008" },
-		{ title: "M³Exam: Benchmarking Multimodal Memory for Realistic User-Agent Interactions", authors: "Zhengjun Huang, Wenxuan Liu, Zhoujin Tian, Wei Chen, Junle Chen, Yuqian Wu, Fangyuan Zhang, Qintian Guo, and Xiaofang Zhou", venue: "arXiv:2606.07402, 2026", href: "https://arxiv.org/abs/2606.07402", code: "https://github.com/EverM0re/M-3-Exam" },
-		{ title: "LifeSide: Benchmarking Agents as Lifelong Digital Companions", authors: "Yuqian Wu, Zhijie Deng, Wei Chen, Junwei Li, Yutian Jiang, Junle Chen, Zhengjun Huang, Qingxiang Liu, Jing Tang, Jiaheng Wei, and Yuxuan Liang", venue: "arXiv:2606.04660, 2026", href: "https://arxiv.org/abs/2606.04660" },
-		{ title: "Back to Basics: Let Conversational Agents Remember with Just Retrieval and Generation", authors: "Yuqian Wu, Wei Chen, Zhengjun Huang, Junle Chen, Qingxiang Liu, Kai Wang, Xiaofang Zhou, and Yuxuan Liang", venue: "COLM 2026", href: "https://arxiv.org/abs/2604.11628", code: "https://github.com/yuqian2003/Nano-Memory" },
-		{ title: "UrbanFM: Scaling Urban Spatio-Temporal Foundation Models", authors: "Wei Chen, Yuqian Wu, Junle Chen, Xiaofang Zhou, and Yuxuan Liang", venue: "KDD 2026 Oral", href: "https://arxiv.org/abs/2602.20677", code: "https://github.com/Onedean/UrbanFM" },
-		{ title: "Learning from Complexity: Exploring Dynamic Sample Pruning of Spatio-Temporal Training", authors: "Wei Chen, Junle Chen, Yuqian Wu, Yuxuan Liang, and Xiaofang Zhou", venue: "arXiv:2602.19113, 2026", href: "https://arxiv.org/abs/2602.19113" },
-		{ title: "Adaptive Indexing for Coverage Queries over Transition Trajectories", authors: "Jian Chen†, Junle Chen†, Donghua Yang, Guangyu Sui, Jinbao Wang, and Lina Chen", venue: "World Wide Web, 2025", href: "https://doi.org/10.1007/s11280-025-01368-6" },
-		{ title: "Maximizing Influence Query over Indoor Trajectories", authors: "Jian Chen, Hong Gao, Yuhong Shi, Junle Chen, Donghua Yang, and Jianzhong Li", venue: "IEEE Transactions on Knowledge and Data Engineering (TKDE), 2025", href: "https://doi.org/10.1109/TKDE.2024.3514323" },
-		{ title: "Efficient Coverage Query over Transition Trajectories", authors: "Jian Chen, Junle Chen, Hong Gao, Donghua Yang, and Kaiqi Zhang", venue: "APWeb-WAIM, 2024", href: "https://doi.org/10.1007/978-981-97-7235-3_32" }
-	]
-	const awards = ["HKUST Postgraduate Studentship (PGS)", "HKUST RedBird PhD Scholarship", "National Scholarship (2022-2023)", "First-Class People's Scholarship (awarded each semester)", "Finalist in the Mathematical Contest in Modeling (MCM), USA", "First Prize in College Mathematics Competition", "Outstanding Student Award (Provincial Level)", "Outstanding Graduate of Heilongjiang Province", "Outstanding Graduate of Harbin Institute of Technology"]
-	const contactItems = [
-		{ label: "Email", value: "jchenkg@connect.ust.hk", href: "mailto:jchenkg@connect.ust.hk" },
-		{ label: "Phone", value: "+852 56029402", href: "tel:+85256029402" },
-		{ label: "WeChat", value: "HIT_junle" }
-	]
+- const educationItems = profile.education
+- const researchInterests = profile.research
+- const publications = profile.publications
+- const awards = profile.awards
+- const contactItems = profile.contact
+
 
 .content.content-main.theme-light
 	canvas.grid-background#gridCanvas
@@ -84,29 +54,32 @@
 			span.fluid-blob.blob-five
 		.about-intro-copy
 			h2 junle
-			p Personal research workspace
+			p(data-zh="个人研究工作台") Personal research workspace
 	include cat-companion.pug
 	.site-shell.app-shell
 		.workspace-panel
 			header.workspace-topbar
 				.topbar-title
-					p.workspace-kicker Personal homepage
-					h2 Blog Library
-				.topbar-nav(aria-label="Primary sections")
-					a(href="#notes" data-nav-section="blog") Blog
-					a(href="#bookmarks" data-nav-section="bookmarks") Saved
-					a(href="#memos") Memo
-					a(href="#papers" data-nav-section="academic") Academic
-					a(href="#info" data-nav-section="info") About Me
-					a.topbar-home-link(href="#about" data-nav-section="about" aria-label="Home")
+					p.workspace-kicker(data-zh="个人主页") Personal homepage
+					h2(data-zh="博客文库") Blog Library
+				.topbar-nav(aria-label="Primary sections" data-zh-aria-label="主要栏目")
+					a(href="#notes" data-nav-section="blog" data-zh="博客") Blog
+					a(href="#bookmarks" data-nav-section="bookmarks" data-zh="收藏") Saved
+					a(href="#memos" data-zh="随记") Memo
+					a(href="#papers" data-nav-section="academic" data-zh="学术") Academic
+					a(href="#info" data-nav-section="info" data-zh="关于我") About Me
+					a.topbar-home-link(href="#about" data-nav-section="about" aria-label="Home" data-zh-aria-label="首页")
 						svg.topbar-home-icon(viewBox="0 0 24 24" aria-hidden="true" focusable="false")
 							path(d="M3.5 10.5 12 3.5l8.5 7")
 							path(d="M5.5 10v9.5h13V10")
 							path(d="M9.5 19.5V15h5v4.5")
 				.topbar-actions
 					label.topbar-search(for="noteSearch")
-						span Search
-						input#noteSearch(type="search" placeholder="Search notes and tags..." autocomplete="off")
+						span(data-zh="搜索") Search
+						input#noteSearch(type="search" placeholder="Search notes and tags..." data-zh-placeholder="搜索笔记和标签…" autocomplete="off")
+					.language-switch(role="group" aria-label="Language / 语言")
+						button(type="button" data-language="zh" lang="zh-CN" aria-pressed="false") 中文
+						button.is-active(type="button" data-language="en" lang="en" aria-pressed="true") EN
 					button.theme-toggle(type="button" aria-label="Switch to light mode" data-theme-toggle)
 						span.theme-toggle-icon(data-theme-icon) ☀
 
@@ -115,22 +88,22 @@
 					.about-card.about-workspace-card
 						header.about-header
 							img(src=`${main.avatar.link}` width=`${main.avatar.width}` height=`${main.avatar.height}` alt="Junle Chen avatar")
-							p.profile-eyebrow Personal knowledge workspace
-							h1 #{main.name}
-							h2 #{main.signature}
-							p.about-bio This website contains my personal profile, research notes, memos, Daily Paper reading archive, Zotero paper list, publications, awards, and contact information.
+							p.profile-eyebrow(data-zh="个人知识工作台") Personal knowledge workspace
+							h1(data-zh=profile.name.zh) #{main.name}
+							h2(data-zh="笔记、问题记录、论文与每日 arXiv 追踪") #{main.signature}
+							p.about-bio(data-zh="这里收录了我的个人简介、研究笔记、随记、每日论文阅读归档、Zotero 论文列表、发表论文、获奖情况和联系方式。") This website contains my personal profile, research notes, memos, Daily Paper reading archive, Zotero paper list, publications, awards, and contact information.
 						if profileLinks.length
 							ul.primary-links.about-links
 								each item in profileLinks
 									li
 										a(href=`${item.href}` aria-label=`${item.text}` target=isExternal(item.href) ? "_blank" : null rel=isExternal(item.href) ? "noopener noreferrer" : null)
 											i(class=`icon icon-${item.icon}`)
-											span #{item.text}
+											span(data-zh=item.text === "Email" ? "邮箱" : null) #{item.text}
 							.template-star-row
 								a.template-star-button(href="https://github.com/junle-chen/junle-chen.github.io" target="_blank" rel="noopener noreferrer" aria-label="Star this website template on GitHub")
 									svg.template-star-icon(viewBox="0 0 16 16" aria-hidden="true" focusable="false")
 										path(d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.193a.75.75 0 0 1-1.088.791L8 12.347l-3.766 1.981a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Z")
-									span Star this template
+									span(data-zh="在 GitHub 为模板加星") Star this template
 
 			section.info-page#info
 				.info-shell.info-main-stack
@@ -142,59 +115,59 @@
 						.info-profile-identity
 							img(src=`${main.avatar.link}` width=`${main.avatar.width}` height=`${main.avatar.height}` alt="Junle Chen avatar")
 							.info-profile-copy
-								h2 Junle Chen
-								p.info-profile-name-cn 陈俊乐
-								p.info-profile-role PhD student at HKUST CSE
+								h2(data-zh=profile.name.zh) Junle Chen
+								p.info-profile-name-cn(data-zh=profile.name.en) 陈俊乐
+								p.info-profile-role(data-zh=profile.role.zh) #{profile.role.en}
 								ul.about-action-list.info-actions
 									each action in infoActions
 										li
 											if action.href
-												a.about-action-button(href=`${action.href}` target=(/^https?:/.test(action.href) || action.newTab) ? "_blank" : null rel=(/^https?:/.test(action.href) || action.newTab) ? "noopener noreferrer" : null)
+												a.about-action-button(data-cv-link=action.cv ? true : null data-cv-en=action.cv ? profile.cv.en : null data-cv-zh=action.cv ? profile.cv.zh : null href=`${action.href}` target=(/^https?:/.test(action.href) || action.newTab) ? "_blank" : null rel=(/^https?:/.test(action.href) || action.newTab) ? "noopener noreferrer" : null)
 													if action.icon
 														i.about-action-icon.icon(class=`icon-${action.icon}` aria-hidden="true")
 													else
 														span.about-action-glyph #{action.glyph}
-													span #{action.label}
+													span(data-zh=action.zh) #{action.label}
 											else
 												span.about-action-button
 													if action.icon
 														i.about-action-icon.icon(class=`icon-${action.icon}` aria-hidden="true")
 													else
 														span.about-action-glyph #{action.glyph}
-													span #{action.label}
+													span(data-zh=action.zh) #{action.label}
 					article.info-card.info-about-card
-						h3 About Me
-						p.info-lead I am a PhD student in Computer Science and Engineering at The Hong Kong University of Science and Technology, advised by Professor Xiaofang Zhou. My research focuses on improving the multi-turn interaction capabilities of LLM agents, including user interaction before execution and environment interaction during long-horizon execution. I also do some work on spatiotemporal data.
+						h3(data-zh="关于我") About Me
+						p.info-lead(data-zh=profile.summary.zh) #{profile.summary.en}
 					article.info-card
-						h3 Education
+						h3(data-zh="教育经历") Education
 						.info-list
 							each item in educationItems
 								article.info-list-item.info-education-item
 									.education-emblem
-										img(src=item.logo alt=item.logoAlt width="62" height="62" loading="lazy" decoding="async")
+										img(src=item.logo alt=item.logoAlt.en data-zh-alt=item.logoAlt.zh width="62" height="62" loading="lazy" decoding="async")
 									.education-copy
-										span.about-date #{item.date}
-										h4 #{item.title}
-										p #{item.org}
+										span.about-date(data-zh=item.date.zh) #{item.date.en}
+										h4(data-zh=item.title.zh) #{item.title.en}
+										p(data-zh=item.org.zh) #{item.org.en}
 										if item.detail
-											p.about-detail #{item.detail}
+											p.about-detail(data-zh=item.detail.zh) #{item.detail.en}
 					.info-two-column
 						article.info-card
-							h3 Research Interest
-							p.research-interest-intro My research focuses on improving the multi-turn interaction capabilities of LLM agents, including:
+							h3(data-zh="研究方向") Research Interest
+							p.research-interest-intro(data-zh=profile.researchIntro.zh) #{profile.researchIntro.en}
 							ul.research-interest-list
 								each interest in researchInterests
 									li
-										span #{interest.stage}
-										h4 #{interest.title}
-										p #{interest.description}
+										span(data-zh=interest.stage.zh) #{interest.stage.en}
+										h4(data-zh=interest.title.zh) #{interest.title.en}
+										p(data-zh=interest.description.zh) #{interest.description.en}
 						article.info-card
-							h3 Awards
+							h3(data-zh="获奖情况") Awards
 							ul.info-bullet-list
 								each award in awards
-									li #{award}
+									li(data-zh=award.zh) #{award.en}
 					article.info-card.info-publications-card
-						h3 Publications
+						h3(data-zh="发表论文") Publications
 						.about-publication-list
 							each paper, index in publications
 								article.about-publication
@@ -208,27 +181,27 @@
 										else
 											strong #{paper.venue}
 										.about-publication-links(role="group" aria-label=`Resources for ${paper.title}`)
-											a(href=paper.href target="_blank" rel="noopener noreferrer") Paper
+											a(href=paper.href target="_blank" rel="noopener noreferrer" data-zh="论文") Paper
 											if paper.code
-												a(href=paper.code target="_blank" rel="noopener noreferrer") Code
+												a(href=paper.code target="_blank" rel="noopener noreferrer" data-zh="代码") Code
 											if paper.website
-												a(href=paper.website target="_blank" rel="noopener noreferrer") Website
-						p.about-footnote † Co-first author
+												a(href=paper.website target="_blank" rel="noopener noreferrer" data-zh="项目主页") Website
+						p.about-footnote(data-zh="† 共同第一作者") † Co-first author
 					article.info-card.info-contact-card
-						h3 Contact
+						h3(data-zh="联系方式") Contact
 						ul.about-contact-list.info-contact-list
 							each item in contactItems
 								li
-									span #{item.label}
+									span(data-zh=item.label.zh) #{item.label.en}
 									if item.href
 										a(href=`${item.href}` target=/^https?:/.test(item.href) ? "_blank" : null rel=/^https?:/.test(item.href) ? "noopener noreferrer" : null) #{item.value}
 									else
 										strong #{item.value}
 					article.info-card.info-visitor-card(data-visitor-regions)
-						h3 Visitor Regions
-						p.info-card-subtitle Website visits grouped by region.
+						h3(data-zh="访客地区") Visitor Regions
+						p.info-card-subtitle(data-zh="按地区统计的网站访问情况。") Website visits grouped by region.
 						p.visitor-region-status(data-visitor-region-status) Loading visitor regions...
-						ul.visitor-region-list(data-visitor-region-list aria-label="Website visits by region")
+						ul.visitor-region-list(data-visitor-region-list aria-label="Website visits by region" data-zh-aria-label="各地区的网站访问次数")
 
 			section.memo-page#memos
 				.memo-workspace

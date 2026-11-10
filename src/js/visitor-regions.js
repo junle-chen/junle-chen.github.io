@@ -81,7 +81,14 @@
 		if (!status) {
 			return;
 		}
-		status.textContent = text || "";
+		const translations = {
+			"No visit data yet.": "暂无访问数据。",
+			"Visitor stats are not configured.": "尚未配置访客统计。",
+			"Loading visitor regions...": "正在加载访客地区…",
+			"Visitor stats are unavailable.": "暂时无法获取访客统计。",
+		};
+		status.dataset.message = text || "";
+		status.textContent = root.JunleLanguage && root.JunleLanguage.current === "zh" ? translations[text] || text || "" : text || "";
 		status.hidden = !text;
 		status.dataset.state = state || "";
 	}
@@ -217,6 +224,11 @@
 	}
 
 	if (typeof window !== "undefined" && window.document) {
+		window.document.addEventListener("junle:languagechange", () => {
+			const container = window.document.querySelector("[data-visitor-regions]");
+			const status = container && container.querySelector("[data-visitor-region-status]");
+			if (status) setStatus(container, status.dataset.message, status.dataset.state);
+		});
 		const boot = () => init();
 		if (window.document.readyState === "loading") {
 			window.document.addEventListener("DOMContentLoaded", boot, { once: true });

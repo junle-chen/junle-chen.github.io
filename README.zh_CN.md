@@ -37,7 +37,7 @@ Pug、LESS 和 JavaScript 构建出静态网站，由 GitHub Pages 托管。Supa
 | 修改内容 | 文件位置 |
 | --- | --- |
 | 主页文案和链接 | [config.json](config.json) |
-| 个人介绍 | [aboutme.md](src/assets/content/pages/aboutme.md) |
+| 中英文个人介绍与 CV 资料 | [profile.json](src/data/profile.json)；[CV 生成说明](cv/README.md) |
 | 技术笔记 | [notes/](src/assets/content/notes/) |
 | Daily Paper | [daily-papers.json](src/assets/content/data/daily-papers.json) |
 | Paper List | [zotero-paper-list.json](src/assets/content/data/zotero-paper-list.json) |

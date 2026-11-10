@@ -50,7 +50,7 @@ The files below are the main editing points for this website:
 | --- | --- |
 | `config.json` | Page title, description, intro text, avatar, profile links, and WebGL background switch. |
 | `src/assets/avatar.png` | Replace with your own avatar. |
-| `src/assets/content/pages/aboutme.md` | About page content. |
+| `src/data/profile.json` | Bilingual profile and CV data; see [CV generation](cv/README.md). |
 | `src/assets/content/notes/` | Long-form Markdown notes. |
 | `src/assets/content/data/daily-papers.json` | Daily Paper data. |
 | `src/assets/content/data/zotero-paper-list.json` | Paper List data. |
