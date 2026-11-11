@@ -1,20 +1,27 @@
-# Noto Sans SC web font
+# Chinese font paired with the original English typography
 
-The self-hosted variable font is a subset of the official
-[Noto Sans SC](https://github.com/google/fonts/tree/main/ofl/notosanssc) font,
-Version 2.004-H2;hotconv 1.0.118;makeotfexe 2.5.65603. Upstream source: `NotoSansSC[wght].ttf`.
-SHA-256 of the upstream font used: `a3041811a78c361b1de50f953c805e0244951c21c5bd412f7232ef0d899af0da`.
+The original English font stack remains Comic Sans MS, Helvetica Neue,
+Microsoft Yahei, -apple-system, sans-serif. LXGW WenKai is inserted only as a
+Chinese fallback: both CSS `unicode-range` and the font cmap exclude Latin
+letters and ASCII digits. English uses its original fonts in both language views.
+
+The self-hosted Chinese faces are subsets of the official
+[LXGW WenKai v1.530 release](https://github.com/lxgw/LxgwWenKai/releases/tag/v1.530).
+They retain the release's Regular (400) and Medium (500) weights. The browser
+synthesizes bold for heavier headings, as it does for other static fallback fonts.
+
+- `LXGWWenKai-Regular.ttf`: Version 1.530; October 18, 2026; weight 400; SHA-256 `2d73eea94ad808999d90c0000c239a84a33b09d4bc6ab6c5b8bbf1eda8a7fc8b`.
+- `LXGWWenKai-Medium.ttf`: Version 1.530; October 18, 2026; weight 500; SHA-256 `f4b8a34d1f838fe411540cb7c97b1c384ac9738a876c4104500bc42508b2312a`.
 
 The font is licensed under the SIL Open Font License 1.1; see
-[OFL-NotoSansSC.txt](OFL-NotoSansSC.txt). It covers the current site text, Latin
-characters and variable weights 100-900. New characters fall back to the platform's
-Chinese sans-serif fonts if they are outside this subset.
+[OFL-LXGWWenKai.txt](OFL-LXGWWenKai.txt). It covers Chinese characters in the current
+site text. Characters outside the subset use the original platform fallback.
 
-To extend the subset after adding text, download the official upstream font and run:
+To extend the subset after adding text, download the official release TTFs and run:
 
 ```sh
-uv run --with 'fonttools[woff]' python scripts/subset-web-font.py '/path/to/NotoSansSC[wght].ttf'
+uv run --with 'fonttools[woff]' python scripts/subset-web-font.py /path/to/LXGWWenKai-Regular.ttf /path/to/LXGWWenKai-Medium.ttf
 npm run build
 ```
 
-The standard website build uses the committed WOFF2 and needs no font tooling.
+The normal website build uses the committed WOFF2 files and needs no font tooling.

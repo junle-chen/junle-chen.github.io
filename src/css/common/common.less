@@ -1,14 +1,24 @@
 @font-face {
-	font-family: "Noto Sans SC";
-	src: url("../assets/fonts/noto-sans-sc-variable.woff2") format("woff2");
+	font-family: "LXGW WenKai CJK";
+	src: url("../assets/fonts/lxgw-wenkai-regular-cjk.woff2") format("woff2");
 	font-style: normal;
-	font-weight: 100 900;
+	font-weight: 400;
 	font-display: swap;
+	unicode-range: U+2E80-2FFF, U+3000-303F, U+3100-312F, U+31A0-31BF, U+31C0-31EF, U+3200-33FF, U+3400-4DBF, U+4E00-9FFF, U+F900-FAFF, U+FE10-FE1F, U+FE30-FE4F, U+FF01-FF60, U+FFE0-FFE6, U+20000-2FFFF, U+30000-323AF;
+}
+
+@font-face {
+	font-family: "LXGW WenKai CJK";
+	src: url("../assets/fonts/lxgw-wenkai-medium-cjk.woff2") format("woff2");
+	font-style: normal;
+	font-weight: 500;
+	font-display: swap;
+	unicode-range: U+2E80-2FFF, U+3000-303F, U+3100-312F, U+31A0-31BF, U+31C0-31EF, U+3200-33FF, U+3400-4DBF, U+4E00-9FFF, U+F900-FAFF, U+FE10-FE1F, U+FE30-FE4F, U+FF01-FF60, U+FFE0-FFE6, U+20000-2FFFF, U+30000-323AF;
 }
 
 :root {
-	--font-sans: "Noto Sans SC", -apple-system, BlinkMacSystemFont, "Segoe UI",
-		"PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+	--font-ui: "Comic Sans MS", "Helvetica Neue", "LXGW WenKai CJK", "Microsoft Yahei",
+		-apple-system, sans-serif;
 }
 
 * {
@@ -30,7 +40,7 @@ body {
 }
 
 body {
-	font-family: var(--font-sans) !important;
+	font-family: var(--font-ui) !important;
 	-webkit-box-align: center;
 	-ms-flex-align: center;
 	align-items: center;
