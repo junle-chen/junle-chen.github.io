@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-10T01:34:37.774179+00:00",
+  "updated_at": "2026-11-11T01:34:48.493757+00:00",
   "source": "arxiv",
   "analysis_method": "Codex CLI workflow with manual arXiv PDF full-text review and rendered result-page verification; per-item source notes identify the analysis path.",
   "query_focus": "多轮交互式 agent planning、long-horizon planning、stateful/personalized planning、agent memory、planning reliability、agentic RL",
@@ -37,32 +37,37 @@
     "codex_reader": "Downloads arXiv PDFs, extracts text with pdftotext or bundled Python PDF libraries, then calls codex exec to write Chinese motivation/method/experiment/research-help fields."
   },
   "digest": {
-    "title": "2026-11-10 Daily Paper",
-    "report_date": "2026-11-10",
+    "title": "2026-11-11 Daily Paper",
+    "report_date": "2026-11-11",
     "focus": "多轮交互式 agent planning、long-horizon planning、stateful/personalized planning、agent memory、planning reliability、agentic RL",
-    "summary": "今日新增5篇全文核读：s³异步协作RL、WAAC依赖感知轨迹压缩、MemoryDojo跨会话记忆安全、Decision Context行为规则记忆与Video-Coder交互编码RL。详情核对实验分母、预算及统计范围，并明确数据规模和结果口径的不一致。",
+    "summary": "今日新增8篇全文核读，覆盖多轮RL信用分配、信息收集、记忆评测、视觉工具训练、长期记忆、3D交互编辑、持久工作区rollout与过程验证。详情区分实验分母、短程结果和长程主张，并标注小样本、方差与数字口径限制。",
     "top_recommendations": [
-      "2611.08615v1",
-      "2611.08865v1"
+      "2611.11330v1",
+      "2611.12728v1",
+      "2611.11840v1"
     ],
     "low_priority": [],
     "no_news_policy": "如果没有新的高相关论文，自动化应返回“今日无高相关新增论文”，不写邮件正文文件，也不发送邮件。",
-    "email_body": "2026-11-10 Daily Paper\n\n今日新增5篇全文核读：s³异步协作RL、WAAC依赖感知轨迹压缩、MemoryDojo跨会话记忆安全、Decision Context行为规则记忆与Video-Coder交互编码RL。详情核对实验分母、预算及统计范围，并明确数据规模和结果口径的不一致。\n\ns$^3$: Simple Scaling of Swarms via Cooperative Multi-agent RL\nhttps://arxiv.org/abs/2611.08615v1\ns³用共享团队奖励训练异步通信，让LLM团队学会分享和分工；证据来自两类小模型合成任务。\n\nRethinking Agent Trajectory Compression: A Workflow-Aware Perspective\nhttps://arxiv.org/abs/2611.08865v1\nWAAC按工作流依赖决定哪些历史字段保留原值、摘要或引用，在长程工具任务中改善完成率与输入开销。\n\nMemoryDojo: Benchmarking Poisoning Through LLM Agent Memory\nhttps://arxiv.org/abs/2611.09721v1\nMemoryDojo追踪一次恶意工具观察如何经记忆影响后续会话；持久化、被检索与真正改变行为需要分开评估。\n\nDecision Context: Persistent Behavioral Learning for AI Agents\nhttps://arxiv.org/abs/2611.08644v1\nDecision Context把用户纠正与工具失败经验编译成有触发条件的规则，在决策点注入；结果衡量行为遵从而非通用任务成功。\n\nVideo-Coder: Reinforcing Agentic Coding for Video Generation\nhttps://arxiv.org/abs/2611.09894v1\nVideo-Coder以多轮Blender代码执行和双奖励RL生成视频结构草稿，提高物理维度评分，但论文存在数据规模和增益口径不一致。"
+    "email_body": "2026-11-11 Daily Paper\n\n今日新增8篇全文核读，覆盖多轮RL信用分配、信息收集、记忆评测、视觉工具训练、长期记忆、3D交互编辑、持久工作区rollout与过程验证。详情区分实验分母、短程结果和长程主张，并标注小样本、方差与数字口径限制。\n\nWhen Credit Turns Against Tools: Transition-Aware Credit Assignment in Agentic Reinforcement Learning\nhttps://arxiv.org/abs/2611.11330v1\nTACA修正多轮RL对工具调用的负信用，并回放成功调用；小模型数学、编码和WebShop任务均有提升。\n\nSafe Reinforcement Learning for Multi-Turn Clinical Agents: When Dense Rewards Beat Outcome Rewards\nhttps://arxiv.org/abs/2611.12728v1\n临床合成环境揭示终局奖励可让多轮Agent过早决策；信息增益奖励改善部分指标，但不能据此证明临床安全。\n\nCorrect Answers from Insufficient Histories: A Controlled Study of Agent Memory Evaluation\nhttps://arxiv.org/abs/2611.11840v1\n可执行日志评测显示：回答命中完整历史答案，并不意味着当前记忆足以支持它；应同时测证据充分性和适当拒答。\n\nReframe: Observation-Aligned Multi-Teacher On-Policy Distillation for Agentic Visual Reasoning\nhttps://arxiv.org/abs/2611.12886v1\nReframe把视觉工具返回的观察纳入训练：原图dropout促使利用证据，蒸馏时修复错误调用，再学习修复后的轨迹。\n\nMIRIX-2.0: Multi-Agent Memory System\nhttps://arxiv.org/abs/2611.12068v1\nMIRIX-2.0保留完整记忆，以有来源的超图作有预算索引，并离线整合实体与技能；交互任务均值提升但方差较大。\n\nBlenderFORGE: Framework for Optimizing Reactive 3D-Graphics Editing Ability of MLLMs\nhttps://arxiv.org/abs/2611.10768v1\nBlenderFORGE以可验证场景状态训练多轮3D编辑Agent；SFT加GSPO提高编辑质量，但RL增益依赖冷启动配置。\n\nBunshinRL: Splitting Live Agent Workspaces for Memory-Efficient Agentic RL\nhttps://arxiv.org/abs/2611.10453v1\nBunshinRL用写时复制、工具前缀缓存与推测执行复用持久工作区，降低Agentic RL rollout内存和延迟。\n\nPlug-and-Play Verifier for Decoupling Process Reward in Stabilizing Long-Horizon Agentic Reasoning\nhttps://arxiv.org/abs/2611.10305v1\nPlug-and-Play Verifier以可重放局部检查提供过程奖励，改善短程多轮RL；局部证书不保证完整推理正确。"
   },
   "latest_item_ids": [
-    "2611.08615v1",
-    "2611.08865v1",
-    "2611.09721v1",
-    "2611.08644v1",
-    "2611.09894v1"
+    "2611.11330v1",
+    "2611.12728v1",
+    "2611.11840v1",
+    "2611.12886v1",
+    "2611.12068v1",
+    "2611.10768v1",
+    "2611.10453v1",
+    "2611.10305v1"
   ],
   "archive": {
     "policy": "append_or_update_by_arxiv_id",
-    "fresh_items": 5,
-    "total_items": 571,
-    "previous_items": 566,
-    "latest_items": 5,
+    "fresh_items": 8,
+    "total_items": 579,
+    "previous_items": 571,
+    "latest_items": 8,
     "source_report_dates": {
+      "2026-11-11": 8,
       "2026-11-10": 5,
       "2026-11-07": 2,
       "2026-11-06": 3,
@@ -70,25 +75,959 @@
       "undefined": 554
     },
     "filtered_candidate_ids": [
-      "2611.08615v1",
-      "2611.08865v1",
-      "2611.09721v1",
-      "2611.08644v1",
-      "2611.09894v1"
+      "2611.11330v1",
+      "2611.12728v1",
+      "2611.11840v1",
+      "2611.12886v1",
+      "2611.12068v1",
+      "2611.10768v1",
+      "2611.10453v1",
+      "2611.10305v1"
     ],
-    "filtered_today": 5,
+    "filtered_today": 8,
     "rejected_candidate_ids": [
-      "2611.09139v1",
-      "2611.09644v1",
-      "2611.07996v1",
-      "2611.08341v1",
-      "2611.08335v2",
-      "2611.06523v1",
-      "2611.07066v1",
-      "2611.05847v1"
+      "2611.11789v1",
+      "2611.12244v1",
+      "2611.12314v1",
+      "2611.11696v1",
+      "2611.10841v1",
+      "2611.10395v1",
+      "2611.09139v1"
     ]
   },
   "items": [
+    {
+      "id": "2611.11330v1",
+      "title": "When Credit Turns Against Tools: Transition-Aware Credit Assignment in Agentic Reinforcement Learning",
+      "summary": "Agentic reinforcement learning with verifiable rewards trains language models through multi-turn tool interactions, yet their reasoning performance and tool-calling ability can decline during training. We trace this degradation to three coupled mechanisms: (1) tool-token imbalance produces negative overall tool credit when incorrect trajectories contain more tool tokens per turn than correct ones; (2) aggregation amplification can further strengthen this negative signal as token-mean aggregation gives longer incorrect trajectories greater weight in policy updates; and (3) failure-driven retries prolong trajectories as models tend to call tools again after execution errors, extending potential negative credit to recovery attempts. To counter this suppression, we propose Transition-Aware Credit Assignment (TACA), which targets the transition from reasoning to tool use through supervision of both call initiation and generation. Specifically, TACA uses Advantage Projection to enforce a nonnegative mean advantage on tool-call tokens within each prompt group through a minimal uniform shift. Additionally, TACA guides tool-use decisions with Decision Contrast, comparing rewards for tool-assisted and direct answers to the same prompt. Through Supervised Replay, it reinforces tool-call generation using calls from previously sampled correct trajectories. Across models and tasks, TACA improves performance and sustains more reliable tool interaction during training, raising mean accuracy over MT-GRPO on six reasoning benchmarks by 4.61 percentage points for Qwen2.5-1.5B and 3.61 for Qwen2.5-3B. Our code is available at https://github.com/tmlr-group/TACA.",
+      "url": "http://arxiv.org/abs/2611.11330v1",
+      "authors": [
+        "Xiangyu Lu",
+        "Zhanke Zhou",
+        "Jiazhe Ning",
+        "Chentao Cao",
+        "Jiangchao Yao",
+        "Bo Han"
+      ],
+      "report_date": "2026-11-11",
+      "published": "2026-11-08",
+      "updated": "2026-11-08",
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG"
+      ],
+      "project_url": "",
+      "repo_url": "https://github.com/tmlr-group/TACA",
+      "venue_status": "作者在arXiv声明NeurIPS 2026录用（未独立核对会议目录）",
+      "recommendation": {
+        "level": "高",
+        "label": "值得核读",
+        "water_risk": "中",
+        "value_judgement": "应区分“是否调用”和“如何生成可执行调用”的监督。训练中同时追踪工具token信用、调用率、执行成功率及失败后的重试，能发现终局准确率掩盖的退化。",
+        "reason": "应区分“是否调用”和“如何生成可执行调用”的监督。训练中同时追踪工具token信用、调用率、执行成功率及失败后的重试，能发现终局准确率掩盖的退化。",
+        "signals": {
+          "agenticRl": true,
+          "multiTurn": true,
+          "longHorizon": false,
+          "memory": false,
+          "reliability": true,
+          "codeOrTool": true,
+          "experiments": true,
+          "survey": false
+        }
+      },
+      "brief": {
+        "authors": [
+          "Xiangyu Lu",
+          "Zhanke Zhou",
+          "Jiazhe Ning",
+          "Chentao Cao",
+          "Jiangchao Yao",
+          "Bo Han"
+        ],
+        "affiliations": "香港浸会大学；北京大学；上海交通大学",
+        "date": "2026-11-08",
+        "paper_url": "https://arxiv.org/abs/2611.11330v1",
+        "project_url": "",
+        "repo_url": "https://github.com/tmlr-group/TACA",
+        "venue_status": "作者在arXiv声明NeurIPS 2026录用（未独立核对会议目录）",
+        "contribution": "应区分“是否调用”和“如何生成可执行调用”的监督。训练中同时追踪工具token信用、调用率、执行成功率及失败后的重试，能发现终局准确率掩盖的退化。",
+        "summary": "TACA修正多轮RL对工具调用的负信用，并回放成功调用；小模型数学、编码和WebShop任务均有提升。终局奖励被广播到整条轨迹时，失败轨迹更长、重试更多，可能让工具token总体受到负监督，即使其中部分调用有效。在MT-GRPO上加入三部分：Advantage Projection把同prompt组的工具token平均优势向上平移至非负；Decision Contrast比较同题工具与直接回答的样本奖励，调整调用/回答起始token；Supervised Replay从正确轨迹缓存中回放工具调用token的监督损失。观察只进上下文，不计生成损失。Qwen2.5-1.5B/3B在MATH训练，六个数学测试集均值由MT-GRPO的28.63/39.90提高到33.24/43.51，即4.61/3.61个百分点。每题采样32次，报告平均准确率，并非best-of-32。1.5B另在TACO和WebShop训练：单测均分41.98→53.70，WebShop成功率56.8%→67.2%，GiGPO为65.0%。还测试7B和Llama-3.2-1B。",
+        "highlights": [
+          "应区分“是否调用”和“如何生成可执行调用”的监督。训练中同时追踪工具token信用、调用率、执行成功率及失败后的重试，能发现终局准确率掩盖的退化。",
+          "阅读来源：arXiv PDF全文；结果限制见详情"
+        ],
+        "motivation": "终局奖励被广播到整条轨迹时，失败轨迹更长、重试更多，可能让工具token总体受到负监督，即使其中部分调用有效。",
+        "method": "在MT-GRPO上加入三部分：Advantage Projection把同prompt组的工具token平均优势向上平移至非负；Decision Contrast比较同题工具与直接回答的样本奖励，调整调用/回答起始token；Supervised Replay从正确轨迹缓存中回放工具调用token的监督损失。观察只进上下文，不计生成损失。",
+        "experiments": "Qwen2.5-1.5B/3B在MATH训练，六个数学测试集均值由MT-GRPO的28.63/39.90提高到33.24/43.51，即4.61/3.61个百分点。每题采样32次，报告平均准确率，并非best-of-32。1.5B另在TACO和WebShop训练：单测均分41.98→53.70，WebShop成功率56.8%→67.2%，GiGPO为65.0%。还测试7B和Llama-3.2-1B。",
+        "research_help": "应区分“是否调用”和“如何生成可执行调用”的监督。训练中同时追踪工具token信用、调用率、执行成功率及失败后的重试，能发现终局准确率掩盖的退化。",
+        "recommendation": {
+          "level": "高",
+          "label": "值得核读",
+          "water_risk": "中",
+          "value_judgement": "应区分“是否调用”和“如何生成可执行调用”的监督。训练中同时追踪工具token信用、调用率、执行成功率及失败后的重试，能发现终局准确率掩盖的退化。",
+          "reason": "应区分“是否调用”和“如何生成可执行调用”的监督。训练中同时追踪工具token信用、调用率、执行成功率及失败后的重试，能发现终局准确率掩盖的退化。",
+          "signals": {
+            "agenticRl": true,
+            "multiTurn": true,
+            "longHorizon": false,
+            "memory": false,
+            "reliability": true,
+            "codeOrTool": true,
+            "experiments": true,
+            "survey": false
+          }
+        },
+        "card_summary": "TACA修正多轮RL对工具调用的负信用，并回放成功调用；小模型数学、编码和WebShop任务均有提升。",
+        "insight": "应区分“是否调用”和“如何生成可执行调用”的监督。训练中同时追踪工具token信用、调用率、执行成功率及失败后的重试，能发现终局准确率掩盖的退化。",
+        "limitations": "数学轨迹最多6个生成轮次；未验证长程软件工程或多Agent协作，多训练种子方差留待后续。标量信用系数之和不等于完整参数梯度方向；非负约束并非收敛或工具调用必定改善的保证。对比奖励依赖两种模式都有足够样本，回放质量依赖成功轨迹。未独立复现。",
+        "abstract_zh": "终局奖励被广播到整条轨迹时，失败轨迹更长、重试更多，可能让工具token总体受到负监督，即使其中部分调用有效。在MT-GRPO上加入三部分：Advantage Projection把同prompt组的工具token平均优势向上平移至非负；Decision Contrast比较同题工具与直接回答的样本奖励，调整调用/回答起始token；Supervised Replay从正确轨迹缓存中回放工具调用token的监督损失。观察只进上下文，不计生成损失。",
+        "full_summary": "TACA修正多轮RL对工具调用的负信用，并回放成功调用；小模型数学、编码和WebShop任务均有提升。终局奖励被广播到整条轨迹时，失败轨迹更长、重试更多，可能让工具token总体受到负监督，即使其中部分调用有效。在MT-GRPO上加入三部分：Advantage Projection把同prompt组的工具token平均优势向上平移至非负；Decision Contrast比较同题工具与直接回答的样本奖励，调整调用/回答起始token；Supervised Replay从正确轨迹缓存中回放工具调用token的监督损失。观察只进上下文，不计生成损失。Qwen2.5-1.5B/3B在MATH训练，六个数学测试集均值由MT-GRPO的28.63/39.90提高到33.24/43.51，即4.61/3.61个百分点。每题采样32次，报告平均准确率，并非best-of-32。1.5B另在TACO和WebShop训练：单测均分41.98→53.70，WebShop成功率56.8%→67.2%，GiGPO为65.0%。还测试7B和Llama-3.2-1B。"
+      },
+      "analysis": {
+        "card_summary": "TACA修正多轮RL对工具调用的负信用，并回放成功调用；小模型数学、编码和WebShop任务均有提升。",
+        "motivation": "终局奖励被广播到整条轨迹时，失败轨迹更长、重试更多，可能让工具token总体受到负监督，即使其中部分调用有效。",
+        "method": "在MT-GRPO上加入三部分：Advantage Projection把同prompt组的工具token平均优势向上平移至非负；Decision Contrast比较同题工具与直接回答的样本奖励，调整调用/回答起始token；Supervised Replay从正确轨迹缓存中回放工具调用token的监督损失。观察只进上下文，不计生成损失。",
+        "experiments": "Qwen2.5-1.5B/3B在MATH训练，六个数学测试集均值由MT-GRPO的28.63/39.90提高到33.24/43.51，即4.61/3.61个百分点。每题采样32次，报告平均准确率，并非best-of-32。1.5B另在TACO和WebShop训练：单测均分41.98→53.70，WebShop成功率56.8%→67.2%，GiGPO为65.0%。还测试7B和Llama-3.2-1B。",
+        "research_help": "应区分“是否调用”和“如何生成可执行调用”的监督。训练中同时追踪工具token信用、调用率、执行成功率及失败后的重试，能发现终局准确率掩盖的退化。",
+        "insight": "应区分“是否调用”和“如何生成可执行调用”的监督。训练中同时追踪工具token信用、调用率、执行成功率及失败后的重试，能发现终局准确率掩盖的退化。",
+        "limitations": "数学轨迹最多6个生成轮次；未验证长程软件工程或多Agent协作，多训练种子方差留待后续。标量信用系数之和不等于完整参数梯度方向；非负约束并非收敛或工具调用必定改善的保证。对比奖励依赖两种模式都有足够样本，回放质量依赖成功轨迹。未独立复现。",
+        "abstract_zh": "终局奖励被广播到整条轨迹时，失败轨迹更长、重试更多，可能让工具token总体受到负监督，即使其中部分调用有效。在MT-GRPO上加入三部分：Advantage Projection把同prompt组的工具token平均优势向上平移至非负；Decision Contrast比较同题工具与直接回答的样本奖励，调整调用/回答起始token；Supervised Replay从正确轨迹缓存中回放工具调用token的监督损失。观察只进上下文，不计生成损失。",
+        "full_summary": "TACA修正多轮RL对工具调用的负信用，并回放成功调用；小模型数学、编码和WebShop任务均有提升。终局奖励被广播到整条轨迹时，失败轨迹更长、重试更多，可能让工具token总体受到负监督，即使其中部分调用有效。在MT-GRPO上加入三部分：Advantage Projection把同prompt组的工具token平均优势向上平移至非负；Decision Contrast比较同题工具与直接回答的样本奖励，调整调用/回答起始token；Supervised Replay从正确轨迹缓存中回放工具调用token的监督损失。观察只进上下文，不计生成损失。Qwen2.5-1.5B/3B在MATH训练，六个数学测试集均值由MT-GRPO的28.63/39.90提高到33.24/43.51，即4.61/3.61个百分点。每题采样32次，报告平均准确率，并非best-of-32。1.5B另在TACO和WebShop训练：单测均分41.98→53.70，WebShop成功率56.8%→67.2%，GiGPO为65.0%。还测试7B和Llama-3.2-1B。",
+        "source_scope": "full_text",
+        "source_note": "直接核读arXiv PDF正文及相关附录，主结果页已渲染核对；数值为作者报告，未独立复现。",
+        "source_evidence": [
+          "§3–4：负信用条件、投影、对比及回放目标",
+          "§5/表1–2（PDF第8页渲染）：数学均值、TACO及WebShop",
+          "附录D：模型规模、长程任务及多种子限制"
+        ],
+        "model": "manual-full-text-review",
+        "updated_at": "2026-11-11T01:34:48.493757+00:00",
+        "recommendation_level": "高",
+        "water_risk": "中",
+        "value_label": "值得核读",
+        "value_reason": "应区分“是否调用”和“如何生成可执行调用”的监督。训练中同时追踪工具token信用、调用率、执行成功率及失败后的重试，能发现终局准确率掩盖的退化。"
+      },
+      "source_report_date": "2026-11-11",
+      "affiliations": [
+        "香港浸会大学",
+        "北京大学",
+        "上海交通大学"
+      ]
+    },
+    {
+      "id": "2611.12728v1",
+      "title": "Safe Reinforcement Learning for Multi-Turn Clinical Agents: When Dense Rewards Beat Outcome Rewards",
+      "summary": "Reinforcement learning with verifiable rewards is increasingly used to improve language model reasoning, yet its effects on sequential decision procedures remain poorly understood. We study this problem in clinical multi-turn agents that must decide what information to request, when to stop gathering evidence, and which action to take. We introduce three controlled environments: medication refill triage, acute diagnostic work-up, and dosing titration, each with hidden clinical states, query costs, exact adaptive oracles, and deterministic outcome verifiers. Across these tasks, outcome-only group relative policy optimization often improves aggregate reward while producing undesirable procedures, including premature commitment, one-question collapse, and failures on rare high-risk cases. In diagnostics, assigning dense credit to questions that reduce uncertainty improves held-out value and moderate-case support across three training seeds relative to outcome-only reinforcement learning, without the high-risk seed collapse observed under outcome-only training. Separating exploration from exploitation further increases high-risk support at its best checkpoint, but at the cost of excessive information gathering on low-acuity cases. Additional experiments show that the optimal strength of process credit is task-dependent; that after a supervised warmup that already gathers carefully, reinforcement learning raises aggregate reward by trimming questions while degrading high-risk performance; and that reinforcement learning does not reliably repair rare behavior gaps inherited from biased supervised data. Verifiable final outcomes are therefore insufficient for training reliable multi-turn agents: reward design must account for the procedure used to reach an answer, and evaluation must distinguish adaptive information gathering from reward-exploiting shortcuts.",
+      "url": "http://arxiv.org/abs/2611.12728v1",
+      "authors": [
+        "Brendan P. Murphy",
+        "Agustina Saenz"
+      ],
+      "report_date": "2026-11-11",
+      "published": "2026-11-09",
+      "updated": "2026-11-09",
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "cs.CL"
+      ],
+      "project_url": "",
+      "repo_url": "",
+      "venue_status": "未确认录用",
+      "recommendation": {
+        "level": "高",
+        "label": "值得核读",
+        "water_risk": "中",
+        "value_judgement": "在RL前先查任务是否有自适应信息收集空间，以及初始策略能否采样到目标行为；评测分开报告最终效用、信息收集过程、稀有子组和support@k。support@12仅表示12次中至少一次达oracle级回报，不能当作部署成功率或证据充分性。",
+        "reason": "在RL前先查任务是否有自适应信息收集空间，以及初始策略能否采样到目标行为；评测分开报告最终效用、信息收集过程、稀有子组和support@k。support@12仅表示12次中至少一次达oracle级回报，不能当作部署成功率或证据充分性。",
+        "signals": {
+          "agenticRl": true,
+          "multiTurn": true,
+          "longHorizon": false,
+          "memory": false,
+          "reliability": true,
+          "codeOrTool": false,
+          "experiments": true,
+          "survey": false
+        }
+      },
+      "brief": {
+        "authors": [
+          "Brendan P. Murphy",
+          "Agustina Saenz"
+        ],
+        "affiliations": "正文首页未明确列出机构；不依据邮箱域名推断",
+        "date": "2026-11-09",
+        "paper_url": "https://arxiv.org/abs/2611.12728v1",
+        "project_url": "",
+        "repo_url": "",
+        "venue_status": "未确认录用",
+        "contribution": "在RL前先查任务是否有自适应信息收集空间，以及初始策略能否采样到目标行为；评测分开报告最终效用、信息收集过程、稀有子组和support@k。support@12仅表示12次中至少一次达oracle级回报，不能当作部署成功率或证据充分性。",
+        "summary": "临床合成环境揭示终局奖励可让多轮Agent过早决策；信息增益奖励改善部分指标，但不能据此证明临床安全。询问什么、何时停止和最终做什么共同决定多轮决策质量；平均奖励可能奖励少问问题的捷径，并掩盖稀有高风险失败。构造续药分诊、急性诊断、剂量调整三个确定性模拟器，含隐藏状态、查询成本和精确自适应oracle。MedGemma-4B-it以LoRA做GRPO；过程奖励为揭示结果前后隐藏状态后验熵的下降，重复查询不给信息信用。另用单模型模式token分离探索与决策更新。所有评测使用未加形状奖励的终局效用减查询成本。诊断主对比重复3个训练种子：终局GRPO总体效用0.285±0.027，信息信用版本0.313±0.024；中风险support由0.38±0.18到0.67±0.10。高风险效用0.098±0.037→0.157±0.057，但测试仅2个高风险病例。探索/决策分离的step40高风险support为1.0、平均问4.4次；该checkpoint在held-out集选择，最终checkpoint未保留优势。续药SFT后RL可提高总体效用却降低高风险效用。",
+        "highlights": [
+          "在RL前先查任务是否有自适应信息收集空间，以及初始策略能否采样到目标行为；评测分开报告最终效用、信息收集过程、稀有子组和support@k。support@12仅表示12次中至少一次达oracle级回报，不能当作部署成功率或证据充分性。",
+          "阅读来源：arXiv PDF全文；结果限制见详情"
+        ],
+        "motivation": "询问什么、何时停止和最终做什么共同决定多轮决策质量；平均奖励可能奖励少问问题的捷径，并掩盖稀有高风险失败。",
+        "method": "构造续药分诊、急性诊断、剂量调整三个确定性模拟器，含隐藏状态、查询成本和精确自适应oracle。MedGemma-4B-it以LoRA做GRPO；过程奖励为揭示结果前后隐藏状态后验熵的下降，重复查询不给信息信用。另用单模型模式token分离探索与决策更新。所有评测使用未加形状奖励的终局效用减查询成本。",
+        "experiments": "诊断主对比重复3个训练种子：终局GRPO总体效用0.285±0.027，信息信用版本0.313±0.024；中风险support由0.38±0.18到0.67±0.10。高风险效用0.098±0.037→0.157±0.057，但测试仅2个高风险病例。探索/决策分离的step40高风险support为1.0、平均问4.4次；该checkpoint在held-out集选择，最终checkpoint未保留优势。续药SFT后RL可提高总体效用却降低高风险效用。",
+        "research_help": "在RL前先查任务是否有自适应信息收集空间，以及初始策略能否采样到目标行为；评测分开报告最终效用、信息收集过程、稀有子组和support@k。support@12仅表示12次中至少一次达oracle级回报，不能当作部署成功率或证据充分性。",
+        "recommendation": {
+          "level": "高",
+          "label": "值得核读",
+          "water_risk": "中",
+          "value_judgement": "在RL前先查任务是否有自适应信息收集空间，以及初始策略能否采样到目标行为；评测分开报告最终效用、信息收集过程、稀有子组和support@k。support@12仅表示12次中至少一次达oracle级回报，不能当作部署成功率或证据充分性。",
+          "reason": "在RL前先查任务是否有自适应信息收集空间，以及初始策略能否采样到目标行为；评测分开报告最终效用、信息收集过程、稀有子组和support@k。support@12仅表示12次中至少一次达oracle级回报，不能当作部署成功率或证据充分性。",
+          "signals": {
+            "agenticRl": true,
+            "multiTurn": true,
+            "longHorizon": false,
+            "memory": false,
+            "reliability": true,
+            "codeOrTool": false,
+            "experiments": true,
+            "survey": false
+          }
+        },
+        "card_summary": "临床合成环境揭示终局奖励可让多轮Agent过早决策；信息增益奖励改善部分指标，但不能据此证明临床安全。",
+        "insight": "在RL前先查任务是否有自适应信息收集空间，以及初始策略能否采样到目标行为；评测分开报告最终效用、信息收集过程、稀有子组和support@k。support@12仅表示12次中至少一次达oracle级回报，不能当作部署成功率或证据充分性。",
+        "limitations": "所有病例均为合成、二值、确定性规则，不是真实患者验证。仅诊断主对比为3种子，其余多数单种子；2例高风险下support只能取0/0.5/1。held-out选择最好checkpoint有乐观偏差；过程奖励可能改变最优策略且权重过大导致过度询问。未独立复现。",
+        "abstract_zh": "询问什么、何时停止和最终做什么共同决定多轮决策质量；平均奖励可能奖励少问问题的捷径，并掩盖稀有高风险失败。构造续药分诊、急性诊断、剂量调整三个确定性模拟器，含隐藏状态、查询成本和精确自适应oracle。MedGemma-4B-it以LoRA做GRPO；过程奖励为揭示结果前后隐藏状态后验熵的下降，重复查询不给信息信用。另用单模型模式token分离探索与决策更新。所有评测使用未加形状奖励的终局效用减查询成本。",
+        "full_summary": "临床合成环境揭示终局奖励可让多轮Agent过早决策；信息增益奖励改善部分指标，但不能据此证明临床安全。询问什么、何时停止和最终做什么共同决定多轮决策质量；平均奖励可能奖励少问问题的捷径，并掩盖稀有高风险失败。构造续药分诊、急性诊断、剂量调整三个确定性模拟器，含隐藏状态、查询成本和精确自适应oracle。MedGemma-4B-it以LoRA做GRPO；过程奖励为揭示结果前后隐藏状态后验熵的下降，重复查询不给信息信用。另用单模型模式token分离探索与决策更新。所有评测使用未加形状奖励的终局效用减查询成本。诊断主对比重复3个训练种子：终局GRPO总体效用0.285±0.027，信息信用版本0.313±0.024；中风险support由0.38±0.18到0.67±0.10。高风险效用0.098±0.037→0.157±0.057，但测试仅2个高风险病例。探索/决策分离的step40高风险support为1.0、平均问4.4次；该checkpoint在held-out集选择，最终checkpoint未保留优势。续药SFT后RL可提高总体效用却降低高风险效用。"
+      },
+      "analysis": {
+        "card_summary": "临床合成环境揭示终局奖励可让多轮Agent过早决策；信息增益奖励改善部分指标，但不能据此证明临床安全。",
+        "motivation": "询问什么、何时停止和最终做什么共同决定多轮决策质量；平均奖励可能奖励少问问题的捷径，并掩盖稀有高风险失败。",
+        "method": "构造续药分诊、急性诊断、剂量调整三个确定性模拟器，含隐藏状态、查询成本和精确自适应oracle。MedGemma-4B-it以LoRA做GRPO；过程奖励为揭示结果前后隐藏状态后验熵的下降，重复查询不给信息信用。另用单模型模式token分离探索与决策更新。所有评测使用未加形状奖励的终局效用减查询成本。",
+        "experiments": "诊断主对比重复3个训练种子：终局GRPO总体效用0.285±0.027，信息信用版本0.313±0.024；中风险support由0.38±0.18到0.67±0.10。高风险效用0.098±0.037→0.157±0.057，但测试仅2个高风险病例。探索/决策分离的step40高风险support为1.0、平均问4.4次；该checkpoint在held-out集选择，最终checkpoint未保留优势。续药SFT后RL可提高总体效用却降低高风险效用。",
+        "research_help": "在RL前先查任务是否有自适应信息收集空间，以及初始策略能否采样到目标行为；评测分开报告最终效用、信息收集过程、稀有子组和support@k。support@12仅表示12次中至少一次达oracle级回报，不能当作部署成功率或证据充分性。",
+        "insight": "在RL前先查任务是否有自适应信息收集空间，以及初始策略能否采样到目标行为；评测分开报告最终效用、信息收集过程、稀有子组和support@k。support@12仅表示12次中至少一次达oracle级回报，不能当作部署成功率或证据充分性。",
+        "limitations": "所有病例均为合成、二值、确定性规则，不是真实患者验证。仅诊断主对比为3种子，其余多数单种子；2例高风险下support只能取0/0.5/1。held-out选择最好checkpoint有乐观偏差；过程奖励可能改变最优策略且权重过大导致过度询问。未独立复现。",
+        "abstract_zh": "询问什么、何时停止和最终做什么共同决定多轮决策质量；平均奖励可能奖励少问问题的捷径，并掩盖稀有高风险失败。构造续药分诊、急性诊断、剂量调整三个确定性模拟器，含隐藏状态、查询成本和精确自适应oracle。MedGemma-4B-it以LoRA做GRPO；过程奖励为揭示结果前后隐藏状态后验熵的下降，重复查询不给信息信用。另用单模型模式token分离探索与决策更新。所有评测使用未加形状奖励的终局效用减查询成本。",
+        "full_summary": "临床合成环境揭示终局奖励可让多轮Agent过早决策；信息增益奖励改善部分指标，但不能据此证明临床安全。询问什么、何时停止和最终做什么共同决定多轮决策质量；平均奖励可能奖励少问问题的捷径，并掩盖稀有高风险失败。构造续药分诊、急性诊断、剂量调整三个确定性模拟器，含隐藏状态、查询成本和精确自适应oracle。MedGemma-4B-it以LoRA做GRPO；过程奖励为揭示结果前后隐藏状态后验熵的下降，重复查询不给信息信用。另用单模型模式token分离探索与决策更新。所有评测使用未加形状奖励的终局效用减查询成本。诊断主对比重复3个训练种子：终局GRPO总体效用0.285±0.027，信息信用版本0.313±0.024；中风险support由0.38±0.18到0.67±0.10。高风险效用0.098±0.037→0.157±0.057，但测试仅2个高风险病例。探索/决策分离的step40高风险support为1.0、平均问4.4次；该checkpoint在held-out集选择，最终checkpoint未保留优势。续药SFT后RL可提高总体效用却降低高风险效用。",
+        "source_scope": "full_text",
+        "source_note": "直接核读arXiv PDF正文及相关附录，主结果页已渲染核对；数值为作者报告，未独立复现。",
+        "source_evidence": [
+          "§3–4：合成环境、eligibility gates及信息熵奖励",
+          "§5/表2–3（PDF第15页渲染）：种子、高风险分母及checkpoint",
+          "§6及附录：临床外推和小样本限制"
+        ],
+        "model": "manual-full-text-review",
+        "updated_at": "2026-11-11T01:34:48.493757+00:00",
+        "recommendation_level": "高",
+        "water_risk": "中",
+        "value_label": "值得核读",
+        "value_reason": "在RL前先查任务是否有自适应信息收集空间，以及初始策略能否采样到目标行为；评测分开报告最终效用、信息收集过程、稀有子组和support@k。support@12仅表示12次中至少一次达oracle级回报，不能当作部署成功率或证据充分性。"
+      },
+      "source_report_date": "2026-11-11"
+    },
+    {
+      "id": "2611.11840v1",
+      "title": "Correct Answers from Insufficient Histories: A Controlled Study of Agent Memory Evaluation",
+      "summary": "An answer can match the reference for a complete agent history even when the reader's visible history does not determine it. We study this distinction using executable device logs. Our protocol separates reference agreement, certified evidence sufficiency, and context-appropriate behavior. Insufficiency requires two legal histories yielding byte-identical visible contexts but different answers; public chronology and query cutoffs certify sufficient prefixes. On 80 confirmation histories, Qwen3-32B matches 87 hidden references among 203 insufficient raw-prefix instances, with only seven appropriate abstentions. A fixed-input DeepSeek-V4-Flash replication matches 85 and abstains on 21 of the same 203 instances. Each reader makes 1,600 requests. Compact CSV's estimated appropriateness effects remain inconclusive: +3.16 percentage points, clustered 95% interval [0.00,6.57], for Qwen and +2.46, [-1.84,6.94], for DeepSeek. A separate held-out judge study achieves 99.38% correctness but retains support errors and truncations; a deterministic baseline solves all constructed cases. These results support an evaluation diagnosis across two hosted reader configurations, not gains for a general memory system or natural-language evidence assessment.",
+      "url": "http://arxiv.org/abs/2611.11840v1",
+      "authors": [
+        "Quan Xue",
+        "Zerui Yang",
+        "Chaorui Zhang",
+        "Haolin Ruan",
+        "Xueyan Niu",
+        "Xuanyu Zheng",
+        "Xiyuan Wang",
+        "Weixi Zhang",
+        "Wei Han",
+        "Bo Bai"
+      ],
+      "report_date": "2026-11-11",
+      "published": "2026-11-09",
+      "updated": "2026-11-09",
+      "primary_category": "cs.AI",
+      "categories": [
+        "cs.AI"
+      ],
+      "project_url": "",
+      "repo_url": "",
+      "venue_status": "未确认录用",
+      "recommendation": {
+        "level": "高",
+        "label": "值得核读",
+        "water_risk": "中",
+        "value_judgement": "记忆评测应先问可见信息能否唯一决定答案，再问模型是否答对；保留可重放反例和未知证据状态，可避免把猜中、压缩格式变化或judge高均分当作记忆架构进步。",
+        "reason": "记忆评测应先问可见信息能否唯一决定答案，再问模型是否答对；保留可重放反例和未知证据状态，可避免把猜中、压缩格式变化或judge高均分当作记忆架构进步。",
+        "signals": {
+          "agenticRl": true,
+          "multiTurn": false,
+          "longHorizon": false,
+          "memory": true,
+          "reliability": true,
+          "codeOrTool": false,
+          "experiments": true,
+          "survey": false
+        }
+      },
+      "brief": {
+        "authors": [
+          "Quan Xue",
+          "Zerui Yang",
+          "Chaorui Zhang",
+          "Haolin Ruan",
+          "Xueyan Niu",
+          "Xuanyu Zheng",
+          "Xiyuan Wang",
+          "Weixi Zhang",
+          "Wei Han",
+          "Bo Bai"
+        ],
+        "affiliations": "华为",
+        "date": "2026-11-09",
+        "paper_url": "https://arxiv.org/abs/2611.11840v1",
+        "project_url": "",
+        "repo_url": "",
+        "venue_status": "未确认录用",
+        "contribution": "记忆评测应先问可见信息能否唯一决定答案，再问模型是否答对；保留可重放反例和未知证据状态，可避免把猜中、压缩格式变化或judge高均分当作记忆架构进步。",
+        "summary": "可执行日志评测显示：回答命中完整历史答案，并不意味着当前记忆足以支持它；应同时测证据充分性和适当拒答。记忆压缩后仍可能猜中隐藏参考答案，单一正确率会把不被可见证据支持的命中当成可靠记忆。定义含重复记录、失败操作、时间截点的设备日志及确定性查询。两条合法完整历史若打包成字节相同的可见上下文、却答案不同，即给出信息不足证书；公共时间规则认证部分前缀充分性。无法证明者保持unclassified。分别评估参考一致性、充分性和回答/UNDETERMINED是否适当。80条确认历史、每个reader1600请求；Qwen3-32B在203个不足raw-prefix条件中命中87个隐藏参考，仅7次适当拒答；固定输入DeepSeek-V4-Flash命中85、拒答21。CSV对适当性的配对差为+3.16个百分点，按历史聚类95%区间[0,6.57]；复核为+2.46、[-1.84,6.94]，均未满足下界严格正的标准。独立judge构造测试1908/1920正确，但确定性程序可解决全部构造条件。",
+        "highlights": [
+          "记忆评测应先问可见信息能否唯一决定答案，再问模型是否答对；保留可重放反例和未知证据状态，可避免把猜中、压缩格式变化或judge高均分当作记忆架构进步。",
+          "阅读来源：arXiv PDF全文；结果限制见详情"
+        ],
+        "motivation": "记忆压缩后仍可能猜中隐藏参考答案，单一正确率会把不被可见证据支持的命中当成可靠记忆。",
+        "method": "定义含重复记录、失败操作、时间截点的设备日志及确定性查询。两条合法完整历史若打包成字节相同的可见上下文、却答案不同，即给出信息不足证书；公共时间规则认证部分前缀充分性。无法证明者保持unclassified。分别评估参考一致性、充分性和回答/UNDETERMINED是否适当。",
+        "experiments": "80条确认历史、每个reader1600请求；Qwen3-32B在203个不足raw-prefix条件中命中87个隐藏参考，仅7次适当拒答；固定输入DeepSeek-V4-Flash命中85、拒答21。CSV对适当性的配对差为+3.16个百分点，按历史聚类95%区间[0,6.57]；复核为+2.46、[-1.84,6.94]，均未满足下界严格正的标准。独立judge构造测试1908/1920正确，但确定性程序可解决全部构造条件。",
+        "research_help": "记忆评测应先问可见信息能否唯一决定答案，再问模型是否答对；保留可重放反例和未知证据状态，可避免把猜中、压缩格式变化或judge高均分当作记忆架构进步。",
+        "recommendation": {
+          "level": "高",
+          "label": "值得核读",
+          "water_risk": "中",
+          "value_judgement": "记忆评测应先问可见信息能否唯一决定答案，再问模型是否答对；保留可重放反例和未知证据状态，可避免把猜中、压缩格式变化或judge高均分当作记忆架构进步。",
+          "reason": "记忆评测应先问可见信息能否唯一决定答案，再问模型是否答对；保留可重放反例和未知证据状态，可避免把猜中、压缩格式变化或judge高均分当作记忆架构进步。",
+          "signals": {
+            "agenticRl": true,
+            "multiTurn": false,
+            "longHorizon": false,
+            "memory": true,
+            "reliability": true,
+            "codeOrTool": false,
+            "experiments": true,
+            "survey": false
+          }
+        },
+        "card_summary": "可执行日志评测显示：回答命中完整历史答案，并不意味着当前记忆足以支持它；应同时测证据充分性和适当拒答。",
+        "insight": "记忆评测应先问可见信息能否唯一决定答案，再问模型是否答对；保留可重放反例和未知证据状态，可避免把猜中、压缩格式变化或judge高均分当作记忆架构进步。",
+        "limitations": "仅有限合成语法与两种托管reader配置；复核复用相同80条历史，不能当新增数据。768-token预算按Qwen tokenizer，跨模型只保证输入字节相同。程序控制共享公共解析规则，体现协议一致性而非通用自然语言推理突破。CSV效果不确定并不证明等价；未独立复现。",
+        "abstract_zh": "记忆压缩后仍可能猜中隐藏参考答案，单一正确率会把不被可见证据支持的命中当成可靠记忆。定义含重复记录、失败操作、时间截点的设备日志及确定性查询。两条合法完整历史若打包成字节相同的可见上下文、却答案不同，即给出信息不足证书；公共时间规则认证部分前缀充分性。无法证明者保持unclassified。分别评估参考一致性、充分性和回答/UNDETERMINED是否适当。",
+        "full_summary": "可执行日志评测显示：回答命中完整历史答案，并不意味着当前记忆足以支持它；应同时测证据充分性和适当拒答。记忆压缩后仍可能猜中隐藏参考答案，单一正确率会把不被可见证据支持的命中当成可靠记忆。定义含重复记录、失败操作、时间截点的设备日志及确定性查询。两条合法完整历史若打包成字节相同的可见上下文、却答案不同，即给出信息不足证书；公共时间规则认证部分前缀充分性。无法证明者保持unclassified。分别评估参考一致性、充分性和回答/UNDETERMINED是否适当。80条确认历史、每个reader1600请求；Qwen3-32B在203个不足raw-prefix条件中命中87个隐藏参考，仅7次适当拒答；固定输入DeepSeek-V4-Flash命中85、拒答21。CSV对适当性的配对差为+3.16个百分点，按历史聚类95%区间[0,6.57]；复核为+2.46、[-1.84,6.94]，均未满足下界严格正的标准。独立judge构造测试1908/1920正确，但确定性程序可解决全部构造条件。"
+      },
+      "analysis": {
+        "card_summary": "可执行日志评测显示：回答命中完整历史答案，并不意味着当前记忆足以支持它；应同时测证据充分性和适当拒答。",
+        "motivation": "记忆压缩后仍可能猜中隐藏参考答案，单一正确率会把不被可见证据支持的命中当成可靠记忆。",
+        "method": "定义含重复记录、失败操作、时间截点的设备日志及确定性查询。两条合法完整历史若打包成字节相同的可见上下文、却答案不同，即给出信息不足证书；公共时间规则认证部分前缀充分性。无法证明者保持unclassified。分别评估参考一致性、充分性和回答/UNDETERMINED是否适当。",
+        "experiments": "80条确认历史、每个reader1600请求；Qwen3-32B在203个不足raw-prefix条件中命中87个隐藏参考，仅7次适当拒答；固定输入DeepSeek-V4-Flash命中85、拒答21。CSV对适当性的配对差为+3.16个百分点，按历史聚类95%区间[0,6.57]；复核为+2.46、[-1.84,6.94]，均未满足下界严格正的标准。独立judge构造测试1908/1920正确，但确定性程序可解决全部构造条件。",
+        "research_help": "记忆评测应先问可见信息能否唯一决定答案，再问模型是否答对；保留可重放反例和未知证据状态，可避免把猜中、压缩格式变化或judge高均分当作记忆架构进步。",
+        "insight": "记忆评测应先问可见信息能否唯一决定答案，再问模型是否答对；保留可重放反例和未知证据状态，可避免把猜中、压缩格式变化或judge高均分当作记忆架构进步。",
+        "limitations": "仅有限合成语法与两种托管reader配置；复核复用相同80条历史，不能当新增数据。768-token预算按Qwen tokenizer，跨模型只保证输入字节相同。程序控制共享公共解析规则，体现协议一致性而非通用自然语言推理突破。CSV效果不确定并不证明等价；未独立复现。",
+        "abstract_zh": "记忆压缩后仍可能猜中隐藏参考答案，单一正确率会把不被可见证据支持的命中当成可靠记忆。定义含重复记录、失败操作、时间截点的设备日志及确定性查询。两条合法完整历史若打包成字节相同的可见上下文、却答案不同，即给出信息不足证书；公共时间规则认证部分前缀充分性。无法证明者保持unclassified。分别评估参考一致性、充分性和回答/UNDETERMINED是否适当。",
+        "full_summary": "可执行日志评测显示：回答命中完整历史答案，并不意味着当前记忆足以支持它；应同时测证据充分性和适当拒答。记忆压缩后仍可能猜中隐藏参考答案，单一正确率会把不被可见证据支持的命中当成可靠记忆。定义含重复记录、失败操作、时间截点的设备日志及确定性查询。两条合法完整历史若打包成字节相同的可见上下文、却答案不同，即给出信息不足证书；公共时间规则认证部分前缀充分性。无法证明者保持unclassified。分别评估参考一致性、充分性和回答/UNDETERMINED是否适当。80条确认历史、每个reader1600请求；Qwen3-32B在203个不足raw-prefix条件中命中87个隐藏参考，仅7次适当拒答；固定输入DeepSeek-V4-Flash命中85、拒答21。CSV对适当性的配对差为+3.16个百分点，按历史聚类95%区间[0,6.57]；复核为+2.46、[-1.84,6.94]，均未满足下界严格正的标准。独立judge构造测试1908/1920正确，但确定性程序可解决全部构造条件。",
+        "source_scope": "full_text",
+        "source_note": "直接核读arXiv PDF正文及相关附录，主结果页已渲染核对；数值为作者报告，未独立复现。",
+        "source_evidence": [
+          "§3：相同上下文反例和充分性证书",
+          "§4–6/表2–4（PDF第7页渲染）：分母、聚类区间及程序对照"
+        ],
+        "model": "manual-full-text-review",
+        "updated_at": "2026-11-11T01:34:48.493757+00:00",
+        "recommendation_level": "高",
+        "water_risk": "中",
+        "value_label": "值得核读",
+        "value_reason": "记忆评测应先问可见信息能否唯一决定答案，再问模型是否答对；保留可重放反例和未知证据状态，可避免把猜中、压缩格式变化或judge高均分当作记忆架构进步。"
+      },
+      "source_report_date": "2026-11-11",
+      "affiliations": [
+        "华为"
+      ]
+    },
+    {
+      "id": "2611.12886v1",
+      "title": "Reframe: Observation-Aligned Multi-Teacher On-Policy Distillation for Agentic Visual Reasoning",
+      "summary": "Agentic reinforcement learning (RL) and multi-teacher on-policy distillation (MOPD) offer complementary routes to post-training. For visual agents, however, tool use presents two related challenges. Models may overlook useful tool-returned observations, while poorly grounded actions can limit the evidence available for subsequent distillation. We introduce Reframe, a post-training framework that treats the observation state, rather than only the output distribution, as an object of alignment. First, Ground-Drop-GRPO (GD-GRPO) trains spatial and temporal specialists with evidence-aware rewards and stochastic removal of the original visual input, encouraging them to acquire grounded evidence and use the returned observations. Second, Observation-Gated-MOPD (OG-MOPD) replaces deficient tool actions with canonical ones mid-rollout and resumes distillation from the repaired observation. The two stages complement each other, as learning to rely on tool-returned observations can help the policy benefit from observation repair. Neither stage requires a task-specific SFT cold start. Extensive experiments over 14 image and video benchmarks demonstrate that Reframe outperforms both Mix-RL and vanilla MOPD. Ablation results show that GD-GRPO increases observation dependence and tool gain compared with outcome-based GRPO.",
+      "url": "http://arxiv.org/abs/2611.12886v1",
+      "authors": [
+        "Haozhi Yuan",
+        "Handong Li",
+        "Yifan Zhang",
+        "Qianshan Wei"
+      ],
+      "report_date": "2026-11-11",
+      "published": "2026-11-09",
+      "updated": "2026-11-09",
+      "primary_category": "cs.CV",
+      "categories": [
+        "cs.CV"
+      ],
+      "project_url": "",
+      "repo_url": "https://github.com/EliYuan30/Reframe",
+      "venue_status": "未确认录用",
+      "recommendation": {
+        "level": "中",
+        "label": "值得核读",
+        "water_risk": "中",
+        "value_judgement": "工具训练需要同时保证观察可用、且策略真的使用观察；注入动作应与学生采样token区分损失。用替换观察和禁用工具的对照，比只测调用次数更能判断工具价值。",
+        "reason": "工具训练需要同时保证观察可用、且策略真的使用观察；注入动作应与学生采样token区分损失。用替换观察和禁用工具的对照，比只测调用次数更能判断工具价值。",
+        "signals": {
+          "agenticRl": true,
+          "multiTurn": false,
+          "longHorizon": false,
+          "memory": false,
+          "reliability": true,
+          "codeOrTool": true,
+          "experiments": true,
+          "survey": false
+        }
+      },
+      "brief": {
+        "authors": [
+          "Haozhi Yuan",
+          "Handong Li",
+          "Yifan Zhang",
+          "Qianshan Wei"
+        ],
+        "affiliations": "南京大学；中国科学院自动化研究所",
+        "date": "2026-11-09",
+        "paper_url": "https://arxiv.org/abs/2611.12886v1",
+        "project_url": "",
+        "repo_url": "https://github.com/EliYuan30/Reframe",
+        "venue_status": "未确认录用",
+        "contribution": "工具训练需要同时保证观察可用、且策略真的使用观察；注入动作应与学生采样token区分损失。用替换观察和禁用工具的对照，比只测调用次数更能判断工具价值。",
+        "summary": "Reframe把视觉工具返回的观察纳入训练：原图dropout促使利用证据，蒸馏时修复错误调用，再学习修复后的轨迹。视觉Agent可能调用工具却继续依赖原图，或在错误裁剪/帧选择后接受教师监督；仅改输出分布不能补回缺失证据。以63K图像和37K视频QA训练Qwen3.5-9B。GD-GRPO包含答案、调用、定位奖励，在首次成功调用后以0.5概率移除原视觉输入，并按预采样drop标志分组算优势。OG-MOPD用标注IoU门控保留或替换调用；学生采样token做多教师蒸馏，注入的规范调用单独做NLL。推理时不需要门控或教师。14个图像/视频benchmark，共享视觉token预算、greedy评测。图像均分69.48对普通MOPD的68.19，视频53.10对52.32；并非每一项都超越教师或MOPD。图像专家GD-GRPO对终局GRPO均值67.92对65.85，工具增益3.82对1.97。最终模型7个图像集的有工具/无工具均值69.48/64.25；V*观察依赖分数75.53，是在随机/空观察错误中被GT观察纠正的归一化比例。",
+        "highlights": [
+          "工具训练需要同时保证观察可用、且策略真的使用观察；注入动作应与学生采样token区分损失。用替换观察和禁用工具的对照，比只测调用次数更能判断工具价值。",
+          "阅读来源：arXiv PDF全文；结果限制见详情"
+        ],
+        "motivation": "视觉Agent可能调用工具却继续依赖原图，或在错误裁剪/帧选择后接受教师监督；仅改输出分布不能补回缺失证据。",
+        "method": "以63K图像和37K视频QA训练Qwen3.5-9B。GD-GRPO包含答案、调用、定位奖励，在首次成功调用后以0.5概率移除原视觉输入，并按预采样drop标志分组算优势。OG-MOPD用标注IoU门控保留或替换调用；学生采样token做多教师蒸馏，注入的规范调用单独做NLL。推理时不需要门控或教师。",
+        "experiments": "14个图像/视频benchmark，共享视觉token预算、greedy评测。图像均分69.48对普通MOPD的68.19，视频53.10对52.32；并非每一项都超越教师或MOPD。图像专家GD-GRPO对终局GRPO均值67.92对65.85，工具增益3.82对1.97。最终模型7个图像集的有工具/无工具均值69.48/64.25；V*观察依赖分数75.53，是在随机/空观察错误中被GT观察纠正的归一化比例。",
+        "research_help": "工具训练需要同时保证观察可用、且策略真的使用观察；注入动作应与学生采样token区分损失。用替换观察和禁用工具的对照，比只测调用次数更能判断工具价值。",
+        "recommendation": {
+          "level": "中",
+          "label": "值得核读",
+          "water_risk": "中",
+          "value_judgement": "工具训练需要同时保证观察可用、且策略真的使用观察；注入动作应与学生采样token区分损失。用替换观察和禁用工具的对照，比只测调用次数更能判断工具价值。",
+          "reason": "工具训练需要同时保证观察可用、且策略真的使用观察；注入动作应与学生采样token区分损失。用替换观察和禁用工具的对照，比只测调用次数更能判断工具价值。",
+          "signals": {
+            "agenticRl": true,
+            "multiTurn": false,
+            "longHorizon": false,
+            "memory": false,
+            "reliability": true,
+            "codeOrTool": true,
+            "experiments": true,
+            "survey": false
+          }
+        },
+        "card_summary": "Reframe把视觉工具返回的观察纳入训练：原图dropout促使利用证据，蒸馏时修复错误调用，再学习修复后的轨迹。",
+        "insight": "工具训练需要同时保证观察可用、且策略真的使用观察；注入动作应与学生采样token区分损失。用替换观察和禁用工具的对照，比只测调用次数更能判断工具价值。",
+        "limitations": "依赖定位标注和数据清洗；修复动作让后续历史偏离纯on-policy分布，不能把整个过程称为完全on-policy。仅CropImage/SelectFrames两类工具；平均指标含不同video评分口径。未见多训练种子区间，外部Agent的不同base/训练也限制归因。未独立复现。",
+        "abstract_zh": "视觉Agent可能调用工具却继续依赖原图，或在错误裁剪/帧选择后接受教师监督；仅改输出分布不能补回缺失证据。以63K图像和37K视频QA训练Qwen3.5-9B。GD-GRPO包含答案、调用、定位奖励，在首次成功调用后以0.5概率移除原视觉输入，并按预采样drop标志分组算优势。OG-MOPD用标注IoU门控保留或替换调用；学生采样token做多教师蒸馏，注入的规范调用单独做NLL。推理时不需要门控或教师。",
+        "full_summary": "Reframe把视觉工具返回的观察纳入训练：原图dropout促使利用证据，蒸馏时修复错误调用，再学习修复后的轨迹。视觉Agent可能调用工具却继续依赖原图，或在错误裁剪/帧选择后接受教师监督；仅改输出分布不能补回缺失证据。以63K图像和37K视频QA训练Qwen3.5-9B。GD-GRPO包含答案、调用、定位奖励，在首次成功调用后以0.5概率移除原视觉输入，并按预采样drop标志分组算优势。OG-MOPD用标注IoU门控保留或替换调用；学生采样token做多教师蒸馏，注入的规范调用单独做NLL。推理时不需要门控或教师。14个图像/视频benchmark，共享视觉token预算、greedy评测。图像均分69.48对普通MOPD的68.19，视频53.10对52.32；并非每一项都超越教师或MOPD。图像专家GD-GRPO对终局GRPO均值67.92对65.85，工具增益3.82对1.97。最终模型7个图像集的有工具/无工具均值69.48/64.25；V*观察依赖分数75.53，是在随机/空观察错误中被GT观察纠正的归一化比例。"
+      },
+      "analysis": {
+        "card_summary": "Reframe把视觉工具返回的观察纳入训练：原图dropout促使利用证据，蒸馏时修复错误调用，再学习修复后的轨迹。",
+        "motivation": "视觉Agent可能调用工具却继续依赖原图，或在错误裁剪/帧选择后接受教师监督；仅改输出分布不能补回缺失证据。",
+        "method": "以63K图像和37K视频QA训练Qwen3.5-9B。GD-GRPO包含答案、调用、定位奖励，在首次成功调用后以0.5概率移除原视觉输入，并按预采样drop标志分组算优势。OG-MOPD用标注IoU门控保留或替换调用；学生采样token做多教师蒸馏，注入的规范调用单独做NLL。推理时不需要门控或教师。",
+        "experiments": "14个图像/视频benchmark，共享视觉token预算、greedy评测。图像均分69.48对普通MOPD的68.19，视频53.10对52.32；并非每一项都超越教师或MOPD。图像专家GD-GRPO对终局GRPO均值67.92对65.85，工具增益3.82对1.97。最终模型7个图像集的有工具/无工具均值69.48/64.25；V*观察依赖分数75.53，是在随机/空观察错误中被GT观察纠正的归一化比例。",
+        "research_help": "工具训练需要同时保证观察可用、且策略真的使用观察；注入动作应与学生采样token区分损失。用替换观察和禁用工具的对照，比只测调用次数更能判断工具价值。",
+        "insight": "工具训练需要同时保证观察可用、且策略真的使用观察；注入动作应与学生采样token区分损失。用替换观察和禁用工具的对照，比只测调用次数更能判断工具价值。",
+        "limitations": "依赖定位标注和数据清洗；修复动作让后续历史偏离纯on-policy分布，不能把整个过程称为完全on-policy。仅CropImage/SelectFrames两类工具；平均指标含不同video评分口径。未见多训练种子区间，外部Agent的不同base/训练也限制归因。未独立复现。",
+        "abstract_zh": "视觉Agent可能调用工具却继续依赖原图，或在错误裁剪/帧选择后接受教师监督；仅改输出分布不能补回缺失证据。以63K图像和37K视频QA训练Qwen3.5-9B。GD-GRPO包含答案、调用、定位奖励，在首次成功调用后以0.5概率移除原视觉输入，并按预采样drop标志分组算优势。OG-MOPD用标注IoU门控保留或替换调用；学生采样token做多教师蒸馏，注入的规范调用单独做NLL。推理时不需要门控或教师。",
+        "full_summary": "Reframe把视觉工具返回的观察纳入训练：原图dropout促使利用证据，蒸馏时修复错误调用，再学习修复后的轨迹。视觉Agent可能调用工具却继续依赖原图，或在错误裁剪/帧选择后接受教师监督；仅改输出分布不能补回缺失证据。以63K图像和37K视频QA训练Qwen3.5-9B。GD-GRPO包含答案、调用、定位奖励，在首次成功调用后以0.5概率移除原视觉输入，并按预采样drop标志分组算优势。OG-MOPD用标注IoU门控保留或替换调用；学生采样token做多教师蒸馏，注入的规范调用单独做NLL。推理时不需要门控或教师。14个图像/视频benchmark，共享视觉token预算、greedy评测。图像均分69.48对普通MOPD的68.19，视频53.10对52.32；并非每一项都超越教师或MOPD。图像专家GD-GRPO对终局GRPO均值67.92对65.85，工具增益3.82对1.97。最终模型7个图像集的有工具/无工具均值69.48/64.25；V*观察依赖分数75.53，是在随机/空观察错误中被GT观察纠正的归一化比例。",
+        "source_scope": "full_text",
+        "source_note": "直接核读arXiv PDF正文及相关附录，主结果页已渲染核对；数值为作者报告，未独立复现。",
+        "source_evidence": [
+          "§3：数据清洗、GD-GRPO和branch-aware蒸馏",
+          "§4/表2–4（PDF第7页渲染）：14项结果、观察依赖定义"
+        ],
+        "model": "manual-full-text-review",
+        "updated_at": "2026-11-11T01:34:48.493757+00:00",
+        "recommendation_level": "中",
+        "water_risk": "中",
+        "value_label": "值得核读",
+        "value_reason": "工具训练需要同时保证观察可用、且策略真的使用观察；注入动作应与学生采样token区分损失。用替换观察和禁用工具的对照，比只测调用次数更能判断工具价值。"
+      },
+      "source_report_date": "2026-11-11",
+      "affiliations": [
+        "南京大学",
+        "中国科学院自动化研究所"
+      ]
+    },
+    {
+      "id": "2611.12068v1",
+      "title": "MIRIX-2.0: Multi-Agent Memory System",
+      "summary": "Long-term memory lets LLM agents personalize, stay consistent, and reuse what worked before. Parametric memories need training, consolidation can lose details for good, and keeping every record leaves a growing store to search. We present MIRIX-2.0, a multi-agent memory system designed to be practical, accurate, and efficient at once. It is the most accurate of the compared systems on four of five QA benchmarks. It reaches 91.4% on LoCoMo and 72.6% on LongMemEval-S, where it leads the strongest baseline by 14.3 points, and with AutoDream disabled it gains 31.0 and 22.0 points over HyperMem on single-hop and multi-hop document QA. As procedural memory, it yields the highest mean success among the compared memory methods on ALFWorld and WebShop and reaches 49.2% on MetaClaw-Bench, against 44.0% for MetaClaw's skill library. Six typed memory agents keep complete records as the system of record, and a provenance hypergraph indexes episodic and semantic records with n-ary frames that cite their rows. Retrieval runs under explicit budgets, so the evidence a question inspects does not grow with the history. AutoDream merges duplicate anchors outside the write path without rewriting any record, and it distills task sessions into skills. With AutoDream disabled, MIRIX-2.0 answers faster than HyperMem on all five timed benchmarks. It needs no fine-tuning, runs with closed and open models, and its code is public.",
+      "url": "http://arxiv.org/abs/2611.12068v1",
+      "authors": [
+        "Wei-Chieh Huang",
+        "Weizhi Zhang",
+        "Jiayan Nan",
+        "Peng Xia",
+        "Yu Wang"
+      ],
+      "report_date": "2026-11-11",
+      "published": "2026-11-09",
+      "updated": "2026-11-09",
+      "primary_category": "cs.CL",
+      "categories": [
+        "cs.CL"
+      ],
+      "project_url": "https://mirix.io/",
+      "repo_url": "https://github.com/Mirix-AI/MIRIX",
+      "venue_status": "未确认录用",
+      "recommendation": {
+        "level": "中",
+        "label": "值得核读",
+        "water_risk": "中",
+        "value_judgement": "把完整来源作为事实层、图作为可替换索引，可将信息保真与检索预算分开；技能应在冻结记忆的留出任务上验证，并同时检查对原本能完成任务的负迁移。",
+        "reason": "把完整来源作为事实层、图作为可替换索引，可将信息保真与检索预算分开；技能应在冻结记忆的留出任务上验证，并同时检查对原本能完成任务的负迁移。",
+        "signals": {
+          "agenticRl": false,
+          "multiTurn": false,
+          "longHorizon": false,
+          "memory": true,
+          "reliability": true,
+          "codeOrTool": false,
+          "experiments": true,
+          "survey": false
+        }
+      },
+      "brief": {
+        "authors": [
+          "Wei-Chieh Huang",
+          "Weizhi Zhang",
+          "Jiayan Nan",
+          "Peng Xia",
+          "Yu Wang"
+        ],
+        "affiliations": "MIRIX AI",
+        "date": "2026-11-09",
+        "paper_url": "https://arxiv.org/abs/2611.12068v1",
+        "project_url": "https://mirix.io/",
+        "repo_url": "https://github.com/Mirix-AI/MIRIX",
+        "venue_status": "未确认录用",
+        "contribution": "把完整来源作为事实层、图作为可替换索引，可将信息保真与检索预算分开；技能应在冻结记忆的留出任务上验证，并同时检查对原本能完成任务的负迁移。",
+        "summary": "MIRIX-2.0保留完整记忆，以有来源的超图作有预算索引，并离线整合实体与技能；交互任务均值提升但方差较大。直接改写记忆会丢失细节，全量保存又使检索成本增长；用户事实记忆和Agent技能记忆需要不同的整合方式。六类记忆Agent写入typed evidence store，超图仅索引episodic/semantic记录，事实引用原始行；先提交原记录，图失败可回退直接检索。读取按算子设置行/关系预算。AutoDream离线合并重复实体锚点而不改事实记录，过程记忆则从任务会话的结果与经验蒸馏带引用技能。LoCoMo的M0/M1/M2为85.7/88.4/91.4，对HyperMem本地复跑91.0；LongMemEval-S为72.6。冻结记忆后，134项ALFWorld与140项WebShop测试，各3次：GPT-6 Luna的ALFWorld成功率76.4±6.2，对无记忆69.4±0.7、AWM73.6；WebShop37.4对31.9/36.0。MetaClaw-Bench GPT-5.2为49.2对技能库44.0。文档QA用关闭AutoDream的M1，不能归因于dream。",
+        "highlights": [
+          "把完整来源作为事实层、图作为可替换索引，可将信息保真与检索预算分开；技能应在冻结记忆的留出任务上验证，并同时检查对原本能完成任务的负迁移。",
+          "阅读来源：arXiv PDF全文；结果限制见详情"
+        ],
+        "motivation": "直接改写记忆会丢失细节，全量保存又使检索成本增长；用户事实记忆和Agent技能记忆需要不同的整合方式。",
+        "method": "六类记忆Agent写入typed evidence store，超图仅索引episodic/semantic记录，事实引用原始行；先提交原记录，图失败可回退直接检索。读取按算子设置行/关系预算。AutoDream离线合并重复实体锚点而不改事实记录，过程记忆则从任务会话的结果与经验蒸馏带引用技能。",
+        "experiments": "LoCoMo的M0/M1/M2为85.7/88.4/91.4，对HyperMem本地复跑91.0；LongMemEval-S为72.6。冻结记忆后，134项ALFWorld与140项WebShop测试，各3次：GPT-6 Luna的ALFWorld成功率76.4±6.2，对无记忆69.4±0.7、AWM73.6；WebShop37.4对31.9/36.0。MetaClaw-Bench GPT-5.2为49.2对技能库44.0。文档QA用关闭AutoDream的M1，不能归因于dream。",
+        "research_help": "把完整来源作为事实层、图作为可替换索引，可将信息保真与检索预算分开；技能应在冻结记忆的留出任务上验证，并同时检查对原本能完成任务的负迁移。",
+        "recommendation": {
+          "level": "中",
+          "label": "值得核读",
+          "water_risk": "中",
+          "value_judgement": "把完整来源作为事实层、图作为可替换索引，可将信息保真与检索预算分开；技能应在冻结记忆的留出任务上验证，并同时检查对原本能完成任务的负迁移。",
+          "reason": "把完整来源作为事实层、图作为可替换索引，可将信息保真与检索预算分开；技能应在冻结记忆的留出任务上验证，并同时检查对原本能完成任务的负迁移。",
+          "signals": {
+            "agenticRl": false,
+            "multiTurn": false,
+            "longHorizon": false,
+            "memory": true,
+            "reliability": true,
+            "codeOrTool": false,
+            "experiments": true,
+            "survey": false
+          }
+        },
+        "card_summary": "MIRIX-2.0保留完整记忆，以有来源的超图作有预算索引，并离线整合实体与技能；交互任务均值提升但方差较大。",
+        "insight": "把完整来源作为事实层、图作为可替换索引，可将信息保真与检索预算分开；技能应在冻结记忆的留出任务上验证，并同时检查对原本能完成任务的负迁移。",
+        "limitations": "用户记忆结果单次、部分由LLM裁判；组件按组消融，未单独隔离引用、n元关系、planner或curator作用。Agent只有3次运行且方差大，不能据均值宣称稳定胜过AWM；部分基线沿用原文报告。更短回答时延不包含所有写入和离线整合成本，固定检索预算不代表存储成本不增长。未独立复现。",
+        "abstract_zh": "直接改写记忆会丢失细节，全量保存又使检索成本增长；用户事实记忆和Agent技能记忆需要不同的整合方式。六类记忆Agent写入typed evidence store，超图仅索引episodic/semantic记录，事实引用原始行；先提交原记录，图失败可回退直接检索。读取按算子设置行/关系预算。AutoDream离线合并重复实体锚点而不改事实记录，过程记忆则从任务会话的结果与经验蒸馏带引用技能。",
+        "full_summary": "MIRIX-2.0保留完整记忆，以有来源的超图作有预算索引，并离线整合实体与技能；交互任务均值提升但方差较大。直接改写记忆会丢失细节，全量保存又使检索成本增长；用户事实记忆和Agent技能记忆需要不同的整合方式。六类记忆Agent写入typed evidence store，超图仅索引episodic/semantic记录，事实引用原始行；先提交原记录，图失败可回退直接检索。读取按算子设置行/关系预算。AutoDream离线合并重复实体锚点而不改事实记录，过程记忆则从任务会话的结果与经验蒸馏带引用技能。LoCoMo的M0/M1/M2为85.7/88.4/91.4，对HyperMem本地复跑91.0；LongMemEval-S为72.6。冻结记忆后，134项ALFWorld与140项WebShop测试，各3次：GPT-6 Luna的ALFWorld成功率76.4±6.2，对无记忆69.4±0.7、AWM73.6；WebShop37.4对31.9/36.0。MetaClaw-Bench GPT-5.2为49.2对技能库44.0。文档QA用关闭AutoDream的M1，不能归因于dream。"
+      },
+      "analysis": {
+        "card_summary": "MIRIX-2.0保留完整记忆，以有来源的超图作有预算索引，并离线整合实体与技能；交互任务均值提升但方差较大。",
+        "motivation": "直接改写记忆会丢失细节，全量保存又使检索成本增长；用户事实记忆和Agent技能记忆需要不同的整合方式。",
+        "method": "六类记忆Agent写入typed evidence store，超图仅索引episodic/semantic记录，事实引用原始行；先提交原记录，图失败可回退直接检索。读取按算子设置行/关系预算。AutoDream离线合并重复实体锚点而不改事实记录，过程记忆则从任务会话的结果与经验蒸馏带引用技能。",
+        "experiments": "LoCoMo的M0/M1/M2为85.7/88.4/91.4，对HyperMem本地复跑91.0；LongMemEval-S为72.6。冻结记忆后，134项ALFWorld与140项WebShop测试，各3次：GPT-6 Luna的ALFWorld成功率76.4±6.2，对无记忆69.4±0.7、AWM73.6；WebShop37.4对31.9/36.0。MetaClaw-Bench GPT-5.2为49.2对技能库44.0。文档QA用关闭AutoDream的M1，不能归因于dream。",
+        "research_help": "把完整来源作为事实层、图作为可替换索引，可将信息保真与检索预算分开；技能应在冻结记忆的留出任务上验证，并同时检查对原本能完成任务的负迁移。",
+        "insight": "把完整来源作为事实层、图作为可替换索引，可将信息保真与检索预算分开；技能应在冻结记忆的留出任务上验证，并同时检查对原本能完成任务的负迁移。",
+        "limitations": "用户记忆结果单次、部分由LLM裁判；组件按组消融，未单独隔离引用、n元关系、planner或curator作用。Agent只有3次运行且方差大，不能据均值宣称稳定胜过AWM；部分基线沿用原文报告。更短回答时延不包含所有写入和离线整合成本，固定检索预算不代表存储成本不增长。未独立复现。",
+        "abstract_zh": "直接改写记忆会丢失细节，全量保存又使检索成本增长；用户事实记忆和Agent技能记忆需要不同的整合方式。六类记忆Agent写入typed evidence store，超图仅索引episodic/semantic记录，事实引用原始行；先提交原记录，图失败可回退直接检索。读取按算子设置行/关系预算。AutoDream离线合并重复实体锚点而不改事实记录，过程记忆则从任务会话的结果与经验蒸馏带引用技能。",
+        "full_summary": "MIRIX-2.0保留完整记忆，以有来源的超图作有预算索引，并离线整合实体与技能；交互任务均值提升但方差较大。直接改写记忆会丢失细节，全量保存又使检索成本增长；用户事实记忆和Agent技能记忆需要不同的整合方式。六类记忆Agent写入typed evidence store，超图仅索引episodic/semantic记录，事实引用原始行；先提交原记录，图失败可回退直接检索。读取按算子设置行/关系预算。AutoDream离线合并重复实体锚点而不改事实记录，过程记忆则从任务会话的结果与经验蒸馏带引用技能。LoCoMo的M0/M1/M2为85.7/88.4/91.4，对HyperMem本地复跑91.0；LongMemEval-S为72.6。冻结记忆后，134项ALFWorld与140项WebShop测试，各3次：GPT-6 Luna的ALFWorld成功率76.4±6.2，对无记忆69.4±0.7、AWM73.6；WebShop37.4对31.9/36.0。MetaClaw-Bench GPT-5.2为49.2对技能库44.0。文档QA用关闭AutoDream的M1，不能归因于dream。",
+        "source_scope": "full_text",
+        "source_note": "直接核读arXiv PDF正文及相关附录，主结果页已渲染核对；数值为作者报告，未独立复现。",
+        "source_evidence": [
+          "§2：证据层、预算检索、AutoDream",
+          "§3/表1（PDF第11页渲染）、图6、附录表10–12：均值、方差和成本",
+          "§5：分组消融及单次用户记忆评测限制"
+        ],
+        "model": "manual-full-text-review",
+        "updated_at": "2026-11-11T01:34:48.493757+00:00",
+        "recommendation_level": "中",
+        "water_risk": "中",
+        "value_label": "值得核读",
+        "value_reason": "把完整来源作为事实层、图作为可替换索引，可将信息保真与检索预算分开；技能应在冻结记忆的留出任务上验证，并同时检查对原本能完成任务的负迁移。"
+      },
+      "source_report_date": "2026-11-11",
+      "affiliations": [
+        "MIRIX AI"
+      ]
+    },
+    {
+      "id": "2611.10768v1",
+      "title": "BlenderFORGE: Framework for Optimizing Reactive 3D-Graphics Editing Ability of MLLMs",
+      "summary": "Multimodal Large Language Models (MLLMs) have shown promise as interactive agents, yet precise, programmatic 3D graphics editing remains difficult to train because existing systems largely rely on closed-source model APIs and lack deterministic, state-verifiable execution environments. We present BlenderFORGE, a trainable data-environment-optimization framework for open-weight MLLM agents that edit explicit Blender scenes through Blender Python (bpy) code generation. BlenderFORGE targets four fundamental state-verifiable editing task families: object placement, shape-key editing, lighting adjustment, and material modification. It integrates three components: (1) a scalable perturbation-based data generation pipeline built from curated assets and large-scale 3D scene repositories; (2) an isolated Blender Sandbox for deterministic code execution, structured state export, and closed-loop reward computation; and (3) a two-stage training pipeline that uses offline teacher trajectories for cold-start Supervised Fine-Tuning (SFT) and sandbox-computed rewards for multi-turn tool-agentic Reinforcement Learning (AgentLoop-RL). Experiments across the four task families show that the resulting open-weight Qwen3-VL-8B and Qwen3.5-9B BlenderFORGE agents substantially improve over their base models and achieve competitive performance with several zero-shot proprietary MLLM baselines on selected metrics. Additional cross-benchmark evaluations and camera-reframing experiments provide evidence of transfer beyond the original training setting.",
+      "url": "http://arxiv.org/abs/2611.10768v1",
+      "authors": [
+        "Zilin Guo",
+        "Tianrui Zhang",
+        "Yi Rong",
+        "Yichen Liu",
+        "Yuxin Guo",
+        "Jingcheng Ni",
+        "Lewei Lu",
+        "Zehuan Wu",
+        "Dan Xu"
+      ],
+      "report_date": "2026-11-11",
+      "published": "2026-11-07",
+      "updated": "2026-11-07",
+      "primary_category": "cs.AI",
+      "categories": [
+        "cs.AI"
+      ],
+      "project_url": "https://sensetime-fvg.github.io/BlenderFORGE/",
+      "repo_url": "",
+      "venue_status": "作者在arXiv声明NeurIPS 2026录用（未独立核对会议目录）",
+      "recommendation": {
+        "level": "中",
+        "label": "值得核读",
+        "water_risk": "中",
+        "value_judgement": "环境可验证性可为多轮编辑提供奖励，但能执行只是探索辅助信号，必须与任务进度分开；RL与SFT数据配方的交互需要消融，不能默认RL总是增益。",
+        "reason": "环境可验证性可为多轮编辑提供奖励，但能执行只是探索辅助信号，必须与任务进度分开；RL与SFT数据配方的交互需要消融，不能默认RL总是增益。",
+        "signals": {
+          "agenticRl": true,
+          "multiTurn": true,
+          "longHorizon": false,
+          "memory": false,
+          "reliability": true,
+          "codeOrTool": true,
+          "experiments": true,
+          "survey": false
+        }
+      },
+      "brief": {
+        "authors": [
+          "Zilin Guo",
+          "Tianrui Zhang",
+          "Yi Rong",
+          "Yichen Liu",
+          "Yuxin Guo",
+          "Jingcheng Ni",
+          "Lewei Lu",
+          "Zehuan Wu",
+          "Dan Xu"
+        ],
+        "affiliations": "香港科技大学；商汤研究院",
+        "date": "2026-11-07",
+        "paper_url": "https://arxiv.org/abs/2611.10768v1",
+        "project_url": "https://sensetime-fvg.github.io/BlenderFORGE/",
+        "repo_url": "",
+        "venue_status": "作者在arXiv声明NeurIPS 2026录用（未独立核对会议目录）",
+        "contribution": "环境可验证性可为多轮编辑提供奖励，但能执行只是探索辅助信号，必须与任务进度分开；RL与SFT数据配方的交互需要消融，不能默认RL总是增益。",
+        "summary": "BlenderFORGE以可验证场景状态训练多轮3D编辑Agent；SFT加GSPO提高编辑质量，但RL增益依赖冷启动配置。图像相似不能完整判断3D对象是否正确编辑；可执行交互环境需要场景状态、几何和视觉反馈共同监督。从资产扰动生成放置、形状键、灯光、材质四类start-to-goal任务。隔离Blender进程执行bpy、返回渲染和场景状态；先以GPT-5.2轨迹及通用数据SFT，再AgentLoop-RL/GSPO。奖励为按初始误差归一化的任务进度加小幅可执行性信号；RL最多8轮。训练放置3000、其他各2000样本，每类名义200测试。8B放置SR@0.5由1.50%到36.00%，9B由3.00%到40.00%。放置消融：Traj+Gen SFT25.50%，完整RL36.00%；Traj SFT24.00%，Traj+RL却21.00%。完整8B平均6.49轮，Traj+Gen为5.76轮，质量提升带来更多交互。另测第二骨干、BlenderGym和相机重取景迁移。",
+        "highlights": [
+          "环境可验证性可为多轮编辑提供奖励，但能执行只是探索辅助信号，必须与任务进度分开；RL与SFT数据配方的交互需要消融，不能默认RL总是增益。",
+          "阅读来源：arXiv PDF全文；结果限制见详情"
+        ],
+        "motivation": "图像相似不能完整判断3D对象是否正确编辑；可执行交互环境需要场景状态、几何和视觉反馈共同监督。",
+        "method": "从资产扰动生成放置、形状键、灯光、材质四类start-to-goal任务。隔离Blender进程执行bpy、返回渲染和场景状态；先以GPT-5.2轨迹及通用数据SFT，再AgentLoop-RL/GSPO。奖励为按初始误差归一化的任务进度加小幅可执行性信号；RL最多8轮。",
+        "experiments": "训练放置3000、其他各2000样本，每类名义200测试。8B放置SR@0.5由1.50%到36.00%，9B由3.00%到40.00%。放置消融：Traj+Gen SFT25.50%，完整RL36.00%；Traj SFT24.00%，Traj+RL却21.00%。完整8B平均6.49轮，Traj+Gen为5.76轮，质量提升带来更多交互。另测第二骨干、BlenderGym和相机重取景迁移。",
+        "research_help": "环境可验证性可为多轮编辑提供奖励，但能执行只是探索辅助信号，必须与任务进度分开；RL与SFT数据配方的交互需要消融，不能默认RL总是增益。",
+        "recommendation": {
+          "level": "中",
+          "label": "值得核读",
+          "water_risk": "中",
+          "value_judgement": "环境可验证性可为多轮编辑提供奖励，但能执行只是探索辅助信号，必须与任务进度分开；RL与SFT数据配方的交互需要消融，不能默认RL总是增益。",
+          "reason": "环境可验证性可为多轮编辑提供奖励，但能执行只是探索辅助信号，必须与任务进度分开；RL与SFT数据配方的交互需要消融，不能默认RL总是增益。",
+          "signals": {
+            "agenticRl": true,
+            "multiTurn": true,
+            "longHorizon": false,
+            "memory": false,
+            "reliability": true,
+            "codeOrTool": true,
+            "experiments": true,
+            "survey": false
+          }
+        },
+        "card_summary": "BlenderFORGE以可验证场景状态训练多轮3D编辑Agent；SFT加GSPO提高编辑质量，但RL增益依赖冷启动配置。",
+        "insight": "环境可验证性可为多轮编辑提供奖励，但能执行只是探索辅助信号，必须与任务进度分开；RL与SFT数据配方的交互需要消融，不能默认RL总是增益。",
+        "limitations": "API超时/服务器错误从分子分母同时剔除，不同模型实际样本数可能不同；专有模型是zero-shot参照，不是同训练预算对照。训练8轮不构成更长程规划验证；未见多训练种子区间。结构任务和指标均有限，未独立复现。",
+        "abstract_zh": "图像相似不能完整判断3D对象是否正确编辑；可执行交互环境需要场景状态、几何和视觉反馈共同监督。从资产扰动生成放置、形状键、灯光、材质四类start-to-goal任务。隔离Blender进程执行bpy、返回渲染和场景状态；先以GPT-5.2轨迹及通用数据SFT，再AgentLoop-RL/GSPO。奖励为按初始误差归一化的任务进度加小幅可执行性信号；RL最多8轮。",
+        "full_summary": "BlenderFORGE以可验证场景状态训练多轮3D编辑Agent；SFT加GSPO提高编辑质量，但RL增益依赖冷启动配置。图像相似不能完整判断3D对象是否正确编辑；可执行交互环境需要场景状态、几何和视觉反馈共同监督。从资产扰动生成放置、形状键、灯光、材质四类start-to-goal任务。隔离Blender进程执行bpy、返回渲染和场景状态；先以GPT-5.2轨迹及通用数据SFT，再AgentLoop-RL/GSPO。奖励为按初始误差归一化的任务进度加小幅可执行性信号；RL最多8轮。训练放置3000、其他各2000样本，每类名义200测试。8B放置SR@0.5由1.50%到36.00%，9B由3.00%到40.00%。放置消融：Traj+Gen SFT25.50%，完整RL36.00%；Traj SFT24.00%，Traj+RL却21.00%。完整8B平均6.49轮，Traj+Gen为5.76轮，质量提升带来更多交互。另测第二骨干、BlenderGym和相机重取景迁移。"
+      },
+      "analysis": {
+        "card_summary": "BlenderFORGE以可验证场景状态训练多轮3D编辑Agent；SFT加GSPO提高编辑质量，但RL增益依赖冷启动配置。",
+        "motivation": "图像相似不能完整判断3D对象是否正确编辑；可执行交互环境需要场景状态、几何和视觉反馈共同监督。",
+        "method": "从资产扰动生成放置、形状键、灯光、材质四类start-to-goal任务。隔离Blender进程执行bpy、返回渲染和场景状态；先以GPT-5.2轨迹及通用数据SFT，再AgentLoop-RL/GSPO。奖励为按初始误差归一化的任务进度加小幅可执行性信号；RL最多8轮。",
+        "experiments": "训练放置3000、其他各2000样本，每类名义200测试。8B放置SR@0.5由1.50%到36.00%，9B由3.00%到40.00%。放置消融：Traj+Gen SFT25.50%，完整RL36.00%；Traj SFT24.00%，Traj+RL却21.00%。完整8B平均6.49轮，Traj+Gen为5.76轮，质量提升带来更多交互。另测第二骨干、BlenderGym和相机重取景迁移。",
+        "research_help": "环境可验证性可为多轮编辑提供奖励，但能执行只是探索辅助信号，必须与任务进度分开；RL与SFT数据配方的交互需要消融，不能默认RL总是增益。",
+        "insight": "环境可验证性可为多轮编辑提供奖励，但能执行只是探索辅助信号，必须与任务进度分开；RL与SFT数据配方的交互需要消融，不能默认RL总是增益。",
+        "limitations": "API超时/服务器错误从分子分母同时剔除，不同模型实际样本数可能不同；专有模型是zero-shot参照，不是同训练预算对照。训练8轮不构成更长程规划验证；未见多训练种子区间。结构任务和指标均有限，未独立复现。",
+        "abstract_zh": "图像相似不能完整判断3D对象是否正确编辑；可执行交互环境需要场景状态、几何和视觉反馈共同监督。从资产扰动生成放置、形状键、灯光、材质四类start-to-goal任务。隔离Blender进程执行bpy、返回渲染和场景状态；先以GPT-5.2轨迹及通用数据SFT，再AgentLoop-RL/GSPO。奖励为按初始误差归一化的任务进度加小幅可执行性信号；RL最多8轮。",
+        "full_summary": "BlenderFORGE以可验证场景状态训练多轮3D编辑Agent；SFT加GSPO提高编辑质量，但RL增益依赖冷启动配置。图像相似不能完整判断3D对象是否正确编辑；可执行交互环境需要场景状态、几何和视觉反馈共同监督。从资产扰动生成放置、形状键、灯光、材质四类start-to-goal任务。隔离Blender进程执行bpy、返回渲染和场景状态；先以GPT-5.2轨迹及通用数据SFT，再AgentLoop-RL/GSPO。奖励为按初始误差归一化的任务进度加小幅可执行性信号；RL最多8轮。训练放置3000、其他各2000样本，每类名义200测试。8B放置SR@0.5由1.50%到36.00%，9B由3.00%到40.00%。放置消融：Traj+Gen SFT25.50%，完整RL36.00%；Traj SFT24.00%，Traj+RL却21.00%。完整8B平均6.49轮，Traj+Gen为5.76轮，质量提升带来更多交互。另测第二骨干、BlenderGym和相机重取景迁移。",
+        "source_scope": "full_text",
+        "source_note": "直接核读arXiv PDF正文及相关附录，主结果页已渲染核对；数值为作者报告，未独立复现。",
+        "source_evidence": [
+          "§3：sandbox、任务指标和奖励",
+          "§4/表1–2（PDF第8页渲染）：基线与RL消融",
+          "§3.4及附录：实际评测分母和迁移设置"
+        ],
+        "model": "manual-full-text-review",
+        "updated_at": "2026-11-11T01:34:48.493757+00:00",
+        "recommendation_level": "中",
+        "water_risk": "中",
+        "value_label": "值得核读",
+        "value_reason": "环境可验证性可为多轮编辑提供奖励，但能执行只是探索辅助信号，必须与任务进度分开；RL与SFT数据配方的交互需要消融，不能默认RL总是增益。"
+      },
+      "source_report_date": "2026-11-11",
+      "affiliations": [
+        "香港科技大学",
+        "商汤研究院"
+      ]
+    },
+    {
+      "id": "2611.10453v1",
+      "title": "BunshinRL: Splitting Live Agent Workspaces for Memory-Efficient Agentic RL",
+      "summary": "Agentic reinforcement learning (RL) rollouts interleave model reasoning with tool calls in persistent workspaces. Scaling these rollouts incurs substantial memory costs for concurrent environments, while slow tool calls delay entire rollout batches. We present BunshinRL, an agentic RL rollout system that exploits shared environment state and recurring tool calls through three techniques: memory sharing across environments, tool-prefix caching, and speculative tool execution. These techniques build on BunshinFork, a novel live whole-workspace forking mechanism for containers. BunshinFork reconstructs process trees, shares memory copy-on-write, and preserves file, communication, and GUI state, enabling cached-state reuse and rollback after incorrect speculation. We implement BunshinRL and BunshinFork through Linux kernel module and CRIU modifications. BunshinRL reduces peak memory by up to 43%, total memory consumption by up to 51%, and end-to-end rollout latency by 23%.",
+      "url": "http://arxiv.org/abs/2611.10453v1",
+      "authors": [
+        "Yutong Huang",
+        "Vikranth Srivatsa",
+        "Alex Asch",
+        "Yiying Zhang"
+      ],
+      "report_date": "2026-11-11",
+      "published": "2026-11-07",
+      "updated": "2026-11-07",
+      "primary_category": "cs.AI",
+      "categories": [
+        "cs.AI",
+        "cs.OS"
+      ],
+      "project_url": "",
+      "repo_url": "https://github.com/WukLab/ForkRL",
+      "venue_status": "未确认录用",
+      "recommendation": {
+        "level": "中",
+        "label": "值得核读",
+        "water_risk": "中",
+        "value_judgement": "有状态工具复用必须同时复用结果和对应应用状态；回滚范围、完整前缀身份、随机性与外部副作用决定缓存是否保持RL采样语义。系统吞吐改善应与策略质量分开报告。",
+        "reason": "有状态工具复用必须同时复用结果和对应应用状态；回滚范围、完整前缀身份、随机性与外部副作用决定缓存是否保持RL采样语义。系统吞吐改善应与策略质量分开报告。",
+        "signals": {
+          "agenticRl": true,
+          "multiTurn": false,
+          "longHorizon": false,
+          "memory": true,
+          "reliability": false,
+          "codeOrTool": true,
+          "experiments": false,
+          "survey": false
+        }
+      },
+      "brief": {
+        "authors": [
+          "Yutong Huang",
+          "Vikranth Srivatsa",
+          "Alex Asch",
+          "Yiying Zhang"
+        ],
+        "affiliations": "University of California, San Diego；GenseeAI",
+        "date": "2026-11-07",
+        "paper_url": "https://arxiv.org/abs/2611.10453v1",
+        "project_url": "",
+        "repo_url": "https://github.com/WukLab/ForkRL",
+        "venue_status": "未确认录用",
+        "contribution": "有状态工具复用必须同时复用结果和对应应用状态；回滚范围、完整前缀身份、随机性与外部副作用决定缓存是否保持RL采样语义。系统吞吐改善应与策略质量分开报告。",
+        "summary": "BunshinRL用写时复制、工具前缀缓存与推测执行复用持久工作区，降低Agentic RL rollout内存和延迟。同任务多条rollout重复持有浏览器和应用状态，工具慢调用又拖住同步批次；只缓存返回值无法恢复可继续交互的工作区。BunshinFork修改Linux内核模块和CRIU，重建进程树、命名空间和通信/GUI状态，未写页面CoW共享。任务与完整调用前缀匹配后复用快照，稀疏快照必要时重放；仅对尾部样本用小分类器预测历史调用，在独立fork执行，匹配则接纳，错误则丢弃分支。Qwen3-VL-8B、同步GRPO，OSWorld和WebArena购物子集。OSWorld峰值内存对CRIU下降30%、对AgentENV下降26%；WebArena对AgentENV下降43%。缓存加推测的消融epoch由20.8分钟到17.0分钟、峰值69到70GiB；按这组时间计算延迟减少约18.3%，不能写成23%。摘要另称23%，未给该数字独立口径。5 epoch展示相同平均reward，不代表泛化能力提升。",
+        "highlights": [
+          "有状态工具复用必须同时复用结果和对应应用状态；回滚范围、完整前缀身份、随机性与外部副作用决定缓存是否保持RL采样语义。系统吞吐改善应与策略质量分开报告。",
+          "阅读来源：arXiv PDF全文；结果限制见详情"
+        ],
+        "motivation": "同任务多条rollout重复持有浏览器和应用状态，工具慢调用又拖住同步批次；只缓存返回值无法恢复可继续交互的工作区。",
+        "method": "BunshinFork修改Linux内核模块和CRIU，重建进程树、命名空间和通信/GUI状态，未写页面CoW共享。任务与完整调用前缀匹配后复用快照，稀疏快照必要时重放；仅对尾部样本用小分类器预测历史调用，在独立fork执行，匹配则接纳，错误则丢弃分支。",
+        "experiments": "Qwen3-VL-8B、同步GRPO，OSWorld和WebArena购物子集。OSWorld峰值内存对CRIU下降30%、对AgentENV下降26%；WebArena对AgentENV下降43%。缓存加推测的消融epoch由20.8分钟到17.0分钟、峰值69到70GiB；按这组时间计算延迟减少约18.3%，不能写成23%。摘要另称23%，未给该数字独立口径。5 epoch展示相同平均reward，不代表泛化能力提升。",
+        "research_help": "有状态工具复用必须同时复用结果和对应应用状态；回滚范围、完整前缀身份、随机性与外部副作用决定缓存是否保持RL采样语义。系统吞吐改善应与策略质量分开报告。",
+        "recommendation": {
+          "level": "中",
+          "label": "值得核读",
+          "water_risk": "中",
+          "value_judgement": "有状态工具复用必须同时复用结果和对应应用状态；回滚范围、完整前缀身份、随机性与外部副作用决定缓存是否保持RL采样语义。系统吞吐改善应与策略质量分开报告。",
+          "reason": "有状态工具复用必须同时复用结果和对应应用状态；回滚范围、完整前缀身份、随机性与外部副作用决定缓存是否保持RL采样语义。系统吞吐改善应与策略质量分开报告。",
+          "signals": {
+            "agenticRl": true,
+            "multiTurn": false,
+            "longHorizon": false,
+            "memory": true,
+            "reliability": false,
+            "codeOrTool": true,
+            "experiments": false,
+            "survey": false
+          }
+        },
+        "card_summary": "BunshinRL用写时复制、工具前缀缓存与推测执行复用持久工作区，降低Agentic RL rollout内存和延迟。",
+        "insight": "有状态工具复用必须同时复用结果和对应应用状态；回滚范围、完整前缀身份、随机性与外部副作用决定缓存是否保持RL采样语义。系统吞吐改善应与策略质量分开报告。",
+        "limitations": "需内核/CRIU改造；工作区fork不能撤销外部服务副作用，连接要独立重建。§5.2内存对照重放同一批已记录轨迹；WebArena CRIU因OOM减小batch，因此时延对照不完全同并发。23%与展示消融时间不一致，采用可核算值；未独立复现或审计实现。",
+        "abstract_zh": "同任务多条rollout重复持有浏览器和应用状态，工具慢调用又拖住同步批次；只缓存返回值无法恢复可继续交互的工作区。BunshinFork修改Linux内核模块和CRIU，重建进程树、命名空间和通信/GUI状态，未写页面CoW共享。任务与完整调用前缀匹配后复用快照，稀疏快照必要时重放；仅对尾部样本用小分类器预测历史调用，在独立fork执行，匹配则接纳，错误则丢弃分支。",
+        "full_summary": "BunshinRL用写时复制、工具前缀缓存与推测执行复用持久工作区，降低Agentic RL rollout内存和延迟。同任务多条rollout重复持有浏览器和应用状态，工具慢调用又拖住同步批次；只缓存返回值无法恢复可继续交互的工作区。BunshinFork修改Linux内核模块和CRIU，重建进程树、命名空间和通信/GUI状态，未写页面CoW共享。任务与完整调用前缀匹配后复用快照，稀疏快照必要时重放；仅对尾部样本用小分类器预测历史调用，在独立fork执行，匹配则接纳，错误则丢弃分支。Qwen3-VL-8B、同步GRPO，OSWorld和WebArena购物子集。OSWorld峰值内存对CRIU下降30%、对AgentENV下降26%；WebArena对AgentENV下降43%。缓存加推测的消融epoch由20.8分钟到17.0分钟、峰值69到70GiB；按这组时间计算延迟减少约18.3%，不能写成23%。摘要另称23%，未给该数字独立口径。5 epoch展示相同平均reward，不代表泛化能力提升。"
+      },
+      "analysis": {
+        "card_summary": "BunshinRL用写时复制、工具前缀缓存与推测执行复用持久工作区，降低Agentic RL rollout内存和延迟。",
+        "motivation": "同任务多条rollout重复持有浏览器和应用状态，工具慢调用又拖住同步批次；只缓存返回值无法恢复可继续交互的工作区。",
+        "method": "BunshinFork修改Linux内核模块和CRIU，重建进程树、命名空间和通信/GUI状态，未写页面CoW共享。任务与完整调用前缀匹配后复用快照，稀疏快照必要时重放；仅对尾部样本用小分类器预测历史调用，在独立fork执行，匹配则接纳，错误则丢弃分支。",
+        "experiments": "Qwen3-VL-8B、同步GRPO，OSWorld和WebArena购物子集。OSWorld峰值内存对CRIU下降30%、对AgentENV下降26%；WebArena对AgentENV下降43%。缓存加推测的消融epoch由20.8分钟到17.0分钟、峰值69到70GiB；按这组时间计算延迟减少约18.3%，不能写成23%。摘要另称23%，未给该数字独立口径。5 epoch展示相同平均reward，不代表泛化能力提升。",
+        "research_help": "有状态工具复用必须同时复用结果和对应应用状态；回滚范围、完整前缀身份、随机性与外部副作用决定缓存是否保持RL采样语义。系统吞吐改善应与策略质量分开报告。",
+        "insight": "有状态工具复用必须同时复用结果和对应应用状态；回滚范围、完整前缀身份、随机性与外部副作用决定缓存是否保持RL采样语义。系统吞吐改善应与策略质量分开报告。",
+        "limitations": "需内核/CRIU改造；工作区fork不能撤销外部服务副作用，连接要独立重建。§5.2内存对照重放同一批已记录轨迹；WebArena CRIU因OOM减小batch，因此时延对照不完全同并发。23%与展示消融时间不一致，采用可核算值；未独立复现或审计实现。",
+        "abstract_zh": "同任务多条rollout重复持有浏览器和应用状态，工具慢调用又拖住同步批次；只缓存返回值无法恢复可继续交互的工作区。BunshinFork修改Linux内核模块和CRIU，重建进程树、命名空间和通信/GUI状态，未写页面CoW共享。任务与完整调用前缀匹配后复用快照，稀疏快照必要时重放；仅对尾部样本用小分类器预测历史调用，在独立fork执行，匹配则接纳，错误则丢弃分支。",
+        "full_summary": "BunshinRL用写时复制、工具前缀缓存与推测执行复用持久工作区，降低Agentic RL rollout内存和延迟。同任务多条rollout重复持有浏览器和应用状态，工具慢调用又拖住同步批次；只缓存返回值无法恢复可继续交互的工作区。BunshinFork修改Linux内核模块和CRIU，重建进程树、命名空间和通信/GUI状态，未写页面CoW共享。任务与完整调用前缀匹配后复用快照，稀疏快照必要时重放；仅对尾部样本用小分类器预测历史调用，在独立fork执行，匹配则接纳，错误则丢弃分支。Qwen3-VL-8B、同步GRPO，OSWorld和WebArena购物子集。OSWorld峰值内存对CRIU下降30%、对AgentENV下降26%；WebArena对AgentENV下降43%。缓存加推测的消融epoch由20.8分钟到17.0分钟、峰值69到70GiB；按这组时间计算延迟减少约18.3%，不能写成23%。摘要另称23%，未给该数字独立口径。5 epoch展示相同平均reward，不代表泛化能力提升。",
+        "source_scope": "full_text",
+        "source_note": "直接核读arXiv PDF正文及相关附录，主结果页已渲染核对；数值为作者报告，未独立复现。",
+        "source_evidence": [
+          "§3–4：CoW、快照、工具推测及外部连接边界",
+          "§5.1–5.3/图6–11（PDF第8页渲染）：内存、20.8/17.0分钟及reward"
+        ],
+        "model": "manual-full-text-review",
+        "updated_at": "2026-11-11T01:34:48.493757+00:00",
+        "recommendation_level": "中",
+        "water_risk": "中",
+        "value_label": "值得核读",
+        "value_reason": "有状态工具复用必须同时复用结果和对应应用状态；回滚范围、完整前缀身份、随机性与外部副作用决定缓存是否保持RL采样语义。系统吞吐改善应与策略质量分开报告。"
+      },
+      "source_report_date": "2026-11-11",
+      "affiliations": [
+        "University of California, San Diego",
+        "GenseeAI"
+      ]
+    },
+    {
+      "id": "2611.10305v1",
+      "title": "Plug-and-Play Verifier for Decoupling Process Reward in Stabilizing Long-Horizon Agentic Reasoning",
+      "summary": "Stabilizing long-horizon reasoning requires intelligent agents to sustain useful progress across successive reasoning steps and tool interactions. Such agents are typically trained with reinforcement learning (RL), where actor-critic RL uses a learnable critic network to estimate step advantages, while critic-free methods such as GRPO eliminate critic models and rely mostly on the group variants of sparse outcome-only rewards. Both reward types leave partially useful failed trajectories either implicit or indistinguishable from entirely unproductive ones, and as reasoning horizons grow, it becomes difficult to maintain consistent reasoning trajectories. In this work, we propose a \\textit{plug-and-play verifier} framework for stabilizing long-horizon reasoning through explicit verification of intermediate reasoning artifacts. Specifically, the framework decouples process verification through a unified interface that extracts intermediate reasoning artifacts from agent running trajectories, evaluates them using domain-specific verifiers, and aggregates the verification scores as bounded process reward. Then, we combine our dense verified process rewards and the sparse outcome rewards through a two-stage post-training schedule. We showed that with plug-and-play verifiers, we further stabilize the reasoning steps as last-mile self-reflection and self-consistency. Typical evaluation on HotpotQA using Qwen3.5-4B achieves a superior accuracy (60.18\\%), outperforming the standard GRPO baseline (57.73\\%). Our results suggest that plug-and-play verifiers provide a modular approach to learn more stable and reliable reasoning behaviors over long horizons.",
+      "url": "http://arxiv.org/abs/2611.10305v1",
+      "authors": [
+        "Mingwei Xu",
+        "Jieyuan Pei",
+        "Binghao Tu",
+        "Hao Fang"
+      ],
+      "report_date": "2026-11-11",
+      "published": "2026-11-06",
+      "updated": "2026-11-06",
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG"
+      ],
+      "project_url": "",
+      "repo_url": "https://github.com/momo1443/plug-and-play-verification",
+      "venue_status": "未确认录用",
+      "recommendation": {
+        "level": "中",
+        "label": "值得核读",
+        "water_risk": "中",
+        "value_judgement": "把验证接口与优化器分离，可以复用可审计检查；每项证书应声明实际证明的属性。过程与终局奖励互补，不应把可重放或来源匹配当成语义正确。",
+        "reason": "把验证接口与优化器分离，可以复用可审计检查；每项证书应声明实际证明的属性。过程与终局奖励互补，不应把可重放或来源匹配当成语义正确。",
+        "signals": {
+          "agenticRl": true,
+          "multiTurn": true,
+          "longHorizon": true,
+          "memory": false,
+          "reliability": true,
+          "codeOrTool": true,
+          "experiments": true,
+          "survey": false
+        }
+      },
+      "brief": {
+        "authors": [
+          "Mingwei Xu",
+          "Jieyuan Pei",
+          "Binghao Tu",
+          "Hao Fang"
+        ],
+        "affiliations": "University of Washington；香港科技大学（广州）；香港城市大学",
+        "date": "2026-11-06",
+        "paper_url": "https://arxiv.org/abs/2611.10305v1",
+        "project_url": "",
+        "repo_url": "https://github.com/momo1443/plug-and-play-verification",
+        "venue_status": "未确认录用",
+        "contribution": "把验证接口与优化器分离，可以复用可审计检查；每项证书应声明实际证明的属性。过程与终局奖励互补，不应把可重放或来源匹配当成语义正确。",
+        "summary": "Plug-and-Play Verifier以可重放局部检查提供过程奖励，改善短程多轮RL；局部证书不保证完整推理正确。终局二元奖励无法区分部分有价值与完全无效的失败轨迹，也无法区分同样答对但中间过程不同的轨迹。抽取中间工件并按来源步骤分配有界验证分数：QA检查来源span/动作证书，代码检查版本与测试重放，视觉检查裁剪重放及字符串匹配，数学检查数值等式。前50步仅终局奖励，此后每个prompt组共享U(0,1)采样权重混合过程与终局奖励，可接GRPO或PPO；无需gold evidence的局部验证不等于无需终局参考。四域分别训练Qwen3.5-4B/9B。4B HotpotQA准确率57.73→60.18，PPO55.10→57.60；五个测试集平均GRPO44.95→48.02，但MATH-Vision34.54低于LLM-judge35.20。HotpotQA的61.40是gold-evidence过程奖励上界，而非默认方法结果。9B均分51.36→53.66。评测为3–5步，HotpotQA4步，AIME2026/LiveCodeBench报告avg@4，不是pass@4。",
+        "highlights": [
+          "把验证接口与优化器分离，可以复用可审计检查；每项证书应声明实际证明的属性。过程与终局奖励互补，不应把可重放或来源匹配当成语义正确。",
+          "阅读来源：arXiv PDF全文；结果限制见详情"
+        ],
+        "motivation": "终局二元奖励无法区分部分有价值与完全无效的失败轨迹，也无法区分同样答对但中间过程不同的轨迹。",
+        "method": "抽取中间工件并按来源步骤分配有界验证分数：QA检查来源span/动作证书，代码检查版本与测试重放，视觉检查裁剪重放及字符串匹配，数学检查数值等式。前50步仅终局奖励，此后每个prompt组共享U(0,1)采样权重混合过程与终局奖励，可接GRPO或PPO；无需gold evidence的局部验证不等于无需终局参考。",
+        "experiments": "四域分别训练Qwen3.5-4B/9B。4B HotpotQA准确率57.73→60.18，PPO55.10→57.60；五个测试集平均GRPO44.95→48.02，但MATH-Vision34.54低于LLM-judge35.20。HotpotQA的61.40是gold-evidence过程奖励上界，而非默认方法结果。9B均分51.36→53.66。评测为3–5步，HotpotQA4步，AIME2026/LiveCodeBench报告avg@4，不是pass@4。",
+        "research_help": "把验证接口与优化器分离，可以复用可审计检查；每项证书应声明实际证明的属性。过程与终局奖励互补，不应把可重放或来源匹配当成语义正确。",
+        "recommendation": {
+          "level": "中",
+          "label": "值得核读",
+          "water_risk": "中",
+          "value_judgement": "把验证接口与优化器分离，可以复用可审计检查；每项证书应声明实际证明的属性。过程与终局奖励互补，不应把可重放或来源匹配当成语义正确。",
+          "reason": "把验证接口与优化器分离，可以复用可审计检查；每项证书应声明实际证明的属性。过程与终局奖励互补，不应把可重放或来源匹配当成语义正确。",
+          "signals": {
+            "agenticRl": true,
+            "multiTurn": true,
+            "longHorizon": true,
+            "memory": false,
+            "reliability": true,
+            "codeOrTool": true,
+            "experiments": true,
+            "survey": false
+          }
+        },
+        "card_summary": "Plug-and-Play Verifier以可重放局部检查提供过程奖励，改善短程多轮RL；局部证书不保证完整推理正确。",
+        "insight": "把验证接口与优化器分离，可以复用可审计检查；每项证书应声明实际证明的属性。过程与终局奖励互补，不应把可重放或来源匹配当成语义正确。",
+        "limitations": "作者明确实验为短交互，未直接验证标题中的长程稳定性。局部字符串、来源、重放检查无法证明多轮语义有效，仍可能被策略利用；附录统一seed42，未给多训练种子置信区间。gold evidence消融与默认验证器必须区分；未独立复现。",
+        "abstract_zh": "终局二元奖励无法区分部分有价值与完全无效的失败轨迹，也无法区分同样答对但中间过程不同的轨迹。抽取中间工件并按来源步骤分配有界验证分数：QA检查来源span/动作证书，代码检查版本与测试重放，视觉检查裁剪重放及字符串匹配，数学检查数值等式。前50步仅终局奖励，此后每个prompt组共享U(0,1)采样权重混合过程与终局奖励，可接GRPO或PPO；无需gold evidence的局部验证不等于无需终局参考。",
+        "full_summary": "Plug-and-Play Verifier以可重放局部检查提供过程奖励，改善短程多轮RL；局部证书不保证完整推理正确。终局二元奖励无法区分部分有价值与完全无效的失败轨迹，也无法区分同样答对但中间过程不同的轨迹。抽取中间工件并按来源步骤分配有界验证分数：QA检查来源span/动作证书，代码检查版本与测试重放，视觉检查裁剪重放及字符串匹配，数学检查数值等式。前50步仅终局奖励，此后每个prompt组共享U(0,1)采样权重混合过程与终局奖励，可接GRPO或PPO；无需gold evidence的局部验证不等于无需终局参考。四域分别训练Qwen3.5-4B/9B。4B HotpotQA准确率57.73→60.18，PPO55.10→57.60；五个测试集平均GRPO44.95→48.02，但MATH-Vision34.54低于LLM-judge35.20。HotpotQA的61.40是gold-evidence过程奖励上界，而非默认方法结果。9B均分51.36→53.66。评测为3–5步，HotpotQA4步，AIME2026/LiveCodeBench报告avg@4，不是pass@4。"
+      },
+      "analysis": {
+        "card_summary": "Plug-and-Play Verifier以可重放局部检查提供过程奖励，改善短程多轮RL；局部证书不保证完整推理正确。",
+        "motivation": "终局二元奖励无法区分部分有价值与完全无效的失败轨迹，也无法区分同样答对但中间过程不同的轨迹。",
+        "method": "抽取中间工件并按来源步骤分配有界验证分数：QA检查来源span/动作证书，代码检查版本与测试重放，视觉检查裁剪重放及字符串匹配，数学检查数值等式。前50步仅终局奖励，此后每个prompt组共享U(0,1)采样权重混合过程与终局奖励，可接GRPO或PPO；无需gold evidence的局部验证不等于无需终局参考。",
+        "experiments": "四域分别训练Qwen3.5-4B/9B。4B HotpotQA准确率57.73→60.18，PPO55.10→57.60；五个测试集平均GRPO44.95→48.02，但MATH-Vision34.54低于LLM-judge35.20。HotpotQA的61.40是gold-evidence过程奖励上界，而非默认方法结果。9B均分51.36→53.66。评测为3–5步，HotpotQA4步，AIME2026/LiveCodeBench报告avg@4，不是pass@4。",
+        "research_help": "把验证接口与优化器分离，可以复用可审计检查；每项证书应声明实际证明的属性。过程与终局奖励互补，不应把可重放或来源匹配当成语义正确。",
+        "insight": "把验证接口与优化器分离，可以复用可审计检查；每项证书应声明实际证明的属性。过程与终局奖励互补，不应把可重放或来源匹配当成语义正确。",
+        "limitations": "作者明确实验为短交互，未直接验证标题中的长程稳定性。局部字符串、来源、重放检查无法证明多轮语义有效，仍可能被策略利用；附录统一seed42，未给多训练种子置信区间。gold evidence消融与默认验证器必须区分；未独立复现。",
+        "abstract_zh": "终局二元奖励无法区分部分有价值与完全无效的失败轨迹，也无法区分同样答对但中间过程不同的轨迹。抽取中间工件并按来源步骤分配有界验证分数：QA检查来源span/动作证书，代码检查版本与测试重放，视觉检查裁剪重放及字符串匹配，数学检查数值等式。前50步仅终局奖励，此后每个prompt组共享U(0,1)采样权重混合过程与终局奖励，可接GRPO或PPO；无需gold evidence的局部验证不等于无需终局参考。",
+        "full_summary": "Plug-and-Play Verifier以可重放局部检查提供过程奖励，改善短程多轮RL；局部证书不保证完整推理正确。终局二元奖励无法区分部分有价值与完全无效的失败轨迹，也无法区分同样答对但中间过程不同的轨迹。抽取中间工件并按来源步骤分配有界验证分数：QA检查来源span/动作证书，代码检查版本与测试重放，视觉检查裁剪重放及字符串匹配，数学检查数值等式。前50步仅终局奖励，此后每个prompt组共享U(0,1)采样权重混合过程与终局奖励，可接GRPO或PPO；无需gold evidence的局部验证不等于无需终局参考。四域分别训练Qwen3.5-4B/9B。4B HotpotQA准确率57.73→60.18，PPO55.10→57.60；五个测试集平均GRPO44.95→48.02，但MATH-Vision34.54低于LLM-judge35.20。HotpotQA的61.40是gold-evidence过程奖励上界，而非默认方法结果。9B均分51.36→53.66。评测为3–5步，HotpotQA4步，AIME2026/LiveCodeBench报告avg@4，不是pass@4。",
+        "source_scope": "full_text",
+        "source_note": "直接核读arXiv PDF正文及相关附录，主结果页已渲染核对；数值为作者报告，未独立复现。",
+        "source_evidence": [
+          "§3及附录D：局部验证契约和混合权重",
+          "§4/表1–3（PDF第7页渲染）：结果及gold上界",
+          "§5、附录表14：短程限制和avg@k定义"
+        ],
+        "model": "manual-full-text-review",
+        "updated_at": "2026-11-11T01:34:48.493757+00:00",
+        "recommendation_level": "中",
+        "water_risk": "中",
+        "value_label": "值得核读",
+        "value_reason": "把验证接口与优化器分离，可以复用可审计检查；每项证书应声明实际证明的属性。过程与终局奖励互补，不应把可重放或来源匹配当成语义正确。"
+      },
+      "source_report_date": "2026-11-11",
+      "affiliations": [
+        "University of Washington",
+        "香港科技大学（广州）",
+        "香港城市大学"
+      ]
+    },
     {
       "id": "2611.08615v1",
       "title": "s$^3$: Simple Scaling of Swarms via Cooperative Multi-agent RL",
