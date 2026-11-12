@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-11T01:34:48.493757+00:00",
+  "updated_at": "2026-11-12T01:29:33.905326+00:00",
   "source": "arxiv",
   "analysis_method": "Codex CLI workflow with manual arXiv PDF full-text review and rendered result-page verification; per-item source notes identify the analysis path.",
   "query_focus": "多轮交互式 agent planning、long-horizon planning、stateful/personalized planning、agent memory、planning reliability、agentic RL",
@@ -37,36 +37,30 @@
     "codex_reader": "Downloads arXiv PDFs, extracts text with pdftotext or bundled Python PDF libraries, then calls codex exec to write Chinese motivation/method/experiment/research-help fields."
   },
   "digest": {
-    "title": "2026-11-11 Daily Paper",
-    "report_date": "2026-11-11",
+    "title": "2026-11-12 Daily Paper",
+    "report_date": "2026-11-12",
     "focus": "多轮交互式 agent planning、long-horizon planning、stateful/personalized planning、agent memory、planning reliability、agentic RL",
-    "summary": "今日新增8篇全文核读，覆盖多轮RL信用分配、信息收集、记忆评测、视觉工具训练、长期记忆、3D交互编辑、持久工作区rollout与过程验证。详情区分实验分母、短程结果和长程主张，并标注小样本、方差与数字口径限制。",
+    "summary": "今日新增2篇全文核读：CAMP-II以文件操作先验训练跨上下文记忆；BioMem分析长期多轮对话的证据检索、利用和来源保真。详情区分增益比与成功率、无网络子集与完整榜单、QA均分与完美回答率，并说明任务退化和因果证据边界。",
     "top_recommendations": [
-      "2611.11330v1",
-      "2611.12728v1",
-      "2611.11840v1"
+      "2611.14009v1",
+      "2611.13426v1"
     ],
     "low_priority": [],
     "no_news_policy": "如果没有新的高相关论文，自动化应返回“今日无高相关新增论文”，不写邮件正文文件，也不发送邮件。",
-    "email_body": "2026-11-11 Daily Paper\n\n今日新增8篇全文核读，覆盖多轮RL信用分配、信息收集、记忆评测、视觉工具训练、长期记忆、3D交互编辑、持久工作区rollout与过程验证。详情区分实验分母、短程结果和长程主张，并标注小样本、方差与数字口径限制。\n\nWhen Credit Turns Against Tools: Transition-Aware Credit Assignment in Agentic Reinforcement Learning\nhttps://arxiv.org/abs/2611.11330v1\nTACA修正多轮RL对工具调用的负信用，并回放成功调用；小模型数学、编码和WebShop任务均有提升。\n\nSafe Reinforcement Learning for Multi-Turn Clinical Agents: When Dense Rewards Beat Outcome Rewards\nhttps://arxiv.org/abs/2611.12728v1\n临床合成环境揭示终局奖励可让多轮Agent过早决策；信息增益奖励改善部分指标，但不能据此证明临床安全。\n\nCorrect Answers from Insufficient Histories: A Controlled Study of Agent Memory Evaluation\nhttps://arxiv.org/abs/2611.11840v1\n可执行日志评测显示：回答命中完整历史答案，并不意味着当前记忆足以支持它；应同时测证据充分性和适当拒答。\n\nReframe: Observation-Aligned Multi-Teacher On-Policy Distillation for Agentic Visual Reasoning\nhttps://arxiv.org/abs/2611.12886v1\nReframe把视觉工具返回的观察纳入训练：原图dropout促使利用证据，蒸馏时修复错误调用，再学习修复后的轨迹。\n\nMIRIX-2.0: Multi-Agent Memory System\nhttps://arxiv.org/abs/2611.12068v1\nMIRIX-2.0保留完整记忆，以有来源的超图作有预算索引，并离线整合实体与技能；交互任务均值提升但方差较大。\n\nBlenderFORGE: Framework for Optimizing Reactive 3D-Graphics Editing Ability of MLLMs\nhttps://arxiv.org/abs/2611.10768v1\nBlenderFORGE以可验证场景状态训练多轮3D编辑Agent；SFT加GSPO提高编辑质量，但RL增益依赖冷启动配置。\n\nBunshinRL: Splitting Live Agent Workspaces for Memory-Efficient Agentic RL\nhttps://arxiv.org/abs/2611.10453v1\nBunshinRL用写时复制、工具前缀缓存与推测执行复用持久工作区，降低Agentic RL rollout内存和延迟。\n\nPlug-and-Play Verifier for Decoupling Process Reward in Stabilizing Long-Horizon Agentic Reasoning\nhttps://arxiv.org/abs/2611.10305v1\nPlug-and-Play Verifier以可重放局部检查提供过程奖励，改善短程多轮RL；局部证书不保证完整推理正确。"
+    "email_body": "2026-11-12 Daily Paper\n\n今日新增2篇全文核读：CAMP-II以文件操作先验训练跨上下文记忆；BioMem分析长期多轮对话的证据检索、利用和来源保真。详情区分增益比与成功率、无网络子集与完整榜单、QA均分与完美回答率，并说明任务退化和因果证据边界。\n\nCoding Agent Memory Post-Training II: Unlocking the Memory Potential of Pre-trained File Operations for Long-Horizon Tasks via On-Policy Distillation\nhttps://arxiv.org/abs/2611.14009v1\nCAMP-II用普通文件操作承载跨上下文记忆，再以教师逐token蒸馏训练同一任务策略；五域均值提升，但各任务并非全面胜出。\n\nBioMem: Agentic Memory for Biomedical LLM Agents\nhttps://arxiv.org/abs/2611.13426v1\nBioMem拆解长期医学对话中的检索、利用与改写失真；混合检索提升部分指标，但更复杂记忆和时间重排并不总有益。"
   },
   "latest_item_ids": [
-    "2611.11330v1",
-    "2611.12728v1",
-    "2611.11840v1",
-    "2611.12886v1",
-    "2611.12068v1",
-    "2611.10768v1",
-    "2611.10453v1",
-    "2611.10305v1"
+    "2611.14009v1",
+    "2611.13426v1"
   ],
   "archive": {
     "policy": "append_or_update_by_arxiv_id",
-    "fresh_items": 8,
-    "total_items": 579,
-    "previous_items": 571,
-    "latest_items": 8,
+    "fresh_items": 2,
+    "total_items": 581,
+    "previous_items": 579,
+    "latest_items": 2,
     "source_report_dates": {
+      "2026-11-12": 2,
       "2026-11-11": 8,
       "2026-11-10": 5,
       "2026-11-07": 2,
@@ -75,27 +69,276 @@
       "undefined": 554
     },
     "filtered_candidate_ids": [
-      "2611.11330v1",
-      "2611.12728v1",
-      "2611.11840v1",
-      "2611.12886v1",
-      "2611.12068v1",
-      "2611.10768v1",
-      "2611.10453v1",
-      "2611.10305v1"
+      "2611.14009v1",
+      "2611.13426v1"
     ],
-    "filtered_today": 8,
+    "filtered_today": 2,
     "rejected_candidate_ids": [
       "2611.11789v1",
       "2611.12244v1",
       "2611.12314v1",
+      "2611.13312v1",
       "2611.11696v1",
-      "2611.10841v1",
-      "2611.10395v1",
-      "2611.09139v1"
+      "2611.13003v1",
+      "2611.10841v1"
     ]
   },
   "items": [
+    {
+      "id": "2611.14009v1",
+      "title": "Coding Agent Memory Post-Training II: Unlocking the Memory Potential of Pre-trained File Operations for Long-Horizon Tasks via On-Policy Distillation",
+      "summary": "Language-model agents increasingly tackle long-horizon tasks whose interaction histories exceed the model's active context. They must therefore decide what to write down and what to read back, and when to do either. Recent work has begun to use on-policy distillation (OPD) to make memory control part of the policy, relying on memory tools and compaction protocols that lie outside either model's pre-training. However, this weakens the distillation on both sides: the teacher cannot give useful guidance on an interface it has never used, and the student samples too few meaningful memory actions for that guidance to take effect. To study this problem, we introduce Coding Agent Memory Gym II (CAMG-II), a suite of long-horizon agentic-RL environments spanning Shop, Coding, AutoResearch, General, and Visual. Alongside each environment's native task interface, CAMG-II provides ordinary Bash access and an episode-persistent workspace, enabling the policy to create, revise, search, and reuse files as memory across context replacements. We also introduce Coding Agent Memory Post-Training II (CAMP-II), which trains a single policy jointly across all five environments with fully asynchronous OPD to learn this file-based memory behavior directly from a frozen teacher with a prior for file operations. On CAMG-II, CAMP-II obtains 2.97 times the gain of the strongest OPD baseline. The memory behavior CAMP-II learns generalizes to two external benchmarks, Terminal-Bench 2.1 and SWE-Bench Pro V2, with improved success rates.",
+      "url": "https://arxiv.org/abs/2611.14009v1",
+      "authors": [
+        "Lirui Luo",
+        "Kelong Mao",
+        "Xinwei Yang",
+        "Rongqing Li",
+        "Luyu Chen",
+        "Kieran Wong",
+        "Yudong Guo",
+        "Xinrui Wang",
+        "Jiayin Zhu",
+        "Gu Simiu",
+        "Sulong Xu",
+        "Cong Fang"
+      ],
+      "report_date": "2026-11-12",
+      "published": "2026-11-10",
+      "updated": "2026-11-10",
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "cs.CL"
+      ],
+      "project_url": "",
+      "repo_url": "",
+      "venue_status": "未确认录用",
+      "recommendation": {
+        "level": "高",
+        "label": "值得核读",
+        "water_risk": "中",
+        "value_judgement": "蒸馏接口应同时考虑学生动作覆盖与教师内容判别能力；文件读写先验可能比增加新记忆API更有效。可用打乱/移除记忆和预算匹配的loss屏蔽，检验增益来自保存内容还是额外训练。接口熟悉度证据支持此解释，但没有单独操纵预训练先验。",
+        "reason": "蒸馏接口应同时考虑学生动作覆盖与教师内容判别能力；文件读写先验可能比增加新记忆API更有效。可用打乱/移除记忆和预算匹配的loss屏蔽，检验增益来自保存内容还是额外训练。接口熟悉度证据支持此解释，但没有单独操纵预训练先验。",
+        "signals": {
+          "agenticRl": false,
+          "multiTurn": true,
+          "longHorizon": true,
+          "memory": true,
+          "reliability": true,
+          "codeOrTool": true,
+          "experiments": true,
+          "survey": false
+        }
+      },
+      "brief": {
+        "authors": [
+          "Lirui Luo",
+          "Kelong Mao",
+          "Xinwei Yang",
+          "Rongqing Li",
+          "Luyu Chen",
+          "Kieran Wong",
+          "Yudong Guo",
+          "Xinrui Wang",
+          "Jiayin Zhu",
+          "Gu Simiu",
+          "Sulong Xu",
+          "Cong Fang"
+        ],
+        "affiliations": "北京大学；京东；四川大学；北京理工大学；中国人民大学；香港科技大学",
+        "date": "2026-11-10",
+        "paper_url": "https://arxiv.org/abs/2611.14009v1",
+        "project_url": "",
+        "repo_url": "",
+        "venue_status": "未确认录用",
+        "contribution": "蒸馏接口应同时考虑学生动作覆盖与教师内容判别能力；文件读写先验可能比增加新记忆API更有效。可用打乱/移除记忆和预算匹配的loss屏蔽，检验增益来自保存内容还是额外训练。接口熟悉度证据支持此解释，但没有单独操纵预训练先验。",
+        "summary": "CAMP-II用普通文件操作承载跨上下文记忆，再以教师逐token蒸馏训练同一任务策略；五域均值提升，但各任务并非全面胜出。记忆OPD需要学生能探索到有效写入，也需要教师能判断写入内容。陌生的专用记忆接口可能同时削弱两端；长程任务中的状态在上下文清空后尤其容易丢失。CAMG-II提供Shop、Coding、AutoResearch、General、Visual五域及持久工作区。上下文接近预算时，策略须写有界续接文件，清空后仅提供路径，由策略自行读取。CAMP-II用冻结Qwen3.8-27B教师，对Qwen3.5-4B/9B学生实际生成的任务及记忆token做reverse-KL OPD；异步rollout以裁剪重要性比修正。训练不使用任务奖励，100次更新、每次64条episode，五域混合。每域128个测试任务。4B五域均值45.3→64.6，CAMP-I为54.2、最强OPD基线MemOPD+SFT为51.8；2.97倍指(64.6−45.3)/(51.8−45.3)，不是成功率倍数。CAMP-II五训练种子64.9±0.5；9B为66.5。屏蔽记忆token监督降至47.3，等量随机屏蔽为63.3。外部无网络子集上，4B的TB2.1为23.1→30.0，SWE-Bench Pro V2为11.2→18.1；9B为38.0/30.1。Visual的40.2低于CAMP-I的46.5。",
+        "highlights": [
+          "蒸馏接口应同时考虑学生动作覆盖与教师内容判别能力；文件读写先验可能比增加新记忆API更有效。可用打乱/移除记忆和预算匹配的loss屏蔽，检验增益来自保存内容还是额外训练。接口熟悉度证据支持此解释，但没有单独操纵预训练先验。",
+          "阅读来源：arXiv PDF全文；结果限制见详情"
+        ],
+        "motivation": "记忆OPD需要学生能探索到有效写入，也需要教师能判断写入内容。陌生的专用记忆接口可能同时削弱两端；长程任务中的状态在上下文清空后尤其容易丢失。",
+        "method": "CAMG-II提供Shop、Coding、AutoResearch、General、Visual五域及持久工作区。上下文接近预算时，策略须写有界续接文件，清空后仅提供路径，由策略自行读取。CAMP-II用冻结Qwen3.8-27B教师，对Qwen3.5-4B/9B学生实际生成的任务及记忆token做reverse-KL OPD；异步rollout以裁剪重要性比修正。训练不使用任务奖励，100次更新、每次64条episode，五域混合。",
+        "experiments": "每域128个测试任务。4B五域均值45.3→64.6，CAMP-I为54.2、最强OPD基线MemOPD+SFT为51.8；2.97倍指(64.6−45.3)/(51.8−45.3)，不是成功率倍数。CAMP-II五训练种子64.9±0.5；9B为66.5。屏蔽记忆token监督降至47.3，等量随机屏蔽为63.3。外部无网络子集上，4B的TB2.1为23.1→30.0，SWE-Bench Pro V2为11.2→18.1；9B为38.0/30.1。Visual的40.2低于CAMP-I的46.5。",
+        "research_help": "蒸馏接口应同时考虑学生动作覆盖与教师内容判别能力；文件读写先验可能比增加新记忆API更有效。可用打乱/移除记忆和预算匹配的loss屏蔽，检验增益来自保存内容还是额外训练。接口熟悉度证据支持此解释，但没有单独操纵预训练先验。",
+        "recommendation": {
+          "level": "高",
+          "label": "值得核读",
+          "water_risk": "中",
+          "value_judgement": "蒸馏接口应同时考虑学生动作覆盖与教师内容判别能力；文件读写先验可能比增加新记忆API更有效。可用打乱/移除记忆和预算匹配的loss屏蔽，检验增益来自保存内容还是额外训练。接口熟悉度证据支持此解释，但没有单独操纵预训练先验。",
+          "reason": "蒸馏接口应同时考虑学生动作覆盖与教师内容判别能力；文件读写先验可能比增加新记忆API更有效。可用打乱/移除记忆和预算匹配的loss屏蔽，检验增益来自保存内容还是额外训练。接口熟悉度证据支持此解释，但没有单独操纵预训练先验。",
+          "signals": {
+            "agenticRl": false,
+            "multiTurn": true,
+            "longHorizon": true,
+            "memory": true,
+            "reliability": true,
+            "codeOrTool": true,
+            "experiments": true,
+            "survey": false
+          }
+        },
+        "card_summary": "CAMP-II用普通文件操作承载跨上下文记忆，再以教师逐token蒸馏训练同一任务策略；五域均值提升，但各任务并非全面胜出。",
+        "insight": "蒸馏接口应同时考虑学生动作覆盖与教师内容判别能力；文件读写先验可能比增加新记忆API更有效。可用打乱/移除记忆和预算匹配的loss屏蔽，检验增益来自保存内容还是额外训练。接口熟悉度证据支持此解释，但没有单独操纵预训练先验。",
+        "limitations": "仅一个教师、学生最大9B；基线多数为统一OPD下的改编，结果不等同于各原方法最佳配置。Visual是rubric均分而非二元成功率，跨域平均混合口径。外部仅network-free子集，不应当作完整官方榜单；主方法五种子不代表所有对照均多种子。未独立复现。",
+        "abstract_zh": "长程语言模型Agent需要在上下文替换前保存状态，并在之后恢复。作者认为，陌生的记忆接口既减少学生有效探索，也使教师难以给出可靠蒸馏信号。CAMG-II以普通Bash和持久文件统一五类任务，CAMP-II据此学习文件记忆控制。作者报告五域平均表现与两个外部无网络测试子集改善。",
+        "full_summary": "CAMP-II用普通文件操作承载跨上下文记忆，再以教师逐token蒸馏训练同一任务策略；五域均值提升，但各任务并非全面胜出。记忆OPD需要学生能探索到有效写入，也需要教师能判断写入内容。陌生的专用记忆接口可能同时削弱两端；长程任务中的状态在上下文清空后尤其容易丢失。CAMG-II提供Shop、Coding、AutoResearch、General、Visual五域及持久工作区。上下文接近预算时，策略须写有界续接文件，清空后仅提供路径，由策略自行读取。CAMP-II用冻结Qwen3.8-27B教师，对Qwen3.5-4B/9B学生实际生成的任务及记忆token做reverse-KL OPD；异步rollout以裁剪重要性比修正。训练不使用任务奖励，100次更新、每次64条episode，五域混合。每域128个测试任务。4B五域均值45.3→64.6，CAMP-I为54.2、最强OPD基线MemOPD+SFT为51.8；2.97倍指(64.6−45.3)/(51.8−45.3)，不是成功率倍数。CAMP-II五训练种子64.9±0.5；9B为66.5。屏蔽记忆token监督降至47.3，等量随机屏蔽为63.3。外部无网络子集上，4B的TB2.1为23.1→30.0，SWE-Bench Pro V2为11.2→18.1；9B为38.0/30.1。Visual的40.2低于CAMP-I的46.5。"
+      },
+      "analysis": {
+        "card_summary": "CAMP-II用普通文件操作承载跨上下文记忆，再以教师逐token蒸馏训练同一任务策略；五域均值提升，但各任务并非全面胜出。",
+        "motivation": "记忆OPD需要学生能探索到有效写入，也需要教师能判断写入内容。陌生的专用记忆接口可能同时削弱两端；长程任务中的状态在上下文清空后尤其容易丢失。",
+        "method": "CAMG-II提供Shop、Coding、AutoResearch、General、Visual五域及持久工作区。上下文接近预算时，策略须写有界续接文件，清空后仅提供路径，由策略自行读取。CAMP-II用冻结Qwen3.8-27B教师，对Qwen3.5-4B/9B学生实际生成的任务及记忆token做reverse-KL OPD；异步rollout以裁剪重要性比修正。训练不使用任务奖励，100次更新、每次64条episode，五域混合。",
+        "experiments": "每域128个测试任务。4B五域均值45.3→64.6，CAMP-I为54.2、最强OPD基线MemOPD+SFT为51.8；2.97倍指(64.6−45.3)/(51.8−45.3)，不是成功率倍数。CAMP-II五训练种子64.9±0.5；9B为66.5。屏蔽记忆token监督降至47.3，等量随机屏蔽为63.3。外部无网络子集上，4B的TB2.1为23.1→30.0，SWE-Bench Pro V2为11.2→18.1；9B为38.0/30.1。Visual的40.2低于CAMP-I的46.5。",
+        "research_help": "蒸馏接口应同时考虑学生动作覆盖与教师内容判别能力；文件读写先验可能比增加新记忆API更有效。可用打乱/移除记忆和预算匹配的loss屏蔽，检验增益来自保存内容还是额外训练。接口熟悉度证据支持此解释，但没有单独操纵预训练先验。",
+        "insight": "蒸馏接口应同时考虑学生动作覆盖与教师内容判别能力；文件读写先验可能比增加新记忆API更有效。可用打乱/移除记忆和预算匹配的loss屏蔽，检验增益来自保存内容还是额外训练。接口熟悉度证据支持此解释，但没有单独操纵预训练先验。",
+        "limitations": "仅一个教师、学生最大9B；基线多数为统一OPD下的改编，结果不等同于各原方法最佳配置。Visual是rubric均分而非二元成功率，跨域平均混合口径。外部仅network-free子集，不应当作完整官方榜单；主方法五种子不代表所有对照均多种子。未独立复现。",
+        "abstract_zh": "长程语言模型Agent需要在上下文替换前保存状态，并在之后恢复。作者认为，陌生的记忆接口既减少学生有效探索，也使教师难以给出可靠蒸馏信号。CAMG-II以普通Bash和持久文件统一五类任务，CAMP-II据此学习文件记忆控制。作者报告五域平均表现与两个外部无网络测试子集改善。",
+        "full_summary": "CAMP-II用普通文件操作承载跨上下文记忆，再以教师逐token蒸馏训练同一任务策略；五域均值提升，但各任务并非全面胜出。记忆OPD需要学生能探索到有效写入，也需要教师能判断写入内容。陌生的专用记忆接口可能同时削弱两端；长程任务中的状态在上下文清空后尤其容易丢失。CAMG-II提供Shop、Coding、AutoResearch、General、Visual五域及持久工作区。上下文接近预算时，策略须写有界续接文件，清空后仅提供路径，由策略自行读取。CAMP-II用冻结Qwen3.8-27B教师，对Qwen3.5-4B/9B学生实际生成的任务及记忆token做reverse-KL OPD；异步rollout以裁剪重要性比修正。训练不使用任务奖励，100次更新、每次64条episode，五域混合。每域128个测试任务。4B五域均值45.3→64.6，CAMP-I为54.2、最强OPD基线MemOPD+SFT为51.8；2.97倍指(64.6−45.3)/(51.8−45.3)，不是成功率倍数。CAMP-II五训练种子64.9±0.5；9B为66.5。屏蔽记忆token监督降至47.3，等量随机屏蔽为63.3。外部无网络子集上，4B的TB2.1为23.1→30.0，SWE-Bench Pro V2为11.2→18.1；9B为38.0/30.1。Visual的40.2低于CAMP-I的46.5。",
+        "source_scope": "full_text",
+        "source_note": "直接核读arXiv PDF正文及相关附录，主结果页已渲染核对；数值为作者报告，未独立复现。",
+        "source_evidence": [
+          "§4–6/表1（PDF第6页已渲染）：五域设置及基线均值",
+          "表2/附录C表8：无网络迁移子集与五种子结果",
+          "图6–7及附录D：记忆干预、loss屏蔽和接口诊断"
+        ],
+        "model": "manual-full-text-review",
+        "updated_at": "2026-11-12T01:29:33.905326+00:00",
+        "recommendation_level": "高",
+        "water_risk": "中",
+        "value_label": "值得核读",
+        "value_reason": "蒸馏接口应同时考虑学生动作覆盖与教师内容判别能力；文件读写先验可能比增加新记忆API更有效。可用打乱/移除记忆和预算匹配的loss屏蔽，检验增益来自保存内容还是额外训练。接口熟悉度证据支持此解释，但没有单独操纵预训练先验。"
+      },
+      "source_report_date": "2026-11-12",
+      "affiliations": [
+        "北京大学",
+        "京东",
+        "四川大学",
+        "北京理工大学",
+        "中国人民大学",
+        "香港科技大学"
+      ]
+    },
+    {
+      "id": "2611.13426v1",
+      "title": "BioMem: Agentic Memory for Biomedical LLM Agents",
+      "summary": "Large language models (LLMs) have demonstrated considerable potential in biomedical applications, while agentic memory systems have emerged as a promising approach to preserving and utilizing information across tasks and interactions. However, a fundamental question remains: how effectively and reliably do these systems retain, retrieve, update, and utilize biomedical information? In this study, we systematically investigate agentic memory in the biomedical domain, focusing on task effectiveness, retrieval quality, information fidelity, and long-term robustness. We evaluate five memory approaches across four LLMs in three representative settings: biomedical knowledge reasoning, clinical prediction, and long-term conversational memory. Our analyses reveal how memory construction, evidence relevance, and conversational history shape downstream biomedical performance, highlighting the distinct challenges of retrieving relevant information, preserving its fidelity, and effectively utilizing it for reasoning. Building on these findings, we introduce Hybrid Memory Retrieval and Utilization (HMRU), a training-free framework that jointly enhances evidence accessibility and task-aware utilization to improve biomedical reasoning and long-term conversational memory. HMRU achieves an average relative improvement of 8.6% across biomedical question-answering and conversational memory benchmarks, with additional gains in selected clinical prediction tasks. It further reduces conversational answer errors by 24.9% and closes 48.0% of the performance gap to full-context inference. Our findings provide a systematic characterization of biomedical agentic memory and practical insights into developing more effective and reliable memory-augmented LLM systems.",
+      "url": "https://arxiv.org/abs/2611.13426v1",
+      "authors": [
+        "Mingchen Li",
+        "Yongkang Xiao",
+        "Rumeng Li",
+        "Rui Zhang",
+        "Hong Yu"
+      ],
+      "report_date": "2026-11-12",
+      "published": "2026-11-10",
+      "updated": "2026-11-10",
+      "primary_category": "cs.CL",
+      "categories": [
+        "cs.CL"
+      ],
+      "project_url": "",
+      "repo_url": "",
+      "venue_status": "未确认录用",
+      "recommendation": {
+        "level": "高",
+        "label": "值得核读",
+        "water_risk": "中",
+        "value_judgement": "长期记忆应分别测来源保真、必要证据覆盖和正确利用；保留原记录及引用，把生成解释与事实分开。自然历史越长表现越差的关联，并未在固定问题的长度干预中一致重现，因此不能把所有失败简单归因于token长度。",
+        "reason": "长期记忆应分别测来源保真、必要证据覆盖和正确利用；保留原记录及引用，把生成解释与事实分开。自然历史越长表现越差的关联，并未在固定问题的长度干预中一致重现，因此不能把所有失败简单归因于token长度。",
+        "signals": {
+          "agenticRl": false,
+          "multiTurn": true,
+          "longHorizon": false,
+          "memory": true,
+          "reliability": true,
+          "codeOrTool": false,
+          "experiments": true,
+          "survey": false
+        }
+      },
+      "brief": {
+        "authors": [
+          "Mingchen Li",
+          "Yongkang Xiao",
+          "Rumeng Li",
+          "Rui Zhang",
+          "Hong Yu"
+        ],
+        "affiliations": "马萨诸塞大学阿默斯特分校；佛罗里达大学医学院；明尼苏达大学；VA Bedford Healthcare；马萨诸塞大学洛厄尔分校",
+        "date": "2026-11-10",
+        "paper_url": "https://arxiv.org/abs/2611.13426v1",
+        "project_url": "",
+        "repo_url": "",
+        "venue_status": "未确认录用",
+        "contribution": "长期记忆应分别测来源保真、必要证据覆盖和正确利用；保留原记录及引用，把生成解释与事实分开。自然历史越长表现越差的关联，并未在固定问题的长度干预中一致重现，因此不能把所有失败简单归因于token长度。",
+        "summary": "BioMem拆解长期医学对话中的检索、利用与改写失真；混合检索提升部分指标，但更复杂记忆和时间重排并不总有益。多轮患者信息会更新、跨会话分散；单看最终答案无法区分证据没找回、找回却用错或记忆改写偏离原始记录。比较五种记忆配置、四种LLM及六项生物医学任务和RealMem医学多会话子集。HMRU保持模型与A-MEM记忆库冻结，把dense/BM25候选合并后cross-encoder重排；R仅改检索，I增加任务相关证据使用指令，C压缩元数据，T按时间重排。另追踪来源一致性，并控制历史长度和证据位置。HuatuoGPT-3-27B上，HMRU-I的PharmKG/ADInt精确匹配F1由39.27/52.94到43.48/57.64。325题RealMem的HMRU-R完美回答率80.3%→85.2%，26题修正、10题退化，配对McNemar p=0.011；对FullContext 90.5%的差距约缩小48%，相对错误率约降24.9%。表4的QA均分与图7完美回答率不同，不能混用。临床预测收益不一致：表3阿片过量AUPRC基线4.94，R/I/C为4.28/4.17/3.91，且表1NaiveRAG达15.61；时间重排T也损害部分更新与时间推理。",
+        "highlights": [
+          "长期记忆应分别测来源保真、必要证据覆盖和正确利用；保留原记录及引用，把生成解释与事实分开。自然历史越长表现越差的关联，并未在固定问题的长度干预中一致重现，因此不能把所有失败简单归因于token长度。",
+          "阅读来源：arXiv PDF全文；结果限制见详情"
+        ],
+        "motivation": "多轮患者信息会更新、跨会话分散；单看最终答案无法区分证据没找回、找回却用错或记忆改写偏离原始记录。",
+        "method": "比较五种记忆配置、四种LLM及六项生物医学任务和RealMem医学多会话子集。HMRU保持模型与A-MEM记忆库冻结，把dense/BM25候选合并后cross-encoder重排；R仅改检索，I增加任务相关证据使用指令，C压缩元数据，T按时间重排。另追踪来源一致性，并控制历史长度和证据位置。",
+        "experiments": "HuatuoGPT-3-27B上，HMRU-I的PharmKG/ADInt精确匹配F1由39.27/52.94到43.48/57.64。325题RealMem的HMRU-R完美回答率80.3%→85.2%，26题修正、10题退化，配对McNemar p=0.011；对FullContext 90.5%的差距约缩小48%，相对错误率约降24.9%。表4的QA均分与图7完美回答率不同，不能混用。临床预测收益不一致：表3阿片过量AUPRC基线4.94，R/I/C为4.28/4.17/3.91，且表1NaiveRAG达15.61；时间重排T也损害部分更新与时间推理。",
+        "research_help": "长期记忆应分别测来源保真、必要证据覆盖和正确利用；保留原记录及引用，把生成解释与事实分开。自然历史越长表现越差的关联，并未在固定问题的长度干预中一致重现，因此不能把所有失败简单归因于token长度。",
+        "recommendation": {
+          "level": "高",
+          "label": "值得核读",
+          "water_risk": "中",
+          "value_judgement": "长期记忆应分别测来源保真、必要证据覆盖和正确利用；保留原记录及引用，把生成解释与事实分开。自然历史越长表现越差的关联，并未在固定问题的长度干预中一致重现，因此不能把所有失败简单归因于token长度。",
+          "reason": "长期记忆应分别测来源保真、必要证据覆盖和正确利用；保留原记录及引用，把生成解释与事实分开。自然历史越长表现越差的关联，并未在固定问题的长度干预中一致重现，因此不能把所有失败简单归因于token长度。",
+          "signals": {
+            "agenticRl": false,
+            "multiTurn": true,
+            "longHorizon": false,
+            "memory": true,
+            "reliability": true,
+            "codeOrTool": false,
+            "experiments": true,
+            "survey": false
+          }
+        },
+        "card_summary": "BioMem拆解长期医学对话中的检索、利用与改写失真；混合检索提升部分指标，但更复杂记忆和时间重排并不总有益。",
+        "insight": "长期记忆应分别测来源保真、必要证据覆盖和正确利用；保留原记录及引用，把生成解释与事实分开。自然历史越长表现越差的关联，并未在固定问题的长度干预中一致重现，因此不能把所有失败简单归因于token长度。",
+        "limitations": "改进主要在一个冻结backbone上验证，QA依赖LLM裁判，部分分析为观察关联而非因果证据。与源记录不一致不等于事实必错；错误答案与检索答案重合也不能证明复制。临床稀有阳性仅9例使估计不稳，不能据此推断真实临床效用。未独立复现。",
+        "abstract_zh": "作者系统比较生物医学任务与长期对话中的五类记忆配置，分析检索覆盖、信息保真和证据使用。更复杂的记忆组织并不稳定超越直接检索，长期对话还受跨会话证据完整性影响。HMRU通过混合检索、重排和任务指令改善部分问答及对话指标。临床预测和时间结构化收益并不一致。",
+        "full_summary": "BioMem拆解长期医学对话中的检索、利用与改写失真；混合检索提升部分指标，但更复杂记忆和时间重排并不总有益。多轮患者信息会更新、跨会话分散；单看最终答案无法区分证据没找回、找回却用错或记忆改写偏离原始记录。比较五种记忆配置、四种LLM及六项生物医学任务和RealMem医学多会话子集。HMRU保持模型与A-MEM记忆库冻结，把dense/BM25候选合并后cross-encoder重排；R仅改检索，I增加任务相关证据使用指令，C压缩元数据，T按时间重排。另追踪来源一致性，并控制历史长度和证据位置。HuatuoGPT-3-27B上，HMRU-I的PharmKG/ADInt精确匹配F1由39.27/52.94到43.48/57.64。325题RealMem的HMRU-R完美回答率80.3%→85.2%，26题修正、10题退化，配对McNemar p=0.011；对FullContext 90.5%的差距约缩小48%，相对错误率约降24.9%。表4的QA均分与图7完美回答率不同，不能混用。临床预测收益不一致：表3阿片过量AUPRC基线4.94，R/I/C为4.28/4.17/3.91，且表1NaiveRAG达15.61；时间重排T也损害部分更新与时间推理。"
+      },
+      "analysis": {
+        "card_summary": "BioMem拆解长期医学对话中的检索、利用与改写失真；混合检索提升部分指标，但更复杂记忆和时间重排并不总有益。",
+        "motivation": "多轮患者信息会更新、跨会话分散；单看最终答案无法区分证据没找回、找回却用错或记忆改写偏离原始记录。",
+        "method": "比较五种记忆配置、四种LLM及六项生物医学任务和RealMem医学多会话子集。HMRU保持模型与A-MEM记忆库冻结，把dense/BM25候选合并后cross-encoder重排；R仅改检索，I增加任务相关证据使用指令，C压缩元数据，T按时间重排。另追踪来源一致性，并控制历史长度和证据位置。",
+        "experiments": "HuatuoGPT-3-27B上，HMRU-I的PharmKG/ADInt精确匹配F1由39.27/52.94到43.48/57.64。325题RealMem的HMRU-R完美回答率80.3%→85.2%，26题修正、10题退化，配对McNemar p=0.011；对FullContext 90.5%的差距约缩小48%，相对错误率约降24.9%。表4的QA均分与图7完美回答率不同，不能混用。临床预测收益不一致：表3阿片过量AUPRC基线4.94，R/I/C为4.28/4.17/3.91，且表1NaiveRAG达15.61；时间重排T也损害部分更新与时间推理。",
+        "research_help": "长期记忆应分别测来源保真、必要证据覆盖和正确利用；保留原记录及引用，把生成解释与事实分开。自然历史越长表现越差的关联，并未在固定问题的长度干预中一致重现，因此不能把所有失败简单归因于token长度。",
+        "insight": "长期记忆应分别测来源保真、必要证据覆盖和正确利用；保留原记录及引用，把生成解释与事实分开。自然历史越长表现越差的关联，并未在固定问题的长度干预中一致重现，因此不能把所有失败简单归因于token长度。",
+        "limitations": "改进主要在一个冻结backbone上验证，QA依赖LLM裁判，部分分析为观察关联而非因果证据。与源记录不一致不等于事实必错；错误答案与检索答案重合也不能证明复制。临床稀有阳性仅9例使估计不稳，不能据此推断真实临床效用。未独立复现。",
+        "abstract_zh": "作者系统比较生物医学任务与长期对话中的五类记忆配置，分析检索覆盖、信息保真和证据使用。更复杂的记忆组织并不稳定超越直接检索，长期对话还受跨会话证据完整性影响。HMRU通过混合检索、重排和任务指令改善部分问答及对话指标。临床预测和时间结构化收益并不一致。",
+        "full_summary": "BioMem拆解长期医学对话中的检索、利用与改写失真；混合检索提升部分指标，但更复杂记忆和时间重排并不总有益。多轮患者信息会更新、跨会话分散；单看最终答案无法区分证据没找回、找回却用错或记忆改写偏离原始记录。比较五种记忆配置、四种LLM及六项生物医学任务和RealMem医学多会话子集。HMRU保持模型与A-MEM记忆库冻结，把dense/BM25候选合并后cross-encoder重排；R仅改检索，I增加任务相关证据使用指令，C压缩元数据，T按时间重排。另追踪来源一致性，并控制历史长度和证据位置。HuatuoGPT-3-27B上，HMRU-I的PharmKG/ADInt精确匹配F1由39.27/52.94到43.48/57.64。325题RealMem的HMRU-R完美回答率80.3%→85.2%，26题修正、10题退化，配对McNemar p=0.011；对FullContext 90.5%的差距约缩小48%，相对错误率约降24.9%。表4的QA均分与图7完美回答率不同，不能混用。临床预测收益不一致：表3阿片过量AUPRC基线4.94，R/I/C为4.28/4.17/3.91，且表1NaiveRAG达15.61；时间重排T也损害部分更新与时间推理。",
+        "source_scope": "full_text",
+        "source_note": "直接核读arXiv PDF正文及相关附录，主结果页已渲染核对；数值为作者报告，未独立复现。",
+        "source_evidence": [
+          "§2.1–2.2：来源失真分析及长度/距离控制",
+          "§2.3/表3–4（PDF第14页已渲染）：HMRU消融与指标口径",
+          "图7/§4.4：325题配对结果、混合检索与任务指令"
+        ],
+        "model": "manual-full-text-review",
+        "updated_at": "2026-11-12T01:29:33.905326+00:00",
+        "recommendation_level": "高",
+        "water_risk": "中",
+        "value_label": "值得核读",
+        "value_reason": "长期记忆应分别测来源保真、必要证据覆盖和正确利用；保留原记录及引用，把生成解释与事实分开。自然历史越长表现越差的关联，并未在固定问题的长度干预中一致重现，因此不能把所有失败简单归因于token长度。"
+      },
+      "source_report_date": "2026-11-12",
+      "affiliations": [
+        "马萨诸塞大学阿默斯特分校",
+        "佛罗里达大学医学院",
+        "明尼苏达大学",
+        "VA Bedford Healthcare",
+        "马萨诸塞大学洛厄尔分校"
+      ]
+    },
     {
       "id": "2611.11330v1",
       "title": "When Credit Turns Against Tools: Transition-Aware Credit Assignment in Agentic Reinforcement Learning",
