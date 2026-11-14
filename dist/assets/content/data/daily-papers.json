@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-12T01:29:33.905326+00:00",
+  "updated_at": "2026-11-14T01:32:03.740855+00:00",
   "source": "arxiv",
   "analysis_method": "Codex CLI workflow with manual arXiv PDF full-text review and rendered result-page verification; per-item source notes identify the analysis path.",
   "query_focus": "多轮交互式 agent planning、long-horizon planning、stateful/personalized planning、agent memory、planning reliability、agentic RL",
@@ -37,53 +37,932 @@
     "codex_reader": "Downloads arXiv PDFs, extracts text with pdftotext or bundled Python PDF libraries, then calls codex exec to write Chinese motivation/method/experiment/research-help fields."
   },
   "digest": {
-    "title": "2026-11-12 Daily Paper",
-    "report_date": "2026-11-12",
+    "title": "2026-11-14 Daily Paper",
+    "report_date": "2026-11-14",
     "focus": "多轮交互式 agent planning、long-horizon planning、stateful/personalized planning、agent memory、planning reliability、agentic RL",
-    "summary": "今日新增2篇全文核读：CAMP-II以文件操作先验训练跨上下文记忆；BioMem分析长期多轮对话的证据检索、利用和来源保真。详情区分增益比与成功率、无网络子集与完整榜单、QA均分与完美回答率，并说明任务退化和因果证据边界。",
+    "summary": "今日新增7篇：交互式需求修订、长程agent记忆、事后逐步评判与多轮RL训练统计及安全。已核读正文与实验表，区分作者报告、方法解释与尚未验证的泛化。",
     "top_recommendations": [
-      "2611.14009v1",
-      "2611.13426v1"
+      "2611.16466v1",
+      "2611.15600v1",
+      "2611.16816v1"
     ],
     "low_priority": [],
     "no_news_policy": "如果没有新的高相关论文，自动化应返回“今日无高相关新增论文”，不写邮件正文文件，也不发送邮件。",
-    "email_body": "2026-11-12 Daily Paper\n\n今日新增2篇全文核读：CAMP-II以文件操作先验训练跨上下文记忆；BioMem分析长期多轮对话的证据检索、利用和来源保真。详情区分增益比与成功率、无网络子集与完整榜单、QA均分与完美回答率，并说明任务退化和因果证据边界。\n\nCoding Agent Memory Post-Training II: Unlocking the Memory Potential of Pre-trained File Operations for Long-Horizon Tasks via On-Policy Distillation\nhttps://arxiv.org/abs/2611.14009v1\nCAMP-II用普通文件操作承载跨上下文记忆，再以教师逐token蒸馏训练同一任务策略；五域均值提升，但各任务并非全面胜出。\n\nBioMem: Agentic Memory for Biomedical LLM Agents\nhttps://arxiv.org/abs/2611.13426v1\nBioMem拆解长期医学对话中的检索、利用与改写失真；混合检索提升部分指标，但更复杂记忆和时间重排并不总有益。"
+    "email_body": ""
   },
   "latest_item_ids": [
-    "2611.14009v1",
-    "2611.13426v1"
+    "2611.17068v1",
+    "2611.16466v1",
+    "2611.17167v1",
+    "2611.16816v1",
+    "2611.16369v1",
+    "2611.15600v1",
+    "2611.15729v1"
   ],
   "archive": {
     "policy": "append_or_update_by_arxiv_id",
-    "fresh_items": 2,
-    "total_items": 581,
-    "previous_items": 579,
-    "latest_items": 2,
+    "fresh_items": 7,
+    "total_items": 588,
+    "previous_items": 581,
+    "latest_items": 7,
     "source_report_dates": {
+      "2026-11-14": 7,
       "2026-11-12": 2,
       "2026-11-11": 8,
       "2026-11-10": 5,
       "2026-11-07": 2,
       "2026-11-06": 3,
       "2026-11-05": 7,
-      "undefined": 554
+      "2026-11-04": 7,
+      "2026-11-03": 5,
+      "2026-10-31": 8,
+      "2026-10-27": 6,
+      "2026-10-26": 1,
+      "2026-10-24": 8,
+      "2026-10-22": 9,
+      "2026-10-21": 8,
+      "2026-10-20": 2,
+      "2026-10-19": 6,
+      "2026-10-17": 3,
+      "2026-10-16": 9,
+      "2026-10-15": 11,
+      "2026-10-13": 11,
+      "2026-10-03": 8,
+      "2026-10-01": 13,
+      "2026-09-30": 4,
+      "2026-09-02": 10,
+      "2026-09-01": 4,
+      "2026-08-31": 7,
+      "2026-08-29": 1,
+      "2026-08-28": 8,
+      "2026-08-27": 10,
+      "2026-08-26": 25,
+      "2026-08-25": 25,
+      "2026-08-22": 25,
+      "2026-08-21": 15,
+      "2026-08-20": 20,
+      "2026-08-19": 25,
+      "2026-08-15": 21,
+      "2026-08-14": 17,
+      "2026-08-13": 16,
+      "2026-08-12": 16,
+      "2026-08-11": 14,
+      "2026-08-10": 9,
+      "2026-08-09": 11,
+      "2026-08-07": 6,
+      "2026-08-06": 9,
+      "2026-08-05": 13,
+      "2026-08-04": 6,
+      "2026-08-03": 6,
+      "2026-08-01": 3,
+      "2026-07-31": 5,
+      "2026-07-30": 10,
+      "2026-07-17": 3,
+      "2026-07-24": 1,
+      "2026-07-25": 8,
+      "2026-07-28": 6,
+      "2026-07-16": 4,
+      "2026-07-14": 5,
+      "2026-07-11": 1,
+      "2026-07-09": 4,
+      "2026-07-08": 8,
+      "2026-07-07": 1,
+      "2026-07-06": 8,
+      "2026-07-04": 8,
+      "2026-07-02": 2,
+      "undefined": 39
     },
     "filtered_candidate_ids": [
-      "2611.14009v1",
-      "2611.13426v1"
+      "2611.17068v1",
+      "2611.16466v1",
+      "2611.17167v1",
+      "2611.16816v1",
+      "2611.16369v1",
+      "2611.15600v1",
+      "2611.15729v1"
     ],
-    "filtered_today": 2,
+    "filtered_today": 7,
     "rejected_candidate_ids": [
-      "2611.11789v1",
-      "2611.12244v1",
-      "2611.12314v1",
-      "2611.13312v1",
-      "2611.11696v1",
-      "2611.13003v1",
-      "2611.10841v1"
+      "2611.16574v1",
+      "2611.15436v1",
+      "2611.15585v1",
+      "2611.14009v2",
+      "2611.11789v1"
     ]
   },
   "items": [
+    {
+      "id": "2611.17068v1",
+      "title": "Discovering Effective Agent Memory Designs through Program Evolution",
+      "summary": "Program evolution provides a promising approach to discover agent memory designs and study the choices underlying their effectiveness. We introduce MAPE, a framework that evolves whole memory programs from minimal seeds through a standardized lifecycle interface and an iterative diagnosis-proposal loop. Experiments on LoCoMo and LongMemEval yield an absolute accuracy gain of up to 12% over manually designed baselines at 35% of the serving cost, with further evaluations supporting transfer across serving backbones and benchmarks. Empirical analyses and ablations identify and validate two recurring design patterns: retaining raw conversations as retrievable evidence preserves details omitted from extracted memories, while composing retrieved evidence according to query intent helps the answering model use it effectively. Transplanting the composition module into five existing memory systems improves accuracy across all five. Beyond these patterns, the search objective shapes where computation goes: optimizing serving cost alongside accuracy shifts computation from LLM-based memory construction to selective processing at query time while retaining competitive accuracy. Together, these findings offer empirical lessons for agent memory design. Code is available at https://github.com/ash-ding/MAPE.",
+      "url": "http://arxiv.org/abs/2611.17068v1",
+      "authors": [
+        "Xinheng Ding",
+        "Seyyed Saeid Cheshmi",
+        "Ziyang Zhang",
+        "Tairan Chen",
+        "Wenya Xie",
+        "Yu Hou",
+        "Rui Zhang",
+        "Zirui Liu"
+      ],
+      "report_date": "2026-11-14",
+      "published": "2026-11-12",
+      "updated": "2026-11-12",
+      "primary_category": "cs.CL",
+      "categories": [
+        "cs.CL",
+        "cs.AI"
+      ],
+      "project_url": "",
+      "repo_url": "https://github.com/ash-ding/MAPE",
+      "venue_status": "未确认录用",
+      "recommendation": {
+        "score": 98,
+        "level": "高",
+        "label": "值得核读",
+        "water_risk": "中",
+        "value_judgement": "值得测试的主线是原始证据保真与查询时组合，而非更激进的写时压缩；成本目标能改变计算分配。可固定检索证据做组合消融，并把搜索、选择、最终测试分开，检验设计规律是否真正泛化。",
+        "reason": "值得测试的主线是原始证据保真与查询时组合，而非更激进的写时压缩；成本目标能改变计算分配。可固定检索证据做组合消融，并把搜索、选择、最终测试分开，检验设计规律是否真正泛化。",
+        "signals": {
+          "agenticRl": true,
+          "multiTurn": false,
+          "longHorizon": true,
+          "memory": true,
+          "reliability": true,
+          "codeOrTool": true,
+          "experiments": true,
+          "survey": false
+        }
+      },
+      "brief": {
+        "authors": [
+          "Xinheng Ding",
+          "Seyyed Saeid Cheshmi",
+          "Ziyang Zhang",
+          "Tairan Chen",
+          "Wenya Xie",
+          "Yu Hou",
+          "Rui Zhang",
+          "Zirui Liu"
+        ],
+        "affiliations": "University of Minnesota；Stevens Institute of Technology",
+        "date": "2026-11-12",
+        "paper_url": "https://arxiv.org/abs/2611.17068v1",
+        "project_url": "",
+        "repo_url": "https://github.com/ash-ding/MAPE",
+        "venue_status": "未确认录用",
+        "contribution": "值得测试的主线是原始证据保真与查询时组合，而非更激进的写时压缩；成本目标能改变计算分配。可固定检索证据做组合消融，并把搜索、选择、最终测试分开，检验设计规律是否真正泛化。",
+        "summary": "MAPE自动演化整套记忆程序，反复发现保留原始对话和按问题意图组合证据的价值。成本联合优化有效，但最终程序选择也使用评估集。 人工设计记忆系统常固定写入、检索与组织方式，容易在摘要化中丢失细节；需要同时考察准确率和整个记忆生命周期的服务成本。 将build、retrieve、compose开放为可修改程序，回答器固定；从最小种子出发，LLM根据执行轨迹诊断错误、提议修改并维护程序档案。分别按准确率或准确率与成本Pareto目标演化；保留原始会话作为证据，并根据查询意图做定向抽取、计算和组织。 LoCoMo按会话、LongMemEval-S按问题及历史划20%搜索/80%评估；后者也用于最终选程序。LoCoMo/Qwen下MAPE-P为81.33%，SimpleMem为69.32%，成本1.14对3.24美元/千问，即+12.01个百分点、约35%成本；GPT-4.1 mini下MAPE-A为87.94%，P为85.18%。LongMemEval/Qwen下A为77.00%，P为72.25%，RAG为66.00%；P成本5.76高于RAG的2.62。组合模块移植到五种记忆基线均有改善，跨基准迁移并非全面胜过RAG。",
+        "highlights": [
+          "值得测试的主线是原始证据保真与查询时组合，而非更激进的写时压缩；成本目标能改变计算分配。可固定检索证据做组合消融，并把搜索、选择、最终测试分开，检验设计规律是否真正泛化。",
+          "阅读来源：arXiv PDF正文；结果限制见详情"
+        ],
+        "motivation": "人工设计记忆系统常固定写入、检索与组织方式，容易在摘要化中丢失细节；需要同时考察准确率和整个记忆生命周期的服务成本。",
+        "method": "将build、retrieve、compose开放为可修改程序，回答器固定；从最小种子出发，LLM根据执行轨迹诊断错误、提议修改并维护程序档案。分别按准确率或准确率与成本Pareto目标演化；保留原始会话作为证据，并根据查询意图做定向抽取、计算和组织。",
+        "experiments": "LoCoMo按会话、LongMemEval-S按问题及历史划20%搜索/80%评估；后者也用于最终选程序。LoCoMo/Qwen下MAPE-P为81.33%，SimpleMem为69.32%，成本1.14对3.24美元/千问，即+12.01个百分点、约35%成本；GPT-4.1 mini下MAPE-A为87.94%，P为85.18%。LongMemEval/Qwen下A为77.00%，P为72.25%，RAG为66.00%；P成本5.76高于RAG的2.62。组合模块移植到五种记忆基线均有改善，跨基准迁移并非全面胜过RAG。",
+        "research_help": "值得测试的主线是原始证据保真与查询时组合，而非更激进的写时压缩；成本目标能改变计算分配。可固定检索证据做组合消融，并把搜索、选择、最终测试分开，检验设计规律是否真正泛化。",
+        "recommendation": {
+          "score": 98,
+          "level": "高",
+          "label": "值得核读",
+          "water_risk": "中",
+          "value_judgement": "值得测试的主线是原始证据保真与查询时组合，而非更激进的写时压缩；成本目标能改变计算分配。可固定检索证据做组合消融，并把搜索、选择、最终测试分开，检验设计规律是否真正泛化。",
+          "reason": "值得测试的主线是原始证据保真与查询时组合，而非更激进的写时压缩；成本目标能改变计算分配。可固定检索证据做组合消融，并把搜索、选择、最终测试分开，检验设计规律是否真正泛化。",
+          "signals": {
+            "agenticRl": true,
+            "multiTurn": false,
+            "longHorizon": true,
+            "memory": true,
+            "reliability": true,
+            "codeOrTool": true,
+            "experiments": true,
+            "survey": false
+          }
+        },
+        "card_summary": "MAPE自动演化整套记忆程序，反复发现保留原始对话和按问题意图组合证据的价值。成本联合优化有效，但最终程序选择也使用评估集。",
+        "insight": "值得测试的主线是原始证据保真与查询时组合，而非更激进的写时压缩；成本目标能改变计算分配。可固定检索证据做组合消融，并把搜索、选择、最终测试分开，检验设计规律是否真正泛化。",
+        "limitations": "80%评估集兼做最终选择和报告，不能视为完全独立测试；成本排除搜索LLM、本地计算和存储，并按多问摊销。任务为历史QA，尚不能外推到行动策略的长程成功率；结果来自作者实验，未独立复现。",
+        "abstract_zh": "MAPE自动演化整套记忆程序，反复发现保留原始对话和按问题意图组合证据的价值。成本联合优化有效，但最终程序选择也使用评估集。",
+        "full_summary": "MAPE自动演化整套记忆程序，反复发现保留原始对话和按问题意图组合证据的价值。成本联合优化有效，但最终程序选择也使用评估集。 人工设计记忆系统常固定写入、检索与组织方式，容易在摘要化中丢失细节；需要同时考察准确率和整个记忆生命周期的服务成本。 将build、retrieve、compose开放为可修改程序，回答器固定；从最小种子出发，LLM根据执行轨迹诊断错误、提议修改并维护程序档案。分别按准确率或准确率与成本Pareto目标演化；保留原始会话作为证据，并根据查询意图做定向抽取、计算和组织。 LoCoMo按会话、LongMemEval-S按问题及历史划20%搜索/80%评估；后者也用于最终选程序。LoCoMo/Qwen下MAPE-P为81.33%，SimpleMem为69.32%，成本1.14对3.24美元/千问，即+12.01个百分点、约35%成本；GPT-4.1 mini下MAPE-A为87.94%，P为85.18%。LongMemEval/Qwen下A为77.00%，P为72.25%，RAG为66.00%；P成本5.76高于RAG的2.62。组合模块移植到五种记忆基线均有改善，跨基准迁移并非全面胜过RAG。"
+      },
+      "analysis": {
+        "card_summary": "MAPE自动演化整套记忆程序，反复发现保留原始对话和按问题意图组合证据的价值。成本联合优化有效，但最终程序选择也使用评估集。",
+        "motivation": "人工设计记忆系统常固定写入、检索与组织方式，容易在摘要化中丢失细节；需要同时考察准确率和整个记忆生命周期的服务成本。",
+        "method": "将build、retrieve、compose开放为可修改程序，回答器固定；从最小种子出发，LLM根据执行轨迹诊断错误、提议修改并维护程序档案。分别按准确率或准确率与成本Pareto目标演化；保留原始会话作为证据，并根据查询意图做定向抽取、计算和组织。",
+        "experiments": "LoCoMo按会话、LongMemEval-S按问题及历史划20%搜索/80%评估；后者也用于最终选程序。LoCoMo/Qwen下MAPE-P为81.33%，SimpleMem为69.32%，成本1.14对3.24美元/千问，即+12.01个百分点、约35%成本；GPT-4.1 mini下MAPE-A为87.94%，P为85.18%。LongMemEval/Qwen下A为77.00%，P为72.25%，RAG为66.00%；P成本5.76高于RAG的2.62。组合模块移植到五种记忆基线均有改善，跨基准迁移并非全面胜过RAG。",
+        "research_help": "值得测试的主线是原始证据保真与查询时组合，而非更激进的写时压缩；成本目标能改变计算分配。可固定检索证据做组合消融，并把搜索、选择、最终测试分开，检验设计规律是否真正泛化。",
+        "insight": "值得测试的主线是原始证据保真与查询时组合，而非更激进的写时压缩；成本目标能改变计算分配。可固定检索证据做组合消融，并把搜索、选择、最终测试分开，检验设计规律是否真正泛化。",
+        "limitations": "80%评估集兼做最终选择和报告，不能视为完全独立测试；成本排除搜索LLM、本地计算和存储，并按多问摊销。任务为历史QA，尚不能外推到行动策略的长程成功率；结果来自作者实验，未独立复现。",
+        "abstract_zh": "MAPE自动演化整套记忆程序，反复发现保留原始对话和按问题意图组合证据的价值。成本联合优化有效，但最终程序选择也使用评估集。",
+        "full_summary": "MAPE自动演化整套记忆程序，反复发现保留原始对话和按问题意图组合证据的价值。成本联合优化有效，但最终程序选择也使用评估集。 人工设计记忆系统常固定写入、检索与组织方式，容易在摘要化中丢失细节；需要同时考察准确率和整个记忆生命周期的服务成本。 将build、retrieve、compose开放为可修改程序，回答器固定；从最小种子出发，LLM根据执行轨迹诊断错误、提议修改并维护程序档案。分别按准确率或准确率与成本Pareto目标演化；保留原始会话作为证据，并根据查询意图做定向抽取、计算和组织。 LoCoMo按会话、LongMemEval-S按问题及历史划20%搜索/80%评估；后者也用于最终选程序。LoCoMo/Qwen下MAPE-P为81.33%，SimpleMem为69.32%，成本1.14对3.24美元/千问，即+12.01个百分点、约35%成本；GPT-4.1 mini下MAPE-A为87.94%，P为85.18%。LongMemEval/Qwen下A为77.00%，P为72.25%，RAG为66.00%；P成本5.76高于RAG的2.62。组合模块移植到五种记忆基线均有改善，跨基准迁移并非全面胜过RAG。",
+        "recommendation_level": "高",
+        "water_risk": "中",
+        "value_label": "值得核读",
+        "value_reason": "值得测试的主线是原始证据保真与查询时组合，而非更激进的写时压缩；成本目标能改变计算分配。可固定检索证据做组合消融，并把搜索、选择、最终测试分开，检验设计规律是否真正泛化。",
+        "source_scope": "full_text",
+        "source_note": "直接核读arXiv v1 PDF正文及渲染实验表；核对元数据，未独立复现实验。",
+        "source_evidence": [
+          "§2–3；Table 1–2：LoCoMo/LongMemEval准确率与生命周期成本",
+          "§3：评估分区参与程序选择；§4–5：迁移、原始证据和组合消融"
+        ],
+        "model": "manual-full-text-review",
+        "updated_at": "2026-11-14T01:32:03.740855+00:00"
+      }
+    },
+    {
+      "id": "2611.16466v1",
+      "title": "How Should Planning Agents ReSHAPE Their Search Space?",
+      "summary": "Planning agents and benchmarks treat a user's initial specification as fixed. Yet the requests users write exclude plans they would gladly take, since they rarely discover the possible trade-offs they would accept until seeing the options. Agents already revise requests through interaction, but whether this helps planning is unknown. We formalize this step as the ReSHAPE task, which judges a revision by whether its search space matches the acceptable plans and a planner finds one there. Using ReSHAPE Planter, which builds instances from planning benchmarks with a human-validated simulated user, we analyze 5,800 agent-revised specifications in travel and shopping. We find that reshaping matters: one correct trade-off makes the same planner reach an acceptable plan up to 4.6x as often, and search space quality predicts what the planner finds. Current agents, however, admit at most 32% of the acceptable plans, where that trade-off alone admits over 52%, because they ask about preferences instead of showing plans; in travel, showing plans raises F1 by 9.7 points over asking, with two model families. Planning agents should thus treat a request as a hypothesis to test against the user's reactions to concrete plans to recognize user trade-offs.",
+      "url": "http://arxiv.org/abs/2611.16466v1",
+      "authors": [
+        "Yilin Zhang",
+        "Xinran Zhao",
+        "Tong Chen",
+        "Ziming Yuan",
+        "Tongshuang Wu"
+      ],
+      "report_date": "2026-11-14",
+      "published": "2026-11-12",
+      "updated": "2026-11-12",
+      "primary_category": "cs.AI",
+      "categories": [
+        "cs.AI",
+        "cs.CL"
+      ],
+      "project_url": "",
+      "repo_url": "",
+      "venue_status": "未确认录用",
+      "recommendation": {
+        "score": 96,
+        "level": "高",
+        "label": "值得核读",
+        "water_risk": "中",
+        "value_judgement": "可将用户需求视为待检验的假设，以具体选项触发可接受取舍，再独立评需求空间与规划执行。对多轮intent研究，值得测量新放入的可接受方案和误放入的不可接受方案，而不只统计问答轮数。",
+        "reason": "可将用户需求视为待检验的假设，以具体选项触发可接受取舍，再独立评需求空间与规划执行。对多轮intent研究，值得测量新放入的可接受方案和误放入的不可接受方案，而不只统计问答轮数。",
+        "signals": {
+          "agenticRl": false,
+          "multiTurn": true,
+          "longHorizon": true,
+          "memory": true,
+          "reliability": true,
+          "codeOrTool": false,
+          "experiments": true,
+          "survey": false
+        }
+      },
+      "brief": {
+        "authors": [
+          "Yilin Zhang",
+          "Xinran Zhao",
+          "Tong Chen",
+          "Ziming Yuan",
+          "Tongshuang Wu"
+        ],
+        "affiliations": "Carnegie Mellon University；University of Washington",
+        "date": "2026-11-12",
+        "paper_url": "https://arxiv.org/abs/2611.16466v1",
+        "project_url": "",
+        "repo_url": "",
+        "venue_status": "未确认录用",
+        "contribution": "可将用户需求视为待检验的假设，以具体选项触发可接受取舍，再独立评需求空间与规划执行。对多轮intent研究，值得测量新放入的可接受方案和误放入的不可接受方案，而不只统计问答轮数。",
+        "summary": "ReSHAPE把规划前的需求修订单独评测：展示具体备选计划有助于发现用户愿意接受的取舍。主要证据来自固定偏好的模拟用户，不能直接等同真实交互收益。 用户最初写出的硬条件可能排除其愿意接受的计划；只评最终计划，会混淆需求修订质量和后续规划器能力。 定义ReSHAPE：agent在10单位反馈预算内询问、展示计划或比较计划，输出修订约束；用搜索空间相对可接受计划集合的precision/recall/F1及固定规划器接受率评分。Planter在旅行与购物任务中植入一个双属性取舍，以隐藏固定效用、不可违反条件和阈值构成模拟用户。 旅行比较14套agent系统、购物8套。参考修订使旅行固定Flash规划器接受率12%→55%（约4.6倍）；agent可接受计划召回最高约32%，参考超52%。旅行展示计划相对询问使Flash的F1提高9.7点，95%CI[5.0,15.0]；Sonnet提高11.2点。20名参与者的小规模旅行验证中，模拟用户与个人判断一致率76%。摘要称分析5800个agent修订，正文§4.2称6325个规格并包含基线，统计口径未充分对齐。",
+        "highlights": [
+          "可将用户需求视为待检验的假设，以具体选项触发可接受取舍，再独立评需求空间与规划执行。对多轮intent研究，值得测量新放入的可接受方案和误放入的不可接受方案，而不只统计问答轮数。",
+          "阅读来源：arXiv PDF正文；结果限制见详情"
+        ],
+        "motivation": "用户最初写出的硬条件可能排除其愿意接受的计划；只评最终计划，会混淆需求修订质量和后续规划器能力。",
+        "method": "定义ReSHAPE：agent在10单位反馈预算内询问、展示计划或比较计划，输出修订约束；用搜索空间相对可接受计划集合的precision/recall/F1及固定规划器接受率评分。Planter在旅行与购物任务中植入一个双属性取舍，以隐藏固定效用、不可违反条件和阈值构成模拟用户。",
+        "experiments": "旅行比较14套agent系统、购物8套。参考修订使旅行固定Flash规划器接受率12%→55%（约4.6倍）；agent可接受计划召回最高约32%，参考超52%。旅行展示计划相对询问使Flash的F1提高9.7点，95%CI[5.0,15.0]；Sonnet提高11.2点。20名参与者的小规模旅行验证中，模拟用户与个人判断一致率76%。摘要称分析5800个agent修订，正文§4.2称6325个规格并包含基线，统计口径未充分对齐。",
+        "research_help": "可将用户需求视为待检验的假设，以具体选项触发可接受取舍，再独立评需求空间与规划执行。对多轮intent研究，值得测量新放入的可接受方案和误放入的不可接受方案，而不只统计问答轮数。",
+        "recommendation": {
+          "score": 96,
+          "level": "高",
+          "label": "值得核读",
+          "water_risk": "中",
+          "value_judgement": "可将用户需求视为待检验的假设，以具体选项触发可接受取舍，再独立评需求空间与规划执行。对多轮intent研究，值得测量新放入的可接受方案和误放入的不可接受方案，而不只统计问答轮数。",
+          "reason": "可将用户需求视为待检验的假设，以具体选项触发可接受取舍，再独立评需求空间与规划执行。对多轮intent研究，值得测量新放入的可接受方案和误放入的不可接受方案，而不只统计问答轮数。",
+          "signals": {
+            "agenticRl": false,
+            "multiTurn": true,
+            "longHorizon": true,
+            "memory": true,
+            "reliability": true,
+            "codeOrTool": false,
+            "experiments": true,
+            "survey": false
+          }
+        },
+        "card_summary": "ReSHAPE把规划前的需求修订单独评测：展示具体备选计划有助于发现用户愿意接受的取舍。主要证据来自固定偏好的模拟用户，不能直接等同真实交互收益。",
+        "insight": "可将用户需求视为待检验的假设，以具体选项触发可接受取舍，再独立评需求空间与规划执行。对多轮intent研究，值得测量新放入的可接受方案和误放入的不可接受方案，而不只统计问答轮数。",
+        "limitations": "偏好固定、每实例仅植入一个取舍；真人验证规模小且限旅行，不证明真实用户中长期效果。修订在同一组选项上评分，可能拟合实例；抽象与正文样本量有口径差异。",
+        "abstract_zh": "ReSHAPE把规划前的需求修订单独评测：展示具体备选计划有助于发现用户愿意接受的取舍。主要证据来自固定偏好的模拟用户，不能直接等同真实交互收益。",
+        "full_summary": "ReSHAPE把规划前的需求修订单独评测：展示具体备选计划有助于发现用户愿意接受的取舍。主要证据来自固定偏好的模拟用户，不能直接等同真实交互收益。 用户最初写出的硬条件可能排除其愿意接受的计划；只评最终计划，会混淆需求修订质量和后续规划器能力。 定义ReSHAPE：agent在10单位反馈预算内询问、展示计划或比较计划，输出修订约束；用搜索空间相对可接受计划集合的precision/recall/F1及固定规划器接受率评分。Planter在旅行与购物任务中植入一个双属性取舍，以隐藏固定效用、不可违反条件和阈值构成模拟用户。 旅行比较14套agent系统、购物8套。参考修订使旅行固定Flash规划器接受率12%→55%（约4.6倍）；agent可接受计划召回最高约32%，参考超52%。旅行展示计划相对询问使Flash的F1提高9.7点，95%CI[5.0,15.0]；Sonnet提高11.2点。20名参与者的小规模旅行验证中，模拟用户与个人判断一致率76%。摘要称分析5800个agent修订，正文§4.2称6325个规格并包含基线，统计口径未充分对齐。"
+      },
+      "analysis": {
+        "card_summary": "ReSHAPE把规划前的需求修订单独评测：展示具体备选计划有助于发现用户愿意接受的取舍。主要证据来自固定偏好的模拟用户，不能直接等同真实交互收益。",
+        "motivation": "用户最初写出的硬条件可能排除其愿意接受的计划；只评最终计划，会混淆需求修订质量和后续规划器能力。",
+        "method": "定义ReSHAPE：agent在10单位反馈预算内询问、展示计划或比较计划，输出修订约束；用搜索空间相对可接受计划集合的precision/recall/F1及固定规划器接受率评分。Planter在旅行与购物任务中植入一个双属性取舍，以隐藏固定效用、不可违反条件和阈值构成模拟用户。",
+        "experiments": "旅行比较14套agent系统、购物8套。参考修订使旅行固定Flash规划器接受率12%→55%（约4.6倍）；agent可接受计划召回最高约32%，参考超52%。旅行展示计划相对询问使Flash的F1提高9.7点，95%CI[5.0,15.0]；Sonnet提高11.2点。20名参与者的小规模旅行验证中，模拟用户与个人判断一致率76%。摘要称分析5800个agent修订，正文§4.2称6325个规格并包含基线，统计口径未充分对齐。",
+        "research_help": "可将用户需求视为待检验的假设，以具体选项触发可接受取舍，再独立评需求空间与规划执行。对多轮intent研究，值得测量新放入的可接受方案和误放入的不可接受方案，而不只统计问答轮数。",
+        "insight": "可将用户需求视为待检验的假设，以具体选项触发可接受取舍，再独立评需求空间与规划执行。对多轮intent研究，值得测量新放入的可接受方案和误放入的不可接受方案，而不只统计问答轮数。",
+        "limitations": "偏好固定、每实例仅植入一个取舍；真人验证规模小且限旅行，不证明真实用户中长期效果。修订在同一组选项上评分，可能拟合实例；抽象与正文样本量有口径差异。",
+        "abstract_zh": "ReSHAPE把规划前的需求修订单独评测：展示具体备选计划有助于发现用户愿意接受的取舍。主要证据来自固定偏好的模拟用户，不能直接等同真实交互收益。",
+        "full_summary": "ReSHAPE把规划前的需求修订单独评测：展示具体备选计划有助于发现用户愿意接受的取舍。主要证据来自固定偏好的模拟用户，不能直接等同真实交互收益。 用户最初写出的硬条件可能排除其愿意接受的计划；只评最终计划，会混淆需求修订质量和后续规划器能力。 定义ReSHAPE：agent在10单位反馈预算内询问、展示计划或比较计划，输出修订约束；用搜索空间相对可接受计划集合的precision/recall/F1及固定规划器接受率评分。Planter在旅行与购物任务中植入一个双属性取舍，以隐藏固定效用、不可违反条件和阈值构成模拟用户。 旅行比较14套agent系统、购物8套。参考修订使旅行固定Flash规划器接受率12%→55%（约4.6倍）；agent可接受计划召回最高约32%，参考超52%。旅行展示计划相对询问使Flash的F1提高9.7点，95%CI[5.0,15.0]；Sonnet提高11.2点。20名参与者的小规模旅行验证中，模拟用户与个人判断一致率76%。摘要称分析5800个agent修订，正文§4.2称6325个规格并包含基线，统计口径未充分对齐。",
+        "recommendation_level": "高",
+        "water_risk": "中",
+        "value_label": "值得核读",
+        "value_reason": "可将用户需求视为待检验的假设，以具体选项触发可接受取舍，再独立评需求空间与规划执行。对多轮intent研究，值得测量新放入的可接受方案和误放入的不可接受方案，而不只统计问答轮数。",
+        "source_scope": "full_text",
+        "source_note": "直接核读arXiv v1 PDF正文及渲染实验表；核对元数据，未独立复现实验。",
+        "source_evidence": [
+          "§3–4：任务、模拟用户和10单位反馈预算",
+          "Table 1–4；Limitations：接受率、协议对照和固定偏好限制"
+        ],
+        "model": "manual-full-text-review",
+        "updated_at": "2026-11-14T01:32:03.740855+00:00"
+      }
+    },
+    {
+      "id": "2611.17167v1",
+      "title": "Actor, Judge, or Teacher? Understanding Decision Models in Long-Horizon Agents",
+      "summary": "Decision models answer a question with a typed output, such as a choice among options with a probability for each, so one model can choose an agent's actions, evaluate actions already taken, or score every action to teach a policy with reinforcement learning. Prior work has studied them mainly as actors, judging their usefulness by how well they act. We ask whether a decision model that acts poorly can still teach well. We compare three decision models and three general LLMs as actors and judges on ALFWorld, and use JEV as a teacher on ALFWorld and WebShop. As actors, all six models are pulled away from a subgoal that must come first by an easier one. As judges that see the whole trajectory, the same models credit the steps toward that subgoal, and asking whether each action helped, rather than whether the task will succeed, separates useful from useless actions. As a teacher, JEV raises a Qwen2.5-1.5B policy over GRPO from 72.8% to 82.9% success on ALFWorld and from 56.8% to 71.4% on WebShop. These results suggest that a poor actor can still teach well, because judging an action after the episode ends reveals the consequences that acting must anticipate. Code is available at https://github.com/ZJU-REAL/decision-agents.",
+      "url": "http://arxiv.org/abs/2611.17167v1",
+      "authors": [
+        "Haochen Liu",
+        "Qianhao Zhu",
+        "Zixuan Wang",
+        "Dingming Li",
+        "Tongbo Chen",
+        "Peng Qiu",
+        "Yingqi Qu",
+        "Weiming Lu",
+        "Jun Xiao",
+        "Yongliang Shen"
+      ],
+      "report_date": "2026-11-14",
+      "published": "2026-11-12",
+      "updated": "2026-11-12",
+      "primary_category": "cs.AI",
+      "categories": [
+        "cs.AI",
+        "cs.CL"
+      ],
+      "project_url": "",
+      "repo_url": "https://github.com/ZJU-REAL/decision-agents",
+      "venue_status": "未确认录用",
+      "recommendation": {
+        "score": 84,
+        "level": "高",
+        "label": "值得核读",
+        "water_risk": "中",
+        "value_judgement": "为多轮RL选teacher应独立衡量事后贡献识别能力，尤其是先决步骤与无效动作的区分。完整轨迹带来的信息优势可用于离线训练，但部署时在线judge只有前缀，不能照搬该性能。",
+        "reason": "为多轮RL选teacher应独立衡量事后贡献识别能力，尤其是先决步骤与无效动作的区分。完整轨迹带来的信息优势可用于离线训练，但部署时在线judge只有前缀，不能照搬该性能。",
+        "signals": {
+          "agenticRl": true,
+          "multiTurn": false,
+          "longHorizon": true,
+          "memory": false,
+          "reliability": false,
+          "codeOrTool": true,
+          "experiments": true,
+          "survey": false
+        }
+      },
+      "brief": {
+        "authors": [
+          "Haochen Liu",
+          "Qianhao Zhu",
+          "Zixuan Wang",
+          "Dingming Li",
+          "Tongbo Chen",
+          "Peng Qiu",
+          "Yingqi Qu",
+          "Weiming Lu",
+          "Jun Xiao",
+          "Yongliang Shen"
+        ],
+        "affiliations": "Zhejiang University；Baidu Inc.",
+        "date": "2026-11-12",
+        "paper_url": "https://arxiv.org/abs/2611.17167v1",
+        "project_url": "",
+        "repo_url": "https://github.com/ZJU-REAL/decision-agents",
+        "venue_status": "未确认录用",
+        "contribution": "为多轮RL选teacher应独立衡量事后贡献识别能力，尤其是先决步骤与无效动作的区分。完整轨迹带来的信息优势可用于离线训练，但部署时在线judge只有前缀，不能照搬该性能。",
+        "summary": "决策模型自己行动较弱，仍可在看完整轨迹后提供有用的逐动作训练信号。关键是问动作贡献；问最终成功与否可能给出缺少区分度的评分。 把模型作为actor的能力直接等同teacher价值，忽略事后看到后果后判断贡献的优势；稀疏终局奖励也难定位前置子目标的价值。 在ALFWorld比较三种决策模型与三种通用LLM的actor/judge行为，交叉测试Prefix/Hindsight上下文和Value/Progress问题。用JEV逐动作分数中心化，以λ=0.5加到GRPO终局优势，不按分数标准差归一化；teacher看目标与观测动作轨迹，不接收奖励或隐藏状态。 JEV作为actor成功率42.9%。作为Hindsight+Progress teacher，Qwen2.5-1.5B在ALFWorld由GRPO的72.8%到82.9%，WebShop由56.8%到71.4%；7B为77.6%→83.8%及66.1%→73.6%。1.5B的Hindsight+Value在ALFWorld反而只有69.3%。表3为三个推理种子的均值，GRPO数值沿用GiGPO论文，非本文同次重训；这不等同三个独立训练种子。",
+        "highlights": [
+          "为多轮RL选teacher应独立衡量事后贡献识别能力，尤其是先决步骤与无效动作的区分。完整轨迹带来的信息优势可用于离线训练，但部署时在线judge只有前缀，不能照搬该性能。",
+          "阅读来源：arXiv PDF正文；结果限制见详情"
+        ],
+        "motivation": "把模型作为actor的能力直接等同teacher价值，忽略事后看到后果后判断贡献的优势；稀疏终局奖励也难定位前置子目标的价值。",
+        "method": "在ALFWorld比较三种决策模型与三种通用LLM的actor/judge行为，交叉测试Prefix/Hindsight上下文和Value/Progress问题。用JEV逐动作分数中心化，以λ=0.5加到GRPO终局优势，不按分数标准差归一化；teacher看目标与观测动作轨迹，不接收奖励或隐藏状态。",
+        "experiments": "JEV作为actor成功率42.9%。作为Hindsight+Progress teacher，Qwen2.5-1.5B在ALFWorld由GRPO的72.8%到82.9%，WebShop由56.8%到71.4%；7B为77.6%→83.8%及66.1%→73.6%。1.5B的Hindsight+Value在ALFWorld反而只有69.3%。表3为三个推理种子的均值，GRPO数值沿用GiGPO论文，非本文同次重训；这不等同三个独立训练种子。",
+        "research_help": "为多轮RL选teacher应独立衡量事后贡献识别能力，尤其是先决步骤与无效动作的区分。完整轨迹带来的信息优势可用于离线训练，但部署时在线judge只有前缀，不能照搬该性能。",
+        "recommendation": {
+          "score": 84,
+          "level": "高",
+          "label": "值得核读",
+          "water_risk": "中",
+          "value_judgement": "为多轮RL选teacher应独立衡量事后贡献识别能力，尤其是先决步骤与无效动作的区分。完整轨迹带来的信息优势可用于离线训练，但部署时在线judge只有前缀，不能照搬该性能。",
+          "reason": "为多轮RL选teacher应独立衡量事后贡献识别能力，尤其是先决步骤与无效动作的区分。完整轨迹带来的信息优势可用于离线训练，但部署时在线judge只有前缀，不能照搬该性能。",
+          "signals": {
+            "agenticRl": true,
+            "multiTurn": false,
+            "longHorizon": true,
+            "memory": false,
+            "reliability": false,
+            "codeOrTool": true,
+            "experiments": true,
+            "survey": false
+          }
+        },
+        "card_summary": "决策模型自己行动较弱，仍可在看完整轨迹后提供有用的逐动作训练信号。关键是问动作贡献；问最终成功与否可能给出缺少区分度的评分。",
+        "insight": "为多轮RL选teacher应独立衡量事后贡献识别能力，尤其是先决步骤与无效动作的区分。完整轨迹带来的信息优势可用于离线训练，但部署时在线judge只有前缀，不能照搬该性能。",
+        "limitations": "只在两个文本环境、至多30动作内测试；更长工具或代码任务未验证。JEV等闭源训练过程不透明；基线来自已有报告，推理种子不能量化训练方差。",
+        "abstract_zh": "决策模型自己行动较弱，仍可在看完整轨迹后提供有用的逐动作训练信号。关键是问动作贡献；问最终成功与否可能给出缺少区分度的评分。",
+        "full_summary": "决策模型自己行动较弱，仍可在看完整轨迹后提供有用的逐动作训练信号。关键是问动作贡献；问最终成功与否可能给出缺少区分度的评分。 把模型作为actor的能力直接等同teacher价值，忽略事后看到后果后判断贡献的优势；稀疏终局奖励也难定位前置子目标的价值。 在ALFWorld比较三种决策模型与三种通用LLM的actor/judge行为，交叉测试Prefix/Hindsight上下文和Value/Progress问题。用JEV逐动作分数中心化，以λ=0.5加到GRPO终局优势，不按分数标准差归一化；teacher看目标与观测动作轨迹，不接收奖励或隐藏状态。 JEV作为actor成功率42.9%。作为Hindsight+Progress teacher，Qwen2.5-1.5B在ALFWorld由GRPO的72.8%到82.9%，WebShop由56.8%到71.4%；7B为77.6%→83.8%及66.1%→73.6%。1.5B的Hindsight+Value在ALFWorld反而只有69.3%。表3为三个推理种子的均值，GRPO数值沿用GiGPO论文，非本文同次重训；这不等同三个独立训练种子。"
+      },
+      "analysis": {
+        "card_summary": "决策模型自己行动较弱，仍可在看完整轨迹后提供有用的逐动作训练信号。关键是问动作贡献；问最终成功与否可能给出缺少区分度的评分。",
+        "motivation": "把模型作为actor的能力直接等同teacher价值，忽略事后看到后果后判断贡献的优势；稀疏终局奖励也难定位前置子目标的价值。",
+        "method": "在ALFWorld比较三种决策模型与三种通用LLM的actor/judge行为，交叉测试Prefix/Hindsight上下文和Value/Progress问题。用JEV逐动作分数中心化，以λ=0.5加到GRPO终局优势，不按分数标准差归一化；teacher看目标与观测动作轨迹，不接收奖励或隐藏状态。",
+        "experiments": "JEV作为actor成功率42.9%。作为Hindsight+Progress teacher，Qwen2.5-1.5B在ALFWorld由GRPO的72.8%到82.9%，WebShop由56.8%到71.4%；7B为77.6%→83.8%及66.1%→73.6%。1.5B的Hindsight+Value在ALFWorld反而只有69.3%。表3为三个推理种子的均值，GRPO数值沿用GiGPO论文，非本文同次重训；这不等同三个独立训练种子。",
+        "research_help": "为多轮RL选teacher应独立衡量事后贡献识别能力，尤其是先决步骤与无效动作的区分。完整轨迹带来的信息优势可用于离线训练，但部署时在线judge只有前缀，不能照搬该性能。",
+        "insight": "为多轮RL选teacher应独立衡量事后贡献识别能力，尤其是先决步骤与无效动作的区分。完整轨迹带来的信息优势可用于离线训练，但部署时在线judge只有前缀，不能照搬该性能。",
+        "limitations": "只在两个文本环境、至多30动作内测试；更长工具或代码任务未验证。JEV等闭源训练过程不透明；基线来自已有报告，推理种子不能量化训练方差。",
+        "abstract_zh": "决策模型自己行动较弱，仍可在看完整轨迹后提供有用的逐动作训练信号。关键是问动作贡献；问最终成功与否可能给出缺少区分度的评分。",
+        "full_summary": "决策模型自己行动较弱，仍可在看完整轨迹后提供有用的逐动作训练信号。关键是问动作贡献；问最终成功与否可能给出缺少区分度的评分。 把模型作为actor的能力直接等同teacher价值，忽略事后看到后果后判断贡献的优势；稀疏终局奖励也难定位前置子目标的价值。 在ALFWorld比较三种决策模型与三种通用LLM的actor/judge行为，交叉测试Prefix/Hindsight上下文和Value/Progress问题。用JEV逐动作分数中心化，以λ=0.5加到GRPO终局优势，不按分数标准差归一化；teacher看目标与观测动作轨迹，不接收奖励或隐藏状态。 JEV作为actor成功率42.9%。作为Hindsight+Progress teacher，Qwen2.5-1.5B在ALFWorld由GRPO的72.8%到82.9%，WebShop由56.8%到71.4%；7B为77.6%→83.8%及66.1%→73.6%。1.5B的Hindsight+Value在ALFWorld反而只有69.3%。表3为三个推理种子的均值，GRPO数值沿用GiGPO论文，非本文同次重训；这不等同三个独立训练种子。",
+        "recommendation_level": "高",
+        "water_risk": "中",
+        "value_label": "值得核读",
+        "value_reason": "为多轮RL选teacher应独立衡量事后贡献识别能力，尤其是先决步骤与无效动作的区分。完整轨迹带来的信息优势可用于离线训练，但部署时在线judge只有前缀，不能照搬该性能。",
+        "source_scope": "full_text",
+        "source_note": "直接核读arXiv v1 PDF正文及渲染实验表；核对元数据，未独立复现实验。",
+        "source_evidence": [
+          "§3.2–3.3：Progress/Value与Prefix/Hindsight对照、优势公式",
+          "Table 2–4；§7：成功率、推理种子、基线来源及短任务限制"
+        ],
+        "model": "manual-full-text-review",
+        "updated_at": "2026-11-14T01:32:03.740855+00:00"
+      }
+    },
+    {
+      "id": "2611.16816v1",
+      "title": "Outcome-Mass Alignment: Controlling Length-Dependent Trajectory Influence in Multi-Turn LLM Agent Reinforcement Learning",
+      "summary": "To keep long interaction contexts tractable, stepwise group-relative training for multi-turn LLM agents materializes each source trajectory into multiple response rows and valid tokens. This expansion creates an outer-accounting problem distinct from within-trajectory credit assignment: row-based outcome statistics can count one episode outcome multiple times, while token-level reduction can assign unequal aggregate objective mass across trajectories. We term these effects outcome-statistics multiplicity and objective-mass imbalance. We introduce Outcome-Mass Alignment (OMA), a two-component method that makes both accounting choices explicit. Outcome Alignment computes outcome statistics over unique source trajectories, while Mass Alignment controls aggregate objective mass after within-trajectory aggregation of optimizer-native token objectives. Neither redesigns the base optimizer's credit assignment, importance ratios, or clipping. Across matched ALFWorld GRPO comparisons at two model scales, where failed trajectories typically expand much more than successful ones, OMA improves matched-horizon endpoint success by 7.0-9.4 percentage points. Ordinary WebShop exhibits weak or reversed expansion-outcome coupling and correspondingly mixed effects, whereas in a success-oriented WebShop setting, WebShop-SOL, OMA improves success nAUC from 0.399 to 0.511. Component ablations and GiGPO and GSPO comparisons further support component separability and cross-optimizer compatibility. These results show that trajectory expansion always defines an implicit weighting rule, but its practical effect depends on how expansion couples to outcomes and optimizer-native updates.",
+      "url": "http://arxiv.org/abs/2611.16816v1",
+      "authors": [
+        "Dawei Zhang",
+        "Yubin Huangfu",
+        "Jessica Fan",
+        "Boyu Wei",
+        "Likang Wu",
+        "Hongke Zhao",
+        "Ming He",
+        "Zhu Teng"
+      ],
+      "report_date": "2026-11-14",
+      "published": "2026-11-12",
+      "updated": "2026-11-12",
+      "primary_category": "cs.CL",
+      "categories": [
+        "cs.CL"
+      ],
+      "project_url": "",
+      "repo_url": "",
+      "venue_status": "未确认录用",
+      "recommendation": {
+        "score": 76,
+        "level": "高",
+        "label": "值得核读",
+        "water_risk": "中",
+        "value_judgement": "多轮RL排查应先审计源episode、response行和有效token之间的权重合同，再改credit estimator。建议报告长度与成功耦合、每episode目标质量及同token/交互预算的效果，以区分统计修正和额外采样的贡献。",
+        "reason": "多轮RL排查应先审计源episode、response行和有效token之间的权重合同，再改credit estimator。建议报告长度与成功耦合、每episode目标质量及同token/交互预算的效果，以区分统计修正和额外采样的贡献。",
+        "signals": {
+          "agenticRl": true,
+          "multiTurn": true,
+          "longHorizon": false,
+          "memory": false,
+          "reliability": false,
+          "codeOrTool": false,
+          "experiments": true,
+          "survey": false
+        }
+      },
+      "brief": {
+        "authors": [
+          "Dawei Zhang",
+          "Yubin Huangfu",
+          "Jessica Fan",
+          "Boyu Wei",
+          "Likang Wu",
+          "Hongke Zhao",
+          "Ming He",
+          "Zhu Teng"
+        ],
+        "affiliations": "University of Chinese Academy of Sciences；Institute of Software, CAS；Lenovo Research；UNC Chapel Hill；Tianjin University；Beijing Jiaotong University",
+        "date": "2026-11-12",
+        "paper_url": "https://arxiv.org/abs/2611.16816v1",
+        "project_url": "",
+        "repo_url": "",
+        "venue_status": "未确认录用",
+        "contribution": "多轮RL排查应先审计源episode、response行和有效token之间的权重合同，再改credit estimator。建议报告长度与成功耦合、每episode目标质量及同token/交互预算的效果，以区分统计修正和额外采样的贡献。",
+        "summary": "OMA修正多轮轨迹展开为训练行后的统计重复和目标权重失衡。ALFWorld受益，但普通WebShop效果混合，说明轨迹长度与结果的耦合决定实际作用。 同一episode展开为不同行数和token数后，其结果可能在组统计中重复计数，长轨迹也可能获得更大目标质量；这与轨迹内部的信用分配不同。 Outcome Alignment按唯一源轨迹计算结果统计；Mass Alignment在基础优化器原有credit、重要性比、detach和clipping之后聚合token目标，再显式控制轨迹总目标权重。适配GRPO、GiGPO与GSPO，保留各自内部信用规则。 主实验同150次更新。ALFWorld/GRPO的1.5B成功率73.4%→82.8%，3B为74.2%→81.2%；GiGPO的88.3%→89.8%，GSPO的65.6%→70.3%。普通WebShop/3B端点成功率64.8%→57.0%，1.5B端点提高而成功nAUC基本不变；改造后的WebShop-SOL/3B为64.8%→73.4%，成功nAUC0.399→0.511。OA/MA组件和冻结batch梯度分析支持作用可分，但不构成跨任务普遍增益。",
+        "highlights": [
+          "多轮RL排查应先审计源episode、response行和有效token之间的权重合同，再改credit estimator。建议报告长度与成功耦合、每episode目标质量及同token/交互预算的效果，以区分统计修正和额外采样的贡献。",
+          "阅读来源：arXiv PDF正文；结果限制见详情"
+        ],
+        "motivation": "同一episode展开为不同行数和token数后，其结果可能在组统计中重复计数，长轨迹也可能获得更大目标质量；这与轨迹内部的信用分配不同。",
+        "method": "Outcome Alignment按唯一源轨迹计算结果统计；Mass Alignment在基础优化器原有credit、重要性比、detach和clipping之后聚合token目标，再显式控制轨迹总目标权重。适配GRPO、GiGPO与GSPO，保留各自内部信用规则。",
+        "experiments": "主实验同150次更新。ALFWorld/GRPO的1.5B成功率73.4%→82.8%，3B为74.2%→81.2%；GiGPO的88.3%→89.8%，GSPO的65.6%→70.3%。普通WebShop/3B端点成功率64.8%→57.0%，1.5B端点提高而成功nAUC基本不变；改造后的WebShop-SOL/3B为64.8%→73.4%，成功nAUC0.399→0.511。OA/MA组件和冻结batch梯度分析支持作用可分，但不构成跨任务普遍增益。",
+        "research_help": "多轮RL排查应先审计源episode、response行和有效token之间的权重合同，再改credit estimator。建议报告长度与成功耦合、每episode目标质量及同token/交互预算的效果，以区分统计修正和额外采样的贡献。",
+        "recommendation": {
+          "score": 76,
+          "level": "高",
+          "label": "值得核读",
+          "water_risk": "中",
+          "value_judgement": "多轮RL排查应先审计源episode、response行和有效token之间的权重合同，再改credit estimator。建议报告长度与成功耦合、每episode目标质量及同token/交互预算的效果，以区分统计修正和额外采样的贡献。",
+          "reason": "多轮RL排查应先审计源episode、response行和有效token之间的权重合同，再改credit estimator。建议报告长度与成功耦合、每episode目标质量及同token/交互预算的效果，以区分统计修正和额外采样的贡献。",
+          "signals": {
+            "agenticRl": true,
+            "multiTurn": true,
+            "longHorizon": false,
+            "memory": false,
+            "reliability": false,
+            "codeOrTool": false,
+            "experiments": true,
+            "survey": false
+          }
+        },
+        "card_summary": "OMA修正多轮轨迹展开为训练行后的统计重复和目标权重失衡。ALFWorld受益，但普通WebShop效果混合，说明轨迹长度与结果的耦合决定实际作用。",
+        "insight": "多轮RL排查应先审计源episode、response行和有效token之间的权重合同，再改credit estimator。建议报告长度与成功耦合、每episode目标质量及同token/交互预算的效果，以区分统计修正和额外采样的贡献。",
+        "limitations": "主表单训练种子，附录仅部分设置补两种子；同更新次数未匹配token、交互或wall-clock，不能宣称效率提高。SOL同时改变结果目标与终止，和普通WebShop的差异不是单因素因果实验。",
+        "abstract_zh": "OMA修正多轮轨迹展开为训练行后的统计重复和目标权重失衡。ALFWorld受益，但普通WebShop效果混合，说明轨迹长度与结果的耦合决定实际作用。",
+        "full_summary": "OMA修正多轮轨迹展开为训练行后的统计重复和目标权重失衡。ALFWorld受益，但普通WebShop效果混合，说明轨迹长度与结果的耦合决定实际作用。 同一episode展开为不同行数和token数后，其结果可能在组统计中重复计数，长轨迹也可能获得更大目标质量；这与轨迹内部的信用分配不同。 Outcome Alignment按唯一源轨迹计算结果统计；Mass Alignment在基础优化器原有credit、重要性比、detach和clipping之后聚合token目标，再显式控制轨迹总目标权重。适配GRPO、GiGPO与GSPO，保留各自内部信用规则。 主实验同150次更新。ALFWorld/GRPO的1.5B成功率73.4%→82.8%，3B为74.2%→81.2%；GiGPO的88.3%→89.8%，GSPO的65.6%→70.3%。普通WebShop/3B端点成功率64.8%→57.0%，1.5B端点提高而成功nAUC基本不变；改造后的WebShop-SOL/3B为64.8%→73.4%，成功nAUC0.399→0.511。OA/MA组件和冻结batch梯度分析支持作用可分，但不构成跨任务普遍增益。"
+      },
+      "analysis": {
+        "card_summary": "OMA修正多轮轨迹展开为训练行后的统计重复和目标权重失衡。ALFWorld受益，但普通WebShop效果混合，说明轨迹长度与结果的耦合决定实际作用。",
+        "motivation": "同一episode展开为不同行数和token数后，其结果可能在组统计中重复计数，长轨迹也可能获得更大目标质量；这与轨迹内部的信用分配不同。",
+        "method": "Outcome Alignment按唯一源轨迹计算结果统计；Mass Alignment在基础优化器原有credit、重要性比、detach和clipping之后聚合token目标，再显式控制轨迹总目标权重。适配GRPO、GiGPO与GSPO，保留各自内部信用规则。",
+        "experiments": "主实验同150次更新。ALFWorld/GRPO的1.5B成功率73.4%→82.8%，3B为74.2%→81.2%；GiGPO的88.3%→89.8%，GSPO的65.6%→70.3%。普通WebShop/3B端点成功率64.8%→57.0%，1.5B端点提高而成功nAUC基本不变；改造后的WebShop-SOL/3B为64.8%→73.4%，成功nAUC0.399→0.511。OA/MA组件和冻结batch梯度分析支持作用可分，但不构成跨任务普遍增益。",
+        "research_help": "多轮RL排查应先审计源episode、response行和有效token之间的权重合同，再改credit estimator。建议报告长度与成功耦合、每episode目标质量及同token/交互预算的效果，以区分统计修正和额外采样的贡献。",
+        "insight": "多轮RL排查应先审计源episode、response行和有效token之间的权重合同，再改credit estimator。建议报告长度与成功耦合、每episode目标质量及同token/交互预算的效果，以区分统计修正和额外采样的贡献。",
+        "limitations": "主表单训练种子，附录仅部分设置补两种子；同更新次数未匹配token、交互或wall-clock，不能宣称效率提高。SOL同时改变结果目标与终止，和普通WebShop的差异不是单因素因果实验。",
+        "abstract_zh": "OMA修正多轮轨迹展开为训练行后的统计重复和目标权重失衡。ALFWorld受益，但普通WebShop效果混合，说明轨迹长度与结果的耦合决定实际作用。",
+        "full_summary": "OMA修正多轮轨迹展开为训练行后的统计重复和目标权重失衡。ALFWorld受益，但普通WebShop效果混合，说明轨迹长度与结果的耦合决定实际作用。 同一episode展开为不同行数和token数后，其结果可能在组统计中重复计数，长轨迹也可能获得更大目标质量；这与轨迹内部的信用分配不同。 Outcome Alignment按唯一源轨迹计算结果统计；Mass Alignment在基础优化器原有credit、重要性比、detach和clipping之后聚合token目标，再显式控制轨迹总目标权重。适配GRPO、GiGPO与GSPO，保留各自内部信用规则。 主实验同150次更新。ALFWorld/GRPO的1.5B成功率73.4%→82.8%，3B为74.2%→81.2%；GiGPO的88.3%→89.8%，GSPO的65.6%→70.3%。普通WebShop/3B端点成功率64.8%→57.0%，1.5B端点提高而成功nAUC基本不变；改造后的WebShop-SOL/3B为64.8%→73.4%，成功nAUC0.399→0.511。OA/MA组件和冻结batch梯度分析支持作用可分，但不构成跨任务普遍增益。",
+        "recommendation_level": "高",
+        "water_risk": "中",
+        "value_label": "值得核读",
+        "value_reason": "多轮RL排查应先审计源episode、response行和有效token之间的权重合同，再改credit estimator。建议报告长度与成功耦合、每episode目标质量及同token/交互预算的效果，以区分统计修正和额外采样的贡献。",
+        "source_scope": "full_text",
+        "source_note": "直接核读arXiv v1 PDF正文及渲染实验表；核对元数据，未独立复现实验。",
+        "source_evidence": [
+          "§2–3：轨迹展开、Outcome/ Mass Alignment及优化器接口",
+          "Table 1–4；Appendix A；Limitations：条件性收益和种子/预算限制"
+        ],
+        "model": "manual-full-text-review",
+        "updated_at": "2026-11-14T01:32:03.740855+00:00"
+      }
+    },
+    {
+      "id": "2611.16369v1",
+      "title": "Bait: Mitigating Harmful Agentic Reinforcement Learning via Probing Reward Function",
+      "summary": "We expose a safety vulnerability on nascent agentic reinforcement-learning-as-a-service. Specifically, with a cost as low as \\$20, we show that safety alignment of a large language model (e.g., Inkling) can be completely subverted through rounds of harmful agentic reinforcement learning (agentic RL) with a toxic environment from its users. We also demonstrate that upon a successful harmful agentic RL attack via the service API, the attackers can potentially use the safety-degraded model to assist with real-world harmful activities, e.g., exploit software vulnerabilities and launch code re-use attacks. To mitigate harmful agentic RL, we propose Bait, a defense that mitigates the attack via proactively probing the reward function. Experimental results show that such a simple defense can sufficiently mitigate learning from a harmful reward function and can still learn from a benign reward function that promotes benign agentic tasks. Further analysis on both empirical and theoretical aspects shows that an adaptive attacker who assumes the knowledge of Bait defense cannot perfectly subvert it due to a systematic challenge. Source code is available at https://github.com/git-disl/Bait.",
+      "url": "http://arxiv.org/abs/2611.16369v1",
+      "authors": [
+        "Tiansheng Huang",
+        "Ananth Balashankar",
+        "Virat Shejwalkar",
+        "Santosh Pande",
+        "Ling Liu"
+      ],
+      "report_date": "2026-11-14",
+      "published": "2026-11-12",
+      "updated": "2026-11-12",
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG",
+        "cs.CR"
+      ],
+      "project_url": "",
+      "repo_url": "https://github.com/git-disl/Bait",
+      "venue_status": "未确认录用",
+      "recommendation": {
+        "score": 52,
+        "level": "高",
+        "label": "值得核读",
+        "water_risk": "中",
+        "value_judgement": "agentic RL的训练环境也是安全边界，检查奖励的行为偏好比仅过滤输入更直接。可在多轮工具任务中联合评估安全退化、正常策略误惩罚和探测成本，而非只比较攻击成功率。",
+        "reason": "agentic RL的训练环境也是安全边界，检查奖励的行为偏好比仅过滤输入更直接。可在多轮工具任务中联合评估安全退化、正常策略误惩罚和探测成本，而非只比较攻击成功率。",
+        "signals": {
+          "agenticRl": true,
+          "multiTurn": false,
+          "longHorizon": false,
+          "memory": false,
+          "reliability": false,
+          "codeOrTool": true,
+          "experiments": false,
+          "survey": false
+        }
+      },
+      "brief": {
+        "authors": [
+          "Tiansheng Huang",
+          "Ananth Balashankar",
+          "Virat Shejwalkar",
+          "Santosh Pande",
+          "Ling Liu"
+        ],
+        "affiliations": "Georgia Institute of Technology；Google DeepMind",
+        "date": "2026-11-12",
+        "paper_url": "https://arxiv.org/abs/2611.16369v1",
+        "project_url": "",
+        "repo_url": "https://github.com/git-disl/Bait",
+        "venue_status": "未确认录用",
+        "contribution": "agentic RL的训练环境也是安全边界，检查奖励的行为偏好比仅过滤输入更直接。可在多轮工具任务中联合评估安全退化、正常策略误惩罚和探测成本，而非只比较攻击成功率。",
+        "summary": "Bait在agentic RL服务中主动探测奖励函数是否偏好有害回答，再调整优化信号以抑制安全退化。三种良性任务中有害评分下降，但防御范围受探针与攻击者设定限制。 用户可自定义外部奖励时，服务端无法只凭指令判断优化目标是否有害；后训练可能削弱原有安全行为，需要直接检测奖励偏好。 服务端将策略回答和生成的显式有害探针交给同一奖励函数，用两类回答的reward divergence符号检测偏好，并在可疑时反转相关优化信号。另研究知晓防御的Excision攻击及误删正常策略回答的代价；它是对特定攻击策略的分析，非任意攻击者安全证明。 作者报告商业服务约20美元即可显著破坏其测试模型安全，但该金额仅对应所测配置。默认本地实验及跨模型/数据集对照报告三随机种子；表4在EZPOINT、ALFWorld、WebShop上的平均有害评分49.7→14.5，良性任务准确率平均68.0→68.6。分任务ALFWorld准确率50.1±4.0→49.1±7.9，WebShop62.0±3.8→61.1±5.7；平均相近不等于每任务提升。",
+        "highlights": [
+          "agentic RL的训练环境也是安全边界，检查奖励的行为偏好比仅过滤输入更直接。可在多轮工具任务中联合评估安全退化、正常策略误惩罚和探测成本，而非只比较攻击成功率。",
+          "阅读来源：arXiv PDF正文；结果限制见详情"
+        ],
+        "motivation": "用户可自定义外部奖励时，服务端无法只凭指令判断优化目标是否有害；后训练可能削弱原有安全行为，需要直接检测奖励偏好。",
+        "method": "服务端将策略回答和生成的显式有害探针交给同一奖励函数，用两类回答的reward divergence符号检测偏好，并在可疑时反转相关优化信号。另研究知晓防御的Excision攻击及误删正常策略回答的代价；它是对特定攻击策略的分析，非任意攻击者安全证明。",
+        "experiments": "作者报告商业服务约20美元即可显著破坏其测试模型安全，但该金额仅对应所测配置。默认本地实验及跨模型/数据集对照报告三随机种子；表4在EZPOINT、ALFWorld、WebShop上的平均有害评分49.7→14.5，良性任务准确率平均68.0→68.6。分任务ALFWorld准确率50.1±4.0→49.1±7.9，WebShop62.0±3.8→61.1±5.7；平均相近不等于每任务提升。",
+        "research_help": "agentic RL的训练环境也是安全边界，检查奖励的行为偏好比仅过滤输入更直接。可在多轮工具任务中联合评估安全退化、正常策略误惩罚和探测成本，而非只比较攻击成功率。",
+        "recommendation": {
+          "score": 52,
+          "level": "高",
+          "label": "值得核读",
+          "water_risk": "中",
+          "value_judgement": "agentic RL的训练环境也是安全边界，检查奖励的行为偏好比仅过滤输入更直接。可在多轮工具任务中联合评估安全退化、正常策略误惩罚和探测成本，而非只比较攻击成功率。",
+          "reason": "agentic RL的训练环境也是安全边界，检查奖励的行为偏好比仅过滤输入更直接。可在多轮工具任务中联合评估安全退化、正常策略误惩罚和探测成本，而非只比较攻击成功率。",
+          "signals": {
+            "agenticRl": true,
+            "multiTurn": false,
+            "longHorizon": false,
+            "memory": false,
+            "reliability": false,
+            "codeOrTool": true,
+            "experiments": false,
+            "survey": false
+          }
+        },
+        "card_summary": "Bait在agentic RL服务中主动探测奖励函数是否偏好有害回答，再调整优化信号以抑制安全退化。三种良性任务中有害评分下降，但防御范围受探针与攻击者设定限制。",
+        "insight": "agentic RL的训练环境也是安全边界，检查奖励的行为偏好比仅过滤输入更直接。可在多轮工具任务中联合评估安全退化、正常策略误惩罚和探测成本，而非只比较攻击成功率。",
+        "limitations": "探针覆盖、评审模型和攻击分布限制外推；自适应测试只覆盖所构造攻击，不能宣称彻底防御。商业服务案例和本地防御实验不是同一配置；本文未复现其攻击或防御实验。",
+        "abstract_zh": "Bait在agentic RL服务中主动探测奖励函数是否偏好有害回答，再调整优化信号以抑制安全退化。三种良性任务中有害评分下降，但防御范围受探针与攻击者设定限制。",
+        "full_summary": "Bait在agentic RL服务中主动探测奖励函数是否偏好有害回答，再调整优化信号以抑制安全退化。三种良性任务中有害评分下降，但防御范围受探针与攻击者设定限制。 用户可自定义外部奖励时，服务端无法只凭指令判断优化目标是否有害；后训练可能削弱原有安全行为，需要直接检测奖励偏好。 服务端将策略回答和生成的显式有害探针交给同一奖励函数，用两类回答的reward divergence符号检测偏好，并在可疑时反转相关优化信号。另研究知晓防御的Excision攻击及误删正常策略回答的代价；它是对特定攻击策略的分析，非任意攻击者安全证明。 作者报告商业服务约20美元即可显著破坏其测试模型安全，但该金额仅对应所测配置。默认本地实验及跨模型/数据集对照报告三随机种子；表4在EZPOINT、ALFWorld、WebShop上的平均有害评分49.7→14.5，良性任务准确率平均68.0→68.6。分任务ALFWorld准确率50.1±4.0→49.1±7.9，WebShop62.0±3.8→61.1±5.7；平均相近不等于每任务提升。"
+      },
+      "analysis": {
+        "card_summary": "Bait在agentic RL服务中主动探测奖励函数是否偏好有害回答，再调整优化信号以抑制安全退化。三种良性任务中有害评分下降，但防御范围受探针与攻击者设定限制。",
+        "motivation": "用户可自定义外部奖励时，服务端无法只凭指令判断优化目标是否有害；后训练可能削弱原有安全行为，需要直接检测奖励偏好。",
+        "method": "服务端将策略回答和生成的显式有害探针交给同一奖励函数，用两类回答的reward divergence符号检测偏好，并在可疑时反转相关优化信号。另研究知晓防御的Excision攻击及误删正常策略回答的代价；它是对特定攻击策略的分析，非任意攻击者安全证明。",
+        "experiments": "作者报告商业服务约20美元即可显著破坏其测试模型安全，但该金额仅对应所测配置。默认本地实验及跨模型/数据集对照报告三随机种子；表4在EZPOINT、ALFWorld、WebShop上的平均有害评分49.7→14.5，良性任务准确率平均68.0→68.6。分任务ALFWorld准确率50.1±4.0→49.1±7.9，WebShop62.0±3.8→61.1±5.7；平均相近不等于每任务提升。",
+        "research_help": "agentic RL的训练环境也是安全边界，检查奖励的行为偏好比仅过滤输入更直接。可在多轮工具任务中联合评估安全退化、正常策略误惩罚和探测成本，而非只比较攻击成功率。",
+        "insight": "agentic RL的训练环境也是安全边界，检查奖励的行为偏好比仅过滤输入更直接。可在多轮工具任务中联合评估安全退化、正常策略误惩罚和探测成本，而非只比较攻击成功率。",
+        "limitations": "探针覆盖、评审模型和攻击分布限制外推；自适应测试只覆盖所构造攻击，不能宣称彻底防御。商业服务案例和本地防御实验不是同一配置；本文未复现其攻击或防御实验。",
+        "abstract_zh": "Bait在agentic RL服务中主动探测奖励函数是否偏好有害回答，再调整优化信号以抑制安全退化。三种良性任务中有害评分下降，但防御范围受探针与攻击者设定限制。",
+        "full_summary": "Bait在agentic RL服务中主动探测奖励函数是否偏好有害回答，再调整优化信号以抑制安全退化。三种良性任务中有害评分下降，但防御范围受探针与攻击者设定限制。 用户可自定义外部奖励时，服务端无法只凭指令判断优化目标是否有害；后训练可能削弱原有安全行为，需要直接检测奖励偏好。 服务端将策略回答和生成的显式有害探针交给同一奖励函数，用两类回答的reward divergence符号检测偏好，并在可疑时反转相关优化信号。另研究知晓防御的Excision攻击及误删正常策略回答的代价；它是对特定攻击策略的分析，非任意攻击者安全证明。 作者报告商业服务约20美元即可显著破坏其测试模型安全，但该金额仅对应所测配置。默认本地实验及跨模型/数据集对照报告三随机种子；表4在EZPOINT、ALFWorld、WebShop上的平均有害评分49.7→14.5，良性任务准确率平均68.0→68.6。分任务ALFWorld准确率50.1±4.0→49.1±7.9，WebShop62.0±3.8→61.1±5.7；平均相近不等于每任务提升。",
+        "recommendation_level": "高",
+        "water_risk": "中",
+        "value_label": "值得核读",
+        "value_reason": "agentic RL的训练环境也是安全边界，检查奖励的行为偏好比仅过滤输入更直接。可在多轮工具任务中联合评估安全退化、正常策略误惩罚和探测成本，而非只比较攻击成功率。",
+        "source_scope": "full_text",
+        "source_note": "直接核读arXiv v1 PDF正文及渲染实验表；核对元数据，未独立复现实验。",
+        "source_evidence": [
+          "§4–5：探测奖励偏好与防御设计",
+          "Table 2–4；§6：跨数据/模型及良性agent任务，三随机种子"
+        ],
+        "model": "manual-full-text-review",
+        "updated_at": "2026-11-14T01:32:03.740855+00:00"
+      }
+    },
+    {
+      "id": "2611.15600v1",
+      "title": "MemCredit: From Relevance to Utility for Decision-Time Memory in Long-Horizon Web Agents",
+      "summary": "Large language model (LLM) agents increasingly operate over long Web interaction histories, making memory management critical for reliable and efficient decision making. Existing methods primarily optimize storage, retrieval, or compression, but the memories most semantically relevant to the current state are not necessarily those that most improve the agent's action. We introduce MemCredit, a decision-centric memory framework that shifts memory selection from semantic relevance to decision utility. MemCredit estimates the state-, reference-context-, and policy-conditional marginal contribution of individual memories through controlled counterfactual interventions, and distills these intervention-derived credits into a lightweight utility estimator. At inference time, semantic relevance is used only for high-recall candidate generation, while predicted utility arbitrates which memories are retained under a fixed token budget, without modifying the underlying agent policy or requiring additional environment interaction. We evaluate MemCredit on ALFWorld and WebShop against representative memory baselines. On ALFWorld, MemCredit achieves 86.57 SR@50 under a 500-token historical-memory budget, compared with 65.67% for BM25 retrieval. Counterfactual analysis further shows that memory utility is sparse, strongly state dependent, and poorly captured by semantic relevance. These results suggest that decision utility provides a more effective principle than relevance alone for long-horizon agent memory management.",
+      "url": "http://arxiv.org/abs/2611.15600v1",
+      "authors": [
+        "Quanjiang Guo",
+        "Sijie Wang",
+        "Qianyang Zhu",
+        "Ben Zhang",
+        "Jinchuan Zhang",
+        "Ke Yan",
+        "Zhao Kang"
+      ],
+      "report_date": "2026-11-14",
+      "published": "2026-11-11",
+      "updated": "2026-11-11",
+      "primary_category": "cs.AI",
+      "categories": [
+        "cs.AI"
+      ],
+      "project_url": "",
+      "repo_url": "",
+      "venue_status": "未确认录用",
+      "recommendation": {
+        "score": 86,
+        "level": "高",
+        "label": "值得核读",
+        "water_risk": "中",
+        "value_judgement": "记忆价值应定义为对特定策略当下决策的边际贡献，可与状态跟踪和失败恢复评测结合。高召回与最终选择应分开消融，并用不同参考集合检验冗余和协同，避免把单次删除的零效应当无用。",
+        "reason": "记忆价值应定义为对特定策略当下决策的边际贡献，可与状态跟踪和失败恢复评测结合。高召回与最终选择应分开消融，并用不同参考集合检验冗余和协同，避免把单次删除的零效应当无用。",
+        "signals": {
+          "agenticRl": false,
+          "multiTurn": true,
+          "longHorizon": true,
+          "memory": true,
+          "reliability": false,
+          "codeOrTool": false,
+          "experiments": true,
+          "survey": false
+        }
+      },
+      "brief": {
+        "authors": [
+          "Quanjiang Guo",
+          "Sijie Wang",
+          "Qianyang Zhu",
+          "Ben Zhang",
+          "Jinchuan Zhang",
+          "Ke Yan",
+          "Zhao Kang"
+        ],
+        "affiliations": "University of Electronic Science and Technology of China；Nanyang Technological University",
+        "date": "2026-11-11",
+        "paper_url": "https://arxiv.org/abs/2611.15600v1",
+        "project_url": "",
+        "repo_url": "",
+        "venue_status": "未确认录用",
+        "contribution": "记忆价值应定义为对特定策略当下决策的边际贡献，可与状态跟踪和失败恢复评测结合。高召回与最终选择应分开消融，并用不同参考集合检验冗余和协同，避免把单次删除的零效应当无用。",
+        "summary": "MemCredit用离线反事实干预学习记忆的决策效用，再在固定历史预算内选证据。ALFWorld和WebShop结果支持效用优于相似度，但收益依赖策略、状态与候选召回。 语义相关的记忆可能冗余，较不相似的失败记录却会改变当前动作；存储与检索指标不足以表示长程行动中的实际价值。 在可重建的同一环境状态中，对给定参考记忆集合增删单条记忆，比较固定策略和续接协议下的回报；用干预credit监督轻量预测器，输入仅含决策前信息。上线时先高召回检索，再按当前已选集合的条件效用逐步选择到预算内，冻结原策略且无需在线反事实交互。 主模型Qwen3.6-27B-FP8；ALFWorld为134个未见任务、最多50步。500历史token下SR@50为86.57%，BM25为65.67%，MemArbiter82.84%；750预算为90.30%。WebShop为200任务/1万商品，官方score0.612对MemArbiter0.586，每步历史token152.1对427.6，减少64.4%；score不是成功率。45任务1041次干预中86.9%无可测变化，效用稀疏；预测训练/开发/测试按任务分离。",
+        "highlights": [
+          "记忆价值应定义为对特定策略当下决策的边际贡献，可与状态跟踪和失败恢复评测结合。高召回与最终选择应分开消融，并用不同参考集合检验冗余和协同，避免把单次删除的零效应当无用。",
+          "阅读来源：arXiv PDF正文；结果限制见详情"
+        ],
+        "motivation": "语义相关的记忆可能冗余，较不相似的失败记录却会改变当前动作；存储与检索指标不足以表示长程行动中的实际价值。",
+        "method": "在可重建的同一环境状态中，对给定参考记忆集合增删单条记忆，比较固定策略和续接协议下的回报；用干预credit监督轻量预测器，输入仅含决策前信息。上线时先高召回检索，再按当前已选集合的条件效用逐步选择到预算内，冻结原策略且无需在线反事实交互。",
+        "experiments": "主模型Qwen3.6-27B-FP8；ALFWorld为134个未见任务、最多50步。500历史token下SR@50为86.57%，BM25为65.67%，MemArbiter82.84%；750预算为90.30%。WebShop为200任务/1万商品，官方score0.612对MemArbiter0.586，每步历史token152.1对427.6，减少64.4%；score不是成功率。45任务1041次干预中86.9%无可测变化，效用稀疏；预测训练/开发/测试按任务分离。",
+        "research_help": "记忆价值应定义为对特定策略当下决策的边际贡献，可与状态跟踪和失败恢复评测结合。高召回与最终选择应分开消融，并用不同参考集合检验冗余和协同，避免把单次删除的零效应当无用。",
+        "recommendation": {
+          "score": 86,
+          "level": "高",
+          "label": "值得核读",
+          "water_risk": "中",
+          "value_judgement": "记忆价值应定义为对特定策略当下决策的边际贡献，可与状态跟踪和失败恢复评测结合。高召回与最终选择应分开消融，并用不同参考集合检验冗余和协同，避免把单次删除的零效应当无用。",
+          "reason": "记忆价值应定义为对特定策略当下决策的边际贡献，可与状态跟踪和失败恢复评测结合。高召回与最终选择应分开消融，并用不同参考集合检验冗余和协同，避免把单次删除的零效应当无用。",
+          "signals": {
+            "agenticRl": false,
+            "multiTurn": true,
+            "longHorizon": true,
+            "memory": true,
+            "reliability": false,
+            "codeOrTool": false,
+            "experiments": true,
+            "survey": false
+          }
+        },
+        "card_summary": "MemCredit用离线反事实干预学习记忆的决策效用，再在固定历史预算内选证据。ALFWorld和WebShop结果支持效用优于相似度，但收益依赖策略、状态与候选召回。",
+        "insight": "记忆价值应定义为对特定策略当下决策的边际贡献，可与状态跟踪和失败恢复评测结合。高召回与最终选择应分开消融，并用不同参考集合检验冗余和协同，避免把单次删除的零效应当无用。",
+        "limitations": "反事实依赖状态重建和固定续接协议，credit同时含长度/位置变化，不是内容的纯因果效应；候选漏召回不能补救。预算仅约束历史，当前观测/目标另计。以确定性推理为主，未给多训练种子结论；跨模型存在GPT-5.4/SR@50例外。PDF会议信息未独立核实录用。",
+        "abstract_zh": "MemCredit用离线反事实干预学习记忆的决策效用，再在固定历史预算内选证据。ALFWorld和WebShop结果支持效用优于相似度，但收益依赖策略、状态与候选召回。",
+        "full_summary": "MemCredit用离线反事实干预学习记忆的决策效用，再在固定历史预算内选证据。ALFWorld和WebShop结果支持效用优于相似度，但收益依赖策略、状态与候选召回。 语义相关的记忆可能冗余，较不相似的失败记录却会改变当前动作；存储与检索指标不足以表示长程行动中的实际价值。 在可重建的同一环境状态中，对给定参考记忆集合增删单条记忆，比较固定策略和续接协议下的回报；用干预credit监督轻量预测器，输入仅含决策前信息。上线时先高召回检索，再按当前已选集合的条件效用逐步选择到预算内，冻结原策略且无需在线反事实交互。 主模型Qwen3.6-27B-FP8；ALFWorld为134个未见任务、最多50步。500历史token下SR@50为86.57%，BM25为65.67%，MemArbiter82.84%；750预算为90.30%。WebShop为200任务/1万商品，官方score0.612对MemArbiter0.586，每步历史token152.1对427.6，减少64.4%；score不是成功率。45任务1041次干预中86.9%无可测变化，效用稀疏；预测训练/开发/测试按任务分离。"
+      },
+      "analysis": {
+        "card_summary": "MemCredit用离线反事实干预学习记忆的决策效用，再在固定历史预算内选证据。ALFWorld和WebShop结果支持效用优于相似度，但收益依赖策略、状态与候选召回。",
+        "motivation": "语义相关的记忆可能冗余，较不相似的失败记录却会改变当前动作；存储与检索指标不足以表示长程行动中的实际价值。",
+        "method": "在可重建的同一环境状态中，对给定参考记忆集合增删单条记忆，比较固定策略和续接协议下的回报；用干预credit监督轻量预测器，输入仅含决策前信息。上线时先高召回检索，再按当前已选集合的条件效用逐步选择到预算内，冻结原策略且无需在线反事实交互。",
+        "experiments": "主模型Qwen3.6-27B-FP8；ALFWorld为134个未见任务、最多50步。500历史token下SR@50为86.57%，BM25为65.67%，MemArbiter82.84%；750预算为90.30%。WebShop为200任务/1万商品，官方score0.612对MemArbiter0.586，每步历史token152.1对427.6，减少64.4%；score不是成功率。45任务1041次干预中86.9%无可测变化，效用稀疏；预测训练/开发/测试按任务分离。",
+        "research_help": "记忆价值应定义为对特定策略当下决策的边际贡献，可与状态跟踪和失败恢复评测结合。高召回与最终选择应分开消融，并用不同参考集合检验冗余和协同，避免把单次删除的零效应当无用。",
+        "insight": "记忆价值应定义为对特定策略当下决策的边际贡献，可与状态跟踪和失败恢复评测结合。高召回与最终选择应分开消融，并用不同参考集合检验冗余和协同，避免把单次删除的零效应当无用。",
+        "limitations": "反事实依赖状态重建和固定续接协议，credit同时含长度/位置变化，不是内容的纯因果效应；候选漏召回不能补救。预算仅约束历史，当前观测/目标另计。以确定性推理为主，未给多训练种子结论；跨模型存在GPT-5.4/SR@50例外。PDF会议信息未独立核实录用。",
+        "abstract_zh": "MemCredit用离线反事实干预学习记忆的决策效用，再在固定历史预算内选证据。ALFWorld和WebShop结果支持效用优于相似度，但收益依赖策略、状态与候选召回。",
+        "full_summary": "MemCredit用离线反事实干预学习记忆的决策效用，再在固定历史预算内选证据。ALFWorld和WebShop结果支持效用优于相似度，但收益依赖策略、状态与候选召回。 语义相关的记忆可能冗余，较不相似的失败记录却会改变当前动作；存储与检索指标不足以表示长程行动中的实际价值。 在可重建的同一环境状态中，对给定参考记忆集合增删单条记忆，比较固定策略和续接协议下的回报；用干预credit监督轻量预测器，输入仅含决策前信息。上线时先高召回检索，再按当前已选集合的条件效用逐步选择到预算内，冻结原策略且无需在线反事实交互。 主模型Qwen3.6-27B-FP8；ALFWorld为134个未见任务、最多50步。500历史token下SR@50为86.57%，BM25为65.67%，MemArbiter82.84%；750预算为90.30%。WebShop为200任务/1万商品，官方score0.612对MemArbiter0.586，每步历史token152.1对427.6，减少64.4%；score不是成功率。45任务1041次干预中86.9%无可测变化，效用稀疏；预测训练/开发/测试按任务分离。",
+        "recommendation_level": "高",
+        "water_risk": "中",
+        "value_label": "值得核读",
+        "value_reason": "记忆价值应定义为对特定策略当下决策的边际贡献，可与状态跟踪和失败恢复评测结合。高召回与最终选择应分开消融，并用不同参考集合检验冗余和协同，避免把单次删除的零效应当无用。",
+        "source_scope": "full_text",
+        "source_note": "直接核读arXiv v1 PDF正文及渲染实验表；核对元数据，未独立复现实验。",
+        "source_evidence": [
+          "§3：上下文条件credit与增删干预、任务分离、预算选择",
+          "Table 1–4及Appendix：历史预算、WebShop score和干预分析"
+        ],
+        "model": "manual-full-text-review",
+        "updated_at": "2026-11-14T01:32:03.740855+00:00"
+      }
+    },
+    {
+      "id": "2611.15729v1",
+      "title": "DISCERN: Preserve at Write, Resolve at Read for Persistent LLM-Agent Memory",
+      "summary": "Enterprise agents accumulate memory across dozens of sessions in which facts contradict, get superseded, and blur as similarly named entities collide in embedding space. The field treats this as a retrieval problem; we show it is not. On ENT-310, a synthetic enterprise sales-agent memory benchmark of 310 queries (210 answerable, 100 unanswerable), a vanilla Retrieval-Augmented Generation (RAG) reader over a memory store already matches strong memory systems on the recall pillars. Retention and currency are near-saturated, roughly 0.93 to 0.98 for every competent system, so recall is essentially solved. What remains unsolved is resolution: which entity a query refers to, which time-state is current, and whether to commit an answer at all or decline when evidence is insufficient. We propose DISCERN (DISambiguation and Cross-session Episodic memoRy Navigation), an agent-memory framework built on a single rule: preserve at write, resolve at read. At write time DISCERN builds a strictly additive bi-temporal provenance graph that never merges confusable entities and never drops superseded values. At read time a zero-LLM tool surface drives an agentic loop that navigates this graph and commits exactly one of four gated terminal actions. A four-judge LLM-as-a-Judge council scores two axes: answer correctness on answerable questions, and the answer-versus-abstain decision as a classification problem. On ENT-310, DISCERN is the best-calibrated system on abstention (F1 0.924 versus at most 0.802 across eight baselines) and leads macro answer correctness under equal pillar weighting (0.861 versus 0.806 for the strongest baseline), a lead driven by entity resolution (0.800, where no baseline exceeds 0.40). Applied with zero tuning to the full LoCoMo corpus, the same pipeline again leads macro answer correctness (0.663 versus 0.638) and stays among the best-calibrated on false-premise abstention.",
+      "url": "http://arxiv.org/abs/2611.15729v1",
+      "authors": [
+        "Chirag Ahuja",
+        "Vladislav Tanov",
+        "Ramcharan Kakarla",
+        "Jonathan Taws"
+      ],
+      "report_date": "2026-11-14",
+      "published": "2026-11-11",
+      "updated": "2026-11-11",
+      "primary_category": "cs.AI",
+      "categories": [
+        "cs.AI"
+      ],
+      "project_url": "",
+      "repo_url": "",
+      "venue_status": "未确认录用",
+      "recommendation": {
+        "score": 76,
+        "level": "高",
+        "label": "值得核读",
+        "water_risk": "中",
+        "value_judgement": "多轮记忆评测应分开测证据充分性、实体/时间解析和最终承诺；澄清与拒答应有独立precision/recall，防止靠一律拒答虚增表现。可保留可逆写入，再训练查询时证据导航；检索已解决的论断仅在这些测试集成立。",
+        "reason": "多轮记忆评测应分开测证据充分性、实体/时间解析和最终承诺；澄清与拒答应有独立precision/recall，防止靠一律拒答虚增表现。可保留可逆写入，再训练查询时证据导航；检索已解决的论断仅在这些测试集成立。",
+        "signals": {
+          "agenticRl": false,
+          "multiTurn": false,
+          "longHorizon": false,
+          "memory": true,
+          "reliability": true,
+          "codeOrTool": true,
+          "experiments": true,
+          "survey": false
+        }
+      },
+      "brief": {
+        "authors": [
+          "Chirag Ahuja",
+          "Vladislav Tanov",
+          "Ramcharan Kakarla",
+          "Jonathan Taws"
+        ],
+        "affiliations": "Amazon",
+        "date": "2026-11-11",
+        "paper_url": "https://arxiv.org/abs/2611.15729v1",
+        "project_url": "",
+        "repo_url": "",
+        "venue_status": "未确认录用",
+        "contribution": "多轮记忆评测应分开测证据充分性、实体/时间解析和最终承诺；澄清与拒答应有独立precision/recall，防止靠一律拒答虚增表现。可保留可逆写入，再训练查询时证据导航；检索已解决的论断仅在这些测试集成立。",
+        "summary": "DISCERN在写入时保留冲突与历史，在读取时逐步消歧并选择回答、更新、澄清或拒答。跨会话记忆结果较好，但小型合成企业集与LLM评分限制结论范围。 企业跨会话事实会过时、矛盾或实体同名；找到证据不保证答对，过早合并或删除会损失解决冲突所需的来源。 以不可变事件日志为真源，派生可重建的实体家族图、双时间事实表和episode层；混淆实体不合并、过期事实软失效。读取由LLM驱动有界导航，通过确定性工具收集证据，并以证据门控终结为ANSWER/UPDATE/CLARIFY/ABSTAIN。zero-LLM指工具内部无LLM，不是整个读写过程不调用LLM。 ENT-310含210可回答、100不可回答问题；四LLM评审下四能力等权宏平均0.861，对最强基线0.806，实体消歧0.800对至多0.400；拒答F1为0.924对至多0.802。LoCoMo四可回答类别宏平均0.663对HippoRAG2的0.638，不含对抗题；另评446道错误前提问题。主模型Sonnet；平均4.1导航轮、5.7工具调用、读取延迟7.6秒。DISCERN和HippoRAG2为三种子，其他主基线多数单种子。",
+        "highlights": [
+          "多轮记忆评测应分开测证据充分性、实体/时间解析和最终承诺；澄清与拒答应有独立precision/recall，防止靠一律拒答虚增表现。可保留可逆写入，再训练查询时证据导航；检索已解决的论断仅在这些测试集成立。",
+          "阅读来源：arXiv PDF正文；结果限制见详情"
+        ],
+        "motivation": "企业跨会话事实会过时、矛盾或实体同名；找到证据不保证答对，过早合并或删除会损失解决冲突所需的来源。",
+        "method": "以不可变事件日志为真源，派生可重建的实体家族图、双时间事实表和episode层；混淆实体不合并、过期事实软失效。读取由LLM驱动有界导航，通过确定性工具收集证据，并以证据门控终结为ANSWER/UPDATE/CLARIFY/ABSTAIN。zero-LLM指工具内部无LLM，不是整个读写过程不调用LLM。",
+        "experiments": "ENT-310含210可回答、100不可回答问题；四LLM评审下四能力等权宏平均0.861，对最强基线0.806，实体消歧0.800对至多0.400；拒答F1为0.924对至多0.802。LoCoMo四可回答类别宏平均0.663对HippoRAG2的0.638，不含对抗题；另评446道错误前提问题。主模型Sonnet；平均4.1导航轮、5.7工具调用、读取延迟7.6秒。DISCERN和HippoRAG2为三种子，其他主基线多数单种子。",
+        "research_help": "多轮记忆评测应分开测证据充分性、实体/时间解析和最终承诺；澄清与拒答应有独立precision/recall，防止靠一律拒答虚增表现。可保留可逆写入，再训练查询时证据导航；检索已解决的论断仅在这些测试集成立。",
+        "recommendation": {
+          "score": 76,
+          "level": "高",
+          "label": "值得核读",
+          "water_risk": "中",
+          "value_judgement": "多轮记忆评测应分开测证据充分性、实体/时间解析和最终承诺；澄清与拒答应有独立precision/recall，防止靠一律拒答虚增表现。可保留可逆写入，再训练查询时证据导航；检索已解决的论断仅在这些测试集成立。",
+          "reason": "多轮记忆评测应分开测证据充分性、实体/时间解析和最终承诺；澄清与拒答应有独立precision/recall，防止靠一律拒答虚增表现。可保留可逆写入，再训练查询时证据导航；检索已解决的论断仅在这些测试集成立。",
+          "signals": {
+            "agenticRl": false,
+            "multiTurn": false,
+            "longHorizon": false,
+            "memory": true,
+            "reliability": true,
+            "codeOrTool": true,
+            "experiments": true,
+            "survey": false
+          }
+        },
+        "card_summary": "DISCERN在写入时保留冲突与历史，在读取时逐步消歧并选择回答、更新、澄清或拒答。跨会话记忆结果较好，但小型合成企业集与LLM评分限制结论范围。",
+        "insight": "多轮记忆评测应分开测证据充分性、实体/时间解析和最终承诺；澄清与拒答应有独立precision/recall，防止靠一律拒答虚增表现。可保留可逆写入，再训练查询时证据导航；检索已解决的论断仅在这些测试集成立。",
+        "limitations": "ENT合成且实体消歧仅15题，宏平均放大小类别影响；LLM评审存在残余偏差，评审团不能保证消除同族偏差。导航消融用单评审、单种子且关闭governance gate，不能与主表直接比较。后端/模型和调用预算也影响效果。工作坊页脚未独立核实录用。",
+        "abstract_zh": "DISCERN在写入时保留冲突与历史，在读取时逐步消歧并选择回答、更新、澄清或拒答。跨会话记忆结果较好，但小型合成企业集与LLM评分限制结论范围。",
+        "full_summary": "DISCERN在写入时保留冲突与历史，在读取时逐步消歧并选择回答、更新、澄清或拒答。跨会话记忆结果较好，但小型合成企业集与LLM评分限制结论范围。 企业跨会话事实会过时、矛盾或实体同名；找到证据不保证答对，过早合并或删除会损失解决冲突所需的来源。 以不可变事件日志为真源，派生可重建的实体家族图、双时间事实表和episode层；混淆实体不合并、过期事实软失效。读取由LLM驱动有界导航，通过确定性工具收集证据，并以证据门控终结为ANSWER/UPDATE/CLARIFY/ABSTAIN。zero-LLM指工具内部无LLM，不是整个读写过程不调用LLM。 ENT-310含210可回答、100不可回答问题；四LLM评审下四能力等权宏平均0.861，对最强基线0.806，实体消歧0.800对至多0.400；拒答F1为0.924对至多0.802。LoCoMo四可回答类别宏平均0.663对HippoRAG2的0.638，不含对抗题；另评446道错误前提问题。主模型Sonnet；平均4.1导航轮、5.7工具调用、读取延迟7.6秒。DISCERN和HippoRAG2为三种子，其他主基线多数单种子。"
+      },
+      "analysis": {
+        "card_summary": "DISCERN在写入时保留冲突与历史，在读取时逐步消歧并选择回答、更新、澄清或拒答。跨会话记忆结果较好，但小型合成企业集与LLM评分限制结论范围。",
+        "motivation": "企业跨会话事实会过时、矛盾或实体同名；找到证据不保证答对，过早合并或删除会损失解决冲突所需的来源。",
+        "method": "以不可变事件日志为真源，派生可重建的实体家族图、双时间事实表和episode层；混淆实体不合并、过期事实软失效。读取由LLM驱动有界导航，通过确定性工具收集证据，并以证据门控终结为ANSWER/UPDATE/CLARIFY/ABSTAIN。zero-LLM指工具内部无LLM，不是整个读写过程不调用LLM。",
+        "experiments": "ENT-310含210可回答、100不可回答问题；四LLM评审下四能力等权宏平均0.861，对最强基线0.806，实体消歧0.800对至多0.400；拒答F1为0.924对至多0.802。LoCoMo四可回答类别宏平均0.663对HippoRAG2的0.638，不含对抗题；另评446道错误前提问题。主模型Sonnet；平均4.1导航轮、5.7工具调用、读取延迟7.6秒。DISCERN和HippoRAG2为三种子，其他主基线多数单种子。",
+        "research_help": "多轮记忆评测应分开测证据充分性、实体/时间解析和最终承诺；澄清与拒答应有独立precision/recall，防止靠一律拒答虚增表现。可保留可逆写入，再训练查询时证据导航；检索已解决的论断仅在这些测试集成立。",
+        "insight": "多轮记忆评测应分开测证据充分性、实体/时间解析和最终承诺；澄清与拒答应有独立precision/recall，防止靠一律拒答虚增表现。可保留可逆写入，再训练查询时证据导航；检索已解决的论断仅在这些测试集成立。",
+        "limitations": "ENT合成且实体消歧仅15题，宏平均放大小类别影响；LLM评审存在残余偏差，评审团不能保证消除同族偏差。导航消融用单评审、单种子且关闭governance gate，不能与主表直接比较。后端/模型和调用预算也影响效果。工作坊页脚未独立核实录用。",
+        "abstract_zh": "DISCERN在写入时保留冲突与历史，在读取时逐步消歧并选择回答、更新、澄清或拒答。跨会话记忆结果较好，但小型合成企业集与LLM评分限制结论范围。",
+        "full_summary": "DISCERN在写入时保留冲突与历史，在读取时逐步消歧并选择回答、更新、澄清或拒答。跨会话记忆结果较好，但小型合成企业集与LLM评分限制结论范围。 企业跨会话事实会过时、矛盾或实体同名；找到证据不保证答对，过早合并或删除会损失解决冲突所需的来源。 以不可变事件日志为真源，派生可重建的实体家族图、双时间事实表和episode层；混淆实体不合并、过期事实软失效。读取由LLM驱动有界导航，通过确定性工具收集证据，并以证据门控终结为ANSWER/UPDATE/CLARIFY/ABSTAIN。zero-LLM指工具内部无LLM，不是整个读写过程不调用LLM。 ENT-310含210可回答、100不可回答问题；四LLM评审下四能力等权宏平均0.861，对最强基线0.806，实体消歧0.800对至多0.400；拒答F1为0.924对至多0.802。LoCoMo四可回答类别宏平均0.663对HippoRAG2的0.638，不含对抗题；另评446道错误前提问题。主模型Sonnet；平均4.1导航轮、5.7工具调用、读取延迟7.6秒。DISCERN和HippoRAG2为三种子，其他主基线多数单种子。",
+        "recommendation_level": "高",
+        "water_risk": "中",
+        "value_label": "值得核读",
+        "value_reason": "多轮记忆评测应分开测证据充分性、实体/时间解析和最终承诺；澄清与拒答应有独立precision/recall，防止靠一律拒答虚增表现。可保留可逆写入，再训练查询时证据导航；检索已解决的论断仅在这些测试集成立。",
+        "source_scope": "full_text",
+        "source_note": "直接核读arXiv v1 PDF正文及渲染实验表；核对元数据，未独立复现实验。",
+        "source_evidence": [
+          "§3–4：不可变日志、双时间图、终结门控与评测定义",
+          "Table 1–6；§5 Caveats：宏平均、种子差异、导航开销和消融口径"
+        ],
+        "model": "manual-full-text-review",
+        "updated_at": "2026-11-14T01:32:03.740855+00:00"
+      }
+    },
     {
       "id": "2611.14009v1",
       "title": "Coding Agent Memory Post-Training II: Unlocking the Memory Potential of Pre-trained File Operations for Long-Horizon Tasks via On-Policy Distillation",
