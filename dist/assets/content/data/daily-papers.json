@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-14T01:32:03.740855+00:00",
+  "updated_at": "2026-11-17T01:33:52.026101+00:00",
   "source": "arxiv",
   "analysis_method": "Codex CLI workflow with manual arXiv PDF full-text review and rendered result-page verification; per-item source notes identify the analysis path.",
   "query_focus": "多轮交互式 agent planning、long-horizon planning、stateful/personalized planning、agent memory、planning reliability、agentic RL",
@@ -37,34 +37,30 @@
     "codex_reader": "Downloads arXiv PDFs, extracts text with pdftotext or bundled Python PDF libraries, then calls codex exec to write Chinese motivation/method/experiment/research-help fields."
   },
   "digest": {
-    "title": "2026-11-14 Daily Paper",
-    "report_date": "2026-11-14",
+    "title": "2026-11-17 Daily Paper",
+    "report_date": "2026-11-17",
     "focus": "多轮交互式 agent planning、long-horizon planning、stateful/personalized planning、agent memory、planning reliability、agentic RL",
-    "summary": "今日新增7篇：交互式需求修订、长程agent记忆、事后逐步评判与多轮RL训练统计及安全。已核读正文与实验表，区分作者报告、方法解释与尚未验证的泛化。",
+    "summary": "今日新增3篇：会话间隔后的时间适应、随agentic RL演化的可执行harness、仿真反馈驱动的联合规划。已核读正文及实验表，保留任务范围、成本和验证局限。",
     "top_recommendations": [
-      "2611.16466v1",
-      "2611.15600v1",
-      "2611.16816v1"
+      "2611.18533v1",
+      "2611.17806v1",
+      "2611.17850v1"
     ],
     "low_priority": [],
     "no_news_policy": "如果没有新的高相关论文，自动化应返回“今日无高相关新增论文”，不写邮件正文文件，也不发送邮件。",
     "email_body": ""
   },
   "latest_item_ids": [
-    "2611.17068v1",
-    "2611.16466v1",
-    "2611.17167v1",
-    "2611.16816v1",
-    "2611.16369v1",
-    "2611.15600v1",
-    "2611.15729v1"
+    "2611.17806v1",
+    "2611.18533v1",
+    "2611.17850v1"
   ],
   "archive": {
     "policy": "append_or_update_by_arxiv_id",
-    "fresh_items": 7,
-    "total_items": 588,
-    "previous_items": 581,
-    "latest_items": 7,
+    "fresh_items": 3,
+    "total_items": 591,
+    "previous_items": 588,
+    "latest_items": 3,
     "source_report_dates": {
       "2026-11-14": 7,
       "2026-11-12": 2,
@@ -130,27 +126,370 @@
       "2026-07-06": 8,
       "2026-07-04": 8,
       "2026-07-02": 2,
-      "undefined": 39
+      "undefined": 39,
+      "2026-11-17": 3
     },
     "filtered_candidate_ids": [
-      "2611.17068v1",
-      "2611.16466v1",
-      "2611.17167v1",
-      "2611.16816v1",
-      "2611.16369v1",
-      "2611.15600v1",
-      "2611.15729v1"
+      "2611.17806v1",
+      "2611.18533v1",
+      "2611.17850v1"
     ],
-    "filtered_today": 7,
+    "filtered_today": 3,
     "rejected_candidate_ids": [
+      "2611.17917v1",
+      "2611.18364v1",
+      "2611.18543v1",
+      "2611.17793v1",
       "2611.16574v1",
-      "2611.15436v1",
-      "2611.15585v1",
-      "2611.14009v2",
-      "2611.11789v1"
+      "2611.15436v1"
     ]
   },
   "items": [
+    {
+      "id": "2611.17806v1",
+      "title": "Can Agents Keep Up with Time? An Empirical Analysis of Temporal Adaptation After a Conversational Hiatus",
+      "summary": "Long-horizon agents increasingly serve as persistent personal assistants across modern web platforms, managing schedules, applications, and multi-step plans over weeks or months. Users often return to an ongoing conversation after a long conversational hiatus, while earlier bookings and preparation notes stay on record. During this hiatus, scheduled dates may pass even though the retained records remain unchanged and event outcomes go unrecorded. Existing evaluations of long-horizon agents focus on fact retention and explicit state updates. Whether agents perceive the passage of time and adapt their advice accordingly therefore remains unknown. We frame this ability as temporal state perception and use, which means perceiving the current time and applying it when interpreting dated records. To study it, we design session-rekindling tasks that keep the earlier conversation fixed and vary only the follow-up date and the way temporal information reaches the agent. Experiments across five model routes and five temporal-information conditions show that agents can obtain the current time but often fail to use it. They reliably query the clock and even note in their reasoning that the scheduled date has passed, yet many still tell users to prepare for the expired event. Supplying explicit temporal context reduces this error, and providing the computed date relation removes it entirely. Keeping up with time therefore depends on turning perceived time into updated plans. Based on these findings, we design a session-rekindling benchmark that provides temporal-awareness guidance for designing long-horizon agents. The code can be found at https://github.com/Adoreu2/session-rekindling-benchmark.",
+      "url": "http://arxiv.org/abs/2611.17806v1",
+      "authors": [
+        "Hongguan Su",
+        "Ming Wang",
+        "Shun Zhang",
+        "Yifan Wang",
+        "Rong Yin",
+        "Zhiming Ma",
+        "Mengzheng Yang",
+        "Peng Chen"
+      ],
+      "report_date": "2026-11-17",
+      "published": "2026-11-13",
+      "updated": "2026-11-13",
+      "primary_category": "cs.AI",
+      "categories": [
+        "cs.AI"
+      ],
+      "project_url": "",
+      "repo_url": "https://github.com/Adoreu2/session-rekindling-benchmark",
+      "venue_status": "未确认录用",
+      "recommendation": {
+        "score": 78,
+        "level": "高",
+        "label": "值得核读",
+        "water_risk": "中",
+        "value_judgement": "长程可靠性需要把时间观察转换为计划前提更新。可在恢复会话时显式计算“日期已过、结果未知”，让下游计划引用这一状态，并把事件完成证据与日历关系分开评测；这仍是待验证的系统设计启发。",
+        "reason": "长程可靠性需要把时间观察转换为计划前提更新。可在恢复会话时显式计算“日期已过、结果未知”，让下游计划引用这一状态，并把事件完成证据与日历关系分开评测；这仍是待验证的系统设计启发。",
+        "signals": {
+          "agenticRl": false,
+          "multiTurn": false,
+          "longHorizon": true,
+          "memory": false,
+          "reliability": true,
+          "codeOrTool": true,
+          "experiments": true,
+          "survey": false
+        }
+      },
+      "brief": {
+        "authors": [
+          "Hongguan Su",
+          "Ming Wang",
+          "Shun Zhang",
+          "Yifan Wang",
+          "Rong Yin",
+          "Zhiming Ma",
+          "Mengzheng Yang",
+          "Peng Chen"
+        ],
+        "affiliations": "People’s Public Security University of China；Northeastern University；Beihang University；JD.com；Henan University",
+        "date": "2026-11-13",
+        "paper_url": "https://arxiv.org/abs/2611.17806v1",
+        "project_url": "",
+        "repo_url": "https://github.com/Adoreu2/session-rekindling-benchmark",
+        "venue_status": "未确认录用",
+        "contribution": "长程可靠性需要把时间观察转换为计划前提更新。可在恢复会话时显式计算“日期已过、结果未知”，让下游计划引用这一状态，并把事件完成证据与日历关系分开评测；这仍是待验证的系统设计启发。",
+        "summary": "长间隔后重新开启会话，agent即使查到当前日期，也可能继续建议准备已过期的事件。显式提供日期关系消除了该测试中的过时准备建议，但事件是否完成仍须澄清。 持久助手的历史预约记录可以一直为真，但随着时间流逝已不再适合指导未来行动；现有记忆评测偏重事实保留和显式更新，忽略无新消息时的日历状态变化。 构造中文合成session-rekindling任务，保持历史对话与记录不变，仅改变虚拟时间为事件前15/1天或后30/120天；从12条记录中用oracle词法匹配取4条。五种条件分别要求主动查钟、直接给时间、注入Clock结果、显式给日期关系、指定用户参考日期。分别测工具调用、过时准备表述、日期判断和建议合适度，并比对可见推理与最终回答。 五个模型路由共940条主实验回答，另有350条直接日期推理基线。表6对已解析的事件后回答统计：Natural过时准备表述73/124，Delivered为32/132，Forced为48/188，Relation为0/189；这些是不同已解析分母，不是完全配对成功率。116/346个事件后案例在可见推理中承认日期已过，最终仍给过时计划。表7给配对条件比较，存在基线错误的路由均改善；不同路由差异明显。",
+        "highlights": [
+          "长程可靠性需要把时间观察转换为计划前提更新。可在恢复会话时显式计算“日期已过、结果未知”，让下游计划引用这一状态，并把事件完成证据与日历关系分开评测；这仍是待验证的系统设计启发。",
+          "阅读来源：arXiv PDF正文；实验边界见详情"
+        ],
+        "motivation": "持久助手的历史预约记录可以一直为真，但随着时间流逝已不再适合指导未来行动；现有记忆评测偏重事实保留和显式更新，忽略无新消息时的日历状态变化。",
+        "method": "构造中文合成session-rekindling任务，保持历史对话与记录不变，仅改变虚拟时间为事件前15/1天或后30/120天；从12条记录中用oracle词法匹配取4条。五种条件分别要求主动查钟、直接给时间、注入Clock结果、显式给日期关系、指定用户参考日期。分别测工具调用、过时准备表述、日期判断和建议合适度，并比对可见推理与最终回答。",
+        "experiments": "五个模型路由共940条主实验回答，另有350条直接日期推理基线。表6对已解析的事件后回答统计：Natural过时准备表述73/124，Delivered为32/132，Forced为48/188，Relation为0/189；这些是不同已解析分母，不是完全配对成功率。116/346个事件后案例在可见推理中承认日期已过，最终仍给过时计划。表7给配对条件比较，存在基线错误的路由均改善；不同路由差异明显。",
+        "research_help": "长程可靠性需要把时间观察转换为计划前提更新。可在恢复会话时显式计算“日期已过、结果未知”，让下游计划引用这一状态，并把事件完成证据与日历关系分开评测；这仍是待验证的系统设计启发。",
+        "recommendation": {
+          "score": 78,
+          "level": "高",
+          "label": "值得核读",
+          "water_risk": "中",
+          "value_judgement": "长程可靠性需要把时间观察转换为计划前提更新。可在恢复会话时显式计算“日期已过、结果未知”，让下游计划引用这一状态，并把事件完成证据与日历关系分开评测；这仍是待验证的系统设计启发。",
+          "reason": "长程可靠性需要把时间观察转换为计划前提更新。可在恢复会话时显式计算“日期已过、结果未知”，让下游计划引用这一状态，并把事件完成证据与日历关系分开评测；这仍是待验证的系统设计启发。",
+          "signals": {
+            "agenticRl": false,
+            "multiTurn": false,
+            "longHorizon": true,
+            "memory": false,
+            "reliability": true,
+            "codeOrTool": true,
+            "experiments": true,
+            "survey": false
+          }
+        },
+        "card_summary": "长间隔后重新开启会话，agent即使查到当前日期，也可能继续建议准备已过期的事件。显式提供日期关系消除了该测试中的过时准备建议，但事件是否完成仍须澄清。",
+        "insight": "长程可靠性需要把时间观察转换为计划前提更新。可在恢复会话时显式计算“日期已过、结果未知”，让下游计划引用这一状态，并把事件完成证据与日历关系分开评测；这仍是待验证的系统设计启发。",
+        "limitations": "合成中文服务场景和oracle检索隔离了时间使用问题，不能代表真实长期自主行动。Relation的0/189仅指过时准备表述消失，不代表所有建议正确，也不证明事件已完成；词法完成标记包含试探措辞。模型路由和LLM评判存在限制，未独立复现实验。",
+        "abstract_zh": "长间隔后重新开启会话，agent即使查到当前日期，也可能继续建议准备已过期的事件。显式提供日期关系消除了该测试中的过时准备建议，但事件是否完成仍须澄清。 持久助手的历史预约记录可以一直为真，但随着时间流逝已不再适合指导未来行动；现有记忆评测偏重事实保留和显式更新，忽略无新消息时的日历状态变化。",
+        "full_summary": "长间隔后重新开启会话，agent即使查到当前日期，也可能继续建议准备已过期的事件。显式提供日期关系消除了该测试中的过时准备建议，但事件是否完成仍须澄清。 持久助手的历史预约记录可以一直为真，但随着时间流逝已不再适合指导未来行动；现有记忆评测偏重事实保留和显式更新，忽略无新消息时的日历状态变化。 构造中文合成session-rekindling任务，保持历史对话与记录不变，仅改变虚拟时间为事件前15/1天或后30/120天；从12条记录中用oracle词法匹配取4条。五种条件分别要求主动查钟、直接给时间、注入Clock结果、显式给日期关系、指定用户参考日期。分别测工具调用、过时准备表述、日期判断和建议合适度，并比对可见推理与最终回答。 五个模型路由共940条主实验回答，另有350条直接日期推理基线。表6对已解析的事件后回答统计：Natural过时准备表述73/124，Delivered为32/132，Forced为48/188，Relation为0/189；这些是不同已解析分母，不是完全配对成功率。116/346个事件后案例在可见推理中承认日期已过，最终仍给过时计划。表7给配对条件比较，存在基线错误的路由均改善；不同路由差异明显。"
+      },
+      "analysis": {
+        "card_summary": "长间隔后重新开启会话，agent即使查到当前日期，也可能继续建议准备已过期的事件。显式提供日期关系消除了该测试中的过时准备建议，但事件是否完成仍须澄清。",
+        "motivation": "持久助手的历史预约记录可以一直为真，但随着时间流逝已不再适合指导未来行动；现有记忆评测偏重事实保留和显式更新，忽略无新消息时的日历状态变化。",
+        "method": "构造中文合成session-rekindling任务，保持历史对话与记录不变，仅改变虚拟时间为事件前15/1天或后30/120天；从12条记录中用oracle词法匹配取4条。五种条件分别要求主动查钟、直接给时间、注入Clock结果、显式给日期关系、指定用户参考日期。分别测工具调用、过时准备表述、日期判断和建议合适度，并比对可见推理与最终回答。",
+        "experiments": "五个模型路由共940条主实验回答，另有350条直接日期推理基线。表6对已解析的事件后回答统计：Natural过时准备表述73/124，Delivered为32/132，Forced为48/188，Relation为0/189；这些是不同已解析分母，不是完全配对成功率。116/346个事件后案例在可见推理中承认日期已过，最终仍给过时计划。表7给配对条件比较，存在基线错误的路由均改善；不同路由差异明显。",
+        "insight": "长程可靠性需要把时间观察转换为计划前提更新。可在恢复会话时显式计算“日期已过、结果未知”，让下游计划引用这一状态，并把事件完成证据与日历关系分开评测；这仍是待验证的系统设计启发。",
+        "limitations": "合成中文服务场景和oracle检索隔离了时间使用问题，不能代表真实长期自主行动。Relation的0/189仅指过时准备表述消失，不代表所有建议正确，也不证明事件已完成；词法完成标记包含试探措辞。模型路由和LLM评判存在限制，未独立复现实验。",
+        "research_help": "长程可靠性需要把时间观察转换为计划前提更新。可在恢复会话时显式计算“日期已过、结果未知”，让下游计划引用这一状态，并把事件完成证据与日历关系分开评测；这仍是待验证的系统设计启发。",
+        "abstract_zh": "长间隔后重新开启会话，agent即使查到当前日期，也可能继续建议准备已过期的事件。显式提供日期关系消除了该测试中的过时准备建议，但事件是否完成仍须澄清。 持久助手的历史预约记录可以一直为真，但随着时间流逝已不再适合指导未来行动；现有记忆评测偏重事实保留和显式更新，忽略无新消息时的日历状态变化。",
+        "full_summary": "长间隔后重新开启会话，agent即使查到当前日期，也可能继续建议准备已过期的事件。显式提供日期关系消除了该测试中的过时准备建议，但事件是否完成仍须澄清。 持久助手的历史预约记录可以一直为真，但随着时间流逝已不再适合指导未来行动；现有记忆评测偏重事实保留和显式更新，忽略无新消息时的日历状态变化。 构造中文合成session-rekindling任务，保持历史对话与记录不变，仅改变虚拟时间为事件前15/1天或后30/120天；从12条记录中用oracle词法匹配取4条。五种条件分别要求主动查钟、直接给时间、注入Clock结果、显式给日期关系、指定用户参考日期。分别测工具调用、过时准备表述、日期判断和建议合适度，并比对可见推理与最终回答。 五个模型路由共940条主实验回答，另有350条直接日期推理基线。表6对已解析的事件后回答统计：Natural过时准备表述73/124，Delivered为32/132，Forced为48/188，Relation为0/189；这些是不同已解析分母，不是完全配对成功率。116/346个事件后案例在可见推理中承认日期已过，最终仍给过时计划。表7给配对条件比较，存在基线错误的路由均改善；不同路由差异明显。",
+        "recommendation_level": "高",
+        "water_risk": "中",
+        "value_label": "值得核读",
+        "value_reason": "长程可靠性需要把时间观察转换为计划前提更新。可在恢复会话时显式计算“日期已过、结果未知”，让下游计划引用这一状态，并把事件完成证据与日历关系分开评测；这仍是待验证的系统设计启发。",
+        "source_scope": "full_text",
+        "source_note": "直接核读arXiv v1 PDF正文及渲染实验表；在线核对元数据，未独立复现实验。",
+        "source_evidence": [
+          "§3–4：任务、时间条件、oracle检索与评判协议",
+          "§5及表3、6、7：过时表述、推理回答分离和配对比较；§7局限"
+        ],
+        "model": "manual-full-text-review",
+        "updated_at": "2026-11-17T01:33:52.026101+00:00"
+      }
+    },
+    {
+      "id": "2611.18533v1",
+      "title": "ModHarness-RL: Recasting Harnesses as Learnable and Evolving Programs for Agentic RL",
+      "summary": "Agentic reinforcement learning (RL) increasingly relies on a harness, the scaffold around the model that decides what it sees of its own interaction and what guidance it receives. Most existing approaches train under a hand-written harness that stays fixed throughout. However, an effective harness depends on the domain, the data and the model, and keeps changing as the model trains. We introduce ModHarness-RL, which recasts the harness as programs that are learned from data and evolve as the model trains with RL. ModHarness-RL records the interaction as structured State, a set of typed blocks, and two core components of the harness are programs over these blocks, a Compression program that assembles the accumulated history into the model's context and a Steering program that supplies guidance when behavior deviates. During RL training, candidate programs are proposed from recent trajectories, verified by execution, and replayed over past trajectories, so the harness tracks how the model's behavior shifts. We study CodeSearch in depth and further analyze ALFWorld and BIRD SQL, with models from 1.5B to 8B. The proposed Compression and Steering mechanisms improve held-out performance over the fixed-harness baseline in most settings. These results suggest that a harness for agentic RL can be learned from the task's data and evolved with the model.",
+      "url": "http://arxiv.org/abs/2611.18533v1",
+      "authors": [
+        "Zelin He",
+        "Siyu Zhu",
+        "Jacob Helwig",
+        "Yujian Liu",
+        "Li An",
+        "Rohit Jain",
+        "Shiyu Chang",
+        "Alborz Geramifard"
+      ],
+      "report_date": "2026-11-17",
+      "published": "2026-11-13",
+      "updated": "2026-11-13",
+      "primary_category": "cs.AI",
+      "categories": [
+        "cs.AI",
+        "cs.CL",
+        "cs.LG"
+      ],
+      "project_url": "",
+      "repo_url": "",
+      "venue_status": "未确认录用",
+      "recommendation": {
+        "score": 76,
+        "level": "高",
+        "label": "值得核读",
+        "water_risk": "中",
+        "value_judgement": "harness应区分需稳定的证据表示与需适应策略变化的行为干预。可用可执行触发器重放历史数据检查失败是否持续，再做前瞻留出验证；历史趋势只是干预依据，不能单独证明未来因果收益。",
+        "reason": "harness应区分需稳定的证据表示与需适应策略变化的行为干预。可用可执行触发器重放历史数据检查失败是否持续，再做前瞻留出验证；历史趋势只是干预依据，不能单独证明未来因果收益。",
+        "signals": {
+          "agenticRl": true,
+          "multiTurn": true,
+          "longHorizon": false,
+          "memory": false,
+          "reliability": false,
+          "codeOrTool": false,
+          "experiments": true,
+          "survey": false
+        }
+      },
+      "brief": {
+        "authors": [
+          "Zelin He",
+          "Siyu Zhu",
+          "Jacob Helwig",
+          "Yujian Liu",
+          "Li An",
+          "Rohit Jain",
+          "Shiyu Chang",
+          "Alborz Geramifard"
+        ],
+        "affiliations": "The Pennsylvania State University；LinkedIn；University of California, Santa Barbara",
+        "date": "2026-11-13",
+        "paper_url": "https://arxiv.org/abs/2611.18533v1",
+        "project_url": "",
+        "repo_url": "",
+        "venue_status": "未确认录用",
+        "contribution": "harness应区分需稳定的证据表示与需适应策略变化的行为干预。可用可执行触发器重放历史数据检查失败是否持续，再做前瞻留出验证；历史趋势只是干预依据，不能单独证明未来因果收益。",
+        "summary": "ModHarness-RL把上下文压缩与行为引导写成可执行程序，并让引导随agent RL训练演化。CodeSearch定位F1相对固定harness提高14–24%，最终方案的压缩程序则在训练前学好并固定。 手写且固定的harness难以同时适配任务、模型和上下文预算；训练中已自行消退的失败也不应继续触发额外指导。 把交互存成含推理、工具调用与结果的typed State。Compression重组历史视图但保留完整记录，训练前从基础策略轨迹学习一次并固定；Steering由触发程序与指导构成，与GRPO策略更新交替演化。候选触发器在历史轨迹库重放以估计失败趋势，由judge决定干预、观察或继续，联合程序只在独立于评估集的训练留出任务上过gate才安装。程序执行不调用额外模型，程序生成使用GPT-5-mini。 表1在SWE-Smith训练、SWE-Bench Lite/Verified/Pro评估CodeSearch的文件/模块/实体定位平均F1，并非修复成功率。Qwen3-4B受限上下文0.303→0.368，充足上下文0.361→0.424；8B分别0.333→0.412和0.403→0.460，相对提高14–24%。对最强比较基线的总体优势约5–12%。ALFWorld/BIRD SQL只测试单独模块，两个模块各自在8种设置中7种改善。消融中持续演化Compression反而下降；图中误差线为同一训练checkpoint重复评估的标准差。",
+        "highlights": [
+          "harness应区分需稳定的证据表示与需适应策略变化的行为干预。可用可执行触发器重放历史数据检查失败是否持续，再做前瞻留出验证；历史趋势只是干预依据，不能单独证明未来因果收益。",
+          "阅读来源：arXiv PDF正文；实验边界见详情"
+        ],
+        "motivation": "手写且固定的harness难以同时适配任务、模型和上下文预算；训练中已自行消退的失败也不应继续触发额外指导。",
+        "method": "把交互存成含推理、工具调用与结果的typed State。Compression重组历史视图但保留完整记录，训练前从基础策略轨迹学习一次并固定；Steering由触发程序与指导构成，与GRPO策略更新交替演化。候选触发器在历史轨迹库重放以估计失败趋势，由judge决定干预、观察或继续，联合程序只在独立于评估集的训练留出任务上过gate才安装。程序执行不调用额外模型，程序生成使用GPT-5-mini。",
+        "experiments": "表1在SWE-Smith训练、SWE-Bench Lite/Verified/Pro评估CodeSearch的文件/模块/实体定位平均F1，并非修复成功率。Qwen3-4B受限上下文0.303→0.368，充足上下文0.361→0.424；8B分别0.333→0.412和0.403→0.460，相对提高14–24%。对最强比较基线的总体优势约5–12%。ALFWorld/BIRD SQL只测试单独模块，两个模块各自在8种设置中7种改善。消融中持续演化Compression反而下降；图中误差线为同一训练checkpoint重复评估的标准差。",
+        "research_help": "harness应区分需稳定的证据表示与需适应策略变化的行为干预。可用可执行触发器重放历史数据检查失败是否持续，再做前瞻留出验证；历史趋势只是干预依据，不能单独证明未来因果收益。",
+        "recommendation": {
+          "score": 76,
+          "level": "高",
+          "label": "值得核读",
+          "water_risk": "中",
+          "value_judgement": "harness应区分需稳定的证据表示与需适应策略变化的行为干预。可用可执行触发器重放历史数据检查失败是否持续，再做前瞻留出验证；历史趋势只是干预依据，不能单独证明未来因果收益。",
+          "reason": "harness应区分需稳定的证据表示与需适应策略变化的行为干预。可用可执行触发器重放历史数据检查失败是否持续，再做前瞻留出验证；历史趋势只是干预依据，不能单独证明未来因果收益。",
+          "signals": {
+            "agenticRl": true,
+            "multiTurn": true,
+            "longHorizon": false,
+            "memory": false,
+            "reliability": false,
+            "codeOrTool": false,
+            "experiments": true,
+            "survey": false
+          }
+        },
+        "card_summary": "ModHarness-RL把上下文压缩与行为引导写成可执行程序，并让引导随agent RL训练演化。CodeSearch定位F1相对固定harness提高14–24%，最终方案的压缩程序则在训练前学好并固定。",
+        "insight": "harness应区分需稳定的证据表示与需适应策略变化的行为干预。可用可执行触发器重放历史数据检查失败是否持续，再做前瞻留出验证；历史趋势只是干预依据，不能单独证明未来因果收益。",
+        "limitations": "完整联合方法及第三方基线的系统比较集中于CodeSearch，不能把单模块跨环境结果说成全系统验证。gate样本有限；GPT-5-mini为闭源程序生成器，确定性规则更适合结构化工具交互。重复checkpoint评估误差不等于独立训练seed稳定性；未独立复现实验。",
+        "abstract_zh": "ModHarness-RL把上下文压缩与行为引导写成可执行程序，并让引导随agent RL训练演化。CodeSearch定位F1相对固定harness提高14–24%，最终方案的压缩程序则在训练前学好并固定。 手写且固定的harness难以同时适配任务、模型和上下文预算；训练中已自行消退的失败也不应继续触发额外指导。",
+        "full_summary": "ModHarness-RL把上下文压缩与行为引导写成可执行程序，并让引导随agent RL训练演化。CodeSearch定位F1相对固定harness提高14–24%，最终方案的压缩程序则在训练前学好并固定。 手写且固定的harness难以同时适配任务、模型和上下文预算；训练中已自行消退的失败也不应继续触发额外指导。 把交互存成含推理、工具调用与结果的typed State。Compression重组历史视图但保留完整记录，训练前从基础策略轨迹学习一次并固定；Steering由触发程序与指导构成，与GRPO策略更新交替演化。候选触发器在历史轨迹库重放以估计失败趋势，由judge决定干预、观察或继续，联合程序只在独立于评估集的训练留出任务上过gate才安装。程序执行不调用额外模型，程序生成使用GPT-5-mini。 表1在SWE-Smith训练、SWE-Bench Lite/Verified/Pro评估CodeSearch的文件/模块/实体定位平均F1，并非修复成功率。Qwen3-4B受限上下文0.303→0.368，充足上下文0.361→0.424；8B分别0.333→0.412和0.403→0.460，相对提高14–24%。对最强比较基线的总体优势约5–12%。ALFWorld/BIRD SQL只测试单独模块，两个模块各自在8种设置中7种改善。消融中持续演化Compression反而下降；图中误差线为同一训练checkpoint重复评估的标准差。"
+      },
+      "analysis": {
+        "card_summary": "ModHarness-RL把上下文压缩与行为引导写成可执行程序，并让引导随agent RL训练演化。CodeSearch定位F1相对固定harness提高14–24%，最终方案的压缩程序则在训练前学好并固定。",
+        "motivation": "手写且固定的harness难以同时适配任务、模型和上下文预算；训练中已自行消退的失败也不应继续触发额外指导。",
+        "method": "把交互存成含推理、工具调用与结果的typed State。Compression重组历史视图但保留完整记录，训练前从基础策略轨迹学习一次并固定；Steering由触发程序与指导构成，与GRPO策略更新交替演化。候选触发器在历史轨迹库重放以估计失败趋势，由judge决定干预、观察或继续，联合程序只在独立于评估集的训练留出任务上过gate才安装。程序执行不调用额外模型，程序生成使用GPT-5-mini。",
+        "experiments": "表1在SWE-Smith训练、SWE-Bench Lite/Verified/Pro评估CodeSearch的文件/模块/实体定位平均F1，并非修复成功率。Qwen3-4B受限上下文0.303→0.368，充足上下文0.361→0.424；8B分别0.333→0.412和0.403→0.460，相对提高14–24%。对最强比较基线的总体优势约5–12%。ALFWorld/BIRD SQL只测试单独模块，两个模块各自在8种设置中7种改善。消融中持续演化Compression反而下降；图中误差线为同一训练checkpoint重复评估的标准差。",
+        "insight": "harness应区分需稳定的证据表示与需适应策略变化的行为干预。可用可执行触发器重放历史数据检查失败是否持续，再做前瞻留出验证；历史趋势只是干预依据，不能单独证明未来因果收益。",
+        "limitations": "完整联合方法及第三方基线的系统比较集中于CodeSearch，不能把单模块跨环境结果说成全系统验证。gate样本有限；GPT-5-mini为闭源程序生成器，确定性规则更适合结构化工具交互。重复checkpoint评估误差不等于独立训练seed稳定性；未独立复现实验。",
+        "research_help": "harness应区分需稳定的证据表示与需适应策略变化的行为干预。可用可执行触发器重放历史数据检查失败是否持续，再做前瞻留出验证；历史趋势只是干预依据，不能单独证明未来因果收益。",
+        "abstract_zh": "ModHarness-RL把上下文压缩与行为引导写成可执行程序，并让引导随agent RL训练演化。CodeSearch定位F1相对固定harness提高14–24%，最终方案的压缩程序则在训练前学好并固定。 手写且固定的harness难以同时适配任务、模型和上下文预算；训练中已自行消退的失败也不应继续触发额外指导。",
+        "full_summary": "ModHarness-RL把上下文压缩与行为引导写成可执行程序，并让引导随agent RL训练演化。CodeSearch定位F1相对固定harness提高14–24%，最终方案的压缩程序则在训练前学好并固定。 手写且固定的harness难以同时适配任务、模型和上下文预算；训练中已自行消退的失败也不应继续触发额外指导。 把交互存成含推理、工具调用与结果的typed State。Compression重组历史视图但保留完整记录，训练前从基础策略轨迹学习一次并固定；Steering由触发程序与指导构成，与GRPO策略更新交替演化。候选触发器在历史轨迹库重放以估计失败趋势，由judge决定干预、观察或继续，联合程序只在独立于评估集的训练留出任务上过gate才安装。程序执行不调用额外模型，程序生成使用GPT-5-mini。 表1在SWE-Smith训练、SWE-Bench Lite/Verified/Pro评估CodeSearch的文件/模块/实体定位平均F1，并非修复成功率。Qwen3-4B受限上下文0.303→0.368，充足上下文0.361→0.424；8B分别0.333→0.412和0.403→0.460，相对提高14–24%。对最强比较基线的总体优势约5–12%。ALFWorld/BIRD SQL只测试单独模块，两个模块各自在8种设置中7种改善。消融中持续演化Compression反而下降；图中误差线为同一训练checkpoint重复评估的标准差。",
+        "recommendation_level": "高",
+        "water_risk": "中",
+        "value_label": "值得核读",
+        "value_reason": "harness应区分需稳定的证据表示与需适应策略变化的行为干预。可用可执行触发器重放历史数据检查失败是否持续，再做前瞻留出验证；历史趋势只是干预依据，不能单独证明未来因果收益。",
+        "source_scope": "full_text",
+        "source_note": "直接核读arXiv v1 PDF正文及渲染实验表；在线核对元数据，未独立复现实验。",
+        "source_evidence": [
+          "§3、算法1：固定Compression与演化Steering、replay和gate",
+          "表1、3与图4：定位F1、模块泛化和消融；Limitations与附录A"
+        ],
+        "model": "manual-full-text-review",
+        "updated_at": "2026-11-17T01:33:52.026101+00:00"
+      }
+    },
+    {
+      "id": "2611.17850v1",
+      "title": "OrbitWeaver: LLM Agent Planning with Simulation Feedback for Optically Interconnected Orbital GPU Clusters",
+      "summary": "Space-based data-center designs increasingly consider GPU computing formations connected by inter-satellite optical links. With limited neighboring connections, jobs assigned disjoint GPUs can still contend on shared relay paths. Rank placement and communication priorities jointly affect this contention and the readiness of downstream computation. We present OrbitWeaver, an offline large language model (LLM) agent planner that jointly optimizes rank placement and communication order. Guided by communication structure, execution dependencies, and simulation feedback, the agent constructs and refines plans that coordinate shared-link access with computation progress. This coordination reduces contention and dependency blocking, shortening mean job completion time (JCT). Simulation experiments on optically interconnected orbital GPU clusters show that OrbitWeaver reduces aggregate mean JCT by 6.2-33.5% relative to the state-of-the-art baselines CASSINI, Crux, and Symphony. These results demonstrate the value of LLM-guided planning for efficient concurrent computing in orbital GPU clusters.",
+      "url": "http://arxiv.org/abs/2611.17850v1",
+      "authors": [
+        "Pengcheng Luo",
+        "Bowen Zhang"
+      ],
+      "report_date": "2026-11-17",
+      "published": "2026-11-13",
+      "updated": "2026-11-13",
+      "primary_category": "cs.DC",
+      "categories": [
+        "cs.DC",
+        "eess.SY"
+      ],
+      "project_url": "",
+      "repo_url": "",
+      "venue_status": "未确认录用",
+      "recommendation": {
+        "score": 60,
+        "level": "高",
+        "label": "值得核读",
+        "water_risk": "中",
+        "value_judgement": "昂贵可验证规划可采用快评估探索、可信评估验收和最优可行计划回退；必须分别报告执行收益与搜索成本，并用共同动作空间与预算的消融识别LLM反馈策略的贡献。",
+        "reason": "昂贵可验证规划可采用快评估探索、可信评估验收和最优可行计划回退；必须分别报告执行收益与搜索成本，并用共同动作空间与预算的消融识别LLM反馈策略的贡献。",
+        "signals": {
+          "agenticRl": false,
+          "multiTurn": false,
+          "longHorizon": true,
+          "memory": false,
+          "reliability": false,
+          "codeOrTool": false,
+          "experiments": true,
+          "survey": false
+        }
+      },
+      "brief": {
+        "authors": [
+          "Pengcheng Luo",
+          "Bowen Zhang"
+        ],
+        "affiliations": "未确认",
+        "date": "2026-11-13",
+        "paper_url": "https://arxiv.org/abs/2611.17850v1",
+        "project_url": "",
+        "repo_url": "",
+        "venue_status": "未确认录用",
+        "contribution": "昂贵可验证规划可采用快评估探索、可信评估验收和最优可行计划回退；必须分别报告执行收益与搜索成本，并用共同动作空间与预算的消融识别LLM反馈策略的贡献。",
+        "summary": "OrbitWeaver让LLM规划器根据结构分析与仿真反馈，迭代联合优化GPU rank放置和通信优先级。36种轨道集群仿真配置中，平均作业完成时间较三个主要基线下降6.2–33.5%，但需要额外离线规划时间。 不同作业即使分到互不重叠的GPU，也可能争用相同多跳光链路；只优化rank放置或通信顺序容易把拥塞转移到别处，需要联合考虑执行依赖和共享路径。 固定每个作业的GPU配额、工作负载轨迹与物理路由，LLM利用共享路径、关键路径与等待诊断生成rank排列和优先级规则。快仿真用于筛选，参考仿真校验完整执行；控制器只保留参考验证后的最优可行计划。每实例允许64次快请求、8次参考请求，失败和缓存命中也计入预算，保留初始计划作fallback；使用gpt-6.1-sol/xhigh多轮工具反馈。 三种工作负载、16/32/64 GPU及四种分配/到达/容量条件共36配置。表III给H200 Mixtral、A100 Transformer、ResNet-18均值JCT为345.390、11.016、1.585秒，相对CASSINI下降21.0–33.5%，Crux下降6.2–16.0%，Symphony下降19.5–25.2%。共享四规则消融与传统搜索比较支持agent反馈规划的增益，但完整方法也用更丰富规则。H200十二配置的规划时间中位数58.76分钟，Candidate Search为43.63、Local Search为52.45分钟；该开销不包含在部署计划JCT中。",
+        "highlights": [
+          "昂贵可验证规划可采用快评估探索、可信评估验收和最优可行计划回退；必须分别报告执行收益与搜索成本，并用共同动作空间与预算的消融识别LLM反馈策略的贡献。",
+          "阅读来源：arXiv PDF正文；实验边界见详情"
+        ],
+        "motivation": "不同作业即使分到互不重叠的GPU，也可能争用相同多跳光链路；只优化rank放置或通信顺序容易把拥塞转移到别处，需要联合考虑执行依赖和共享路径。",
+        "method": "固定每个作业的GPU配额、工作负载轨迹与物理路由，LLM利用共享路径、关键路径与等待诊断生成rank排列和优先级规则。快仿真用于筛选，参考仿真校验完整执行；控制器只保留参考验证后的最优可行计划。每实例允许64次快请求、8次参考请求，失败和缓存命中也计入预算，保留初始计划作fallback；使用gpt-6.1-sol/xhigh多轮工具反馈。",
+        "experiments": "三种工作负载、16/32/64 GPU及四种分配/到达/容量条件共36配置。表III给H200 Mixtral、A100 Transformer、ResNet-18均值JCT为345.390、11.016、1.585秒，相对CASSINI下降21.0–33.5%，Crux下降6.2–16.0%，Symphony下降19.5–25.2%。共享四规则消融与传统搜索比较支持agent反馈规划的增益，但完整方法也用更丰富规则。H200十二配置的规划时间中位数58.76分钟，Candidate Search为43.63、Local Search为52.45分钟；该开销不包含在部署计划JCT中。",
+        "research_help": "昂贵可验证规划可采用快评估探索、可信评估验收和最优可行计划回退；必须分别报告执行收益与搜索成本，并用共同动作空间与预算的消融识别LLM反馈策略的贡献。",
+        "recommendation": {
+          "score": 60,
+          "level": "高",
+          "label": "值得核读",
+          "water_risk": "中",
+          "value_judgement": "昂贵可验证规划可采用快评估探索、可信评估验收和最优可行计划回退；必须分别报告执行收益与搜索成本，并用共同动作空间与预算的消融识别LLM反馈策略的贡献。",
+          "reason": "昂贵可验证规划可采用快评估探索、可信评估验收和最优可行计划回退；必须分别报告执行收益与搜索成本，并用共同动作空间与预算的消融识别LLM反馈策略的贡献。",
+          "signals": {
+            "agenticRl": false,
+            "multiTurn": false,
+            "longHorizon": true,
+            "memory": false,
+            "reliability": false,
+            "codeOrTool": false,
+            "experiments": true,
+            "survey": false
+          }
+        },
+        "card_summary": "OrbitWeaver让LLM规划器根据结构分析与仿真反馈，迭代联合优化GPU rank放置和通信优先级。36种轨道集群仿真配置中，平均作业完成时间较三个主要基线下降6.2–33.5%，但需要额外离线规划时间。",
+        "insight": "昂贵可验证规划可采用快评估探索、可信评估验收和最优可行计划回退；必须分别报告执行收益与搜索成本，并用共同动作空间与预算的消融识别LLM反馈策略的贡献。",
+        "limitations": "结果是固定拓扑和容量下的轨迹驱动仿真，不是实际在轨部署；每配置报告首个独立规划session，缺乏多seed稳定性结论。基线在同一模拟执行器下适配；更丰富规则和额外离线计算也贡献效果，不能将全部提升归因于LLM。未独立复现实验。",
+        "abstract_zh": "OrbitWeaver让LLM规划器根据结构分析与仿真反馈，迭代联合优化GPU rank放置和通信优先级。36种轨道集群仿真配置中，平均作业完成时间较三个主要基线下降6.2–33.5%，但需要额外离线规划时间。 不同作业即使分到互不重叠的GPU，也可能争用相同多跳光链路；只优化rank放置或通信顺序容易把拥塞转移到别处，需要联合考虑执行依赖和共享路径。",
+        "full_summary": "OrbitWeaver让LLM规划器根据结构分析与仿真反馈，迭代联合优化GPU rank放置和通信优先级。36种轨道集群仿真配置中，平均作业完成时间较三个主要基线下降6.2–33.5%，但需要额外离线规划时间。 不同作业即使分到互不重叠的GPU，也可能争用相同多跳光链路；只优化rank放置或通信顺序容易把拥塞转移到别处，需要联合考虑执行依赖和共享路径。 固定每个作业的GPU配额、工作负载轨迹与物理路由，LLM利用共享路径、关键路径与等待诊断生成rank排列和优先级规则。快仿真用于筛选，参考仿真校验完整执行；控制器只保留参考验证后的最优可行计划。每实例允许64次快请求、8次参考请求，失败和缓存命中也计入预算，保留初始计划作fallback；使用gpt-6.1-sol/xhigh多轮工具反馈。 三种工作负载、16/32/64 GPU及四种分配/到达/容量条件共36配置。表III给H200 Mixtral、A100 Transformer、ResNet-18均值JCT为345.390、11.016、1.585秒，相对CASSINI下降21.0–33.5%，Crux下降6.2–16.0%，Symphony下降19.5–25.2%。共享四规则消融与传统搜索比较支持agent反馈规划的增益，但完整方法也用更丰富规则。H200十二配置的规划时间中位数58.76分钟，Candidate Search为43.63、Local Search为52.45分钟；该开销不包含在部署计划JCT中。"
+      },
+      "analysis": {
+        "card_summary": "OrbitWeaver让LLM规划器根据结构分析与仿真反馈，迭代联合优化GPU rank放置和通信优先级。36种轨道集群仿真配置中，平均作业完成时间较三个主要基线下降6.2–33.5%，但需要额外离线规划时间。",
+        "motivation": "不同作业即使分到互不重叠的GPU，也可能争用相同多跳光链路；只优化rank放置或通信顺序容易把拥塞转移到别处，需要联合考虑执行依赖和共享路径。",
+        "method": "固定每个作业的GPU配额、工作负载轨迹与物理路由，LLM利用共享路径、关键路径与等待诊断生成rank排列和优先级规则。快仿真用于筛选，参考仿真校验完整执行；控制器只保留参考验证后的最优可行计划。每实例允许64次快请求、8次参考请求，失败和缓存命中也计入预算，保留初始计划作fallback；使用gpt-6.1-sol/xhigh多轮工具反馈。",
+        "experiments": "三种工作负载、16/32/64 GPU及四种分配/到达/容量条件共36配置。表III给H200 Mixtral、A100 Transformer、ResNet-18均值JCT为345.390、11.016、1.585秒，相对CASSINI下降21.0–33.5%，Crux下降6.2–16.0%，Symphony下降19.5–25.2%。共享四规则消融与传统搜索比较支持agent反馈规划的增益，但完整方法也用更丰富规则。H200十二配置的规划时间中位数58.76分钟，Candidate Search为43.63、Local Search为52.45分钟；该开销不包含在部署计划JCT中。",
+        "insight": "昂贵可验证规划可采用快评估探索、可信评估验收和最优可行计划回退；必须分别报告执行收益与搜索成本，并用共同动作空间与预算的消融识别LLM反馈策略的贡献。",
+        "limitations": "结果是固定拓扑和容量下的轨迹驱动仿真，不是实际在轨部署；每配置报告首个独立规划session，缺乏多seed稳定性结论。基线在同一模拟执行器下适配；更丰富规则和额外离线计算也贡献效果，不能将全部提升归因于LLM。未独立复现实验。",
+        "research_help": "昂贵可验证规划可采用快评估探索、可信评估验收和最优可行计划回退；必须分别报告执行收益与搜索成本，并用共同动作空间与预算的消融识别LLM反馈策略的贡献。",
+        "abstract_zh": "OrbitWeaver让LLM规划器根据结构分析与仿真反馈，迭代联合优化GPU rank放置和通信优先级。36种轨道集群仿真配置中，平均作业完成时间较三个主要基线下降6.2–33.5%，但需要额外离线规划时间。 不同作业即使分到互不重叠的GPU，也可能争用相同多跳光链路；只优化rank放置或通信顺序容易把拥塞转移到别处，需要联合考虑执行依赖和共享路径。",
+        "full_summary": "OrbitWeaver让LLM规划器根据结构分析与仿真反馈，迭代联合优化GPU rank放置和通信优先级。36种轨道集群仿真配置中，平均作业完成时间较三个主要基线下降6.2–33.5%，但需要额外离线规划时间。 不同作业即使分到互不重叠的GPU，也可能争用相同多跳光链路；只优化rank放置或通信顺序容易把拥塞转移到别处，需要联合考虑执行依赖和共享路径。 固定每个作业的GPU配额、工作负载轨迹与物理路由，LLM利用共享路径、关键路径与等待诊断生成rank排列和优先级规则。快仿真用于筛选，参考仿真校验完整执行；控制器只保留参考验证后的最优可行计划。每实例允许64次快请求、8次参考请求，失败和缓存命中也计入预算，保留初始计划作fallback；使用gpt-6.1-sol/xhigh多轮工具反馈。 三种工作负载、16/32/64 GPU及四种分配/到达/容量条件共36配置。表III给H200 Mixtral、A100 Transformer、ResNet-18均值JCT为345.390、11.016、1.585秒，相对CASSINI下降21.0–33.5%，Crux下降6.2–16.0%，Symphony下降19.5–25.2%。共享四规则消融与传统搜索比较支持agent反馈规划的增益，但完整方法也用更丰富规则。H200十二配置的规划时间中位数58.76分钟，Candidate Search为43.63、Local Search为52.45分钟；该开销不包含在部署计划JCT中。",
+        "recommendation_level": "高",
+        "water_risk": "中",
+        "value_label": "值得核读",
+        "value_reason": "昂贵可验证规划可采用快评估探索、可信评估验收和最优可行计划回退；必须分别报告执行收益与搜索成本，并用共同动作空间与预算的消融识别LLM反馈策略的贡献。",
+        "source_scope": "full_text",
+        "source_note": "直接核读arXiv v1 PDF正文及渲染实验表；在线核对元数据，未独立复现实验。",
+        "source_evidence": [
+          "§III–IV、算法1：联合候选、快/参考仿真与预算控制",
+          "§V表III、V–VII：JCT、规则消融及离线时间；附录A规划提示"
+        ],
+        "model": "manual-full-text-review",
+        "updated_at": "2026-11-17T01:33:52.026101+00:00"
+      }
+    },
     {
       "id": "2611.17068v1",
       "title": "Discovering Effective Agent Memory Designs through Program Evolution",
