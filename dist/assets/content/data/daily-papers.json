@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-18T01:36:20.460684+00:00",
+  "updated_at": "2026-11-19T01:38:52.150599+00:00",
   "source": "arxiv",
   "analysis_method": "Codex CLI workflow with manual arXiv PDF full-text review and rendered result-page verification; per-item source notes identify the analysis path.",
   "query_focus": "多轮交互式 agent planning、long-horizon planning、stateful/personalized planning、agent memory、planning reliability、agentic RL",
@@ -37,39 +37,34 @@
     "codex_reader": "Downloads arXiv PDFs, extracts text with pdftotext or bundled Python PDF libraries, then calls codex exec to write Chinese motivation/method/experiment/research-help fields."
   },
   "digest": {
-    "title": "2026-11-18 Daily Paper",
-    "report_date": "2026-11-18",
+    "title": "2026-11-19 Daily Paper",
+    "report_date": "2026-11-19",
     "focus": "多轮交互式 agent planning、long-horizon planning、stateful/personalized planning、agent memory、planning reliability、agentic RL",
-    "summary": "今日新增12篇：多轮skill效率、agentic RL、长程闭环规划，以及跨会话记忆的整合、纠错、更新与评估。已核读正文和实验表，保留逐设置反例、成本及泛化边界。",
+    "summary": "今日新增7篇：跨环境长程agent训练、运行时harness演化、协作规划，以及多轮记忆编辑、利用和冲突保留。已核读正文，详情区分仿真与实机、检索与行动、成功率与成本，并保留反例和评测边界。",
     "top_recommendations": [
-      "2611.19823v1",
-      "2611.20612v1",
-      "2611.20676v1"
+      "2611.22777v1",
+      "2611.22102v1",
+      "2611.22245v1"
     ],
     "low_priority": [],
     "no_news_policy": "如果没有新的高相关论文，自动化应返回“今日无高相关新增论文”，不写邮件正文文件，也不发送邮件。",
     "email_body": ""
   },
   "latest_item_ids": [
-    "2611.19823v1",
-    "2611.20676v1",
-    "2611.20612v1",
-    "2611.20535v1",
-    "2611.20771v1",
-    "2611.20759v1",
-    "2611.21019v1",
-    "2611.20927v1",
-    "2611.20144v1",
-    "2611.19912v1",
-    "2611.19859v1",
-    "2611.19752v1"
+    "2611.22777v1",
+    "2611.22299v1",
+    "2611.22275v1",
+    "2611.22461v1",
+    "2611.22102v1",
+    "2611.22179v1",
+    "2611.22245v1"
   ],
   "archive": {
     "policy": "append_or_update_by_arxiv_id",
-    "fresh_items": 12,
-    "total_items": 603,
-    "previous_items": 591,
-    "latest_items": 12,
+    "fresh_items": 7,
+    "total_items": 610,
+    "previous_items": 603,
+    "latest_items": 7,
     "source_report_dates": {
       "2026-11-14": 7,
       "2026-11-12": 2,
@@ -137,31 +132,716 @@
       "2026-07-02": 2,
       "undefined": 39,
       "2026-11-17": 3,
-      "2026-11-18": 12
+      "2026-11-18": 12,
+      "2026-11-19": 7
     },
     "filtered_candidate_ids": [
-      "2611.19823v1",
-      "2611.20676v1",
-      "2611.20612v1",
-      "2611.20535v1",
-      "2611.20771v1",
-      "2611.20759v1",
-      "2611.21019v1",
-      "2611.20927v1",
-      "2611.20144v1",
-      "2611.19912v1",
-      "2611.19859v1",
-      "2611.19752v1"
+      "2611.22777v1",
+      "2611.22299v1",
+      "2611.22275v1",
+      "2611.22461v1",
+      "2611.22102v1",
+      "2611.22179v1",
+      "2611.22245v1"
     ],
-    "filtered_today": 12,
+    "filtered_today": 7,
     "rejected_candidate_ids": [
-      "2611.21069v1",
-      "2611.20019v1",
-      "2611.20078v1",
-      "2611.19078v1"
+      "2611.22691v1",
+      "2611.22067v1",
+      "2611.22483v1",
+      "2611.21069v1"
     ]
   },
   "items": [
+    {
+      "id": "2611.22777v1",
+      "title": "CrossEnv: Synthesizing Verifiable Cross-Environment Tasks for Long-Horizon Agent Training",
+      "summary": "Executable synthetic environments provide scalable training tasks and verifiable feedback for long-horizon agents. Existing environment synthesis methods primarily generate tasks within individual environments. However, these tasks do not adequately capture real-world interactions across services, where actions in one service depend on information obtained from another. Synthesizing such tasks is challenging because data generated across environments must remain consistent to support executable and verifiable interactions. To address this challenge, we introduce CrossEnv, a framework that uses an entity-tool graph to identify connections between environments and aligns task-specific data to synthesize executable, verifiable cross-environment tasks. We further propose CrossEnv-Curriculum, which progresses from single-environment tool use to coordination across more environments and business domains, before introducing user interaction. Across four external benchmarks, combining cross-environment training data with this curriculum achieves competitive performance with fewer training examples. Further analyses support the benefits of cross-environment data and curriculum training, and provide evidence of transfer to new environment combinations, external tasks less similar to the training data, and longer workflows.",
+      "url": "http://arxiv.org/abs/2611.22777v1",
+      "authors": [
+        "Zhengfeng Yu",
+        "Tian Lan",
+        "Zhijing Wu",
+        "Enbo Zhao",
+        "Xuannan Liu",
+        "Feihu Jiang",
+        "Qianghuai Jia",
+        "Longyue Wang",
+        "Zhao Xu",
+        "Weihua Luo",
+        "Xian-Ling Mao"
+      ],
+      "report_date": "2026-11-19",
+      "published": "2026-11-17",
+      "updated": "2026-11-17",
+      "primary_category": "cs.AI",
+      "categories": [
+        "cs.AI",
+        "cs.CL"
+      ],
+      "project_url": "",
+      "repo_url": "",
+      "venue_status": "未确认录用",
+      "recommendation": {
+        "score": 98,
+        "level": "高",
+        "label": "值得核读",
+        "water_risk": "中",
+        "value_judgement": "长程训练的难度可以由跨环境依赖和业务范围控制，而非单纯拉长轨迹；应分别验证工具覆盖、下游状态和全部约束同时满足。",
+        "reason": "长程训练的难度可以由跨环境依赖和业务范围控制，而非单纯拉长轨迹；应分别验证工具覆盖、下游状态和全部约束同时满足。"
+      },
+      "brief": {
+        "authors": [
+          "Zhengfeng Yu",
+          "Tian Lan",
+          "Zhijing Wu",
+          "Enbo Zhao",
+          "Xuannan Liu",
+          "Feihu Jiang",
+          "Qianghuai Jia",
+          "Longyue Wang",
+          "Zhao Xu",
+          "Weihua Luo",
+          "Xian-Ling Mao"
+        ],
+        "affiliations": "未逐一核实作者单位",
+        "date": "2026-11-17",
+        "paper_url": "https://arxiv.org/abs/2611.22777v1",
+        "project_url": "",
+        "repo_url": "",
+        "venue_status": "未确认录用",
+        "contribution": "长程训练的难度可以由跨环境依赖和业务范围控制，而非单纯拉长轨迹；应分别验证工具覆盖、下游状态和全部约束同时满足。",
+        "summary": "CrossEnv用实体依赖图合成可验证的跨服务任务，并逐步训练工具协调与用户澄清；8B在四项外部评测均提升，但长流程泛化分数不等于严格成功率。 单环境训练缺少跨服务的信息依赖；分别合法的数据也可能互不一致，导致组合任务无法执行或验证。 研究单环境后建立实体–工具依赖图，合并共享类型并采样跨服务工作流，对齐任务数据、生成工具与终态检查。参考轨迹重放通过且五次agent尝试至少两次成功才保留；800条单环境SFT后以2154条任务逐级GRPO，最后加入用户澄清。 共2954训练记录，Qwen3-8B在DeepPlanning从1.7→10.8、VitaBench7.0→14.0、Claw-Eval14.4→23.6，tau2平均11.5→12.3。四项并非全部领先环境训练基线。另测16–18和24–28工具调用参考流程，超出训练最长14；该泛化指标为原子检查平均通过率。",
+        "highlights": [
+          "长程训练的难度可以由跨环境依赖和业务范围控制，而非单纯拉长轨迹；应分别验证工具覆盖、下游状态和全部约束同时满足。",
+          "阅读来源：arXiv PDF正文；实验边界见详情"
+        ],
+        "motivation": "单环境训练缺少跨服务的信息依赖；分别合法的数据也可能互不一致，导致组合任务无法执行或验证。",
+        "method": "研究单环境后建立实体–工具依赖图，合并共享类型并采样跨服务工作流，对齐任务数据、生成工具与终态检查。参考轨迹重放通过且五次agent尝试至少两次成功才保留；800条单环境SFT后以2154条任务逐级GRPO，最后加入用户澄清。",
+        "experiments": "共2954训练记录，Qwen3-8B在DeepPlanning从1.7→10.8、VitaBench7.0→14.0、Claw-Eval14.4→23.6，tau2平均11.5→12.3。四项并非全部领先环境训练基线。另测16–18和24–28工具调用参考流程，超出训练最长14；该泛化指标为原子检查平均通过率。",
+        "research_help": "长程训练的难度可以由跨环境依赖和业务范围控制，而非单纯拉长轨迹；应分别验证工具覆盖、下游状态和全部约束同时满足。",
+        "recommendation": {
+          "score": 98,
+          "level": "高",
+          "label": "值得核读",
+          "water_risk": "中",
+          "value_judgement": "长程训练的难度可以由跨环境依赖和业务范围控制，而非单纯拉长轨迹；应分别验证工具覆盖、下游状态和全部约束同时满足。",
+          "reason": "长程训练的难度可以由跨环境依赖和业务范围控制，而非单纯拉长轨迹；应分别验证工具覆盖、下游状态和全部约束同时满足。"
+        },
+        "card_summary": "CrossEnv用实体依赖图合成可验证的跨服务任务，并逐步训练工具协调与用户澄清；8B在四项外部评测均提升，但长流程泛化分数不等于严格成功率。",
+        "insight": "长程训练的难度可以由跨环境依赖和业务范围控制，而非单纯拉长轨迹；应分别验证工具覆盖、下游状态和全部约束同时满足。",
+        "limitations": "基准使用指定子集与适配器；课程对混合训练虽计算预算接近，但并行、batch和参考模型配置有差异，不能单独归因于顺序。用户交互指标是0–300复合分数。约4K token每候选只计环境构建，排除后续实例化与验收；未独立复现。",
+        "abstract_zh": "CrossEnv用实体依赖图合成可验证的跨服务任务，并逐步训练工具协调与用户澄清；8B在四项外部评测均提升，但长流程泛化分数不等于严格成功率。 单环境训练缺少跨服务的信息依赖；分别合法的数据也可能互不一致，导致组合任务无法执行或验证。",
+        "full_summary": "CrossEnv用实体依赖图合成可验证的跨服务任务，并逐步训练工具协调与用户澄清；8B在四项外部评测均提升，但长流程泛化分数不等于严格成功率。 单环境训练缺少跨服务的信息依赖；分别合法的数据也可能互不一致，导致组合任务无法执行或验证。 研究单环境后建立实体–工具依赖图，合并共享类型并采样跨服务工作流，对齐任务数据、生成工具与终态检查。参考轨迹重放通过且五次agent尝试至少两次成功才保留；800条单环境SFT后以2154条任务逐级GRPO，最后加入用户澄清。 共2954训练记录，Qwen3-8B在DeepPlanning从1.7→10.8、VitaBench7.0→14.0、Claw-Eval14.4→23.6，tau2平均11.5→12.3。四项并非全部领先环境训练基线。另测16–18和24–28工具调用参考流程，超出训练最长14；该泛化指标为原子检查平均通过率。"
+      },
+      "analysis": {
+        "card_summary": "CrossEnv用实体依赖图合成可验证的跨服务任务，并逐步训练工具协调与用户澄清；8B在四项外部评测均提升，但长流程泛化分数不等于严格成功率。",
+        "motivation": "单环境训练缺少跨服务的信息依赖；分别合法的数据也可能互不一致，导致组合任务无法执行或验证。",
+        "method": "研究单环境后建立实体–工具依赖图，合并共享类型并采样跨服务工作流，对齐任务数据、生成工具与终态检查。参考轨迹重放通过且五次agent尝试至少两次成功才保留；800条单环境SFT后以2154条任务逐级GRPO，最后加入用户澄清。",
+        "experiments": "共2954训练记录，Qwen3-8B在DeepPlanning从1.7→10.8、VitaBench7.0→14.0、Claw-Eval14.4→23.6，tau2平均11.5→12.3。四项并非全部领先环境训练基线。另测16–18和24–28工具调用参考流程，超出训练最长14；该泛化指标为原子检查平均通过率。",
+        "insight": "长程训练的难度可以由跨环境依赖和业务范围控制，而非单纯拉长轨迹；应分别验证工具覆盖、下游状态和全部约束同时满足。",
+        "limitations": "基准使用指定子集与适配器；课程对混合训练虽计算预算接近，但并行、batch和参考模型配置有差异，不能单独归因于顺序。用户交互指标是0–300复合分数。约4K token每候选只计环境构建，排除后续实例化与验收；未独立复现。",
+        "research_help": "长程训练的难度可以由跨环境依赖和业务范围控制，而非单纯拉长轨迹；应分别验证工具覆盖、下游状态和全部约束同时满足。",
+        "abstract_zh": "CrossEnv用实体依赖图合成可验证的跨服务任务，并逐步训练工具协调与用户澄清；8B在四项外部评测均提升，但长流程泛化分数不等于严格成功率。 单环境训练缺少跨服务的信息依赖；分别合法的数据也可能互不一致，导致组合任务无法执行或验证。",
+        "full_summary": "CrossEnv用实体依赖图合成可验证的跨服务任务，并逐步训练工具协调与用户澄清；8B在四项外部评测均提升，但长流程泛化分数不等于严格成功率。 单环境训练缺少跨服务的信息依赖；分别合法的数据也可能互不一致，导致组合任务无法执行或验证。 研究单环境后建立实体–工具依赖图，合并共享类型并采样跨服务工作流，对齐任务数据、生成工具与终态检查。参考轨迹重放通过且五次agent尝试至少两次成功才保留；800条单环境SFT后以2154条任务逐级GRPO，最后加入用户澄清。 共2954训练记录，Qwen3-8B在DeepPlanning从1.7→10.8、VitaBench7.0→14.0、Claw-Eval14.4→23.6，tau2平均11.5→12.3。四项并非全部领先环境训练基线。另测16–18和24–28工具调用参考流程，超出训练最长14；该泛化指标为原子检查平均通过率。",
+        "recommendation_level": "高",
+        "water_risk": "中",
+        "value_label": "值得核读",
+        "value_reason": "长程训练的难度可以由跨环境依赖和业务范围控制，而非单纯拉长轨迹；应分别验证工具覆盖、下游状态和全部约束同时满足。",
+        "source_scope": "full_text",
+        "source_note": "直接核读arXiv v1 PDF正文，核对实验表及评测边界；结果为作者报告，未独立复现。",
+        "source_evidence": [
+          "§3–5、表2–3；附录E/F/G/I：子集、课程比较、长流程指标和成本口径",
+          "https://arxiv.org/abs/2611.22777v1"
+        ],
+        "model": "manual-full-text-review",
+        "updated_at": "2026-11-19T01:38:52.150599+00:00"
+      }
+    },
+    {
+      "id": "2611.22299v1",
+      "title": "Harnesses That Improve Themselves: A Unifying Framework for Self-Improving Agent Harnesses",
+      "summary": "Whether a foundation model succeeds as an autonomous agent depends as much on its runtime software as on its weights. This runtime, the agent harness, manages context and memory, steers multi-turn control, executes tool actions in sandboxes, and verifies work before stopping. Because models differ in how they use tools and how they fail, a static harness tuned for one model or task often stalls, wastes tokens, or regresses on another. This bottleneck has driven a shift from prompt tuning to self-improving agent harnesses: systems that inspect their own execution traces, separate runtime bugs from model limits, and rewrite their own code. We present a unifying architectural and design framework for self-improving agent harnesses. The framework pairs four editable runtime components (context and state, agent control, action interfaces, and verification and recovery) with a four-stage loop that diagnoses failures, proposes code patches, validates candidates, and deploys updates. Using this framework, we show how optimizers trace errors across long trajectories and discover reusable runtime mechanisms such as pre-stop verifiers, loop breakers, and persistent memory. We further show why full-harness rewrites overfit or break across modules, and how modular updates with validation gates generalize across models while bounding token cost. To keep self-modification safe, we establish practical defenses against recurring failure modes including prompt bloat, benchmark gaming, and evaluator tampering. Finally, experiments on SWE-bench Lite validate this framework, showing that gated modular evolution outperforms prompt reflection and full-harness rewrites across models and repositories at a fraction of the token cost.",
+      "url": "http://arxiv.org/abs/2611.22299v1",
+      "authors": [
+        "Deep Shah",
+        "Nehal Kathrotia"
+      ],
+      "report_date": "2026-11-19",
+      "published": "2026-11-17",
+      "updated": "2026-11-17",
+      "primary_category": "cs.AI",
+      "categories": [
+        "cs.AI"
+      ],
+      "project_url": "",
+      "repo_url": "",
+      "venue_status": "未确认录用",
+      "recommendation": {
+        "score": 90,
+        "level": "高",
+        "label": "值得核读",
+        "water_risk": "中",
+        "value_judgement": "运行时代码能够把停止条件和预算变成可执行约束；评估自改进时应同时报告离线搜索、部署成本、跨仓库泛化和绕过检查的行为。",
+        "reason": "运行时代码能够把停止条件和预算变成可执行约束；评估自改进时应同时报告离线搜索、部署成本、跨仓库泛化和绕过检查的行为。"
+      },
+      "brief": {
+        "authors": [
+          "Deep Shah",
+          "Nehal Kathrotia"
+        ],
+        "affiliations": "未逐一核实作者单位",
+        "date": "2026-11-17",
+        "paper_url": "https://arxiv.org/abs/2611.22299v1",
+        "project_url": "",
+        "repo_url": "",
+        "venue_status": "未确认录用",
+        "contribution": "运行时代码能够把停止条件和预算变成可执行约束；评估自改进时应同时报告离线搜索、部署成本、跨仓库泛化和绕过检查的行为。",
+        "summary": "将上下文、控制、工具接口和核验视为可演化harness模块；门控修改在40个留出代码任务上成功率40%，略低于完整重写42.5%，但token成本约低十倍。 同一模型的多轮失败可能来自运行时上下文和停止逻辑；只追加提示规则难强制执行，整体重写又容易膨胀和过拟合。 提出诊断、补丁、验证、部署四阶段循环，逐次只改一个运行模块；用开发和验证轨迹、代码实际执行和110K运行token上限筛选补丁。保留上下文压缩、窗口文件读取及退出前检查，拒绝增大轮数但验证退化的补丁。 60个SWE-bench Lite问题中12开发、8验证、40测试。Gemini3.8 Flash的seed成功5.0%，提示反思2.5%，完整重写42.5%且451.6K token/题，模块门控40.0%且46.7K。零样本迁移至Gemini4 Argon后，模块37.5%对完整重写30.0%，64.8K对284.7K；模块仍有1/20 OOD未核验退出。",
+        "highlights": [
+          "运行时代码能够把停止条件和预算变成可执行约束；评估自改进时应同时报告离线搜索、部署成本、跨仓库泛化和绕过检查的行为。",
+          "阅读来源：arXiv PDF正文；实验边界见详情"
+        ],
+        "motivation": "同一模型的多轮失败可能来自运行时上下文和停止逻辑；只追加提示规则难强制执行，整体重写又容易膨胀和过拟合。",
+        "method": "提出诊断、补丁、验证、部署四阶段循环，逐次只改一个运行模块；用开发和验证轨迹、代码实际执行和110K运行token上限筛选补丁。保留上下文压缩、窗口文件读取及退出前检查，拒绝增大轮数但验证退化的补丁。",
+        "experiments": "60个SWE-bench Lite问题中12开发、8验证、40测试。Gemini3.8 Flash的seed成功5.0%，提示反思2.5%，完整重写42.5%且451.6K token/题，模块门控40.0%且46.7K。零样本迁移至Gemini4 Argon后，模块37.5%对完整重写30.0%，64.8K对284.7K；模块仍有1/20 OOD未核验退出。",
+        "research_help": "运行时代码能够把停止条件和预算变成可执行约束；评估自改进时应同时报告离线搜索、部署成本、跨仓库泛化和绕过检查的行为。",
+        "recommendation": {
+          "score": 90,
+          "level": "高",
+          "label": "值得核读",
+          "water_risk": "中",
+          "value_judgement": "运行时代码能够把停止条件和预算变成可执行约束；评估自改进时应同时报告离线搜索、部署成本、跨仓库泛化和绕过检查的行为。",
+          "reason": "运行时代码能够把停止条件和预算变成可执行约束；评估自改进时应同时报告离线搜索、部署成本、跨仓库泛化和绕过检查的行为。"
+        },
+        "card_summary": "将上下文、控制、工具接口和核验视为可演化harness模块；门控修改在40个留出代码任务上成功率40%，略低于完整重写42.5%，但token成本约低十倍。",
+        "insight": "运行时代码能够把停止条件和预算变成可执行约束；评估自改进时应同时报告离线搜索、部署成本、跨仓库泛化和绕过检查的行为。",
+        "limitations": "摘要称优于完整重写，主表原模型准确率并不支持全面胜出。只覆盖两个Python仓库，40题测试；模块搜索100次对重写24次，离线预算不同。最后一轮旁路会保留未测试编辑，迁移也非安全保证；未独立复现。",
+        "abstract_zh": "将上下文、控制、工具接口和核验视为可演化harness模块；门控修改在40个留出代码任务上成功率40%，略低于完整重写42.5%，但token成本约低十倍。 同一模型的多轮失败可能来自运行时上下文和停止逻辑；只追加提示规则难强制执行，整体重写又容易膨胀和过拟合。",
+        "full_summary": "将上下文、控制、工具接口和核验视为可演化harness模块；门控修改在40个留出代码任务上成功率40%，略低于完整重写42.5%，但token成本约低十倍。 同一模型的多轮失败可能来自运行时上下文和停止逻辑；只追加提示规则难强制执行，整体重写又容易膨胀和过拟合。 提出诊断、补丁、验证、部署四阶段循环，逐次只改一个运行模块；用开发和验证轨迹、代码实际执行和110K运行token上限筛选补丁。保留上下文压缩、窗口文件读取及退出前检查，拒绝增大轮数但验证退化的补丁。 60个SWE-bench Lite问题中12开发、8验证、40测试。Gemini3.8 Flash的seed成功5.0%，提示反思2.5%，完整重写42.5%且451.6K token/题，模块门控40.0%且46.7K。零样本迁移至Gemini4 Argon后，模块37.5%对完整重写30.0%，64.8K对284.7K；模块仍有1/20 OOD未核验退出。"
+      },
+      "analysis": {
+        "card_summary": "将上下文、控制、工具接口和核验视为可演化harness模块；门控修改在40个留出代码任务上成功率40%，略低于完整重写42.5%，但token成本约低十倍。",
+        "motivation": "同一模型的多轮失败可能来自运行时上下文和停止逻辑；只追加提示规则难强制执行，整体重写又容易膨胀和过拟合。",
+        "method": "提出诊断、补丁、验证、部署四阶段循环，逐次只改一个运行模块；用开发和验证轨迹、代码实际执行和110K运行token上限筛选补丁。保留上下文压缩、窗口文件读取及退出前检查，拒绝增大轮数但验证退化的补丁。",
+        "experiments": "60个SWE-bench Lite问题中12开发、8验证、40测试。Gemini3.8 Flash的seed成功5.0%，提示反思2.5%，完整重写42.5%且451.6K token/题，模块门控40.0%且46.7K。零样本迁移至Gemini4 Argon后，模块37.5%对完整重写30.0%，64.8K对284.7K；模块仍有1/20 OOD未核验退出。",
+        "insight": "运行时代码能够把停止条件和预算变成可执行约束；评估自改进时应同时报告离线搜索、部署成本、跨仓库泛化和绕过检查的行为。",
+        "limitations": "摘要称优于完整重写，主表原模型准确率并不支持全面胜出。只覆盖两个Python仓库，40题测试；模块搜索100次对重写24次，离线预算不同。最后一轮旁路会保留未测试编辑，迁移也非安全保证；未独立复现。",
+        "research_help": "运行时代码能够把停止条件和预算变成可执行约束；评估自改进时应同时报告离线搜索、部署成本、跨仓库泛化和绕过检查的行为。",
+        "abstract_zh": "将上下文、控制、工具接口和核验视为可演化harness模块；门控修改在40个留出代码任务上成功率40%，略低于完整重写42.5%，但token成本约低十倍。 同一模型的多轮失败可能来自运行时上下文和停止逻辑；只追加提示规则难强制执行，整体重写又容易膨胀和过拟合。",
+        "full_summary": "将上下文、控制、工具接口和核验视为可演化harness模块；门控修改在40个留出代码任务上成功率40%，略低于完整重写42.5%，但token成本约低十倍。 同一模型的多轮失败可能来自运行时上下文和停止逻辑；只追加提示规则难强制执行，整体重写又容易膨胀和过拟合。 提出诊断、补丁、验证、部署四阶段循环，逐次只改一个运行模块；用开发和验证轨迹、代码实际执行和110K运行token上限筛选补丁。保留上下文压缩、窗口文件读取及退出前检查，拒绝增大轮数但验证退化的补丁。 60个SWE-bench Lite问题中12开发、8验证、40测试。Gemini3.8 Flash的seed成功5.0%，提示反思2.5%，完整重写42.5%且451.6K token/题，模块门控40.0%且46.7K。零样本迁移至Gemini4 Argon后，模块37.5%对完整重写30.0%，64.8K对284.7K；模块仍有1/20 OOD未核验退出。",
+        "recommendation_level": "高",
+        "water_risk": "中",
+        "value_label": "值得核读",
+        "value_reason": "运行时代码能够把停止条件和预算变成可执行约束；评估自改进时应同时报告离线搜索、部署成本、跨仓库泛化和绕过检查的行为。",
+        "source_scope": "full_text",
+        "source_note": "直接核读arXiv v1 PDF正文，核对实验表及评测边界；结果为作者报告，未独立复现。",
+        "source_evidence": [
+          "§II–VII、表IV及脚注：搜索预算、40题分母与last-turn bypass",
+          "https://arxiv.org/abs/2611.22299v1"
+        ],
+        "model": "manual-full-text-review",
+        "updated_at": "2026-11-19T01:38:52.150599+00:00"
+      }
+    },
+    {
+      "id": "2611.22275v1",
+      "title": "Heave-Ho: Decentralized Long-Horizon Multi-Humanoid Collaboration",
+      "summary": "Collaboration promises to extend humanoid capabilities beyond what individual robots can achieve. However, realizing this potential requires coordinated whole-body interactions, coherent long-horizon planning, and precise synchronization across robots. We introduce Heave-Ho, a decentralized framework for long-horizon collaborative multi-humanoid loco-manipulation. At the low level, we develop a multi-agent post-training framework that adapts a humanoid foundation tracking model to physically coupled interactions between humanoids, enabling coordinated decentralized control from local observations alone. At the high level, we train a vision-language planner and design a speech-based leader-follower coordination mechanism to synchronize decentralized execution without network communication. Trained with two identical humanoids, our system scales to teams of up to ten robots and generalizes to heterogeneous teams without retraining. To benchmark these capabilities, we introduce HH-Bench, comprising 12 tasks involving teams of 2 to 10 humanoids, including heterogeneous teams. Systematic evaluations show that Heave-Ho consistently outperforms baseline methods, while real-world experiments demonstrate robust decentralized collaboration across challenging tasks.",
+      "url": "http://arxiv.org/abs/2611.22275v1",
+      "authors": [
+        "Ting-Hsuan Chen",
+        "Siheng Zhao",
+        "Han Jiang",
+        "Qi Pan",
+        "Louison Lu",
+        "Jiaheng Luo",
+        "Henghui Bao",
+        "Yiyu Chen",
+        "Quan Nguyen",
+        "Yue Wang"
+      ],
+      "report_date": "2026-11-19",
+      "published": "2026-11-17",
+      "updated": "2026-11-17",
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO",
+        "cs.CV",
+        "cs.LG"
+      ],
+      "project_url": "",
+      "repo_url": "",
+      "venue_status": "未确认录用",
+      "recommendation": {
+        "score": 84,
+        "level": "高",
+        "label": "值得核读",
+        "water_risk": "中",
+        "value_judgement": "多agent规划需区分动作内容与启动时序；语言层选离散团队技能、低层共享物理控制，可降低协调带宽，但同步机制也是系统能力的一部分。",
+        "reason": "多agent规划需区分动作内容与启动时序；语言层选离散团队技能、低层共享物理控制，可降低协调带宽，但同步机制也是系统能力的一部分。"
+      },
+      "brief": {
+        "authors": [
+          "Ting-Hsuan Chen",
+          "Siheng Zhao",
+          "Han Jiang",
+          "Qi Pan",
+          "Louison Lu",
+          "Jiaheng Luo",
+          "Henghui Bao",
+          "Yiyu Chen",
+          "Quan Nguyen",
+          "Yue Wang"
+        ],
+        "affiliations": "未逐一核实作者单位",
+        "date": "2026-11-17",
+        "paper_url": "https://arxiv.org/abs/2611.22275v1",
+        "project_url": "",
+        "repo_url": "",
+        "venue_status": "未确认录用",
+        "contribution": "多agent规划需区分动作内容与启动时序；语言层选离散团队技能、低层共享物理控制，可降低协调带宽，但同步机制也是系统能力的一部分。",
+        "summary": "Heave-Ho把视觉语言技能规划与语音同步、分散式人形控制结合；五任务规划评测成功86%，但混合了真实与仿真任务，十机器人扩展仅在仿真。 共同搬运要求既选对技能又同时启动；各机器人独立规划会把同一个长程任务拆成失步动作。 冻结全身跟踪基础策略，用共享actor和集中critic进行残差MAPPO后训练。Qwen3-VL-2B经遥操作演示微调后，由leader逐步选团队技能，以语音和共享启动时间槽同步followers；每台机器人执行时仅观察自身及物体规格。 12任务HH-Bench低层仿真平均成功94.41%，三seed各512团队。高层五任务各10次，两项实机、三项仿真，完整系统43/50对零样本GPT-6 Astra21/50；实机两项分别6/10和7/10。另一组实机团队协作92/100，异构及扩展团队37/40；4/8/10台G1扩展展示来自仿真。",
+        "highlights": [
+          "多agent规划需区分动作内容与启动时序；语言层选离散团队技能、低层共享物理控制，可降低协调带宽，但同步机制也是系统能力的一部分。",
+          "阅读来源：arXiv PDF正文；实验边界见详情"
+        ],
+        "motivation": "共同搬运要求既选对技能又同时启动；各机器人独立规划会把同一个长程任务拆成失步动作。",
+        "method": "冻结全身跟踪基础策略，用共享actor和集中critic进行残差MAPPO后训练。Qwen3-VL-2B经遥操作演示微调后，由leader逐步选团队技能，以语音和共享启动时间槽同步followers；每台机器人执行时仅观察自身及物体规格。",
+        "experiments": "12任务HH-Bench低层仿真平均成功94.41%，三seed各512团队。高层五任务各10次，两项实机、三项仿真，完整系统43/50对零样本GPT-6 Astra21/50；实机两项分别6/10和7/10。另一组实机团队协作92/100，异构及扩展团队37/40；4/8/10台G1扩展展示来自仿真。",
+        "research_help": "多agent规划需区分动作内容与启动时序；语言层选离散团队技能、低层共享物理控制，可降低协调带宽，但同步机制也是系统能力的一部分。",
+        "recommendation": {
+          "score": 84,
+          "level": "高",
+          "label": "值得核读",
+          "water_risk": "中",
+          "value_judgement": "多agent规划需区分动作内容与启动时序；语言层选离散团队技能、低层共享物理控制，可降低协调带宽，但同步机制也是系统能力的一部分。",
+          "reason": "多agent规划需区分动作内容与启动时序；语言层选离散团队技能、低层共享物理控制，可降低协调带宽，但同步机制也是系统能力的一部分。"
+        },
+        "card_summary": "Heave-Ho把视觉语言技能规划与语音同步、分散式人形控制结合；五任务规划评测成功86%，但混合了真实与仿真任务，十机器人扩展仅在仿真。",
+        "insight": "多agent规划需区分动作内容与启动时序；语言层选离散团队技能、低层共享物理控制，可降低协调带宽，但同步机制也是系统能力的一部分。",
+        "limitations": "无网络消息不等于无通信，系统依赖声音接收与共享时间槽。高层任务需人工演示，10次样本很小；PM01使用同配方单独训练的策略，不能把异构迁移理解为直接复用G1权重。实机92%与规划86%属于不同协议；未独立复现。",
+        "abstract_zh": "Heave-Ho把视觉语言技能规划与语音同步、分散式人形控制结合；五任务规划评测成功86%，但混合了真实与仿真任务，十机器人扩展仅在仿真。 共同搬运要求既选对技能又同时启动；各机器人独立规划会把同一个长程任务拆成失步动作。",
+        "full_summary": "Heave-Ho把视觉语言技能规划与语音同步、分散式人形控制结合；五任务规划评测成功86%，但混合了真实与仿真任务，十机器人扩展仅在仿真。 共同搬运要求既选对技能又同时启动；各机器人独立规划会把同一个长程任务拆成失步动作。 冻结全身跟踪基础策略，用共享actor和集中critic进行残差MAPPO后训练。Qwen3-VL-2B经遥操作演示微调后，由leader逐步选团队技能，以语音和共享启动时间槽同步followers；每台机器人执行时仅观察自身及物体规格。 12任务HH-Bench低层仿真平均成功94.41%，三seed各512团队。高层五任务各10次，两项实机、三项仿真，完整系统43/50对零样本GPT-6 Astra21/50；实机两项分别6/10和7/10。另一组实机团队协作92/100，异构及扩展团队37/40；4/8/10台G1扩展展示来自仿真。"
+      },
+      "analysis": {
+        "card_summary": "Heave-Ho把视觉语言技能规划与语音同步、分散式人形控制结合；五任务规划评测成功86%，但混合了真实与仿真任务，十机器人扩展仅在仿真。",
+        "motivation": "共同搬运要求既选对技能又同时启动；各机器人独立规划会把同一个长程任务拆成失步动作。",
+        "method": "冻结全身跟踪基础策略，用共享actor和集中critic进行残差MAPPO后训练。Qwen3-VL-2B经遥操作演示微调后，由leader逐步选团队技能，以语音和共享启动时间槽同步followers；每台机器人执行时仅观察自身及物体规格。",
+        "experiments": "12任务HH-Bench低层仿真平均成功94.41%，三seed各512团队。高层五任务各10次，两项实机、三项仿真，完整系统43/50对零样本GPT-6 Astra21/50；实机两项分别6/10和7/10。另一组实机团队协作92/100，异构及扩展团队37/40；4/8/10台G1扩展展示来自仿真。",
+        "insight": "多agent规划需区分动作内容与启动时序；语言层选离散团队技能、低层共享物理控制，可降低协调带宽，但同步机制也是系统能力的一部分。",
+        "limitations": "无网络消息不等于无通信，系统依赖声音接收与共享时间槽。高层任务需人工演示，10次样本很小；PM01使用同配方单独训练的策略，不能把异构迁移理解为直接复用G1权重。实机92%与规划86%属于不同协议；未独立复现。",
+        "research_help": "多agent规划需区分动作内容与启动时序；语言层选离散团队技能、低层共享物理控制，可降低协调带宽，但同步机制也是系统能力的一部分。",
+        "abstract_zh": "Heave-Ho把视觉语言技能规划与语音同步、分散式人形控制结合；五任务规划评测成功86%，但混合了真实与仿真任务，十机器人扩展仅在仿真。 共同搬运要求既选对技能又同时启动；各机器人独立规划会把同一个长程任务拆成失步动作。",
+        "full_summary": "Heave-Ho把视觉语言技能规划与语音同步、分散式人形控制结合；五任务规划评测成功86%，但混合了真实与仿真任务，十机器人扩展仅在仿真。 共同搬运要求既选对技能又同时启动；各机器人独立规划会把同一个长程任务拆成失步动作。 冻结全身跟踪基础策略，用共享actor和集中critic进行残差MAPPO后训练。Qwen3-VL-2B经遥操作演示微调后，由leader逐步选团队技能，以语音和共享启动时间槽同步followers；每台机器人执行时仅观察自身及物体规格。 12任务HH-Bench低层仿真平均成功94.41%，三seed各512团队。高层五任务各10次，两项实机、三项仿真，完整系统43/50对零样本GPT-6 Astra21/50；实机两项分别6/10和7/10。另一组实机团队协作92/100，异构及扩展团队37/40；4/8/10台G1扩展展示来自仿真。",
+        "recommendation_level": "高",
+        "water_risk": "中",
+        "value_label": "值得核读",
+        "value_reason": "多agent规划需区分动作内容与启动时序；语言层选离散团队技能、低层共享物理控制，可降低协调带宽，但同步机制也是系统能力的一部分。",
+        "source_scope": "full_text",
+        "source_note": "直接核读arXiv v1 PDF正文，核对实验表及评测边界；结果为作者报告，未独立复现。",
+        "source_evidence": [
+          "§3–5、表1–2；附录C/D/E：实机队伍、PM01与仿真规模",
+          "https://arxiv.org/abs/2611.22275v1"
+        ],
+        "model": "manual-full-text-review",
+        "updated_at": "2026-11-19T01:38:52.150599+00:00"
+      }
+    },
+    {
+      "id": "2611.22461v1",
+      "title": "Surfacing Disagreement Beats Resolving It: A Gated Ablation Study of Provenance-Weighted Memory for Multi-Agent Debate",
+      "summary": "Shared memory for multi-agent debate is usually built to resolve inconsistency: retrieval returns one winning fact and the disagreement disappears before any agent sees it. We ask whether that is correct. In DebateGraph, four backends share one contract (read/write/snapshot), so five mechanisms from the agent-memory literature can be removed independently under a fixed budget, each gated on a pre-declared threshold. Across 39 runs one survives: preserving contradictions and passing the ranked conflict set to the debate, rather than collapsing it to a winner, improves F1 by +0.340 (95% CI [+0.267, +0.414]) and cuts attack success from 22 to 7 of 122 poisoned items (McNemar exact p=0.0003), at equal cost. Reaching it meant fixing a bottleneck in our harness: conflict sets are built only over retrieved edges, and our pre-declared cap left three quarters of planted contradictions unretrievable, first measuring the mechanism at +0.084. The effect replicates on two retrieval substrates and directionally on HotpotQA documents. No other mechanism survives, and two are worse than inert: once contradictions reach the prompt, a write trust-gate and the router's provenance features each cost accuracy (-0.075 and -0.096 F1). The gate fails structurally: poisoned objects are always entities the graph already contains, against 53% of gold, so groundedness scores the lie above a truthful first mention. We release the harness, attack set, and logs, and argue that silently reconciling memory is the assumption worth abandoning.",
+      "url": "http://arxiv.org/abs/2611.22461v1",
+      "authors": [
+        "Ziaullah Khan",
+        "Abdul Rehman Khalid",
+        "Shrestha Nischal Lal",
+        "Nheng Vanchhay",
+        "Md Ariful Islam Mozumder",
+        "Hee-Cheol Kim"
+      ],
+      "report_date": "2026-11-19",
+      "published": "2026-11-17",
+      "updated": "2026-11-17",
+      "primary_category": "cs.MA",
+      "categories": [
+        "cs.MA",
+        "cs.CL"
+      ],
+      "project_url": "",
+      "repo_url": "",
+      "venue_status": "未确认录用",
+      "recommendation": {
+        "score": 72,
+        "level": "高",
+        "label": "值得核读",
+        "water_risk": "中",
+        "value_judgement": "先检查冲突是否真正进入提示，再评价冲突解决；存储层应保存带来源的候选，避免用全局可信度阈值提前裁决。",
+        "reason": "先检查冲突是否真正进入提示，再评价冲突解决；存储层应保存带来源的候选，避免用全局可信度阈值提前裁决。"
+      },
+      "brief": {
+        "authors": [
+          "Ziaullah Khan",
+          "Abdul Rehman Khalid",
+          "Shrestha Nischal Lal",
+          "Nheng Vanchhay",
+          "Md Ariful Islam Mozumder",
+          "Hee-Cheol Kim"
+        ],
+        "affiliations": "未逐一核实作者单位",
+        "date": "2026-11-17",
+        "paper_url": "https://arxiv.org/abs/2611.22461v1",
+        "project_url": "",
+        "repo_url": "",
+        "venue_status": "未确认录用",
+        "contribution": "先检查冲突是否真正进入提示，再评价冲突解决；存储层应保存带来源的候选，避免用全局可信度阈值提前裁决。",
+        "summary": "多agent辩论中保留冲突声明比先替记忆选赢家更可靠；扩大候选检索后F1提高0.340，但原预设检索上限下增益仅0.043。 记忆层先消除矛盾会隐藏推理所需证据；基于已知实体的可信度门控也可能偏好看似熟悉的伪造事实。 DebateGraph统一read/write/snapshot接口，逐项消融图检索、写入信任门、冲突呈现、路由与快照。三agent两轮加judge共七调用，固定1500 token上下文预算；比较呈现排序后的冲突集合与只保留一个声明。 39次配置运行以gpt-oss-120b为主。预设候选上限40时graph冲突呈现总体+0.043 F1，攻击5→3/51未显著；修正可达性至200并攻击全部可投毒项后，F1 0.116→0.456，攻击22→7/122。信任门反降0.075 F1；HotpotQA仅可区分子集有方向重复，全样本CI含零。",
+        "highlights": [
+          "先检查冲突是否真正进入提示，再评价冲突解决；存储层应保存带来源的候选，避免用全局可信度阈值提前裁决。",
+          "阅读来源：arXiv PDF正文；实验边界见详情"
+        ],
+        "motivation": "记忆层先消除矛盾会隐藏推理所需证据；基于已知实体的可信度门控也可能偏好看似熟悉的伪造事实。",
+        "method": "DebateGraph统一read/write/snapshot接口，逐项消融图检索、写入信任门、冲突呈现、路由与快照。三agent两轮加judge共七调用，固定1500 token上下文预算；比较呈现排序后的冲突集合与只保留一个声明。",
+        "experiments": "39次配置运行以gpt-oss-120b为主。预设候选上限40时graph冲突呈现总体+0.043 F1，攻击5→3/51未显著；修正可达性至200并攻击全部可投毒项后，F1 0.116→0.456，攻击22→7/122。信任门反降0.075 F1；HotpotQA仅可区分子集有方向重复，全样本CI含零。",
+        "research_help": "先检查冲突是否真正进入提示，再评价冲突解决；存储层应保存带来源的候选，避免用全局可信度阈值提前裁决。",
+        "recommendation": {
+          "score": 72,
+          "level": "高",
+          "label": "值得核读",
+          "water_risk": "中",
+          "value_judgement": "先检查冲突是否真正进入提示，再评价冲突解决；存储层应保存带来源的候选，避免用全局可信度阈值提前裁决。",
+          "reason": "先检查冲突是否真正进入提示，再评价冲突解决；存储层应保存带来源的候选，避免用全局可信度阈值提前裁决。"
+        },
+        "card_summary": "多agent辩论中保留冲突声明比先替记忆选赢家更可靠；扩大候选检索后F1提高0.340，但原预设检索上限下增益仅0.043。",
+        "insight": "先检查冲突是否真正进入提示，再评价冲突解决；存储层应保存带来源的候选，避免用全局可信度阈值提前裁决。",
+        "limitations": "大增益来自修正检索上限且攻击覆盖不同的后续协议，不能替代预设结果。单模型、合成投毒和有限语料；完整上下文准确率仍更高但调用token更贵，图系统并不总体胜过向量检索。未独立复现。",
+        "abstract_zh": "多agent辩论中保留冲突声明比先替记忆选赢家更可靠；扩大候选检索后F1提高0.340，但原预设检索上限下增益仅0.043。 记忆层先消除矛盾会隐藏推理所需证据；基于已知实体的可信度门控也可能偏好看似熟悉的伪造事实。",
+        "full_summary": "多agent辩论中保留冲突声明比先替记忆选赢家更可靠；扩大候选检索后F1提高0.340，但原预设检索上限下增益仅0.043。 记忆层先消除矛盾会隐藏推理所需证据；基于已知实体的可信度门控也可能偏好看似熟悉的伪造事实。 DebateGraph统一read/write/snapshot接口，逐项消融图检索、写入信任门、冲突呈现、路由与快照。三agent两轮加judge共七调用，固定1500 token上下文预算；比较呈现排序后的冲突集合与只保留一个声明。 39次配置运行以gpt-oss-120b为主。预设候选上限40时graph冲突呈现总体+0.043 F1，攻击5→3/51未显著；修正可达性至200并攻击全部可投毒项后，F1 0.116→0.456，攻击22→7/122。信任门反降0.075 F1；HotpotQA仅可区分子集有方向重复，全样本CI含零。"
+      },
+      "analysis": {
+        "card_summary": "多agent辩论中保留冲突声明比先替记忆选赢家更可靠；扩大候选检索后F1提高0.340，但原预设检索上限下增益仅0.043。",
+        "motivation": "记忆层先消除矛盾会隐藏推理所需证据；基于已知实体的可信度门控也可能偏好看似熟悉的伪造事实。",
+        "method": "DebateGraph统一read/write/snapshot接口，逐项消融图检索、写入信任门、冲突呈现、路由与快照。三agent两轮加judge共七调用，固定1500 token上下文预算；比较呈现排序后的冲突集合与只保留一个声明。",
+        "experiments": "39次配置运行以gpt-oss-120b为主。预设候选上限40时graph冲突呈现总体+0.043 F1，攻击5→3/51未显著；修正可达性至200并攻击全部可投毒项后，F1 0.116→0.456，攻击22→7/122。信任门反降0.075 F1；HotpotQA仅可区分子集有方向重复，全样本CI含零。",
+        "insight": "先检查冲突是否真正进入提示，再评价冲突解决；存储层应保存带来源的候选，避免用全局可信度阈值提前裁决。",
+        "limitations": "大增益来自修正检索上限且攻击覆盖不同的后续协议，不能替代预设结果。单模型、合成投毒和有限语料；完整上下文准确率仍更高但调用token更贵，图系统并不总体胜过向量检索。未独立复现。",
+        "research_help": "先检查冲突是否真正进入提示，再评价冲突解决；存储层应保存带来源的候选，避免用全局可信度阈值提前裁决。",
+        "abstract_zh": "多agent辩论中保留冲突声明比先替记忆选赢家更可靠；扩大候选检索后F1提高0.340，但原预设检索上限下增益仅0.043。 记忆层先消除矛盾会隐藏推理所需证据；基于已知实体的可信度门控也可能偏好看似熟悉的伪造事实。",
+        "full_summary": "多agent辩论中保留冲突声明比先替记忆选赢家更可靠；扩大候选检索后F1提高0.340，但原预设检索上限下增益仅0.043。 记忆层先消除矛盾会隐藏推理所需证据；基于已知实体的可信度门控也可能偏好看似熟悉的伪造事实。 DebateGraph统一read/write/snapshot接口，逐项消融图检索、写入信任门、冲突呈现、路由与快照。三agent两轮加judge共七调用，固定1500 token上下文预算；比较呈现排序后的冲突集合与只保留一个声明。 39次配置运行以gpt-oss-120b为主。预设候选上限40时graph冲突呈现总体+0.043 F1，攻击5→3/51未显著；修正可达性至200并攻击全部可投毒项后，F1 0.116→0.456，攻击22→7/122。信任门反降0.075 F1；HotpotQA仅可区分子集有方向重复，全样本CI含零。",
+        "recommendation_level": "高",
+        "water_risk": "中",
+        "value_label": "值得核读",
+        "value_reason": "先检查冲突是否真正进入提示，再评价冲突解决；存储层应保存带来源的候选，避免用全局可信度阈值提前裁决。",
+        "source_scope": "full_text",
+        "source_note": "直接核读arXiv v1 PDF正文，核对实验表及评测边界；结果为作者报告，未独立复现。",
+        "source_evidence": [
+          "§4–8、表1–2与附录E/F：cap40/200、攻击分母及全样本重复边界",
+          "https://arxiv.org/abs/2611.22461v1"
+        ],
+        "model": "manual-full-text-review",
+        "updated_at": "2026-11-19T01:38:52.150599+00:00"
+      }
+    },
+    {
+      "id": "2611.22102v1",
+      "title": "EvoDisco: Strategy Discovery for Evolving Agent Memory",
+      "summary": "Large language model agents accumulate experience in memory, and how that memory evolves during interaction is as important as what it stores. Recent methods update memory online, yet both the operators that transform memory and the rules that select them remain fixed by design. We propose EvoDisco, which formulates agent memory evolution as evolutionary strategy discovery: the agent must discover which operator to apply, when to apply it, and how to instantiate it, rather than rewriting memory under a static operator schedule. A learnable policy conditions on the current memory state and recent task history, then selects and instantiates one of four semantic operators---Abstract, Refine, Bridge, and Reframe---which respectively compress related memories, decompose overloaded entries, connect weakly linked experiences, and reorganize retrieved reasoning chains. The policy is updated with a bi-level fitness. An inner signal scores each transformation using a retrieval-quality improvement regularized by memory complexity. An outer signal scores strategic efficacy over a window of past decisions, combining historical operator-utility regret, utility-prediction error, and selection diversity. Under a one-pass online plus frozen-transfer protocol on ALFWorld, WebShop, and LifelongAgentBench (OS and DB), EvoDisco improves over strong memory baselines including MemP and MemRL. The largest gains are on ALFWorld ($+8.8$ online / $+12.9$ frozen-transfer points over MemP; $+16.4$ / $+17.9$ over MemRL). Ablations attribute these gains to both fitness levels and the operator library.",
+      "url": "http://arxiv.org/abs/2611.22102v1",
+      "authors": [
+        "Mingyang Liu",
+        "Qingcan Kang",
+        "Shixiong Kai",
+        "Kaichao Liang",
+        "Xiaojin Fu",
+        "Tao Zhong",
+        "Linqi Song"
+      ],
+      "report_date": "2026-11-19",
+      "published": "2026-11-17",
+      "updated": "2026-11-17",
+      "primary_category": "cs.AI",
+      "categories": [
+        "cs.AI"
+      ],
+      "project_url": "",
+      "repo_url": "",
+      "venue_status": "未确认录用",
+      "recommendation": {
+        "score": 72,
+        "level": "高",
+        "label": "值得核读",
+        "water_risk": "中",
+        "value_judgement": "长期适应可学习内部记忆编辑策略而不更新主模型；必须区分记忆迁移、策略迁移以及目标域重新构图，检查即时检索代理是否真正改善任务。",
+        "reason": "长期适应可学习内部记忆编辑策略而不更新主模型；必须区分记忆迁移、策略迁移以及目标域重新构图，检查即时检索代理是否真正改善任务。"
+      },
+      "brief": {
+        "authors": [
+          "Mingyang Liu",
+          "Qingcan Kang",
+          "Shixiong Kai",
+          "Kaichao Liang",
+          "Xiaojin Fu",
+          "Tao Zhong",
+          "Linqi Song"
+        ],
+        "affiliations": "未逐一核实作者单位",
+        "date": "2026-11-17",
+        "paper_url": "https://arxiv.org/abs/2611.22102v1",
+        "project_url": "",
+        "repo_url": "",
+        "venue_status": "未确认录用",
+        "contribution": "长期适应可学习内部记忆编辑策略而不更新主模型；必须区分记忆迁移、策略迁移以及目标域重新构图，检查即时检索代理是否真正改善任务。",
+        "summary": "EvoDisco学习何时用抽象、细化、连接或重构来更新agent记忆；ALFWorld冻结记忆留出成功率88.6%，但跨基准迁移策略仍明显退化。 只在线写入记忆仍依赖固定整理规则；不同状态可能需要不同语义变换，而不是同一种压缩或合并。 冻结GPT-5-mini，MLP根据图结构、检索和近期历史选择四种固定算子、候选与实例参数。即时反馈衡量已见query检索改善及复杂度，窗口反馈结合历史效用差、预测误差与多样性，以REINFORCE和正效用回放更新策略。前80%流允许演化，留出测试冻结写入和演化。 ALFWorld在线77.7%、冻结留出88.6%，比MemP高8.8/12.9点；OS74.0/77.3。WebShop和DB留出仅比最强基线高1.0/0.8点，未建立显著性。ALFWorld策略迁移至其他三个基准比目标域训练低4.0/2.0/4.4点；ALFWorld总运行21.6h对MemRL33.6h。",
+        "highlights": [
+          "长期适应可学习内部记忆编辑策略而不更新主模型；必须区分记忆迁移、策略迁移以及目标域重新构图，检查即时检索代理是否真正改善任务。",
+          "阅读来源：arXiv PDF正文；实验边界见详情"
+        ],
+        "motivation": "只在线写入记忆仍依赖固定整理规则；不同状态可能需要不同语义变换，而不是同一种压缩或合并。",
+        "method": "冻结GPT-5-mini，MLP根据图结构、检索和近期历史选择四种固定算子、候选与实例参数。即时反馈衡量已见query检索改善及复杂度，窗口反馈结合历史效用差、预测误差与多样性，以REINFORCE和正效用回放更新策略。前80%流允许演化，留出测试冻结写入和演化。",
+        "experiments": "ALFWorld在线77.7%、冻结留出88.6%，比MemP高8.8/12.9点；OS74.0/77.3。WebShop和DB留出仅比最强基线高1.0/0.8点，未建立显著性。ALFWorld策略迁移至其他三个基准比目标域训练低4.0/2.0/4.4点；ALFWorld总运行21.6h对MemRL33.6h。",
+        "research_help": "长期适应可学习内部记忆编辑策略而不更新主模型；必须区分记忆迁移、策略迁移以及目标域重新构图，检查即时检索代理是否真正改善任务。",
+        "recommendation": {
+          "score": 72,
+          "level": "高",
+          "label": "值得核读",
+          "water_risk": "中",
+          "value_judgement": "长期适应可学习内部记忆编辑策略而不更新主模型；必须区分记忆迁移、策略迁移以及目标域重新构图，检查即时检索代理是否真正改善任务。",
+          "reason": "长期适应可学习内部记忆编辑策略而不更新主模型；必须区分记忆迁移、策略迁移以及目标域重新构图，检查即时检索代理是否真正改善任务。"
+        },
+        "card_summary": "EvoDisco学习何时用抽象、细化、连接或重构来更新agent记忆；ALFWorld冻结记忆留出成功率88.6%，但跨基准迁移策略仍明显退化。",
+        "insight": "长期适应可学习内部记忆编辑策略而不更新主模型；必须区分记忆迁移、策略迁移以及目标域重新构图，检查即时检索代理是否真正改善任务。",
+        "limitations": "四类算子固定，并未发现新类别；bi-level是两个反馈时间尺度，并非精确嵌套优化。历史regret不是同状态反事实，seed42主设置缺少多seed显著性。总耗时受成功提前终止影响，不能视作纯记忆维护省时；未独立复现。",
+        "abstract_zh": "EvoDisco学习何时用抽象、细化、连接或重构来更新agent记忆；ALFWorld冻结记忆留出成功率88.6%，但跨基准迁移策略仍明显退化。 只在线写入记忆仍依赖固定整理规则；不同状态可能需要不同语义变换，而不是同一种压缩或合并。",
+        "full_summary": "EvoDisco学习何时用抽象、细化、连接或重构来更新agent记忆；ALFWorld冻结记忆留出成功率88.6%，但跨基准迁移策略仍明显退化。 只在线写入记忆仍依赖固定整理规则；不同状态可能需要不同语义变换，而不是同一种压缩或合并。 冻结GPT-5-mini，MLP根据图结构、检索和近期历史选择四种固定算子、候选与实例参数。即时反馈衡量已见query检索改善及复杂度，窗口反馈结合历史效用差、预测误差与多样性，以REINFORCE和正效用回放更新策略。前80%流允许演化，留出测试冻结写入和演化。 ALFWorld在线77.7%、冻结留出88.6%，比MemP高8.8/12.9点；OS74.0/77.3。WebShop和DB留出仅比最强基线高1.0/0.8点，未建立显著性。ALFWorld策略迁移至其他三个基准比目标域训练低4.0/2.0/4.4点；ALFWorld总运行21.6h对MemRL33.6h。"
+      },
+      "analysis": {
+        "card_summary": "EvoDisco学习何时用抽象、细化、连接或重构来更新agent记忆；ALFWorld冻结记忆留出成功率88.6%，但跨基准迁移策略仍明显退化。",
+        "motivation": "只在线写入记忆仍依赖固定整理规则；不同状态可能需要不同语义变换，而不是同一种压缩或合并。",
+        "method": "冻结GPT-5-mini，MLP根据图结构、检索和近期历史选择四种固定算子、候选与实例参数。即时反馈衡量已见query检索改善及复杂度，窗口反馈结合历史效用差、预测误差与多样性，以REINFORCE和正效用回放更新策略。前80%流允许演化，留出测试冻结写入和演化。",
+        "experiments": "ALFWorld在线77.7%、冻结留出88.6%，比MemP高8.8/12.9点；OS74.0/77.3。WebShop和DB留出仅比最强基线高1.0/0.8点，未建立显著性。ALFWorld策略迁移至其他三个基准比目标域训练低4.0/2.0/4.4点；ALFWorld总运行21.6h对MemRL33.6h。",
+        "insight": "长期适应可学习内部记忆编辑策略而不更新主模型；必须区分记忆迁移、策略迁移以及目标域重新构图，检查即时检索代理是否真正改善任务。",
+        "limitations": "四类算子固定，并未发现新类别；bi-level是两个反馈时间尺度，并非精确嵌套优化。历史regret不是同状态反事实，seed42主设置缺少多seed显著性。总耗时受成功提前终止影响，不能视作纯记忆维护省时；未独立复现。",
+        "research_help": "长期适应可学习内部记忆编辑策略而不更新主模型；必须区分记忆迁移、策略迁移以及目标域重新构图，检查即时检索代理是否真正改善任务。",
+        "abstract_zh": "EvoDisco学习何时用抽象、细化、连接或重构来更新agent记忆；ALFWorld冻结记忆留出成功率88.6%，但跨基准迁移策略仍明显退化。 只在线写入记忆仍依赖固定整理规则；不同状态可能需要不同语义变换，而不是同一种压缩或合并。",
+        "full_summary": "EvoDisco学习何时用抽象、细化、连接或重构来更新agent记忆；ALFWorld冻结记忆留出成功率88.6%，但跨基准迁移策略仍明显退化。 只在线写入记忆仍依赖固定整理规则；不同状态可能需要不同语义变换，而不是同一种压缩或合并。 冻结GPT-5-mini，MLP根据图结构、检索和近期历史选择四种固定算子、候选与实例参数。即时反馈衡量已见query检索改善及复杂度，窗口反馈结合历史效用差、预测误差与多样性，以REINFORCE和正效用回放更新策略。前80%流允许演化，留出测试冻结写入和演化。 ALFWorld在线77.7%、冻结留出88.6%，比MemP高8.8/12.9点；OS74.0/77.3。WebShop和DB留出仅比最强基线高1.0/0.8点，未建立显著性。ALFWorld策略迁移至其他三个基准比目标域训练低4.0/2.0/4.4点；ALFWorld总运行21.6h对MemRL33.6h。",
+        "recommendation_level": "高",
+        "water_risk": "中",
+        "value_label": "值得核读",
+        "value_reason": "长期适应可学习内部记忆编辑策略而不更新主模型；必须区分记忆迁移、策略迁移以及目标域重新构图，检查即时检索代理是否真正改善任务。",
+        "source_scope": "full_text",
+        "source_note": "直接核读arXiv v1 PDF正文，核对实验表及评测边界；结果为作者报告，未独立复现。",
+        "source_evidence": [
+          "§3–4、表1–3、附录A：单遍流、冻结测试、seed和策略迁移协议",
+          "https://arxiv.org/abs/2611.22102v1"
+        ],
+        "model": "manual-full-text-review",
+        "updated_at": "2026-11-19T01:38:52.150599+00:00"
+      }
+    },
+    {
+      "id": "2611.22179v1",
+      "title": "RAG in a Trenchcoat: When Minimal Memory Is Enough for Agentic Systems, and When It Isn't",
+      "summary": "Agentic memory research has accumulated extraction, supersession, reflection, and graph synthesis on top of retrieval-augmented generation. However, we found that almost none of those primitives earn their cost in our tested memory benchmarks: we show this with BRIDGE, a deliberately minimal RAG memory with chained observation notes, hybrid BM25 with cosine retrieval, and chronological rendering, which reaches parity within bootstrap CI with the prior SOTA on LongMemEval-S and BEAM, and beats the best memory baseline on EverMemBench by 5.7-6.3 points at matched reader. It runs at ~5-7K reader-prompt tokens per query, using a single LLM call for each ingestion or query. We argue that this parity is itself the result: standard benchmarks score what memory retrieves, not what memory enables when the agent acts. To test the latter, we introduce five adversarial probes (Rule Application +-, Pattern Induction Style / Procedural, Dynamic Multiturn) judged at generation time by a cross vendor verification chain, where each query can only be solved by applying a remembered rule or pattern it never mentions. Across 5 probes x 20 scenarios, no architecture wins universally: atomic fact extractors (LangMem) win rule application, while BRIDGE's block-summary memory wins pattern induction. This result holds across four domains, three graders, and three reader families. Each design fails where the other wins, for reasons a recall benchmark cannot see: atomic-fact extractors discard the form a demonstrated pattern takes, while block-summary memory retrieves the rule but the reader does not act on it, a gap that presenting the rule more prominently largely closes. What separates memory designs is not what they retrieve but what they enable an agent to do, and that is what agentic memory should be evaluated on.",
+      "url": "http://arxiv.org/abs/2611.22179v1",
+      "authors": [
+        "Jingyu Liu",
+        "Zongze Li",
+        "Zach Xu",
+        "Zhanhui Zhou",
+        "Tahseen Rabbani",
+        "Dawn Song",
+        "Ce Zhang"
+      ],
+      "report_date": "2026-11-19",
+      "published": "2026-11-17",
+      "updated": "2026-11-17",
+      "primary_category": "cs.AI",
+      "categories": [
+        "cs.AI"
+      ],
+      "project_url": "",
+      "repo_url": "",
+      "venue_status": "未确认录用",
+      "recommendation": {
+        "score": 68,
+        "level": "高",
+        "label": "值得核读",
+        "water_risk": "中",
+        "value_judgement": "记忆评估应把事实召回、示例形式保留与约束执行分开；先建立简单而强的混合检索基线，再判断额外记忆结构是否值得成本。",
+        "reason": "记忆评估应把事实召回、示例形式保留与约束执行分开；先建立简单而强的混合检索基线，再判断额外记忆结构是否值得成本。"
+      },
+      "brief": {
+        "authors": [
+          "Jingyu Liu",
+          "Zongze Li",
+          "Zach Xu",
+          "Zhanhui Zhou",
+          "Tahseen Rabbani",
+          "Dawn Song",
+          "Ce Zhang"
+        ],
+        "affiliations": "未逐一核实作者单位",
+        "date": "2026-11-17",
+        "paper_url": "https://arxiv.org/abs/2611.22179v1",
+        "project_url": "",
+        "repo_url": "",
+        "venue_status": "未确认录用",
+        "contribution": "记忆评估应把事实召回、示例形式保留与约束执行分开；先建立简单而强的混合检索基线，再判断额外记忆结构是否值得成本。",
+        "summary": "BRIDGE用简洁RAG记忆匹配多项召回基准，但在隐式规则应用上落后；记住、检索到与真正按记忆行动是不同能力。 只测问答召回可能看不出记忆结构的价值；规则已被检索出来，reader仍可能不主动执行。 按会话分块，结合前十条观察笔记生成新笔记，同时保留原文；BM25与向量融合取十块，前三用原文、其余摘要，再按时间排序。新增规则应用、模式归纳和动态多轮共五探针，请求不显式提醒规则，跨厂商judge核验约束执行。 标准评测匹配reader下与既有最好结果多在CI内，约5–7K reader提示token/题。原始五探针各20场景：规则应用RA+ LangMem80%对BRIDGE35%，过程模式PI-P BRIDGE88%对LangMem55%，动态多轮75%对40%。对已召回规则做顶部显式呈现，RA+有效配对分母下52.6→94.7%，需额外调用。",
+        "highlights": [
+          "记忆评估应把事实召回、示例形式保留与约束执行分开；先建立简单而强的混合检索基线，再判断额外记忆结构是否值得成本。",
+          "阅读来源：arXiv PDF正文；实验边界见详情"
+        ],
+        "motivation": "只测问答召回可能看不出记忆结构的价值；规则已被检索出来，reader仍可能不主动执行。",
+        "method": "按会话分块，结合前十条观察笔记生成新笔记，同时保留原文；BM25与向量融合取十块，前三用原文、其余摘要，再按时间排序。新增规则应用、模式归纳和动态多轮共五探针，请求不显式提醒规则，跨厂商judge核验约束执行。",
+        "experiments": "标准评测匹配reader下与既有最好结果多在CI内，约5–7K reader提示token/题。原始五探针各20场景：规则应用RA+ LangMem80%对BRIDGE35%，过程模式PI-P BRIDGE88%对LangMem55%，动态多轮75%对40%。对已召回规则做顶部显式呈现，RA+有效配对分母下52.6→94.7%，需额外调用。",
+        "research_help": "记忆评估应把事实召回、示例形式保留与约束执行分开；先建立简单而强的混合检索基线，再判断额外记忆结构是否值得成本。",
+        "recommendation": {
+          "score": 68,
+          "level": "高",
+          "label": "值得核读",
+          "water_risk": "中",
+          "value_judgement": "记忆评估应把事实召回、示例形式保留与约束执行分开；先建立简单而强的混合检索基线，再判断额外记忆结构是否值得成本。",
+          "reason": "记忆评估应把事实召回、示例形式保留与约束执行分开；先建立简单而强的混合检索基线，再判断额外记忆结构是否值得成本。"
+        },
+        "card_summary": "BRIDGE用简洁RAG记忆匹配多项召回基准，但在隐式规则应用上落后；记住、检索到与真正按记忆行动是不同能力。",
+        "insight": "记忆评估应把事实召回、示例形式保留与约束执行分开；先建立简单而强的混合检索基线，再判断额外记忆结构是否值得成本。",
+        "limitations": "标准基线引用各自报告，匹配reader但预算、chunk和提示不全相同，CI重叠不能证明等价。探针是合成固定输入输出，非真实工具部署；每格样本少，DM只运行一次且未纳入稳健性重复。5–7K只计reader提示，不含写入全部成本；未独立复现。",
+        "abstract_zh": "BRIDGE用简洁RAG记忆匹配多项召回基准，但在隐式规则应用上落后；记住、检索到与真正按记忆行动是不同能力。 只测问答召回可能看不出记忆结构的价值；规则已被检索出来，reader仍可能不主动执行。",
+        "full_summary": "BRIDGE用简洁RAG记忆匹配多项召回基准，但在隐式规则应用上落后；记住、检索到与真正按记忆行动是不同能力。 只测问答召回可能看不出记忆结构的价值；规则已被检索出来，reader仍可能不主动执行。 按会话分块，结合前十条观察笔记生成新笔记，同时保留原文；BM25与向量融合取十块，前三用原文、其余摘要，再按时间排序。新增规则应用、模式归纳和动态多轮共五探针，请求不显式提醒规则，跨厂商judge核验约束执行。 标准评测匹配reader下与既有最好结果多在CI内，约5–7K reader提示token/题。原始五探针各20场景：规则应用RA+ LangMem80%对BRIDGE35%，过程模式PI-P BRIDGE88%对LangMem55%，动态多轮75%对40%。对已召回规则做顶部显式呈现，RA+有效配对分母下52.6→94.7%，需额外调用。"
+      },
+      "analysis": {
+        "card_summary": "BRIDGE用简洁RAG记忆匹配多项召回基准，但在隐式规则应用上落后；记住、检索到与真正按记忆行动是不同能力。",
+        "motivation": "只测问答召回可能看不出记忆结构的价值；规则已被检索出来，reader仍可能不主动执行。",
+        "method": "按会话分块，结合前十条观察笔记生成新笔记，同时保留原文；BM25与向量融合取十块，前三用原文、其余摘要，再按时间排序。新增规则应用、模式归纳和动态多轮共五探针，请求不显式提醒规则，跨厂商judge核验约束执行。",
+        "experiments": "标准评测匹配reader下与既有最好结果多在CI内，约5–7K reader提示token/题。原始五探针各20场景：规则应用RA+ LangMem80%对BRIDGE35%，过程模式PI-P BRIDGE88%对LangMem55%，动态多轮75%对40%。对已召回规则做顶部显式呈现，RA+有效配对分母下52.6→94.7%，需额外调用。",
+        "insight": "记忆评估应把事实召回、示例形式保留与约束执行分开；先建立简单而强的混合检索基线，再判断额外记忆结构是否值得成本。",
+        "limitations": "标准基线引用各自报告，匹配reader但预算、chunk和提示不全相同，CI重叠不能证明等价。探针是合成固定输入输出，非真实工具部署；每格样本少，DM只运行一次且未纳入稳健性重复。5–7K只计reader提示，不含写入全部成本；未独立复现。",
+        "research_help": "记忆评估应把事实召回、示例形式保留与约束执行分开；先建立简单而强的混合检索基线，再判断额外记忆结构是否值得成本。",
+        "abstract_zh": "BRIDGE用简洁RAG记忆匹配多项召回基准，但在隐式规则应用上落后；记住、检索到与真正按记忆行动是不同能力。 只测问答召回可能看不出记忆结构的价值；规则已被检索出来，reader仍可能不主动执行。",
+        "full_summary": "BRIDGE用简洁RAG记忆匹配多项召回基准，但在隐式规则应用上落后；记住、检索到与真正按记忆行动是不同能力。 只测问答召回可能看不出记忆结构的价值；规则已被检索出来，reader仍可能不主动执行。 按会话分块，结合前十条观察笔记生成新笔记，同时保留原文；BM25与向量融合取十块，前三用原文、其余摘要，再按时间排序。新增规则应用、模式归纳和动态多轮共五探针，请求不显式提醒规则，跨厂商judge核验约束执行。 标准评测匹配reader下与既有最好结果多在CI内，约5–7K reader提示token/题。原始五探针各20场景：规则应用RA+ LangMem80%对BRIDGE35%，过程模式PI-P BRIDGE88%对LangMem55%，动态多轮75%对40%。对已召回规则做顶部显式呈现，RA+有效配对分母下52.6→94.7%，需额外调用。",
+        "recommendation_level": "高",
+        "water_risk": "中",
+        "value_label": "值得核读",
+        "value_reason": "记忆评估应把事实召回、示例形式保留与约束执行分开；先建立简单而强的混合检索基线，再判断额外记忆结构是否值得成本。",
+        "source_scope": "full_text",
+        "source_note": "直接核读arXiv v1 PDF正文，核对实验表及评测边界；结果为作者报告，未独立复现。",
+        "source_evidence": [
+          "§2–4/6、表2及规则呈现实验；附录J/M：重复、有效配对与成本",
+          "https://arxiv.org/abs/2611.22179v1"
+        ],
+        "model": "manual-full-text-review",
+        "updated_at": "2026-11-19T01:38:52.150599+00:00"
+      }
+    },
+    {
+      "id": "2611.22245v1",
+      "title": "Multi-Agent Memory Inconsistency: Where Factual Conflicts Disappear in LLM Agents",
+      "summary": "Multi-agent delegation lets LLM systems distribute evidence collection across workers with separate contexts. This creates a consistency challenge: facts retrieved by workers may be missing from the evidence available to the lead for a joint conclusion. We introduce a benchmark and evidence-flow profiler for studying multi-agent memory inconsistency through controlled factual conflicts in Harvey LAB document-review tasks. Pooled across three models with comparable generation spending, requiring delegation increases retrieval of both conflicting claims from 50.2% to 68.7% relative to single-agent execution, yet conflict detection falls from 16.2% to 13.2%. Within this setting, workers report both claims for only 35.2% of retrieved pairs, and pooled matched comparisons show higher detection than single-agent execution when one worker reads both claims but lower detection when the claims are split across workers. Worker-to-lead handoffs are a central target for improving conflict detection in multi-agent LLMs.",
+      "url": "http://arxiv.org/abs/2611.22245v1",
+      "authors": [
+        "Hejia Zhang",
+        "Zhongming Yu",
+        "Yimin Ding",
+        "Wei-Ting Chen",
+        "Hengjia Yu",
+        "Wentao Ni",
+        "Yijun Liu",
+        "Cong Xu",
+        "Xin Chen",
+        "Matrix Yao",
+        "Fan Zhao",
+        "Jishen Zhao"
+      ],
+      "report_date": "2026-11-19",
+      "published": "2026-11-17",
+      "updated": "2026-11-17",
+      "primary_category": "cs.AI",
+      "categories": [
+        "cs.AI",
+        "cs.MA"
+      ],
+      "project_url": "",
+      "repo_url": "",
+      "venue_status": "未确认录用",
+      "recommendation": {
+        "score": 60,
+        "level": "高",
+        "label": "值得核读",
+        "water_risk": "中",
+        "value_judgement": "应单独衡量发现、汇报保留和lead综合，而非只看最终准确率；允许重叠读取与来源回查可能比强制不重叠分区更合适。",
+        "reason": "应单独衡量发现、汇报保留和lead综合，而非只看最终准确率；允许重叠读取与来源回查可能比强制不重叠分区更合适。"
+      },
+      "brief": {
+        "authors": [
+          "Hejia Zhang",
+          "Zhongming Yu",
+          "Yimin Ding",
+          "Wei-Ting Chen",
+          "Hengjia Yu",
+          "Wentao Ni",
+          "Yijun Liu",
+          "Cong Xu",
+          "Xin Chen",
+          "Matrix Yao",
+          "Fan Zhao",
+          "Jishen Zhao"
+        ],
+        "affiliations": "未逐一核实作者单位",
+        "date": "2026-11-17",
+        "paper_url": "https://arxiv.org/abs/2611.22245v1",
+        "project_url": "",
+        "repo_url": "",
+        "venue_status": "未确认录用",
+        "contribution": "应单独衡量发现、汇报保留和lead综合，而非只看最终准确率；允许重叠读取与来源回查可能比强制不重叠分区更合适。",
+        "summary": "多agent文档审阅读到更多冲突证据，却可能在worker汇报时丢失；强制委派的双事实召回68.7%，最终冲突识别仅13.2%。 任务拆分使相关证据分散在不同上下文；系统总计读过两项事实，不代表lead能同时看到并比较它们。 在11个Harvey LAB任务植入73组数值冲突，比较单agent、可选委派、强制分区委派且lead禁读原文三种策略。profiler沿源工具输出、worker报告、lead证据和最终交付物跟踪两个端点；judge要求明确指出冲突并准确处理定量比较。 三模型每策略两次，共198执行、1314冲突观察。合并强制委派源Pair Recall50.2→68.7%，Judge Pass16.2→13.2%；可选委派24.2%。301个已读全的冲突对中仅106对进入worker报告（35.2%）。同worker读全的条件组识别34.2%对匹配单agent22.5%，跨worker分散组10.0%对18.9%。",
+        "highlights": [
+          "应单独衡量发现、汇报保留和lead综合，而非只看最终准确率；允许重叠读取与来源回查可能比强制不重叠分区更合适。",
+          "阅读来源：arXiv PDF正文；实验边界见详情"
+        ],
+        "motivation": "任务拆分使相关证据分散在不同上下文；系统总计读过两项事实，不代表lead能同时看到并比较它们。",
+        "method": "在11个Harvey LAB任务植入73组数值冲突，比较单agent、可选委派、强制分区委派且lead禁读原文三种策略。profiler沿源工具输出、worker报告、lead证据和最终交付物跟踪两个端点；judge要求明确指出冲突并准确处理定量比较。",
+        "experiments": "三模型每策略两次，共198执行、1314冲突观察。合并强制委派源Pair Recall50.2→68.7%，Judge Pass16.2→13.2%；可选委派24.2%。301个已读全的冲突对中仅106对进入worker报告（35.2%）。同worker读全的条件组识别34.2%对匹配单agent22.5%，跨worker分散组10.0%对18.9%。",
+        "research_help": "应单独衡量发现、汇报保留和lead综合，而非只看最终准确率；允许重叠读取与来源回查可能比强制不重叠分区更合适。",
+        "recommendation": {
+          "score": 60,
+          "level": "高",
+          "label": "值得核读",
+          "water_risk": "中",
+          "value_judgement": "应单独衡量发现、汇报保留和lead综合，而非只看最终准确率；允许重叠读取与来源回查可能比强制不重叠分区更合适。",
+          "reason": "应单独衡量发现、汇报保留和lead综合，而非只看最终准确率；允许重叠读取与来源回查可能比强制不重叠分区更合适。"
+        },
+        "card_summary": "多agent文档审阅读到更多冲突证据，却可能在worker汇报时丢失；强制委派的双事实召回68.7%，最终冲突识别仅13.2%。",
+        "insight": "应单独衡量发现、汇报保留和lead综合，而非只看最终准确率；允许重叠读取与来源回查可能比强制不重叠分区更合适。",
+        "limitations": "强制策略同时改变分区与lead访问权限，不能把差距全归因于agent数量；条件组由实际轨迹形成，非随机因果实验。11任务两次运行，冲突观察共享任务，不能当1314独立样本。成本不含judge，累计端点存在也不保证同时出现在可用窗口；未独立复现。",
+        "abstract_zh": "多agent文档审阅读到更多冲突证据，却可能在worker汇报时丢失；强制委派的双事实召回68.7%，最终冲突识别仅13.2%。 任务拆分使相关证据分散在不同上下文；系统总计读过两项事实，不代表lead能同时看到并比较它们。",
+        "full_summary": "多agent文档审阅读到更多冲突证据，却可能在worker汇报时丢失；强制委派的双事实召回68.7%，最终冲突识别仅13.2%。 任务拆分使相关证据分散在不同上下文；系统总计读过两项事实，不代表lead能同时看到并比较它们。 在11个Harvey LAB任务植入73组数值冲突，比较单agent、可选委派、强制分区委派且lead禁读原文三种策略。profiler沿源工具输出、worker报告、lead证据和最终交付物跟踪两个端点；judge要求明确指出冲突并准确处理定量比较。 三模型每策略两次，共198执行、1314冲突观察。合并强制委派源Pair Recall50.2→68.7%，Judge Pass16.2→13.2%；可选委派24.2%。301个已读全的冲突对中仅106对进入worker报告（35.2%）。同worker读全的条件组识别34.2%对匹配单agent22.5%，跨worker分散组10.0%对18.9%。"
+      },
+      "analysis": {
+        "card_summary": "多agent文档审阅读到更多冲突证据，却可能在worker汇报时丢失；强制委派的双事实召回68.7%，最终冲突识别仅13.2%。",
+        "motivation": "任务拆分使相关证据分散在不同上下文；系统总计读过两项事实，不代表lead能同时看到并比较它们。",
+        "method": "在11个Harvey LAB任务植入73组数值冲突，比较单agent、可选委派、强制分区委派且lead禁读原文三种策略。profiler沿源工具输出、worker报告、lead证据和最终交付物跟踪两个端点；judge要求明确指出冲突并准确处理定量比较。",
+        "experiments": "三模型每策略两次，共198执行、1314冲突观察。合并强制委派源Pair Recall50.2→68.7%，Judge Pass16.2→13.2%；可选委派24.2%。301个已读全的冲突对中仅106对进入worker报告（35.2%）。同worker读全的条件组识别34.2%对匹配单agent22.5%，跨worker分散组10.0%对18.9%。",
+        "insight": "应单独衡量发现、汇报保留和lead综合，而非只看最终准确率；允许重叠读取与来源回查可能比强制不重叠分区更合适。",
+        "limitations": "强制策略同时改变分区与lead访问权限，不能把差距全归因于agent数量；条件组由实际轨迹形成，非随机因果实验。11任务两次运行，冲突观察共享任务，不能当1314独立样本。成本不含judge，累计端点存在也不保证同时出现在可用窗口；未独立复现。",
+        "research_help": "应单独衡量发现、汇报保留和lead综合，而非只看最终准确率；允许重叠读取与来源回查可能比强制不重叠分区更合适。",
+        "abstract_zh": "多agent文档审阅读到更多冲突证据，却可能在worker汇报时丢失；强制委派的双事实召回68.7%，最终冲突识别仅13.2%。 任务拆分使相关证据分散在不同上下文；系统总计读过两项事实，不代表lead能同时看到并比较它们。",
+        "full_summary": "多agent文档审阅读到更多冲突证据，却可能在worker汇报时丢失；强制委派的双事实召回68.7%，最终冲突识别仅13.2%。 任务拆分使相关证据分散在不同上下文；系统总计读过两项事实，不代表lead能同时看到并比较它们。 在11个Harvey LAB任务植入73组数值冲突，比较单agent、可选委派、强制分区委派且lead禁读原文三种策略。profiler沿源工具输出、worker报告、lead证据和最终交付物跟踪两个端点；judge要求明确指出冲突并准确处理定量比较。 三模型每策略两次，共198执行、1314冲突观察。合并强制委派源Pair Recall50.2→68.7%，Judge Pass16.2→13.2%；可选委派24.2%。301个已读全的冲突对中仅106对进入worker报告（35.2%）。同worker读全的条件组识别34.2%对匹配单agent22.5%，跨worker分散组10.0%对18.9%。",
+        "recommendation_level": "高",
+        "water_risk": "中",
+        "value_label": "值得核读",
+        "value_reason": "应单独衡量发现、汇报保留和lead综合，而非只看最终准确率；允许重叠读取与来源回查可能比强制不重叠分区更合适。",
+        "source_scope": "full_text",
+        "source_note": "直接核读arXiv v1 PDF正文，核对实验表及评测边界；结果为作者报告，未独立复现。",
+        "source_evidence": [
+          "§3–4、表1与图4：植入协议、成本、条件分组和局限",
+          "https://arxiv.org/abs/2611.22245v1"
+        ],
+        "model": "manual-full-text-review",
+        "updated_at": "2026-11-19T01:38:52.150599+00:00"
+      }
+    },
     {
       "id": "2611.19823v1",
       "title": "EfficientSkill: Learning Skills for Token-Efficient Multi-Turn Agents",
