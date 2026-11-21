@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-20T01:34:36.841886+00:00",
+  "updated_at": "2026-11-21T01:32:02.503461+00:00",
   "source": "arxiv",
   "analysis_method": "Codex CLI workflow with manual arXiv PDF full-text review and rendered result-page verification; per-item source notes identify the analysis path.",
   "query_focus": "多轮交互式 agent planning、long-horizon planning、stateful/personalized planning、agent memory、planning reliability、agentic RL",
@@ -37,34 +37,34 @@
     "codex_reader": "Downloads arXiv PDFs, extracts text with pdftotext or bundled Python PDF libraries, then calls codex exec to write Chinese motivation/method/experiment/research-help fields."
   },
   "digest": {
-    "title": "2026-11-20 Daily Paper",
-    "report_date": "2026-11-20",
+    "title": "2026-11-21 Daily Paper",
+    "report_date": "2026-11-21",
     "focus": "多轮交互式 agent planning、long-horizon planning、stateful/personalized planning、agent memory、planning reliability、agentic RL",
-    "summary": "今日新增8篇，覆盖长程证据恢复、可逆视觉记忆、agent RL课程与专家日志回放、视觉规划环境及跨轮记忆协作。已核读正文与主实验表，详情区分子集与全量、进度与成功、训练与部署成本、人机协作与自主执行。",
+    "summary": "今日新增8篇，覆盖长程记忆与压缩评测、agent行为量化、导航联合RL、可逆空间规划与多agent重建。已核读正文和实验表，详情说明测试配置选择、成功轨迹筛选、不同harness与在线执行限制。",
     "top_recommendations": [
-      "2611.24357v1",
-      "2611.24697v1",
-      "2611.24059v1"
+      "2611.25123v1",
+      "2611.25673v1",
+      "2611.26361v1"
     ],
     "low_priority": [],
     "no_news_policy": "如果没有新的高相关论文，自动化应返回“今日无高相关新增论文”，不写邮件正文文件，也不发送邮件。",
     "email_body": ""
   },
   "latest_item_ids": [
-    "2611.24357v1",
-    "2611.24697v1",
-    "2611.24422v1",
-    "2611.24059v1",
-    "2611.24154v1",
-    "2611.23803v1",
-    "2611.24165v1",
-    "2611.23588v1"
+    "2611.26361v1",
+    "2611.25673v1",
+    "2611.26427v1",
+    "2611.25123v1",
+    "2611.26414v1",
+    "2611.26157v1",
+    "2611.25005v1",
+    "2611.25340v1"
   ],
   "archive": {
     "policy": "append_or_update_by_arxiv_id",
     "fresh_items": 8,
-    "total_items": 618,
-    "previous_items": 610,
+    "total_items": 626,
+    "previous_items": 618,
     "latest_items": 8,
     "source_report_dates": {
       "2026-11-14": 7,
@@ -135,29 +135,794 @@
       "2026-11-17": 3,
       "2026-11-18": 12,
       "2026-11-19": 7,
-      "2026-11-20": 8
+      "2026-11-20": 8,
+      "2026-11-21": 8
     },
     "filtered_candidate_ids": [
-      "2611.24357v1",
-      "2611.24697v1",
-      "2611.24422v1",
-      "2611.24059v1",
-      "2611.24154v1",
-      "2611.23803v1",
-      "2611.24165v1",
-      "2611.23588v1"
+      "2611.26361v1",
+      "2611.25673v1",
+      "2611.26427v1",
+      "2611.25123v1",
+      "2611.26414v1",
+      "2611.26157v1",
+      "2611.25005v1",
+      "2611.25340v1"
     ],
     "filtered_today": 8,
     "rejected_candidate_ids": [
-      "2611.24039v1",
-      "2611.23909v1",
-      "2611.24466v1",
-      "2611.24676v1",
-      "2611.22275v2",
-      "2611.22691v1"
+      "2611.25407v1",
+      "2611.25800v1",
+      "2611.25932v1",
+      "2611.24039v1"
     ]
   },
   "items": [
+    {
+      "id": "2611.26361v1",
+      "title": "How Much Should an Agent Remember? Deployment Lessons from Self-Distilled Memory for LLM Agents",
+      "summary": "LLM agents on long-horizon tasks fail in recurring, procedural ways. They mis-paginate an API, resolve the wrong entity, or answer when no answer was asked. We built a pipeline that lets an agent learn from its own history. It first mines short \\emph{lessons} from the agent's own trajectories, one to three per episode. It then consolidates those lessons into a smaller set of \\emph{guidelines}, where each guideline records how many lessons it merged. At inference the agent receives either all guidelines or a selected subset. The pipeline ships in the open-source altk-evolve library and is deployed in IBM's CUGA agent and watsonx Orchestrate platform. We report what we learned building, measuring, and productizing it. Our primary instrument is the AppWorld benchmark, across models spanning 40--92\\% baseline task completion. The central finding is that the right amount of memory is a property of the model, not the memory. A strong model keeps improving as guidelines are added. DeepSeek-V3.2 gains +9.5 points of task completion and +16.1 points of scenario completion with its full 191-guideline set. A weak model gains less from the same full set than from a small selected subset. gpt-oss-120b starts at 39.9\\% task completion. It reaches 51.2\\% with all 199 of its guidelines but 55.4\\% (mean of two runs) with a selected subset of about 29. Around that result we report what went wrong: a high-support guideline that backfired, provenance silently dropped during consolidation, a swallowed API error that failed every task while producing a plausible log, and a baseline confound that nearly produced a misleading comparison with a prior method. We distill these into recommendations for teams deploying agent memory.",
+      "url": "http://arxiv.org/abs/2611.26361v1",
+      "authors": [
+        "K. R. Jayaram",
+        "Vatche Isahagian",
+        "Aswath Vaithinathan Aravindan",
+        "Vinod Muthusamy",
+        "Punleuk Oum",
+        "Gaodan Fang",
+        "Michal Ulewicz",
+        "Gegi Thomas",
+        "Evelyn Duesterwald"
+      ],
+      "report_date": "2026-11-21",
+      "published": "2026-11-19",
+      "updated": "2026-11-19",
+      "primary_category": "cs.AI",
+      "categories": [
+        "cs.AI"
+      ],
+      "project_url": "",
+      "repo_url": "",
+      "venue_status": "未确认录用",
+      "recommendation": {
+        "score": 98,
+        "level": "高",
+        "label": "值得核读",
+        "water_risk": "中",
+        "value_judgement": "经验合并要保留来源、支持数和适用条件，再按模型能力决定投放量；应监测记忆是否真正写入，并固定agent scaffold比较成本与收益。",
+        "reason": "经验合并要保留来源、支持数和适用条件，再按模型能力决定投放量；应监测记忆是否真正写入，并固定agent scaffold比较成本与收益。"
+      },
+      "brief": {
+        "authors": [
+          "K. R. Jayaram",
+          "Vatche Isahagian",
+          "Aswath Vaithinathan Aravindan",
+          "Vinod Muthusamy",
+          "Punleuk Oum",
+          "Gaodan Fang",
+          "Michal Ulewicz",
+          "Gegi Thomas",
+          "Evelyn Duesterwald"
+        ],
+        "affiliations": "未逐一核实作者单位",
+        "date": "2026-11-19",
+        "paper_url": "https://arxiv.org/abs/2611.26361v1",
+        "project_url": "",
+        "repo_url": "",
+        "venue_status": "未确认录用",
+        "contribution": "经验合并要保留来源、支持数和适用条件，再按模型能力决定投放量；应监测记忆是否真正写入，并固定agent scaffold比较成本与收益。",
+        "summary": "从自身轨迹提炼并合并操作经验；AppWorld显示记忆用量依赖模型能力，弱模型选择约29条优于全部199条。 多步agent会重复分页、实体解析和交付错误；经验可以跨任务复用，但冗余和错误规则可能反而妨碍执行。 同一模型从训练/开发轨迹提炼每回合1–3条经验，按来源任务聚类后合并，守恒记录支持数及成功/失败来源；推理时全量注入，或固定高支持核心加任务相似检索。支持数只衡量重复出现，不代表规则正确。 AppWorld test_normal168题：DeepSeek-V3.2全部191条使任务完成79.8→89.3%、场景完成64.3→80.4%，但每题token增加78%。gpt-oss-120b从39.9%到全量51.2%，选择约29条为55.4%（两次均值）；相同配置两次为56.0/54.8%。CUGA修复写入路径后的较小增益仍在论文指出的噪声范围。",
+        "highlights": [
+          "经验合并要保留来源、支持数和适用条件，再按模型能力决定投放量；应监测记忆是否真正写入，并固定agent scaffold比较成本与收益。",
+          "阅读来源：arXiv PDF正文；实验边界见详情"
+        ],
+        "motivation": "多步agent会重复分页、实体解析和交付错误；经验可以跨任务复用，但冗余和错误规则可能反而妨碍执行。",
+        "method": "同一模型从训练/开发轨迹提炼每回合1–3条经验，按来源任务聚类后合并，守恒记录支持数及成功/失败来源；推理时全量注入，或固定高支持核心加任务相似检索。支持数只衡量重复出现，不代表规则正确。",
+        "experiments": "AppWorld test_normal168题：DeepSeek-V3.2全部191条使任务完成79.8→89.3%、场景完成64.3→80.4%，但每题token增加78%。gpt-oss-120b从39.9%到全量51.2%，选择约29条为55.4%（两次均值）；相同配置两次为56.0/54.8%。CUGA修复写入路径后的较小增益仍在论文指出的噪声范围。",
+        "research_help": "经验合并要保留来源、支持数和适用条件，再按模型能力决定投放量；应监测记忆是否真正写入，并固定agent scaffold比较成本与收益。",
+        "recommendation": {
+          "score": 98,
+          "level": "高",
+          "label": "值得核读",
+          "water_risk": "中",
+          "value_judgement": "经验合并要保留来源、支持数和适用条件，再按模型能力决定投放量；应监测记忆是否真正写入，并固定agent scaffold比较成本与收益。",
+          "reason": "经验合并要保留来源、支持数和适用条件，再按模型能力决定投放量；应监测记忆是否真正写入，并固定agent scaffold比较成本与收益。"
+        },
+        "card_summary": "从自身轨迹提炼并合并操作经验；AppWorld显示记忆用量依赖模型能力，弱模型选择约29条优于全部199条。",
+        "insight": "经验合并要保留来源、支持数和适用条件，再按模型能力决定投放量；应监测记忆是否真正写入，并固定agent scaffold比较成本与收益。",
+        "limitations": "开发集已用于挖掘，配置直接在test_normal比较，最优配置存在选择偏差；多为单次运行，模型能力与经验集同时变化，不能证明能力单独造成剂量差异。高支持规则也曾有害，部署案例不构成生产收益的因果证据；未独立复现。",
+        "abstract_zh": "从自身轨迹提炼并合并操作经验；AppWorld显示记忆用量依赖模型能力，弱模型选择约29条优于全部199条。 多步agent会重复分页、实体解析和交付错误；经验可以跨任务复用，但冗余和错误规则可能反而妨碍执行。",
+        "full_summary": "从自身轨迹提炼并合并操作经验；AppWorld显示记忆用量依赖模型能力，弱模型选择约29条优于全部199条。 多步agent会重复分页、实体解析和交付错误；经验可以跨任务复用，但冗余和错误规则可能反而妨碍执行。 同一模型从训练/开发轨迹提炼每回合1–3条经验，按来源任务聚类后合并，守恒记录支持数及成功/失败来源；推理时全量注入，或固定高支持核心加任务相似检索。支持数只衡量重复出现，不代表规则正确。 AppWorld test_normal168题：DeepSeek-V3.2全部191条使任务完成79.8→89.3%、场景完成64.3→80.4%，但每题token增加78%。gpt-oss-120b从39.9%到全量51.2%，选择约29条为55.4%（两次均值）；相同配置两次为56.0/54.8%。CUGA修复写入路径后的较小增益仍在论文指出的噪声范围。"
+      },
+      "analysis": {
+        "card_summary": "从自身轨迹提炼并合并操作经验；AppWorld显示记忆用量依赖模型能力，弱模型选择约29条优于全部199条。",
+        "motivation": "多步agent会重复分页、实体解析和交付错误；经验可以跨任务复用，但冗余和错误规则可能反而妨碍执行。",
+        "method": "同一模型从训练/开发轨迹提炼每回合1–3条经验，按来源任务聚类后合并，守恒记录支持数及成功/失败来源；推理时全量注入，或固定高支持核心加任务相似检索。支持数只衡量重复出现，不代表规则正确。",
+        "experiments": "AppWorld test_normal168题：DeepSeek-V3.2全部191条使任务完成79.8→89.3%、场景完成64.3→80.4%，但每题token增加78%。gpt-oss-120b从39.9%到全量51.2%，选择约29条为55.4%（两次均值）；相同配置两次为56.0/54.8%。CUGA修复写入路径后的较小增益仍在论文指出的噪声范围。",
+        "insight": "经验合并要保留来源、支持数和适用条件，再按模型能力决定投放量；应监测记忆是否真正写入，并固定agent scaffold比较成本与收益。",
+        "limitations": "开发集已用于挖掘，配置直接在test_normal比较，最优配置存在选择偏差；多为单次运行，模型能力与经验集同时变化，不能证明能力单独造成剂量差异。高支持规则也曾有害，部署案例不构成生产收益的因果证据；未独立复现。",
+        "research_help": "经验合并要保留来源、支持数和适用条件，再按模型能力决定投放量；应监测记忆是否真正写入，并固定agent scaffold比较成本与收益。",
+        "abstract_zh": "从自身轨迹提炼并合并操作经验；AppWorld显示记忆用量依赖模型能力，弱模型选择约29条优于全部199条。 多步agent会重复分页、实体解析和交付错误；经验可以跨任务复用，但冗余和错误规则可能反而妨碍执行。",
+        "full_summary": "从自身轨迹提炼并合并操作经验；AppWorld显示记忆用量依赖模型能力，弱模型选择约29条优于全部199条。 多步agent会重复分页、实体解析和交付错误；经验可以跨任务复用，但冗余和错误规则可能反而妨碍执行。 同一模型从训练/开发轨迹提炼每回合1–3条经验，按来源任务聚类后合并，守恒记录支持数及成功/失败来源；推理时全量注入，或固定高支持核心加任务相似检索。支持数只衡量重复出现，不代表规则正确。 AppWorld test_normal168题：DeepSeek-V3.2全部191条使任务完成79.8→89.3%、场景完成64.3→80.4%，但每题token增加78%。gpt-oss-120b从39.9%到全量51.2%，选择约29条为55.4%（两次均值）；相同配置两次为56.0/54.8%。CUGA修复写入路径后的较小增益仍在论文指出的噪声范围。",
+        "recommendation_level": "高",
+        "water_risk": "中",
+        "value_label": "值得核读",
+        "value_reason": "经验合并要保留来源、支持数和适用条件，再按模型能力决定投放量；应监测记忆是否真正写入，并固定agent scaffold比较成本与收益。",
+        "source_scope": "full_text",
+        "source_note": "直接核读arXiv v1 PDF正文并核对实验表；结果为作者报告，未独立复现。",
+        "source_evidence": [
+          "System/Measurement Setting/Insights1–7；图1、表2及CUGA表4–5：测试配置选择、来源守恒、运行噪声与token成本",
+          "https://arxiv.org/abs/2611.26361v1"
+        ],
+        "model": "manual-full-text-review",
+        "updated_at": "2026-11-21T01:32:02.503461+00:00"
+      }
+    },
+    {
+      "id": "2611.25673v1",
+      "title": "CompAct-Bench: A Benchmark for Working-Context Compaction in Long-Horizon Agent Tasks",
+      "summary": "As language-model agents are applied to increasingly extended tasks, their working context continuously accumulates interaction history, tool observations, intermediate decisions, and task progress. Context compaction offers a practical way to reduce this growing history while allowing execution to continue, yet the compaction ability of modern LLMs remains insufficiently understood. We introduce CompAct-Bench, a benchmark for evaluating working-context compaction through its downstream effect on agent task completion. Starting from successful agent trajectories, we insert compaction boundaries at different stages of execution, compress the preceding working context with the model under evaluation, and let the same executor continue the original task. To enable fair comparison across compactors, we evaluate them under controlled retention ratios using a lightweight iterative ratio-adjustment procedure. CompAct-Bench covers information-seeking, software-engineering, and workspace-oriented tasks through BrowseComp, SWE-bench, and an internal CompanyBench evaluation. Our experiments show that working-context compaction remains highly lossy even for frontier models: Claude- and GPT-family models perform strongest overall, yet substantial degradation in downstream task accuracy persists under aggressive compaction. Further analysis reveals that failures are often caused not only by omitted information, but also by distorted task state, such as turning unresolved issues into apparent conclusions or forgetting previously established results, which can lead to incorrect decisions or redundant execution. These findings highlight working-context compaction as a distinct and still challenging ability for LLMs operating in extended agent tasks.",
+      "url": "http://arxiv.org/abs/2611.25673v1",
+      "authors": [
+        "Jiayi Chen",
+        "Lizhe Chen",
+        "Yujia Chen",
+        "Shihan Dou",
+        "Ming Zhang",
+        "Chendi Ge",
+        "Shiguang Ni",
+        "Tao Gui",
+        "Qi Zhang",
+        "Xuanjing Huang",
+        "Maxm Pan"
+      ],
+      "report_date": "2026-11-21",
+      "published": "2026-11-19",
+      "updated": "2026-11-19",
+      "primary_category": "cs.AI",
+      "categories": [
+        "cs.AI"
+      ],
+      "project_url": "",
+      "repo_url": "",
+      "venue_status": "未确认录用",
+      "recommendation": {
+        "score": 98,
+        "level": "高",
+        "label": "值得核读",
+        "water_risk": "中",
+        "value_judgement": "上下文压缩质量应通过恢复后的决策与任务完成测量；需显式保留未决状态、已完成事实及可用证据，固定长度和行动预算再比较压缩器。",
+        "reason": "上下文压缩质量应通过恢复后的决策与任务完成测量；需显式保留未决状态、已完成事实及可用证据，固定长度和行动预算再比较压缩器。"
+      },
+      "brief": {
+        "authors": [
+          "Jiayi Chen",
+          "Lizhe Chen",
+          "Yujia Chen",
+          "Shihan Dou",
+          "Ming Zhang",
+          "Chendi Ge",
+          "Shiguang Ni",
+          "Tao Gui",
+          "Qi Zhang",
+          "Xuanjing Huang",
+          "Maxm Pan"
+        ],
+        "affiliations": "未逐一核实作者单位",
+        "date": "2026-11-19",
+        "paper_url": "https://arxiv.org/abs/2611.25673v1",
+        "project_url": "",
+        "repo_url": "",
+        "venue_status": "未确认录用",
+        "contribution": "上下文压缩质量应通过恢复后的决策与任务完成测量；需显式保留未决状态、已完成事实及可用证据，固定长度和行动预算再比较压缩器。",
+        "summary": "CompAct-Bench固定执行器与剩余行动预算，评估压缩后能否完成任务；保留10%字符时最佳模型整体仅68.5%。 摘要看似完整并不保证后续行动正确，压缩可能把未决问题写成结论，或遗忘已完成工作造成重复执行。 每题原执行器运行三次且全成功、轨迹至少8轮才入选；按长度分层分配25/50/75%进度边界，每题一个边界。IRC迭代校准字符保留率，恢复边界环境状态后以同一执行器继续，最多执行原轨迹剩余动作数。 200实例由BrowseComp79、SWE-bench96及内部CompanyBench25组成；12压缩模型，每个压缩结果采三次独立续跑并报Avg@3。10%字符保留下Claude Opus5整体68.5%、搜索62.0%、代码81.2%、办公40.0%；Gemini3.8Flash整体65.5%，办公56.0%。各域执行器固定但不相同。",
+        "highlights": [
+          "上下文压缩质量应通过恢复后的决策与任务完成测量；需显式保留未决状态、已完成事实及可用证据，固定长度和行动预算再比较压缩器。",
+          "阅读来源：arXiv PDF正文；实验边界见详情"
+        ],
+        "motivation": "摘要看似完整并不保证后续行动正确，压缩可能把未决问题写成结论，或遗忘已完成工作造成重复执行。",
+        "method": "每题原执行器运行三次且全成功、轨迹至少8轮才入选；按长度分层分配25/50/75%进度边界，每题一个边界。IRC迭代校准字符保留率，恢复边界环境状态后以同一执行器继续，最多执行原轨迹剩余动作数。",
+        "experiments": "200实例由BrowseComp79、SWE-bench96及内部CompanyBench25组成；12压缩模型，每个压缩结果采三次独立续跑并报Avg@3。10%字符保留下Claude Opus5整体68.5%、搜索62.0%、代码81.2%、办公40.0%；Gemini3.8Flash整体65.5%，办公56.0%。各域执行器固定但不相同。",
+        "research_help": "上下文压缩质量应通过恢复后的决策与任务完成测量；需显式保留未决状态、已完成事实及可用证据，固定长度和行动预算再比较压缩器。",
+        "recommendation": {
+          "score": 98,
+          "level": "高",
+          "label": "值得核读",
+          "water_risk": "中",
+          "value_judgement": "上下文压缩质量应通过恢复后的决策与任务完成测量；需显式保留未决状态、已完成事实及可用证据，固定长度和行动预算再比较压缩器。",
+          "reason": "上下文压缩质量应通过恢复后的决策与任务完成测量；需显式保留未决状态、已完成事实及可用证据，固定长度和行动预算再比较压缩器。"
+        },
+        "card_summary": "CompAct-Bench固定执行器与剩余行动预算，评估压缩后能否完成任务；保留10%字符时最佳模型整体仅68.5%。",
+        "insight": "上下文压缩质量应通过恢复后的决策与任务完成测量；需显式保留未决状态、已完成事实及可用证据，固定长度和行动预算再比较压缩器。",
+        "limitations": "任务经原执行器pass3筛选，不能外推原本失败的困难任务；每题仅一边界、一份压缩，续跑三次不等于三份独立压缩。10%是字符比例而非token或成本；IRC可能多次调用。内部办公集不可等同公开可复现基准；未独立复现。",
+        "abstract_zh": "CompAct-Bench固定执行器与剩余行动预算，评估压缩后能否完成任务；保留10%字符时最佳模型整体仅68.5%。 摘要看似完整并不保证后续行动正确，压缩可能把未决问题写成结论，或遗忘已完成工作造成重复执行。",
+        "full_summary": "CompAct-Bench固定执行器与剩余行动预算，评估压缩后能否完成任务；保留10%字符时最佳模型整体仅68.5%。 摘要看似完整并不保证后续行动正确，压缩可能把未决问题写成结论，或遗忘已完成工作造成重复执行。 每题原执行器运行三次且全成功、轨迹至少8轮才入选；按长度分层分配25/50/75%进度边界，每题一个边界。IRC迭代校准字符保留率，恢复边界环境状态后以同一执行器继续，最多执行原轨迹剩余动作数。 200实例由BrowseComp79、SWE-bench96及内部CompanyBench25组成；12压缩模型，每个压缩结果采三次独立续跑并报Avg@3。10%字符保留下Claude Opus5整体68.5%、搜索62.0%、代码81.2%、办公40.0%；Gemini3.8Flash整体65.5%，办公56.0%。各域执行器固定但不相同。"
+      },
+      "analysis": {
+        "card_summary": "CompAct-Bench固定执行器与剩余行动预算，评估压缩后能否完成任务；保留10%字符时最佳模型整体仅68.5%。",
+        "motivation": "摘要看似完整并不保证后续行动正确，压缩可能把未决问题写成结论，或遗忘已完成工作造成重复执行。",
+        "method": "每题原执行器运行三次且全成功、轨迹至少8轮才入选；按长度分层分配25/50/75%进度边界，每题一个边界。IRC迭代校准字符保留率，恢复边界环境状态后以同一执行器继续，最多执行原轨迹剩余动作数。",
+        "experiments": "200实例由BrowseComp79、SWE-bench96及内部CompanyBench25组成；12压缩模型，每个压缩结果采三次独立续跑并报Avg@3。10%字符保留下Claude Opus5整体68.5%、搜索62.0%、代码81.2%、办公40.0%；Gemini3.8Flash整体65.5%，办公56.0%。各域执行器固定但不相同。",
+        "insight": "上下文压缩质量应通过恢复后的决策与任务完成测量；需显式保留未决状态、已完成事实及可用证据，固定长度和行动预算再比较压缩器。",
+        "limitations": "任务经原执行器pass3筛选，不能外推原本失败的困难任务；每题仅一边界、一份压缩，续跑三次不等于三份独立压缩。10%是字符比例而非token或成本；IRC可能多次调用。内部办公集不可等同公开可复现基准；未独立复现。",
+        "research_help": "上下文压缩质量应通过恢复后的决策与任务完成测量；需显式保留未决状态、已完成事实及可用证据，固定长度和行动预算再比较压缩器。",
+        "abstract_zh": "CompAct-Bench固定执行器与剩余行动预算，评估压缩后能否完成任务；保留10%字符时最佳模型整体仅68.5%。 摘要看似完整并不保证后续行动正确，压缩可能把未决问题写成结论，或遗忘已完成工作造成重复执行。",
+        "full_summary": "CompAct-Bench固定执行器与剩余行动预算，评估压缩后能否完成任务；保留10%字符时最佳模型整体仅68.5%。 摘要看似完整并不保证后续行动正确，压缩可能把未决问题写成结论，或遗忘已完成工作造成重复执行。 每题原执行器运行三次且全成功、轨迹至少8轮才入选；按长度分层分配25/50/75%进度边界，每题一个边界。IRC迭代校准字符保留率，恢复边界环境状态后以同一执行器继续，最多执行原轨迹剩余动作数。 200实例由BrowseComp79、SWE-bench96及内部CompanyBench25组成；12压缩模型，每个压缩结果采三次独立续跑并报Avg@3。10%字符保留下Claude Opus5整体68.5%、搜索62.0%、代码81.2%、办公40.0%；Gemini3.8Flash整体65.5%，办公56.0%。各域执行器固定但不相同。",
+        "recommendation_level": "高",
+        "water_risk": "中",
+        "value_label": "值得核读",
+        "value_reason": "上下文压缩质量应通过恢复后的决策与任务完成测量；需显式保留未决状态、已完成事实及可用证据，固定长度和行动预算再比较压缩器。",
+        "source_scope": "full_text",
+        "source_note": "直接核读arXiv v1 PDF正文并核对实验表；结果为作者报告，未独立复现。",
+        "source_evidence": [
+          "§2–3，表1–2及附录A/B：pass3筛选、200实例、字符校准与Avg@3协议",
+          "https://arxiv.org/abs/2611.25673v1"
+        ],
+        "model": "manual-full-text-review",
+        "updated_at": "2026-11-21T01:32:02.503461+00:00"
+      }
+    },
+    {
+      "id": "2611.26427v1",
+      "title": "MemFolder: Structure-Guided Memory Folding for Efficient Agent Memory Management",
+      "summary": "Long-term agents accumulate large external memory stores as interactions unfold, increasing the costs of storage, retrieval, and response generation. Efficiency is constrained by two coupled factors: a growing record count increases retrieval overhead, while longer retrieved contexts increase prefill computation and decoding-time attention costs. Existing methods prune or consolidate records, but pruning can discard useful evidence, whereas consolidation may produce fewer yet longer retrieval units. We introduce MemFolder, a structure-guided memory folding framework that sequentially reduces record count and context length. The framework comprises two core components that share memory groups, using cross-record structure to guide both evidence consolidation and compact representation. RecordFolder grounds entity mentions, progressively selects representative yet complementary anchors, and combines semantic and entity affinity with temporal chaining to consolidate compatible records into fewer retrieval units. ContextFolder encodes the original records within these groups into compact text and uses verification feedback to revise encodings when key facts cannot be recovered. Experiments on the three text-based memory benchmarks LoCoMo, PersonaMem, and LongMemEval and the two multimodal benchmarks M3-Bench-web and M3-Bench-robot demonstrate the strong performance of our methods. Notably, on Mem0, RecordFolder retains 99.0% of the original average performance across the three text-based benchmarks with 50% fewer records, exceeding the strongest baseline by 1.9 percentage points in performance retention. Combined with ContextFolder, existing record compression methods further shorten their output records while retaining most of their performance.",
+      "url": "http://arxiv.org/abs/2611.26427v1",
+      "authors": [
+        "Xuyang Liu",
+        "Chenwen Lu",
+        "Junxi Wang",
+        "Siyu Ren",
+        "Xinying Lin",
+        "Siteng Huang",
+        "Hongli Sun",
+        "Linfeng Zhang",
+        "Honggang Chen"
+      ],
+      "report_date": "2026-11-21",
+      "published": "2026-11-19",
+      "updated": "2026-11-19",
+      "primary_category": "cs.CL",
+      "categories": [
+        "cs.CL",
+        "cs.CV"
+      ],
+      "project_url": "",
+      "repo_url": "",
+      "venue_status": "未确认录用",
+      "recommendation": {
+        "score": 82,
+        "level": "高",
+        "label": "值得核读",
+        "water_risk": "中",
+        "value_judgement": "记忆压缩要同时度量检索单位数量、每单位长度和证据恢复；从原始组重新编码并盲测关键事实，有助避免合并后越压越长。",
+        "reason": "记忆压缩要同时度量检索单位数量、每单位长度和证据恢复；从原始组重新编码并盲测关键事实，有助避免合并后越压越长。"
+      },
+      "brief": {
+        "authors": [
+          "Xuyang Liu",
+          "Chenwen Lu",
+          "Junxi Wang",
+          "Siyu Ren",
+          "Xinying Lin",
+          "Siteng Huang",
+          "Hongli Sun",
+          "Linfeng Zhang",
+          "Honggang Chen"
+        ],
+        "affiliations": "未逐一核实作者单位",
+        "date": "2026-11-19",
+        "paper_url": "https://arxiv.org/abs/2611.26427v1",
+        "project_url": "",
+        "repo_url": "",
+        "venue_status": "未确认录用",
+        "contribution": "记忆压缩要同时度量检索单位数量、每单位长度和证据恢复；从原始组重新编码并盲测关键事实，有助避免合并后越压越长。",
+        "summary": "MemFolder分开压缩记忆条数与单条长度；Mem0三文本任务减半记录后，保留原平均准确率的99.0%。 删记忆容易失证据，合并却可能产生更长条目；固定top-k检索时，记录少不代表输入上下文短。 RecordFolder规范化实体，选互补锚点，用实体/语义亲和及时间链归组后按序合并。ContextFolder从原组抽原子事实与核验题，以紧凑语法编码，盲读者只看编码回答、裁判核对，最多三轮反馈修订，并按预算和事实恢复选择候选。 Mem0在LoCoMo、LongMemEval、PersonaMem上原平均准确率61.1%，记录减半后60.5%，保留比99.0%，MemForest为97.1%。叠加ContextFolder，LoCoMo每条token20.6→12.3，准确率约降2.7个百分点；LongMemEval token压缩37.9%。另测MemOS及M3-web/robot，不能把条数下降直接当端到端加速。",
+        "highlights": [
+          "记忆压缩要同时度量检索单位数量、每单位长度和证据恢复；从原始组重新编码并盲测关键事实，有助避免合并后越压越长。",
+          "阅读来源：arXiv PDF正文；实验边界见详情"
+        ],
+        "motivation": "删记忆容易失证据，合并却可能产生更长条目；固定top-k检索时，记录少不代表输入上下文短。",
+        "method": "RecordFolder规范化实体，选互补锚点，用实体/语义亲和及时间链归组后按序合并。ContextFolder从原组抽原子事实与核验题，以紧凑语法编码，盲读者只看编码回答、裁判核对，最多三轮反馈修订，并按预算和事实恢复选择候选。",
+        "experiments": "Mem0在LoCoMo、LongMemEval、PersonaMem上原平均准确率61.1%，记录减半后60.5%，保留比99.0%，MemForest为97.1%。叠加ContextFolder，LoCoMo每条token20.6→12.3，准确率约降2.7个百分点；LongMemEval token压缩37.9%。另测MemOS及M3-web/robot，不能把条数下降直接当端到端加速。",
+        "research_help": "记忆压缩要同时度量检索单位数量、每单位长度和证据恢复；从原始组重新编码并盲测关键事实，有助避免合并后越压越长。",
+        "recommendation": {
+          "score": 82,
+          "level": "高",
+          "label": "值得核读",
+          "water_risk": "中",
+          "value_judgement": "记忆压缩要同时度量检索单位数量、每单位长度和证据恢复；从原始组重新编码并盲测关键事实，有助避免合并后越压越长。",
+          "reason": "记忆压缩要同时度量检索单位数量、每单位长度和证据恢复；从原始组重新编码并盲测关键事实，有助避免合并后越压越长。"
+        },
+        "card_summary": "MemFolder分开压缩记忆条数与单条长度；Mem0三文本任务减半记录后，保留原平均准确率的99.0%。",
+        "insight": "记忆压缩要同时度量检索单位数量、每单位长度和证据恢复；从原始组重新编码并盲测关键事实，有助避免合并后越压越长。",
+        "limitations": "99.0%是相对原平均性能的保留比，并非99%回答正确；事实提取与裁判依赖模型。回退规则在预算冲突时可选未通过全部必需事实的短编码，不能称严格无损。主要为既有记忆库问答，未证明长程在线任务完成收益；离线多轮压缩有额外成本，未独立复现。",
+        "abstract_zh": "MemFolder分开压缩记忆条数与单条长度；Mem0三文本任务减半记录后，保留原平均准确率的99.0%。 删记忆容易失证据，合并却可能产生更长条目；固定top-k检索时，记录少不代表输入上下文短。",
+        "full_summary": "MemFolder分开压缩记忆条数与单条长度；Mem0三文本任务减半记录后，保留原平均准确率的99.0%。 删记忆容易失证据，合并却可能产生更长条目；固定top-k检索时，记录少不代表输入上下文短。 RecordFolder规范化实体，选互补锚点，用实体/语义亲和及时间链归组后按序合并。ContextFolder从原组抽原子事实与核验题，以紧凑语法编码，盲读者只看编码回答、裁判核对，最多三轮反馈修订，并按预算和事实恢复选择候选。 Mem0在LoCoMo、LongMemEval、PersonaMem上原平均准确率61.1%，记录减半后60.5%，保留比99.0%，MemForest为97.1%。叠加ContextFolder，LoCoMo每条token20.6→12.3，准确率约降2.7个百分点；LongMemEval token压缩37.9%。另测MemOS及M3-web/robot，不能把条数下降直接当端到端加速。"
+      },
+      "analysis": {
+        "card_summary": "MemFolder分开压缩记忆条数与单条长度；Mem0三文本任务减半记录后，保留原平均准确率的99.0%。",
+        "motivation": "删记忆容易失证据，合并却可能产生更长条目；固定top-k检索时，记录少不代表输入上下文短。",
+        "method": "RecordFolder规范化实体，选互补锚点，用实体/语义亲和及时间链归组后按序合并。ContextFolder从原组抽原子事实与核验题，以紧凑语法编码，盲读者只看编码回答、裁判核对，最多三轮反馈修订，并按预算和事实恢复选择候选。",
+        "experiments": "Mem0在LoCoMo、LongMemEval、PersonaMem上原平均准确率61.1%，记录减半后60.5%，保留比99.0%，MemForest为97.1%。叠加ContextFolder，LoCoMo每条token20.6→12.3，准确率约降2.7个百分点；LongMemEval token压缩37.9%。另测MemOS及M3-web/robot，不能把条数下降直接当端到端加速。",
+        "insight": "记忆压缩要同时度量检索单位数量、每单位长度和证据恢复；从原始组重新编码并盲测关键事实，有助避免合并后越压越长。",
+        "limitations": "99.0%是相对原平均性能的保留比，并非99%回答正确；事实提取与裁判依赖模型。回退规则在预算冲突时可选未通过全部必需事实的短编码，不能称严格无损。主要为既有记忆库问答，未证明长程在线任务完成收益；离线多轮压缩有额外成本，未独立复现。",
+        "research_help": "记忆压缩要同时度量检索单位数量、每单位长度和证据恢复；从原始组重新编码并盲测关键事实，有助避免合并后越压越长。",
+        "abstract_zh": "MemFolder分开压缩记忆条数与单条长度；Mem0三文本任务减半记录后，保留原平均准确率的99.0%。 删记忆容易失证据，合并却可能产生更长条目；固定top-k检索时，记录少不代表输入上下文短。",
+        "full_summary": "MemFolder分开压缩记忆条数与单条长度；Mem0三文本任务减半记录后，保留原平均准确率的99.0%。 删记忆容易失证据，合并却可能产生更长条目；固定top-k检索时，记录少不代表输入上下文短。 RecordFolder规范化实体，选互补锚点，用实体/语义亲和及时间链归组后按序合并。ContextFolder从原组抽原子事实与核验题，以紧凑语法编码，盲读者只看编码回答、裁判核对，最多三轮反馈修订，并按预算和事实恢复选择候选。 Mem0在LoCoMo、LongMemEval、PersonaMem上原平均准确率61.1%，记录减半后60.5%，保留比99.0%，MemForest为97.1%。叠加ContextFolder，LoCoMo每条token20.6→12.3，准确率约降2.7个百分点；LongMemEval token压缩37.9%。另测MemOS及M3-web/robot，不能把条数下降直接当端到端加速。",
+        "recommendation_level": "高",
+        "water_risk": "中",
+        "value_label": "值得核读",
+        "value_reason": "记忆压缩要同时度量检索单位数量、每单位长度和证据恢复；从原始组重新编码并盲测关键事实，有助避免合并后越压越长。",
+        "source_scope": "full_text",
+        "source_note": "直接核读arXiv v1 PDF正文并核对实验表；结果为作者报告，未独立复现。",
+        "source_evidence": [
+          "§3–4，表1/7和图3：60.5/61.1保留率、编码验证与回退规则",
+          "https://arxiv.org/abs/2611.26427v1"
+        ],
+        "model": "manual-full-text-review",
+        "updated_at": "2026-11-21T01:32:02.503461+00:00"
+      }
+    },
+    {
+      "id": "2611.25123v1",
+      "title": "Forget Freely, Grep Later: Lossless, Index-Free Memory for Long-Horizon LLM Agents",
+      "summary": "Long-horizon LLM agents often exceed their context windows, forcing them to discard information that may be needed later. Existing context management strategies rely on summarization, masking, or structured memory, requiring decisions about what to preserve or how to retrieve it before future needs are known. However, these methods can introduce lossy compression, potentially discarding details needed for future tasks. To address this limitation, we introduce GrepMem, a simple, lossless, and index-free memory mechanism built on two components: an append-only plain-text log of the agent's complete history and a regular-expression search tool for on-demand recall. Unlike structured memory systems, GrepMem requires no embeddings, retrieval index, memory extraction, or additional models. We train Qwen3.5-9B with reinforcement learning under five context management strategies and evaluate on multi-question research sessions, long-stream recall, and agent-trajectory question answering. GrepMem achieves 95-97% accuracy on ContextBench, versus at most 21% for lossy baselines, and outperforms SUPO's summarization by 8.8 percentage points on BCP-Multi. GrepMem scales effectively to increasingly long input streams while remaining on the accuracy-token-cost Pareto frontier across all five evaluation tasks. Our results show that a plain-text log and grep provide a simple but competitive approach to long-horizon agent memory, without requiring complex structured memory infrastructure.",
+      "url": "http://arxiv.org/abs/2611.25123v1",
+      "authors": [
+        "Ziyan Yang",
+        "Taiwei Shi",
+        "Jieyu Zhao"
+      ],
+      "report_date": "2026-11-21",
+      "published": "2026-11-18",
+      "updated": "2026-11-18",
+      "primary_category": "cs.CL",
+      "categories": [
+        "cs.CL",
+        "cs.AI"
+      ],
+      "project_url": "",
+      "repo_url": "",
+      "venue_status": "未确认录用",
+      "recommendation": {
+        "score": 98,
+        "level": "高",
+        "label": "值得核读",
+        "water_risk": "中",
+        "value_judgement": "工作摘要可以有损，但原始证据应保留独立搜索通道；检索策略值得与任务执行一起训练，收益取决于问题需要精确细节还是高层因果。",
+        "reason": "工作摘要可以有损，但原始证据应保留独立搜索通道；检索策略值得与任务执行一起训练，收益取决于问题需要精确细节还是高层因果。"
+      },
+      "brief": {
+        "authors": [
+          "Ziyan Yang",
+          "Taiwei Shi",
+          "Jieyu Zhao"
+        ],
+        "affiliations": "未逐一核实作者单位",
+        "date": "2026-11-18",
+        "paper_url": "https://arxiv.org/abs/2611.25123v1",
+        "project_url": "",
+        "repo_url": "",
+        "venue_status": "未确认录用",
+        "contribution": "工作摘要可以有损，但原始证据应保留独立搜索通道；检索策略值得与任务执行一起训练，收益取决于问题需要精确细节还是高层因果。",
+        "summary": "GrepMem把可压缩工作上下文与完整原始日志分开，并用RL学习grep回查；BCP-Multi达46.9%，比SUPO高8.8个百分点。 未来问题未知时，摘要难预先判断哪些细节要保留；复杂记忆索引也可能增加维护和召回决策负担。 继承SUPO摘要重启循环，把消息、工具输入输出和摘要全部追加到纯文本日志；首次压缩后开放支持分页和计数的正则grep。对任务动作、摘要、查询共享回合奖励，以相同GRPO配方分别训练各记忆策略。 Qwen3.5-9B、32K窗口、4000训练回合；五任务训练后均值66.4%，对MemGPT56.3%、SUPO29.8%。ContextBench KV/Log为97.4/95.3%，但KV低于MemGPT99.9%；AMA文件46.3低于MemGPT46.4，流式46.1对SUPO45.2，差异不显著。BCP三问在开头一并给出，非用户逐轮揭示。",
+        "highlights": [
+          "工作摘要可以有损，但原始证据应保留独立搜索通道；检索策略值得与任务执行一起训练，收益取决于问题需要精确细节还是高层因果。",
+          "阅读来源：arXiv PDF正文；实验边界见详情"
+        ],
+        "motivation": "未来问题未知时，摘要难预先判断哪些细节要保留；复杂记忆索引也可能增加维护和召回决策负担。",
+        "method": "继承SUPO摘要重启循环，把消息、工具输入输出和摘要全部追加到纯文本日志；首次压缩后开放支持分页和计数的正则grep。对任务动作、摘要、查询共享回合奖励，以相同GRPO配方分别训练各记忆策略。",
+        "experiments": "Qwen3.5-9B、32K窗口、4000训练回合；五任务训练后均值66.4%，对MemGPT56.3%、SUPO29.8%。ContextBench KV/Log为97.4/95.3%，但KV低于MemGPT99.9%；AMA文件46.3低于MemGPT46.4，流式46.1对SUPO45.2，差异不显著。BCP三问在开头一并给出，非用户逐轮揭示。",
+        "research_help": "工作摘要可以有损，但原始证据应保留独立搜索通道；检索策略值得与任务执行一起训练，收益取决于问题需要精确细节还是高层因果。",
+        "recommendation": {
+          "score": 98,
+          "level": "高",
+          "label": "值得核读",
+          "water_risk": "中",
+          "value_judgement": "工作摘要可以有损，但原始证据应保留独立搜索通道；检索策略值得与任务执行一起训练，收益取决于问题需要精确细节还是高层因果。",
+          "reason": "工作摘要可以有损，但原始证据应保留独立搜索通道；检索策略值得与任务执行一起训练，收益取决于问题需要精确细节还是高层因果。"
+        },
+        "card_summary": "GrepMem把可压缩工作上下文与完整原始日志分开，并用RL学习grep回查；BCP-Multi达46.9%，比SUPO高8.8个百分点。",
+        "insight": "工作摘要可以有损，但原始证据应保留独立搜索通道；检索策略值得与任务执行一起训练，收益取决于问题需要精确细节还是高层因果。",
+        "limitations": "无损指日志保存，不保证正则能召回或答案正确；仍使用摘要且日志持续增长。合成精确查询贡献大，AMA收益很小。置信区间反映测试题而非多次训练，单一9B骨干，不能外推任意生产长程任务；未独立复现。",
+        "abstract_zh": "GrepMem把可压缩工作上下文与完整原始日志分开，并用RL学习grep回查；BCP-Multi达46.9%，比SUPO高8.8个百分点。 未来问题未知时，摘要难预先判断哪些细节要保留；复杂记忆索引也可能增加维护和召回决策负担。",
+        "full_summary": "GrepMem把可压缩工作上下文与完整原始日志分开，并用RL学习grep回查；BCP-Multi达46.9%，比SUPO高8.8个百分点。 未来问题未知时，摘要难预先判断哪些细节要保留；复杂记忆索引也可能增加维护和召回决策负担。 继承SUPO摘要重启循环，把消息、工具输入输出和摘要全部追加到纯文本日志；首次压缩后开放支持分页和计数的正则grep。对任务动作、摘要、查询共享回合奖励，以相同GRPO配方分别训练各记忆策略。 Qwen3.5-9B、32K窗口、4000训练回合；五任务训练后均值66.4%，对MemGPT56.3%、SUPO29.8%。ContextBench KV/Log为97.4/95.3%，但KV低于MemGPT99.9%；AMA文件46.3低于MemGPT46.4，流式46.1对SUPO45.2，差异不显著。BCP三问在开头一并给出，非用户逐轮揭示。"
+      },
+      "analysis": {
+        "card_summary": "GrepMem把可压缩工作上下文与完整原始日志分开，并用RL学习grep回查；BCP-Multi达46.9%，比SUPO高8.8个百分点。",
+        "motivation": "未来问题未知时，摘要难预先判断哪些细节要保留；复杂记忆索引也可能增加维护和召回决策负担。",
+        "method": "继承SUPO摘要重启循环，把消息、工具输入输出和摘要全部追加到纯文本日志；首次压缩后开放支持分页和计数的正则grep。对任务动作、摘要、查询共享回合奖励，以相同GRPO配方分别训练各记忆策略。",
+        "experiments": "Qwen3.5-9B、32K窗口、4000训练回合；五任务训练后均值66.4%，对MemGPT56.3%、SUPO29.8%。ContextBench KV/Log为97.4/95.3%，但KV低于MemGPT99.9%；AMA文件46.3低于MemGPT46.4，流式46.1对SUPO45.2，差异不显著。BCP三问在开头一并给出，非用户逐轮揭示。",
+        "insight": "工作摘要可以有损，但原始证据应保留独立搜索通道；检索策略值得与任务执行一起训练，收益取决于问题需要精确细节还是高层因果。",
+        "limitations": "无损指日志保存，不保证正则能召回或答案正确；仍使用摘要且日志持续增长。合成精确查询贡献大，AMA收益很小。置信区间反映测试题而非多次训练，单一9B骨干，不能外推任意生产长程任务；未独立复现。",
+        "research_help": "工作摘要可以有损，但原始证据应保留独立搜索通道；检索策略值得与任务执行一起训练，收益取决于问题需要精确细节还是高层因果。",
+        "abstract_zh": "GrepMem把可压缩工作上下文与完整原始日志分开，并用RL学习grep回查；BCP-Multi达46.9%，比SUPO高8.8个百分点。 未来问题未知时，摘要难预先判断哪些细节要保留；复杂记忆索引也可能增加维护和召回决策负担。",
+        "full_summary": "GrepMem把可压缩工作上下文与完整原始日志分开，并用RL学习grep回查；BCP-Multi达46.9%，比SUPO高8.8个百分点。 未来问题未知时，摘要难预先判断哪些细节要保留；复杂记忆索引也可能增加维护和召回决策负担。 继承SUPO摘要重启循环，把消息、工具输入输出和摘要全部追加到纯文本日志；首次压缩后开放支持分页和计数的正则grep。对任务动作、摘要、查询共享回合奖励，以相同GRPO配方分别训练各记忆策略。 Qwen3.5-9B、32K窗口、4000训练回合；五任务训练后均值66.4%，对MemGPT56.3%、SUPO29.8%。ContextBench KV/Log为97.4/95.3%，但KV低于MemGPT99.9%；AMA文件46.3低于MemGPT46.4，流式46.1对SUPO45.2，差异不显著。BCP三问在开头一并给出，非用户逐轮揭示。",
+        "recommendation_level": "高",
+        "water_risk": "中",
+        "value_label": "值得核读",
+        "value_reason": "工作摘要可以有损，但原始证据应保留独立搜索通道；检索策略值得与任务执行一起训练，收益取决于问题需要精确细节还是高层因果。",
+        "source_scope": "full_text",
+        "source_note": "直接核读arXiv v1 PDF正文并核对实验表；结果为作者报告，未独立复现。",
+        "source_evidence": [
+          "算法1、§3–5与表2–3：摘要加日志、问题时机、RL与任务置信区间",
+          "https://arxiv.org/abs/2611.25123v1"
+        ],
+        "model": "manual-full-text-review",
+        "updated_at": "2026-11-21T01:32:02.503461+00:00"
+      }
+    },
+    {
+      "id": "2611.26414v1",
+      "title": "ZeroVLN: Learning to Navigate without Supervised Fine-Tuning of the VLM Brain",
+      "summary": "Representative vision-language navigation (VLN) methods typically couple a vision-language model (VLM) brain with a learnable action head and fine-tune the VLM brain on navigation-domain data to predict geometric goals. However, such adaptation can substantially alter base VLM weights and degrade general visual capabilities. We introduce ZeroVLN, a slow-fast navigation framework that achieves effective navigation with zero navigation-domain SFT of the VLM brain. Rather than teaching the brain to predict geometric goals, we equip it with a semantic tool-calling interface for conveying movement decisions to an action expert in natural language. We first adapt the action expert to carry out these movement requests, then jointly improve the brain's movement decisions and the action expert's continuous execution through closed-loop reinforcement learning (RL). Trained on the same navigation episodes, ZeroVLN substantially outperforms representative SFT-based hierarchical VLN methods on standard VLN-CE (continuous environments) benchmarks, while inducing only minor changes to the brain's weights and largely preserving its general capabilities. To our knowledge, ZeroVLN is the first slow-fast VLN framework with zero navigation-domain SFT of the VLM brain, and the first to jointly optimize its slow and fast policies through closed-loop agentic RL in VLN-CE.",
+      "url": "http://arxiv.org/abs/2611.26414v1",
+      "authors": [
+        "Zixuan Huang",
+        "Yang Zhou",
+        "Guli Zhang",
+        "Sunzhu Li",
+        "Hongyan Xie",
+        "Zehao Chen",
+        "Fuzhen Zhuang",
+        "Kaixuan Wang",
+        "Xiaozhi Chen",
+        "Yikun Ban",
+        "Deqing Wang"
+      ],
+      "report_date": "2026-11-21",
+      "published": "2026-11-19",
+      "updated": "2026-11-19",
+      "primary_category": "cs.AI",
+      "categories": [
+        "cs.AI"
+      ],
+      "project_url": "",
+      "repo_url": "",
+      "venue_status": "未确认录用",
+      "recommendation": {
+        "score": 80,
+        "level": "高",
+        "label": "值得核读",
+        "water_risk": "中",
+        "value_judgement": "高低层agent可共享轨迹优势实现接口对齐，而不必先把语言规划器SFT成几何回归器；需分别评估可达性、停止策略与路径成本。",
+        "reason": "高低层agent可共享轨迹优势实现接口对齐，而不必先把语言规划器SFT成几何回归器；需分别评估可达性、停止策略与路径成本。"
+      },
+      "brief": {
+        "authors": [
+          "Zixuan Huang",
+          "Yang Zhou",
+          "Guli Zhang",
+          "Sunzhu Li",
+          "Hongyan Xie",
+          "Zehao Chen",
+          "Fuzhen Zhuang",
+          "Kaixuan Wang",
+          "Xiaozhi Chen",
+          "Yikun Ban",
+          "Deqing Wang"
+        ],
+        "affiliations": "未逐一核实作者单位",
+        "date": "2026-11-19",
+        "paper_url": "https://arxiv.org/abs/2611.26414v1",
+        "project_url": "",
+        "repo_url": "",
+        "venue_status": "未确认录用",
+        "contribution": "高低层agent可共享轨迹优势实现接口对齐，而不必先把语言规划器SFT成几何回归器；需分别评估可达性、停止策略与路径成本。",
+        "summary": "ZeroVLN以语义工具连接VLM规划与动作专家，并联合RL；同训练集上R2R成功率52.7%，路径效率仍低于NaVILA。 将VLM监督微调成几何目标预测器可能损伤通用能力；高层语义决策与低层连续控制仍需闭环对齐。 先冻结VLM与视觉编码器，用规划器生成请求—轨迹对适配flow-matching动作专家；再对VLM、查询token和专家联合RL。RLOO以整条轨迹共享优势更新慢/快策略，奖励包含终态成功、请求到达、路线进度及信息获取。 Qwen3.6-35B-A3B配Qwen3.5-4B视觉编码器，34445训练episodes、RL200步且每步512rollouts。SAGE/R2R/RxR成功率51.3/52.7/51.4%，同骨干同episodes NaVILA23.5/46.5/48.7%。R2R/RxR SPL29.2/28.1低于NaVILA41.8/43.0%，成功更高不表示路径更高效。",
+        "highlights": [
+          "高低层agent可共享轨迹优势实现接口对齐，而不必先把语言规划器SFT成几何回归器；需分别评估可达性、停止策略与路径成本。",
+          "阅读来源：arXiv PDF正文；实验边界见详情"
+        ],
+        "motivation": "将VLM监督微调成几何目标预测器可能损伤通用能力；高层语义决策与低层连续控制仍需闭环对齐。",
+        "method": "先冻结VLM与视觉编码器，用规划器生成请求—轨迹对适配flow-matching动作专家；再对VLM、查询token和专家联合RL。RLOO以整条轨迹共享优势更新慢/快策略，奖励包含终态成功、请求到达、路线进度及信息获取。",
+        "experiments": "Qwen3.6-35B-A3B配Qwen3.5-4B视觉编码器，34445训练episodes、RL200步且每步512rollouts。SAGE/R2R/RxR成功率51.3/52.7/51.4%，同骨干同episodes NaVILA23.5/46.5/48.7%。R2R/RxR SPL29.2/28.1低于NaVILA41.8/43.0%，成功更高不表示路径更高效。",
+        "research_help": "高低层agent可共享轨迹优势实现接口对齐，而不必先把语言规划器SFT成几何回归器；需分别评估可达性、停止策略与路径成本。",
+        "recommendation": {
+          "score": 80,
+          "level": "高",
+          "label": "值得核读",
+          "water_risk": "中",
+          "value_judgement": "高低层agent可共享轨迹优势实现接口对齐，而不必先把语言规划器SFT成几何回归器；需分别评估可达性、停止策略与路径成本。",
+          "reason": "高低层agent可共享轨迹优势实现接口对齐，而不必先把语言规划器SFT成几何回归器；需分别评估可达性、停止策略与路径成本。"
+        },
+        "card_summary": "ZeroVLN以语义工具连接VLM规划与动作专家，并联合RL；同训练集上R2R成功率52.7%，路径效率仍低于NaVILA。",
+        "insight": "高低层agent可共享轨迹优势实现接口对齐，而不必先把语言规划器SFT成几何回归器；需分别评估可达性、停止策略与路径成本。",
+        "limitations": "零SFT仅指VLM脑的导航域SFT，动作专家有监督适配、脑也经RL更新；过程奖励利用环境信息。训练episodes相同不代表总计算相同；外部已发表基线数据预算不同。仿真导航结果不等于真实机器人迁移，未独立复现。",
+        "abstract_zh": "ZeroVLN以语义工具连接VLM规划与动作专家，并联合RL；同训练集上R2R成功率52.7%，路径效率仍低于NaVILA。 将VLM监督微调成几何目标预测器可能损伤通用能力；高层语义决策与低层连续控制仍需闭环对齐。",
+        "full_summary": "ZeroVLN以语义工具连接VLM规划与动作专家，并联合RL；同训练集上R2R成功率52.7%，路径效率仍低于NaVILA。 将VLM监督微调成几何目标预测器可能损伤通用能力；高层语义决策与低层连续控制仍需闭环对齐。 先冻结VLM与视觉编码器，用规划器生成请求—轨迹对适配flow-matching动作专家；再对VLM、查询token和专家联合RL。RLOO以整条轨迹共享优势更新慢/快策略，奖励包含终态成功、请求到达、路线进度及信息获取。 Qwen3.6-35B-A3B配Qwen3.5-4B视觉编码器，34445训练episodes、RL200步且每步512rollouts。SAGE/R2R/RxR成功率51.3/52.7/51.4%，同骨干同episodes NaVILA23.5/46.5/48.7%。R2R/RxR SPL29.2/28.1低于NaVILA41.8/43.0%，成功更高不表示路径更高效。"
+      },
+      "analysis": {
+        "card_summary": "ZeroVLN以语义工具连接VLM规划与动作专家，并联合RL；同训练集上R2R成功率52.7%，路径效率仍低于NaVILA。",
+        "motivation": "将VLM监督微调成几何目标预测器可能损伤通用能力；高层语义决策与低层连续控制仍需闭环对齐。",
+        "method": "先冻结VLM与视觉编码器，用规划器生成请求—轨迹对适配flow-matching动作专家；再对VLM、查询token和专家联合RL。RLOO以整条轨迹共享优势更新慢/快策略，奖励包含终态成功、请求到达、路线进度及信息获取。",
+        "experiments": "Qwen3.6-35B-A3B配Qwen3.5-4B视觉编码器，34445训练episodes、RL200步且每步512rollouts。SAGE/R2R/RxR成功率51.3/52.7/51.4%，同骨干同episodes NaVILA23.5/46.5/48.7%。R2R/RxR SPL29.2/28.1低于NaVILA41.8/43.0%，成功更高不表示路径更高效。",
+        "insight": "高低层agent可共享轨迹优势实现接口对齐，而不必先把语言规划器SFT成几何回归器；需分别评估可达性、停止策略与路径成本。",
+        "limitations": "零SFT仅指VLM脑的导航域SFT，动作专家有监督适配、脑也经RL更新；过程奖励利用环境信息。训练episodes相同不代表总计算相同；外部已发表基线数据预算不同。仿真导航结果不等于真实机器人迁移，未独立复现。",
+        "research_help": "高低层agent可共享轨迹优势实现接口对齐，而不必先把语言规划器SFT成几何回归器；需分别评估可达性、停止策略与路径成本。",
+        "abstract_zh": "ZeroVLN以语义工具连接VLM规划与动作专家，并联合RL；同训练集上R2R成功率52.7%，路径效率仍低于NaVILA。 将VLM监督微调成几何目标预测器可能损伤通用能力；高层语义决策与低层连续控制仍需闭环对齐。",
+        "full_summary": "ZeroVLN以语义工具连接VLM规划与动作专家，并联合RL；同训练集上R2R成功率52.7%，路径效率仍低于NaVILA。 将VLM监督微调成几何目标预测器可能损伤通用能力；高层语义决策与低层连续控制仍需闭环对齐。 先冻结VLM与视觉编码器，用规划器生成请求—轨迹对适配flow-matching动作专家；再对VLM、查询token和专家联合RL。RLOO以整条轨迹共享优势更新慢/快策略，奖励包含终态成功、请求到达、路线进度及信息获取。 Qwen3.6-35B-A3B配Qwen3.5-4B视觉编码器，34445训练episodes、RL200步且每步512rollouts。SAGE/R2R/RxR成功率51.3/52.7/51.4%，同骨干同episodes NaVILA23.5/46.5/48.7%。R2R/RxR SPL29.2/28.1低于NaVILA41.8/43.0%，成功更高不表示路径更高效。",
+        "recommendation_level": "高",
+        "water_risk": "中",
+        "value_label": "值得核读",
+        "value_reason": "高低层agent可共享轨迹优势实现接口对齐，而不必先把语言规划器SFT成几何回归器；需分别评估可达性、停止策略与路径成本。",
+        "source_scope": "full_text",
+        "source_note": "直接核读arXiv v1 PDF正文并核对实验表；结果为作者报告，未独立复现。",
+        "source_evidence": [
+          "§3–5、表1与附录D：专家监督适配、RLOO、34.4K episodes及SR/SPL取舍",
+          "https://arxiv.org/abs/2611.26414v1"
+        ],
+        "model": "manual-full-text-review",
+        "updated_at": "2026-11-21T01:32:02.503461+00:00"
+      }
+    },
+    {
+      "id": "2611.26157v1",
+      "title": "NariQ: Sub-3-Bit Quantization for Long-Horizon Agentic Tasks",
+      "summary": "Long-horizon agentic tasks require a model to call tools over many steps at contexts of 100K tokens or more, yet many low-bit quantization methods are calibrated on short web text and judged on perplexity. This mismatch is costly: existing quantizations of Qwen3.8-27B at or below 3 bits per weight match BF16 on shorter tasks like AIME, yet in published results solve at most 72% as many tasks as BF16 on DeepSWE, a long-horizon agentic benchmark. We propose NariQ, a trellis-coded post-training quantization method that calibrates on tokens generated by the BF16 model in agent sessions. On Qwen3.8-27B, NariQ at 3.0 and 2.5 bits per weight stays level with BF16 on two long-horizon agentic benchmarks, DeepSWE and Terminal Bench, as well as on AIME and RealWorldQA. Our checkpoint at 2.0 bits per weight trails this performance. To our knowledge, these are the first quantizations at or below 3 bits per weight shown to match their full-precision version on long-horizon agentic tasks. We release the files as Qwen3.8-27B-NariQ-GGUF (https://huggingface.co/nari-labs/Qwen3.8-27B-NariQ-GGUF), with inference available through our llama.cpp fork at https://github.com/nari-labs/nari-llama.cpp.",
+      "url": "http://arxiv.org/abs/2611.26157v1",
+      "authors": [
+        "Doyeob Kim"
+      ],
+      "report_date": "2026-11-21",
+      "published": "2026-11-19",
+      "updated": "2026-11-19",
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG"
+      ],
+      "project_url": "https://huggingface.co/nari-labs/Qwen3.8-27B-NariQ-GGUF",
+      "repo_url": "https://huggingface.co/nari-labs/Qwen3.8-27B-NariQ-GGUF",
+      "venue_status": "未确认录用",
+      "recommendation": {
+        "score": 78,
+        "level": "高",
+        "label": "值得核读",
+        "water_risk": "中",
+        "value_judgement": "量化校准应匹配agent行为分布与生成位置，并用长任务配对成功和成本评估；保留稀有输出token的精度可能比继续压低全局均值更重要。",
+        "reason": "量化校准应匹配agent行为分布与生成位置，并用长任务配对成功和成本评估；保留稀有输出token的精度可能比继续压低全局均值更重要。"
+      },
+      "brief": {
+        "authors": [
+          "Doyeob Kim"
+        ],
+        "affiliations": "未逐一核实作者单位",
+        "date": "2026-11-19",
+        "paper_url": "https://arxiv.org/abs/2611.26157v1",
+        "project_url": "https://huggingface.co/nari-labs/Qwen3.8-27B-NariQ-GGUF",
+        "repo_url": "https://huggingface.co/nari-labs/Qwen3.8-27B-NariQ-GGUF",
+        "venue_status": "未确认录用",
+        "contribution": "量化校准应匹配agent行为分布与生成位置，并用长任务配对成功和成本评估；保留稀有输出token的精度可能比继续压低全局均值更重要。",
+        "summary": "NariQ在agent生成token上校准低比特量化；2.5bit的DeepSWE解46/113题，对BF16的44题处于统计噪声内。 短网页文本和困惑度校准无法充分反映长工具循环误差；大量工具输出还会淹没模型实际要生成的关键token。 在相同含工具观察前缀上，仅对BF16模型生成位置优化KL；采用trellis编码、模块二阶损失估计和预算内位宽分配，输出词表按预测概率分带且保留至少2bit，最后用agent与通用数据70:30调scale和norm。 Qwen3.8-27B、统一262K窗口：DeepSWE113题每题一次，3.0/2.5bit解47/46题，对BF16的44；分数84.9/84.5对83.0%，配对差标准误3.2/3.6个百分点。TerminalBench82题各三次，均奖63.8/60.2对62.6；2.0bit降至DeepSWE33题、Terminal52.4。",
+        "highlights": [
+          "量化校准应匹配agent行为分布与生成位置，并用长任务配对成功和成本评估；保留稀有输出token的精度可能比继续压低全局均值更重要。",
+          "阅读来源：arXiv PDF正文；实验边界见详情"
+        ],
+        "motivation": "短网页文本和困惑度校准无法充分反映长工具循环误差；大量工具输出还会淹没模型实际要生成的关键token。",
+        "method": "在相同含工具观察前缀上，仅对BF16模型生成位置优化KL；采用trellis编码、模块二阶损失估计和预算内位宽分配，输出词表按预测概率分带且保留至少2bit，最后用agent与通用数据70:30调scale和norm。",
+        "experiments": "Qwen3.8-27B、统一262K窗口：DeepSWE113题每题一次，3.0/2.5bit解47/46题，对BF16的44；分数84.9/84.5对83.0%，配对差标准误3.2/3.6个百分点。TerminalBench82题各三次，均奖63.8/60.2对62.6；2.0bit降至DeepSWE33题、Terminal52.4。",
+        "research_help": "量化校准应匹配agent行为分布与生成位置，并用长任务配对成功和成本评估；保留稀有输出token的精度可能比继续压低全局均值更重要。",
+        "recommendation": {
+          "score": 78,
+          "level": "高",
+          "label": "值得核读",
+          "water_risk": "中",
+          "value_judgement": "量化校准应匹配agent行为分布与生成位置，并用长任务配对成功和成本评估；保留稀有输出token的精度可能比继续压低全局均值更重要。",
+          "reason": "量化校准应匹配agent行为分布与生成位置，并用长任务配对成功和成本评估；保留稀有输出token的精度可能比继续压低全局均值更重要。"
+        },
+        "card_summary": "NariQ在agent生成token上校准低比特量化；2.5bit的DeepSWE解46/113题，对BF16的44题处于统计噪声内。",
+        "insight": "量化校准应匹配agent行为分布与生成位置，并用长任务配对成功和成本评估；保留稀有输出token的精度可能比继续压低全局均值更重要。",
+        "limitations": "只验证单一27B模型，不能声称普遍无损；外部量化基线采用Unsloth的不同agent和尝试次数，归一到各自BF16仍不能消除harness差异。主消融的token mask同时改变置信边界，并非纯mask消融；位宽指标不包含所有运行时内存和KV缓存，未独立复现。",
+        "abstract_zh": "NariQ在agent生成token上校准低比特量化；2.5bit的DeepSWE解46/113题，对BF16的44题处于统计噪声内。 短网页文本和困惑度校准无法充分反映长工具循环误差；大量工具输出还会淹没模型实际要生成的关键token。",
+        "full_summary": "NariQ在agent生成token上校准低比特量化；2.5bit的DeepSWE解46/113题，对BF16的44题处于统计噪声内。 短网页文本和困惑度校准无法充分反映长工具循环误差；大量工具输出还会淹没模型实际要生成的关键token。 在相同含工具观察前缀上，仅对BF16模型生成位置优化KL；采用trellis编码、模块二阶损失估计和预算内位宽分配，输出词表按预测概率分带且保留至少2bit，最后用agent与通用数据70:30调scale和norm。 Qwen3.8-27B、统一262K窗口：DeepSWE113题每题一次，3.0/2.5bit解47/46题，对BF16的44；分数84.9/84.5对83.0%，配对差标准误3.2/3.6个百分点。TerminalBench82题各三次，均奖63.8/60.2对62.6；2.0bit降至DeepSWE33题、Terminal52.4。"
+      },
+      "analysis": {
+        "card_summary": "NariQ在agent生成token上校准低比特量化；2.5bit的DeepSWE解46/113题，对BF16的44题处于统计噪声内。",
+        "motivation": "短网页文本和困惑度校准无法充分反映长工具循环误差；大量工具输出还会淹没模型实际要生成的关键token。",
+        "method": "在相同含工具观察前缀上，仅对BF16模型生成位置优化KL；采用trellis编码、模块二阶损失估计和预算内位宽分配，输出词表按预测概率分带且保留至少2bit，最后用agent与通用数据70:30调scale和norm。",
+        "experiments": "Qwen3.8-27B、统一262K窗口：DeepSWE113题每题一次，3.0/2.5bit解47/46题，对BF16的44；分数84.9/84.5对83.0%，配对差标准误3.2/3.6个百分点。TerminalBench82题各三次，均奖63.8/60.2对62.6；2.0bit降至DeepSWE33题、Terminal52.4。",
+        "insight": "量化校准应匹配agent行为分布与生成位置，并用长任务配对成功和成本评估；保留稀有输出token的精度可能比继续压低全局均值更重要。",
+        "limitations": "只验证单一27B模型，不能声称普遍无损；外部量化基线采用Unsloth的不同agent和尝试次数，归一到各自BF16仍不能消除harness差异。主消融的token mask同时改变置信边界，并非纯mask消融；位宽指标不包含所有运行时内存和KV缓存，未独立复现。",
+        "research_help": "量化校准应匹配agent行为分布与生成位置，并用长任务配对成功和成本评估；保留稀有输出token的精度可能比继续压低全局均值更重要。",
+        "abstract_zh": "NariQ在agent生成token上校准低比特量化；2.5bit的DeepSWE解46/113题，对BF16的44题处于统计噪声内。 短网页文本和困惑度校准无法充分反映长工具循环误差；大量工具输出还会淹没模型实际要生成的关键token。",
+        "full_summary": "NariQ在agent生成token上校准低比特量化；2.5bit的DeepSWE解46/113题，对BF16的44题处于统计噪声内。 短网页文本和困惑度校准无法充分反映长工具循环误差；大量工具输出还会淹没模型实际要生成的关键token。 在相同含工具观察前缀上，仅对BF16模型生成位置优化KL；采用trellis编码、模块二阶损失估计和预算内位宽分配，输出词表按预测概率分带且保留至少2bit，最后用agent与通用数据70:30调scale和norm。 Qwen3.8-27B、统一262K窗口：DeepSWE113题每题一次，3.0/2.5bit解47/46题，对BF16的44；分数84.9/84.5对83.0%，配对差标准误3.2/3.6个百分点。TerminalBench82题各三次，均奖63.8/60.2对62.6；2.0bit降至DeepSWE33题、Terminal52.4。",
+        "recommendation_level": "高",
+        "water_risk": "中",
+        "value_label": "值得核读",
+        "value_reason": "量化校准应匹配agent行为分布与生成位置，并用长任务配对成功和成本评估；保留稀有输出token的精度可能比继续压低全局均值更重要。",
+        "source_scope": "full_text",
+        "source_note": "直接核读arXiv v1 PDF正文并核对实验表；结果为作者报告，未独立复现。",
+        "source_evidence": [
+          "§2–4，图1与表1–2：模型token KL、113/82任务及不同harness比较限制",
+          "https://arxiv.org/abs/2611.26157v1"
+        ],
+        "model": "manual-full-text-review",
+        "updated_at": "2026-11-21T01:32:02.503461+00:00"
+      }
+    },
+    {
+      "id": "2611.25005v1",
+      "title": "Inhabitant: An Agent Framework for Long-Horizon Human-Scene Interaction with Spatial Control and Quantitative Feedback",
+      "summary": "Recent work on human-scene interaction (HSI) generation moves from single interactions to long-horizon interaction, where a language-model agent plans and executes a sequence of interactions in a 3D scene under one instruction. However, existing agents struggle in challenging everyday scenarios (e.g., picking up a toy and throwing it into a basket) because they lack spatial control over the motion and quantitative feedback on its execution, and they often fail to complete the interaction sequence. To address these gaps, we present Inhabitant, a training-free agent framework in which the agent specifies each motion through positions, paths and poses, measures how the executed interaction deviates from its intent, and revises the control specification accordingly. For an extensive evaluation in such scenarios, we build Inhabit, a benchmark of 75 household tasks in 31 furniture layouts of an apartment, in which every task chains one to three goals on movable objects and is carried out by the whole body, excluding fingers. On Inhabit, Inhabitant completes 98.7\\% of the tasks with Claude Opus 5.5, and 93.3\\% and 82.7\\% with Claude Sonnet 5.5 and Gemini 4 Argon, respectively. Ablations confirm that without spatial control the agent fails most tasks, and without quantitative feedback its motion becomes less precise. Code is available on the project page.",
+      "url": "http://arxiv.org/abs/2611.25005v1",
+      "authors": [
+        "Yao Zhang",
+        "Zhuchenyang Liu",
+        "Yu Xiao"
+      ],
+      "report_date": "2026-11-21",
+      "published": "2026-11-18",
+      "updated": "2026-11-18",
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO",
+        "cs.CV"
+      ],
+      "project_url": "",
+      "repo_url": "",
+      "venue_status": "未确认录用",
+      "recommendation": {
+        "score": 84,
+        "level": "高",
+        "label": "值得核读",
+        "water_risk": "中",
+        "value_judgement": "规划器需要能表达空间意图的行动接口和可查询测量；失败反馈只有在动作可被修订时才转化为有效控制，离线搜索与不可逆在线执行应分开评测。",
+        "reason": "规划器需要能表达空间意图的行动接口和可查询测量；失败反馈只有在动作可被修订时才转化为有效控制，离线搜索与不可逆在线执行应分开评测。"
+      },
+      "brief": {
+        "authors": [
+          "Yao Zhang",
+          "Zhuchenyang Liu",
+          "Yu Xiao"
+        ],
+        "affiliations": "未逐一核实作者单位",
+        "date": "2026-11-18",
+        "paper_url": "https://arxiv.org/abs/2611.25005v1",
+        "project_url": "",
+        "repo_url": "",
+        "venue_status": "未确认录用",
+        "contribution": "规划器需要能表达空间意图的行动接口和可查询测量；失败反馈只有在动作可被修订时才转化为有效控制，离线搜索与不可逆在线执行应分开评测。",
+        "summary": "Inhabitant通过试做、测量、修订与回滚生成长程人体互动；75个仿真任务完成74个，依赖可逆执行和给定场景状态。 单纯提示运动生成器无法精确控制位置、路径和姿态；没有量化反馈，多段互动的执行偏差会持续累积。 LLM直接给Kimodo运动生成器写文本时序、根路径、末端和全身约束。TRY执行候选，按需查询身体/场景测量，再COMMIT或ROLLBACK；规则式互动和半物理仿真提供反馈，循环组合1–3目标。 Inhabit含31种家具布局75题，每题单次；Claude Opus5.5成功98.7%，同模型适配InteractAgent26.7%。Sonnet93.3%、Gemini Argon82.7%。20题消融文本控制20%→根路径90%→全约束95%；Opus平均17.1次尝试、51调用/题，成功率不代表实时执行效率。",
+        "highlights": [
+          "规划器需要能表达空间意图的行动接口和可查询测量；失败反馈只有在动作可被修订时才转化为有效控制，离线搜索与不可逆在线执行应分开评测。",
+          "阅读来源：arXiv PDF正文；实验边界见详情"
+        ],
+        "motivation": "单纯提示运动生成器无法精确控制位置、路径和姿态；没有量化反馈，多段互动的执行偏差会持续累积。",
+        "method": "LLM直接给Kimodo运动生成器写文本时序、根路径、末端和全身约束。TRY执行候选，按需查询身体/场景测量，再COMMIT或ROLLBACK；规则式互动和半物理仿真提供反馈，循环组合1–3目标。",
+        "experiments": "Inhabit含31种家具布局75题，每题单次；Claude Opus5.5成功98.7%，同模型适配InteractAgent26.7%。Sonnet93.3%、Gemini Argon82.7%。20题消融文本控制20%→根路径90%→全约束95%；Opus平均17.1次尝试、51调用/题，成功率不代表实时执行效率。",
+        "research_help": "规划器需要能表达空间意图的行动接口和可查询测量；失败反馈只有在动作可被修订时才转化为有效控制，离线搜索与不可逆在线执行应分开评测。",
+        "recommendation": {
+          "score": 84,
+          "level": "高",
+          "label": "值得核读",
+          "water_risk": "中",
+          "value_judgement": "规划器需要能表达空间意图的行动接口和可查询测量；失败反馈只有在动作可被修订时才转化为有效控制，离线搜索与不可逆在线执行应分开评测。",
+          "reason": "规划器需要能表达空间意图的行动接口和可查询测量；失败反馈只有在动作可被修订时才转化为有效控制，离线搜索与不可逆在线执行应分开评测。"
+        },
+        "card_summary": "Inhabitant通过试做、测量、修订与回滚生成长程人体互动；75个仿真任务完成74个，依赖可逆执行和给定场景状态。",
+        "insight": "规划器需要能表达空间意图的行动接口和可查询测量；失败反馈只有在动作可被修订时才转化为有效控制，离线搜索与不可逆在线执行应分开评测。",
+        "limitations": "只有一套公寓与规则化互动，身体运动学驱动、无平衡力矩或手指、抓取为规则；提供场景状态和成功检测。允许重复试做和回滚，适合离线动画而非直接证明真实机器人控制。基线为作者适配，单次运行与小消融集限制稳健性，未独立复现。",
+        "abstract_zh": "Inhabitant通过试做、测量、修订与回滚生成长程人体互动；75个仿真任务完成74个，依赖可逆执行和给定场景状态。 单纯提示运动生成器无法精确控制位置、路径和姿态；没有量化反馈，多段互动的执行偏差会持续累积。",
+        "full_summary": "Inhabitant通过试做、测量、修订与回滚生成长程人体互动；75个仿真任务完成74个，依赖可逆执行和给定场景状态。 单纯提示运动生成器无法精确控制位置、路径和姿态；没有量化反馈，多段互动的执行偏差会持续累积。 LLM直接给Kimodo运动生成器写文本时序、根路径、末端和全身约束。TRY执行候选，按需查询身体/场景测量，再COMMIT或ROLLBACK；规则式互动和半物理仿真提供反馈，循环组合1–3目标。 Inhabit含31种家具布局75题，每题单次；Claude Opus5.5成功98.7%，同模型适配InteractAgent26.7%。Sonnet93.3%、Gemini Argon82.7%。20题消融文本控制20%→根路径90%→全约束95%；Opus平均17.1次尝试、51调用/题，成功率不代表实时执行效率。"
+      },
+      "analysis": {
+        "card_summary": "Inhabitant通过试做、测量、修订与回滚生成长程人体互动；75个仿真任务完成74个，依赖可逆执行和给定场景状态。",
+        "motivation": "单纯提示运动生成器无法精确控制位置、路径和姿态；没有量化反馈，多段互动的执行偏差会持续累积。",
+        "method": "LLM直接给Kimodo运动生成器写文本时序、根路径、末端和全身约束。TRY执行候选，按需查询身体/场景测量，再COMMIT或ROLLBACK；规则式互动和半物理仿真提供反馈，循环组合1–3目标。",
+        "experiments": "Inhabit含31种家具布局75题，每题单次；Claude Opus5.5成功98.7%，同模型适配InteractAgent26.7%。Sonnet93.3%、Gemini Argon82.7%。20题消融文本控制20%→根路径90%→全约束95%；Opus平均17.1次尝试、51调用/题，成功率不代表实时执行效率。",
+        "insight": "规划器需要能表达空间意图的行动接口和可查询测量；失败反馈只有在动作可被修订时才转化为有效控制，离线搜索与不可逆在线执行应分开评测。",
+        "limitations": "只有一套公寓与规则化互动，身体运动学驱动、无平衡力矩或手指、抓取为规则；提供场景状态和成功检测。允许重复试做和回滚，适合离线动画而非直接证明真实机器人控制。基线为作者适配，单次运行与小消融集限制稳健性，未独立复现。",
+        "research_help": "规划器需要能表达空间意图的行动接口和可查询测量；失败反馈只有在动作可被修订时才转化为有效控制，离线搜索与不可逆在线执行应分开评测。",
+        "abstract_zh": "Inhabitant通过试做、测量、修订与回滚生成长程人体互动；75个仿真任务完成74个，依赖可逆执行和给定场景状态。 单纯提示运动生成器无法精确控制位置、路径和姿态；没有量化反馈，多段互动的执行偏差会持续累积。",
+        "full_summary": "Inhabitant通过试做、测量、修订与回滚生成长程人体互动；75个仿真任务完成74个，依赖可逆执行和给定场景状态。 单纯提示运动生成器无法精确控制位置、路径和姿态；没有量化反馈，多段互动的执行偏差会持续累积。 LLM直接给Kimodo运动生成器写文本时序、根路径、末端和全身约束。TRY执行候选，按需查询身体/场景测量，再COMMIT或ROLLBACK；规则式互动和半物理仿真提供反馈，循环组合1–3目标。 Inhabit含31种家具布局75题，每题单次；Claude Opus5.5成功98.7%，同模型适配InteractAgent26.7%。Sonnet93.3%、Gemini Argon82.7%。20题消融文本控制20%→根路径90%→全约束95%；Opus平均17.1次尝试、51调用/题，成功率不代表实时执行效率。",
+        "recommendation_level": "高",
+        "water_risk": "中",
+        "value_label": "值得核读",
+        "value_reason": "规划器需要能表达空间意图的行动接口和可查询测量；失败反馈只有在动作可被修订时才转化为有效控制，离线搜索与不可逆在线执行应分开评测。",
+        "source_scope": "full_text",
+        "source_note": "直接核读arXiv v1 PDF正文并核对实验表；结果为作者报告，未独立复现。",
+        "source_evidence": [
+          "§3–5、表2–5与结论限制：TRY/COMMIT/ROLLBACK、75单次任务与20题消融",
+          "https://arxiv.org/abs/2611.25005v1"
+        ],
+        "model": "manual-full-text-review",
+        "updated_at": "2026-11-21T01:32:02.503461+00:00"
+      }
+    },
+    {
+      "id": "2611.25340v1",
+      "title": "SceneAnything: Agentic Reconstruction of Large-Scale Mesh Scenes from a Single Video",
+      "summary": "Reconstructing an editable 3D scene from video requires matching visible structure while plausibly completing unseen surfaces. Agents can write scene-construction programs, but direct reconstruction attempts often produce errors in layout, scale, and lighting. We introduce SceneAnything, an automated system for reconstructing mesh scenes from real and generated videos, enabling text-to-scene construction when paired with video generation. A software harness coordinates agents, pretrained vision models, and graphics tools through an explicit reconstruction protocol. Shared camera, depth, and segmentation estimates ground component construction: a scene-owner agent plans the environment and briefs authors, who write parameterized Blender programs. A visibility- and fit-based level-of-detail rule selects the construction level, while unseen regions are completed and marked as inferred. Assembled scenes use fitted lighting and supported motion, and revisions undergo programmatic checks and independent visual comparisons. Accepted programs and lessons are reused across scenes. We evaluate on 100 scenes; subset comparisons show improved original-view fidelity over direct-agent reconstruction and higher novel-view content similarity than the compared video-to-3D methods. We will release the harness, agent instructions, reusable libraries, and scenes.",
+      "url": "http://arxiv.org/abs/2611.25340v1",
+      "authors": [
+        "Bowen Xue",
+        "Saeed Hadadan",
+        "Fabrice Rousselle",
+        "Zahra Montazeri",
+        "Ravi Ramamoorthi",
+        "Milos Hasan"
+      ],
+      "report_date": "2026-11-21",
+      "published": "2026-11-19",
+      "updated": "2026-11-19",
+      "primary_category": "cs.CV",
+      "categories": [
+        "cs.CV",
+        "cs.GR"
+      ],
+      "project_url": "",
+      "repo_url": "",
+      "venue_status": "未确认录用",
+      "recommendation": {
+        "score": 84,
+        "level": "高",
+        "label": "值得核读",
+        "water_risk": "中",
+        "value_judgement": "多agent规划的价值可来自共享几何状态、有边界的委派与可执行验收；重用经验仍应在当前观测下重新拟合并接受同样检查。",
+        "reason": "多agent规划的价值可来自共享几何状态、有边界的委派与可执行验收；重用经验仍应在当前观测下重新拟合并接受同样检查。"
+      },
+      "brief": {
+        "authors": [
+          "Bowen Xue",
+          "Saeed Hadadan",
+          "Fabrice Rousselle",
+          "Zahra Montazeri",
+          "Ravi Ramamoorthi",
+          "Milos Hasan"
+        ],
+        "affiliations": "未逐一核实作者单位",
+        "date": "2026-11-19",
+        "paper_url": "https://arxiv.org/abs/2611.25340v1",
+        "project_url": "",
+        "repo_url": "",
+        "venue_status": "未确认录用",
+        "contribution": "多agent规划的价值可来自共享几何状态、有边界的委派与可执行验收；重用经验仍应在当前观测下重新拟合并接受同样检查。",
+        "summary": "SceneAnything用显式协议协调场景规划、组件代码生成和独立视觉验收；30场景对照中LPIPS为0.51，直接agent为0.66/0.69。 agent直接写3D场景容易在布局、尺度和光照上失配；可编辑场景还需合理补全未观测区域并标明推断。 harness维护共享相机、深度、分割与尺度；owner规划并向authors下发有边界的Blender组件任务，按可见性和拟合质量选细节层级。修改经程序检查和独立双顺序视觉比较，按视图组统计验收；接受的生成器和带适用条件经验供后续场景复用。 共构建100场景，直接agent比较只用30场景101帧：LPIPS0.51对Claude0.66/GPT0.69，DINO相似0.76对0.55/0.52。视频3D比较21场景中仅10个共同对齐场景进入主表，LPIPS0.50对最佳基线0.56；新视角DINO0.53对至多0.38。40场景输出token费用中位约47美元，不含视觉和渲染计算。",
+        "highlights": [
+          "多agent规划的价值可来自共享几何状态、有边界的委派与可执行验收；重用经验仍应在当前观测下重新拟合并接受同样检查。",
+          "阅读来源：arXiv PDF正文；实验边界见详情"
+        ],
+        "motivation": "agent直接写3D场景容易在布局、尺度和光照上失配；可编辑场景还需合理补全未观测区域并标明推断。",
+        "method": "harness维护共享相机、深度、分割与尺度；owner规划并向authors下发有边界的Blender组件任务，按可见性和拟合质量选细节层级。修改经程序检查和独立双顺序视觉比较，按视图组统计验收；接受的生成器和带适用条件经验供后续场景复用。",
+        "experiments": "共构建100场景，直接agent比较只用30场景101帧：LPIPS0.51对Claude0.66/GPT0.69，DINO相似0.76对0.55/0.52。视频3D比较21场景中仅10个共同对齐场景进入主表，LPIPS0.50对最佳基线0.56；新视角DINO0.53对至多0.38。40场景输出token费用中位约47美元，不含视觉和渲染计算。",
+        "research_help": "多agent规划的价值可来自共享几何状态、有边界的委派与可执行验收；重用经验仍应在当前观测下重新拟合并接受同样检查。",
+        "recommendation": {
+          "score": 84,
+          "level": "高",
+          "label": "值得核读",
+          "water_risk": "中",
+          "value_judgement": "多agent规划的价值可来自共享几何状态、有边界的委派与可执行验收；重用经验仍应在当前观测下重新拟合并接受同样检查。",
+          "reason": "多agent规划的价值可来自共享几何状态、有边界的委派与可执行验收；重用经验仍应在当前观测下重新拟合并接受同样检查。"
+        },
+        "card_summary": "SceneAnything用显式协议协调场景规划、组件代码生成和独立视觉验收；30场景对照中LPIPS为0.51，直接agent为0.66/0.69。",
+        "insight": "多agent规划的价值可来自共享几何状态、有边界的委派与可执行验收；重用经验仍应在当前观测下重新拟合并接受同样检查。",
+        "limitations": "直接agent未配套同样的视觉模型、测量和验收工具，比较反映整套系统而非孤立规划增益。新视角DINO衡量内容相似而非真实几何；主表有对齐子集选择。未观测面为推测，依赖商业模型且仅处理连续镜头，未独立复现。",
+        "abstract_zh": "SceneAnything用显式协议协调场景规划、组件代码生成和独立视觉验收；30场景对照中LPIPS为0.51，直接agent为0.66/0.69。 agent直接写3D场景容易在布局、尺度和光照上失配；可编辑场景还需合理补全未观测区域并标明推断。",
+        "full_summary": "SceneAnything用显式协议协调场景规划、组件代码生成和独立视觉验收；30场景对照中LPIPS为0.51，直接agent为0.66/0.69。 agent直接写3D场景容易在布局、尺度和光照上失配；可编辑场景还需合理补全未观测区域并标明推断。 harness维护共享相机、深度、分割与尺度；owner规划并向authors下发有边界的Blender组件任务，按可见性和拟合质量选细节层级。修改经程序检查和独立双顺序视觉比较，按视图组统计验收；接受的生成器和带适用条件经验供后续场景复用。 共构建100场景，直接agent比较只用30场景101帧：LPIPS0.51对Claude0.66/GPT0.69，DINO相似0.76对0.55/0.52。视频3D比较21场景中仅10个共同对齐场景进入主表，LPIPS0.50对最佳基线0.56；新视角DINO0.53对至多0.38。40场景输出token费用中位约47美元，不含视觉和渲染计算。"
+      },
+      "analysis": {
+        "card_summary": "SceneAnything用显式协议协调场景规划、组件代码生成和独立视觉验收；30场景对照中LPIPS为0.51，直接agent为0.66/0.69。",
+        "motivation": "agent直接写3D场景容易在布局、尺度和光照上失配；可编辑场景还需合理补全未观测区域并标明推断。",
+        "method": "harness维护共享相机、深度、分割与尺度；owner规划并向authors下发有边界的Blender组件任务，按可见性和拟合质量选细节层级。修改经程序检查和独立双顺序视觉比较，按视图组统计验收；接受的生成器和带适用条件经验供后续场景复用。",
+        "experiments": "共构建100场景，直接agent比较只用30场景101帧：LPIPS0.51对Claude0.66/GPT0.69，DINO相似0.76对0.55/0.52。视频3D比较21场景中仅10个共同对齐场景进入主表，LPIPS0.50对最佳基线0.56；新视角DINO0.53对至多0.38。40场景输出token费用中位约47美元，不含视觉和渲染计算。",
+        "insight": "多agent规划的价值可来自共享几何状态、有边界的委派与可执行验收；重用经验仍应在当前观测下重新拟合并接受同样检查。",
+        "limitations": "直接agent未配套同样的视觉模型、测量和验收工具，比较反映整套系统而非孤立规划增益。新视角DINO衡量内容相似而非真实几何；主表有对齐子集选择。未观测面为推测，依赖商业模型且仅处理连续镜头，未独立复现。",
+        "research_help": "多agent规划的价值可来自共享几何状态、有边界的委派与可执行验收；重用经验仍应在当前观测下重新拟合并接受同样检查。",
+        "abstract_zh": "SceneAnything用显式协议协调场景规划、组件代码生成和独立视觉验收；30场景对照中LPIPS为0.51，直接agent为0.66/0.69。 agent直接写3D场景容易在布局、尺度和光照上失配；可编辑场景还需合理补全未观测区域并标明推断。",
+        "full_summary": "SceneAnything用显式协议协调场景规划、组件代码生成和独立视觉验收；30场景对照中LPIPS为0.51，直接agent为0.66/0.69。 agent直接写3D场景容易在布局、尺度和光照上失配；可编辑场景还需合理补全未观测区域并标明推断。 harness维护共享相机、深度、分割与尺度；owner规划并向authors下发有边界的Blender组件任务，按可见性和拟合质量选细节层级。修改经程序检查和独立双顺序视觉比较，按视图组统计验收；接受的生成器和带适用条件经验供后续场景复用。 共构建100场景，直接agent比较只用30场景101帧：LPIPS0.51对Claude0.66/GPT0.69，DINO相似0.76对0.55/0.52。视频3D比较21场景中仅10个共同对齐场景进入主表，LPIPS0.50对最佳基线0.56；新视角DINO0.53对至多0.38。40场景输出token费用中位约47美元，不含视觉和渲染计算。",
+        "recommendation_level": "高",
+        "water_risk": "中",
+        "value_label": "值得核读",
+        "value_reason": "多agent规划的价值可来自共享几何状态、有边界的委派与可执行验收；重用经验仍应在当前观测下重新拟合并接受同样检查。",
+        "source_scope": "full_text",
+        "source_note": "直接核读arXiv v1 PDF正文并核对实验表；结果为作者报告，未独立复现。",
+        "source_evidence": [
+          "算法1、§3–4，表1–2与补充S2/S12：协议验收、比较子集、费用及推断区域",
+          "https://arxiv.org/abs/2611.25340v1"
+        ],
+        "model": "manual-full-text-review",
+        "updated_at": "2026-11-21T01:32:02.503461+00:00"
+      }
+    },
     {
       "id": "2611.24357v1",
       "title": "Semantic Context Handoff with On-Demand Evidence for Long-Horizon Agents",
