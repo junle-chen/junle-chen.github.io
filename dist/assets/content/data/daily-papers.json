@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-21T01:32:02.503461+00:00",
+  "updated_at": "2026-11-24T01:35:29.824355+00:00",
   "source": "arxiv",
   "analysis_method": "Codex CLI workflow with manual arXiv PDF full-text review and rendered result-page verification; per-item source notes identify the analysis path.",
   "query_focus": "多轮交互式 agent planning、long-horizon planning、stateful/personalized planning、agent memory、planning reliability、agentic RL",
@@ -37,35 +37,28 @@
     "codex_reader": "Downloads arXiv PDFs, extracts text with pdftotext or bundled Python PDF libraries, then calls codex exec to write Chinese motivation/method/experiment/research-help fields."
   },
   "digest": {
-    "title": "2026-11-21 Daily Paper",
-    "report_date": "2026-11-21",
+    "title": "2026-11-24 Daily Paper",
+    "report_date": "2026-11-24",
     "focus": "多轮交互式 agent planning、long-horizon planning、stateful/personalized planning、agent memory、planning reliability、agentic RL",
-    "summary": "今日新增8篇，覆盖长程记忆与压缩评测、agent行为量化、导航联合RL、可逆空间规划与多agent重建。已核读正文和实验表，详情说明测试配置选择、成功轨迹筛选、不同harness与在线执行限制。",
+    "summary": "今日新增2篇：WEIR研究多轮agent RL的前缀价值估计与分支预算，Embodied-Harness研究长程机器人执行中的记忆与证据反思。已核读正文和实验表，详情区分采样token与总成本、空间与长程子集、零示范与跨尝试经验。",
     "top_recommendations": [
-      "2611.25123v1",
-      "2611.25673v1",
-      "2611.26361v1"
+      "2611.27570v1",
+      "2611.27689v1"
     ],
     "low_priority": [],
     "no_news_policy": "如果没有新的高相关论文，自动化应返回“今日无高相关新增论文”，不写邮件正文文件，也不发送邮件。",
     "email_body": ""
   },
   "latest_item_ids": [
-    "2611.26361v1",
-    "2611.25673v1",
-    "2611.26427v1",
-    "2611.25123v1",
-    "2611.26414v1",
-    "2611.26157v1",
-    "2611.25005v1",
-    "2611.25340v1"
+    "2611.27570v1",
+    "2611.27689v1"
   ],
   "archive": {
     "policy": "append_or_update_by_arxiv_id",
-    "fresh_items": 8,
-    "total_items": 626,
-    "previous_items": 618,
-    "latest_items": 8,
+    "fresh_items": 2,
+    "total_items": 628,
+    "previous_items": 626,
+    "latest_items": 2,
     "source_report_dates": {
       "2026-11-14": 7,
       "2026-11-12": 2,
@@ -136,27 +129,259 @@
       "2026-11-18": 12,
       "2026-11-19": 7,
       "2026-11-20": 8,
-      "2026-11-21": 8
+      "2026-11-21": 8,
+      "2026-11-24": 2
     },
     "filtered_candidate_ids": [
-      "2611.26361v1",
-      "2611.25673v1",
-      "2611.26427v1",
-      "2611.25123v1",
-      "2611.26414v1",
-      "2611.26157v1",
-      "2611.25005v1",
-      "2611.25340v1"
+      "2611.27570v1",
+      "2611.27689v1"
     ],
-    "filtered_today": 8,
+    "filtered_today": 2,
     "rejected_candidate_ids": [
+      "2611.27659v1",
+      "2611.27919v1",
+      "2611.27865v1",
+      "2611.27631v1",
+      "2611.27368v1",
+      "2611.27138v1",
       "2611.25407v1",
-      "2611.25800v1",
-      "2611.25932v1",
-      "2611.24039v1"
+      "2611.25800v1"
     ]
   },
   "items": [
+    {
+      "id": "2611.27570v1",
+      "title": "WEIR: Watershed Exploration and Drift-Aware Prefix Shrinkage for Multi-Turn Agent Reinforcement Learning",
+      "summary": "Multi-turn language model agents often receive only a single binary reward at the end of a long interaction trajectory, making it difficult to separate decisive decisions from routine steps or estimate accurate intermediate values. Prefix-tree methods improve sample efficiency by merging trajectories that share action histories, yet two structural flaws remain: naive pooling mixes stale off-policy outcomes into critic targets with fixed weights, and uniform or entropy-driven branching wastes continuations on dead-end states whose outcome is already settled. We introduce WEIR (Watershed Exploration and Intrinsic-Drift Shrinkage), an actor-critic reinforcement learning framework grounded in a Doob turn-variance conservation identity. WEIR maintains a cross-iteration canonical action-prefix tree with exponentially discounted visit counts and trains a prefix-conditioned critic toward a minimax drift-aware shrinkage target that adapts from single-trajectory returns at rare nodes to pooled empirical means at dense nodes. Using the same pre-update critic, WEIR allocates rollout budgets across tasks via Neyman stratification $B_q \\propto \\sqrt{\\hat{p}_q(1-\\hat{p}_q)}$ and directs within-task branches to watershed forks where high survival-headroom uncertainty coincides with steep value cliffs. Across four multi-hop QA benchmarks, ALFWorld, and WebShop on Qwen2.5-3B/7B-Instruct, WEIR achieves $32.18\\%$ and $37.85\\%$ average QA exact match and $84.83\\%$ and $87.81\\%$ ALFWorld success rates, outperforming CAPO by $1.50$--$3.74$ points while generating $28$--$29\\%$ fewer rollout tokens than chain sampling.",
+      "url": "http://arxiv.org/abs/2611.27570v1",
+      "authors": [
+        "Pixel Nomand",
+        "Elena Voss",
+        "Marcus Hale",
+        "Sofia Reyes"
+      ],
+      "report_date": "2026-11-24",
+      "published": "2026-11-20",
+      "updated": "2026-11-20",
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG"
+      ],
+      "project_url": "",
+      "repo_url": "",
+      "venue_status": "未确认录用",
+      "recommendation": {
+        "score": 86,
+        "level": "高",
+        "label": "值得核读",
+        "water_risk": "中",
+        "value_judgement": "可将采样预算和价值估计放进同一个前缀树：先识别结果仍可改变的分叉，再扩展价值陡变的回合。对长程agent训练，值得同时审计历史复用偏差、分支浪费和含critic开销的总成本。",
+        "reason": "可将采样预算和价值估计放进同一个前缀树：先识别结果仍可改变的分叉，再扩展价值陡变的回合。对长程agent训练，值得同时审计历史复用偏差、分支浪费和含critic开销的总成本。",
+        "signals": {
+          "agenticRl": true,
+          "multiTurn": true,
+          "longHorizon": false,
+          "memory": false,
+          "reliability": true,
+          "codeOrTool": false,
+          "experiments": true,
+          "survey": false
+        }
+      },
+      "brief": {
+        "authors": [
+          "Pixel Nomand",
+          "Elena Voss",
+          "Marcus Hale",
+          "Sofia Reyes"
+        ],
+        "affiliations": "arXiv metadata 未提供；需要正文或项目页确认单位。",
+        "date": "2026-11-20",
+        "paper_url": "https://arxiv.org/abs/2611.27570v1",
+        "project_url": "",
+        "repo_url": "",
+        "venue_status": "未确认录用",
+        "contribution": "可将采样预算和价值估计放进同一个前缀树：先识别结果仍可改变的分叉，再扩展价值陡变的回合。对长程agent训练，值得同时审计历史复用偏差、分支浪费和含critic开销的总成本。",
+        "summary": "复用跨迭代动作前缀，用漂移感知价值目标与关键转折处分支改善多轮RL；7B QA均值37.85%，rollout token为独立链的0.72倍。",
+        "highlights": [
+          "复用跨迭代动作前缀，用漂移感知价值目标与关键转折处分支改善多轮RL；7B QA均值37.85%，rollout token为独立链的0.72倍。",
+          "可将采样预算和价值估计放进同一个前缀树：先识别结果仍可改变的分叉，再扩展价值陡变的回合。对长程agent训练，值得同时审计历史复用偏差、分支浪费和含critic开销的总成本。",
+          "需要可恢复的中间状态和交互历史；ALFWorld/WebShop通过重置、重放并核对观测来分支，无法直接推广到有不可逆副作用的线上服务。语义前缀合并可能混淆不同状态，统一标量漂移比也是建模假设；Doob恒等式本身不保证学到的critic准确。不同数据/过程监督的外部基线不构成严格同预算比较；作者结果未独立复现。"
+        ],
+        "motivation": "长交互仅有终局二元奖励，难定位关键决策；共享前缀虽可降方差，却会混入旧策略结果，均匀或高熵分支也常浪费在已成功或失败的状态。",
+        "method": "WEIR按规范化动作历史建立跨迭代前缀树，历史计数指数衰减并排除本轨迹的自泄漏；prefix critic用随有效支持量和漂移上界变化的收缩目标。预更新critic在任务间按成功不确定性分配预算，在任务内结合生存余量与价值跳变选择分支，再做turn-level actor-critic更新。QA查询用父节点约束的E5相似匹配，环境动作以规范文本匹配。",
+        "experiments": "作者表1：Qwen2.5-3B/7B在四套QA上的平均EM为32.18/37.85%，ALFWorld成功率84.83/87.81%，WebShop为78.47/81.90%；相对CAPO的QA增益3.19/2.22个百分点。QA每题6条、交互环境8条匹配轨迹数，生成rollout token为独立链GRPO的0.71/0.72倍，不等于总训练成本同比下降。7B去掉跨迭代保留使QA/ALFWorld下降1.65/2.69点。环境实验报告三种随机种子；训练HotpotQA，另外三套QA用于迁移评估。",
+        "research_help": "可将采样预算和价值估计放进同一个前缀树：先识别结果仍可改变的分叉，再扩展价值陡变的回合。对长程agent训练，值得同时审计历史复用偏差、分支浪费和含critic开销的总成本。",
+        "recommendation": {
+          "score": 86,
+          "level": "高",
+          "label": "值得核读",
+          "water_risk": "中",
+          "value_judgement": "可将采样预算和价值估计放进同一个前缀树：先识别结果仍可改变的分叉，再扩展价值陡变的回合。对长程agent训练，值得同时审计历史复用偏差、分支浪费和含critic开销的总成本。",
+          "reason": "可将采样预算和价值估计放进同一个前缀树：先识别结果仍可改变的分叉，再扩展价值陡变的回合。对长程agent训练，值得同时审计历史复用偏差、分支浪费和含critic开销的总成本。",
+          "signals": {
+            "agenticRl": true,
+            "multiTurn": true,
+            "longHorizon": false,
+            "memory": false,
+            "reliability": true,
+            "codeOrTool": false,
+            "experiments": true,
+            "survey": false
+          }
+        },
+        "card_summary": "复用跨迭代动作前缀，用漂移感知价值目标与关键转折处分支改善多轮RL；7B QA均值37.85%，rollout token为独立链的0.72倍。",
+        "insight": "可将采样预算和价值估计放进同一个前缀树：先识别结果仍可改变的分叉，再扩展价值陡变的回合。对长程agent训练，值得同时审计历史复用偏差、分支浪费和含critic开销的总成本。",
+        "limitations": "需要可恢复的中间状态和交互历史；ALFWorld/WebShop通过重置、重放并核对观测来分支，无法直接推广到有不可逆副作用的线上服务。语义前缀合并可能混淆不同状态，统一标量漂移比也是建模假设；Doob恒等式本身不保证学到的critic准确。不同数据/过程监督的外部基线不构成严格同预算比较；作者结果未独立复现。",
+        "abstract_zh": "复用跨迭代动作前缀，用漂移感知价值目标与关键转折处分支改善多轮RL；7B QA均值37.85%，rollout token为独立链的0.72倍。 长交互仅有终局二元奖励，难定位关键决策；共享前缀虽可降方差，却会混入旧策略结果，均匀或高熵分支也常浪费在已成功或失败的状态。",
+        "full_summary": "长交互仅有终局二元奖励，难定位关键决策；共享前缀虽可降方差，却会混入旧策略结果，均匀或高熵分支也常浪费在已成功或失败的状态。 WEIR按规范化动作历史建立跨迭代前缀树，历史计数指数衰减并排除本轨迹的自泄漏；prefix critic用随有效支持量和漂移上界变化的收缩目标。预更新critic在任务间按成功不确定性分配预算，在任务内结合生存余量与价值跳变选择分支，再做turn-level actor-critic更新。QA查询用父节点约束的E5相似匹配，环境动作以规范文本匹配。 作者表1：Qwen2.5-3B/7B在四套QA上的平均EM为32.18/37.85%，ALFWorld成功率84.83/87.81%，WebShop为78.47/81.90%；相对CAPO的QA增益3.19/2.22个百分点。QA每题6条、交互环境8条匹配轨迹数，生成rollout token为独立链GRPO的0.71/0.72倍，不等于总训练成本同比下降。7B去掉跨迭代保留使QA/ALFWorld下降1.65/2.69点。环境实验报告三种随机种子；训练HotpotQA，另外三套QA用于迁移评估。 可将采样预算和价值估计放进同一个前缀树：先识别结果仍可改变的分叉，再扩展价值陡变的回合。对长程agent训练，值得同时审计历史复用偏差、分支浪费和含critic开销的总成本。 需要可恢复的中间状态和交互历史；ALFWorld/WebShop通过重置、重放并核对观测来分支，无法直接推广到有不可逆副作用的线上服务。语义前缀合并可能混淆不同状态，统一标量漂移比也是建模假设；Doob恒等式本身不保证学到的critic准确。不同数据/过程监督的外部基线不构成严格同预算比较；作者结果未独立复现。"
+      },
+      "analysis": {
+        "card_summary": "复用跨迭代动作前缀，用漂移感知价值目标与关键转折处分支改善多轮RL；7B QA均值37.85%，rollout token为独立链的0.72倍。",
+        "motivation": "长交互仅有终局二元奖励，难定位关键决策；共享前缀虽可降方差，却会混入旧策略结果，均匀或高熵分支也常浪费在已成功或失败的状态。",
+        "method": "WEIR按规范化动作历史建立跨迭代前缀树，历史计数指数衰减并排除本轨迹的自泄漏；prefix critic用随有效支持量和漂移上界变化的收缩目标。预更新critic在任务间按成功不确定性分配预算，在任务内结合生存余量与价值跳变选择分支，再做turn-level actor-critic更新。QA查询用父节点约束的E5相似匹配，环境动作以规范文本匹配。",
+        "experiments": "作者表1：Qwen2.5-3B/7B在四套QA上的平均EM为32.18/37.85%，ALFWorld成功率84.83/87.81%，WebShop为78.47/81.90%；相对CAPO的QA增益3.19/2.22个百分点。QA每题6条、交互环境8条匹配轨迹数，生成rollout token为独立链GRPO的0.71/0.72倍，不等于总训练成本同比下降。7B去掉跨迭代保留使QA/ALFWorld下降1.65/2.69点。环境实验报告三种随机种子；训练HotpotQA，另外三套QA用于迁移评估。",
+        "insight": "可将采样预算和价值估计放进同一个前缀树：先识别结果仍可改变的分叉，再扩展价值陡变的回合。对长程agent训练，值得同时审计历史复用偏差、分支浪费和含critic开销的总成本。",
+        "limitations": "需要可恢复的中间状态和交互历史；ALFWorld/WebShop通过重置、重放并核对观测来分支，无法直接推广到有不可逆副作用的线上服务。语义前缀合并可能混淆不同状态，统一标量漂移比也是建模假设；Doob恒等式本身不保证学到的critic准确。不同数据/过程监督的外部基线不构成严格同预算比较；作者结果未独立复现。",
+        "source_evidence": [
+          "正文§3–6、表1–3；附录C状态恢复和表8多种子统计；已渲染核对PDF第7页主表",
+          "https://arxiv.org/abs/2611.27570v1"
+        ],
+        "research_help": "可将采样预算和价值估计放进同一个前缀树：先识别结果仍可改变的分叉，再扩展价值陡变的回合。对长程agent训练，值得同时审计历史复用偏差、分支浪费和含critic开销的总成本。",
+        "abstract_zh": "复用跨迭代动作前缀，用漂移感知价值目标与关键转折处分支改善多轮RL；7B QA均值37.85%，rollout token为独立链的0.72倍。 长交互仅有终局二元奖励，难定位关键决策；共享前缀虽可降方差，却会混入旧策略结果，均匀或高熵分支也常浪费在已成功或失败的状态。",
+        "full_summary": "长交互仅有终局二元奖励，难定位关键决策；共享前缀虽可降方差，却会混入旧策略结果，均匀或高熵分支也常浪费在已成功或失败的状态。 WEIR按规范化动作历史建立跨迭代前缀树，历史计数指数衰减并排除本轨迹的自泄漏；prefix critic用随有效支持量和漂移上界变化的收缩目标。预更新critic在任务间按成功不确定性分配预算，在任务内结合生存余量与价值跳变选择分支，再做turn-level actor-critic更新。QA查询用父节点约束的E5相似匹配，环境动作以规范文本匹配。 作者表1：Qwen2.5-3B/7B在四套QA上的平均EM为32.18/37.85%，ALFWorld成功率84.83/87.81%，WebShop为78.47/81.90%；相对CAPO的QA增益3.19/2.22个百分点。QA每题6条、交互环境8条匹配轨迹数，生成rollout token为独立链GRPO的0.71/0.72倍，不等于总训练成本同比下降。7B去掉跨迭代保留使QA/ALFWorld下降1.65/2.69点。环境实验报告三种随机种子；训练HotpotQA，另外三套QA用于迁移评估。 可将采样预算和价值估计放进同一个前缀树：先识别结果仍可改变的分叉，再扩展价值陡变的回合。对长程agent训练，值得同时审计历史复用偏差、分支浪费和含critic开销的总成本。 需要可恢复的中间状态和交互历史；ALFWorld/WebShop通过重置、重放并核对观测来分支，无法直接推广到有不可逆副作用的线上服务。语义前缀合并可能混淆不同状态，统一标量漂移比也是建模假设；Doob恒等式本身不保证学到的critic准确。不同数据/过程监督的外部基线不构成严格同预算比较；作者结果未独立复现。",
+        "recommendation_level": "高",
+        "water_risk": "中",
+        "value_label": "值得核读",
+        "value_reason": "可将采样预算和价值估计放进同一个前缀树：先识别结果仍可改变的分叉，再扩展价值陡变的回合。对长程agent训练，值得同时审计历史复用偏差、分支浪费和含critic开销的总成本。",
+        "source_scope": "full_text",
+        "source_note": "直接核读arXiv v1 PDF正文及实验表，结果为作者报告，未独立复现。",
+        "model": "manual-full-text-review",
+        "updated_at": "2026-11-24T01:35:29.824355+00:00"
+      }
+    },
+    {
+      "id": "2611.27689v1",
+      "title": "Embodied-Harness: Towards Recursive Self-Improvement for Robotic Manipulation",
+      "summary": "Vision-language model (VLM)-based agents offer a promising approach to robotic manipulation, yet remain limited by inadequate memory organization, uncertain failure attribution, and limited reuse of execution experience. We propose Embodied-Harness, a dual-agent framework that improves manipulation by refining the execution harness without updating model parameters. The Actor interacts with the environment through a robot-control interface, while the Reflector converts execution evidence into reusable operational guidance. Hierarchical Memory Architecture maintains short-term execution context and long-term experiential knowledge to support execution and reflection. Evidence-based Experience Reflection grounds failure diagnosis in observed interactions, while Recursive Harness Self-Improvement refines operational guidance across successive attempts. Experiments on RoboTwin 2.0, RoboSPA, and RMBench demonstrate the effectiveness of Embodied-Harness in generalization under environmental variations, spatial reasoning, long-horizon planning, and memory-dependent manipulation. Our method achieves success rates of 82.4%, 76.7%, and 94.4% on the three benchmarks, respectively. Real-world evaluation further yields an average success rate of 96.7% across three manipulation tasks. These results highlight the potential of Embodied-Harness to improve robotic manipulation through experience-driven harness self-improvement.",
+      "url": "http://arxiv.org/abs/2611.27689v1",
+      "authors": [
+        "Zhenxuan Fan",
+        "Zhuoya Wang",
+        "Yuqian Yuan",
+        "Wenqiao Zhang",
+        "Juncheng Li",
+        "Jun Xiao",
+        "Siliang Tang",
+        "Yueting Zhuang"
+      ],
+      "report_date": "2026-11-24",
+      "published": "2026-11-20",
+      "updated": "2026-11-20",
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO",
+        "cs.AI",
+        "cs.CV",
+        "cs.MA"
+      ],
+      "project_url": "https://embodied-harness.github.io/",
+      "repo_url": "",
+      "venue_status": "未确认录用",
+      "recommendation": {
+        "score": 98,
+        "level": "高",
+        "label": "值得核读",
+        "water_risk": "中",
+        "value_judgement": "把回合内状态追踪与回合间经验提炼分开，并让指导绑定可观察证据和执行条件，能给长程agent的失败恢复提供具体设计；消融中短期记忆的影响最大，不能把收益全归给自改进。",
+        "reason": "把回合内状态追踪与回合间经验提炼分开，并让指导绑定可观察证据和执行条件，能给长程agent的失败恢复提供具体设计；消融中短期记忆的影响最大，不能把收益全归给自改进。",
+        "signals": {
+          "agenticRl": true,
+          "multiTurn": true,
+          "longHorizon": true,
+          "memory": true,
+          "reliability": true,
+          "codeOrTool": false,
+          "experiments": true,
+          "survey": false
+        }
+      },
+      "brief": {
+        "authors": [
+          "Zhenxuan Fan",
+          "Zhuoya Wang",
+          "Yuqian Yuan",
+          "Wenqiao Zhang",
+          "Juncheng Li",
+          "Jun Xiao",
+          "Siliang Tang",
+          "Yueting Zhuang"
+        ],
+        "affiliations": "Zhejiang University；Huazhong University of Science and Technology（PDF首页）",
+        "date": "2026-11-20",
+        "paper_url": "https://arxiv.org/abs/2611.27689v1",
+        "project_url": "https://embodied-harness.github.io/",
+        "repo_url": "",
+        "venue_status": "未确认录用",
+        "contribution": "把回合内状态追踪与回合间经验提炼分开，并让指导绑定可观察证据和执行条件，能给长程agent的失败恢复提供具体设计；消融中短期记忆的影响最大，不能把收益全归给自改进。",
+        "summary": "Actor执行、Reflector把失败证据转成跨尝试操作记忆，冻结模型改进harness；RoboSPA长程L5成功率59.5%，高于RoboDawn的41.4%。",
+        "highlights": [
+          "Actor执行、Reflector把失败证据转成跨尝试操作记忆，冻结模型改进harness；RoboSPA长程L5成功率59.5%，高于RoboDawn的41.4%。",
+          "把回合内状态追踪与回合间经验提炼分开，并让指导绑定可观察证据和执行条件，能给长程agent的失败恢复提供具体设计；消融中短期记忆的影响最大，不能把收益全归给自改进。",
+          "零示范不表示没有跨尝试经验积累：系统显式复用任务记忆，正文迭代分析显示随反思轮数改善。比较时需要控制试错轮数和模型调用预算；论文未给出完整成本对齐和充分的跨次统计。真实实验规模很小，不能推出通用可靠性。结果依赖控制接口、强VLM和记忆组织，尚无本次独立复现。"
+        ],
+        "motivation": "长程机器人任务既要记住当前进度和动作细节，也要复用跨尝试经验；无证据的反思容易误判失败原因，导致重复错误。",
+        "method": "Actor通过move/rotate/point/gripper/home接口执行；工作记忆保留压缩进度和详细轨迹，长期记忆区分任务专属与跨任务经验。Reflector用轨迹、结果和已有harness将问题归入接触姿态、动作协调、任务完成、空间定位或状态恢复五类，再形成有适用条件的操作指导，反复更新harness而不更新模型参数。",
+        "experiments": "作者使用GPT-6 Astra、默认medium推理，每episode最多45轮。RoboTwin2.0 C2R的50任务成功率82.4%，同骨干零示范RoboDawn为53.2%。RoboSPA L5空间子集成功率94.0%；长程子集成功率59.5%、进度74.9%，对应RoboDawn为41.4/56.4%；摘要76.7%为合并概括，不能替代长程子集值。RMBench九任务成功率94.4%。RoboSPA长程去掉短期记忆、Reflector或长期记忆后成功率为32.1/43.0/48.5%。真实Piper实验仅三任务、每任务10次，平均96.7%（29/30）。",
+        "research_help": "把回合内状态追踪与回合间经验提炼分开，并让指导绑定可观察证据和执行条件，能给长程agent的失败恢复提供具体设计；消融中短期记忆的影响最大，不能把收益全归给自改进。",
+        "recommendation": {
+          "score": 98,
+          "level": "高",
+          "label": "值得核读",
+          "water_risk": "中",
+          "value_judgement": "把回合内状态追踪与回合间经验提炼分开，并让指导绑定可观察证据和执行条件，能给长程agent的失败恢复提供具体设计；消融中短期记忆的影响最大，不能把收益全归给自改进。",
+          "reason": "把回合内状态追踪与回合间经验提炼分开，并让指导绑定可观察证据和执行条件，能给长程agent的失败恢复提供具体设计；消融中短期记忆的影响最大，不能把收益全归给自改进。",
+          "signals": {
+            "agenticRl": true,
+            "multiTurn": true,
+            "longHorizon": true,
+            "memory": true,
+            "reliability": true,
+            "codeOrTool": false,
+            "experiments": true,
+            "survey": false
+          }
+        },
+        "card_summary": "Actor执行、Reflector把失败证据转成跨尝试操作记忆，冻结模型改进harness；RoboSPA长程L5成功率59.5%，高于RoboDawn的41.4%。",
+        "insight": "把回合内状态追踪与回合间经验提炼分开，并让指导绑定可观察证据和执行条件，能给长程agent的失败恢复提供具体设计；消融中短期记忆的影响最大，不能把收益全归给自改进。",
+        "limitations": "零示范不表示没有跨尝试经验积累：系统显式复用任务记忆，正文迭代分析显示随反思轮数改善。比较时需要控制试错轮数和模型调用预算；论文未给出完整成本对齐和充分的跨次统计。真实实验规模很小，不能推出通用可靠性。结果依赖控制接口、强VLM和记忆组织，尚无本次独立复现。",
+        "abstract_zh": "Actor执行、Reflector把失败证据转成跨尝试操作记忆，冻结模型改进harness；RoboSPA长程L5成功率59.5%，高于RoboDawn的41.4%。 长程机器人任务既要记住当前进度和动作细节，也要复用跨尝试经验；无证据的反思容易误判失败原因，导致重复错误。",
+        "full_summary": "长程机器人任务既要记住当前进度和动作细节，也要复用跨尝试经验；无证据的反思容易误判失败原因，导致重复错误。 Actor通过move/rotate/point/gripper/home接口执行；工作记忆保留压缩进度和详细轨迹，长期记忆区分任务专属与跨任务经验。Reflector用轨迹、结果和已有harness将问题归入接触姿态、动作协调、任务完成、空间定位或状态恢复五类，再形成有适用条件的操作指导，反复更新harness而不更新模型参数。 作者使用GPT-6 Astra、默认medium推理，每episode最多45轮。RoboTwin2.0 C2R的50任务成功率82.4%，同骨干零示范RoboDawn为53.2%。RoboSPA L5空间子集成功率94.0%；长程子集成功率59.5%、进度74.9%，对应RoboDawn为41.4/56.4%；摘要76.7%为合并概括，不能替代长程子集值。RMBench九任务成功率94.4%。RoboSPA长程去掉短期记忆、Reflector或长期记忆后成功率为32.1/43.0/48.5%。真实Piper实验仅三任务、每任务10次，平均96.7%（29/30）。 把回合内状态追踪与回合间经验提炼分开，并让指导绑定可观察证据和执行条件，能给长程agent的失败恢复提供具体设计；消融中短期记忆的影响最大，不能把收益全归给自改进。 零示范不表示没有跨尝试经验积累：系统显式复用任务记忆，正文迭代分析显示随反思轮数改善。比较时需要控制试错轮数和模型调用预算；论文未给出完整成本对齐和充分的跨次统计。真实实验规模很小，不能推出通用可靠性。结果依赖控制接口、强VLM和记忆组织，尚无本次独立复现。"
+      },
+      "analysis": {
+        "card_summary": "Actor执行、Reflector把失败证据转成跨尝试操作记忆，冻结模型改进harness；RoboSPA长程L5成功率59.5%，高于RoboDawn的41.4%。",
+        "motivation": "长程机器人任务既要记住当前进度和动作细节，也要复用跨尝试经验；无证据的反思容易误判失败原因，导致重复错误。",
+        "method": "Actor通过move/rotate/point/gripper/home接口执行；工作记忆保留压缩进度和详细轨迹，长期记忆区分任务专属与跨任务经验。Reflector用轨迹、结果和已有harness将问题归入接触姿态、动作协调、任务完成、空间定位或状态恢复五类，再形成有适用条件的操作指导，反复更新harness而不更新模型参数。",
+        "experiments": "作者使用GPT-6 Astra、默认medium推理，每episode最多45轮。RoboTwin2.0 C2R的50任务成功率82.4%，同骨干零示范RoboDawn为53.2%。RoboSPA L5空间子集成功率94.0%；长程子集成功率59.5%、进度74.9%，对应RoboDawn为41.4/56.4%；摘要76.7%为合并概括，不能替代长程子集值。RMBench九任务成功率94.4%。RoboSPA长程去掉短期记忆、Reflector或长期记忆后成功率为32.1/43.0/48.5%。真实Piper实验仅三任务、每任务10次，平均96.7%（29/30）。",
+        "insight": "把回合内状态追踪与回合间经验提炼分开，并让指导绑定可观察证据和执行条件，能给长程agent的失败恢复提供具体设计；消融中短期记忆的影响最大，不能把收益全归给自改进。",
+        "limitations": "零示范不表示没有跨尝试经验积累：系统显式复用任务记忆，正文迭代分析显示随反思轮数改善。比较时需要控制试错轮数和模型调用预算；论文未给出完整成本对齐和充分的跨次统计。真实实验规模很小，不能推出通用可靠性。结果依赖控制接口、强VLM和记忆组织，尚无本次独立复现。",
+        "source_evidence": [
+          "正文§3–4；表1–6、图5迭代分析；已渲染核对PDF第8页空间/长程分表",
+          "https://arxiv.org/abs/2611.27689v1"
+        ],
+        "research_help": "把回合内状态追踪与回合间经验提炼分开，并让指导绑定可观察证据和执行条件，能给长程agent的失败恢复提供具体设计；消融中短期记忆的影响最大，不能把收益全归给自改进。",
+        "abstract_zh": "Actor执行、Reflector把失败证据转成跨尝试操作记忆，冻结模型改进harness；RoboSPA长程L5成功率59.5%，高于RoboDawn的41.4%。 长程机器人任务既要记住当前进度和动作细节，也要复用跨尝试经验；无证据的反思容易误判失败原因，导致重复错误。",
+        "full_summary": "长程机器人任务既要记住当前进度和动作细节，也要复用跨尝试经验；无证据的反思容易误判失败原因，导致重复错误。 Actor通过move/rotate/point/gripper/home接口执行；工作记忆保留压缩进度和详细轨迹，长期记忆区分任务专属与跨任务经验。Reflector用轨迹、结果和已有harness将问题归入接触姿态、动作协调、任务完成、空间定位或状态恢复五类，再形成有适用条件的操作指导，反复更新harness而不更新模型参数。 作者使用GPT-6 Astra、默认medium推理，每episode最多45轮。RoboTwin2.0 C2R的50任务成功率82.4%，同骨干零示范RoboDawn为53.2%。RoboSPA L5空间子集成功率94.0%；长程子集成功率59.5%、进度74.9%，对应RoboDawn为41.4/56.4%；摘要76.7%为合并概括，不能替代长程子集值。RMBench九任务成功率94.4%。RoboSPA长程去掉短期记忆、Reflector或长期记忆后成功率为32.1/43.0/48.5%。真实Piper实验仅三任务、每任务10次，平均96.7%（29/30）。 把回合内状态追踪与回合间经验提炼分开，并让指导绑定可观察证据和执行条件，能给长程agent的失败恢复提供具体设计；消融中短期记忆的影响最大，不能把收益全归给自改进。 零示范不表示没有跨尝试经验积累：系统显式复用任务记忆，正文迭代分析显示随反思轮数改善。比较时需要控制试错轮数和模型调用预算；论文未给出完整成本对齐和充分的跨次统计。真实实验规模很小，不能推出通用可靠性。结果依赖控制接口、强VLM和记忆组织，尚无本次独立复现。",
+        "recommendation_level": "高",
+        "water_risk": "中",
+        "value_label": "值得核读",
+        "value_reason": "把回合内状态追踪与回合间经验提炼分开，并让指导绑定可观察证据和执行条件，能给长程agent的失败恢复提供具体设计；消融中短期记忆的影响最大，不能把收益全归给自改进。",
+        "source_scope": "full_text",
+        "source_note": "直接核读arXiv v1 PDF正文及实验表，结果为作者报告，未独立复现。",
+        "model": "manual-full-text-review",
+        "updated_at": "2026-11-24T01:35:29.824355+00:00"
+      }
+    },
     {
       "id": "2611.26361v1",
       "title": "How Much Should an Agent Remember? Deployment Lessons from Self-Distilled Memory for LLM Agents",
