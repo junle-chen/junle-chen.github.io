@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-24T01:35:29.824355+00:00",
+  "updated_at": "2026-11-25T01:34:49.072650+00:00",
   "source": "arxiv",
   "analysis_method": "Codex CLI workflow with manual arXiv PDF full-text review and rendered result-page verification; per-item source notes identify the analysis path.",
   "query_focus": "多轮交互式 agent planning、long-horizon planning、stateful/personalized planning、agent memory、planning reliability、agentic RL",
@@ -37,29 +37,42 @@
     "codex_reader": "Downloads arXiv PDFs, extracts text with pdftotext or bundled Python PDF libraries, then calls codex exec to write Chinese motivation/method/experiment/research-help fields."
   },
   "digest": {
-    "title": "2026-11-24 Daily Paper",
-    "report_date": "2026-11-24",
+    "title": "2026-11-25 Daily Paper",
+    "report_date": "2026-11-25",
     "focus": "多轮交互式 agent planning、long-horizon planning、stateful/personalized planning、agent memory、planning reliability、agentic RL",
-    "summary": "今日新增2篇：WEIR研究多轮agent RL的前缀价值估计与分支预算，Embodied-Harness研究长程机器人执行中的记忆与证据反思。已核读正文和实验表，详情区分采样token与总成本、空间与长程子集、零示范与跨尝试经验。",
+    "summary": "今日新增7篇，覆盖长程上下文压缩、技能检索RL、编码agent终局反馈学习、多轮蒸馏、交互视频状态规划、实验决策记忆与3D多轮编码数据。已核读正文并渲染核对实验表，结果为作者报告，未独立复现。",
     "top_recommendations": [
-      "2611.27570v1",
-      "2611.27689v1"
+      "2611.30412v1",
+      "2611.28907v1",
+      "2611.30405v1"
     ],
     "low_priority": [],
     "no_news_policy": "如果没有新的高相关论文，自动化应返回“今日无高相关新增论文”，不写邮件正文文件，也不发送邮件。",
-    "email_body": ""
+    "email_body": "2026-11-25 Daily Paper\n\nDMC-5: Dual-Model Collaboration with Cache-aware Context Compression for Long-horizon Agents\n保留追加式原始轨迹，重建紧凑决策视图并原样恢复关键工具记录；三套长程任务计费成本下降14.5–28.0%。\nhttps://arxiv.org/abs/2611.30412v1\n\nSTRIDE: Strategy-to-Tactics Retrieval-Guided Skill Disclosure and Evolution for Agentic Reinforcement Learning\nSTRIDE保持全局策略常驻、按需检索局部战术，并用检索事件反馈训练agent；ALFWorld 4B/8B成功率92.7/94.9%。\nhttps://arxiv.org/abs/2611.28907v1\n\nOptimistic Online Learning for Coding Agents with Aggregate Feedback\n用残差激活提示和任务终局反馈在线选择steering强度；TACT-Cap在SWE-V/TB2解决率65.0/34.8%。\nhttps://arxiv.org/abs/2611.30405v1\n\nMuted Distillation: Sealing Reasoning from Teacher Unlocks Token-Efficient Agents\nMuted Distillation向teacher隐藏student思考，仅监督动作尾部；两套多轮知识工作任务输出token较OPD少57/53%。\nhttps://arxiv.org/abs/2611.28445v1\n\nCineAct: Interaction-State Agents for Playable, Branching Film Generation\nCineAct将视频渲染与显式世界状态推理分开，保持跨镜头动作后果；13个双路线故事联合成功且不同率61.5→92.3%。\nhttps://arxiv.org/abs/2611.30613v1\n\nNoeVera: Can Knowledge Guide Experiments and Experiments Refine Knowledge?\nNoeVera用带作用范围的证据记忆指导实验选择与后续决策修订；四场景中距模拟最优5%仅需中位6次新调用。\nhttps://arxiv.org/abs/2611.29255v1\n\n3DCodeFactory: Scaling Training Data for 3D Code Agents\n3DCodeFactory生成并验证多轮3D编码轨迹；5,045条数据使27B模型三基准平均分58.66→66.78。\nhttps://arxiv.org/abs/2611.28783v1"
   },
   "latest_item_ids": [
-    "2611.27570v1",
-    "2611.27689v1"
+    "2611.30412v1",
+    "2611.28907v1",
+    "2611.30405v1",
+    "2611.28445v1",
+    "2611.30613v1",
+    "2611.29255v1",
+    "2611.28783v1"
   ],
   "archive": {
     "policy": "append_or_update_by_arxiv_id",
-    "fresh_items": 2,
-    "total_items": 628,
-    "previous_items": 626,
-    "latest_items": 2,
+    "fresh_items": 7,
+    "total_items": 635,
+    "previous_items": 628,
+    "latest_items": 7,
     "source_report_dates": {
+      "2026-11-25": 7,
+      "2026-11-24": 2,
+      "2026-11-21": 8,
+      "2026-11-20": 8,
+      "2026-11-19": 7,
+      "2026-11-18": 12,
+      "2026-11-17": 3,
       "2026-11-14": 7,
       "2026-11-12": 2,
       "2026-11-11": 8,
@@ -124,31 +137,844 @@
       "2026-07-06": 8,
       "2026-07-04": 8,
       "2026-07-02": 2,
-      "undefined": 39,
-      "2026-11-17": 3,
-      "2026-11-18": 12,
-      "2026-11-19": 7,
-      "2026-11-20": 8,
-      "2026-11-21": 8,
-      "2026-11-24": 2
+      "undefined": 39
     },
     "filtered_candidate_ids": [
-      "2611.27570v1",
-      "2611.27689v1"
+      "2611.30412v1",
+      "2611.28907v1",
+      "2611.30405v1",
+      "2611.28445v1",
+      "2611.30613v1",
+      "2611.29255v1",
+      "2611.28783v1"
     ],
-    "filtered_today": 2,
+    "filtered_today": 7,
     "rejected_candidate_ids": [
+      "2611.29294v1",
+      "2611.29571v1",
+      "2611.29759v1",
+      "2611.29804v1",
+      "2611.29036v1",
+      "2611.28611v1",
+      "2611.27689v2",
       "2611.27659v1",
-      "2611.27919v1",
-      "2611.27865v1",
-      "2611.27631v1",
-      "2611.27368v1",
-      "2611.27138v1",
-      "2611.25407v1",
-      "2611.25800v1"
+      "2611.27570v1"
     ]
   },
   "items": [
+    {
+      "id": "2611.30412v1",
+      "title": "DMC-5: Dual-Model Collaboration with Cache-aware Context Compression for Long-horizon Agents",
+      "summary": "Long-horizon agents repeatedly feed an ever-growing interaction trajectory to a specialized agent model. Prefix caching reuses computation over repeated history, but cannot prevent context growth or remove information irrelevant to the current decision. This is especially costly when the specialized agent lacks the cached-input discounts available to general-purpose models, making trajectory compression a natural alternative. However, existing compression methods on selective context risk losing global information, recursively rewriting summary leads to semantic drift, while repeatedly recompressing the full history shifts the growing cost to the compressor. Therefore, we introduce DMC-5 (Dual-Model Collaboration with CaChe-aware Context Compression), an asymmetric framework that assigns full-history integration to a general compression model and action generation to a specialized agent model. DMC-5 maintains the raw trajectory as an Append-only Canonical View, preserving global access while allowing the compressor to reuse a stable historical prefix instead of recursively rewriting or recomputing prior context. The agent operates only on a compact Decision View with recent raw interactions, reducing repeated input while retaining the information needed for the next action. DMC-5 further incorporates YAMATO (integritY-Aware Memory Abstractions for Tool Operations) to preserve execution-critical information during lossy compression. Experiments on AppWorld, OfficeBench, and 8-objective QA show that DMC-5 reduces agent model input by 38.5-57.0% and end-to-end cost by 14.5-28.0% with 78.0-85.0% compressor cache-hit rates, while improving task performance by 1.0-5.8% over the uncompressed baseline.",
+      "url": "http://arxiv.org/abs/2611.30412v1",
+      "authors": [
+        "Haochen Li",
+        "Xiaobing Tu",
+        "Yinggui Wang",
+        "Jinkui Ren",
+        "Xiantao Zhang"
+      ],
+      "report_date": "2026-11-25",
+      "published": "2026-11-23",
+      "updated": "2026-11-23",
+      "primary_category": "cs.AI",
+      "categories": [
+        "cs.AI"
+      ],
+      "project_url": "",
+      "repo_url": "",
+      "venue_status": "未确认录用",
+      "recommendation": {
+        "score": 94,
+        "level": "高",
+        "label": "值得核读",
+        "water_risk": "中",
+        "value_judgement": "语义压缩和前缀复用应共同设计：原始历史可恢复，决策视图可缩短，关键执行状态应以原始记录恢复。评估需同时报告压缩器开销、额外交互与延迟。",
+        "reason": "语义压缩和前缀复用应共同设计：原始历史可恢复，决策视图可缩短，关键执行状态应以原始记录恢复。评估需同时报告压缩器开销、额外交互与延迟。",
+        "signals": {
+          "agenticRl": false,
+          "multiTurn": true,
+          "longHorizon": true,
+          "memory": true,
+          "reliability": false,
+          "codeOrTool": true,
+          "experiments": true,
+          "survey": false
+        }
+      },
+      "brief": {
+        "authors": [
+          "Haochen Li",
+          "Xiaobing Tu",
+          "Yinggui Wang",
+          "Jinkui Ren",
+          "Xiantao Zhang"
+        ],
+        "affiliations": "arXiv metadata 未提供；需要正文或项目页确认单位。",
+        "date": "2026-11-23",
+        "paper_url": "https://arxiv.org/abs/2611.30412v1",
+        "project_url": "",
+        "repo_url": "",
+        "venue_status": "未确认录用",
+        "contribution": "语义压缩和前缀复用应共同设计：原始历史可恢复，决策视图可缩短，关键执行状态应以原始记录恢复。评估需同时报告压缩器开销、额外交互与延迟。",
+        "summary": "长程agent重复读取增长历史；递归摘要会漂移，选择性删除会丢失状态，全历史重压缩又可能把开销转移给压缩器。 DMC-5让通用压缩模型读取Append-only Canonical View，利用稳定前缀缓存；专用动作模型只读Decision View和最近原始交互。YAMATO用指针从原始记录确定性恢复工具结果、关键值与工作产物，并维护失败账本和来源标签。 表1：微调Qwen3.5-27B配DeepSeek-V4-flash，AppWorld/OfficeBench准确率77.0→78.2%、87.0→88.0%；8-objective QA EM39.1→44.9%。agent输入减少38.46–57.02%，包含两模型调用的计费成本减少14.48–27.97%，压缩器缓存命中78–85%。三次独立运行；AppWorld去YAMATO准确率降至69.1%。 语义压缩和前缀复用应共同设计：原始历史可恢复，决策视图可缩短，关键执行状态应以原始记录恢复。评估需同时报告压缩器开销、额外交互与延迟。 主要成本假设是专用agent没有缓存折扣；缓存折扣越强收益越小。同步压缩可增加墙钟延迟，短任务可能不回本；保持信息完整也不能修正指代和规划错误。作者结果未独立复现。",
+        "highlights": [
+          "语义压缩和前缀复用应共同设计：原始历史可恢复，决策视图可缩短，关键执行状态应以原始记录恢复。评估需同时报告压缩器开销、额外交互与延迟。",
+          "偏水风险：中",
+          "阅读来源：arXiv PDF正文与实验表"
+        ],
+        "motivation": "长程agent重复读取增长历史；递归摘要会漂移，选择性删除会丢失状态，全历史重压缩又可能把开销转移给压缩器。",
+        "method": "DMC-5让通用压缩模型读取Append-only Canonical View，利用稳定前缀缓存；专用动作模型只读Decision View和最近原始交互。YAMATO用指针从原始记录确定性恢复工具结果、关键值与工作产物，并维护失败账本和来源标签。",
+        "experiments": "表1：微调Qwen3.5-27B配DeepSeek-V4-flash，AppWorld/OfficeBench准确率77.0→78.2%、87.0→88.0%；8-objective QA EM39.1→44.9%。agent输入减少38.46–57.02%，包含两模型调用的计费成本减少14.48–27.97%，压缩器缓存命中78–85%。三次独立运行；AppWorld去YAMATO准确率降至69.1%。",
+        "research_help": "语义压缩和前缀复用应共同设计：原始历史可恢复，决策视图可缩短，关键执行状态应以原始记录恢复。评估需同时报告压缩器开销、额外交互与延迟。",
+        "recommendation": {
+          "score": 94,
+          "level": "高",
+          "label": "强烈推荐",
+          "water_risk": "低",
+          "value_judgement": "有价值：优先进入今日精读候选。",
+          "reason": "涉及多轮交互、状态延续或交互式重规划；和 long-horizon planning / multi-step task 相关；包含 agent memory、stateful 或 personalized agent 信号；摘要给出实验、benchmark 或 baseline 证据。",
+          "signals": {
+            "agenticRl": false,
+            "multiTurn": true,
+            "longHorizon": true,
+            "memory": true,
+            "reliability": false,
+            "codeOrTool": true,
+            "experiments": true,
+            "survey": false
+          }
+        },
+        "insight": "语义压缩和前缀复用应共同设计：原始历史可恢复，决策视图可缩短，关键执行状态应以原始记录恢复。评估需同时报告压缩器开销、额外交互与延迟。",
+        "limitations": "主要成本假设是专用agent没有缓存折扣；缓存折扣越强收益越小。同步压缩可增加墙钟延迟，短任务可能不回本；保持信息完整也不能修正指代和规划错误。作者结果未独立复现。",
+        "abstract_zh": "保留追加式原始轨迹，重建紧凑决策视图并原样恢复关键工具记录；三套长程任务计费成本下降14.5–28.0%。 长程agent重复读取增长历史；递归摘要会漂移，选择性删除会丢失状态，全历史重压缩又可能把开销转移给压缩器。",
+        "full_summary": "长程agent重复读取增长历史；递归摘要会漂移，选择性删除会丢失状态，全历史重压缩又可能把开销转移给压缩器。 DMC-5让通用压缩模型读取Append-only Canonical View，利用稳定前缀缓存；专用动作模型只读Decision View和最近原始交互。YAMATO用指针从原始记录确定性恢复工具结果、关键值与工作产物，并维护失败账本和来源标签。 表1：微调Qwen3.5-27B配DeepSeek-V4-flash，AppWorld/OfficeBench准确率77.0→78.2%、87.0→88.0%；8-objective QA EM39.1→44.9%。agent输入减少38.46–57.02%，包含两模型调用的计费成本减少14.48–27.97%，压缩器缓存命中78–85%。三次独立运行；AppWorld去YAMATO准确率降至69.1%。 语义压缩和前缀复用应共同设计：原始历史可恢复，决策视图可缩短，关键执行状态应以原始记录恢复。评估需同时报告压缩器开销、额外交互与延迟。 主要成本假设是专用agent没有缓存折扣；缓存折扣越强收益越小。同步压缩可增加墙钟延迟，短任务可能不回本；保持信息完整也不能修正指代和规划错误。作者结果未独立复现。",
+        "card_summary": "保留追加式原始轨迹，重建紧凑决策视图并原样恢复关键工具记录；三套长程任务计费成本下降14.5–28.0%。"
+      },
+      "analysis": {
+        "card_summary": "保留追加式原始轨迹，重建紧凑决策视图并原样恢复关键工具记录；三套长程任务计费成本下降14.5–28.0%。",
+        "motivation": "长程agent重复读取增长历史；递归摘要会漂移，选择性删除会丢失状态，全历史重压缩又可能把开销转移给压缩器。",
+        "method": "DMC-5让通用压缩模型读取Append-only Canonical View，利用稳定前缀缓存；专用动作模型只读Decision View和最近原始交互。YAMATO用指针从原始记录确定性恢复工具结果、关键值与工作产物，并维护失败账本和来源标签。",
+        "experiments": "表1：微调Qwen3.5-27B配DeepSeek-V4-flash，AppWorld/OfficeBench准确率77.0→78.2%、87.0→88.0%；8-objective QA EM39.1→44.9%。agent输入减少38.46–57.02%，包含两模型调用的计费成本减少14.48–27.97%，压缩器缓存命中78–85%。三次独立运行；AppWorld去YAMATO准确率降至69.1%。",
+        "insight": "语义压缩和前缀复用应共同设计：原始历史可恢复，决策视图可缩短，关键执行状态应以原始记录恢复。评估需同时报告压缩器开销、额外交互与延迟。",
+        "research_help": "语义压缩和前缀复用应共同设计：原始历史可恢复，决策视图可缩短，关键执行状态应以原始记录恢复。评估需同时报告压缩器开销、额外交互与延迟。",
+        "limitations": "主要成本假设是专用agent没有缓存折扣；缓存折扣越强收益越小。同步压缩可增加墙钟延迟，短任务可能不回本；保持信息完整也不能修正指代和规划错误。作者结果未独立复现。",
+        "abstract_zh": "保留追加式原始轨迹，重建紧凑决策视图并原样恢复关键工具记录；三套长程任务计费成本下降14.5–28.0%。 长程agent重复读取增长历史；递归摘要会漂移，选择性删除会丢失状态，全历史重压缩又可能把开销转移给压缩器。",
+        "full_summary": "长程agent重复读取增长历史；递归摘要会漂移，选择性删除会丢失状态，全历史重压缩又可能把开销转移给压缩器。 DMC-5让通用压缩模型读取Append-only Canonical View，利用稳定前缀缓存；专用动作模型只读Decision View和最近原始交互。YAMATO用指针从原始记录确定性恢复工具结果、关键值与工作产物，并维护失败账本和来源标签。 表1：微调Qwen3.5-27B配DeepSeek-V4-flash，AppWorld/OfficeBench准确率77.0→78.2%、87.0→88.0%；8-objective QA EM39.1→44.9%。agent输入减少38.46–57.02%，包含两模型调用的计费成本减少14.48–27.97%，压缩器缓存命中78–85%。三次独立运行；AppWorld去YAMATO准确率降至69.1%。 语义压缩和前缀复用应共同设计：原始历史可恢复，决策视图可缩短，关键执行状态应以原始记录恢复。评估需同时报告压缩器开销、额外交互与延迟。 主要成本假设是专用agent没有缓存折扣；缓存折扣越强收益越小。同步压缩可增加墙钟延迟，短任务可能不回本；保持信息完整也不能修正指代和规划错误。作者结果未独立复现。",
+        "recommendation_level": "高",
+        "water_risk": "中",
+        "value_label": "值得核读",
+        "value_reason": "语义压缩和前缀复用应共同设计：原始历史可恢复，决策视图可缩短，关键执行状态应以原始记录恢复。评估需同时报告压缩器开销、额外交互与延迟。",
+        "source_scope": "full_text",
+        "source_note": "直接核读arXiv v1 PDF正文、实验与局限，并渲染核对结果表；作者结果未独立复现。",
+        "source_evidence": [
+          "§2–3，表1/5/6；PDF第6页主表已渲染核对；附录延迟与局限",
+          "https://arxiv.org/abs/2611.30412v1"
+        ],
+        "model": "manual-full-text-review",
+        "updated_at": "2026-11-25T01:34:49.072650+00:00"
+      }
+    },
+    {
+      "id": "2611.28907v1",
+      "title": "STRIDE: Strategy-to-Tactics Retrieval-Guided Skill Disclosure and Evolution for Agentic Reinforcement Learning",
+      "summary": "Skill-augmented reinforcement learning enables LLM agents to reuse task-solving knowledge across episodes, but existing systems typically expose agents to a flat skill pool and update skills only from coarse, episode-level outcomes. This conflates two distinct uses of experience: a stable strategy that should frame the whole episode, and tactical know-how that should be retrieved only when the agent reaches a local execution gap. We propose STRIDE (Strategy-to-Tactics Retrieval-guided skIll Disclosure and Evolution), a framework that brings progressive skill disclosure into agentic reinforcement learning. STRIDE keeps the selected strategy visible as episode context, exposes a compact tactic menu, and loads full tactic content only after an explicit retrieval action. This interface turns each retrieval into an event-level credit unit: the same event provides process feedback for learning when to retrieve and supplies evidence for skill-bank evolution. On ALFWorld, STRIDE achieves a 92.7% average success rate with Qwen3-4B and a 94.9% average success rate with Qwen3-8B. On WebShop, it improves over the strongest reproduced skill-augmented baseline by 4.5 score points and 1.9 success-rate percentage points. These results show that skill reuse is most effective when persistent strategies preserve global task structure and tactics are disclosed only at local decision bottlenecks.",
+      "url": "http://arxiv.org/abs/2611.28907v1",
+      "authors": [
+        "Shixin Hong",
+        "Wanqing Cui",
+        "Yibo Hu",
+        "Naen Xu",
+        "Zhiwei Huang",
+        "Meiguang Jin",
+        "Junfeng Ma"
+      ],
+      "report_date": "2026-11-25",
+      "published": "2026-11-21",
+      "updated": "2026-11-21",
+      "primary_category": "cs.AI",
+      "categories": [
+        "cs.AI"
+      ],
+      "project_url": "",
+      "repo_url": "",
+      "venue_status": "未确认录用",
+      "recommendation": {
+        "score": 72,
+        "level": "高",
+        "label": "值得核读",
+        "water_risk": "中",
+        "value_judgement": "让知识访问成为可学习动作，才有机会给检索分配过程信用；全局策略维持任务结构，局部战术减少绕路，两者的收益并不对称。",
+        "reason": "让知识访问成为可学习动作，才有机会给检索分配过程信用；全局策略维持任务结构，局部战术减少绕路，两者的收益并不对称。",
+        "signals": {
+          "agenticRl": true,
+          "multiTurn": false,
+          "longHorizon": false,
+          "memory": false,
+          "reliability": true,
+          "codeOrTool": false,
+          "experiments": true,
+          "survey": false
+        }
+      },
+      "brief": {
+        "authors": [
+          "Shixin Hong",
+          "Wanqing Cui",
+          "Yibo Hu",
+          "Naen Xu",
+          "Zhiwei Huang",
+          "Meiguang Jin",
+          "Junfeng Ma"
+        ],
+        "affiliations": "arXiv metadata 未提供；需要正文或项目页确认单位。",
+        "date": "2026-11-21",
+        "paper_url": "https://arxiv.org/abs/2611.28907v1",
+        "project_url": "",
+        "repo_url": "",
+        "venue_status": "未确认录用",
+        "contribution": "让知识访问成为可学习动作，才有机会给检索分配过程信用；全局策略维持任务结构，局部战术减少绕路，两者的收益并不对称。",
+        "summary": "平铺技能池和终局奖励混淆全局策略与局部执行知识，难知道何时检索以及哪次检索真正有用。 技能库区分Strategy与Tactic：策略常驻上下文，仅显示战术标题，agent显式retrieve后才加载全文。Tactician用GRPO与事件反馈学习检索，Sonnet 4.5担任Analyst回看检索必要性和匹配度，Strategist据轨迹创建、修改和剪枝技能。 ALFWorld Qwen3-4B/8B平均成功率92.7/94.9%，较ReSkill高2.9/2.2个百分点。WebShop用Qwen2.5-7B，得分89.7、成功率74.6%，比SkillRL高4.5/1.9点。4B消融：去策略72.9%，去战术89.1%，训练去Analyst85.0%；完整系统平均17.3动作回合，GRPO25.9。 让知识访问成为可学习动作，才有机会给检索分配过程信用；全局策略维持任务结构，局部战术减少绕路，两者的收益并不对称。 依赖外部强模型生成技能和过程标签。3.2倍收敛加速按训练步数计算，不是总成本或墙钟加速；GOOD率来自训练Analyst而非独立人评。推理移除技能与训练消融回答不同问题；作者结果未独立复现。",
+        "highlights": [
+          "让知识访问成为可学习动作，才有机会给检索分配过程信用；全局策略维持任务结构，局部战术减少绕路，两者的收益并不对称。",
+          "偏水风险：中",
+          "阅读来源：arXiv PDF正文与实验表"
+        ],
+        "motivation": "平铺技能池和终局奖励混淆全局策略与局部执行知识，难知道何时检索以及哪次检索真正有用。",
+        "method": "技能库区分Strategy与Tactic：策略常驻上下文，仅显示战术标题，agent显式retrieve后才加载全文。Tactician用GRPO与事件反馈学习检索，Sonnet 4.5担任Analyst回看检索必要性和匹配度，Strategist据轨迹创建、修改和剪枝技能。",
+        "experiments": "ALFWorld Qwen3-4B/8B平均成功率92.7/94.9%，较ReSkill高2.9/2.2个百分点。WebShop用Qwen2.5-7B，得分89.7、成功率74.6%，比SkillRL高4.5/1.9点。4B消融：去策略72.9%，去战术89.1%，训练去Analyst85.0%；完整系统平均17.3动作回合，GRPO25.9。",
+        "research_help": "让知识访问成为可学习动作，才有机会给检索分配过程信用；全局策略维持任务结构，局部战术减少绕路，两者的收益并不对称。",
+        "recommendation": {
+          "score": 72,
+          "level": "中",
+          "label": "值得读",
+          "water_risk": "中",
+          "value_judgement": "需要谨慎：可能有启发，但先看实验和设定是否扎实。",
+          "reason": "直接覆盖 agentic RL 或 policy optimization；摘要给出实验、benchmark 或 baseline 证据。",
+          "signals": {
+            "agenticRl": true,
+            "multiTurn": false,
+            "longHorizon": false,
+            "memory": false,
+            "reliability": true,
+            "codeOrTool": false,
+            "experiments": true,
+            "survey": false
+          }
+        },
+        "insight": "让知识访问成为可学习动作，才有机会给检索分配过程信用；全局策略维持任务结构，局部战术减少绕路，两者的收益并不对称。",
+        "limitations": "依赖外部强模型生成技能和过程标签。3.2倍收敛加速按训练步数计算，不是总成本或墙钟加速；GOOD率来自训练Analyst而非独立人评。推理移除技能与训练消融回答不同问题；作者结果未独立复现。",
+        "abstract_zh": "STRIDE保持全局策略常驻、按需检索局部战术，并用检索事件反馈训练agent；ALFWorld 4B/8B成功率92.7/94.9%。 平铺技能池和终局奖励混淆全局策略与局部执行知识，难知道何时检索以及哪次检索真正有用。",
+        "full_summary": "平铺技能池和终局奖励混淆全局策略与局部执行知识，难知道何时检索以及哪次检索真正有用。 技能库区分Strategy与Tactic：策略常驻上下文，仅显示战术标题，agent显式retrieve后才加载全文。Tactician用GRPO与事件反馈学习检索，Sonnet 4.5担任Analyst回看检索必要性和匹配度，Strategist据轨迹创建、修改和剪枝技能。 ALFWorld Qwen3-4B/8B平均成功率92.7/94.9%，较ReSkill高2.9/2.2个百分点。WebShop用Qwen2.5-7B，得分89.7、成功率74.6%，比SkillRL高4.5/1.9点。4B消融：去策略72.9%，去战术89.1%，训练去Analyst85.0%；完整系统平均17.3动作回合，GRPO25.9。 让知识访问成为可学习动作，才有机会给检索分配过程信用；全局策略维持任务结构，局部战术减少绕路，两者的收益并不对称。 依赖外部强模型生成技能和过程标签。3.2倍收敛加速按训练步数计算，不是总成本或墙钟加速；GOOD率来自训练Analyst而非独立人评。推理移除技能与训练消融回答不同问题；作者结果未独立复现。",
+        "card_summary": "STRIDE保持全局策略常驻、按需检索局部战术，并用检索事件反馈训练agent；ALFWorld 4B/8B成功率92.7/94.9%。"
+      },
+      "analysis": {
+        "card_summary": "STRIDE保持全局策略常驻、按需检索局部战术，并用检索事件反馈训练agent；ALFWorld 4B/8B成功率92.7/94.9%。",
+        "motivation": "平铺技能池和终局奖励混淆全局策略与局部执行知识，难知道何时检索以及哪次检索真正有用。",
+        "method": "技能库区分Strategy与Tactic：策略常驻上下文，仅显示战术标题，agent显式retrieve后才加载全文。Tactician用GRPO与事件反馈学习检索，Sonnet 4.5担任Analyst回看检索必要性和匹配度，Strategist据轨迹创建、修改和剪枝技能。",
+        "experiments": "ALFWorld Qwen3-4B/8B平均成功率92.7/94.9%，较ReSkill高2.9/2.2个百分点。WebShop用Qwen2.5-7B，得分89.7、成功率74.6%，比SkillRL高4.5/1.9点。4B消融：去策略72.9%，去战术89.1%，训练去Analyst85.0%；完整系统平均17.3动作回合，GRPO25.9。",
+        "insight": "让知识访问成为可学习动作，才有机会给检索分配过程信用；全局策略维持任务结构，局部战术减少绕路，两者的收益并不对称。",
+        "research_help": "让知识访问成为可学习动作，才有机会给检索分配过程信用；全局策略维持任务结构，局部战术减少绕路，两者的收益并不对称。",
+        "limitations": "依赖外部强模型生成技能和过程标签。3.2倍收敛加速按训练步数计算，不是总成本或墙钟加速；GOOD率来自训练Analyst而非独立人评。推理移除技能与训练消融回答不同问题；作者结果未独立复现。",
+        "abstract_zh": "STRIDE保持全局策略常驻、按需检索局部战术，并用检索事件反馈训练agent；ALFWorld 4B/8B成功率92.7/94.9%。 平铺技能池和终局奖励混淆全局策略与局部执行知识，难知道何时检索以及哪次检索真正有用。",
+        "full_summary": "平铺技能池和终局奖励混淆全局策略与局部执行知识，难知道何时检索以及哪次检索真正有用。 技能库区分Strategy与Tactic：策略常驻上下文，仅显示战术标题，agent显式retrieve后才加载全文。Tactician用GRPO与事件反馈学习检索，Sonnet 4.5担任Analyst回看检索必要性和匹配度，Strategist据轨迹创建、修改和剪枝技能。 ALFWorld Qwen3-4B/8B平均成功率92.7/94.9%，较ReSkill高2.9/2.2个百分点。WebShop用Qwen2.5-7B，得分89.7、成功率74.6%，比SkillRL高4.5/1.9点。4B消融：去策略72.9%，去战术89.1%，训练去Analyst85.0%；完整系统平均17.3动作回合，GRPO25.9。 让知识访问成为可学习动作，才有机会给检索分配过程信用；全局策略维持任务结构，局部战术减少绕路，两者的收益并不对称。 依赖外部强模型生成技能和过程标签。3.2倍收敛加速按训练步数计算，不是总成本或墙钟加速；GOOD率来自训练Analyst而非独立人评。推理移除技能与训练消融回答不同问题；作者结果未独立复现。",
+        "recommendation_level": "高",
+        "water_risk": "中",
+        "value_label": "值得核读",
+        "value_reason": "让知识访问成为可学习动作，才有机会给检索分配过程信用；全局策略维持任务结构，局部战术减少绕路，两者的收益并不对称。",
+        "source_scope": "full_text",
+        "source_note": "直接核读arXiv v1 PDF正文、实验与局限，并渲染核对结果表；作者结果未独立复现。",
+        "source_evidence": [
+          "§3–4，表1–3及附录训练协议；PDF第8页消融表已渲染核对",
+          "https://arxiv.org/abs/2611.28907v1"
+        ],
+        "model": "manual-full-text-review",
+        "updated_at": "2026-11-25T01:34:49.072650+00:00"
+      }
+    },
+    {
+      "id": "2611.30405v1",
+      "title": "Optimistic Online Learning for Coding Agents with Aggregate Feedback",
+      "summary": "Large language model (LLM) coding agents operating on Web development platforms can interact with repositories, issue trackers, and continuous integration services to carry out long-horizon software engineering tasks. However, behavioral drift remains a major bottleneck in such multi-turn reasoning and action trajectories. To mitigate this, activation steering has emerged as a promising approach for regularizing agent behaviors by intervening on the LLM's transformer residual streams. Nonetheless, existing methods typically apply a static steering policy across all tasks, overlooking the fact that a single policy is rarely effective across heterogeneous tasks and varying execution turns. This limitation motivates dynamic online selection among candidate steering policies. Yet, doing so in long-horizon agentic settings is challenging: verifiable task-level feedback is only revealed upon task completion, leaving the contributions of individual steering turns unobserved. To address this challenge, we formulate online steering-policy selection as a multi-armed bandit problem with delayed task-level feedback and turn-level predictive hints derived from residual-stream activations. Within this formulation, we introduce Online Optimistic Activation Steering, a meta-framework that uses hints to guide within-task steering policy selection and leverages terminal task-level feedback to correct cumulative reward estimates. Theoretically, against the best fixed policy in hindsight, we prove regret bounds that tighten with increasing hint accuracy and establish a matching lower bound with respect to prediction error and candidate policy count. Empirical evaluations on realistic coding benchmarks demonstrate that our framework outperforms both static steering policies and naive online adaptive baselines.",
+      "url": "http://arxiv.org/abs/2611.30405v1",
+      "authors": [
+        "Hao Luan",
+        "Hao Qiu",
+        "Zhi Zheng",
+        "See-Kiong Ng",
+        "Zhiyong Huang"
+      ],
+      "report_date": "2026-11-25",
+      "published": "2026-11-23",
+      "updated": "2026-11-23",
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG"
+      ],
+      "project_url": "",
+      "repo_url": "",
+      "venue_status": "未确认录用",
+      "recommendation": {
+        "score": 98,
+        "level": "高",
+        "label": "值得核读",
+        "water_risk": "中",
+        "value_judgement": "终局反馈不必完全阻止逐轮适应：可把内部状态预测当提示，再用真实任务反馈纠偏；值得审计提示错误如何改变长期学习。",
+        "reason": "终局反馈不必完全阻止逐轮适应：可把内部状态预测当提示，再用真实任务反馈纠偏；值得审计提示错误如何改变长期学习。",
+        "signals": {
+          "agenticRl": true,
+          "multiTurn": true,
+          "longHorizon": true,
+          "memory": false,
+          "reliability": true,
+          "codeOrTool": false,
+          "experiments": true,
+          "survey": false
+        }
+      },
+      "brief": {
+        "authors": [
+          "Hao Luan",
+          "Hao Qiu",
+          "Zhi Zheng",
+          "See-Kiong Ng",
+          "Zhiyong Huang"
+        ],
+        "affiliations": "arXiv metadata 未提供；需要正文或项目页确认单位。",
+        "date": "2026-11-23",
+        "paper_url": "https://arxiv.org/abs/2611.30405v1",
+        "project_url": "",
+        "repo_url": "",
+        "venue_status": "未确认录用",
+        "contribution": "终局反馈不必完全阻止逐轮适应：可把内部状态预测当提示，再用真实任务反馈纠偏；值得审计提示错误如何改变长期学习。",
+        "summary": "编码agent跨多轮发生行为漂移，固定steering强度不适合异质任务；只有任务结束才有反馈，逐轮干预贡献不可直接观测。 将候选steering策略视为bandit臂，用各层残差激活预测逐轮提示，任务结束以聚合反馈校正奖励估计。Online Optimistic Activation Steering采用乐观正则化，adaptive版本以可观测potential gap触发加倍与重启。 Qwen3.5-27B与mini-swe-agent，在500个SWE-bench Verified和89个Terminal Bench 2.0任务上比较。表2：自适应TACT-Cap65.0/34.8%，静态Cap62.0/32.6%，vanilla55.0/28.1%；自适应Gate63.0/32.6%。另有模拟实验和对最佳固定候选策略的hint误差相关遗憾界。 终局反馈不必完全阻止逐轮适应：可把内部状态预测当提示，再用真实任务反馈纠偏；值得审计提示错误如何改变长期学习。 理论假设奖励、提示和任务划分独立于学习器随机性且反馈可加；真实agent动作会改变后续状态，理论并非真实任务最优性保证。需要访问模型激活和已校准探针；TACT实现为作者复现。结果未独立复现。",
+        "highlights": [
+          "终局反馈不必完全阻止逐轮适应：可把内部状态预测当提示，再用真实任务反馈纠偏；值得审计提示错误如何改变长期学习。",
+          "偏水风险：中",
+          "阅读来源：arXiv PDF正文与实验表"
+        ],
+        "motivation": "编码agent跨多轮发生行为漂移，固定steering强度不适合异质任务；只有任务结束才有反馈，逐轮干预贡献不可直接观测。",
+        "method": "将候选steering策略视为bandit臂，用各层残差激活预测逐轮提示，任务结束以聚合反馈校正奖励估计。Online Optimistic Activation Steering采用乐观正则化，adaptive版本以可观测potential gap触发加倍与重启。",
+        "experiments": "Qwen3.5-27B与mini-swe-agent，在500个SWE-bench Verified和89个Terminal Bench 2.0任务上比较。表2：自适应TACT-Cap65.0/34.8%，静态Cap62.0/32.6%，vanilla55.0/28.1%；自适应Gate63.0/32.6%。另有模拟实验和对最佳固定候选策略的hint误差相关遗憾界。",
+        "research_help": "终局反馈不必完全阻止逐轮适应：可把内部状态预测当提示，再用真实任务反馈纠偏；值得审计提示错误如何改变长期学习。",
+        "recommendation": {
+          "score": 98,
+          "level": "高",
+          "label": "强烈推荐",
+          "water_risk": "低",
+          "value_judgement": "有价值：优先进入今日精读候选。",
+          "reason": "直接覆盖 agentic RL 或 policy optimization；涉及多轮交互、状态延续或交互式重规划；和 long-horizon planning / multi-step task 相关；摘要给出实验、benchmark 或 baseline 证据。",
+          "signals": {
+            "agenticRl": true,
+            "multiTurn": true,
+            "longHorizon": true,
+            "memory": false,
+            "reliability": true,
+            "codeOrTool": false,
+            "experiments": true,
+            "survey": false
+          }
+        },
+        "insight": "终局反馈不必完全阻止逐轮适应：可把内部状态预测当提示，再用真实任务反馈纠偏；值得审计提示错误如何改变长期学习。",
+        "limitations": "理论假设奖励、提示和任务划分独立于学习器随机性且反馈可加；真实agent动作会改变后续状态，理论并非真实任务最优性保证。需要访问模型激活和已校准探针；TACT实现为作者复现。结果未独立复现。",
+        "abstract_zh": "用残差激活提示和任务终局反馈在线选择steering强度；TACT-Cap在SWE-V/TB2解决率65.0/34.8%。 编码agent跨多轮发生行为漂移，固定steering强度不适合异质任务；只有任务结束才有反馈，逐轮干预贡献不可直接观测。",
+        "full_summary": "编码agent跨多轮发生行为漂移，固定steering强度不适合异质任务；只有任务结束才有反馈，逐轮干预贡献不可直接观测。 将候选steering策略视为bandit臂，用各层残差激活预测逐轮提示，任务结束以聚合反馈校正奖励估计。Online Optimistic Activation Steering采用乐观正则化，adaptive版本以可观测potential gap触发加倍与重启。 Qwen3.5-27B与mini-swe-agent，在500个SWE-bench Verified和89个Terminal Bench 2.0任务上比较。表2：自适应TACT-Cap65.0/34.8%，静态Cap62.0/32.6%，vanilla55.0/28.1%；自适应Gate63.0/32.6%。另有模拟实验和对最佳固定候选策略的hint误差相关遗憾界。 终局反馈不必完全阻止逐轮适应：可把内部状态预测当提示，再用真实任务反馈纠偏；值得审计提示错误如何改变长期学习。 理论假设奖励、提示和任务划分独立于学习器随机性且反馈可加；真实agent动作会改变后续状态，理论并非真实任务最优性保证。需要访问模型激活和已校准探针；TACT实现为作者复现。结果未独立复现。",
+        "card_summary": "用残差激活提示和任务终局反馈在线选择steering强度；TACT-Cap在SWE-V/TB2解决率65.0/34.8%。"
+      },
+      "analysis": {
+        "card_summary": "用残差激活提示和任务终局反馈在线选择steering强度；TACT-Cap在SWE-V/TB2解决率65.0/34.8%。",
+        "motivation": "编码agent跨多轮发生行为漂移，固定steering强度不适合异质任务；只有任务结束才有反馈，逐轮干预贡献不可直接观测。",
+        "method": "将候选steering策略视为bandit臂，用各层残差激活预测逐轮提示，任务结束以聚合反馈校正奖励估计。Online Optimistic Activation Steering采用乐观正则化，adaptive版本以可观测potential gap触发加倍与重启。",
+        "experiments": "Qwen3.5-27B与mini-swe-agent，在500个SWE-bench Verified和89个Terminal Bench 2.0任务上比较。表2：自适应TACT-Cap65.0/34.8%，静态Cap62.0/32.6%，vanilla55.0/28.1%；自适应Gate63.0/32.6%。另有模拟实验和对最佳固定候选策略的hint误差相关遗憾界。",
+        "insight": "终局反馈不必完全阻止逐轮适应：可把内部状态预测当提示，再用真实任务反馈纠偏；值得审计提示错误如何改变长期学习。",
+        "research_help": "终局反馈不必完全阻止逐轮适应：可把内部状态预测当提示，再用真实任务反馈纠偏；值得审计提示错误如何改变长期学习。",
+        "limitations": "理论假设奖励、提示和任务划分独立于学习器随机性且反馈可加；真实agent动作会改变后续状态，理论并非真实任务最优性保证。需要访问模型激活和已校准探针；TACT实现为作者复现。结果未独立复现。",
+        "abstract_zh": "用残差激活提示和任务终局反馈在线选择steering强度；TACT-Cap在SWE-V/TB2解决率65.0/34.8%。 编码agent跨多轮发生行为漂移，固定steering强度不适合异质任务；只有任务结束才有反馈，逐轮干预贡献不可直接观测。",
+        "full_summary": "编码agent跨多轮发生行为漂移，固定steering强度不适合异质任务；只有任务结束才有反馈，逐轮干预贡献不可直接观测。 将候选steering策略视为bandit臂，用各层残差激活预测逐轮提示，任务结束以聚合反馈校正奖励估计。Online Optimistic Activation Steering采用乐观正则化，adaptive版本以可观测potential gap触发加倍与重启。 Qwen3.5-27B与mini-swe-agent，在500个SWE-bench Verified和89个Terminal Bench 2.0任务上比较。表2：自适应TACT-Cap65.0/34.8%，静态Cap62.0/32.6%，vanilla55.0/28.1%；自适应Gate63.0/32.6%。另有模拟实验和对最佳固定候选策略的hint误差相关遗憾界。 终局反馈不必完全阻止逐轮适应：可把内部状态预测当提示，再用真实任务反馈纠偏；值得审计提示错误如何改变长期学习。 理论假设奖励、提示和任务划分独立于学习器随机性且反馈可加；真实agent动作会改变后续状态，理论并非真实任务最优性保证。需要访问模型激活和已校准探针；TACT实现为作者复现。结果未独立复现。",
+        "recommendation_level": "高",
+        "water_risk": "中",
+        "value_label": "值得核读",
+        "value_reason": "终局反馈不必完全阻止逐轮适应：可把内部状态预测当提示，再用真实任务反馈纠偏；值得审计提示错误如何改变长期学习。",
+        "source_scope": "full_text",
+        "source_note": "直接核读arXiv v1 PDF正文、实验与局限，并渲染核对结果表；作者结果未独立复现。",
+        "source_evidence": [
+          "§3–5，定理4.1–4.3及表2；PDF第9页主表已渲染核对",
+          "https://arxiv.org/abs/2611.30405v1"
+        ],
+        "model": "manual-full-text-review",
+        "updated_at": "2026-11-25T01:34:49.072650+00:00"
+      }
+    },
+    {
+      "id": "2611.28445v1",
+      "title": "Muted Distillation: Sealing Reasoning from Teacher Unlocks Token-Efficient Agents",
+      "summary": "On-policy distillation (OPD) is commonly adopted as one of the components in post-training of large language models (LLMs), but in multi-turn agentic tasks we find that the student model increases their reasoning lengths after training. Our empirical analysis shows that the reasoning token lengths is affected by how much the student can distract the teacher's scores. We introduce Muted Distillation (MD), a simple variant of OPD that hides the student's reasoning from the teacher, so the teacher judges what the student does without the interference of student's reasonings. MD takes a few lines of code and adds no extra data or hyperparameters. On the knowledge-work benchmarks OfficeQA Pro and SpreadsheetBench, it reduces output tokens per episode by 57\\% and 53\\% compared with standard OPD, making the student more concise than it was before training. At the same time, it matches OPD's accuracy on OfficeQA Pro and improves pass@1 by 4.8 points on SpreadsheetBench.",
+      "url": "http://arxiv.org/abs/2611.28445v1",
+      "authors": [
+        "Yuwei Zhang",
+        "Ian Miao",
+        "Wentao Zhang",
+        "Chen Qu",
+        "Bill Bi",
+        "Jingbo Shang",
+        "Donna Schut"
+      ],
+      "report_date": "2026-11-25",
+      "published": "2026-11-21",
+      "updated": "2026-11-21",
+      "primary_category": "cs.CL",
+      "categories": [
+        "cs.CL"
+      ],
+      "project_url": "",
+      "repo_url": "",
+      "venue_status": "未确认录用",
+      "recommendation": {
+        "score": 70,
+        "level": "高",
+        "label": "值得核读",
+        "water_risk": "中",
+        "value_judgement": "蒸馏时teacher看到什么，与在哪些token算损失同样重要；隐藏思考能迫使teacher按动作而非自我解释给反馈。",
+        "reason": "蒸馏时teacher看到什么，与在哪些token算损失同样重要；隐藏思考能迫使teacher按动作而非自我解释给反馈。",
+        "signals": {
+          "agenticRl": false,
+          "multiTurn": true,
+          "longHorizon": false,
+          "memory": false,
+          "reliability": true,
+          "codeOrTool": false,
+          "experiments": true,
+          "survey": false
+        }
+      },
+      "brief": {
+        "authors": [
+          "Yuwei Zhang",
+          "Ian Miao",
+          "Wentao Zhang",
+          "Chen Qu",
+          "Bill Bi",
+          "Jingbo Shang",
+          "Donna Schut"
+        ],
+        "affiliations": "arXiv metadata 未提供；需要正文或项目页确认单位。",
+        "date": "2026-11-21",
+        "paper_url": "https://arxiv.org/abs/2611.28445v1",
+        "project_url": "",
+        "repo_url": "",
+        "venue_status": "未确认录用",
+        "contribution": "蒸馏时teacher看到什么，与在哪些token算损失同样重要；隐藏思考能迫使teacher按动作而非自我解释给反馈。",
+        "summary": "多轮agent的on-policy distillation可能让student思考膨胀：teacher接受冗余推理并削弱对实际动作的纠正。 MD在teacher上下文中将历史与当前student思考替为空thinking块，仅对tail token施加蒸馏损失；student仍看到并生成自己的完整思考。通过仅mask损失、think-only等消融区分监督范围和teacher条件的影响。 Qwen3.5-4B以397B-A17B为teacher，OfficeQA Pro最终pass@1由标准OPD35.0升至37.7%，输出36.0k→15.6k；SpreadsheetBench55.5→60.3%，19.5k→9.1k。每任务采样8次估计pass@1，Office用独立Pro测试，表格用hard restriction。 蒸馏时teacher看到什么，与在哪些token算损失同样重要；隐藏思考能迫使teacher按动作而非自我解释给反馈。 这里节省的是每episode输出token，不等于端到端训练成本同比下降。思考仍生成且通过上下文间接影响训练；不应称作无思考agent。主要结论来自特定模型和知识工作任务；作者结果未独立复现。",
+        "highlights": [
+          "蒸馏时teacher看到什么，与在哪些token算损失同样重要；隐藏思考能迫使teacher按动作而非自我解释给反馈。",
+          "偏水风险：中",
+          "阅读来源：arXiv PDF正文与实验表"
+        ],
+        "motivation": "多轮agent的on-policy distillation可能让student思考膨胀：teacher接受冗余推理并削弱对实际动作的纠正。",
+        "method": "MD在teacher上下文中将历史与当前student思考替为空thinking块，仅对tail token施加蒸馏损失；student仍看到并生成自己的完整思考。通过仅mask损失、think-only等消融区分监督范围和teacher条件的影响。",
+        "experiments": "Qwen3.5-4B以397B-A17B为teacher，OfficeQA Pro最终pass@1由标准OPD35.0升至37.7%，输出36.0k→15.6k；SpreadsheetBench55.5→60.3%，19.5k→9.1k。每任务采样8次估计pass@1，Office用独立Pro测试，表格用hard restriction。",
+        "research_help": "蒸馏时teacher看到什么，与在哪些token算损失同样重要；隐藏思考能迫使teacher按动作而非自我解释给反馈。",
+        "recommendation": {
+          "score": 70,
+          "level": "中",
+          "label": "值得读",
+          "water_risk": "中",
+          "value_judgement": "需要谨慎：可能有启发，但先看实验和设定是否扎实。",
+          "reason": "涉及多轮交互、状态延续或交互式重规划；摘要给出实验、benchmark 或 baseline 证据。",
+          "signals": {
+            "agenticRl": false,
+            "multiTurn": true,
+            "longHorizon": false,
+            "memory": false,
+            "reliability": true,
+            "codeOrTool": false,
+            "experiments": true,
+            "survey": false
+          }
+        },
+        "insight": "蒸馏时teacher看到什么，与在哪些token算损失同样重要；隐藏思考能迫使teacher按动作而非自我解释给反馈。",
+        "limitations": "这里节省的是每episode输出token，不等于端到端训练成本同比下降。思考仍生成且通过上下文间接影响训练；不应称作无思考agent。主要结论来自特定模型和知识工作任务；作者结果未独立复现。",
+        "abstract_zh": "Muted Distillation向teacher隐藏student思考，仅监督动作尾部；两套多轮知识工作任务输出token较OPD少57/53%。 多轮agent的on-policy distillation可能让student思考膨胀：teacher接受冗余推理并削弱对实际动作的纠正。",
+        "full_summary": "多轮agent的on-policy distillation可能让student思考膨胀：teacher接受冗余推理并削弱对实际动作的纠正。 MD在teacher上下文中将历史与当前student思考替为空thinking块，仅对tail token施加蒸馏损失；student仍看到并生成自己的完整思考。通过仅mask损失、think-only等消融区分监督范围和teacher条件的影响。 Qwen3.5-4B以397B-A17B为teacher，OfficeQA Pro最终pass@1由标准OPD35.0升至37.7%，输出36.0k→15.6k；SpreadsheetBench55.5→60.3%，19.5k→9.1k。每任务采样8次估计pass@1，Office用独立Pro测试，表格用hard restriction。 蒸馏时teacher看到什么，与在哪些token算损失同样重要；隐藏思考能迫使teacher按动作而非自我解释给反馈。 这里节省的是每episode输出token，不等于端到端训练成本同比下降。思考仍生成且通过上下文间接影响训练；不应称作无思考agent。主要结论来自特定模型和知识工作任务；作者结果未独立复现。",
+        "card_summary": "Muted Distillation向teacher隐藏student思考，仅监督动作尾部；两套多轮知识工作任务输出token较OPD少57/53%。"
+      },
+      "analysis": {
+        "card_summary": "Muted Distillation向teacher隐藏student思考，仅监督动作尾部；两套多轮知识工作任务输出token较OPD少57/53%。",
+        "motivation": "多轮agent的on-policy distillation可能让student思考膨胀：teacher接受冗余推理并削弱对实际动作的纠正。",
+        "method": "MD在teacher上下文中将历史与当前student思考替为空thinking块，仅对tail token施加蒸馏损失；student仍看到并生成自己的完整思考。通过仅mask损失、think-only等消融区分监督范围和teacher条件的影响。",
+        "experiments": "Qwen3.5-4B以397B-A17B为teacher，OfficeQA Pro最终pass@1由标准OPD35.0升至37.7%，输出36.0k→15.6k；SpreadsheetBench55.5→60.3%，19.5k→9.1k。每任务采样8次估计pass@1，Office用独立Pro测试，表格用hard restriction。",
+        "insight": "蒸馏时teacher看到什么，与在哪些token算损失同样重要；隐藏思考能迫使teacher按动作而非自我解释给反馈。",
+        "research_help": "蒸馏时teacher看到什么，与在哪些token算损失同样重要；隐藏思考能迫使teacher按动作而非自我解释给反馈。",
+        "limitations": "这里节省的是每episode输出token，不等于端到端训练成本同比下降。思考仍生成且通过上下文间接影响训练；不应称作无思考agent。主要结论来自特定模型和知识工作任务；作者结果未独立复现。",
+        "abstract_zh": "Muted Distillation向teacher隐藏student思考，仅监督动作尾部；两套多轮知识工作任务输出token较OPD少57/53%。 多轮agent的on-policy distillation可能让student思考膨胀：teacher接受冗余推理并削弱对实际动作的纠正。",
+        "full_summary": "多轮agent的on-policy distillation可能让student思考膨胀：teacher接受冗余推理并削弱对实际动作的纠正。 MD在teacher上下文中将历史与当前student思考替为空thinking块，仅对tail token施加蒸馏损失；student仍看到并生成自己的完整思考。通过仅mask损失、think-only等消融区分监督范围和teacher条件的影响。 Qwen3.5-4B以397B-A17B为teacher，OfficeQA Pro最终pass@1由标准OPD35.0升至37.7%，输出36.0k→15.6k；SpreadsheetBench55.5→60.3%，19.5k→9.1k。每任务采样8次估计pass@1，Office用独立Pro测试，表格用hard restriction。 蒸馏时teacher看到什么，与在哪些token算损失同样重要；隐藏思考能迫使teacher按动作而非自我解释给反馈。 这里节省的是每episode输出token，不等于端到端训练成本同比下降。思考仍生成且通过上下文间接影响训练；不应称作无思考agent。主要结论来自特定模型和知识工作任务；作者结果未独立复现。",
+        "recommendation_level": "高",
+        "water_risk": "中",
+        "value_label": "值得核读",
+        "value_reason": "蒸馏时teacher看到什么，与在哪些token算损失同样重要；隐藏思考能迫使teacher按动作而非自我解释给反馈。",
+        "source_scope": "full_text",
+        "source_note": "直接核读arXiv v1 PDF正文、实验与局限，并渲染核对结果表；作者结果未独立复现。",
+        "source_evidence": [
+          "§2–4，表1及消融；PDF第5页主表已渲染核对",
+          "https://arxiv.org/abs/2611.28445v1"
+        ],
+        "model": "manual-full-text-review",
+        "updated_at": "2026-11-25T01:34:49.072650+00:00"
+      }
+    },
+    {
+      "id": "2611.30613v1",
+      "title": "CineAct: Interaction-State Agents for Playable, Branching Film Generation",
+      "summary": "Open video generators such as MiniMax-H3 produce short clips of only several to a dozen seconds per run. To synthesize longer sequences, existing methods either rely on agentic systems following preset scripts, or roll out autoregressively from the previous clip's last frame, losing off-screen states and accumulating hallucinations across turns. Consequently, users still cannot take an explicit goal, choose how to accomplish it, and see that choice persist across subsequent clips. We study goal-grounded interactive video generation, where one goal admits multiple valid approaches, the user's chosen approach must be executed on screen, and its consequences must persist across clips. To this end, we propose CineAct, a state-first agentic framework in which language-model agents handle reasoning while frozen image and video generators serve purely as renderers. Before interaction, the Architect initializes the world as a spatial layout with cameras, an asset library, and a scene graph; at each turn, the system deduces the planned state change, generates a target end frame with an image generator and rigorously verifies it, and synthesizes intermediate motion with an FL2V model. We further introduce a multi-space benchmark covering two suites: long-horizon step execution and open-intent branching admissibility. Experiments show that explicit world-state modeling boosts multi-step rollout consistency over the pixel-only baseline (+11.4 automated, +23.1 human points) and raises paired branching success toward a shared goal by +30.8 points.",
+      "url": "http://arxiv.org/abs/2611.30613v1",
+      "authors": [
+        "Junyan Lin",
+        "Jianqi Ma",
+        "Shujie Duan",
+        "Hanxin Zhu",
+        "Zhihao Hu",
+        "Jinming Liu",
+        "Shuai Li",
+        "Jun Zhang",
+        "Xin Jin",
+        "Chang Wen Chen",
+        "Weidong Zhang"
+      ],
+      "report_date": "2026-11-25",
+      "published": "2026-11-23",
+      "updated": "2026-11-23",
+      "primary_category": "cs.CV",
+      "categories": [
+        "cs.CV"
+      ],
+      "project_url": "",
+      "repo_url": "",
+      "venue_status": "未确认录用",
+      "recommendation": {
+        "score": 84,
+        "level": "高",
+        "label": "值得核读",
+        "water_risk": "中",
+        "value_judgement": "长程交互生成可先验证状态转移，再渲染动作过程；把可行性、目标达成与分支后果分别测量，比只评视频外观更贴近agent planning。",
+        "reason": "长程交互生成可先验证状态转移，再渲染动作过程；把可行性、目标达成与分支后果分别测量，比只评视频外观更贴近agent planning。",
+        "signals": {
+          "agenticRl": false,
+          "multiTurn": true,
+          "longHorizon": true,
+          "memory": false,
+          "reliability": true,
+          "codeOrTool": false,
+          "experiments": true,
+          "survey": false
+        }
+      },
+      "brief": {
+        "authors": [
+          "Junyan Lin",
+          "Jianqi Ma",
+          "Shujie Duan",
+          "Hanxin Zhu",
+          "Zhihao Hu",
+          "Jinming Liu",
+          "Shuai Li",
+          "Jun Zhang",
+          "Xin Jin",
+          "Chang Wen Chen",
+          "Weidong Zhang"
+        ],
+        "affiliations": "arXiv metadata 未提供；需要正文或项目页确认单位。",
+        "date": "2026-11-23",
+        "paper_url": "https://arxiv.org/abs/2611.30613v1",
+        "project_url": "",
+        "repo_url": "",
+        "venue_status": "未确认录用",
+        "contribution": "长程交互生成可先验证状态转移，再渲染动作过程；把可行性、目标达成与分支后果分别测量，比只评视频外观更贴近agent planning。",
+        "summary": "只沿上一帧生成视频会遗忘离屏状态，也难让用户选择的不同做法在后续片段持续生效。 Architect初始化空间布局、资产库和场景图；每轮先推导状态变化，Painter生成目标末帧，Inspector逐项验证，再由冻结FL2V模型生成中间运动。更新空间记忆与物体状态，让后续交互读取显式状态。 以40个1–4空间故事构建多步执行和分支可行性评测。表4对13个多路线故事、每方法26条轨迹盲评：双路线目标完成61.5→100%，同时成功且后果不同61.5→92.3%。571个分支提案中Open模式平衡准确率88.7%；这是作者构造的小规模基准。 长程交互生成可先验证状态转移，再渲染动作过程；把可行性、目标达成与分支后果分别测量，比只评视频外观更贴近agent planning。 固定房间与实体、固定相机和切镜头限制开放世界；顺序推导、验证与10秒片段生成只支持回合式延迟。目标帧验证不保证真实物理可执行性；人评样本小，结果未独立复现。",
+        "highlights": [
+          "长程交互生成可先验证状态转移，再渲染动作过程；把可行性、目标达成与分支后果分别测量，比只评视频外观更贴近agent planning。",
+          "偏水风险：中",
+          "阅读来源：arXiv PDF正文与实验表"
+        ],
+        "motivation": "只沿上一帧生成视频会遗忘离屏状态，也难让用户选择的不同做法在后续片段持续生效。",
+        "method": "Architect初始化空间布局、资产库和场景图；每轮先推导状态变化，Painter生成目标末帧，Inspector逐项验证，再由冻结FL2V模型生成中间运动。更新空间记忆与物体状态，让后续交互读取显式状态。",
+        "experiments": "以40个1–4空间故事构建多步执行和分支可行性评测。表4对13个多路线故事、每方法26条轨迹盲评：双路线目标完成61.5→100%，同时成功且后果不同61.5→92.3%。571个分支提案中Open模式平衡准确率88.7%；这是作者构造的小规模基准。",
+        "research_help": "长程交互生成可先验证状态转移，再渲染动作过程；把可行性、目标达成与分支后果分别测量，比只评视频外观更贴近agent planning。",
+        "recommendation": {
+          "score": 84,
+          "level": "高",
+          "label": "值得读",
+          "water_risk": "低",
+          "value_judgement": "有价值：优先进入今日精读候选。",
+          "reason": "涉及多轮交互、状态延续或交互式重规划；和 long-horizon planning / multi-step task 相关；摘要给出实验、benchmark 或 baseline 证据。",
+          "signals": {
+            "agenticRl": false,
+            "multiTurn": true,
+            "longHorizon": true,
+            "memory": false,
+            "reliability": true,
+            "codeOrTool": false,
+            "experiments": true,
+            "survey": false
+          }
+        },
+        "insight": "长程交互生成可先验证状态转移，再渲染动作过程；把可行性、目标达成与分支后果分别测量，比只评视频外观更贴近agent planning。",
+        "limitations": "固定房间与实体、固定相机和切镜头限制开放世界；顺序推导、验证与10秒片段生成只支持回合式延迟。目标帧验证不保证真实物理可执行性；人评样本小，结果未独立复现。",
+        "abstract_zh": "CineAct将视频渲染与显式世界状态推理分开，保持跨镜头动作后果；13个双路线故事联合成功且不同率61.5→92.3%。 只沿上一帧生成视频会遗忘离屏状态，也难让用户选择的不同做法在后续片段持续生效。",
+        "full_summary": "只沿上一帧生成视频会遗忘离屏状态，也难让用户选择的不同做法在后续片段持续生效。 Architect初始化空间布局、资产库和场景图；每轮先推导状态变化，Painter生成目标末帧，Inspector逐项验证，再由冻结FL2V模型生成中间运动。更新空间记忆与物体状态，让后续交互读取显式状态。 以40个1–4空间故事构建多步执行和分支可行性评测。表4对13个多路线故事、每方法26条轨迹盲评：双路线目标完成61.5→100%，同时成功且后果不同61.5→92.3%。571个分支提案中Open模式平衡准确率88.7%；这是作者构造的小规模基准。 长程交互生成可先验证状态转移，再渲染动作过程；把可行性、目标达成与分支后果分别测量，比只评视频外观更贴近agent planning。 固定房间与实体、固定相机和切镜头限制开放世界；顺序推导、验证与10秒片段生成只支持回合式延迟。目标帧验证不保证真实物理可执行性；人评样本小，结果未独立复现。",
+        "card_summary": "CineAct将视频渲染与显式世界状态推理分开，保持跨镜头动作后果；13个双路线故事联合成功且不同率61.5→92.3%。"
+      },
+      "analysis": {
+        "card_summary": "CineAct将视频渲染与显式世界状态推理分开，保持跨镜头动作后果；13个双路线故事联合成功且不同率61.5→92.3%。",
+        "motivation": "只沿上一帧生成视频会遗忘离屏状态，也难让用户选择的不同做法在后续片段持续生效。",
+        "method": "Architect初始化空间布局、资产库和场景图；每轮先推导状态变化，Painter生成目标末帧，Inspector逐项验证，再由冻结FL2V模型生成中间运动。更新空间记忆与物体状态，让后续交互读取显式状态。",
+        "experiments": "以40个1–4空间故事构建多步执行和分支可行性评测。表4对13个多路线故事、每方法26条轨迹盲评：双路线目标完成61.5→100%，同时成功且后果不同61.5→92.3%。571个分支提案中Open模式平衡准确率88.7%；这是作者构造的小规模基准。",
+        "insight": "长程交互生成可先验证状态转移，再渲染动作过程；把可行性、目标达成与分支后果分别测量，比只评视频外观更贴近agent planning。",
+        "research_help": "长程交互生成可先验证状态转移，再渲染动作过程；把可行性、目标达成与分支后果分别测量，比只评视频外观更贴近agent planning。",
+        "limitations": "固定房间与实体、固定相机和切镜头限制开放世界；顺序推导、验证与10秒片段生成只支持回合式延迟。目标帧验证不保证真实物理可执行性；人评样本小，结果未独立复现。",
+        "abstract_zh": "CineAct将视频渲染与显式世界状态推理分开，保持跨镜头动作后果；13个双路线故事联合成功且不同率61.5→92.3%。 只沿上一帧生成视频会遗忘离屏状态，也难让用户选择的不同做法在后续片段持续生效。",
+        "full_summary": "只沿上一帧生成视频会遗忘离屏状态，也难让用户选择的不同做法在后续片段持续生效。 Architect初始化空间布局、资产库和场景图；每轮先推导状态变化，Painter生成目标末帧，Inspector逐项验证，再由冻结FL2V模型生成中间运动。更新空间记忆与物体状态，让后续交互读取显式状态。 以40个1–4空间故事构建多步执行和分支可行性评测。表4对13个多路线故事、每方法26条轨迹盲评：双路线目标完成61.5→100%，同时成功且后果不同61.5→92.3%。571个分支提案中Open模式平衡准确率88.7%；这是作者构造的小规模基准。 长程交互生成可先验证状态转移，再渲染动作过程；把可行性、目标达成与分支后果分别测量，比只评视频外观更贴近agent planning。 固定房间与实体、固定相机和切镜头限制开放世界；顺序推导、验证与10秒片段生成只支持回合式延迟。目标帧验证不保证真实物理可执行性；人评样本小，结果未独立复现。",
+        "recommendation_level": "高",
+        "water_risk": "中",
+        "value_label": "值得核读",
+        "value_reason": "长程交互生成可先验证状态转移，再渲染动作过程；把可行性、目标达成与分支后果分别测量，比只评视频外观更贴近agent planning。",
+        "source_scope": "full_text",
+        "source_note": "直接核读arXiv v1 PDF正文、实验与局限，并渲染核对结果表；作者结果未独立复现。",
+        "source_evidence": [
+          "§3–7，表2/4；PDF第8页联合分支主表及局限已渲染核对",
+          "https://arxiv.org/abs/2611.30613v1"
+        ],
+        "model": "manual-full-text-review",
+        "updated_at": "2026-11-25T01:34:49.072650+00:00"
+      }
+    },
+    {
+      "id": "2611.29255v1",
+      "title": "NoeVera: Can Knowledge Guide Experiments and Experiments Refine Knowledge?",
+      "summary": "With the growing demand for large language model (LLM) services, optimizing LLM serving systems is becoming increasingly complex, and the bottleneck is no longer predicting how a given configuration will perform. The harder problem is deciding what to investigate: which mechanisms matter for a workload, which configurations are worth testing, and what evidence a decision still needs. In this work, we present NoeVera, an agentic Second Brain that goes beyond just one-shot retrieval by turning papers, code, benchmarks, and experimental results into a persistent, provenance-preserving knowledge base with three planes: source evidence, reusable synthesis, and agent memory. Decision-aware retrieval assembles compact evidence packs, role-specific agents reason over them and invoke a simulator (Vidur or GAUSS) whenever quantitative support is needed, and every finding is written back as a scoped evidence record, so knowledge guides experiments and experiments refine knowledge. In configuration search over four serving scenarios, NoeVera comes within 5% of the optimum in a median of 6-7 simulator calls, versus 9 for Bayesian optimization and 15 for a knowledge-free agent with the same tools; on A100 GPUs, its representative configurations deliver ~1.30x vLLM-default throughput and meet every scenario's latency objective. When reused, provenance-preserving evidence records over-generalize on only 8% of applicability traps, versus 28% for a general-purpose agent memory. On the held-out 48-task split of a 72-task benchmark, NoeVera scores 29% higher than an equally equipped agent and 36% higher than its single-call retrieval counterpart (0.80 vs. 0.62 and 0.59), and even when baselines receive NoeVera's own prompts, a statistically significant part of its evidence-evolution advantage remains.",
+      "url": "http://arxiv.org/abs/2611.29255v1",
+      "authors": [
+        "Pinaki Prasad Guha Neogi",
+        "Spyros Mastorakis",
+        "Ankur Mallick",
+        "Saravan Rajmohan",
+        "Victor Rühle"
+      ],
+      "report_date": "2026-11-25",
+      "published": "2026-11-22",
+      "updated": "2026-11-22",
+      "primary_category": "cs.AI",
+      "categories": [
+        "cs.AI",
+        "cs.CL",
+        "cs.DC",
+        "cs.IR",
+        "cs.LG"
+      ],
+      "project_url": "",
+      "repo_url": "",
+      "venue_status": "未确认录用",
+      "recommendation": {
+        "score": 98,
+        "level": "高",
+        "label": "值得核读",
+        "water_risk": "中",
+        "value_judgement": "长期经验应以有适用范围的证据保存，而不是把单次模拟提升成通用事实；实验调用决策和后续修订协议本身都应设独立对照。",
+        "reason": "长期经验应以有适用范围的证据保存，而不是把单次模拟提升成通用事实；实验调用决策和后续修订协议本身都应设独立对照。",
+        "signals": {
+          "agenticRl": true,
+          "multiTurn": false,
+          "longHorizon": true,
+          "memory": true,
+          "reliability": true,
+          "codeOrTool": true,
+          "experiments": true,
+          "survey": false
+        }
+      },
+      "brief": {
+        "authors": [
+          "Pinaki Prasad Guha Neogi",
+          "Spyros Mastorakis",
+          "Ankur Mallick",
+          "Saravan Rajmohan",
+          "Victor Rühle"
+        ],
+        "affiliations": "arXiv metadata 未提供；需要正文或项目页确认单位。",
+        "date": "2026-11-22",
+        "paper_url": "https://arxiv.org/abs/2611.29255v1",
+        "project_url": "",
+        "repo_url": "",
+        "venue_status": "未确认录用",
+        "contribution": "长期经验应以有适用范围的证据保存，而不是把单次模拟提升成通用事实；实验调用决策和后续修订协议本身都应设独立对照。",
+        "summary": "优化LLM serving时，困难不仅是预测配置性能，还包括决定测什么、证据缺什么，以及旧实验何时还能使用。 知识库分源证据、可复用综合与agent使用记忆三层；检索打包带来源和条件的证据，多角色agent选择Vidur或GAUSS实验，再把工作负载、硬件、配置、工具版本与发现写回带scope的记录。新证据到达后显式修订或保留决策。 四serving场景×5种子，NoeVera+Vidur距模拟穷举最优5%的新调用中位6次，BO9次、无KB ReAct15次；A100实测吞吐均值为vLLM默认1.31倍、4/4满足SLO。14个held-out修订任务表5中正确修订81%、合理保留90%、无端反转5%；prompt-matched ReAct也显著缩小差距。 长期经验应以有适用范围的证据保存，而不是把单次模拟提升成通用事实；实验调用决策和后续修订协议本身都应设独立对照。 新调用数不包含离线知识构建和模拟网格成本；硬件与模拟证据不能混用。修订测试小且部分指标依赖LLM judge；prompt-matched对照说明并非全部增益来自知识结构。作者结果未独立复现。",
+        "highlights": [
+          "长期经验应以有适用范围的证据保存，而不是把单次模拟提升成通用事实；实验调用决策和后续修订协议本身都应设独立对照。",
+          "偏水风险：中",
+          "阅读来源：arXiv PDF正文与实验表"
+        ],
+        "motivation": "优化LLM serving时，困难不仅是预测配置性能，还包括决定测什么、证据缺什么，以及旧实验何时还能使用。",
+        "method": "知识库分源证据、可复用综合与agent使用记忆三层；检索打包带来源和条件的证据，多角色agent选择Vidur或GAUSS实验，再把工作负载、硬件、配置、工具版本与发现写回带scope的记录。新证据到达后显式修订或保留决策。",
+        "experiments": "四serving场景×5种子，NoeVera+Vidur距模拟穷举最优5%的新调用中位6次，BO9次、无KB ReAct15次；A100实测吞吐均值为vLLM默认1.31倍、4/4满足SLO。14个held-out修订任务表5中正确修订81%、合理保留90%、无端反转5%；prompt-matched ReAct也显著缩小差距。",
+        "research_help": "长期经验应以有适用范围的证据保存，而不是把单次模拟提升成通用事实；实验调用决策和后续修订协议本身都应设独立对照。",
+        "recommendation": {
+          "score": 98,
+          "level": "高",
+          "label": "强烈推荐",
+          "water_risk": "低",
+          "value_judgement": "有价值：优先进入今日精读候选。",
+          "reason": "直接覆盖 agentic RL 或 policy optimization；和 long-horizon planning / multi-step task 相关；包含 agent memory、stateful 或 personalized agent 信号；摘要给出实验、benchmark 或 baseline 证据。",
+          "signals": {
+            "agenticRl": true,
+            "multiTurn": false,
+            "longHorizon": true,
+            "memory": true,
+            "reliability": true,
+            "codeOrTool": true,
+            "experiments": true,
+            "survey": false
+          }
+        },
+        "insight": "长期经验应以有适用范围的证据保存，而不是把单次模拟提升成通用事实；实验调用决策和后续修订协议本身都应设独立对照。",
+        "limitations": "新调用数不包含离线知识构建和模拟网格成本；硬件与模拟证据不能混用。修订测试小且部分指标依赖LLM judge；prompt-matched对照说明并非全部增益来自知识结构。作者结果未独立复现。",
+        "abstract_zh": "NoeVera用带作用范围的证据记忆指导实验选择与后续决策修订；四场景中距模拟最优5%仅需中位6次新调用。 优化LLM serving时，困难不仅是预测配置性能，还包括决定测什么、证据缺什么，以及旧实验何时还能使用。",
+        "full_summary": "优化LLM serving时，困难不仅是预测配置性能，还包括决定测什么、证据缺什么，以及旧实验何时还能使用。 知识库分源证据、可复用综合与agent使用记忆三层；检索打包带来源和条件的证据，多角色agent选择Vidur或GAUSS实验，再把工作负载、硬件、配置、工具版本与发现写回带scope的记录。新证据到达后显式修订或保留决策。 四serving场景×5种子，NoeVera+Vidur距模拟穷举最优5%的新调用中位6次，BO9次、无KB ReAct15次；A100实测吞吐均值为vLLM默认1.31倍、4/4满足SLO。14个held-out修订任务表5中正确修订81%、合理保留90%、无端反转5%；prompt-matched ReAct也显著缩小差距。 长期经验应以有适用范围的证据保存，而不是把单次模拟提升成通用事实；实验调用决策和后续修订协议本身都应设独立对照。 新调用数不包含离线知识构建和模拟网格成本；硬件与模拟证据不能混用。修订测试小且部分指标依赖LLM judge；prompt-matched对照说明并非全部增益来自知识结构。作者结果未独立复现。",
+        "card_summary": "NoeVera用带作用范围的证据记忆指导实验选择与后续决策修订；四场景中距模拟最优5%仅需中位6次新调用。"
+      },
+      "analysis": {
+        "card_summary": "NoeVera用带作用范围的证据记忆指导实验选择与后续决策修订；四场景中距模拟最优5%仅需中位6次新调用。",
+        "motivation": "优化LLM serving时，困难不仅是预测配置性能，还包括决定测什么、证据缺什么，以及旧实验何时还能使用。",
+        "method": "知识库分源证据、可复用综合与agent使用记忆三层；检索打包带来源和条件的证据，多角色agent选择Vidur或GAUSS实验，再把工作负载、硬件、配置、工具版本与发现写回带scope的记录。新证据到达后显式修订或保留决策。",
+        "experiments": "四serving场景×5种子，NoeVera+Vidur距模拟穷举最优5%的新调用中位6次，BO9次、无KB ReAct15次；A100实测吞吐均值为vLLM默认1.31倍、4/4满足SLO。14个held-out修订任务表5中正确修订81%、合理保留90%、无端反转5%；prompt-matched ReAct也显著缩小差距。",
+        "insight": "长期经验应以有适用范围的证据保存，而不是把单次模拟提升成通用事实；实验调用决策和后续修订协议本身都应设独立对照。",
+        "research_help": "长期经验应以有适用范围的证据保存，而不是把单次模拟提升成通用事实；实验调用决策和后续修订协议本身都应设独立对照。",
+        "limitations": "新调用数不包含离线知识构建和模拟网格成本；硬件与模拟证据不能混用。修订测试小且部分指标依赖LLM judge；prompt-matched对照说明并非全部增益来自知识结构。作者结果未独立复现。",
+        "abstract_zh": "NoeVera用带作用范围的证据记忆指导实验选择与后续决策修订；四场景中距模拟最优5%仅需中位6次新调用。 优化LLM serving时，困难不仅是预测配置性能，还包括决定测什么、证据缺什么，以及旧实验何时还能使用。",
+        "full_summary": "优化LLM serving时，困难不仅是预测配置性能，还包括决定测什么、证据缺什么，以及旧实验何时还能使用。 知识库分源证据、可复用综合与agent使用记忆三层；检索打包带来源和条件的证据，多角色agent选择Vidur或GAUSS实验，再把工作负载、硬件、配置、工具版本与发现写回带scope的记录。新证据到达后显式修订或保留决策。 四serving场景×5种子，NoeVera+Vidur距模拟穷举最优5%的新调用中位6次，BO9次、无KB ReAct15次；A100实测吞吐均值为vLLM默认1.31倍、4/4满足SLO。14个held-out修订任务表5中正确修订81%、合理保留90%、无端反转5%；prompt-matched ReAct也显著缩小差距。 长期经验应以有适用范围的证据保存，而不是把单次模拟提升成通用事实；实验调用决策和后续修订协议本身都应设独立对照。 新调用数不包含离线知识构建和模拟网格成本；硬件与模拟证据不能混用。修订测试小且部分指标依赖LLM judge；prompt-matched对照说明并非全部增益来自知识结构。作者结果未独立复现。",
+        "recommendation_level": "高",
+        "water_risk": "中",
+        "value_label": "值得核读",
+        "value_reason": "长期经验应以有适用范围的证据保存，而不是把单次模拟提升成通用事实；实验调用决策和后续修订协议本身都应设独立对照。",
+        "source_scope": "full_text",
+        "source_note": "直接核读arXiv v1 PDF正文、实验与局限，并渲染核对结果表；作者结果未独立复现。",
+        "source_evidence": [
+          "§2–4，表1/5及评测协议；PDF第7页搜索与硬件表已渲染核对",
+          "https://arxiv.org/abs/2611.29255v1"
+        ],
+        "model": "manual-full-text-review",
+        "updated_at": "2026-11-25T01:34:49.072650+00:00"
+      }
+    },
+    {
+      "id": "2611.28783v1",
+      "title": "3DCodeFactory: Scaling Training Data for 3D Code Agents",
+      "summary": "As code agents evolve, their scope is expanding from generating simple static 3D meshes to constructing structurally complete, complex, interactive 3D scenes. However, existing datasets mainly rely on converting or captioning pre-existing 3D assets, consisting mostly of single-turn code data for static single objects and struggling to scale task diversity and scene complexity, leaving such training data scarce. We present 3DCodeFactory, an automated framework that directly constructs diverse, complex 3D training data from abundant raw text (e.g., diffusion prompts and product descriptions). The framework first leverages an image generator to synthesize 3D reference images from raw text as visual anchors, guiding the generation of concrete modeling specifications and interactive functional requirements; meanwhile, it jointly constructs visual, specification, and functional rubrics from the reference images and requirements to automatically score and filter multi-turn agent rollouts. Based on this framework, we release 3DCodeFactory-Data, comprising 5,045 high-quality task instances and multi-turn interaction trajectories. Fine-tuning Qwen3.5-9B and Qwen3.8-27B on 3DCodeFactory-Data significantly improves performance on BlenderWorld, P3D-Bench, and 3DCodeBench, consistently outperforming models trained on existing open-source 3D code datasets, with our 27B model further surpassing the same-series 2.4T flagship Qwen3.8-Max in overall performance.",
+      "url": "http://arxiv.org/abs/2611.28783v1",
+      "authors": [
+        "Zhaoyu Wang",
+        "Xueru Wen",
+        "XingYu Li",
+        "Jie Lou"
+      ],
+      "report_date": "2026-11-25",
+      "published": "2026-11-21",
+      "updated": "2026-11-21",
+      "primary_category": "cs.CV",
+      "categories": [
+        "cs.CV"
+      ],
+      "project_url": "",
+      "repo_url": "",
+      "venue_status": "未确认录用",
+      "recommendation": {
+        "score": 78,
+        "level": "高",
+        "label": "值得核读",
+        "water_risk": "中",
+        "value_judgement": "多轮训练数据不只要最终产物，还需保留渲染反馈与修复步骤，并在视觉质量、规格和可交互功能上分别验证。",
+        "reason": "多轮训练数据不只要最终产物，还需保留渲染反馈与修复步骤，并在视觉质量、规格和可交互功能上分别验证。",
+        "signals": {
+          "agenticRl": false,
+          "multiTurn": true,
+          "longHorizon": false,
+          "memory": false,
+          "reliability": true,
+          "codeOrTool": true,
+          "experiments": true,
+          "survey": false
+        }
+      },
+      "brief": {
+        "authors": [
+          "Zhaoyu Wang",
+          "Xueru Wen",
+          "XingYu Li",
+          "Jie Lou"
+        ],
+        "affiliations": "arXiv metadata 未提供；需要正文或项目页确认单位。",
+        "date": "2026-11-21",
+        "paper_url": "https://arxiv.org/abs/2611.28783v1",
+        "project_url": "",
+        "repo_url": "",
+        "venue_status": "未确认录用",
+        "contribution": "多轮训练数据不只要最终产物，还需保留渲染反馈与修复步骤，并在视觉质量、规格和可交互功能上分别验证。",
+        "summary": "现有3D代码数据偏单轮静态物体，缺少复杂交互场景中渲染检查、修改和功能验证的多轮轨迹。 从原始文本生成视觉参考、建模规范和交互需求，在Blender/Three.js沙箱采样多轮编码与渲染自检；独立验证视觉、规格与功能，以难度校准和阈值过滤。训练在压缩边界分段，对观测和异常回合mask loss。 13,312条完成rollout筛出5,045任务轨迹；表2：Qwen3.8-27B三基准均分58.66→66.78，BlenderWorld53.02→70.13；9B均分28.50→56.31。27B无rubric过滤同任务等规模数据均分63.66，低于完整过滤。均分为三个不同任务指标的平均。 多轮训练数据不只要最终产物，还需保留渲染反馈与修复步骤，并在视觉质量、规格和可交互功能上分别验证。 这是SFT数据构建，不是agentic RL算法；强生成器与judge的采样、筛选成本不可忽略，长程能力主要由下游产物评测间接体现。部分判断依赖模型评分；作者结果未独立复现。",
+        "highlights": [
+          "多轮训练数据不只要最终产物，还需保留渲染反馈与修复步骤，并在视觉质量、规格和可交互功能上分别验证。",
+          "偏水风险：中",
+          "阅读来源：arXiv PDF正文与实验表"
+        ],
+        "motivation": "现有3D代码数据偏单轮静态物体，缺少复杂交互场景中渲染检查、修改和功能验证的多轮轨迹。",
+        "method": "从原始文本生成视觉参考、建模规范和交互需求，在Blender/Three.js沙箱采样多轮编码与渲染自检；独立验证视觉、规格与功能，以难度校准和阈值过滤。训练在压缩边界分段，对观测和异常回合mask loss。",
+        "experiments": "13,312条完成rollout筛出5,045任务轨迹；表2：Qwen3.8-27B三基准均分58.66→66.78，BlenderWorld53.02→70.13；9B均分28.50→56.31。27B无rubric过滤同任务等规模数据均分63.66，低于完整过滤。均分为三个不同任务指标的平均。",
+        "research_help": "多轮训练数据不只要最终产物，还需保留渲染反馈与修复步骤，并在视觉质量、规格和可交互功能上分别验证。",
+        "recommendation": {
+          "score": 78,
+          "level": "高",
+          "label": "值得读",
+          "water_risk": "低",
+          "value_judgement": "有价值：优先进入今日精读候选。",
+          "reason": "涉及多轮交互、状态延续或交互式重规划；摘要给出实验、benchmark 或 baseline 证据。",
+          "signals": {
+            "agenticRl": false,
+            "multiTurn": true,
+            "longHorizon": false,
+            "memory": false,
+            "reliability": true,
+            "codeOrTool": true,
+            "experiments": true,
+            "survey": false
+          }
+        },
+        "insight": "多轮训练数据不只要最终产物，还需保留渲染反馈与修复步骤，并在视觉质量、规格和可交互功能上分别验证。",
+        "limitations": "这是SFT数据构建，不是agentic RL算法；强生成器与judge的采样、筛选成本不可忽略，长程能力主要由下游产物评测间接体现。部分判断依赖模型评分；作者结果未独立复现。",
+        "abstract_zh": "3DCodeFactory生成并验证多轮3D编码轨迹；5,045条数据使27B模型三基准平均分58.66→66.78。 现有3D代码数据偏单轮静态物体，缺少复杂交互场景中渲染检查、修改和功能验证的多轮轨迹。",
+        "full_summary": "现有3D代码数据偏单轮静态物体，缺少复杂交互场景中渲染检查、修改和功能验证的多轮轨迹。 从原始文本生成视觉参考、建模规范和交互需求，在Blender/Three.js沙箱采样多轮编码与渲染自检；独立验证视觉、规格与功能，以难度校准和阈值过滤。训练在压缩边界分段，对观测和异常回合mask loss。 13,312条完成rollout筛出5,045任务轨迹；表2：Qwen3.8-27B三基准均分58.66→66.78，BlenderWorld53.02→70.13；9B均分28.50→56.31。27B无rubric过滤同任务等规模数据均分63.66，低于完整过滤。均分为三个不同任务指标的平均。 多轮训练数据不只要最终产物，还需保留渲染反馈与修复步骤，并在视觉质量、规格和可交互功能上分别验证。 这是SFT数据构建，不是agentic RL算法；强生成器与judge的采样、筛选成本不可忽略，长程能力主要由下游产物评测间接体现。部分判断依赖模型评分；作者结果未独立复现。",
+        "card_summary": "3DCodeFactory生成并验证多轮3D编码轨迹；5,045条数据使27B模型三基准平均分58.66→66.78。"
+      },
+      "analysis": {
+        "card_summary": "3DCodeFactory生成并验证多轮3D编码轨迹；5,045条数据使27B模型三基准平均分58.66→66.78。",
+        "motivation": "现有3D代码数据偏单轮静态物体，缺少复杂交互场景中渲染检查、修改和功能验证的多轮轨迹。",
+        "method": "从原始文本生成视觉参考、建模规范和交互需求，在Blender/Three.js沙箱采样多轮编码与渲染自检；独立验证视觉、规格与功能，以难度校准和阈值过滤。训练在压缩边界分段，对观测和异常回合mask loss。",
+        "experiments": "13,312条完成rollout筛出5,045任务轨迹；表2：Qwen3.8-27B三基准均分58.66→66.78，BlenderWorld53.02→70.13；9B均分28.50→56.31。27B无rubric过滤同任务等规模数据均分63.66，低于完整过滤。均分为三个不同任务指标的平均。",
+        "insight": "多轮训练数据不只要最终产物，还需保留渲染反馈与修复步骤，并在视觉质量、规格和可交互功能上分别验证。",
+        "research_help": "多轮训练数据不只要最终产物，还需保留渲染反馈与修复步骤，并在视觉质量、规格和可交互功能上分别验证。",
+        "limitations": "这是SFT数据构建，不是agentic RL算法；强生成器与judge的采样、筛选成本不可忽略，长程能力主要由下游产物评测间接体现。部分判断依赖模型评分；作者结果未独立复现。",
+        "abstract_zh": "3DCodeFactory生成并验证多轮3D编码轨迹；5,045条数据使27B模型三基准平均分58.66→66.78。 现有3D代码数据偏单轮静态物体，缺少复杂交互场景中渲染检查、修改和功能验证的多轮轨迹。",
+        "full_summary": "现有3D代码数据偏单轮静态物体，缺少复杂交互场景中渲染检查、修改和功能验证的多轮轨迹。 从原始文本生成视觉参考、建模规范和交互需求，在Blender/Three.js沙箱采样多轮编码与渲染自检；独立验证视觉、规格与功能，以难度校准和阈值过滤。训练在压缩边界分段，对观测和异常回合mask loss。 13,312条完成rollout筛出5,045任务轨迹；表2：Qwen3.8-27B三基准均分58.66→66.78，BlenderWorld53.02→70.13；9B均分28.50→56.31。27B无rubric过滤同任务等规模数据均分63.66，低于完整过滤。均分为三个不同任务指标的平均。 多轮训练数据不只要最终产物，还需保留渲染反馈与修复步骤，并在视觉质量、规格和可交互功能上分别验证。 这是SFT数据构建，不是agentic RL算法；强生成器与judge的采样、筛选成本不可忽略，长程能力主要由下游产物评测间接体现。部分判断依赖模型评分；作者结果未独立复现。",
+        "recommendation_level": "高",
+        "water_risk": "中",
+        "value_label": "值得核读",
+        "value_reason": "多轮训练数据不只要最终产物，还需保留渲染反馈与修复步骤，并在视觉质量、规格和可交互功能上分别验证。",
+        "source_scope": "full_text",
+        "source_note": "直接核读arXiv v1 PDF正文、实验与局限，并渲染核对结果表；作者结果未独立复现。",
+        "source_evidence": [
+          "§3–5，表2–3；PDF第8页结果表已渲染核对",
+          "https://arxiv.org/abs/2611.28783v1"
+        ],
+        "model": "manual-full-text-review",
+        "updated_at": "2026-11-25T01:34:49.072650+00:00"
+      }
+    },
     {
       "id": "2611.27570v1",
       "title": "WEIR: Watershed Exploration and Drift-Aware Prefix Shrinkage for Multi-Turn Agent Reinforcement Learning",
