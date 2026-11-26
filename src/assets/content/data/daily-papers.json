@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-25T01:34:49.072650+00:00",
+  "updated_at": "2026-11-26T01:36:23.622320+00:00",
   "source": "arxiv",
   "analysis_method": "Codex CLI workflow with manual arXiv PDF full-text review and rendered result-page verification; per-item source notes identify the analysis path.",
   "query_focus": "多轮交互式 agent planning、long-horizon planning、stateful/personalized planning、agent memory、planning reliability、agentic RL",
@@ -37,35 +37,35 @@
     "codex_reader": "Downloads arXiv PDFs, extracts text with pdftotext or bundled Python PDF libraries, then calls codex exec to write Chinese motivation/method/experiment/research-help fields."
   },
   "digest": {
-    "title": "2026-11-25 Daily Paper",
-    "report_date": "2026-11-25",
+    "title": "2026-11-26 Daily Paper",
+    "report_date": "2026-11-26",
     "focus": "多轮交互式 agent planning、long-horizon planning、stateful/personalized planning、agent memory、planning reliability、agentic RL",
-    "summary": "今日新增7篇，覆盖长程上下文压缩、技能检索RL、编码agent终局反馈学习、多轮蒸馏、交互视频状态规划、实验决策记忆与3D多轮编码数据。已核读正文并渲染核对实验表，结果为作者报告，未独立复现。",
+    "summary": "今日新增6篇，覆盖长期记忆效用、有状态分支探索、机器人多轮工具RL、视频agent过程信用与长程策略跨格式蒸馏。已核读正文并渲染核对实验表，结果为作者报告，未独立复现。",
     "top_recommendations": [
-      "2611.30412v1",
-      "2611.28907v1",
-      "2611.30405v1"
+      "2611.33148v1",
+      "2611.32016v1",
+      "2611.33005v1"
     ],
     "low_priority": [],
     "no_news_policy": "如果没有新的高相关论文，自动化应返回“今日无高相关新增论文”，不写邮件正文文件，也不发送邮件。",
-    "email_body": "2026-11-25 Daily Paper\n\nDMC-5: Dual-Model Collaboration with Cache-aware Context Compression for Long-horizon Agents\n保留追加式原始轨迹，重建紧凑决策视图并原样恢复关键工具记录；三套长程任务计费成本下降14.5–28.0%。\nhttps://arxiv.org/abs/2611.30412v1\n\nSTRIDE: Strategy-to-Tactics Retrieval-Guided Skill Disclosure and Evolution for Agentic Reinforcement Learning\nSTRIDE保持全局策略常驻、按需检索局部战术，并用检索事件反馈训练agent；ALFWorld 4B/8B成功率92.7/94.9%。\nhttps://arxiv.org/abs/2611.28907v1\n\nOptimistic Online Learning for Coding Agents with Aggregate Feedback\n用残差激活提示和任务终局反馈在线选择steering强度；TACT-Cap在SWE-V/TB2解决率65.0/34.8%。\nhttps://arxiv.org/abs/2611.30405v1\n\nMuted Distillation: Sealing Reasoning from Teacher Unlocks Token-Efficient Agents\nMuted Distillation向teacher隐藏student思考，仅监督动作尾部；两套多轮知识工作任务输出token较OPD少57/53%。\nhttps://arxiv.org/abs/2611.28445v1\n\nCineAct: Interaction-State Agents for Playable, Branching Film Generation\nCineAct将视频渲染与显式世界状态推理分开，保持跨镜头动作后果；13个双路线故事联合成功且不同率61.5→92.3%。\nhttps://arxiv.org/abs/2611.30613v1\n\nNoeVera: Can Knowledge Guide Experiments and Experiments Refine Knowledge?\nNoeVera用带作用范围的证据记忆指导实验选择与后续决策修订；四场景中距模拟最优5%仅需中位6次新调用。\nhttps://arxiv.org/abs/2611.29255v1\n\n3DCodeFactory: Scaling Training Data for 3D Code Agents\n3DCodeFactory生成并验证多轮3D编码轨迹；5,045条数据使27B模型三基准平均分58.66→66.78。\nhttps://arxiv.org/abs/2611.28783v1"
+    "email_body": "2026-11-26 Daily Paper\n\nLeto: Utility-Centric Agent Memory\nLeto用原始来源索引、常驻用户/任务状态和反馈门控服务记忆；MemoryArena五环境平均成功率18.33%。\nhttps://arxiv.org/abs/2611.33005v1\n\nTimeTravelContainer: A Live Forking Sandbox for Stateful Agent Exploration\nTimeTravelContainer为有状态工具提供CoW运行中分叉；Innovus克隆快61.8–84.1倍，EvoDRC十调用快1.7–9.7倍。\nhttps://arxiv.org/abs/2611.32255v1\n\nRoboHarness-RL: Agentic Reinforcement Learning for VLM-Based Robot Manipulation\nRoboHarness-RL以紧凑分层记忆支持多轮工具调用RL；9B模型RoboTwin成功率31.2→44.0%，LIBERO-Pro57.8→73.3%。\nhttps://arxiv.org/abs/2611.32016v1\n\nOpen-OmniCoach: Evidence-Enhanced Trajectory Learning for Omni Video Agents\nOpen-OmniCoach用多轮取证与纠错轨迹训练视频agent；SEPO按新增证据调节信用，四基准均分比GSPO高0.8点。\nhttps://arxiv.org/abs/2611.31891v1\n\nCoT-Proxy: Cross-Format Transfer for Distilling Long-Horizon Policies\nCoT-Proxy用动作与短摘要蒸馏长程策略，训练留空thinking、推理仍思考；闭源teacher下4B AppWorld成功率7.3→48.2%。\nhttps://arxiv.org/abs/2611.33148v1\n\nBRAG: Bayesian Retrieval Augmented Generation\nBRAG让长期记忆检索同时学习语义键与时变效用；更新/遗忘场景Recall@5达0.860/0.801，但未问内容退化。\nhttps://arxiv.org/abs/2611.31656v1"
   },
   "latest_item_ids": [
-    "2611.30412v1",
-    "2611.28907v1",
-    "2611.30405v1",
-    "2611.28445v1",
-    "2611.30613v1",
-    "2611.29255v1",
-    "2611.28783v1"
+    "2611.33005v1",
+    "2611.32255v1",
+    "2611.32016v1",
+    "2611.31891v1",
+    "2611.33148v1",
+    "2611.31656v1"
   ],
   "archive": {
     "policy": "append_or_update_by_arxiv_id",
-    "fresh_items": 7,
-    "total_items": 635,
-    "previous_items": 628,
-    "latest_items": 7,
+    "fresh_items": 6,
+    "total_items": 641,
+    "previous_items": 635,
+    "latest_items": 6,
     "source_report_dates": {
+      "2026-11-26": 6,
       "2026-11-25": 7,
       "2026-11-24": 2,
       "2026-11-21": 8,
@@ -140,28 +140,712 @@
       "undefined": 39
     },
     "filtered_candidate_ids": [
-      "2611.30412v1",
-      "2611.28907v1",
-      "2611.30405v1",
-      "2611.28445v1",
-      "2611.30613v1",
-      "2611.29255v1",
-      "2611.28783v1"
+      "2611.33005v1",
+      "2611.32255v1",
+      "2611.32016v1",
+      "2611.31891v1",
+      "2611.33148v1",
+      "2611.31656v1"
     ],
-    "filtered_today": 7,
+    "filtered_today": 6,
     "rejected_candidate_ids": [
+      "2611.32812v1",
+      "2611.31880v1",
+      "2611.30405v1",
+      "2611.30412v1",
+      "2611.30613v1",
+      "2611.31344v1",
+      "2611.31499v1",
+      "2611.29255v1",
       "2611.29294v1",
-      "2611.29571v1",
-      "2611.29759v1",
-      "2611.29804v1",
-      "2611.29036v1",
-      "2611.28611v1",
-      "2611.27689v2",
-      "2611.27659v1",
-      "2611.27570v1"
+      "2611.29571v1"
     ]
   },
   "items": [
+    {
+      "id": "2611.33005v1",
+      "title": "Leto: Utility-Centric Agent Memory",
+      "summary": "Large language model (LLM) agents rely on external memory to retain and reuse information across interactions. Existing memory systems treat memory as a record of the past and evaluate it by fidelity to the conversation. However, the value of memory lies in whether it improves the agent's response. A memory system decides what to memorize and what to serve before that response exists, and fidelity checks neither decision against it. Faithful memory can therefore fail to improve the response. We instead view memory as a prediction problem and present \\textbf{\\emph{\\leto{}}}, a memory system for LLM agents that focuses on the utility of memory to the future rather than on its fidelity to the past. Because future requests are unknown, \\emph{\\leto{}} preserves access to conversation details through memory indexing, allowing information to remain available through its sources. When a request arrives, memory replay draws on this index to anticipate and supply the context the agent needs beyond what the request explicitly states. The utility of the served context remains uncertain until the response is generated, motivating a utility loop that uses response outcomes to refine future memory selection. We evaluate our system against six memory systems on five benchmarks across three scenarios. In personalization, it outperforms the strongest compared memory system by 16.3 percentage points in accuracy on PrefEval and by 3.1 points in task completion on PERMA. For long-horizon tasks, it achieves the best overall performance on MemoryArena averaged over five environments with a gain that increases with the chain depth. In long-context understanding, it is on par with retrieval over the raw history while serving fewer context tokens.",
+      "url": "http://arxiv.org/abs/2611.33005v1",
+      "authors": [
+        "Shuguang Chen",
+        "Salman Paracha"
+      ],
+      "report_date": "2026-11-26",
+      "published": "2026-11-24",
+      "updated": "2026-11-24",
+      "primary_category": "cs.CL",
+      "categories": [
+        "cs.CL"
+      ],
+      "project_url": "",
+      "repo_url": "",
+      "venue_status": "未确认录用",
+      "recommendation": {
+        "score": 96,
+        "level": "高",
+        "label": "值得核读",
+        "water_risk": "中",
+        "value_judgement": "应把“有没有保存事实”“有没有把关键状态送给agent”和“是否改善行动结果”分开测量；常驻隐含约束与按需原文检索解决不同缺口。",
+        "reason": "应把“有没有保存事实”“有没有把关键状态送给agent”和“是否改善行动结果”分开测量；常驻隐含约束与按需原文检索解决不同缺口。",
+        "signals": {
+          "agenticRl": false,
+          "multiTurn": true,
+          "longHorizon": true,
+          "memory": true,
+          "reliability": true,
+          "codeOrTool": false,
+          "experiments": true,
+          "survey": false
+        }
+      },
+      "brief": {
+        "authors": [
+          "Shuguang Chen",
+          "Salman Paracha"
+        ],
+        "affiliations": "arXiv metadata 未提供；需要正文或项目页确认单位。",
+        "date": "2026-11-24",
+        "paper_url": "https://arxiv.org/abs/2611.33005v1",
+        "project_url": "",
+        "repo_url": "",
+        "venue_status": "未确认录用",
+        "contribution": "应把“有没有保存事实”“有没有把关键状态送给agent”和“是否改善行动结果”分开测量；常驻隐含约束与按需原文检索解决不同缺口。",
+        "summary": "相似度高或忠实复述历史的记忆，不一定提供下一轮行动真正需要的隐含约束；写入与读取都必须面向未来用途。 保留全部会话，以原子事实作为原始消息片段的索引，修订事实保留旧版本；会话间重写用户profile并渲染任务状态。新记忆有初始utility分数，按确认、纠正等词法信号更新加权均值，再用阈值和token预算筛选检索结果。 表1：PrefEval十轮干扰后准确率60.5%，Hindsight44.2%；PERMA单域/多域完成率80.38/72.61%，单域低于RAG83.69%。表2：MemoryArena五环境等权平均PS32.01%、SR18.33%，Letta31.24/17.98%。LoCoMo71.82%低于RAG74.61%，LongMemEval73.2%高于RAG66.4%。 应把“有没有保存事实”“有没有把关键状态送给agent”和“是否改善行动结果”分开测量；常驻隐含约束与按需原文检索解决不同缺口。 utility是词法反馈驱动的启发式优先级，并非单条记忆的因果贡献估计；主文未提供充分组件消融以分离三机制收益。长程总体优势小且不是每环境最优；原始历史保留和额外记忆处理成本仍需计入。作者结果未独立复现。",
+        "highlights": [
+          "应把“有没有保存事实”“有没有把关键状态送给agent”和“是否改善行动结果”分开测量；常驻隐含约束与按需原文检索解决不同缺口。",
+          "偏水风险：中",
+          "阅读来源：arXiv PDF正文与实验表"
+        ],
+        "motivation": "相似度高或忠实复述历史的记忆，不一定提供下一轮行动真正需要的隐含约束；写入与读取都必须面向未来用途。",
+        "method": "保留全部会话，以原子事实作为原始消息片段的索引，修订事实保留旧版本；会话间重写用户profile并渲染任务状态。新记忆有初始utility分数，按确认、纠正等词法信号更新加权均值，再用阈值和token预算筛选检索结果。",
+        "experiments": "表1：PrefEval十轮干扰后准确率60.5%，Hindsight44.2%；PERMA单域/多域完成率80.38/72.61%，单域低于RAG83.69%。表2：MemoryArena五环境等权平均PS32.01%、SR18.33%，Letta31.24/17.98%。LoCoMo71.82%低于RAG74.61%，LongMemEval73.2%高于RAG66.4%。",
+        "research_help": "应把“有没有保存事实”“有没有把关键状态送给agent”和“是否改善行动结果”分开测量；常驻隐含约束与按需原文检索解决不同缺口。",
+        "recommendation": {
+          "score": 96,
+          "level": "高",
+          "label": "值得核读",
+          "water_risk": "中",
+          "value_judgement": "应把“有没有保存事实”“有没有把关键状态送给agent”和“是否改善行动结果”分开测量；常驻隐含约束与按需原文检索解决不同缺口。",
+          "reason": "应把“有没有保存事实”“有没有把关键状态送给agent”和“是否改善行动结果”分开测量；常驻隐含约束与按需原文检索解决不同缺口。",
+          "signals": {
+            "agenticRl": false,
+            "multiTurn": true,
+            "longHorizon": true,
+            "memory": true,
+            "reliability": true,
+            "codeOrTool": false,
+            "experiments": true,
+            "survey": false
+          }
+        },
+        "insight": "应把“有没有保存事实”“有没有把关键状态送给agent”和“是否改善行动结果”分开测量；常驻隐含约束与按需原文检索解决不同缺口。",
+        "limitations": "utility是词法反馈驱动的启发式优先级，并非单条记忆的因果贡献估计；主文未提供充分组件消融以分离三机制收益。长程总体优势小且不是每环境最优；原始历史保留和额外记忆处理成本仍需计入。作者结果未独立复现。",
+        "abstract_zh": "Leto用原始来源索引、常驻用户/任务状态和反馈门控服务记忆；MemoryArena五环境平均成功率18.33%。 相似度高或忠实复述历史的记忆，不一定提供下一轮行动真正需要的隐含约束；写入与读取都必须面向未来用途。",
+        "full_summary": "相似度高或忠实复述历史的记忆，不一定提供下一轮行动真正需要的隐含约束；写入与读取都必须面向未来用途。 保留全部会话，以原子事实作为原始消息片段的索引，修订事实保留旧版本；会话间重写用户profile并渲染任务状态。新记忆有初始utility分数，按确认、纠正等词法信号更新加权均值，再用阈值和token预算筛选检索结果。 表1：PrefEval十轮干扰后准确率60.5%，Hindsight44.2%；PERMA单域/多域完成率80.38/72.61%，单域低于RAG83.69%。表2：MemoryArena五环境等权平均PS32.01%、SR18.33%，Letta31.24/17.98%。LoCoMo71.82%低于RAG74.61%，LongMemEval73.2%高于RAG66.4%。 应把“有没有保存事实”“有没有把关键状态送给agent”和“是否改善行动结果”分开测量；常驻隐含约束与按需原文检索解决不同缺口。 utility是词法反馈驱动的启发式优先级，并非单条记忆的因果贡献估计；主文未提供充分组件消融以分离三机制收益。长程总体优势小且不是每环境最优；原始历史保留和额外记忆处理成本仍需计入。作者结果未独立复现。",
+        "card_summary": "Leto用原始来源索引、常驻用户/任务状态和反馈门控服务记忆；MemoryArena五环境平均成功率18.33%。"
+      },
+      "analysis": {
+        "card_summary": "Leto用原始来源索引、常驻用户/任务状态和反馈门控服务记忆；MemoryArena五环境平均成功率18.33%。",
+        "motivation": "相似度高或忠实复述历史的记忆，不一定提供下一轮行动真正需要的隐含约束；写入与读取都必须面向未来用途。",
+        "method": "保留全部会话，以原子事实作为原始消息片段的索引，修订事实保留旧版本；会话间重写用户profile并渲染任务状态。新记忆有初始utility分数，按确认、纠正等词法信号更新加权均值，再用阈值和token预算筛选检索结果。",
+        "experiments": "表1：PrefEval十轮干扰后准确率60.5%，Hindsight44.2%；PERMA单域/多域完成率80.38/72.61%，单域低于RAG83.69%。表2：MemoryArena五环境等权平均PS32.01%、SR18.33%，Letta31.24/17.98%。LoCoMo71.82%低于RAG74.61%，LongMemEval73.2%高于RAG66.4%。",
+        "insight": "应把“有没有保存事实”“有没有把关键状态送给agent”和“是否改善行动结果”分开测量；常驻隐含约束与按需原文检索解决不同缺口。",
+        "research_help": "应把“有没有保存事实”“有没有把关键状态送给agent”和“是否改善行动结果”分开测量；常驻隐含约束与按需原文检索解决不同缺口。",
+        "limitations": "utility是词法反馈驱动的启发式优先级，并非单条记忆的因果贡献估计；主文未提供充分组件消融以分离三机制收益。长程总体优势小且不是每环境最优；原始历史保留和额外记忆处理成本仍需计入。作者结果未独立复现。",
+        "abstract_zh": "Leto用原始来源索引、常驻用户/任务状态和反馈门控服务记忆；MemoryArena五环境平均成功率18.33%。 相似度高或忠实复述历史的记忆，不一定提供下一轮行动真正需要的隐含约束；写入与读取都必须面向未来用途。",
+        "full_summary": "相似度高或忠实复述历史的记忆，不一定提供下一轮行动真正需要的隐含约束；写入与读取都必须面向未来用途。 保留全部会话，以原子事实作为原始消息片段的索引，修订事实保留旧版本；会话间重写用户profile并渲染任务状态。新记忆有初始utility分数，按确认、纠正等词法信号更新加权均值，再用阈值和token预算筛选检索结果。 表1：PrefEval十轮干扰后准确率60.5%，Hindsight44.2%；PERMA单域/多域完成率80.38/72.61%，单域低于RAG83.69%。表2：MemoryArena五环境等权平均PS32.01%、SR18.33%，Letta31.24/17.98%。LoCoMo71.82%低于RAG74.61%，LongMemEval73.2%高于RAG66.4%。 应把“有没有保存事实”“有没有把关键状态送给agent”和“是否改善行动结果”分开测量；常驻隐含约束与按需原文检索解决不同缺口。 utility是词法反馈驱动的启发式优先级，并非单条记忆的因果贡献估计；主文未提供充分组件消融以分离三机制收益。长程总体优势小且不是每环境最优；原始历史保留和额外记忆处理成本仍需计入。作者结果未独立复现。",
+        "recommendation_level": "高",
+        "water_risk": "中",
+        "value_label": "值得核读",
+        "value_reason": "应把“有没有保存事实”“有没有把关键状态送给agent”和“是否改善行动结果”分开测量；常驻隐含约束与按需原文检索解决不同缺口。",
+        "source_scope": "full_text",
+        "source_note": "直接核读arXiv v1 PDF正文、实验与局限，并渲染核对结果表；作者结果未独立复现。",
+        "source_evidence": [
+          "§3–5，表1–3及附录7–8；PDF第7页MemoryArena表已渲染核对",
+          "https://arxiv.org/abs/2611.33005v1"
+        ],
+        "model": "manual-full-text-review",
+        "updated_at": "2026-11-26T01:36:23.622320+00:00"
+      }
+    },
+    {
+      "id": "2611.32255v1",
+      "title": "TimeTravelContainer: A Live Forking Sandbox for Stateful Agent Exploration",
+      "summary": "LLM agents that drive stateful tools (e.g., interactive shells, design environments, simulation engines) frequently need to clone, backtrack, and parallelize live sessions to support exploration. However, cloning a live session today requires serializing the tool's in-memory state to disk or relaunching from scratch, both prohibitively slow for interactive exploration. Existing agent sandboxes based on microVMs or kernel patches either serialize full guest memory to storage or require privileged deployment, limiting use on shared compute farms, personal computers, and other restricted environments. We present TimeTravelContainer (TTC), a rootless container runtime that live-forks an entire running container, including processes, memory, filesystem, and network, with copy-on-write (CoW) semantics. Because the bulk of a tool session's memory is typically read-only after the fork point, clones share it automatically and only diverged pages consume additional memory. TTC requires no kernel modifications, hardware virtualization, or root privileges, and runs on all major platforms including Linux, macOS (Apple Silicon), and Windows (WSL 2), making it deployable as a portable foundation for agent harnesses. We evaluate TTC on two agentic electronic design automation (EDA) flows as representative stateful-tool workloads: MAGE (Innovus) and EvoDRC (KLayout). TTC achieves 84.1$\\times$ environment cloning speedup, 31--72% memory reduction, and 1.7--9.4$\\times$ end-to-end speedup, demonstrating that live forking removes a scaling barrier for agent-driven exploration of stateful tool environments.",
+      "url": "http://arxiv.org/abs/2611.32255v1",
+      "authors": [
+        "Zizheng Guo",
+        "Yanqing Zhang",
+        "Nathaniel Pinckney",
+        "Cunxi Yu",
+        "Brucek Khailany"
+      ],
+      "report_date": "2026-11-26",
+      "published": "2026-11-24",
+      "updated": "2026-11-24",
+      "primary_category": "cs.OS",
+      "categories": [
+        "cs.OS",
+        "cs.MA"
+      ],
+      "project_url": "",
+      "repo_url": "",
+      "venue_status": "未确认录用",
+      "recommendation": {
+        "score": 96,
+        "level": "高",
+        "label": "值得核读",
+        "water_risk": "中",
+        "value_judgement": "规划搜索的可行分支数取决于环境状态复制成本；将会话状态变成可共享、可分叉对象，可以扩大搜索和分支轨迹采集预算。",
+        "reason": "规划搜索的可行分支数取决于环境状态复制成本；将会话状态变成可共享、可分叉对象，可以扩大搜索和分支轨迹采集预算。",
+        "signals": {
+          "agenticRl": true,
+          "multiTurn": true,
+          "longHorizon": false,
+          "memory": true,
+          "reliability": false,
+          "codeOrTool": true,
+          "experiments": true,
+          "survey": false
+        }
+      },
+      "brief": {
+        "authors": [
+          "Zizheng Guo",
+          "Yanqing Zhang",
+          "Nathaniel Pinckney",
+          "Cunxi Yu",
+          "Brucek Khailany"
+        ],
+        "affiliations": "arXiv metadata 未提供；需要正文或项目页确认单位。",
+        "date": "2026-11-24",
+        "paper_url": "https://arxiv.org/abs/2611.32255v1",
+        "project_url": "",
+        "repo_url": "",
+        "venue_status": "未确认录用",
+        "contribution": "规划搜索的可行分支数取决于环境状态复制成本；将会话状态变成可共享、可分叉对象，可以扩大搜索和分支轨迹采集预算。",
+        "summary": "agent回溯和分支探索要复制工具进程内状态；仅复制文件不能保留运行会话，磁盘checkpoint与重启又限制分支吞吐。 扩展gVisor用户态内核，把进程树、文件描述符、虚拟文件系统和网络等状态封装成可分叉对象；分支共享只读内存页，首次写入时CoW复制，保留隔离的内核对象图。以sandbox family管理分支，并支持暂停、迁移等生命周期操作。 MAGE/Innovus表3：Ariane133克隆86.5→1.03秒、BlackParrot185.7→3.01秒，分别84.1/61.8倍。表4：Ariane六分支分叉后省70%内存，分歧后仍省56%。EvoDRC表5：十次调用小设计快1.7–2.1倍，AES/Ibex/JPEG快8.0/9.7/9.4倍；JPEG约23.7→2.5小时。 规划搜索的可行分支数取决于环境状态复制成本；将会话状态变成可共享、可分叉对象，可以扩大搜索和分支轨迹采集预算。 84.1倍是克隆原语的加速，MAGE整体仍受routing主导；EvoDRC十调用是工具工作流时间，不是一般agent成功率。摘要1.7–9.4倍与表5的Ibex9.7倍有范围差异，此处按表列值。评测局限于两套EDA流程，跨平台和其他领域推广未等量验证。作者结果未独立复现。",
+        "highlights": [
+          "规划搜索的可行分支数取决于环境状态复制成本；将会话状态变成可共享、可分叉对象，可以扩大搜索和分支轨迹采集预算。",
+          "偏水风险：中",
+          "阅读来源：arXiv PDF正文与实验表"
+        ],
+        "motivation": "agent回溯和分支探索要复制工具进程内状态；仅复制文件不能保留运行会话，磁盘checkpoint与重启又限制分支吞吐。",
+        "method": "扩展gVisor用户态内核，把进程树、文件描述符、虚拟文件系统和网络等状态封装成可分叉对象；分支共享只读内存页，首次写入时CoW复制，保留隔离的内核对象图。以sandbox family管理分支，并支持暂停、迁移等生命周期操作。",
+        "experiments": "MAGE/Innovus表3：Ariane133克隆86.5→1.03秒、BlackParrot185.7→3.01秒，分别84.1/61.8倍。表4：Ariane六分支分叉后省70%内存，分歧后仍省56%。EvoDRC表5：十次调用小设计快1.7–2.1倍，AES/Ibex/JPEG快8.0/9.7/9.4倍；JPEG约23.7→2.5小时。",
+        "research_help": "规划搜索的可行分支数取决于环境状态复制成本；将会话状态变成可共享、可分叉对象，可以扩大搜索和分支轨迹采集预算。",
+        "recommendation": {
+          "score": 96,
+          "level": "高",
+          "label": "值得核读",
+          "water_risk": "中",
+          "value_judgement": "规划搜索的可行分支数取决于环境状态复制成本；将会话状态变成可共享、可分叉对象，可以扩大搜索和分支轨迹采集预算。",
+          "reason": "规划搜索的可行分支数取决于环境状态复制成本；将会话状态变成可共享、可分叉对象，可以扩大搜索和分支轨迹采集预算。",
+          "signals": {
+            "agenticRl": true,
+            "multiTurn": true,
+            "longHorizon": false,
+            "memory": true,
+            "reliability": false,
+            "codeOrTool": true,
+            "experiments": true,
+            "survey": false
+          }
+        },
+        "insight": "规划搜索的可行分支数取决于环境状态复制成本；将会话状态变成可共享、可分叉对象，可以扩大搜索和分支轨迹采集预算。",
+        "limitations": "84.1倍是克隆原语的加速，MAGE整体仍受routing主导；EvoDRC十调用是工具工作流时间，不是一般agent成功率。摘要1.7–9.4倍与表5的Ibex9.7倍有范围差异，此处按表列值。评测局限于两套EDA流程，跨平台和其他领域推广未等量验证。作者结果未独立复现。",
+        "abstract_zh": "TimeTravelContainer为有状态工具提供CoW运行中分叉；Innovus克隆快61.8–84.1倍，EvoDRC十调用快1.7–9.7倍。 agent回溯和分支探索要复制工具进程内状态；仅复制文件不能保留运行会话，磁盘checkpoint与重启又限制分支吞吐。",
+        "full_summary": "agent回溯和分支探索要复制工具进程内状态；仅复制文件不能保留运行会话，磁盘checkpoint与重启又限制分支吞吐。 扩展gVisor用户态内核，把进程树、文件描述符、虚拟文件系统和网络等状态封装成可分叉对象；分支共享只读内存页，首次写入时CoW复制，保留隔离的内核对象图。以sandbox family管理分支，并支持暂停、迁移等生命周期操作。 MAGE/Innovus表3：Ariane133克隆86.5→1.03秒、BlackParrot185.7→3.01秒，分别84.1/61.8倍。表4：Ariane六分支分叉后省70%内存，分歧后仍省56%。EvoDRC表5：十次调用小设计快1.7–2.1倍，AES/Ibex/JPEG快8.0/9.7/9.4倍；JPEG约23.7→2.5小时。 规划搜索的可行分支数取决于环境状态复制成本；将会话状态变成可共享、可分叉对象，可以扩大搜索和分支轨迹采集预算。 84.1倍是克隆原语的加速，MAGE整体仍受routing主导；EvoDRC十调用是工具工作流时间，不是一般agent成功率。摘要1.7–9.4倍与表5的Ibex9.7倍有范围差异，此处按表列值。评测局限于两套EDA流程，跨平台和其他领域推广未等量验证。作者结果未独立复现。",
+        "card_summary": "TimeTravelContainer为有状态工具提供CoW运行中分叉；Innovus克隆快61.8–84.1倍，EvoDRC十调用快1.7–9.7倍。"
+      },
+      "analysis": {
+        "card_summary": "TimeTravelContainer为有状态工具提供CoW运行中分叉；Innovus克隆快61.8–84.1倍，EvoDRC十调用快1.7–9.7倍。",
+        "motivation": "agent回溯和分支探索要复制工具进程内状态；仅复制文件不能保留运行会话，磁盘checkpoint与重启又限制分支吞吐。",
+        "method": "扩展gVisor用户态内核，把进程树、文件描述符、虚拟文件系统和网络等状态封装成可分叉对象；分支共享只读内存页，首次写入时CoW复制，保留隔离的内核对象图。以sandbox family管理分支，并支持暂停、迁移等生命周期操作。",
+        "experiments": "MAGE/Innovus表3：Ariane133克隆86.5→1.03秒、BlackParrot185.7→3.01秒，分别84.1/61.8倍。表4：Ariane六分支分叉后省70%内存，分歧后仍省56%。EvoDRC表5：十次调用小设计快1.7–2.1倍，AES/Ibex/JPEG快8.0/9.7/9.4倍；JPEG约23.7→2.5小时。",
+        "insight": "规划搜索的可行分支数取决于环境状态复制成本；将会话状态变成可共享、可分叉对象，可以扩大搜索和分支轨迹采集预算。",
+        "research_help": "规划搜索的可行分支数取决于环境状态复制成本；将会话状态变成可共享、可分叉对象，可以扩大搜索和分支轨迹采集预算。",
+        "limitations": "84.1倍是克隆原语的加速，MAGE整体仍受routing主导；EvoDRC十调用是工具工作流时间，不是一般agent成功率。摘要1.7–9.4倍与表5的Ibex9.7倍有范围差异，此处按表列值。评测局限于两套EDA流程，跨平台和其他领域推广未等量验证。作者结果未独立复现。",
+        "abstract_zh": "TimeTravelContainer为有状态工具提供CoW运行中分叉；Innovus克隆快61.8–84.1倍，EvoDRC十调用快1.7–9.7倍。 agent回溯和分支探索要复制工具进程内状态；仅复制文件不能保留运行会话，磁盘checkpoint与重启又限制分支吞吐。",
+        "full_summary": "agent回溯和分支探索要复制工具进程内状态；仅复制文件不能保留运行会话，磁盘checkpoint与重启又限制分支吞吐。 扩展gVisor用户态内核，把进程树、文件描述符、虚拟文件系统和网络等状态封装成可分叉对象；分支共享只读内存页，首次写入时CoW复制，保留隔离的内核对象图。以sandbox family管理分支，并支持暂停、迁移等生命周期操作。 MAGE/Innovus表3：Ariane133克隆86.5→1.03秒、BlackParrot185.7→3.01秒，分别84.1/61.8倍。表4：Ariane六分支分叉后省70%内存，分歧后仍省56%。EvoDRC表5：十次调用小设计快1.7–2.1倍，AES/Ibex/JPEG快8.0/9.7/9.4倍；JPEG约23.7→2.5小时。 规划搜索的可行分支数取决于环境状态复制成本；将会话状态变成可共享、可分叉对象，可以扩大搜索和分支轨迹采集预算。 84.1倍是克隆原语的加速，MAGE整体仍受routing主导；EvoDRC十调用是工具工作流时间，不是一般agent成功率。摘要1.7–9.4倍与表5的Ibex9.7倍有范围差异，此处按表列值。评测局限于两套EDA流程，跨平台和其他领域推广未等量验证。作者结果未独立复现。",
+        "recommendation_level": "高",
+        "water_risk": "中",
+        "value_label": "值得核读",
+        "value_reason": "规划搜索的可行分支数取决于环境状态复制成本；将会话状态变成可共享、可分叉对象，可以扩大搜索和分支轨迹采集预算。",
+        "source_scope": "full_text",
+        "source_note": "直接核读arXiv v1 PDF正文、实验与局限，并渲染核对结果表；作者结果未独立复现。",
+        "source_evidence": [
+          "§III–IV，表3–5；PDF第7页表5已渲染核对",
+          "https://arxiv.org/abs/2611.32255v1"
+        ],
+        "model": "manual-full-text-review",
+        "updated_at": "2026-11-26T01:36:23.622320+00:00"
+      }
+    },
+    {
+      "id": "2611.32016v1",
+      "title": "RoboHarness-RL: Agentic Reinforcement Learning for VLM-Based Robot Manipulation",
+      "summary": "Agentic harnesses enable frontier vision-language models (VLMs) to manipulate robots through perception, planning, and control tools, yet achieving comparable performance with compact open-weight VLMs remains challenging. We present RoboHarness-RL, an agentic reinforcement learning framework for improving VLM-based robot manipulation through tool calls. Starting from supervised fine-tuning on successful teacher demonstrations, the VLM further improves through multi-turn reinforcement learning with task-outcome rewards, without relying on vision-language-action models or world action models. To support efficient multi-turn training, we develop LiteHarness, which uses hierarchical memory to keep interaction contexts compact while preserving task performance. With Qwen3.5-9B, RL raises success from 31.2% to 44.0% on RoboTwin 2.0 and from 57.8% to 73.3% on LIBERO-Pro; these gains extend to randomized RoboTwin scenes unseen during training (26.4% to 38.0%). Behavioral analysis further shows that RL reduces repetitive-call rates by up to $4\\times$, shortens successful executions, and improves recovery from negative feedback. Project page: https://aim-uofa.github.io/RoboHarness-RL/",
+      "url": "http://arxiv.org/abs/2611.32016v1",
+      "authors": [
+        "Liyang Li",
+        "Mingyu Liu",
+        "Xiaoman Li",
+        "Zhiyue Zhao",
+        "Jin-Chuan Shi",
+        "Canyu Zhao",
+        "Haokai Zhang",
+        "Jinyuan Tian",
+        "Linhao Zhong",
+        "Hao Chen",
+        "Chunhua Shen"
+      ],
+      "report_date": "2026-11-26",
+      "published": "2026-11-24",
+      "updated": "2026-11-24",
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO",
+        "cs.CV"
+      ],
+      "project_url": "",
+      "repo_url": "",
+      "venue_status": "未确认录用",
+      "recommendation": {
+        "score": 92,
+        "level": "高",
+        "label": "值得核读",
+        "water_risk": "中",
+        "value_judgement": "长期工具交互训练应联合检查记忆接口、失败反馈利用和采样课程；压缩历史不只是降token，还改变策略能否持续纠错。",
+        "reason": "长期工具交互训练应联合检查记忆接口、失败反馈利用和采样课程；压缩历史不只是降token，还改变策略能否持续纠错。",
+        "signals": {
+          "agenticRl": true,
+          "multiTurn": true,
+          "longHorizon": true,
+          "memory": true,
+          "reliability": false,
+          "codeOrTool": true,
+          "experiments": false,
+          "survey": false
+        }
+      },
+      "brief": {
+        "authors": [
+          "Liyang Li",
+          "Mingyu Liu",
+          "Xiaoman Li",
+          "Zhiyue Zhao",
+          "Jin-Chuan Shi",
+          "Canyu Zhao",
+          "Haokai Zhang",
+          "Jinyuan Tian",
+          "Linhao Zhong",
+          "Hao Chen",
+          "Chunhua Shen"
+        ],
+        "affiliations": "arXiv metadata 未提供；需要正文或项目页确认单位。",
+        "date": "2026-11-24",
+        "paper_url": "https://arxiv.org/abs/2611.32016v1",
+        "project_url": "",
+        "repo_url": "",
+        "venue_status": "未确认录用",
+        "contribution": "长期工具交互训练应联合检查记忆接口、失败反馈利用和采样课程；压缩历史不只是降token，还改变策略能否持续纠错。",
+        "summary": "紧凑开源VLM通过感知、规划和控制工具操作机器人时，模仿成功轨迹仍易重复失败，长历史也让多轮RL昂贵。 LiteHarness提供简短工具定义，确定性维护近期观测、早期摘要和失败记录，不额外调用压缩模型；成功teacher轨迹SFT后，用任务终局奖励、通用工具惩罚和GRPO训练VLM，感知与运动规划器固定；按任务近期成败自适应调度rollout。 两个基准分别训练，Qwen3.5-9B：RoboTwin clean250回合31.2→44.0%，未见随机场景250回合26.4→38.0%；LIBERO-Pro800回合57.8→73.3%。Long的Task/Swap仅42/42%。同初始状态配对分析中，LIBERO有155个SFT失败转成功、31个成功转失败；改进伴随回归。 长期工具交互训练应联合检查记忆接口、失败反馈利用和采样课程；压缩历史不只是降token，还改变策略能否持续纠错。 每基准单独训练，任务调用预算80–200、机器人动作上限80，不能当作统一跨任务策略。训练包含teacher数据与自适应课程，记忆消融有训练接口熟悉度混杂。结果均为仿真，真实机器人迁移尚未评估；作者结果未独立复现。",
+        "highlights": [
+          "长期工具交互训练应联合检查记忆接口、失败反馈利用和采样课程；压缩历史不只是降token，还改变策略能否持续纠错。",
+          "偏水风险：中",
+          "阅读来源：arXiv PDF正文与实验表"
+        ],
+        "motivation": "紧凑开源VLM通过感知、规划和控制工具操作机器人时，模仿成功轨迹仍易重复失败，长历史也让多轮RL昂贵。",
+        "method": "LiteHarness提供简短工具定义，确定性维护近期观测、早期摘要和失败记录，不额外调用压缩模型；成功teacher轨迹SFT后，用任务终局奖励、通用工具惩罚和GRPO训练VLM，感知与运动规划器固定；按任务近期成败自适应调度rollout。",
+        "experiments": "两个基准分别训练，Qwen3.5-9B：RoboTwin clean250回合31.2→44.0%，未见随机场景250回合26.4→38.0%；LIBERO-Pro800回合57.8→73.3%。Long的Task/Swap仅42/42%。同初始状态配对分析中，LIBERO有155个SFT失败转成功、31个成功转失败；改进伴随回归。",
+        "research_help": "长期工具交互训练应联合检查记忆接口、失败反馈利用和采样课程；压缩历史不只是降token，还改变策略能否持续纠错。",
+        "recommendation": {
+          "score": 92,
+          "level": "高",
+          "label": "值得核读",
+          "water_risk": "中",
+          "value_judgement": "长期工具交互训练应联合检查记忆接口、失败反馈利用和采样课程；压缩历史不只是降token，还改变策略能否持续纠错。",
+          "reason": "长期工具交互训练应联合检查记忆接口、失败反馈利用和采样课程；压缩历史不只是降token，还改变策略能否持续纠错。",
+          "signals": {
+            "agenticRl": true,
+            "multiTurn": true,
+            "longHorizon": true,
+            "memory": true,
+            "reliability": false,
+            "codeOrTool": true,
+            "experiments": false,
+            "survey": false
+          }
+        },
+        "insight": "长期工具交互训练应联合检查记忆接口、失败反馈利用和采样课程；压缩历史不只是降token，还改变策略能否持续纠错。",
+        "limitations": "每基准单独训练，任务调用预算80–200、机器人动作上限80，不能当作统一跨任务策略。训练包含teacher数据与自适应课程，记忆消融有训练接口熟悉度混杂。结果均为仿真，真实机器人迁移尚未评估；作者结果未独立复现。",
+        "abstract_zh": "RoboHarness-RL以紧凑分层记忆支持多轮工具调用RL；9B模型RoboTwin成功率31.2→44.0%，LIBERO-Pro57.8→73.3%。 紧凑开源VLM通过感知、规划和控制工具操作机器人时，模仿成功轨迹仍易重复失败，长历史也让多轮RL昂贵。",
+        "full_summary": "紧凑开源VLM通过感知、规划和控制工具操作机器人时，模仿成功轨迹仍易重复失败，长历史也让多轮RL昂贵。 LiteHarness提供简短工具定义，确定性维护近期观测、早期摘要和失败记录，不额外调用压缩模型；成功teacher轨迹SFT后，用任务终局奖励、通用工具惩罚和GRPO训练VLM，感知与运动规划器固定；按任务近期成败自适应调度rollout。 两个基准分别训练，Qwen3.5-9B：RoboTwin clean250回合31.2→44.0%，未见随机场景250回合26.4→38.0%；LIBERO-Pro800回合57.8→73.3%。Long的Task/Swap仅42/42%。同初始状态配对分析中，LIBERO有155个SFT失败转成功、31个成功转失败；改进伴随回归。 长期工具交互训练应联合检查记忆接口、失败反馈利用和采样课程；压缩历史不只是降token，还改变策略能否持续纠错。 每基准单独训练，任务调用预算80–200、机器人动作上限80，不能当作统一跨任务策略。训练包含teacher数据与自适应课程，记忆消融有训练接口熟悉度混杂。结果均为仿真，真实机器人迁移尚未评估；作者结果未独立复现。",
+        "card_summary": "RoboHarness-RL以紧凑分层记忆支持多轮工具调用RL；9B模型RoboTwin成功率31.2→44.0%，LIBERO-Pro57.8→73.3%。"
+      },
+      "analysis": {
+        "card_summary": "RoboHarness-RL以紧凑分层记忆支持多轮工具调用RL；9B模型RoboTwin成功率31.2→44.0%，LIBERO-Pro57.8→73.3%。",
+        "motivation": "紧凑开源VLM通过感知、规划和控制工具操作机器人时，模仿成功轨迹仍易重复失败，长历史也让多轮RL昂贵。",
+        "method": "LiteHarness提供简短工具定义，确定性维护近期观测、早期摘要和失败记录，不额外调用压缩模型；成功teacher轨迹SFT后，用任务终局奖励、通用工具惩罚和GRPO训练VLM，感知与运动规划器固定；按任务近期成败自适应调度rollout。",
+        "experiments": "两个基准分别训练，Qwen3.5-9B：RoboTwin clean250回合31.2→44.0%，未见随机场景250回合26.4→38.0%；LIBERO-Pro800回合57.8→73.3%。Long的Task/Swap仅42/42%。同初始状态配对分析中，LIBERO有155个SFT失败转成功、31个成功转失败；改进伴随回归。",
+        "insight": "长期工具交互训练应联合检查记忆接口、失败反馈利用和采样课程；压缩历史不只是降token，还改变策略能否持续纠错。",
+        "research_help": "长期工具交互训练应联合检查记忆接口、失败反馈利用和采样课程；压缩历史不只是降token，还改变策略能否持续纠错。",
+        "limitations": "每基准单独训练，任务调用预算80–200、机器人动作上限80，不能当作统一跨任务策略。训练包含teacher数据与自适应课程，记忆消融有训练接口熟悉度混杂。结果均为仿真，真实机器人迁移尚未评估；作者结果未独立复现。",
+        "abstract_zh": "RoboHarness-RL以紧凑分层记忆支持多轮工具调用RL；9B模型RoboTwin成功率31.2→44.0%，LIBERO-Pro57.8→73.3%。 紧凑开源VLM通过感知、规划和控制工具操作机器人时，模仿成功轨迹仍易重复失败，长历史也让多轮RL昂贵。",
+        "full_summary": "紧凑开源VLM通过感知、规划和控制工具操作机器人时，模仿成功轨迹仍易重复失败，长历史也让多轮RL昂贵。 LiteHarness提供简短工具定义，确定性维护近期观测、早期摘要和失败记录，不额外调用压缩模型；成功teacher轨迹SFT后，用任务终局奖励、通用工具惩罚和GRPO训练VLM，感知与运动规划器固定；按任务近期成败自适应调度rollout。 两个基准分别训练，Qwen3.5-9B：RoboTwin clean250回合31.2→44.0%，未见随机场景250回合26.4→38.0%；LIBERO-Pro800回合57.8→73.3%。Long的Task/Swap仅42/42%。同初始状态配对分析中，LIBERO有155个SFT失败转成功、31个成功转失败；改进伴随回归。 长期工具交互训练应联合检查记忆接口、失败反馈利用和采样课程；压缩历史不只是降token，还改变策略能否持续纠错。 每基准单独训练，任务调用预算80–200、机器人动作上限80，不能当作统一跨任务策略。训练包含teacher数据与自适应课程，记忆消融有训练接口熟悉度混杂。结果均为仿真，真实机器人迁移尚未评估；作者结果未独立复现。",
+        "recommendation_level": "高",
+        "water_risk": "中",
+        "value_label": "值得核读",
+        "value_reason": "长期工具交互训练应联合检查记忆接口、失败反馈利用和采样课程；压缩历史不只是降token，还改变策略能否持续纠错。",
+        "source_scope": "full_text",
+        "source_note": "直接核读arXiv v1 PDF正文、实验与局限，并渲染核对结果表；作者结果未独立复现。",
+        "source_evidence": [
+          "§3–4，表1及记忆/课程消融；PDF第5页表1已渲染核对",
+          "https://arxiv.org/abs/2611.32016v1"
+        ],
+        "model": "manual-full-text-review",
+        "updated_at": "2026-11-26T01:36:23.622320+00:00"
+      }
+    },
+    {
+      "id": "2611.31891v1",
+      "title": "Open-OmniCoach: Evidence-Enhanced Trajectory Learning for Omni Video Agents",
+      "summary": "Training capable omni video agents requires more than diverse question-answer pairs: agents must learn to reliably find, connect, and correct task-relevant evidence in omni-setting. However, we argue that existing data pipelines provide limited control over task-relevant evidence and weak supervision for these capabilities. In this work, we present Open OmniCoach, a new framework for evidence-seeking omni video agents. It contains a high-quality dataset, OmniCoach-240K, and a new agentic reinforcement learning (RL) method, Step-Level Evidence-Guided Policy Optimization (SEPO). For the former, OmniCoach-240K comprises 248.2K interaction trajectories, including 230.7K multi-span trajectories and 17.4K reflection trajectories. We design a three-stage data pipeline by leveraging both fine-grained omni-evidence and the agent's own errors. Meanwhile, compared with other RL baselines, SEPO provides turn-level credit based on improvements in evidence coverage and temporal localization. Applying both trajectory data and the SEPO method, we obtain Open OmniAgent models. The resulting models outperform the baselines across multiple video and audio-visual understanding tasks by significant margins, demonstrating the effectiveness of the Open OmniCoach framework. In particular, Open OmniAgent-30B improves average accuracy over Qwen3-Omni by 6.3 percentage points across nine benchmarks, with gains of 12.2 and 13.3 points on LVOmniBench and LVBench, respectively.",
+      "url": "http://arxiv.org/abs/2611.31891v1",
+      "authors": [
+        "Weisong Liu",
+        "Xiangtai Li",
+        "Haochen Wang",
+        "Haiquan Wen",
+        "Zhaoxiang Zhang"
+      ],
+      "report_date": "2026-11-26",
+      "published": "2026-11-24",
+      "updated": "2026-11-24",
+      "primary_category": "cs.CV",
+      "categories": [
+        "cs.CV"
+      ],
+      "project_url": "",
+      "repo_url": "",
+      "venue_status": "未确认录用",
+      "recommendation": {
+        "score": 86,
+        "level": "高",
+        "label": "值得核读",
+        "water_risk": "中",
+        "value_judgement": "过程信用可依据“本轮新增了什么证据”而非只看终局答案；纠错轨迹需和等量成功轨迹比较，才能避免把数据量收益误当纠错能力。",
+        "reason": "过程信用可依据“本轮新增了什么证据”而非只看终局答案；纠错轨迹需和等量成功轨迹比较，才能避免把数据量收益误当纠错能力。",
+        "signals": {
+          "agenticRl": true,
+          "multiTurn": true,
+          "longHorizon": false,
+          "memory": false,
+          "reliability": true,
+          "codeOrTool": false,
+          "experiments": true,
+          "survey": false
+        }
+      },
+      "brief": {
+        "authors": [
+          "Weisong Liu",
+          "Xiangtai Li",
+          "Haochen Wang",
+          "Haiquan Wen",
+          "Zhaoxiang Zhang"
+        ],
+        "affiliations": "arXiv metadata 未提供；需要正文或项目页确认单位。",
+        "date": "2026-11-24",
+        "paper_url": "https://arxiv.org/abs/2611.31891v1",
+        "project_url": "",
+        "repo_url": "",
+        "venue_status": "未确认录用",
+        "contribution": "过程信用可依据“本轮新增了什么证据”而非只看终局答案；纠错轨迹需和等量成功轨迹比较，才能避免把数据量收益误当纠错能力。",
+        "summary": "视频QA只监督答案难以教会agent去哪里找证据、如何联合音视频以及发现错误后如何修正；统一终局优势也混淆有效与重复工具调用。 构建约248.2K交互轨迹，包含230.7K多区间取证和17.4K错误恢复轨迹，先SFT再RL。SEPO以已取片段对标注证据的覆盖与定位增益调整每步优势强度，保持原优势符号，在相同GSPO-token实现上比较。推理最多12轮工具交互。 30B-A3B五音视频基准均分52.7→58.1%。表4同框架四基准：base44.7、多区间SFT51.3、加reflection52.7、GSPO53.3、SEPO54.1%。表5等轨迹量25%子集：成功轨迹替换reflection得48.0%，完整reflection49.2%；只监督首个纠错turn为48.5%，使用token更少。 过程信用可依据“本轮新增了什么证据”而非只看终局答案；纠错轨迹需和等量成功轨迹比较，才能避免把数据量收益误当纠错能力。 收益大部分来自轨迹SFT，SEPO较同实现GSPO提升约0.8点，不能把全部增益归给RL。需要细粒度证据标注与teacher诊断，数据集对照还涉及监督格式差异；视频时长不等同于agent交互horizon。作者结果未独立复现。",
+        "highlights": [
+          "过程信用可依据“本轮新增了什么证据”而非只看终局答案；纠错轨迹需和等量成功轨迹比较，才能避免把数据量收益误当纠错能力。",
+          "偏水风险：中",
+          "阅读来源：arXiv PDF正文与实验表"
+        ],
+        "motivation": "视频QA只监督答案难以教会agent去哪里找证据、如何联合音视频以及发现错误后如何修正；统一终局优势也混淆有效与重复工具调用。",
+        "method": "构建约248.2K交互轨迹，包含230.7K多区间取证和17.4K错误恢复轨迹，先SFT再RL。SEPO以已取片段对标注证据的覆盖与定位增益调整每步优势强度，保持原优势符号，在相同GSPO-token实现上比较。推理最多12轮工具交互。",
+        "experiments": "30B-A3B五音视频基准均分52.7→58.1%。表4同框架四基准：base44.7、多区间SFT51.3、加reflection52.7、GSPO53.3、SEPO54.1%。表5等轨迹量25%子集：成功轨迹替换reflection得48.0%，完整reflection49.2%；只监督首个纠错turn为48.5%，使用token更少。",
+        "research_help": "过程信用可依据“本轮新增了什么证据”而非只看终局答案；纠错轨迹需和等量成功轨迹比较，才能避免把数据量收益误当纠错能力。",
+        "recommendation": {
+          "score": 86,
+          "level": "高",
+          "label": "值得核读",
+          "water_risk": "中",
+          "value_judgement": "过程信用可依据“本轮新增了什么证据”而非只看终局答案；纠错轨迹需和等量成功轨迹比较，才能避免把数据量收益误当纠错能力。",
+          "reason": "过程信用可依据“本轮新增了什么证据”而非只看终局答案；纠错轨迹需和等量成功轨迹比较，才能避免把数据量收益误当纠错能力。",
+          "signals": {
+            "agenticRl": true,
+            "multiTurn": true,
+            "longHorizon": false,
+            "memory": false,
+            "reliability": true,
+            "codeOrTool": false,
+            "experiments": true,
+            "survey": false
+          }
+        },
+        "insight": "过程信用可依据“本轮新增了什么证据”而非只看终局答案；纠错轨迹需和等量成功轨迹比较，才能避免把数据量收益误当纠错能力。",
+        "limitations": "收益大部分来自轨迹SFT，SEPO较同实现GSPO提升约0.8点，不能把全部增益归给RL。需要细粒度证据标注与teacher诊断，数据集对照还涉及监督格式差异；视频时长不等同于agent交互horizon。作者结果未独立复现。",
+        "abstract_zh": "Open-OmniCoach用多轮取证与纠错轨迹训练视频agent；SEPO按新增证据调节信用，四基准均分比GSPO高0.8点。 视频QA只监督答案难以教会agent去哪里找证据、如何联合音视频以及发现错误后如何修正；统一终局优势也混淆有效与重复工具调用。",
+        "full_summary": "视频QA只监督答案难以教会agent去哪里找证据、如何联合音视频以及发现错误后如何修正；统一终局优势也混淆有效与重复工具调用。 构建约248.2K交互轨迹，包含230.7K多区间取证和17.4K错误恢复轨迹，先SFT再RL。SEPO以已取片段对标注证据的覆盖与定位增益调整每步优势强度，保持原优势符号，在相同GSPO-token实现上比较。推理最多12轮工具交互。 30B-A3B五音视频基准均分52.7→58.1%。表4同框架四基准：base44.7、多区间SFT51.3、加reflection52.7、GSPO53.3、SEPO54.1%。表5等轨迹量25%子集：成功轨迹替换reflection得48.0%，完整reflection49.2%；只监督首个纠错turn为48.5%，使用token更少。 过程信用可依据“本轮新增了什么证据”而非只看终局答案；纠错轨迹需和等量成功轨迹比较，才能避免把数据量收益误当纠错能力。 收益大部分来自轨迹SFT，SEPO较同实现GSPO提升约0.8点，不能把全部增益归给RL。需要细粒度证据标注与teacher诊断，数据集对照还涉及监督格式差异；视频时长不等同于agent交互horizon。作者结果未独立复现。",
+        "card_summary": "Open-OmniCoach用多轮取证与纠错轨迹训练视频agent；SEPO按新增证据调节信用，四基准均分比GSPO高0.8点。"
+      },
+      "analysis": {
+        "card_summary": "Open-OmniCoach用多轮取证与纠错轨迹训练视频agent；SEPO按新增证据调节信用，四基准均分比GSPO高0.8点。",
+        "motivation": "视频QA只监督答案难以教会agent去哪里找证据、如何联合音视频以及发现错误后如何修正；统一终局优势也混淆有效与重复工具调用。",
+        "method": "构建约248.2K交互轨迹，包含230.7K多区间取证和17.4K错误恢复轨迹，先SFT再RL。SEPO以已取片段对标注证据的覆盖与定位增益调整每步优势强度，保持原优势符号，在相同GSPO-token实现上比较。推理最多12轮工具交互。",
+        "experiments": "30B-A3B五音视频基准均分52.7→58.1%。表4同框架四基准：base44.7、多区间SFT51.3、加reflection52.7、GSPO53.3、SEPO54.1%。表5等轨迹量25%子集：成功轨迹替换reflection得48.0%，完整reflection49.2%；只监督首个纠错turn为48.5%，使用token更少。",
+        "insight": "过程信用可依据“本轮新增了什么证据”而非只看终局答案；纠错轨迹需和等量成功轨迹比较，才能避免把数据量收益误当纠错能力。",
+        "research_help": "过程信用可依据“本轮新增了什么证据”而非只看终局答案；纠错轨迹需和等量成功轨迹比较，才能避免把数据量收益误当纠错能力。",
+        "limitations": "收益大部分来自轨迹SFT，SEPO较同实现GSPO提升约0.8点，不能把全部增益归给RL。需要细粒度证据标注与teacher诊断，数据集对照还涉及监督格式差异；视频时长不等同于agent交互horizon。作者结果未独立复现。",
+        "abstract_zh": "Open-OmniCoach用多轮取证与纠错轨迹训练视频agent；SEPO按新增证据调节信用，四基准均分比GSPO高0.8点。 视频QA只监督答案难以教会agent去哪里找证据、如何联合音视频以及发现错误后如何修正；统一终局优势也混淆有效与重复工具调用。",
+        "full_summary": "视频QA只监督答案难以教会agent去哪里找证据、如何联合音视频以及发现错误后如何修正；统一终局优势也混淆有效与重复工具调用。 构建约248.2K交互轨迹，包含230.7K多区间取证和17.4K错误恢复轨迹，先SFT再RL。SEPO以已取片段对标注证据的覆盖与定位增益调整每步优势强度，保持原优势符号，在相同GSPO-token实现上比较。推理最多12轮工具交互。 30B-A3B五音视频基准均分52.7→58.1%。表4同框架四基准：base44.7、多区间SFT51.3、加reflection52.7、GSPO53.3、SEPO54.1%。表5等轨迹量25%子集：成功轨迹替换reflection得48.0%，完整reflection49.2%；只监督首个纠错turn为48.5%，使用token更少。 过程信用可依据“本轮新增了什么证据”而非只看终局答案；纠错轨迹需和等量成功轨迹比较，才能避免把数据量收益误当纠错能力。 收益大部分来自轨迹SFT，SEPO较同实现GSPO提升约0.8点，不能把全部增益归给RL。需要细粒度证据标注与teacher诊断，数据集对照还涉及监督格式差异；视频时长不等同于agent交互horizon。作者结果未独立复现。",
+        "recommendation_level": "高",
+        "water_risk": "中",
+        "value_label": "值得核读",
+        "value_reason": "过程信用可依据“本轮新增了什么证据”而非只看终局答案；纠错轨迹需和等量成功轨迹比较，才能避免把数据量收益误当纠错能力。",
+        "source_scope": "full_text",
+        "source_note": "直接核读arXiv v1 PDF正文、实验与局限，并渲染核对结果表；作者结果未独立复现。",
+        "source_evidence": [
+          "§2–4，表2/4/5；PDF第9页同实现RL消融已渲染核对",
+          "https://arxiv.org/abs/2611.31891v1"
+        ],
+        "model": "manual-full-text-review",
+        "updated_at": "2026-11-26T01:36:23.622320+00:00"
+      }
+    },
+    {
+      "id": "2611.33148v1",
+      "title": "CoT-Proxy: Cross-Format Transfer for Distilling Long-Horizon Policies",
+      "summary": "Reasoning models become long-horizon agents through reinforcement learning or, more cheaply, through fine-tuning on a stronger teacher's trajectories, which contain the teacher's chain-of-thought as well as its actions. The standard fine-tuning approach imitates both, yet the strongest teachers are closed models whose chain-of-thought is hidden behind an API. We show that the chain-of-thought can be left out altogether and that the long-horizon policy can be distilled from the teacher's actions alone. The student is trained on these trajectories with its reasoning block left empty, while a KL loss on a replay buffer of its own generations limits drift from its initial model. Surprisingly, the policy learned from these trajectories with an empty reasoning block carries over to inference with thinking enabled, where the student reasons in its own style while acting like the teacher, an effect we call cross-format transfer. Distilling the actions of Qwen3.6-27B raises the task success of Qwen3-4B on AppWorld from 7% to 18% and that of Qwen3-32B from 12% to 25%. We further introduce CoT-proxies, short summaries of the teacher's reasoning placed after the empty reasoning block, which raise Qwen3-4B further, to 35%. Since neither actions nor CoT-proxies need the hidden chain-of-thought, the recipe applies unchanged to closed teachers. Distilling GPT-5.6 Luna from its visible outputs and the reasoning summaries its API returns raises Qwen3-4B from 7% to 48% on AppWorld and from 3% to 28% on SWE-bench Verified.",
+      "url": "http://arxiv.org/abs/2611.33148v1",
+      "authors": [
+        "Dawid J. Kopiczko",
+        "Tijmen Blankevoort",
+        "Yuki M. Asano"
+      ],
+      "report_date": "2026-11-26",
+      "published": "2026-11-24",
+      "updated": "2026-11-24",
+      "primary_category": "cs.CL",
+      "categories": [
+        "cs.CL"
+      ],
+      "project_url": "",
+      "repo_url": "",
+      "venue_status": "未确认录用",
+      "recommendation": {
+        "score": 58,
+        "level": "高",
+        "label": "值得核读",
+        "water_risk": "中",
+        "value_judgement": "蒸馏策略不一定要复制teacher完整思考；目标格式、动作清洗和域外KL回放共同决定能否保留student的推理并迁移长程行为。",
+        "reason": "蒸馏策略不一定要复制teacher完整思考；目标格式、动作清洗和域外KL回放共同决定能否保留student的推理并迁移长程行为。",
+        "signals": {
+          "agenticRl": true,
+          "multiTurn": false,
+          "longHorizon": true,
+          "memory": false,
+          "reliability": false,
+          "codeOrTool": false,
+          "experiments": false,
+          "survey": false
+        }
+      },
+      "brief": {
+        "authors": [
+          "Dawid J. Kopiczko",
+          "Tijmen Blankevoort",
+          "Yuki M. Asano"
+        ],
+        "affiliations": "arXiv metadata 未提供；需要正文或项目页确认单位。",
+        "date": "2026-11-24",
+        "paper_url": "https://arxiv.org/abs/2611.33148v1",
+        "project_url": "",
+        "repo_url": "",
+        "venue_status": "未确认录用",
+        "contribution": "蒸馏策略不一定要复制teacher完整思考；目标格式、动作清洗和域外KL回放共同决定能否保留student的推理并迁移长程行为。",
+        "summary": "强teacher的完整思维链不可获得，直接模仿长思考也可能挤占长程交互预算；需判断动作轨迹能否迁移到student自己的推理格式。 仅监督teacher解析后的动作，thinking块留空；CoT-proxy再在空thinking后加入短推理摘要。以初始student在域外问题上的固定生成池做全词表KL回放，每更新17条teacher与3条replay，限制能力漂移。评测启用thinking，实现训练到推理的跨格式迁移。 AppWorld test-normal168任务、56场景：开源teacher下Qwen3-4B初始7.3%、action-only17.9%、proxy34.5%，三种子。闭源teacher下action-only35.1%、proxy48.2%；SWE-bench Verified500任务初始2.7%、proxy27.8%，该闭源SWE设置单次运行。保留teacher动作周围可见文本会让闭源proxy48.2→36.1%，动作清洗至关重要。 蒸馏策略不一定要复制teacher完整思考；目标格式、动作清洗和域外KL回放共同决定能否保留student的推理并迁移长程行为。 proxy依然需要teacher摘要，并非完全无推理信息监督；student推理时继续生成思考。闭源SWE用了更多teacher轨迹和五遍训练，不能与开源teacher结果作等预算因果比较；AppWorld主要是test-normal而非全面分布外验证。作者结果未独立复现。",
+        "highlights": [
+          "蒸馏策略不一定要复制teacher完整思考；目标格式、动作清洗和域外KL回放共同决定能否保留student的推理并迁移长程行为。",
+          "偏水风险：中",
+          "阅读来源：arXiv PDF正文与实验表"
+        ],
+        "motivation": "强teacher的完整思维链不可获得，直接模仿长思考也可能挤占长程交互预算；需判断动作轨迹能否迁移到student自己的推理格式。",
+        "method": "仅监督teacher解析后的动作，thinking块留空；CoT-proxy再在空thinking后加入短推理摘要。以初始student在域外问题上的固定生成池做全词表KL回放，每更新17条teacher与3条replay，限制能力漂移。评测启用thinking，实现训练到推理的跨格式迁移。",
+        "experiments": "AppWorld test-normal168任务、56场景：开源teacher下Qwen3-4B初始7.3%、action-only17.9%、proxy34.5%，三种子。闭源teacher下action-only35.1%、proxy48.2%；SWE-bench Verified500任务初始2.7%、proxy27.8%，该闭源SWE设置单次运行。保留teacher动作周围可见文本会让闭源proxy48.2→36.1%，动作清洗至关重要。",
+        "research_help": "蒸馏策略不一定要复制teacher完整思考；目标格式、动作清洗和域外KL回放共同决定能否保留student的推理并迁移长程行为。",
+        "recommendation": {
+          "score": 58,
+          "level": "高",
+          "label": "值得核读",
+          "water_risk": "中",
+          "value_judgement": "蒸馏策略不一定要复制teacher完整思考；目标格式、动作清洗和域外KL回放共同决定能否保留student的推理并迁移长程行为。",
+          "reason": "蒸馏策略不一定要复制teacher完整思考；目标格式、动作清洗和域外KL回放共同决定能否保留student的推理并迁移长程行为。",
+          "signals": {
+            "agenticRl": true,
+            "multiTurn": false,
+            "longHorizon": true,
+            "memory": false,
+            "reliability": false,
+            "codeOrTool": false,
+            "experiments": false,
+            "survey": false
+          }
+        },
+        "insight": "蒸馏策略不一定要复制teacher完整思考；目标格式、动作清洗和域外KL回放共同决定能否保留student的推理并迁移长程行为。",
+        "limitations": "proxy依然需要teacher摘要，并非完全无推理信息监督；student推理时继续生成思考。闭源SWE用了更多teacher轨迹和五遍训练，不能与开源teacher结果作等预算因果比较；AppWorld主要是test-normal而非全面分布外验证。作者结果未独立复现。",
+        "abstract_zh": "CoT-Proxy用动作与短摘要蒸馏长程策略，训练留空thinking、推理仍思考；闭源teacher下4B AppWorld成功率7.3→48.2%。 强teacher的完整思维链不可获得，直接模仿长思考也可能挤占长程交互预算；需判断动作轨迹能否迁移到student自己的推理格式。",
+        "full_summary": "强teacher的完整思维链不可获得，直接模仿长思考也可能挤占长程交互预算；需判断动作轨迹能否迁移到student自己的推理格式。 仅监督teacher解析后的动作，thinking块留空；CoT-proxy再在空thinking后加入短推理摘要。以初始student在域外问题上的固定生成池做全词表KL回放，每更新17条teacher与3条replay，限制能力漂移。评测启用thinking，实现训练到推理的跨格式迁移。 AppWorld test-normal168任务、56场景：开源teacher下Qwen3-4B初始7.3%、action-only17.9%、proxy34.5%，三种子。闭源teacher下action-only35.1%、proxy48.2%；SWE-bench Verified500任务初始2.7%、proxy27.8%，该闭源SWE设置单次运行。保留teacher动作周围可见文本会让闭源proxy48.2→36.1%，动作清洗至关重要。 蒸馏策略不一定要复制teacher完整思考；目标格式、动作清洗和域外KL回放共同决定能否保留student的推理并迁移长程行为。 proxy依然需要teacher摘要，并非完全无推理信息监督；student推理时继续生成思考。闭源SWE用了更多teacher轨迹和五遍训练，不能与开源teacher结果作等预算因果比较；AppWorld主要是test-normal而非全面分布外验证。作者结果未独立复现。",
+        "card_summary": "CoT-Proxy用动作与短摘要蒸馏长程策略，训练留空thinking、推理仍思考；闭源teacher下4B AppWorld成功率7.3→48.2%。"
+      },
+      "analysis": {
+        "card_summary": "CoT-Proxy用动作与短摘要蒸馏长程策略，训练留空thinking、推理仍思考；闭源teacher下4B AppWorld成功率7.3→48.2%。",
+        "motivation": "强teacher的完整思维链不可获得，直接模仿长思考也可能挤占长程交互预算；需判断动作轨迹能否迁移到student自己的推理格式。",
+        "method": "仅监督teacher解析后的动作，thinking块留空；CoT-proxy再在空thinking后加入短推理摘要。以初始student在域外问题上的固定生成池做全词表KL回放，每更新17条teacher与3条replay，限制能力漂移。评测启用thinking，实现训练到推理的跨格式迁移。",
+        "experiments": "AppWorld test-normal168任务、56场景：开源teacher下Qwen3-4B初始7.3%、action-only17.9%、proxy34.5%，三种子。闭源teacher下action-only35.1%、proxy48.2%；SWE-bench Verified500任务初始2.7%、proxy27.8%，该闭源SWE设置单次运行。保留teacher动作周围可见文本会让闭源proxy48.2→36.1%，动作清洗至关重要。",
+        "insight": "蒸馏策略不一定要复制teacher完整思考；目标格式、动作清洗和域外KL回放共同决定能否保留student的推理并迁移长程行为。",
+        "research_help": "蒸馏策略不一定要复制teacher完整思考；目标格式、动作清洗和域外KL回放共同决定能否保留student的推理并迁移长程行为。",
+        "limitations": "proxy依然需要teacher摘要，并非完全无推理信息监督；student推理时继续生成思考。闭源SWE用了更多teacher轨迹和五遍训练，不能与开源teacher结果作等预算因果比较；AppWorld主要是test-normal而非全面分布外验证。作者结果未独立复现。",
+        "abstract_zh": "CoT-Proxy用动作与短摘要蒸馏长程策略，训练留空thinking、推理仍思考；闭源teacher下4B AppWorld成功率7.3→48.2%。 强teacher的完整思维链不可获得，直接模仿长思考也可能挤占长程交互预算；需判断动作轨迹能否迁移到student自己的推理格式。",
+        "full_summary": "强teacher的完整思维链不可获得，直接模仿长思考也可能挤占长程交互预算；需判断动作轨迹能否迁移到student自己的推理格式。 仅监督teacher解析后的动作，thinking块留空；CoT-proxy再在空thinking后加入短推理摘要。以初始student在域外问题上的固定生成池做全词表KL回放，每更新17条teacher与3条replay，限制能力漂移。评测启用thinking，实现训练到推理的跨格式迁移。 AppWorld test-normal168任务、56场景：开源teacher下Qwen3-4B初始7.3%、action-only17.9%、proxy34.5%，三种子。闭源teacher下action-only35.1%、proxy48.2%；SWE-bench Verified500任务初始2.7%、proxy27.8%，该闭源SWE设置单次运行。保留teacher动作周围可见文本会让闭源proxy48.2→36.1%，动作清洗至关重要。 蒸馏策略不一定要复制teacher完整思考；目标格式、动作清洗和域外KL回放共同决定能否保留student的推理并迁移长程行为。 proxy依然需要teacher摘要，并非完全无推理信息监督；student推理时继续生成思考。闭源SWE用了更多teacher轨迹和五遍训练，不能与开源teacher结果作等预算因果比较；AppWorld主要是test-normal而非全面分布外验证。作者结果未独立复现。",
+        "recommendation_level": "高",
+        "water_risk": "中",
+        "value_label": "值得核读",
+        "value_reason": "蒸馏策略不一定要复制teacher完整思考；目标格式、动作清洗和域外KL回放共同决定能否保留student的推理并迁移长程行为。",
+        "source_scope": "full_text",
+        "source_note": "直接核读arXiv v1 PDF正文、实验与局限，并渲染核对结果表；作者结果未独立复现。",
+        "source_evidence": [
+          "§3–6，表1/2/4/7；PDF第5页闭源teacher表已渲染核对",
+          "https://arxiv.org/abs/2611.33148v1"
+        ],
+        "model": "manual-full-text-review",
+        "updated_at": "2026-11-26T01:36:23.622320+00:00"
+      }
+    },
+    {
+      "id": "2611.31656v1",
+      "title": "BRAG: Bayesian Retrieval Augmented Generation",
+      "summary": "Retrieval-augmented generation (RAG) ranks memory chunks by semantic similarity to the query. Many methods improve on this by learning from feedback on what was retrieved, but each is a separate heuristic, with no account of when it is the right choice. We introduce BRAG, a generative model of retrieval with use. Each chunk generates the queries it answers from a mixture of von Mises-Fisher components anchored at its original embedding, and each chunk has a latent utility that drifts over time. The model gives the optimal inference, a closed-form filter that stores a few keys and two scalars per chunk and updates them online from the labels of a curator, and it frames retrieval as a control problem. It also shows when existing methods are optimal. Query averaging, Rocchio-style feedback and frequency reranking are special cases with fixed parameters, NUDGE is the case of one key per chunk with no dynamics, and LADER the limit of one key per past query. On two public long-term memory benchmarks, BRAG matches these methods on queries asked before, as expected, because when nothing changes over time the assumptions behind these special cases hold. On harder problems, where a new chunk makes an old one obsolete, BRAG outscores them. They all stay at plain-search level (Recall@5 0.67-0.71), while BRAG retrieves the new chunk 0.80-0.86 of the time. We also ran BRAG on three of NUDGE's seven text benchmarks, and it matches or beats NUDGE on all three. On nine months of a personal agent's memory (20,640 chunks), BRAG raises Recall@5 on held-out queries from 0.75 to 0.98 and Recall@1 from 0.44 to 0.97, with little change on chunks never queried.",
+      "url": "http://arxiv.org/abs/2611.31656v1",
+      "authors": [
+        "Javier Movellan",
+        "Manjot Bilkhu",
+        "Young-mok Jung",
+        "Sirajul Salekin",
+        "Henry Tran",
+        "Zhao Huang"
+      ],
+      "report_date": "2026-11-26",
+      "published": "2026-11-23",
+      "updated": "2026-11-23",
+      "primary_category": "cs.AI",
+      "categories": [
+        "cs.AI"
+      ],
+      "project_url": "",
+      "repo_url": "",
+      "venue_status": "未确认录用",
+      "recommendation": {
+        "score": 68,
+        "level": "高",
+        "label": "值得核读",
+        "water_risk": "中",
+        "value_judgement": "持续记忆优化需同时测旧需求重复、新事实替代与从未触达内容；检索自反馈会形成曝光偏差，时间动态和门控不能只按平均召回选择。",
+        "reason": "持续记忆优化需同时测旧需求重复、新事实替代与从未触达内容；检索自反馈会形成曝光偏差，时间动态和门控不能只按平均召回选择。",
+        "signals": {
+          "agenticRl": false,
+          "multiTurn": false,
+          "longHorizon": false,
+          "memory": true,
+          "reliability": true,
+          "codeOrTool": false,
+          "experiments": true,
+          "survey": false
+        }
+      },
+      "brief": {
+        "authors": [
+          "Javier Movellan",
+          "Manjot Bilkhu",
+          "Young-mok Jung",
+          "Sirajul Salekin",
+          "Henry Tran",
+          "Zhao Huang"
+        ],
+        "affiliations": "arXiv metadata 未提供；需要正文或项目页确认单位。",
+        "date": "2026-11-23",
+        "paper_url": "https://arxiv.org/abs/2611.31656v1",
+        "project_url": "",
+        "repo_url": "",
+        "venue_status": "未确认录用",
+        "contribution": "持续记忆优化需同时测旧需求重复、新事实替代与从未触达内容；检索自反馈会形成曝光偏差，时间动态和门控不能只按平均召回选择。",
+        "summary": "跨月agent记忆的可用性随事实更新和遗忘请求变化；只把旧查询聚合到embedding会过度强化陈旧内容。 为每chunk维护vMF多键查询模型与Beta效用信念，以时间衰减和检索标签更新信念、以带原embedding先验的EM调整键，再联合语义匹配与效用排序。BRAG+增加近邻门控，并由curator把被替代旧chunk的知识迁给新chunk。 表2：LongMemEval-M事实更新Recall@5，plain0.711→BRAG0.860；PersonaMem-v2遗忘0.673→0.801。但从未问过内容0.444→0.320，BRAG+恢复至0.424。个人九个月20640chunk记忆的281条held-out查询，14个shuffle运行，Recall@1 0.438→0.969、@5 0.747→0.977；查询由agent生成且同chunk另有训练查询。 持续记忆优化需同时测旧需求重复、新事实替代与从未触达内容；检索自反馈会形成曝光偏差，时间动态和门控不能只按平均召回选择。 主实验多用gold标签与模拟时间；真实LLM curator标签下PersonaMem-v2 Recall@5约0.664→0.489。个人语料来自单一用户且查询合成，不能当作多用户部署保证；未问查询回答准确率也下降7.8点。贝叶斯最优性依赖生成模型与近似滤波假设；作者结果未独立复现。",
+        "highlights": [
+          "持续记忆优化需同时测旧需求重复、新事实替代与从未触达内容；检索自反馈会形成曝光偏差，时间动态和门控不能只按平均召回选择。",
+          "偏水风险：中",
+          "阅读来源：arXiv PDF正文与实验表"
+        ],
+        "motivation": "跨月agent记忆的可用性随事实更新和遗忘请求变化；只把旧查询聚合到embedding会过度强化陈旧内容。",
+        "method": "为每chunk维护vMF多键查询模型与Beta效用信念，以时间衰减和检索标签更新信念、以带原embedding先验的EM调整键，再联合语义匹配与效用排序。BRAG+增加近邻门控，并由curator把被替代旧chunk的知识迁给新chunk。",
+        "experiments": "表2：LongMemEval-M事实更新Recall@5，plain0.711→BRAG0.860；PersonaMem-v2遗忘0.673→0.801。但从未问过内容0.444→0.320，BRAG+恢复至0.424。个人九个月20640chunk记忆的281条held-out查询，14个shuffle运行，Recall@1 0.438→0.969、@5 0.747→0.977；查询由agent生成且同chunk另有训练查询。",
+        "research_help": "持续记忆优化需同时测旧需求重复、新事实替代与从未触达内容；检索自反馈会形成曝光偏差，时间动态和门控不能只按平均召回选择。",
+        "recommendation": {
+          "score": 68,
+          "level": "高",
+          "label": "值得核读",
+          "water_risk": "中",
+          "value_judgement": "持续记忆优化需同时测旧需求重复、新事实替代与从未触达内容；检索自反馈会形成曝光偏差，时间动态和门控不能只按平均召回选择。",
+          "reason": "持续记忆优化需同时测旧需求重复、新事实替代与从未触达内容；检索自反馈会形成曝光偏差，时间动态和门控不能只按平均召回选择。",
+          "signals": {
+            "agenticRl": false,
+            "multiTurn": false,
+            "longHorizon": false,
+            "memory": true,
+            "reliability": true,
+            "codeOrTool": false,
+            "experiments": true,
+            "survey": false
+          }
+        },
+        "insight": "持续记忆优化需同时测旧需求重复、新事实替代与从未触达内容；检索自反馈会形成曝光偏差，时间动态和门控不能只按平均召回选择。",
+        "limitations": "主实验多用gold标签与模拟时间；真实LLM curator标签下PersonaMem-v2 Recall@5约0.664→0.489。个人语料来自单一用户且查询合成，不能当作多用户部署保证；未问查询回答准确率也下降7.8点。贝叶斯最优性依赖生成模型与近似滤波假设；作者结果未独立复现。",
+        "abstract_zh": "BRAG让长期记忆检索同时学习语义键与时变效用；更新/遗忘场景Recall@5达0.860/0.801，但未问内容退化。 跨月agent记忆的可用性随事实更新和遗忘请求变化；只把旧查询聚合到embedding会过度强化陈旧内容。",
+        "full_summary": "跨月agent记忆的可用性随事实更新和遗忘请求变化；只把旧查询聚合到embedding会过度强化陈旧内容。 为每chunk维护vMF多键查询模型与Beta效用信念，以时间衰减和检索标签更新信念、以带原embedding先验的EM调整键，再联合语义匹配与效用排序。BRAG+增加近邻门控，并由curator把被替代旧chunk的知识迁给新chunk。 表2：LongMemEval-M事实更新Recall@5，plain0.711→BRAG0.860；PersonaMem-v2遗忘0.673→0.801。但从未问过内容0.444→0.320，BRAG+恢复至0.424。个人九个月20640chunk记忆的281条held-out查询，14个shuffle运行，Recall@1 0.438→0.969、@5 0.747→0.977；查询由agent生成且同chunk另有训练查询。 持续记忆优化需同时测旧需求重复、新事实替代与从未触达内容；检索自反馈会形成曝光偏差，时间动态和门控不能只按平均召回选择。 主实验多用gold标签与模拟时间；真实LLM curator标签下PersonaMem-v2 Recall@5约0.664→0.489。个人语料来自单一用户且查询合成，不能当作多用户部署保证；未问查询回答准确率也下降7.8点。贝叶斯最优性依赖生成模型与近似滤波假设；作者结果未独立复现。",
+        "card_summary": "BRAG让长期记忆检索同时学习语义键与时变效用；更新/遗忘场景Recall@5达0.860/0.801，但未问内容退化。"
+      },
+      "analysis": {
+        "card_summary": "BRAG让长期记忆检索同时学习语义键与时变效用；更新/遗忘场景Recall@5达0.860/0.801，但未问内容退化。",
+        "motivation": "跨月agent记忆的可用性随事实更新和遗忘请求变化；只把旧查询聚合到embedding会过度强化陈旧内容。",
+        "method": "为每chunk维护vMF多键查询模型与Beta效用信念，以时间衰减和检索标签更新信念、以带原embedding先验的EM调整键，再联合语义匹配与效用排序。BRAG+增加近邻门控，并由curator把被替代旧chunk的知识迁给新chunk。",
+        "experiments": "表2：LongMemEval-M事实更新Recall@5，plain0.711→BRAG0.860；PersonaMem-v2遗忘0.673→0.801。但从未问过内容0.444→0.320，BRAG+恢复至0.424。个人九个月20640chunk记忆的281条held-out查询，14个shuffle运行，Recall@1 0.438→0.969、@5 0.747→0.977；查询由agent生成且同chunk另有训练查询。",
+        "insight": "持续记忆优化需同时测旧需求重复、新事实替代与从未触达内容；检索自反馈会形成曝光偏差，时间动态和门控不能只按平均召回选择。",
+        "research_help": "持续记忆优化需同时测旧需求重复、新事实替代与从未触达内容；检索自反馈会形成曝光偏差，时间动态和门控不能只按平均召回选择。",
+        "limitations": "主实验多用gold标签与模拟时间；真实LLM curator标签下PersonaMem-v2 Recall@5约0.664→0.489。个人语料来自单一用户且查询合成，不能当作多用户部署保证；未问查询回答准确率也下降7.8点。贝叶斯最优性依赖生成模型与近似滤波假设；作者结果未独立复现。",
+        "abstract_zh": "BRAG让长期记忆检索同时学习语义键与时变效用；更新/遗忘场景Recall@5达0.860/0.801，但未问内容退化。 跨月agent记忆的可用性随事实更新和遗忘请求变化；只把旧查询聚合到embedding会过度强化陈旧内容。",
+        "full_summary": "跨月agent记忆的可用性随事实更新和遗忘请求变化；只把旧查询聚合到embedding会过度强化陈旧内容。 为每chunk维护vMF多键查询模型与Beta效用信念，以时间衰减和检索标签更新信念、以带原embedding先验的EM调整键，再联合语义匹配与效用排序。BRAG+增加近邻门控，并由curator把被替代旧chunk的知识迁给新chunk。 表2：LongMemEval-M事实更新Recall@5，plain0.711→BRAG0.860；PersonaMem-v2遗忘0.673→0.801。但从未问过内容0.444→0.320，BRAG+恢复至0.424。个人九个月20640chunk记忆的281条held-out查询，14个shuffle运行，Recall@1 0.438→0.969、@5 0.747→0.977；查询由agent生成且同chunk另有训练查询。 持续记忆优化需同时测旧需求重复、新事实替代与从未触达内容；检索自反馈会形成曝光偏差，时间动态和门控不能只按平均召回选择。 主实验多用gold标签与模拟时间；真实LLM curator标签下PersonaMem-v2 Recall@5约0.664→0.489。个人语料来自单一用户且查询合成，不能当作多用户部署保证；未问查询回答准确率也下降7.8点。贝叶斯最优性依赖生成模型与近似滤波假设；作者结果未独立复现。",
+        "recommendation_level": "高",
+        "water_risk": "中",
+        "value_label": "值得核读",
+        "value_reason": "持续记忆优化需同时测旧需求重复、新事实替代与从未触达内容；检索自反馈会形成曝光偏差，时间动态和门控不能只按平均召回选择。",
+        "source_scope": "full_text",
+        "source_note": "直接核读arXiv v1 PDF正文、实验与局限，并渲染核对结果表；作者结果未独立复现。",
+        "source_evidence": [
+          "§2–6，表1/2及附录表5；PDF第7页更新/遗忘/未问分项已渲染核对",
+          "https://arxiv.org/abs/2611.31656v1"
+        ],
+        "model": "manual-full-text-review",
+        "updated_at": "2026-11-26T01:36:23.622320+00:00"
+      }
+    },
     {
       "id": "2611.30412v1",
       "title": "DMC-5: Dual-Model Collaboration with Cache-aware Context Compression for Long-horizon Agents",
