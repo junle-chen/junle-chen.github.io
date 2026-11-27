@@ -10,9 +10,15 @@
 	root.JunleVisitorRegions = factory(root);
 })(typeof window !== "undefined" ? window : globalThis, function (root) {
 	const STORAGE_KEY = "junle-homepage-visitor-region-recorded-at-v1";
-	const DEFAULT_GEO_ENDPOINT = "https://ipapi.co/json/";
+	const DEFAULT_GEO_ENDPOINT = "https://api.country.is/";
+	const FALLBACK_GEO_ENDPOINT = "https://ipapi.co/json/";
+	const GEO_TIMEOUT_MS = 3000;
 	const DEFAULT_VISIT_WINDOW_MS = 1000 * 60 * 60 * 6;
 	const DEFAULT_LIMIT = 8;
+	const VISIT_PAGE_SIZE = 500;
+	const regionNames = typeof Intl.DisplayNames === "function"
+		? new Intl.DisplayNames(["en"], { type: "region", fallback: "none" })
+		: null;
 
 	function cleanText(value, maxLength) {
 		return String(value || "")
@@ -24,41 +30,58 @@
 
 	function normalizeCountryCode(value) {
 		const code = cleanText(value, 8).toUpperCase();
-		return /^[A-Z]{2}$/.test(code) ? code : "ZZ";
+		return /^[A-Z]{2}$/.test(code) && code !== "XX" ? code : "ZZ";
 	}
 
 	function normalizeGeoPayload(payload) {
 		const data = payload || {};
-		const regionLabel =
-			cleanText(data.country_name || data.countryName || data.country || data.region || data.city, 80) ||
-			"Unknown";
+		const countryCode = normalizeCountryCode(data.country_code || data.country || data.countryCode);
+		if (data.error || countryCode === "ZZ") {
+			return null;
+		}
 		return {
-			countryCode: normalizeCountryCode(data.country_code || data.countryCode || data.countryCode2),
-			regionLabel,
-			cityLabel: cleanText(data.city, 80),
+			countryCode,
+			regionLabel: cleanText(data.country_name, 80) || (regionNames && regionNames.of(countryCode)) || countryCode,
 		};
 	}
 
 	function formatVisitRows(rows, limit) {
-		return (Array.isArray(rows) ? rows : [])
-			.map((row) => {
-				const count = Number.parseInt(row && row.visit_count, 10);
-				return {
-					countryCode: normalizeCountryCode(row && row.country_code),
-					label: cleanText(row && row.region_label, 80) || "Unknown",
-					detail: cleanText(row && row.city_label, 80),
-					count: Number.isFinite(count) && count > 0 ? count : 0,
-				};
-			})
-			.sort((a, b) => b.count - a.count || a.label.localeCompare(b.label))
+		const byCountry = new Map();
+		let unknownCount = 0;
+		for (const row of Array.isArray(rows) ? rows : []) {
+			const count = Number(row && row.visit_count);
+			if (!Number.isSafeInteger(count) || count <= 0) {
+				continue;
+			}
+			const countryCode = normalizeCountryCode(row.country_code);
+			if (countryCode === "ZZ") {
+				unknownCount += count;
+				continue;
+			}
+			const country = byCountry.get(countryCode);
+			if (country) {
+				country.count += count;
+			} else {
+				const label = (regionNames && regionNames.of(countryCode)) || cleanText(row.region_label, 80) || countryCode;
+				byCountry.set(countryCode, { countryCode, label, count });
+			}
+		}
+		const regions = [...byCountry.values()]
+			.sort((a, b) => b.count - a.count || a.countryCode.localeCompare(b.countryCode))
 			.slice(0, limit || DEFAULT_LIMIT);
+		return { regions, unknownCount };
 	}
 
 	function shouldRecordVisit(storage, now, windowMs) {
 		if (!storage || typeof storage.getItem !== "function") {
 			return true;
 		}
-		const recordedAt = Number(storage.getItem(STORAGE_KEY));
+		let recordedAt;
+		try {
+			recordedAt = Number(storage.getItem(STORAGE_KEY));
+		} catch (error) {
+			return true;
+		}
 		if (!Number.isFinite(recordedAt) || recordedAt <= 0) {
 			return true;
 		}
@@ -93,35 +116,49 @@
 		status.dataset.state = state || "";
 	}
 
-	function renderVisitRows(container, rows) {
+	function setUnknownLabel(note) {
+		const chinese = root.JunleLanguage && root.JunleLanguage.current === "zh";
+		const label = chinese ? "未识别地区的访问次数" : "Visits with an unidentified region";
+		note.textContent = label + " · " + note.dataset.count;
+	}
+
+	function renderUnknownCount(list, count) {
+		let note = list.parentElement.querySelector("[data-visitor-region-unknown]");
+		if (count && !note) {
+			note = list.ownerDocument.createElement("p");
+			note.className = "about-detail";
+			note.dataset.visitorRegionUnknown = "";
+			list.after(note);
+		}
+		if (note) {
+			note.hidden = count === 0;
+			note.dataset.count = String(count);
+			setUnknownLabel(note);
+		}
+	}
+
+	function renderVisitRows(container, rows, limit) {
 		const list = container && container.querySelector("[data-visitor-region-list]");
 		if (!list) {
 			return;
 		}
-		const items = formatVisitRows(rows);
+		const { regions, unknownCount } = formatVisitRows(rows, limit);
+		renderUnknownCount(list, unknownCount);
 		list.innerHTML = "";
-		if (!items.length) {
+		if (!regions.length && !unknownCount) {
 			setStatus(container, "No visit data yet.", "empty");
 			return;
 		}
 		setStatus(container, "", "ready");
-		items.forEach((item) => {
-			const li = document.createElement("li");
+		regions.forEach((item) => {
+			const li = list.ownerDocument.createElement("li");
 			li.className = "visitor-region-item";
-			li.innerHTML = [
-				'<span class="visitor-region-code">',
-				item.countryCode,
-				"</span>",
-				'<span class="visitor-region-main">',
-				'<strong class="visitor-region-label"></strong>',
-				item.detail ? '<span class="visitor-region-detail"></span>' : "",
-				"</span>",
-				'<span class="visitor-region-count"></span>',
-			].join("");
+			li.innerHTML =
+				'<span class="visitor-region-code"></span>' +
+				'<span class="visitor-region-main"><strong class="visitor-region-label"></strong></span>' +
+				'<span class="visitor-region-count"></span>';
+			li.querySelector(".visitor-region-code").textContent = item.countryCode;
 			li.querySelector(".visitor-region-label").textContent = item.label;
-			if (item.detail) {
-				li.querySelector(".visitor-region-detail").textContent = item.detail;
-			}
 			li.querySelector(".visitor-region-count").textContent = String(item.count);
 			list.appendChild(li);
 		});
@@ -136,57 +173,73 @@
 		return win.supabase.createClient(config.supabaseUrl, config.supabaseAnonKey);
 	}
 
-	function fetchGeo(fetchImpl, endpoint) {
-		const fetcher = fetchImpl || root.fetch;
-		if (typeof fetcher !== "function") {
-			return Promise.resolve(normalizeGeoPayload({}));
-		}
-		return fetcher(endpoint || DEFAULT_GEO_ENDPOINT, { cache: "no-store" })
-			.then((response) => {
-				if (!response || !response.ok) {
-					throw new Error("Geo lookup failed");
+	async function fetchGeo(fetcher, endpoints) {
+		for (const endpoint of endpoints) {
+			const controller = new AbortController();
+			const timeout = setTimeout(() => controller.abort(), GEO_TIMEOUT_MS);
+			try {
+				const response = await fetcher(endpoint, { cache: "no-store", signal: controller.signal });
+				const geo = response.ok ? normalizeGeoPayload(await response.json()) : null;
+				if (geo) {
+					return geo;
 				}
-				return response.json();
-			})
-			.then(normalizeGeoPayload)
-			.catch(() => normalizeGeoPayload({}));
+			} catch (error) {
+				// A blocked, timed-out, or malformed response should allow the next provider to run.
+			} finally {
+				clearTimeout(timeout);
+			}
+		}
+		return null;
 	}
 
-	function recordVisit(client, geo) {
-		if (!client || !client.rpc) {
-			return Promise.resolve();
+	async function recordVisit(client, storage, now, settings, win) {
+		const fetcher = settings.fetch || (win.fetch && win.fetch.bind(win));
+		if (!client.rpc || !fetcher || !shouldRecordVisit(storage, now, settings.visitWindowMs)) {
+			return false;
 		}
-		return client
-			.rpc("record_site_visit_region", {
+		try {
+			const geo = await fetchGeo(fetcher, settings.geoEndpoint
+				? [settings.geoEndpoint]
+				: [DEFAULT_GEO_ENDPOINT, FALLBACK_GEO_ENDPOINT]);
+			if (!geo) {
+				return false;
+			}
+			const { error } = await client.rpc("record_site_visit_region", {
 				p_country_code: geo.countryCode,
 				p_region_label: geo.regionLabel,
-				p_city_label: geo.cityLabel,
-			})
-			.then((result) => {
-				if (result && result.error) {
-					throw result.error;
-				}
+				p_city_label: "",
 			});
-	}
-
-	function loadVisitRows(client, limit) {
-		if (!client || !client.from) {
-			return Promise.resolve([]);
+			if (error) {
+				return false;
+			}
+			markVisitRecorded(storage, now);
+			return true;
+		} catch (error) {
+			return false;
 		}
-		return client
-			.from("site_visit_regions")
-			.select("country_code, region_label, city_label, visit_count")
-			.order("visit_count", { ascending: false })
-			.limit(limit || DEFAULT_LIMIT)
-			.then((result) => {
-				if (result && result.error) {
-					throw result.error;
-				}
-				return result && result.data ? result.data : [];
-			});
 	}
 
-	function init(options) {
+	async function loadVisitRows(client) {
+		const rows = [];
+		let lastId;
+		for (;;) {
+			const query = client.from("site_visit_regions")
+				.select("id, country_code, region_label, visit_count")
+				.order("id")
+				.limit(VISIT_PAGE_SIZE);
+			const { data, error } = await (lastId ? query.gt("id", lastId) : query);
+			if (error) {
+				throw error;
+			}
+			rows.push(...data);
+			if (data.length < VISIT_PAGE_SIZE) {
+				return rows;
+			}
+			lastId = data[data.length - 1].id;
+		}
+	}
+
+	async function init(options) {
 		const settings = options || {};
 		const win = settings.window || root;
 		const doc = settings.document || win.document;
@@ -197,7 +250,6 @@
 		if (!container) {
 			return Promise.resolve([]);
 		}
-		const storage = settings.storage || win.localStorage;
 		const now = settings.now || Date.now();
 		const client = settings.client || createClient(win);
 		if (!client) {
@@ -205,22 +257,27 @@
 			return Promise.resolve([]);
 		}
 		setStatus(container, "Loading visitor regions...", "loading");
-		const maybeRecord = shouldRecordVisit(storage, now, settings.visitWindowMs)
-			? fetchGeo(settings.fetch, settings.geoEndpoint)
-					.then((geo) =>
-						recordVisit(client, geo).then(() => markVisitRecorded(storage, now)).catch(() => undefined)
-					)
-			: Promise.resolve();
-		return maybeRecord
-			.then(() => loadVisitRows(client, settings.limit || DEFAULT_LIMIT))
-			.then((rows) => {
-				renderVisitRows(container, rows);
-				return rows;
-			})
+		const showRows = (rows) => {
+			renderVisitRows(container, rows, settings.limit);
+			return rows;
+		};
+		const displayedRows = loadVisitRows(client)
+			.then(showRows)
 			.catch(() => {
 				setStatus(container, "Visitor stats are unavailable.", "error");
 				return [];
 			});
+		let storage = settings.storage;
+		if (storage === undefined) {
+			try {
+				storage = win.localStorage;
+			} catch (error) {
+				// Some browser privacy settings disable local storage.
+			}
+		}
+		const recorded = await recordVisit(client, storage, now, settings, win);
+		const rows = await displayedRows;
+		return recorded ? loadVisitRows(client).then(showRows).catch(() => rows) : rows;
 	}
 
 	if (typeof window !== "undefined" && window.document) {
@@ -228,6 +285,8 @@
 			const container = window.document.querySelector("[data-visitor-regions]");
 			const status = container && container.querySelector("[data-visitor-region-status]");
 			if (status) setStatus(container, status.dataset.message, status.dataset.state);
+			const note = container && container.querySelector("[data-visitor-region-unknown]");
+			if (note) setUnknownLabel(note);
 		});
 		const boot = () => init();
 		if (window.document.readyState === "loading") {
