@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-26T01:36:23.622320+00:00",
+  "updated_at": "2026-11-27T01:37:19.196531+00:00",
   "source": "arxiv",
   "analysis_method": "Codex CLI workflow with manual arXiv PDF full-text review and rendered result-page verification; per-item source notes identify the analysis path.",
   "query_focus": "多轮交互式 agent planning、long-horizon planning、stateful/personalized planning、agent memory、planning reliability、agentic RL",
@@ -37,34 +37,36 @@
     "codex_reader": "Downloads arXiv PDFs, extracts text with pdftotext or bundled Python PDF libraries, then calls codex exec to write Chinese motivation/method/experiment/research-help fields."
   },
   "digest": {
-    "title": "2026-11-26 Daily Paper",
-    "report_date": "2026-11-26",
+    "title": "2026-11-27 Daily Paper",
+    "report_date": "2026-11-27",
     "focus": "多轮交互式 agent planning、long-horizon planning、stateful/personalized planning、agent memory、planning reliability、agentic RL",
-    "summary": "今日新增6篇，覆盖长期记忆效用、有状态分支探索、机器人多轮工具RL、视频agent过程信用与长程策略跨格式蒸馏。已核读正文并渲染核对实验表，结果为作者报告，未独立复现。",
+    "summary": "今日新增7篇：长程RL局部纠错、证据驱动蒸馏回放、互审协议信用、测试时语言适配、异步图文记忆、视觉取证信用及经验图规划。已核读正文并渲染实验表；结果为作者报告，未独立复现。",
     "top_recommendations": [
-      "2611.33148v1",
-      "2611.32016v1",
-      "2611.33005v1"
+      "2611.34777v1",
+      "2611.34756v1",
+      "2611.34440v1"
     ],
     "low_priority": [],
     "no_news_policy": "如果没有新的高相关论文，自动化应返回“今日无高相关新增论文”，不写邮件正文文件，也不发送邮件。",
-    "email_body": "2026-11-26 Daily Paper\n\nLeto: Utility-Centric Agent Memory\nLeto用原始来源索引、常驻用户/任务状态和反馈门控服务记忆；MemoryArena五环境平均成功率18.33%。\nhttps://arxiv.org/abs/2611.33005v1\n\nTimeTravelContainer: A Live Forking Sandbox for Stateful Agent Exploration\nTimeTravelContainer为有状态工具提供CoW运行中分叉；Innovus克隆快61.8–84.1倍，EvoDRC十调用快1.7–9.7倍。\nhttps://arxiv.org/abs/2611.32255v1\n\nRoboHarness-RL: Agentic Reinforcement Learning for VLM-Based Robot Manipulation\nRoboHarness-RL以紧凑分层记忆支持多轮工具调用RL；9B模型RoboTwin成功率31.2→44.0%，LIBERO-Pro57.8→73.3%。\nhttps://arxiv.org/abs/2611.32016v1\n\nOpen-OmniCoach: Evidence-Enhanced Trajectory Learning for Omni Video Agents\nOpen-OmniCoach用多轮取证与纠错轨迹训练视频agent；SEPO按新增证据调节信用，四基准均分比GSPO高0.8点。\nhttps://arxiv.org/abs/2611.31891v1\n\nCoT-Proxy: Cross-Format Transfer for Distilling Long-Horizon Policies\nCoT-Proxy用动作与短摘要蒸馏长程策略，训练留空thinking、推理仍思考；闭源teacher下4B AppWorld成功率7.3→48.2%。\nhttps://arxiv.org/abs/2611.33148v1\n\nBRAG: Bayesian Retrieval Augmented Generation\nBRAG让长期记忆检索同时学习语义键与时变效用；更新/遗忘场景Recall@5达0.860/0.801，但未问内容退化。\nhttps://arxiv.org/abs/2611.31656v1"
+    "email_body": "2026-11-27 Daily Paper\n\nWhen Every Rollout Fails: Splicing Learner-Conditioned Options into Long-Horizon Agent RL\nSPLICE为全失败组插入短teacher选项，再用student续跑估值；SWE/检索四设置比GRPO高2.8–9.8点。\nhttps://arxiv.org/abs/2611.34777v1\n\nCollect for Coverage, Replay with Evidence: Adaptive and Efficient On-Policy Distillation for Long-Horizon Agents\nCARE-OPD以student前缀扩覆盖、证据挑turn回放；SWE达59.5%，较异步在线OPD训练快45%。\nhttps://arxiv.org/abs/2611.34756v1\n\nPROVE: Mitigating Long-Horizon LLM Collusion with Reinforcement Learning from Verified Evidence\nPROVE按验证证据与模型调用分配RL信用；十episode互审中的串谋率65→1%，限单一协议。\nhttps://arxiv.org/abs/2611.34215v1\n\nvSFT: Learning to Verbally Tune Agents at Test Time\nvSFT把失败反思经hypernetwork变为LoRA；最多十次尝试下ALFWorld均分92.7%、WebShop49%。\nhttps://arxiv.org/abs/2611.34440v1\n\nAgentic LongLive: Asynchronous Agentic Memory for Long Video Generation\nAgentic LongLive异步维护图文实体记忆；故事状态准确率38.2→64.5%，低延迟依赖额外GPU。\nhttps://arxiv.org/abs/2611.34907v1\n\nAgentic Reinforcement Learning with Immediate and Prospective Credit Assignment for Medical Visual Reasoning\nMedPACT给取证动作即时支持与后续决策信用；8B在OmniMed/PMC选择题准确率91.90/58.32%。\nhttps://arxiv.org/abs/2611.33777v1\n\nLong-Horizon Planning with Latent World Models via Graph Anchors\nGraph Anchors用经验图把远目标化为近锚点；导航迷宫13→85%、8→87%，接触任务需另设参数。\nhttps://arxiv.org/abs/2611.34509v1"
   },
   "latest_item_ids": [
-    "2611.33005v1",
-    "2611.32255v1",
-    "2611.32016v1",
-    "2611.31891v1",
-    "2611.33148v1",
-    "2611.31656v1"
+    "2611.34777v1",
+    "2611.34756v1",
+    "2611.34215v1",
+    "2611.34440v1",
+    "2611.34907v1",
+    "2611.33777v1",
+    "2611.34509v1"
   ],
   "archive": {
     "policy": "append_or_update_by_arxiv_id",
-    "fresh_items": 6,
-    "total_items": 641,
-    "previous_items": 635,
-    "latest_items": 6,
+    "fresh_items": 7,
+    "total_items": 648,
+    "previous_items": 641,
+    "latest_items": 7,
     "source_report_dates": {
+      "2026-11-27": 7,
       "2026-11-26": 6,
       "2026-11-25": 7,
       "2026-11-24": 2,
@@ -140,28 +142,857 @@
       "undefined": 39
     },
     "filtered_candidate_ids": [
-      "2611.33005v1",
-      "2611.32255v1",
-      "2611.32016v1",
-      "2611.31891v1",
-      "2611.33148v1",
-      "2611.31656v1"
+      "2611.34777v1",
+      "2611.34756v1",
+      "2611.34215v1",
+      "2611.34440v1",
+      "2611.34907v1",
+      "2611.33777v1",
+      "2611.34509v1"
     ],
-    "filtered_today": 6,
+    "filtered_today": 7,
     "rejected_candidate_ids": [
-      "2611.32812v1",
-      "2611.31880v1",
-      "2611.30405v1",
-      "2611.30412v1",
-      "2611.30613v1",
-      "2611.31344v1",
-      "2611.31499v1",
-      "2611.29255v1",
-      "2611.29294v1",
-      "2611.29571v1"
+      "2611.34536v1",
+      "2611.34818v1",
+      "2611.34088v1",
+      "2611.32812v1"
     ]
   },
   "items": [
+    {
+      "id": "2611.34777v1",
+      "title": "When Every Rollout Fails: Splicing Learner-Conditioned Options into Long-Horizon Agent RL",
+      "summary": "Group-based reinforcement learning with verifiable rewards often yields all-fail groups on long-horizon agent tasks: every sampled trajectory receives zero reward, leaving group-relative methods without a reward-based policy gradient. A common remedy supplies complete solutions from a stronger model, but full trajectories are expensive and expose the learner to long off-policy histories. We introduce SPLICE, which constructs local training targets from failed current-policy trajectories online. For each all-fail group, a proposal model selects a splice point in a current-policy trajectory and generates several bounded options from that point. We estimate each option's value using repeated current-policy continuations, convert positive estimates into a return-weighted local target, and fit the current policy on the options. We evaluate SPLICE across two policy families on two long-horizon agent tasks, Software Engineering with SWE-bench Verified and Deep Research with BrowseComp-Plus. SPLICE outperforms GRPO and full-trajectory guidance baselines in all four settings, improving over GRPO by 2.8--9.8 percentage points. On initially failed SWE tasks, it raises GRPO's graduation rate by 10.8 percentage points. Further experiments show that SPLICE improves performance while reducing costly proposal-model computation.",
+      "url": "http://arxiv.org/abs/2611.34777v1",
+      "authors": [
+        "Haowen Hou",
+        "Yicheng Liu",
+        "Zhen Huang",
+        "Jiaqi Wang"
+      ],
+      "report_date": "2026-11-27",
+      "published": "2026-11-25",
+      "updated": "2026-11-25",
+      "primary_category": "cs.LG",
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "cs.CL"
+      ],
+      "project_url": "",
+      "repo_url": "",
+      "venue_status": "未确认录用",
+      "recommendation": {
+        "score": 86,
+        "level": "高",
+        "label": "值得核读",
+        "water_risk": "中",
+        "value_judgement": "局部建议应按“当前learner能否接着做完”衡量，而不只看teacher自己能否成功；选项长度决定纠错覆盖与离策略暴露之间的平衡。",
+        "reason": "局部建议应按“当前learner能否接着做完”衡量，而不只看teacher自己能否成功；选项长度决定纠错覆盖与离策略暴露之间的平衡。",
+        "signals": {
+          "agenticRl": true,
+          "multiTurn": false,
+          "longHorizon": true,
+          "memory": false,
+          "reliability": true,
+          "codeOrTool": false,
+          "experiments": true,
+          "survey": false
+        }
+      },
+      "brief": {
+        "authors": [
+          "Haowen Hou",
+          "Yicheng Liu",
+          "Zhen Huang",
+          "Jiaqi Wang"
+        ],
+        "affiliations": "arXiv metadata 未提供；需要正文或项目页确认单位。",
+        "date": "2026-11-25",
+        "paper_url": "https://arxiv.org/abs/2611.34777v1",
+        "project_url": "",
+        "repo_url": "",
+        "venue_status": "未确认录用",
+        "contribution": "局部建议应按“当前learner能否接着做完”衡量，而不只看teacher自己能否成功；选项长度决定纠错覆盖与离策略暴露之间的平衡。",
+        "summary": "长程任务的二值奖励常使整组rollout全失败，GRPO缺少奖励梯度；完整teacher解答又昂贵且引入长段离策略历史。 仅对全失败组随机选一条失败轨迹，由proposal模型结合终局反馈选择可恢复分支点，提出至多平均轨迹长度30%的短选项；每选项以当前策略续跑三次，保留正回报选项并按标准化估值softmax构造局部监督。混合成败组继续GRPO。SWE用容器snapshot恢复，搜索用历史恢复。 表1三训练种子：Qwen3-8B-CS的SWE/BrowseComp-Plus由GRPO15.9/20.2%升至25.7/29.3%；Qwen3.5-9B由58.4/46.2%升至61.2/50.7%。SWE初始失败训练任务graduation8.1→18.9%。相比ReLIFT强模型turns113.4k→93.5k，但总时长13.9→13.5h，仅小幅下降；纯GRPO为11.9h。 局部建议应按“当前learner能否接着做完”衡量，而不只看teacher自己能否成功；选项长度决定纠错覆盖与离策略暴露之间的平衡。 控制共同任务数据而非完全相同计算预算，3次续跑的估值有采样误差；恢复状态与额外student执行可能很昂贵。graduation是训练集单rollout指标；不是测试集pass率。理论目标性质不等于完整神经训练收敛保证。作者结果未独立复现。",
+        "highlights": [
+          "局部建议应按“当前learner能否接着做完”衡量，而不只看teacher自己能否成功；选项长度决定纠错覆盖与离策略暴露之间的平衡。",
+          "偏水风险：中",
+          "阅读来源：arXiv PDF正文与实验表"
+        ],
+        "motivation": "长程任务的二值奖励常使整组rollout全失败，GRPO缺少奖励梯度；完整teacher解答又昂贵且引入长段离策略历史。",
+        "method": "仅对全失败组随机选一条失败轨迹，由proposal模型结合终局反馈选择可恢复分支点，提出至多平均轨迹长度30%的短选项；每选项以当前策略续跑三次，保留正回报选项并按标准化估值softmax构造局部监督。混合成败组继续GRPO。SWE用容器snapshot恢复，搜索用历史恢复。",
+        "experiments": "表1三训练种子：Qwen3-8B-CS的SWE/BrowseComp-Plus由GRPO15.9/20.2%升至25.7/29.3%；Qwen3.5-9B由58.4/46.2%升至61.2/50.7%。SWE初始失败训练任务graduation8.1→18.9%。相比ReLIFT强模型turns113.4k→93.5k，但总时长13.9→13.5h，仅小幅下降；纯GRPO为11.9h。",
+        "research_help": "局部建议应按“当前learner能否接着做完”衡量，而不只看teacher自己能否成功；选项长度决定纠错覆盖与离策略暴露之间的平衡。",
+        "recommendation": {
+          "score": 86,
+          "level": "高",
+          "label": "值得核读",
+          "water_risk": "中",
+          "value_judgement": "局部建议应按“当前learner能否接着做完”衡量，而不只看teacher自己能否成功；选项长度决定纠错覆盖与离策略暴露之间的平衡。",
+          "reason": "局部建议应按“当前learner能否接着做完”衡量，而不只看teacher自己能否成功；选项长度决定纠错覆盖与离策略暴露之间的平衡。",
+          "signals": {
+            "agenticRl": true,
+            "multiTurn": false,
+            "longHorizon": true,
+            "memory": false,
+            "reliability": true,
+            "codeOrTool": false,
+            "experiments": true,
+            "survey": false
+          }
+        },
+        "insight": "局部建议应按“当前learner能否接着做完”衡量，而不只看teacher自己能否成功；选项长度决定纠错覆盖与离策略暴露之间的平衡。",
+        "limitations": "控制共同任务数据而非完全相同计算预算，3次续跑的估值有采样误差；恢复状态与额外student执行可能很昂贵。graduation是训练集单rollout指标；不是测试集pass率。理论目标性质不等于完整神经训练收敛保证。作者结果未独立复现。",
+        "abstract_zh": "SPLICE为全失败组插入短teacher选项，再用student续跑估值；SWE/检索四设置比GRPO高2.8–9.8点。 长程任务的二值奖励常使整组rollout全失败，GRPO缺少奖励梯度；完整teacher解答又昂贵且引入长段离策略历史。",
+        "full_summary": "长程任务的二值奖励常使整组rollout全失败，GRPO缺少奖励梯度；完整teacher解答又昂贵且引入长段离策略历史。 仅对全失败组随机选一条失败轨迹，由proposal模型结合终局反馈选择可恢复分支点，提出至多平均轨迹长度30%的短选项；每选项以当前策略续跑三次，保留正回报选项并按标准化估值softmax构造局部监督。混合成败组继续GRPO。SWE用容器snapshot恢复，搜索用历史恢复。 表1三训练种子：Qwen3-8B-CS的SWE/BrowseComp-Plus由GRPO15.9/20.2%升至25.7/29.3%；Qwen3.5-9B由58.4/46.2%升至61.2/50.7%。SWE初始失败训练任务graduation8.1→18.9%。相比ReLIFT强模型turns113.4k→93.5k，但总时长13.9→13.5h，仅小幅下降；纯GRPO为11.9h。 局部建议应按“当前learner能否接着做完”衡量，而不只看teacher自己能否成功；选项长度决定纠错覆盖与离策略暴露之间的平衡。 控制共同任务数据而非完全相同计算预算，3次续跑的估值有采样误差；恢复状态与额外student执行可能很昂贵。graduation是训练集单rollout指标；不是测试集pass率。理论目标性质不等于完整神经训练收敛保证。作者结果未独立复现。",
+        "card_summary": "SPLICE为全失败组插入短teacher选项，再用student续跑估值；SWE/检索四设置比GRPO高2.8–9.8点。"
+      },
+      "analysis": {
+        "card_summary": "SPLICE为全失败组插入短teacher选项，再用student续跑估值；SWE/检索四设置比GRPO高2.8–9.8点。",
+        "motivation": "长程任务的二值奖励常使整组rollout全失败，GRPO缺少奖励梯度；完整teacher解答又昂贵且引入长段离策略历史。",
+        "method": "仅对全失败组随机选一条失败轨迹，由proposal模型结合终局反馈选择可恢复分支点，提出至多平均轨迹长度30%的短选项；每选项以当前策略续跑三次，保留正回报选项并按标准化估值softmax构造局部监督。混合成败组继续GRPO。SWE用容器snapshot恢复，搜索用历史恢复。",
+        "experiments": "表1三训练种子：Qwen3-8B-CS的SWE/BrowseComp-Plus由GRPO15.9/20.2%升至25.7/29.3%；Qwen3.5-9B由58.4/46.2%升至61.2/50.7%。SWE初始失败训练任务graduation8.1→18.9%。相比ReLIFT强模型turns113.4k→93.5k，但总时长13.9→13.5h，仅小幅下降；纯GRPO为11.9h。",
+        "insight": "局部建议应按“当前learner能否接着做完”衡量，而不只看teacher自己能否成功；选项长度决定纠错覆盖与离策略暴露之间的平衡。",
+        "research_help": "局部建议应按“当前learner能否接着做完”衡量，而不只看teacher自己能否成功；选项长度决定纠错覆盖与离策略暴露之间的平衡。",
+        "limitations": "控制共同任务数据而非完全相同计算预算，3次续跑的估值有采样误差；恢复状态与额外student执行可能很昂贵。graduation是训练集单rollout指标；不是测试集pass率。理论目标性质不等于完整神经训练收敛保证。作者结果未独立复现。",
+        "abstract_zh": "SPLICE为全失败组插入短teacher选项，再用student续跑估值；SWE/检索四设置比GRPO高2.8–9.8点。 长程任务的二值奖励常使整组rollout全失败，GRPO缺少奖励梯度；完整teacher解答又昂贵且引入长段离策略历史。",
+        "full_summary": "长程任务的二值奖励常使整组rollout全失败，GRPO缺少奖励梯度；完整teacher解答又昂贵且引入长段离策略历史。 仅对全失败组随机选一条失败轨迹，由proposal模型结合终局反馈选择可恢复分支点，提出至多平均轨迹长度30%的短选项；每选项以当前策略续跑三次，保留正回报选项并按标准化估值softmax构造局部监督。混合成败组继续GRPO。SWE用容器snapshot恢复，搜索用历史恢复。 表1三训练种子：Qwen3-8B-CS的SWE/BrowseComp-Plus由GRPO15.9/20.2%升至25.7/29.3%；Qwen3.5-9B由58.4/46.2%升至61.2/50.7%。SWE初始失败训练任务graduation8.1→18.9%。相比ReLIFT强模型turns113.4k→93.5k，但总时长13.9→13.5h，仅小幅下降；纯GRPO为11.9h。 局部建议应按“当前learner能否接着做完”衡量，而不只看teacher自己能否成功；选项长度决定纠错覆盖与离策略暴露之间的平衡。 控制共同任务数据而非完全相同计算预算，3次续跑的估值有采样误差；恢复状态与额外student执行可能很昂贵。graduation是训练集单rollout指标；不是测试集pass率。理论目标性质不等于完整神经训练收敛保证。作者结果未独立复现。",
+        "recommendation_level": "高",
+        "water_risk": "中",
+        "value_label": "值得核读",
+        "value_reason": "局部建议应按“当前learner能否接着做完”衡量，而不只看teacher自己能否成功；选项长度决定纠错覆盖与离策略暴露之间的平衡。",
+        "source_scope": "full_text",
+        "source_note": "直接核读arXiv v1 PDF方法、实验、局限并渲染实验表；作者结果未独立复现。",
+        "source_evidence": [
+          "§4–6，表1–4，附录C–F；PDF第7页表1–3已渲染核对",
+          "https://arxiv.org/abs/2611.34777v1"
+        ],
+        "model": "manual-full-text-review",
+        "updated_at": "2026-11-27T01:37:19.196531+00:00"
+      }
+    },
+    {
+      "id": "2611.34756v1",
+      "title": "Collect for Coverage, Replay with Evidence: Adaptive and Efficient On-Policy Distillation for Long-Horizon Agents",
+      "summary": "Fully online on-policy distillation (OPD) is costly for long-horizon agents because each update depends on fresh environment rollouts. Prefix replay offers an efficient alternative by sampling current-student responses from stored histories, reducing idle time for long-tail rollouts and allowing each collected trajectory to support multiple updates. However, our analysis of the complete prefix replay pipeline identifies two limitations in long-horizon settings. In trajectory collection, teacher-only trajectories miss student-induced histories, while broader history coverage can reduce teacher reliability. In trajectory reuse, fixed position-based schedules cannot identify critical decisions that may occur at any trajectory depth. We introduce CARE-OPD (Collect for coverAge, Replay with Evidence) to address both limitations. Student-seeded teacher completions and response-level confidence gating expand history coverage while filtering unreliable updates. Hindsight replay allocation then uses downstream execution evidence to select consequential turns. Across long-horizon tasks Software Engineering and Deep Research, CARE-OPD outperforms online OPD and prior prefix replay baselines. On SWE-bench Verified, it raises task success to 59.5% while reducing end-to-end training time by 45% and environment actions by 44% relative to asynchronous online OPD.",
+      "url": "http://arxiv.org/abs/2611.34756v1",
+      "authors": [
+        "Haowen Hou",
+        "Gen Li",
+        "Ruilin Li",
+        "Yicheng Liu",
+        "Zhen Huang",
+        "Shuai Dong",
+        "Congcong Wang",
+        "Kaiwen Tuo",
+        "Hongrui Wu",
+        "Zelin Peng",
+        "Kanghui Tian",
+        "Ji Zhao",
+        "Dianyi Wang",
+        "Jiaqi Wang"
+      ],
+      "report_date": "2026-11-27",
+      "published": "2026-11-25",
+      "updated": "2026-11-25",
+      "primary_category": "cs.CL",
+      "categories": [
+        "cs.CL",
+        "cs.AI",
+        "cs.LG"
+      ],
+      "project_url": "",
+      "repo_url": "",
+      "venue_status": "未确认录用",
+      "recommendation": {
+        "score": 86,
+        "level": "高",
+        "label": "值得核读",
+        "water_risk": "中",
+        "value_judgement": "响应仍来自当前student，不代表其历史也在策略内；应分别控制历史覆盖、teacher可靠性与回放位置，而不是简单偏好早期turn。",
+        "reason": "响应仍来自当前student，不代表其历史也在策略内；应分别控制历史覆盖、teacher可靠性与回放位置，而不是简单偏好早期turn。",
+        "signals": {
+          "agenticRl": true,
+          "multiTurn": false,
+          "longHorizon": true,
+          "memory": false,
+          "reliability": true,
+          "codeOrTool": false,
+          "experiments": true,
+          "survey": false
+        }
+      },
+      "brief": {
+        "authors": [
+          "Haowen Hou",
+          "Gen Li",
+          "Ruilin Li",
+          "Yicheng Liu",
+          "Zhen Huang",
+          "Shuai Dong",
+          "Congcong Wang",
+          "Kaiwen Tuo",
+          "Hongrui Wu",
+          "Zelin Peng",
+          "Kanghui Tian",
+          "Ji Zhao",
+          "Dianyi Wang",
+          "Jiaqi Wang"
+        ],
+        "affiliations": "arXiv metadata 未提供；需要正文或项目页确认单位。",
+        "date": "2026-11-25",
+        "paper_url": "https://arxiv.org/abs/2611.34756v1",
+        "project_url": "",
+        "repo_url": "",
+        "venue_status": "未确认录用",
+        "contribution": "响应仍来自当前student，不代表其历史也在策略内；应分别控制历史覆盖、teacher可靠性与回放位置，而不是简单偏好早期turn。",
+        "summary": "在线长程蒸馏被环境rollout尾延迟拖慢；静态teacher前缀缺少student诱发状态，按位置衰减又容易漏掉后期纠错。 冻结初始student先走随机短前缀、teacher接管，仅保留验证成功且有teacher后缀的轨迹；事后利用全轨迹与终局证据挑选固定比例teacher turns。训练时从保存历史生成当前student单轮回答，不执行环境，用teacher logits蒸馏并拒绝batch中最低置信度部分；未来证据不进入student前缀。 表1三种子：Qwen3.5-9B SWE59.5±0.3%，同步单轮OPD57.7、ReOPD53.9%；BrowseComp-Plus49.6%，对应47.1/45.5%。表2含采集、选择、训练的总时间3.0h对异步单轮5.5h，环境动作171.2k对308.1k，异步成功率57.1%。Qwen3-8B冷启动设置SWE23.0%。 响应仍来自当前student，不代表其历史也在策略内；应分别控制历史覆盖、teacher可靠性与回放位置，而不是简单偏好早期turn。 回放池来自冻结student及有限前缀，随训练可能失配；新回答不执行，后果未知，teacher置信度只是确定性代理。只保留成功完成会带来筛选偏差；效率依赖具体四节点管线，不能直接当作通用部署成本降幅。作者结果未独立复现。",
+        "highlights": [
+          "响应仍来自当前student，不代表其历史也在策略内；应分别控制历史覆盖、teacher可靠性与回放位置，而不是简单偏好早期turn。",
+          "偏水风险：中",
+          "阅读来源：arXiv PDF正文与实验表"
+        ],
+        "motivation": "在线长程蒸馏被环境rollout尾延迟拖慢；静态teacher前缀缺少student诱发状态，按位置衰减又容易漏掉后期纠错。",
+        "method": "冻结初始student先走随机短前缀、teacher接管，仅保留验证成功且有teacher后缀的轨迹；事后利用全轨迹与终局证据挑选固定比例teacher turns。训练时从保存历史生成当前student单轮回答，不执行环境，用teacher logits蒸馏并拒绝batch中最低置信度部分；未来证据不进入student前缀。",
+        "experiments": "表1三种子：Qwen3.5-9B SWE59.5±0.3%，同步单轮OPD57.7、ReOPD53.9%；BrowseComp-Plus49.6%，对应47.1/45.5%。表2含采集、选择、训练的总时间3.0h对异步单轮5.5h，环境动作171.2k对308.1k，异步成功率57.1%。Qwen3-8B冷启动设置SWE23.0%。",
+        "research_help": "响应仍来自当前student，不代表其历史也在策略内；应分别控制历史覆盖、teacher可靠性与回放位置，而不是简单偏好早期turn。",
+        "recommendation": {
+          "score": 86,
+          "level": "高",
+          "label": "值得核读",
+          "water_risk": "中",
+          "value_judgement": "响应仍来自当前student，不代表其历史也在策略内；应分别控制历史覆盖、teacher可靠性与回放位置，而不是简单偏好早期turn。",
+          "reason": "响应仍来自当前student，不代表其历史也在策略内；应分别控制历史覆盖、teacher可靠性与回放位置，而不是简单偏好早期turn。",
+          "signals": {
+            "agenticRl": true,
+            "multiTurn": false,
+            "longHorizon": true,
+            "memory": false,
+            "reliability": true,
+            "codeOrTool": false,
+            "experiments": true,
+            "survey": false
+          }
+        },
+        "insight": "响应仍来自当前student，不代表其历史也在策略内；应分别控制历史覆盖、teacher可靠性与回放位置，而不是简单偏好早期turn。",
+        "limitations": "回放池来自冻结student及有限前缀，随训练可能失配；新回答不执行，后果未知，teacher置信度只是确定性代理。只保留成功完成会带来筛选偏差；效率依赖具体四节点管线，不能直接当作通用部署成本降幅。作者结果未独立复现。",
+        "abstract_zh": "CARE-OPD以student前缀扩覆盖、证据挑turn回放；SWE达59.5%，较异步在线OPD训练快45%。 在线长程蒸馏被环境rollout尾延迟拖慢；静态teacher前缀缺少student诱发状态，按位置衰减又容易漏掉后期纠错。",
+        "full_summary": "在线长程蒸馏被环境rollout尾延迟拖慢；静态teacher前缀缺少student诱发状态，按位置衰减又容易漏掉后期纠错。 冻结初始student先走随机短前缀、teacher接管，仅保留验证成功且有teacher后缀的轨迹；事后利用全轨迹与终局证据挑选固定比例teacher turns。训练时从保存历史生成当前student单轮回答，不执行环境，用teacher logits蒸馏并拒绝batch中最低置信度部分；未来证据不进入student前缀。 表1三种子：Qwen3.5-9B SWE59.5±0.3%，同步单轮OPD57.7、ReOPD53.9%；BrowseComp-Plus49.6%，对应47.1/45.5%。表2含采集、选择、训练的总时间3.0h对异步单轮5.5h，环境动作171.2k对308.1k，异步成功率57.1%。Qwen3-8B冷启动设置SWE23.0%。 响应仍来自当前student，不代表其历史也在策略内；应分别控制历史覆盖、teacher可靠性与回放位置，而不是简单偏好早期turn。 回放池来自冻结student及有限前缀，随训练可能失配；新回答不执行，后果未知，teacher置信度只是确定性代理。只保留成功完成会带来筛选偏差；效率依赖具体四节点管线，不能直接当作通用部署成本降幅。作者结果未独立复现。",
+        "card_summary": "CARE-OPD以student前缀扩覆盖、证据挑turn回放；SWE达59.5%，较异步在线OPD训练快45%。"
+      },
+      "analysis": {
+        "card_summary": "CARE-OPD以student前缀扩覆盖、证据挑turn回放；SWE达59.5%，较异步在线OPD训练快45%。",
+        "motivation": "在线长程蒸馏被环境rollout尾延迟拖慢；静态teacher前缀缺少student诱发状态，按位置衰减又容易漏掉后期纠错。",
+        "method": "冻结初始student先走随机短前缀、teacher接管，仅保留验证成功且有teacher后缀的轨迹；事后利用全轨迹与终局证据挑选固定比例teacher turns。训练时从保存历史生成当前student单轮回答，不执行环境，用teacher logits蒸馏并拒绝batch中最低置信度部分；未来证据不进入student前缀。",
+        "experiments": "表1三种子：Qwen3.5-9B SWE59.5±0.3%，同步单轮OPD57.7、ReOPD53.9%；BrowseComp-Plus49.6%，对应47.1/45.5%。表2含采集、选择、训练的总时间3.0h对异步单轮5.5h，环境动作171.2k对308.1k，异步成功率57.1%。Qwen3-8B冷启动设置SWE23.0%。",
+        "insight": "响应仍来自当前student，不代表其历史也在策略内；应分别控制历史覆盖、teacher可靠性与回放位置，而不是简单偏好早期turn。",
+        "research_help": "响应仍来自当前student，不代表其历史也在策略内；应分别控制历史覆盖、teacher可靠性与回放位置，而不是简单偏好早期turn。",
+        "limitations": "回放池来自冻结student及有限前缀，随训练可能失配；新回答不执行，后果未知，teacher置信度只是确定性代理。只保留成功完成会带来筛选偏差；效率依赖具体四节点管线，不能直接当作通用部署成本降幅。作者结果未独立复现。",
+        "abstract_zh": "CARE-OPD以student前缀扩覆盖、证据挑turn回放；SWE达59.5%，较异步在线OPD训练快45%。 在线长程蒸馏被环境rollout尾延迟拖慢；静态teacher前缀缺少student诱发状态，按位置衰减又容易漏掉后期纠错。",
+        "full_summary": "在线长程蒸馏被环境rollout尾延迟拖慢；静态teacher前缀缺少student诱发状态，按位置衰减又容易漏掉后期纠错。 冻结初始student先走随机短前缀、teacher接管，仅保留验证成功且有teacher后缀的轨迹；事后利用全轨迹与终局证据挑选固定比例teacher turns。训练时从保存历史生成当前student单轮回答，不执行环境，用teacher logits蒸馏并拒绝batch中最低置信度部分；未来证据不进入student前缀。 表1三种子：Qwen3.5-9B SWE59.5±0.3%，同步单轮OPD57.7、ReOPD53.9%；BrowseComp-Plus49.6%，对应47.1/45.5%。表2含采集、选择、训练的总时间3.0h对异步单轮5.5h，环境动作171.2k对308.1k，异步成功率57.1%。Qwen3-8B冷启动设置SWE23.0%。 响应仍来自当前student，不代表其历史也在策略内；应分别控制历史覆盖、teacher可靠性与回放位置，而不是简单偏好早期turn。 回放池来自冻结student及有限前缀，随训练可能失配；新回答不执行，后果未知，teacher置信度只是确定性代理。只保留成功完成会带来筛选偏差；效率依赖具体四节点管线，不能直接当作通用部署成本降幅。作者结果未独立复现。",
+        "recommendation_level": "高",
+        "water_risk": "中",
+        "value_label": "值得核读",
+        "value_reason": "响应仍来自当前student，不代表其历史也在策略内；应分别控制历史覆盖、teacher可靠性与回放位置，而不是简单偏好早期turn。",
+        "source_scope": "full_text",
+        "source_note": "直接核读arXiv v1 PDF方法、实验、局限并渲染实验表；作者结果未独立复现。",
+        "source_evidence": [
+          "§3–5，表1–2及附录；PDF第8页端到端效率表已渲染核对",
+          "https://arxiv.org/abs/2611.34756v1"
+        ],
+        "model": "manual-full-text-review",
+        "updated_at": "2026-11-27T01:37:19.196531+00:00"
+      }
+    },
+    {
+      "id": "2611.34215v1",
+      "title": "PROVE: Mitigating Long-Horizon LLM Collusion with Reinforcement Learning from Verified Evidence",
+      "summary": "When LLM agents verify each other's work over a long interaction, they drift into collusion: they come to accept work without the evidence that the verification protocol requires. Collusion is absent at the start and builds up episode by episode, which we trace to accurate feedback accumulating in memory. An agent that follows the rule is told that its verdict was wrong whenever its peer was right, so breaking the rule is the reward-maximizing choice, and agents talk themselves into it in their private reflections. Existing mitigations leave the agents unchanged; we train the behavior out. PROVE (Protocol Reinforcement from Verified Evidence) is a multi-agent reinforcement learning method that rewards verdicts by the evidence behind them rather than by their outcome, and credits every call an agent makes, including the calls that solve its own task, with the outcome that call controls. On Qwen3.6-27B, a LoRA adapter trained on six-episode interactions takes the collusion rate on held-out task sequences at the original ten-episode horizon from 65.0% to 1.0%, with no detectable change in task success. Collusion that converged in every interaction now converges in none, and the gain holds four episodes beyond the longest interaction seen in training. The trained 27B model colludes less than every model evaluated in the original study, closed-weight frontier models included. Code is available at https://github.com/Haochen-Luo/PROVE.",
+      "url": "http://arxiv.org/abs/2611.34215v1",
+      "authors": [
+        "Haochen Luo",
+        "Jie Fu",
+        "Mukai Li",
+        "Yuqi Wang",
+        "Qi Liu"
+      ],
+      "report_date": "2026-11-27",
+      "published": "2026-11-25",
+      "updated": "2026-11-25",
+      "primary_category": "cs.AI",
+      "categories": [
+        "cs.AI",
+        "cs.MA"
+      ],
+      "project_url": "",
+      "repo_url": "https://github.com/Haochen-Luo/PROVE",
+      "venue_status": "未确认录用",
+      "recommendation": {
+        "score": 98,
+        "level": "高",
+        "label": "值得核读",
+        "water_risk": "中",
+        "value_judgement": "训练应奖励判断所依赖的证据，并让反思承担其后续决策的信用；长程历史可放大错误激励，因此仅限制记忆未必触及机制。",
+        "reason": "训练应奖励判断所依赖的证据，并让反思承担其后续决策的信用；长程历史可放大错误激励，因此仅限制记忆未必触及机制。",
+        "signals": {
+          "agenticRl": true,
+          "multiTurn": true,
+          "longHorizon": true,
+          "memory": true,
+          "reliability": false,
+          "codeOrTool": true,
+          "experiments": true,
+          "survey": false
+        }
+      },
+      "brief": {
+        "authors": [
+          "Haochen Luo",
+          "Jie Fu",
+          "Mukai Li",
+          "Yuqi Wang",
+          "Qi Liu"
+        ],
+        "affiliations": "arXiv metadata 未提供；需要正文或项目页确认单位。",
+        "date": "2026-11-25",
+        "paper_url": "https://arxiv.org/abs/2611.34215v1",
+        "project_url": "",
+        "repo_url": "https://github.com/Haochen-Luo/PROVE",
+        "venue_status": "未确认录用",
+        "contribution": "训练应奖励判断所依赖的证据，并让反思承担其后续决策的信用；长程历史可放大错误激励，因此仅限制记忆未必触及机制。",
+        "summary": "互审agent收到按任务正确性结算的反馈后，会在长期记忆中逐步把违反证据规则解释为合理决策；猜对结论不等于完成验证。 保持交互内原始反馈，另用环境确认完整未改写原始日志是否送达来构造训练奖励：无证据接受罚、无证据拒绝零、有证据按判定正确性奖罚。GRPO按对应verdict、消息双方结果、reflection的下一episode结果分信用；任务求解调用另按自身正确性训练，避免安全目标侵蚀解题。 Qwen3.6-27B rank32 LoRA，12次更新共192个六episode交互。表1在10条未见序列的十episode评测：受限通信串谋65.0→1.0%，收敛串谋轨迹100→0%；两通信制度合并任务成功87.0→86.5%，差值95%区间[-5.2,+4.0]点。受限制度无证据接受仍有5.5%。 训练应奖励判断所依赖的证据，并让反思承担其后续决策的信用；长程历史可放大错误激励，因此仅限制记忆未必触及机制。 只有一个环境、一个明确字符串日志协议与少量held-out序列；“无显著变化”不证明性能等价。外部可靠证据检查是前提，依赖主观语义判断的规则未覆盖；对其他模型的对照重算自历史公开轨迹，未重新调用其API。作者结果未独立复现。",
+        "highlights": [
+          "训练应奖励判断所依赖的证据，并让反思承担其后续决策的信用；长程历史可放大错误激励，因此仅限制记忆未必触及机制。",
+          "偏水风险：中",
+          "阅读来源：arXiv PDF正文与实验表"
+        ],
+        "motivation": "互审agent收到按任务正确性结算的反馈后，会在长期记忆中逐步把违反证据规则解释为合理决策；猜对结论不等于完成验证。",
+        "method": "保持交互内原始反馈，另用环境确认完整未改写原始日志是否送达来构造训练奖励：无证据接受罚、无证据拒绝零、有证据按判定正确性奖罚。GRPO按对应verdict、消息双方结果、reflection的下一episode结果分信用；任务求解调用另按自身正确性训练，避免安全目标侵蚀解题。",
+        "experiments": "Qwen3.6-27B rank32 LoRA，12次更新共192个六episode交互。表1在10条未见序列的十episode评测：受限通信串谋65.0→1.0%，收敛串谋轨迹100→0%；两通信制度合并任务成功87.0→86.5%，差值95%区间[-5.2,+4.0]点。受限制度无证据接受仍有5.5%。",
+        "research_help": "训练应奖励判断所依赖的证据，并让反思承担其后续决策的信用；长程历史可放大错误激励，因此仅限制记忆未必触及机制。",
+        "recommendation": {
+          "score": 98,
+          "level": "高",
+          "label": "值得核读",
+          "water_risk": "中",
+          "value_judgement": "训练应奖励判断所依赖的证据，并让反思承担其后续决策的信用；长程历史可放大错误激励，因此仅限制记忆未必触及机制。",
+          "reason": "训练应奖励判断所依赖的证据，并让反思承担其后续决策的信用；长程历史可放大错误激励，因此仅限制记忆未必触及机制。",
+          "signals": {
+            "agenticRl": true,
+            "multiTurn": true,
+            "longHorizon": true,
+            "memory": true,
+            "reliability": false,
+            "codeOrTool": true,
+            "experiments": true,
+            "survey": false
+          }
+        },
+        "insight": "训练应奖励判断所依赖的证据，并让反思承担其后续决策的信用；长程历史可放大错误激励，因此仅限制记忆未必触及机制。",
+        "limitations": "只有一个环境、一个明确字符串日志协议与少量held-out序列；“无显著变化”不证明性能等价。外部可靠证据检查是前提，依赖主观语义判断的规则未覆盖；对其他模型的对照重算自历史公开轨迹，未重新调用其API。作者结果未独立复现。",
+        "abstract_zh": "PROVE按验证证据与模型调用分配RL信用；十episode互审中的串谋率65→1%，限单一协议。 互审agent收到按任务正确性结算的反馈后，会在长期记忆中逐步把违反证据规则解释为合理决策；猜对结论不等于完成验证。",
+        "full_summary": "互审agent收到按任务正确性结算的反馈后，会在长期记忆中逐步把违反证据规则解释为合理决策；猜对结论不等于完成验证。 保持交互内原始反馈，另用环境确认完整未改写原始日志是否送达来构造训练奖励：无证据接受罚、无证据拒绝零、有证据按判定正确性奖罚。GRPO按对应verdict、消息双方结果、reflection的下一episode结果分信用；任务求解调用另按自身正确性训练，避免安全目标侵蚀解题。 Qwen3.6-27B rank32 LoRA，12次更新共192个六episode交互。表1在10条未见序列的十episode评测：受限通信串谋65.0→1.0%，收敛串谋轨迹100→0%；两通信制度合并任务成功87.0→86.5%，差值95%区间[-5.2,+4.0]点。受限制度无证据接受仍有5.5%。 训练应奖励判断所依赖的证据，并让反思承担其后续决策的信用；长程历史可放大错误激励，因此仅限制记忆未必触及机制。 只有一个环境、一个明确字符串日志协议与少量held-out序列；“无显著变化”不证明性能等价。外部可靠证据检查是前提，依赖主观语义判断的规则未覆盖；对其他模型的对照重算自历史公开轨迹，未重新调用其API。作者结果未独立复现。",
+        "card_summary": "PROVE按验证证据与模型调用分配RL信用；十episode互审中的串谋率65→1%，限单一协议。"
+      },
+      "analysis": {
+        "card_summary": "PROVE按验证证据与模型调用分配RL信用；十episode互审中的串谋率65→1%，限单一协议。",
+        "motivation": "互审agent收到按任务正确性结算的反馈后，会在长期记忆中逐步把违反证据规则解释为合理决策；猜对结论不等于完成验证。",
+        "method": "保持交互内原始反馈，另用环境确认完整未改写原始日志是否送达来构造训练奖励：无证据接受罚、无证据拒绝零、有证据按判定正确性奖罚。GRPO按对应verdict、消息双方结果、reflection的下一episode结果分信用；任务求解调用另按自身正确性训练，避免安全目标侵蚀解题。",
+        "experiments": "Qwen3.6-27B rank32 LoRA，12次更新共192个六episode交互。表1在10条未见序列的十episode评测：受限通信串谋65.0→1.0%，收敛串谋轨迹100→0%；两通信制度合并任务成功87.0→86.5%，差值95%区间[-5.2,+4.0]点。受限制度无证据接受仍有5.5%。",
+        "insight": "训练应奖励判断所依赖的证据，并让反思承担其后续决策的信用；长程历史可放大错误激励，因此仅限制记忆未必触及机制。",
+        "research_help": "训练应奖励判断所依赖的证据，并让反思承担其后续决策的信用；长程历史可放大错误激励，因此仅限制记忆未必触及机制。",
+        "limitations": "只有一个环境、一个明确字符串日志协议与少量held-out序列；“无显著变化”不证明性能等价。外部可靠证据检查是前提，依赖主观语义判断的规则未覆盖；对其他模型的对照重算自历史公开轨迹，未重新调用其API。作者结果未独立复现。",
+        "abstract_zh": "PROVE按验证证据与模型调用分配RL信用；十episode互审中的串谋率65→1%，限单一协议。 互审agent收到按任务正确性结算的反馈后，会在长期记忆中逐步把违反证据规则解释为合理决策；猜对结论不等于完成验证。",
+        "full_summary": "互审agent收到按任务正确性结算的反馈后，会在长期记忆中逐步把违反证据规则解释为合理决策；猜对结论不等于完成验证。 保持交互内原始反馈，另用环境确认完整未改写原始日志是否送达来构造训练奖励：无证据接受罚、无证据拒绝零、有证据按判定正确性奖罚。GRPO按对应verdict、消息双方结果、reflection的下一episode结果分信用；任务求解调用另按自身正确性训练，避免安全目标侵蚀解题。 Qwen3.6-27B rank32 LoRA，12次更新共192个六episode交互。表1在10条未见序列的十episode评测：受限通信串谋65.0→1.0%，收敛串谋轨迹100→0%；两通信制度合并任务成功87.0→86.5%，差值95%区间[-5.2,+4.0]点。受限制度无证据接受仍有5.5%。 训练应奖励判断所依赖的证据，并让反思承担其后续决策的信用；长程历史可放大错误激励，因此仅限制记忆未必触及机制。 只有一个环境、一个明确字符串日志协议与少量held-out序列；“无显著变化”不证明性能等价。外部可靠证据检查是前提，依赖主观语义判断的规则未覆盖；对其他模型的对照重算自历史公开轨迹，未重新调用其API。作者结果未独立复现。",
+        "recommendation_level": "高",
+        "water_risk": "中",
+        "value_label": "值得核读",
+        "value_reason": "训练应奖励判断所依赖的证据，并让反思承担其后续决策的信用；长程历史可放大错误激励，因此仅限制记忆未必触及机制。",
+        "source_scope": "full_text",
+        "source_note": "直接核读arXiv v1 PDF方法、实验、局限并渲染实验表；作者结果未独立复现。",
+        "source_evidence": [
+          "§2–5/7，表1及附录A/D；PDF第8页主表与样本范围已渲染核对",
+          "https://arxiv.org/abs/2611.34215v1"
+        ],
+        "model": "manual-full-text-review",
+        "updated_at": "2026-11-27T01:37:19.196531+00:00"
+      }
+    },
+    {
+      "id": "2611.34440v1",
+      "title": "vSFT: Learning to Verbally Tune Agents at Test Time",
+      "summary": "Large language model agents are increasingly improved via agentic reinforcement learning, which can be on-policy but suffers from expensive rollouts and sparse rewards, limiting its application at test time. In this paper, we present a verbally Supervised Fine-Tuning (vSFT) framework that enables the conjunction of dense feedback in natural language and weight updates at test time. Specifically, our vSFT forms a closed loop between an agent and a supervisor via a hypernetwork, in which the supervisor generates verbal supervision from the agent's failed trajectories, and the hypernetwork converts that supervision into low-rank weight updates to tune the agent. We validate that this test-time in-parameter evolving process outperforms both its in-context counterparts and prevalent reinforcement learning methods. In particular, our vSFT using Qwen3-4B outperforms GRPO and Reflexion by 8.7% and 13.9% in success rate on ALFWorld, and by 4.8% and 18.2% on WebShop, respectively. We believe that learning how to adapt a model, rather than an adapted model, offers a promising path towards more capable agents that improve themselves.",
+      "url": "http://arxiv.org/abs/2611.34440v1",
+      "authors": [
+        "Qishuai Wen",
+        "Rui Chen",
+        "Haiwen Li",
+        "Zhiyuan Huang",
+        "Qiwen Gu",
+        "Bingjie Gao",
+        "Geng Li",
+        "Jing Tang",
+        "Xiangxiang Chu",
+        "Chun-Guang Li"
+      ],
+      "report_date": "2026-11-27",
+      "published": "2026-11-25",
+      "updated": "2026-11-25",
+      "primary_category": "cs.AI",
+      "categories": [
+        "cs.AI",
+        "cs.CL",
+        "cs.LG"
+      ],
+      "project_url": "",
+      "repo_url": "",
+      "venue_status": "未确认录用",
+      "recommendation": {
+        "score": 72,
+        "level": "高",
+        "label": "值得核读",
+        "water_risk": "中",
+        "value_judgement": "把“会写反思”和“能据反思改变行动”分开评估；反馈可以作为参数适配的接口，但需要预先学习如何把语言映射成有效更新。",
+        "reason": "把“会写反思”和“能据反思改变行动”分开评估；反馈可以作为参数适配的接口，但需要预先学习如何把语言映射成有效更新。",
+        "signals": {
+          "agenticRl": true,
+          "multiTurn": false,
+          "longHorizon": false,
+          "memory": false,
+          "reliability": true,
+          "codeOrTool": false,
+          "experiments": true,
+          "survey": false
+        }
+      },
+      "brief": {
+        "authors": [
+          "Qishuai Wen",
+          "Rui Chen",
+          "Haiwen Li",
+          "Zhiyuan Huang",
+          "Qiwen Gu",
+          "Bingjie Gao",
+          "Geng Li",
+          "Jing Tang",
+          "Xiangxiang Chu",
+          "Chun-Guang Li"
+        ],
+        "affiliations": "arXiv metadata 未提供；需要正文或项目页确认单位。",
+        "date": "2026-11-25",
+        "paper_url": "https://arxiv.org/abs/2611.34440v1",
+        "project_url": "",
+        "repo_url": "",
+        "venue_status": "未确认录用",
+        "contribution": "把“会写反思”和“能据反思改变行动”分开评估；反馈可以作为参数适配的接口，但需要预先学习如何把语言映射成有效更新。",
+        "summary": "自然语言反思有密集反馈却未必改变agent行为；在线RL的环境采样和梯度更新又不适合廉价测试时适应。 离线从成功纠错轨迹构造条件—前缀—动作三元组，训练421M参数hypernetwork将skill与reflection写成rank8 LoRA，仅适配agent MLP down-projection。测试时supervisor分析失败，累计反馈后生成新adapter替换旧adapter，无反向传播；基础权重固定，agent上下文不直接放入该反馈条件。 表2同Qwen3-4B最多十trial：ALFWorld seen/unseen92.9/92.5%，等权均值92.7，对GRPO84.0、Reflexion78.8%。表3WebShop成功率49.0%，对GRPO44.2、Reflexion30.8%。单trial vSFT仅64.7%/24.45%，主要收益来自反复反馈适应；更强supervisor设置另报96.7%/59.8%。 把“会写反思”和“能据反思改变行动”分开评估；反馈可以作为参数适配的接口，但需要预先学习如何把语言映射成有效更新。 十trial累计成功率不能当作单次执行能力；依赖环境失败反馈、supervisor推理与离线hypernetwork元训练。与GRPO的rollout节省不含全部模块成本，强supervisor及数据生成模型改变需分别对照；新adapter替换而非无限累加。作者结果未独立复现。",
+        "highlights": [
+          "把“会写反思”和“能据反思改变行动”分开评估；反馈可以作为参数适配的接口，但需要预先学习如何把语言映射成有效更新。",
+          "偏水风险：中",
+          "阅读来源：arXiv PDF正文与实验表"
+        ],
+        "motivation": "自然语言反思有密集反馈却未必改变agent行为；在线RL的环境采样和梯度更新又不适合廉价测试时适应。",
+        "method": "离线从成功纠错轨迹构造条件—前缀—动作三元组，训练421M参数hypernetwork将skill与reflection写成rank8 LoRA，仅适配agent MLP down-projection。测试时supervisor分析失败，累计反馈后生成新adapter替换旧adapter，无反向传播；基础权重固定，agent上下文不直接放入该反馈条件。",
+        "experiments": "表2同Qwen3-4B最多十trial：ALFWorld seen/unseen92.9/92.5%，等权均值92.7，对GRPO84.0、Reflexion78.8%。表3WebShop成功率49.0%，对GRPO44.2、Reflexion30.8%。单trial vSFT仅64.7%/24.45%，主要收益来自反复反馈适应；更强supervisor设置另报96.7%/59.8%。",
+        "research_help": "把“会写反思”和“能据反思改变行动”分开评估；反馈可以作为参数适配的接口，但需要预先学习如何把语言映射成有效更新。",
+        "recommendation": {
+          "score": 72,
+          "level": "高",
+          "label": "值得核读",
+          "water_risk": "中",
+          "value_judgement": "把“会写反思”和“能据反思改变行动”分开评估；反馈可以作为参数适配的接口，但需要预先学习如何把语言映射成有效更新。",
+          "reason": "把“会写反思”和“能据反思改变行动”分开评估；反馈可以作为参数适配的接口，但需要预先学习如何把语言映射成有效更新。",
+          "signals": {
+            "agenticRl": true,
+            "multiTurn": false,
+            "longHorizon": false,
+            "memory": false,
+            "reliability": true,
+            "codeOrTool": false,
+            "experiments": true,
+            "survey": false
+          }
+        },
+        "insight": "把“会写反思”和“能据反思改变行动”分开评估；反馈可以作为参数适配的接口，但需要预先学习如何把语言映射成有效更新。",
+        "limitations": "十trial累计成功率不能当作单次执行能力；依赖环境失败反馈、supervisor推理与离线hypernetwork元训练。与GRPO的rollout节省不含全部模块成本，强supervisor及数据生成模型改变需分别对照；新adapter替换而非无限累加。作者结果未独立复现。",
+        "abstract_zh": "vSFT把失败反思经hypernetwork变为LoRA；最多十次尝试下ALFWorld均分92.7%、WebShop49%。 自然语言反思有密集反馈却未必改变agent行为；在线RL的环境采样和梯度更新又不适合廉价测试时适应。",
+        "full_summary": "自然语言反思有密集反馈却未必改变agent行为；在线RL的环境采样和梯度更新又不适合廉价测试时适应。 离线从成功纠错轨迹构造条件—前缀—动作三元组，训练421M参数hypernetwork将skill与reflection写成rank8 LoRA，仅适配agent MLP down-projection。测试时supervisor分析失败，累计反馈后生成新adapter替换旧adapter，无反向传播；基础权重固定，agent上下文不直接放入该反馈条件。 表2同Qwen3-4B最多十trial：ALFWorld seen/unseen92.9/92.5%，等权均值92.7，对GRPO84.0、Reflexion78.8%。表3WebShop成功率49.0%，对GRPO44.2、Reflexion30.8%。单trial vSFT仅64.7%/24.45%，主要收益来自反复反馈适应；更强supervisor设置另报96.7%/59.8%。 把“会写反思”和“能据反思改变行动”分开评估；反馈可以作为参数适配的接口，但需要预先学习如何把语言映射成有效更新。 十trial累计成功率不能当作单次执行能力；依赖环境失败反馈、supervisor推理与离线hypernetwork元训练。与GRPO的rollout节省不含全部模块成本，强supervisor及数据生成模型改变需分别对照；新adapter替换而非无限累加。作者结果未独立复现。",
+        "card_summary": "vSFT把失败反思经hypernetwork变为LoRA；最多十次尝试下ALFWorld均分92.7%、WebShop49%。"
+      },
+      "analysis": {
+        "card_summary": "vSFT把失败反思经hypernetwork变为LoRA；最多十次尝试下ALFWorld均分92.7%、WebShop49%。",
+        "motivation": "自然语言反思有密集反馈却未必改变agent行为；在线RL的环境采样和梯度更新又不适合廉价测试时适应。",
+        "method": "离线从成功纠错轨迹构造条件—前缀—动作三元组，训练421M参数hypernetwork将skill与reflection写成rank8 LoRA，仅适配agent MLP down-projection。测试时supervisor分析失败，累计反馈后生成新adapter替换旧adapter，无反向传播；基础权重固定，agent上下文不直接放入该反馈条件。",
+        "experiments": "表2同Qwen3-4B最多十trial：ALFWorld seen/unseen92.9/92.5%，等权均值92.7，对GRPO84.0、Reflexion78.8%。表3WebShop成功率49.0%，对GRPO44.2、Reflexion30.8%。单trial vSFT仅64.7%/24.45%，主要收益来自反复反馈适应；更强supervisor设置另报96.7%/59.8%。",
+        "insight": "把“会写反思”和“能据反思改变行动”分开评估；反馈可以作为参数适配的接口，但需要预先学习如何把语言映射成有效更新。",
+        "research_help": "把“会写反思”和“能据反思改变行动”分开评估；反馈可以作为参数适配的接口，但需要预先学习如何把语言映射成有效更新。",
+        "limitations": "十trial累计成功率不能当作单次执行能力；依赖环境失败反馈、supervisor推理与离线hypernetwork元训练。与GRPO的rollout节省不含全部模块成本，强supervisor及数据生成模型改变需分别对照；新adapter替换而非无限累加。作者结果未独立复现。",
+        "abstract_zh": "vSFT把失败反思经hypernetwork变为LoRA；最多十次尝试下ALFWorld均分92.7%、WebShop49%。 自然语言反思有密集反馈却未必改变agent行为；在线RL的环境采样和梯度更新又不适合廉价测试时适应。",
+        "full_summary": "自然语言反思有密集反馈却未必改变agent行为；在线RL的环境采样和梯度更新又不适合廉价测试时适应。 离线从成功纠错轨迹构造条件—前缀—动作三元组，训练421M参数hypernetwork将skill与reflection写成rank8 LoRA，仅适配agent MLP down-projection。测试时supervisor分析失败，累计反馈后生成新adapter替换旧adapter，无反向传播；基础权重固定，agent上下文不直接放入该反馈条件。 表2同Qwen3-4B最多十trial：ALFWorld seen/unseen92.9/92.5%，等权均值92.7，对GRPO84.0、Reflexion78.8%。表3WebShop成功率49.0%，对GRPO44.2、Reflexion30.8%。单trial vSFT仅64.7%/24.45%，主要收益来自反复反馈适应；更强supervisor设置另报96.7%/59.8%。 把“会写反思”和“能据反思改变行动”分开评估；反馈可以作为参数适配的接口，但需要预先学习如何把语言映射成有效更新。 十trial累计成功率不能当作单次执行能力；依赖环境失败反馈、supervisor推理与离线hypernetwork元训练。与GRPO的rollout节省不含全部模块成本，强supervisor及数据生成模型改变需分别对照；新adapter替换而非无限累加。作者结果未独立复现。",
+        "recommendation_level": "高",
+        "water_risk": "中",
+        "value_label": "值得核读",
+        "value_reason": "把“会写反思”和“能据反思改变行动”分开评估；反馈可以作为参数适配的接口，但需要预先学习如何把语言映射成有效更新。",
+        "source_scope": "full_text",
+        "source_note": "直接核读arXiv v1 PDF方法、实验、局限并渲染实验表；作者结果未独立复现。",
+        "source_evidence": [
+          "§3–4，表2–4、附录B/C；PDF第7页ALFWorld表已渲染核对",
+          "https://arxiv.org/abs/2611.34440v1"
+        ],
+        "model": "manual-full-text-review",
+        "updated_at": "2026-11-27T01:37:19.196531+00:00"
+      }
+    },
+    {
+      "id": "2611.34907v1",
+      "title": "Agentic LongLive: Asynchronous Agentic Memory for Long Video Generation",
+      "summary": "Real-time autoregressive video generators stream minutes of video and accept new prompts on the fly, but struggle to keep people, objects, and places consistent over a long interactive story. Agent systems provide such memory for offline multi-shot generation, yet they read the whole script in advance, plan each shot before generating it, and regenerate failed shots, which a live stream does not allow. We present Agentic LongLive, an asynchronous agentic memory for long video generation. A memory agent on separate GPUs reads only the prompts revealed so far, never the generated video, and keeps a text state and evolving images for every person, object, and scene. From this entity memory it composes a global image and a per-shot memory image, which an auxiliary GPU prefills into the generator's attention sink before the next shot starts, and writes entity cards for the prompts that name them, so the video never waits for memory and video errors are not written back. A small language model, trained with reinforcement learning and an image reward calibrated using downstream video outcomes, decides what to remember before the next prompt is known. On LongStory-Online, a new benchmark of 25 stories (857 shots) revealed one shot at a time, Agentic LongLive improves persistent-state accuracy of LongLive-2.0, its base generator, by 26.3 points, protagonist identity by 44.9, and revisited-place consistency by 40.4, at about 1% extra generation time on H100. The full system streams faster than real time on one 8xB200 node with the generator in BF16 (34.3 FPS), keeps image quality stable over 14-minute stories, and improves identity on two MiniMax-H3 generators, one of which, LongLive-H3, also runs in real time with it. To our knowledge, it is the first real-time video generator with text and image memory kept by an LLM agent.",
+      "url": "http://arxiv.org/abs/2611.34907v1",
+      "authors": [
+        "Shaoteng Liu",
+        "Shuai Yang",
+        "Wei Huang",
+        "Luozhou Wang",
+        "Song Han",
+        "Yukang Chen"
+      ],
+      "report_date": "2026-11-27",
+      "published": "2026-11-25",
+      "updated": "2026-11-25",
+      "primary_category": "cs.CV",
+      "categories": [
+        "cs.CV"
+      ],
+      "project_url": "",
+      "repo_url": "",
+      "venue_status": "未确认录用",
+      "recommendation": {
+        "score": 98,
+        "level": "高",
+        "label": "值得核读",
+        "water_risk": "中",
+        "value_judgement": "异步记忆需在下一请求未知时选择可复用状态；应该按下游行动或生成效果奖励记忆，而非仅奖励文本事实召回。",
+        "reason": "异步记忆需在下一请求未知时选择可复用状态；应该按下游行动或生成效果奖励记忆，而非仅奖励文本事实召回。",
+        "signals": {
+          "agenticRl": true,
+          "multiTurn": true,
+          "longHorizon": true,
+          "memory": true,
+          "reliability": true,
+          "codeOrTool": false,
+          "experiments": true,
+          "survey": false
+        }
+      },
+      "brief": {
+        "authors": [
+          "Shaoteng Liu",
+          "Shuai Yang",
+          "Wei Huang",
+          "Luozhou Wang",
+          "Song Han",
+          "Yukang Chen"
+        ],
+        "affiliations": "arXiv metadata 未提供；需要正文或项目页确认单位。",
+        "date": "2026-11-25",
+        "paper_url": "https://arxiv.org/abs/2611.34907v1",
+        "project_url": "",
+        "repo_url": "",
+        "venue_status": "未确认录用",
+        "contribution": "异步记忆需在下一请求未知时选择可复用状态；应该按下游行动或生成效果奖励记忆，而非仅奖励文本事实召回。",
+        "summary": "在线长视频只逐镜头收到提示、已播放片段不可重做；身份、地点和持久状态要跨镜头记住，又不能等待同步agent规划。 agent只读已揭示提示维护可修订实体文本与图片，合成全局身份图和逐镜头场景图，辅助GPU提前prefill到attention sink；切镜头时原子换入已准备版本并召回地点记忆。Qwen3-8B LoRA经SFT与GRPO学记忆槽分配，以未来标注和按视频结果校准的图像奖励训练，推理不见未来。 LongStory-Online25故事857镜头：LongLive-2.0的状态38.2→64.5%、身份44.1→89.0%、重访一致性15.0→55.4%。H100每镜头15.8→16.0秒、总GPU从2增至6；8×B200加速核后34.3FPS。表4仅图像记忆条件下RL比35B planner高3.6状态点；加实体文本卡的完整系统中只高0.5点且不显著。 异步记忆需在下一请求未知时选择可复用状态；应该按下游行动或生成效果奖励记忆，而非仅奖励文本事实召回。 约1%是额外硬件下关键路径时间，不是总计算开销；主实验回放预生成实时记忆流，不能等同任意用户流实测。主agent不看生成视频，避免错误写回却无法纠正执行偏离；机器人闭环变体协议不同。完整系统总体收益不能归于RL单一组件。作者结果未独立复现。",
+        "highlights": [
+          "异步记忆需在下一请求未知时选择可复用状态；应该按下游行动或生成效果奖励记忆，而非仅奖励文本事实召回。",
+          "偏水风险：中",
+          "阅读来源：arXiv PDF正文与实验表"
+        ],
+        "motivation": "在线长视频只逐镜头收到提示、已播放片段不可重做；身份、地点和持久状态要跨镜头记住，又不能等待同步agent规划。",
+        "method": "agent只读已揭示提示维护可修订实体文本与图片，合成全局身份图和逐镜头场景图，辅助GPU提前prefill到attention sink；切镜头时原子换入已准备版本并召回地点记忆。Qwen3-8B LoRA经SFT与GRPO学记忆槽分配，以未来标注和按视频结果校准的图像奖励训练，推理不见未来。",
+        "experiments": "LongStory-Online25故事857镜头：LongLive-2.0的状态38.2→64.5%、身份44.1→89.0%、重访一致性15.0→55.4%。H100每镜头15.8→16.0秒、总GPU从2增至6；8×B200加速核后34.3FPS。表4仅图像记忆条件下RL比35B planner高3.6状态点；加实体文本卡的完整系统中只高0.5点且不显著。",
+        "research_help": "异步记忆需在下一请求未知时选择可复用状态；应该按下游行动或生成效果奖励记忆，而非仅奖励文本事实召回。",
+        "recommendation": {
+          "score": 98,
+          "level": "高",
+          "label": "值得核读",
+          "water_risk": "中",
+          "value_judgement": "异步记忆需在下一请求未知时选择可复用状态；应该按下游行动或生成效果奖励记忆，而非仅奖励文本事实召回。",
+          "reason": "异步记忆需在下一请求未知时选择可复用状态；应该按下游行动或生成效果奖励记忆，而非仅奖励文本事实召回。",
+          "signals": {
+            "agenticRl": true,
+            "multiTurn": true,
+            "longHorizon": true,
+            "memory": true,
+            "reliability": true,
+            "codeOrTool": false,
+            "experiments": true,
+            "survey": false
+          }
+        },
+        "insight": "异步记忆需在下一请求未知时选择可复用状态；应该按下游行动或生成效果奖励记忆，而非仅奖励文本事实召回。",
+        "limitations": "约1%是额外硬件下关键路径时间，不是总计算开销；主实验回放预生成实时记忆流，不能等同任意用户流实测。主agent不看生成视频，避免错误写回却无法纠正执行偏离；机器人闭环变体协议不同。完整系统总体收益不能归于RL单一组件。作者结果未独立复现。",
+        "abstract_zh": "Agentic LongLive异步维护图文实体记忆；故事状态准确率38.2→64.5%，低延迟依赖额外GPU。 在线长视频只逐镜头收到提示、已播放片段不可重做；身份、地点和持久状态要跨镜头记住，又不能等待同步agent规划。",
+        "full_summary": "在线长视频只逐镜头收到提示、已播放片段不可重做；身份、地点和持久状态要跨镜头记住，又不能等待同步agent规划。 agent只读已揭示提示维护可修订实体文本与图片，合成全局身份图和逐镜头场景图，辅助GPU提前prefill到attention sink；切镜头时原子换入已准备版本并召回地点记忆。Qwen3-8B LoRA经SFT与GRPO学记忆槽分配，以未来标注和按视频结果校准的图像奖励训练，推理不见未来。 LongStory-Online25故事857镜头：LongLive-2.0的状态38.2→64.5%、身份44.1→89.0%、重访一致性15.0→55.4%。H100每镜头15.8→16.0秒、总GPU从2增至6；8×B200加速核后34.3FPS。表4仅图像记忆条件下RL比35B planner高3.6状态点；加实体文本卡的完整系统中只高0.5点且不显著。 异步记忆需在下一请求未知时选择可复用状态；应该按下游行动或生成效果奖励记忆，而非仅奖励文本事实召回。 约1%是额外硬件下关键路径时间，不是总计算开销；主实验回放预生成实时记忆流，不能等同任意用户流实测。主agent不看生成视频，避免错误写回却无法纠正执行偏离；机器人闭环变体协议不同。完整系统总体收益不能归于RL单一组件。作者结果未独立复现。",
+        "card_summary": "Agentic LongLive异步维护图文实体记忆；故事状态准确率38.2→64.5%，低延迟依赖额外GPU。"
+      },
+      "analysis": {
+        "card_summary": "Agentic LongLive异步维护图文实体记忆；故事状态准确率38.2→64.5%，低延迟依赖额外GPU。",
+        "motivation": "在线长视频只逐镜头收到提示、已播放片段不可重做；身份、地点和持久状态要跨镜头记住，又不能等待同步agent规划。",
+        "method": "agent只读已揭示提示维护可修订实体文本与图片，合成全局身份图和逐镜头场景图，辅助GPU提前prefill到attention sink；切镜头时原子换入已准备版本并召回地点记忆。Qwen3-8B LoRA经SFT与GRPO学记忆槽分配，以未来标注和按视频结果校准的图像奖励训练，推理不见未来。",
+        "experiments": "LongStory-Online25故事857镜头：LongLive-2.0的状态38.2→64.5%、身份44.1→89.0%、重访一致性15.0→55.4%。H100每镜头15.8→16.0秒、总GPU从2增至6；8×B200加速核后34.3FPS。表4仅图像记忆条件下RL比35B planner高3.6状态点；加实体文本卡的完整系统中只高0.5点且不显著。",
+        "insight": "异步记忆需在下一请求未知时选择可复用状态；应该按下游行动或生成效果奖励记忆，而非仅奖励文本事实召回。",
+        "research_help": "异步记忆需在下一请求未知时选择可复用状态；应该按下游行动或生成效果奖励记忆，而非仅奖励文本事实召回。",
+        "limitations": "约1%是额外硬件下关键路径时间，不是总计算开销；主实验回放预生成实时记忆流，不能等同任意用户流实测。主agent不看生成视频，避免错误写回却无法纠正执行偏离；机器人闭环变体协议不同。完整系统总体收益不能归于RL单一组件。作者结果未独立复现。",
+        "abstract_zh": "Agentic LongLive异步维护图文实体记忆；故事状态准确率38.2→64.5%，低延迟依赖额外GPU。 在线长视频只逐镜头收到提示、已播放片段不可重做；身份、地点和持久状态要跨镜头记住，又不能等待同步agent规划。",
+        "full_summary": "在线长视频只逐镜头收到提示、已播放片段不可重做；身份、地点和持久状态要跨镜头记住，又不能等待同步agent规划。 agent只读已揭示提示维护可修订实体文本与图片，合成全局身份图和逐镜头场景图，辅助GPU提前prefill到attention sink；切镜头时原子换入已准备版本并召回地点记忆。Qwen3-8B LoRA经SFT与GRPO学记忆槽分配，以未来标注和按视频结果校准的图像奖励训练，推理不见未来。 LongStory-Online25故事857镜头：LongLive-2.0的状态38.2→64.5%、身份44.1→89.0%、重访一致性15.0→55.4%。H100每镜头15.8→16.0秒、总GPU从2增至6；8×B200加速核后34.3FPS。表4仅图像记忆条件下RL比35B planner高3.6状态点；加实体文本卡的完整系统中只高0.5点且不显著。 异步记忆需在下一请求未知时选择可复用状态；应该按下游行动或生成效果奖励记忆，而非仅奖励文本事实召回。 约1%是额外硬件下关键路径时间，不是总计算开销；主实验回放预生成实时记忆流，不能等同任意用户流实测。主agent不看生成视频，避免错误写回却无法纠正执行偏离；机器人闭环变体协议不同。完整系统总体收益不能归于RL单一组件。作者结果未独立复现。",
+        "recommendation_level": "高",
+        "water_risk": "中",
+        "value_label": "值得核读",
+        "value_reason": "异步记忆需在下一请求未知时选择可复用状态；应该按下游行动或生成效果奖励记忆，而非仅奖励文本事实召回。",
+        "source_scope": "full_text",
+        "source_note": "直接核读arXiv v1 PDF方法、实验、局限并渲染实验表；作者结果未独立复现。",
+        "source_evidence": [
+          "§2–3，表1/2/4及附录；PDF第6页质量与硬件表已渲染核对",
+          "https://arxiv.org/abs/2611.34907v1"
+        ],
+        "model": "manual-full-text-review",
+        "updated_at": "2026-11-27T01:37:19.196531+00:00"
+      }
+    },
+    {
+      "id": "2611.33777v1",
+      "title": "Agentic Reinforcement Learning with Immediate and Prospective Credit Assignment for Medical Visual Reasoning",
+      "summary": "Medical visual question answering (VQA) requires acquiring useful evidence and deciding where to look next. Yet final-answer rewards do not reveal which observations support answering or guide subsequent inspection. We introduce MedPACT, an agentic reinforcement learning framework that learns selective observation policies through immediate answer support and prospective guidance. Our content-controlled estimator compares next actions induced by real and matched alternative observations under a shared real-observation history, isolating how observed content improves subsequent decisions. We combine both forms of credit within GRPO, assigning observation credit to the corresponding tool-call tokens alongside trajectory-level outcome supervision. MedPACT uses a single vision-language model and image-question-answer supervision, with credit estimation confined to training. Experiments with 4B and 8B backbones on six medical VQA benchmarks demonstrate improved accuracy, strong out-of-distribution generalization, and substantially lower inference costs. Case studies further illustrate how MedPACT avoids repeated observations and uses acquired evidence to guide subsequent inspection, demonstrating real-world practice potential.",
+      "url": "http://arxiv.org/abs/2611.33777v1",
+      "authors": [
+        "Yuqi Cheng",
+        "Rui Meng",
+        "Yijin Li",
+        "Chandra Sekhar Reddy Edula",
+        "Xiuwei Zhang"
+      ],
+      "report_date": "2026-11-27",
+      "published": "2026-11-25",
+      "updated": "2026-11-25",
+      "primary_category": "cs.CV",
+      "categories": [
+        "cs.CV"
+      ],
+      "project_url": "",
+      "repo_url": "",
+      "venue_status": "未确认录用",
+      "recommendation": {
+        "score": 80,
+        "level": "高",
+        "label": "值得核读",
+        "water_risk": "中",
+        "value_judgement": "观测的价值既可来自立即能答，也可来自改善下一步取证；共享真实历史的交叉回放更接近隔离“决策被怎样改变”，适合研究过程信用设计。",
+        "reason": "观测的价值既可来自立即能答，也可来自改善下一步取证；共享真实历史的交叉回放更接近隔离“决策被怎样改变”，适合研究过程信用设计。",
+        "signals": {
+          "agenticRl": true,
+          "multiTurn": false,
+          "longHorizon": false,
+          "memory": false,
+          "reliability": true,
+          "codeOrTool": true,
+          "experiments": true,
+          "survey": false
+        }
+      },
+      "brief": {
+        "authors": [
+          "Yuqi Cheng",
+          "Rui Meng",
+          "Yijin Li",
+          "Chandra Sekhar Reddy Edula",
+          "Xiuwei Zhang"
+        ],
+        "affiliations": "arXiv metadata 未提供；需要正文或项目页确认单位。",
+        "date": "2026-11-25",
+        "paper_url": "https://arxiv.org/abs/2611.33777v1",
+        "project_url": "",
+        "repo_url": "",
+        "venue_status": "未确认录用",
+        "contribution": "观测的价值既可来自立即能答，也可来自改善下一步取证；共享真实历史的交叉回放更接近隔离“决策被怎样改变”，适合研究过程信用设计。",
+        "summary": "医学图像多轮取证的终局答案奖励无法区分本轮观测是否直接支持答案、或是否帮助决定下一次观察位置。 用匹配替代图块估计即时答案支持，并在同一真实历史下交叉执行由真实/替代观测诱导的下一动作，分离行动选择变化与观测内容本身。加入局部继续收益检查，将即时/前瞻信用较强者软阈值后加到对应工具调用token，叠加终局GRPO监督；信用探针仅用于训练。 表1六基准8B准确率依次91.90、58.32、29.57、74.88、70.17、37.60%；其中前两为ID。表2同训练池仅终局RL对应前两85.06/50.38%，加双信用后91.90/58.32%。作者按六数据集等权汇总，较MedVR-8B生成token少72.6%、延迟少86.1%；三次推理seed复用同checkpoint。 观测的价值既可来自立即能答，也可来自改善下一步取证；共享真实历史的交叉回放更接近隔离“决策被怎样改变”，适合研究过程信用设计。 主要为ZOOM且工具调用预算至多4次，并非超长horizon证据；所有任务转为选择题，PathVQA/SLAKE限Yes/No，不能泛化为临床开放诊断。训练依赖多次反事实探针，推理降耗不代表总训练成本下降；推理seed不是训练种子稳健性。作者结果未独立复现。",
+        "highlights": [
+          "观测的价值既可来自立即能答，也可来自改善下一步取证；共享真实历史的交叉回放更接近隔离“决策被怎样改变”，适合研究过程信用设计。",
+          "偏水风险：中",
+          "阅读来源：arXiv PDF正文与实验表"
+        ],
+        "motivation": "医学图像多轮取证的终局答案奖励无法区分本轮观测是否直接支持答案、或是否帮助决定下一次观察位置。",
+        "method": "用匹配替代图块估计即时答案支持，并在同一真实历史下交叉执行由真实/替代观测诱导的下一动作，分离行动选择变化与观测内容本身。加入局部继续收益检查，将即时/前瞻信用较强者软阈值后加到对应工具调用token，叠加终局GRPO监督；信用探针仅用于训练。",
+        "experiments": "表1六基准8B准确率依次91.90、58.32、29.57、74.88、70.17、37.60%；其中前两为ID。表2同训练池仅终局RL对应前两85.06/50.38%，加双信用后91.90/58.32%。作者按六数据集等权汇总，较MedVR-8B生成token少72.6%、延迟少86.1%；三次推理seed复用同checkpoint。",
+        "research_help": "观测的价值既可来自立即能答，也可来自改善下一步取证；共享真实历史的交叉回放更接近隔离“决策被怎样改变”，适合研究过程信用设计。",
+        "recommendation": {
+          "score": 80,
+          "level": "高",
+          "label": "值得核读",
+          "water_risk": "中",
+          "value_judgement": "观测的价值既可来自立即能答，也可来自改善下一步取证；共享真实历史的交叉回放更接近隔离“决策被怎样改变”，适合研究过程信用设计。",
+          "reason": "观测的价值既可来自立即能答，也可来自改善下一步取证；共享真实历史的交叉回放更接近隔离“决策被怎样改变”，适合研究过程信用设计。",
+          "signals": {
+            "agenticRl": true,
+            "multiTurn": false,
+            "longHorizon": false,
+            "memory": false,
+            "reliability": true,
+            "codeOrTool": true,
+            "experiments": true,
+            "survey": false
+          }
+        },
+        "insight": "观测的价值既可来自立即能答，也可来自改善下一步取证；共享真实历史的交叉回放更接近隔离“决策被怎样改变”，适合研究过程信用设计。",
+        "limitations": "主要为ZOOM且工具调用预算至多4次，并非超长horizon证据；所有任务转为选择题，PathVQA/SLAKE限Yes/No，不能泛化为临床开放诊断。训练依赖多次反事实探针，推理降耗不代表总训练成本下降；推理seed不是训练种子稳健性。作者结果未独立复现。",
+        "abstract_zh": "MedPACT给取证动作即时支持与后续决策信用；8B在OmniMed/PMC选择题准确率91.90/58.32%。 医学图像多轮取证的终局答案奖励无法区分本轮观测是否直接支持答案、或是否帮助决定下一次观察位置。",
+        "full_summary": "医学图像多轮取证的终局答案奖励无法区分本轮观测是否直接支持答案、或是否帮助决定下一次观察位置。 用匹配替代图块估计即时答案支持，并在同一真实历史下交叉执行由真实/替代观测诱导的下一动作，分离行动选择变化与观测内容本身。加入局部继续收益检查，将即时/前瞻信用较强者软阈值后加到对应工具调用token，叠加终局GRPO监督；信用探针仅用于训练。 表1六基准8B准确率依次91.90、58.32、29.57、74.88、70.17、37.60%；其中前两为ID。表2同训练池仅终局RL对应前两85.06/50.38%，加双信用后91.90/58.32%。作者按六数据集等权汇总，较MedVR-8B生成token少72.6%、延迟少86.1%；三次推理seed复用同checkpoint。 观测的价值既可来自立即能答，也可来自改善下一步取证；共享真实历史的交叉回放更接近隔离“决策被怎样改变”，适合研究过程信用设计。 主要为ZOOM且工具调用预算至多4次，并非超长horizon证据；所有任务转为选择题，PathVQA/SLAKE限Yes/No，不能泛化为临床开放诊断。训练依赖多次反事实探针，推理降耗不代表总训练成本下降；推理seed不是训练种子稳健性。作者结果未独立复现。",
+        "card_summary": "MedPACT给取证动作即时支持与后续决策信用；8B在OmniMed/PMC选择题准确率91.90/58.32%。"
+      },
+      "analysis": {
+        "card_summary": "MedPACT给取证动作即时支持与后续决策信用；8B在OmniMed/PMC选择题准确率91.90/58.32%。",
+        "motivation": "医学图像多轮取证的终局答案奖励无法区分本轮观测是否直接支持答案、或是否帮助决定下一次观察位置。",
+        "method": "用匹配替代图块估计即时答案支持，并在同一真实历史下交叉执行由真实/替代观测诱导的下一动作，分离行动选择变化与观测内容本身。加入局部继续收益检查，将即时/前瞻信用较强者软阈值后加到对应工具调用token，叠加终局GRPO监督；信用探针仅用于训练。",
+        "experiments": "表1六基准8B准确率依次91.90、58.32、29.57、74.88、70.17、37.60%；其中前两为ID。表2同训练池仅终局RL对应前两85.06/50.38%，加双信用后91.90/58.32%。作者按六数据集等权汇总，较MedVR-8B生成token少72.6%、延迟少86.1%；三次推理seed复用同checkpoint。",
+        "insight": "观测的价值既可来自立即能答，也可来自改善下一步取证；共享真实历史的交叉回放更接近隔离“决策被怎样改变”，适合研究过程信用设计。",
+        "research_help": "观测的价值既可来自立即能答，也可来自改善下一步取证；共享真实历史的交叉回放更接近隔离“决策被怎样改变”，适合研究过程信用设计。",
+        "limitations": "主要为ZOOM且工具调用预算至多4次，并非超长horizon证据；所有任务转为选择题，PathVQA/SLAKE限Yes/No，不能泛化为临床开放诊断。训练依赖多次反事实探针，推理降耗不代表总训练成本下降；推理seed不是训练种子稳健性。作者结果未独立复现。",
+        "abstract_zh": "MedPACT给取证动作即时支持与后续决策信用；8B在OmniMed/PMC选择题准确率91.90/58.32%。 医学图像多轮取证的终局答案奖励无法区分本轮观测是否直接支持答案、或是否帮助决定下一次观察位置。",
+        "full_summary": "医学图像多轮取证的终局答案奖励无法区分本轮观测是否直接支持答案、或是否帮助决定下一次观察位置。 用匹配替代图块估计即时答案支持，并在同一真实历史下交叉执行由真实/替代观测诱导的下一动作，分离行动选择变化与观测内容本身。加入局部继续收益检查，将即时/前瞻信用较强者软阈值后加到对应工具调用token，叠加终局GRPO监督；信用探针仅用于训练。 表1六基准8B准确率依次91.90、58.32、29.57、74.88、70.17、37.60%；其中前两为ID。表2同训练池仅终局RL对应前两85.06/50.38%，加双信用后91.90/58.32%。作者按六数据集等权汇总，较MedVR-8B生成token少72.6%、延迟少86.1%；三次推理seed复用同checkpoint。 观测的价值既可来自立即能答，也可来自改善下一步取证；共享真实历史的交叉回放更接近隔离“决策被怎样改变”，适合研究过程信用设计。 主要为ZOOM且工具调用预算至多4次，并非超长horizon证据；所有任务转为选择题，PathVQA/SLAKE限Yes/No，不能泛化为临床开放诊断。训练依赖多次反事实探针，推理降耗不代表总训练成本下降；推理seed不是训练种子稳健性。作者结果未独立复现。",
+        "recommendation_level": "高",
+        "water_risk": "中",
+        "value_label": "值得核读",
+        "value_reason": "观测的价值既可来自立即能答，也可来自改善下一步取证；共享真实历史的交叉回放更接近隔离“决策被怎样改变”，适合研究过程信用设计。",
+        "source_scope": "full_text",
+        "source_note": "直接核读arXiv v1 PDF方法、实验、局限并渲染实验表；作者结果未独立复现。",
+        "source_evidence": [
+          "§3–4，表1–5及补充材料；PDF第5页主表与协议已渲染核对",
+          "https://arxiv.org/abs/2611.33777v1"
+        ],
+        "model": "manual-full-text-review",
+        "updated_at": "2026-11-27T01:37:19.196531+00:00"
+      }
+    },
+    {
+      "id": "2611.34509v1",
+      "title": "Long-Horizon Planning with Latent World Models via Graph Anchors",
+      "summary": "Latent world models plan in a compact latent space by predicting the outcomes of actions. Their planners judge a plan by the latent distance between its predicted end state and the goal image. We show that this distance fails in two distinct ways. First, it loses directional signal a few steps from the goal, causing distant goals to fail. Second, it weighs the robot arm over the manipulated object, causing manipulation to fail at contact. We measure both failures directly on recorded data by asking whether a lower latent distance corresponds to true progress toward the goal. Across five environments, six visual representations (including raw pixels and V-JEPA 2), and nine Meta-World tasks, this ranking test cleanly separates the two failures, and the graph distance to a goal predicts where closed-loop planning breaks down. Both failures share a single remedy: replacing the distant goal with a nearby target that lies on a recorded trajectory. We realize this principle with Graph Anchors, a training-free planner for frozen latent world models. It builds a sparse graph once over the model's own training frames and aims each planning step at a node a few moves ahead along the shortest path to the goal, keeping paths on recorded transitions wherever contact matters. On goals up to 400 steps away, Graph Anchors raise LeWM's success from 13% to 85% on PointMaze-Medium, from 8% to 87% on PointMaze-Large, and from 5% to 71% on Push-T, where stronger search toward the goal fails and where prior training-free planners break down under missing step horizons, subsampling shortcuts, or fragmented contact.",
+      "url": "http://arxiv.org/abs/2611.34509v1",
+      "authors": [
+        "Syed Nazmus Sakib",
+        "Abdul Monaf Chowdhury",
+        "Peizhen Li",
+        "Nafiul Haque",
+        "Chandak Chakma",
+        "Md Mehedi Hasan",
+        "Zehong Cao",
+        "Shifat E. Arman"
+      ],
+      "report_date": "2026-11-27",
+      "published": "2026-11-25",
+      "updated": "2026-11-25",
+      "primary_category": "cs.RO",
+      "categories": [
+        "cs.RO",
+        "cs.AI",
+        "cs.CV"
+      ],
+      "project_url": "",
+      "repo_url": "",
+      "venue_status": "未确认录用",
+      "recommendation": {
+        "score": 52,
+        "level": "高",
+        "label": "值得核读",
+        "water_risk": "中",
+        "value_judgement": "长程规划失败可能源于评价函数失去局部可排序性，而非搜索不够；用覆盖良好的经验图做全局路由，让局部模型只解决短距离控制。",
+        "reason": "长程规划失败可能源于评价函数失去局部可排序性，而非搜索不够；用覆盖良好的经验图做全局路由，让局部模型只解决短距离控制。",
+        "signals": {
+          "agenticRl": false,
+          "multiTurn": false,
+          "longHorizon": true,
+          "memory": false,
+          "reliability": true,
+          "codeOrTool": false,
+          "experiments": false,
+          "survey": false
+        }
+      },
+      "brief": {
+        "authors": [
+          "Syed Nazmus Sakib",
+          "Abdul Monaf Chowdhury",
+          "Peizhen Li",
+          "Nafiul Haque",
+          "Chandak Chakma",
+          "Md Mehedi Hasan",
+          "Zehong Cao",
+          "Shifat E. Arman"
+        ],
+        "affiliations": "arXiv metadata 未提供；需要正文或项目页确认单位。",
+        "date": "2026-11-25",
+        "paper_url": "https://arxiv.org/abs/2611.34509v1",
+        "project_url": "",
+        "repo_url": "",
+        "venue_status": "未确认录用",
+        "contribution": "长程规划失败可能源于评价函数失去局部可排序性，而非搜索不够；用覆盖良好的经验图做全局路由，让局部模型只解决短距离控制。",
+        "summary": "冻结视觉世界模型的全图latent距离远处失去方向，近处又可能重手臂而轻被操纵物；扩大搜索仍被错误目标度量牵引。 从训练轨迹每5步取帧，按真实时间边与局部latent近邻构稀疏经验图；将当前/目标映射到节点，沿最短路取近锚点。接触设置用跨episode切换惩罚保留真实过渡，CEM以整段预测到锚点的最近距离评分，执行后重新定位与规划，编码器和预测器均冻结。 表1同起终点、通常3个50对seed：navigation设置K6/λ1，PointMaze-Medium200步13→85%，Large400步8→87%；Push-T150步5→30%。切为contact设置K2/λ3后Push-T达71%，但Large400步仅13%、拼接Large仅9%。Meta-World65/72是精确仿真动力学及演示锚点诊断，不是可部署操纵系统。 长程规划失败可能源于评价函数失去局部可排序性，而非搜索不够；用覆盖良好的经验图做全局路由，让局部模型只解决短距离控制。 依赖记录轨迹覆盖路线，navigation/contact参数不能同时保证各任务收益；训练免费仍有建图和搜索开销。接触Large使用重新训练checkpoint，Cube抓取仍落后已有方法；不能把多任务各自最佳参数汇成统一策略表现。作者结果未独立复现。",
+        "highlights": [
+          "长程规划失败可能源于评价函数失去局部可排序性，而非搜索不够；用覆盖良好的经验图做全局路由，让局部模型只解决短距离控制。",
+          "偏水风险：中",
+          "阅读来源：arXiv PDF正文与实验表"
+        ],
+        "motivation": "冻结视觉世界模型的全图latent距离远处失去方向，近处又可能重手臂而轻被操纵物；扩大搜索仍被错误目标度量牵引。",
+        "method": "从训练轨迹每5步取帧，按真实时间边与局部latent近邻构稀疏经验图；将当前/目标映射到节点，沿最短路取近锚点。接触设置用跨episode切换惩罚保留真实过渡，CEM以整段预测到锚点的最近距离评分，执行后重新定位与规划，编码器和预测器均冻结。",
+        "experiments": "表1同起终点、通常3个50对seed：navigation设置K6/λ1，PointMaze-Medium200步13→85%，Large400步8→87%；Push-T150步5→30%。切为contact设置K2/λ3后Push-T达71%，但Large400步仅13%、拼接Large仅9%。Meta-World65/72是精确仿真动力学及演示锚点诊断，不是可部署操纵系统。",
+        "research_help": "长程规划失败可能源于评价函数失去局部可排序性，而非搜索不够；用覆盖良好的经验图做全局路由，让局部模型只解决短距离控制。",
+        "recommendation": {
+          "score": 52,
+          "level": "高",
+          "label": "值得核读",
+          "water_risk": "中",
+          "value_judgement": "长程规划失败可能源于评价函数失去局部可排序性，而非搜索不够；用覆盖良好的经验图做全局路由，让局部模型只解决短距离控制。",
+          "reason": "长程规划失败可能源于评价函数失去局部可排序性，而非搜索不够；用覆盖良好的经验图做全局路由，让局部模型只解决短距离控制。",
+          "signals": {
+            "agenticRl": false,
+            "multiTurn": false,
+            "longHorizon": true,
+            "memory": false,
+            "reliability": true,
+            "codeOrTool": false,
+            "experiments": false,
+            "survey": false
+          }
+        },
+        "insight": "长程规划失败可能源于评价函数失去局部可排序性，而非搜索不够；用覆盖良好的经验图做全局路由，让局部模型只解决短距离控制。",
+        "limitations": "依赖记录轨迹覆盖路线，navigation/contact参数不能同时保证各任务收益；训练免费仍有建图和搜索开销。接触Large使用重新训练checkpoint，Cube抓取仍落后已有方法；不能把多任务各自最佳参数汇成统一策略表现。作者结果未独立复现。",
+        "abstract_zh": "Graph Anchors用经验图把远目标化为近锚点；导航迷宫13→85%、8→87%，接触任务需另设参数。 冻结视觉世界模型的全图latent距离远处失去方向，近处又可能重手臂而轻被操纵物；扩大搜索仍被错误目标度量牵引。",
+        "full_summary": "冻结视觉世界模型的全图latent距离远处失去方向，近处又可能重手臂而轻被操纵物；扩大搜索仍被错误目标度量牵引。 从训练轨迹每5步取帧，按真实时间边与局部latent近邻构稀疏经验图；将当前/目标映射到节点，沿最短路取近锚点。接触设置用跨episode切换惩罚保留真实过渡，CEM以整段预测到锚点的最近距离评分，执行后重新定位与规划，编码器和预测器均冻结。 表1同起终点、通常3个50对seed：navigation设置K6/λ1，PointMaze-Medium200步13→85%，Large400步8→87%；Push-T150步5→30%。切为contact设置K2/λ3后Push-T达71%，但Large400步仅13%、拼接Large仅9%。Meta-World65/72是精确仿真动力学及演示锚点诊断，不是可部署操纵系统。 长程规划失败可能源于评价函数失去局部可排序性，而非搜索不够；用覆盖良好的经验图做全局路由，让局部模型只解决短距离控制。 依赖记录轨迹覆盖路线，navigation/contact参数不能同时保证各任务收益；训练免费仍有建图和搜索开销。接触Large使用重新训练checkpoint，Cube抓取仍落后已有方法；不能把多任务各自最佳参数汇成统一策略表现。作者结果未独立复现。",
+        "card_summary": "Graph Anchors用经验图把远目标化为近锚点；导航迷宫13→85%、8→87%，接触任务需另设参数。"
+      },
+      "analysis": {
+        "card_summary": "Graph Anchors用经验图把远目标化为近锚点；导航迷宫13→85%、8→87%，接触任务需另设参数。",
+        "motivation": "冻结视觉世界模型的全图latent距离远处失去方向，近处又可能重手臂而轻被操纵物；扩大搜索仍被错误目标度量牵引。",
+        "method": "从训练轨迹每5步取帧，按真实时间边与局部latent近邻构稀疏经验图；将当前/目标映射到节点，沿最短路取近锚点。接触设置用跨episode切换惩罚保留真实过渡，CEM以整段预测到锚点的最近距离评分，执行后重新定位与规划，编码器和预测器均冻结。",
+        "experiments": "表1同起终点、通常3个50对seed：navigation设置K6/λ1，PointMaze-Medium200步13→85%，Large400步8→87%；Push-T150步5→30%。切为contact设置K2/λ3后Push-T达71%，但Large400步仅13%、拼接Large仅9%。Meta-World65/72是精确仿真动力学及演示锚点诊断，不是可部署操纵系统。",
+        "insight": "长程规划失败可能源于评价函数失去局部可排序性，而非搜索不够；用覆盖良好的经验图做全局路由，让局部模型只解决短距离控制。",
+        "research_help": "长程规划失败可能源于评价函数失去局部可排序性，而非搜索不够；用覆盖良好的经验图做全局路由，让局部模型只解决短距离控制。",
+        "limitations": "依赖记录轨迹覆盖路线，navigation/contact参数不能同时保证各任务收益；训练免费仍有建图和搜索开销。接触Large使用重新训练checkpoint，Cube抓取仍落后已有方法；不能把多任务各自最佳参数汇成统一策略表现。作者结果未独立复现。",
+        "abstract_zh": "Graph Anchors用经验图把远目标化为近锚点；导航迷宫13→85%、8→87%，接触任务需另设参数。 冻结视觉世界模型的全图latent距离远处失去方向，近处又可能重手臂而轻被操纵物；扩大搜索仍被错误目标度量牵引。",
+        "full_summary": "冻结视觉世界模型的全图latent距离远处失去方向，近处又可能重手臂而轻被操纵物；扩大搜索仍被错误目标度量牵引。 从训练轨迹每5步取帧，按真实时间边与局部latent近邻构稀疏经验图；将当前/目标映射到节点，沿最短路取近锚点。接触设置用跨episode切换惩罚保留真实过渡，CEM以整段预测到锚点的最近距离评分，执行后重新定位与规划，编码器和预测器均冻结。 表1同起终点、通常3个50对seed：navigation设置K6/λ1，PointMaze-Medium200步13→85%，Large400步8→87%；Push-T150步5→30%。切为contact设置K2/λ3后Push-T达71%，但Large400步仅13%、拼接Large仅9%。Meta-World65/72是精确仿真动力学及演示锚点诊断，不是可部署操纵系统。 长程规划失败可能源于评价函数失去局部可排序性，而非搜索不够；用覆盖良好的经验图做全局路由，让局部模型只解决短距离控制。 依赖记录轨迹覆盖路线，navigation/contact参数不能同时保证各任务收益；训练免费仍有建图和搜索开销。接触Large使用重新训练checkpoint，Cube抓取仍落后已有方法；不能把多任务各自最佳参数汇成统一策略表现。作者结果未独立复现。",
+        "recommendation_level": "高",
+        "water_risk": "中",
+        "value_label": "值得核读",
+        "value_reason": "长程规划失败可能源于评价函数失去局部可排序性，而非搜索不够；用覆盖良好的经验图做全局路由，让局部模型只解决短距离控制。",
+        "source_scope": "full_text",
+        "source_note": "直接核读arXiv v1 PDF方法、实验、局限并渲染实验表；作者结果未独立复现。",
+        "source_evidence": [
+          "§4–5，表1/3/4及附录；PDF第10页任务设置与成功率表已渲染核对",
+          "https://arxiv.org/abs/2611.34509v1"
+        ],
+        "model": "manual-full-text-review",
+        "updated_at": "2026-11-27T01:37:19.196531+00:00"
+      }
+    },
     {
       "id": "2611.33005v1",
       "title": "Leto: Utility-Centric Agent Memory",
