@@ -47,7 +47,6 @@
 
 	function formatVisitRows(rows, limit) {
 		const byCountry = new Map();
-		let unknownCount = 0;
 		for (const row of Array.isArray(rows) ? rows : []) {
 			const count = Number(row && row.visit_count);
 			if (!Number.isSafeInteger(count) || count <= 0) {
@@ -55,7 +54,6 @@
 			}
 			const countryCode = normalizeCountryCode(row.country_code);
 			if (countryCode === "ZZ") {
-				unknownCount += count;
 				continue;
 			}
 			const country = byCountry.get(countryCode);
@@ -66,10 +64,9 @@
 				byCountry.set(countryCode, { countryCode, label, count });
 			}
 		}
-		const regions = [...byCountry.values()]
+		return [...byCountry.values()]
 			.sort((a, b) => b.count - a.count || a.countryCode.localeCompare(b.countryCode))
 			.slice(0, limit || DEFAULT_LIMIT);
-		return { regions, unknownCount };
 	}
 
 	function shouldRecordVisit(storage, now, windowMs) {
@@ -116,36 +113,14 @@
 		status.dataset.state = state || "";
 	}
 
-	function setUnknownLabel(note) {
-		const chinese = root.JunleLanguage && root.JunleLanguage.current === "zh";
-		const label = chinese ? "未识别地区的访问次数" : "Visits with an unidentified region";
-		note.textContent = label + " · " + note.dataset.count;
-	}
-
-	function renderUnknownCount(list, count) {
-		let note = list.parentElement.querySelector("[data-visitor-region-unknown]");
-		if (count && !note) {
-			note = list.ownerDocument.createElement("p");
-			note.className = "about-detail";
-			note.dataset.visitorRegionUnknown = "";
-			list.after(note);
-		}
-		if (note) {
-			note.hidden = count === 0;
-			note.dataset.count = String(count);
-			setUnknownLabel(note);
-		}
-	}
-
 	function renderVisitRows(container, rows, limit) {
 		const list = container && container.querySelector("[data-visitor-region-list]");
 		if (!list) {
 			return;
 		}
-		const { regions, unknownCount } = formatVisitRows(rows, limit);
-		renderUnknownCount(list, unknownCount);
+		const regions = formatVisitRows(rows, limit);
 		list.innerHTML = "";
-		if (!regions.length && !unknownCount) {
+		if (!regions.length) {
 			setStatus(container, "No visit data yet.", "empty");
 			return;
 		}
@@ -285,8 +260,6 @@
 			const container = window.document.querySelector("[data-visitor-regions]");
 			const status = container && container.querySelector("[data-visitor-region-status]");
 			if (status) setStatus(container, status.dataset.message, status.dataset.state);
-			const note = container && container.querySelector("[data-visitor-region-unknown]");
-			if (note) setUnknownLabel(note);
 		});
 		const boot = () => init();
 		if (window.document.readyState === "loading") {

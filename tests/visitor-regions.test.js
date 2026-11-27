@@ -32,7 +32,7 @@ runTest("normalizes Country.is and rejects unusable geo responses", () => {
 	assert.equal(visitorRegions.normalizeGeoPayload({ country_code: "US", error: true }), null);
 });
 
-runTest("groups historical cities by country before ranking and keeps Unknown separate", () => {
+runTest("groups historical cities by country before ranking and excludes Unknown", () => {
 	const rows = visitorRegions.formatVisitRows([
 		{ country_code: "US", region_label: "United States", city_label: "Boston", visit_count: 8 },
 		{ country_code: "US", region_label: "United States", city_label: "Santa Clara", visit_count: 7 },
@@ -41,10 +41,7 @@ runTest("groups historical cities by country before ranking and keeps Unknown se
 		{ country_code: "", region_label: "", city_label: "", visit_count: "bad" },
 	], 1);
 
-	assert.deepEqual(rows, {
-		regions: [{ countryCode: "US", label: "United States", count: 15 }],
-		unknownCount: 20,
-	});
+	assert.deepEqual(rows, [{ countryCode: "US", label: "United States", count: 15 }]);
 });
 
 runTest("records at most once inside the visit window", () => {
